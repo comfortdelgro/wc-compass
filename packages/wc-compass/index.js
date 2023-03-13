@@ -1,2 +1,2 @@
-import { default as CdgAlert } from './components/alert/alert';
+import { CdgAlert } from './components/alert/alert';
 customElements.define('cdg-alert', CdgAlert);
