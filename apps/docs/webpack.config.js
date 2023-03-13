@@ -6,7 +6,7 @@ const version = PACKAGE.version;
 const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-  entry: { sidebar: './public/scripts/sidebar.js' },
+  entry: { sidebar: './public/sidebar.js' },
   mode: 'development',
   output: {
     path: path.resolve(__dirname, './public/dist'),
