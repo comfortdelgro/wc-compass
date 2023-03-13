@@ -6,7 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Static html page</title>
     <h1>My Static html page</h1>
-    <cdg-alert type="info">sdf</cdg-alert>
+    <user-card
+      name="John Doe"
+      avatar="https://randomuser.me/api/portraits/men/1.jpg"
+    >
+      <div slot="email">johndoe@gmail.com</div>
+      <div slot="phone">555-555-5555</div>
+    </user-card>
+    <user-card
+      name="Jane Doe"
+      avatar="https://randomuser.me/api/portraits/women/1.jpg"
+    >
+      <div slot="email">janedoe@gmail.com</div>
+      <div slot="phone">333-333-3333</div>
+    </user-card>
   </head>
   <body>
     <scrip src="script.js"></scrip>

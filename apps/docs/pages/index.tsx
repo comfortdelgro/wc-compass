@@ -5,7 +5,7 @@ export default function Docs() {
 
   useEffect(() => {
     router.push('/index.html');
-  }, []);
+  });
 
   return null;
 }
