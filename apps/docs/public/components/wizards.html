@@ -1,0 +1,38 @@
+<h2>Wizards</h2>
+<p>
+  Wizards displays progress through a sequence by breaking it up into multiple
+  steps.
+</p>
+
+<h3 class="sample-section-title">Default</h3>
+
+<div class="sample-section" style="display: block">
+  <cdg-wizards
+    steps="General,Additional,Education,Personal,Review"
+    current="3"
+  ></cdg-wizards>
+</div>
+
+<script>
+  // Add these if you want to active the step that user click on
+  const wizards = document.querySelector('cdg-wizards');
+  wizards.addEventListener('switchStep', (event) => {
+    wizards.current = event.detail.index;
+  });
+</script>
+
+<pre>
+    <code class="language-html">&lt;cdg-wizards
+    steps=&quot;General,Additional,Education,Personal,Review&quot;
+    current=&quot;3&quot;
+&gt;&lt;/cdg-wizards&gt;
+
+&lt;script&gt;
+    // Add these if you want to active the step that user click on
+    const wizards = document.querySelector(&apos;cdg-wizards&apos;);
+    wizards.addEventListener(&apos;switchStep&apos;, (event) =&gt; {
+    console.log(event.detail);
+    wizards.current = event.detail.index;
+    });
+&lt;/script&gt;</code>
+</pre>

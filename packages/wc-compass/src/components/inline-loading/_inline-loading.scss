@@ -1,0 +1,99 @@
+%loading-dot {
+  display: inline-block;
+  width: var(--default);
+  height: var(--default);
+  border-radius: 6px;
+  background: transparent;
+}
+
+.cdg-inline-loading {
+  --small: 4px;
+  --default: 6px;
+  --large: 7px;
+
+  display: inline-flex;
+  align-items: center;
+  width: 24px;
+  height: 21px;
+  text-align: left;
+
+  &.large {
+    width: 28px;
+    height: 26px;
+    .loading-dot {
+      width: var(--large);
+      height: var(--large);
+      &::after,
+      &::before {
+        content: '';
+        width: var(--large);
+        height: var(--large);
+      }
+
+      &:after {
+        left: calc(var(--large) + 3px);
+      }
+
+      &:before {
+        left: calc(var(--large) * 2 + 6px);
+      }
+    }
+  }
+
+  &.small {
+    width: 18px;
+    height: 18px;
+    .loading-dot {
+      width: var(--small);
+      height: var(--small);
+      &::after,
+      &::before {
+        content: '';
+        width: var(--small);
+        height: var(--small);
+      }
+
+      &:after {
+        left: calc(var(--small) + 3px);
+      }
+
+      &:before {
+        left: calc(var(--small) * 2 + 6px);
+      }
+    }
+  }
+
+  .loading-dot {
+    position: relative;
+    @extend %loading-dot;
+    animation: inlineLoading 1.8s infinite linear;
+    &::after,
+    &::before {
+      content: '';
+      display: inline-block;
+      @extend %loading-dot;
+      position: absolute;
+      top: 0;
+    }
+
+    &:after {
+      animation: inlineLoading 1.8s 0.3s infinite linear;
+      left: calc(var(--default) + 3px);
+    }
+
+    &:before {
+      animation: inlineLoading 1.8s 0.6s infinite linear;
+      left: calc(var(--default) * 2 + 6px);
+    }
+  }
+}
+
+@keyframes inlineLoading {
+  0%,
+  100% {
+    background: currentColor;
+  }
+  50% {
+    background: transparent;
+  }
+}

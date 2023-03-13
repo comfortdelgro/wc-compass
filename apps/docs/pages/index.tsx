@@ -1,10 +1,11 @@
-import { Button } from "ui";
-
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 export default function Docs() {
-  return (
-    <div>
-      <h1>Docs</h1>
-      <Button />
-    </div>
-  );
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push('/index.html');
+  });
+
+  return null;
 }

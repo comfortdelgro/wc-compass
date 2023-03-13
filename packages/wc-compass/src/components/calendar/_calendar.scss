@@ -1,0 +1,239 @@
+.cdg-calendar-container {
+  display: flex;
+  background: var(--background);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
+  width: fit-content;
+}
+
+.calendar-month-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--background);
+  .calendar-month-header-selectors {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    & > * {
+      cursor: pointer;
+    }
+  }
+}
+
+.calendar-month-bottom {
+  padding: 24px 0 16px;
+  margin: 0 16px;
+  border-top: 1px solid var(--grey40);
+  .calendar-month-bottom-selectors {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.month-selector-clear {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  border-radius: 4px;
+  padding: 4px 10px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.month-selector-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  .month-selector-detail {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--primary-color);
+  }
+  .month-selector-today {
+    padding: 4px 10px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+.cdg-calendar {
+  position: relative;
+  ol,
+  li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &.cdg-calendar-double {
+    .calendar-container {
+      .content-month-title-container {
+        button {
+          cursor: auto;
+        }
+      }
+      .calendar-month {
+        box-shadow: none;
+        &:first-child {
+          padding-right: 4px;
+        }
+        &:last-child {
+          padding-left: 4px;
+        }
+      }
+    }
+  }
+}
+
+.calendar-month-header-selectors {
+  position: absolute;
+  top: 0;
+  button {
+    background: rgba(255, 255, 255, 0.0001);
+    border-radius: 3px;
+    border: none;
+    padding: 4px 0;
+    position: absolute;
+    top: 16px;
+    z-index: 1;
+    &.previous-month-selector {
+      left: 16px;
+    }
+    &.next-month-selector {
+      right: 16px;
+    }
+    cdg-icon {
+      color: var(--date-picker-icon);
+    }
+  }
+}
+
+.calendar-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 8px;
+
+  button {
+    cursor: pointer;
+    border: none;
+    background: unset;
+  }
+}
+
+.calendar-title-container {
+  display: flex;
+  justify-content: center;
+  .title {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--accent);
+    border: none;
+    background-color: unset;
+  }
+}
+
+.calendar-month {
+  border-radius: 4px;
+  padding: 16px;
+
+  .content-month {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 295px;
+  }
+}
+
+.day-of-week {
+  color: var(--accent-darker);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  background-color: var(--background);
+  padding: 10px 0;
+  & > * {
+    text-align: center;
+    padding-right: 5px;
+  }
+
+  li {
+    width: calc(100% / 7);
+  }
+}
+.day-of-week,
+.days-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.days-grid {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  button {
+    width: 100%;
+    height: 100%;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+  .calendar-day {
+    position: relative;
+    width: calc(100% / 7);
+    height: 32px;
+    button {
+      border-radius: 4px;
+      &:hover {
+        background-color: var(--grey20);
+      }
+      &.active-selected-date {
+        background-color: var(--accent);
+        color: var(--revese-color);
+      }
+      &.selected-date {
+        background-color: var(--grey20);
+      }
+    }
+  }
+  .calendar-day--not-current {
+    button {
+      color: var(--grey50);
+    }
+  }
+  .calendar-day--today {
+    button {
+      border: 1px solid var(--grey40);
+      border-radius: 4px;
+    }
+  }
+}
+
+.calendar-layout-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 295px;
+  margin-top: 10px;
+  li {
+    height: 47.5px;
+    button {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-color);
+      border-radius: 4px;
+    }
+    &.selected-month {
+      button {
+        background-color: var(--accent);
+        color: var(--revese-color);
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+@media screen and (max-width: 767px) {
+  cdg-nav-rail.auto-collapse,
+  .cdg-nav-rail.auto-collapse {
+    width: 0;
+    &:hover .cdg-nav-rail-inner,
+    .cdg-nav-rail-inner {
+      width: 0;
+    }
+    &[open='true']:hover,
+    &[open='true'] {
+      .cdg-nav-rail-inner {
+        width: 270px;
+      }
+    }
+  }
+
+  // Small slider
+  .cdg-carousel-navigation {
+    display: none;
+  }
+
+  .cdg-promotion-title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .cdg-promotion-description {
+    font-size: 14px;
+  }
+
+  .cdg-promotion-container {
+    inset: 36px;
+    .cdg-button {
+      font-size: 12px;
+      line-height: 18px;
+      padding: 4px 10px;
+
+      &.icon {
+        padding: 6px 7px;
+        cdg-icon,
+        .cdg-icon {
+          width: 16px;
+          height: 16px;
+        }
+      }
+
+      cdg-icon,
+      .cdg-icon {
+        width: 14px;
+        height: 14px;
+      }
+
+      .cdg-inline-loading {
+        padding: 0;
+      }
+    }
+  }
+
+  .cdg-carousel-controllers {
+    bottom: 32px;
+    left: 32px;
+    right: 32px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .cdg-promotion-title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .cdg-promotion-description {
+    font-size: 12px;
+  }
+
+  .cdg-promotion-actions {
+    margin-top: 12px;
+  }
+
+  .cdg-carousel-controllers {
+    bottom: 16px;
+    left: 12px;
+    right: 12px;
+  }
+
+  .cdg-promotion-container {
+    inset: 12px;
+  }
+
+  cdg-modal,
+  .cdg-modal {
+    width: auto;
+    max-width: calc(100vw - 40px);
+  }
+}
