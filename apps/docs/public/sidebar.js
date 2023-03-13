@@ -433,7 +433,8 @@ function createNavMenu(item) {
   if (item.slug) {
     menu.setAttribute('href', '#' + item.slug);
   } else {
-    menu.addEventListener('click', () => showSubMenu(item, true));
+    menu.setAttribute('href', '#' + item.children[0].slug);
+    //menu.addEventListener('click', () => showSubMenu(item, true));
   }
 
   const menuIcon = document.createElement('cdg-icon');
