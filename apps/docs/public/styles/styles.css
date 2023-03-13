@@ -192,6 +192,10 @@ pre code.hljs {
   padding: 10px 20px;
 }
 
+.cdg-nav-rail-body a {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 767px) {
   .doc-container {
     padding: 0 12px;
