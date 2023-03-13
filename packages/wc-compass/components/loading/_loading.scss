@@ -1,0 +1,67 @@
+cdg-loading,
+.cdg-loading {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: relative;
+  border: 10px solid var(--grey30);
+  transform: scale(0.3);
+
+  &[size='large'] {
+    transform: scale(1);
+  }
+
+  &[text] {
+    margin-bottom: 44px;
+  }
+
+  &[size='medium'] {
+    transform: scale(0.6);
+  }
+
+  &[size='small'] {
+    transform: scale(0.2);
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: top left;
+    width: 40px;
+    height: 40px;
+    background: var(--info);
+    clip-path: path(
+      'M36.9552 15.3073C38.9654 10.4543 40 5.25288 40 0H30.094C30.094 3.95201 29.3156 7.86532 27.8033 11.5165C26.2909 15.1677 24.0742 18.4852 21.2797 21.2797C18.4852 24.0742 15.1677 26.2909 11.5165 27.8033C7.86534 29.3157 3.95203 30.0941 1.14441e-05 30.094L0 40C5.25288 40 10.4543 38.9654 15.3073 36.9552C20.1603 34.945 24.5699 31.9986 28.2843 28.2843C31.9986 24.5699 34.945 20.1604 36.9552 15.3073Z'
+    );
+  }
+  &::before {
+    animation: loadingRotate 2s 0.3s infinite;
+  }
+  &::after {
+    animation: loadingRotate 2s infinite linear;
+  }
+
+  .spinner-text {
+    color: var(--info);
+    font-size: 12px;
+    line-height: 18px;
+    position: absolute;
+    top: calc(100% + 24px);
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes loadingRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  from {
+    transform: rotate(-360deg);
+  }
+}

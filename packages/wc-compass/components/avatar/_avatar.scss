@@ -1,0 +1,36 @@
+cdg-avatar,
+.cdg-avatar {
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 48px;
+  height: 48px;
+  color: var(--info);
+  background-color: var(--info-background);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  flex-shrink: 0;
+
+  &[type='icon'] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .avatar-text {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-transform: uppercase;
+  }
+
+  .avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
