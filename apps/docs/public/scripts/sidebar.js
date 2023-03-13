@@ -40,7 +40,7 @@ import './../components/datepicker.html';
 import './../components/tooltip.html';
 
 const contentMap = {
-  home: './pages/home.html',
+  home: './../pages/home.html',
   accordion: './../components/accordion.html',
   alert: './../components/alert.html',
   alertBadges: './../components/alert-badges.html',
