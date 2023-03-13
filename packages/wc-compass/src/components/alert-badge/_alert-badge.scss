@@ -1,0 +1,71 @@
+cdg-alert-badge,
+.cdg-alert-badge {
+  background: var(--grey20);
+  color: var(--grey60);
+  border-radius: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 600;
+  padding: 0 8px;
+
+  cdg-icon,
+  .cdg-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  &[size='large'] {
+    font-size: 16px;
+    line-height: 24px;
+    cdg-icon,
+    .cdg-icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &[badge-style='dot'] {
+    background: var(--danger);
+    width: 1rem;
+    height: 1rem;
+    padding: 0;
+  }
+
+  &[type='success'] {
+    background: var(--success);
+    color: var(--revese-color);
+  }
+
+  &[type='warning'] {
+    background: var(--warning);
+    color: var(--revese-color);
+  }
+
+  &[type='danger'] {
+    background: var(--danger);
+    color: var(--revese-color);
+  }
+
+  &[badge-style='chart'] {
+    background: var(--status-info-background);
+    color: var(--info);
+
+    &[type='success'] {
+      background: var(--status-success-background);
+      color: var(--success);
+    }
+
+    &[type='warning'] {
+      background: var(--status-warning-background);
+      color: var(--warning);
+    }
+
+    &[type='danger'] {
+      background: var(--status-error-background);
+      color: var(--danger);
+    }
+  }
+}

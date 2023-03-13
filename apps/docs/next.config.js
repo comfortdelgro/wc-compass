@@ -1,4 +1,10 @@
 module.exports = {
   reactStrictMode: true,
-  transpilePackages: ["ui"],
+  transpilePackages: ['ui'],
+  rewrites: async () => [
+    {
+      source: '/public/index.html',
+      destination: '/pages/api/index.js',
+    },
+  ],
 };

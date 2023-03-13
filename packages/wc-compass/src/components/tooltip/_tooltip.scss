@@ -1,0 +1,66 @@
+.cdg-tooltip-floating-container {
+  .cdg-floating-content {
+    width: 372px;
+
+    &.primary {
+      background-color: var(--accent);
+      color: var(--revese-color);
+      &::after {
+        color: var(--accent);
+      }
+    }
+
+    &.secondary {
+      background-color: var(--primary-color);
+      color: var(--revese-color);
+      &::after {
+        color: var(--primary-color);
+      }
+
+      .header-close-button {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        color: var(--revese-color);
+      }
+    }
+
+    &.ghost {
+      .header-close-button {
+        background-color: var(--background);
+        border-color: var(--background);
+        color: var(--primary-color);
+      }
+    }
+  }
+}
+.cdg-tooltip-main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+.cdg-tooltip-header {
+  display: flex;
+  justify-content: space-between;
+  .header-title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .header-close-button {
+    padding: 0;
+    &:hover {
+      background: transparent;
+    }
+  }
+}
+
+.cdg-tooltip-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  > * {
+    flex: 1;
+  }
+}

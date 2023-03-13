@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web Component Compass Design</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/agate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+    />
+    <link rel="stylesheet" href="main.min.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/weekday.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/weekOfYear.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/customParseFormat.js"></script>
+    <script>
+      function toggleDark() {
+        document.body.classList.toggle('dark');
+      }
+
+      function toggleMenu() {
+        const nav = document.querySelector('cdg-nav-rail');
+        nav.open = true;
+        nav.focus();
+      }
+    </script>
+  </head>
+  <body>
+    <cdg-nav-rail class="auto-collapse">
+      <div class="cdg-nav-rail-header">
+        <div class="cdg-nav-row">
+          <cdg-icon
+            class="workbench-logo"
+            name="compassLogo"
+            size="50"
+          ></cdg-icon>
+          <span class="workbench-title">Compass.Design</span>
+        </div>
+        <cdg-divider></cdg-divider>
+      </div>
+      <div class="cdg-nav-rail-body">
+        <a href="#home" class="cdg-nav-item">
+          <cdg-icon name="home"></cdg-icon>
+          <span>Home</span>
+        </a>
+      </div>
+    </cdg-nav-rail>
+    <div class="page-content">
+      <cdg-portal-navbar class="primary">
+        <button class="cdg-button icon" size="small" onclick="toggleMenu()">
+          <cdg-icon name="menu" size="16"></cdg-icon>
+        </button>
+        <div class="portal-title">Compass Design</div>
+        <div class="cdg-separator"></div>
+        <div class="cdg-portal-nav-actions">
+          <button class="cdg-button ghost" size="small" onclick="toggleDark()">
+            Toggle Dark
+          </button>
+        </div>
+      </cdg-portal-navbar>
+      <div class="page-body">
+        <cdg-sub-nav>
+          <div class="cdg-sub-nav-header">
+            <span class="cdg-sub-nav-title"></span>
+          </div>
+          <div class="cdg-sub-nav-group-content"></div>
+        </cdg-sub-nav>
+        <div id="component-content" class="doc-container"></div>
+      </div>
+      <div id="sample-script"></div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    </div>
+    <script src="main.min.js"></script>
+    <script src="docs.min.js"></script>
+  </body>
+</html>

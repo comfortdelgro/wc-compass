@@ -1,0 +1,79 @@
+cdg-portal-navbar,
+.cdg-portal-navbar {
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+
+  &.primary {
+    background: var(--accent);
+    color: #ffffff;
+    cdg-button,
+    .cdg-button {
+      &.active {
+        background: var(--blue80);
+        border-color: var(--blue80);
+        color: #ffffff;
+      }
+      &.ghost:hover {
+        background-color: var(--blue80);
+        border-color: var(--blue80);
+      }
+    }
+
+    cdg-button.ghost,
+    .cdg-button.ghost,
+    .menu-button,
+    .portal-title {
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .cdg-input-with-icon {
+      color: #201f1e;
+      input.cdg-input {
+        background-color: #ffffff;
+      }
+    }
+  }
+
+  .portal-title {
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+
+  .menu-button {
+    color: var(--grey70);
+  }
+
+  .cdg-input-with-icon.right .cdg-input {
+    height: 32px;
+  }
+}
+
+.cdg-portal-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  cdg-button,
+  .cdg-button {
+    &.active {
+      color: var(--accent);
+      background-color: var(--hover-background);
+      border-color: var(--hover-background);
+    }
+  }
+}
+
+.cdg-portal-navbar-inner {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 16px;
+}
+
+.cdg-portal-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
