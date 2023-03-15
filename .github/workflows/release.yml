@@ -13,6 +13,11 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
 
+      - name: Setup Bot
+        run: |
+          git config --global user.email "tai.c.bui@gmail.com"
+          git config --global user.name "CDG"
+
       - name: Setup PNPM
         uses: pnpm/action-setup@v2
 
