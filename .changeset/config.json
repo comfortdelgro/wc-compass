@@ -7,5 +7,5 @@
   "access": "restricted",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["@comfortdelgro/compass-design-website"]
+  "ignore": ["@comfortdelgro/wc-compass-website"]
 }
