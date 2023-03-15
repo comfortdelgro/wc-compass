@@ -33,7 +33,7 @@ jobs:
         run: pnpm run --filter=@comfortdelgro/wc-compass-website build
 
       - name: Export the website
-        run: pnpm run --filter=@comfortdelgro/wc-compass-website export
+        run: BASE_PATH="/wc-compass" pnpm run --filter=@comfortdelgro/wc-compass-website export
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
