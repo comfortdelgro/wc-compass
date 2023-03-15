@@ -26,8 +26,17 @@ jobs:
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
 
-      - name: Build website
-        run: pnpm run build
+      - name: Build the libraries
+        run: pnpm run --filter=@comfortdelgro/wc-compass build
+
+      - name: Build the website
+        run: pnpm run --filter=@comfortdelgro/wc-compass-website build
+
+      - name: Export the website
+        run: BASE_PATH="/wc-compass" pnpm run --filter=@comfortdelgro/wc-compass-website export
+
+      - name: Disable jekyll
+        run: touch ./apps/docs/out/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

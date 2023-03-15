@@ -1,18 +1,19 @@
 {
-  "name": "docs",
+  "name": "@comfortdelgro/wc-compass-website",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3000",
     "build": "webpack build --config webpack.config.js --mode production",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "next dev --port 3000",
+    "export": "next build && next export",
+    "lint": "next lint",
+    "start": "next start"
   },
   "dependencies": {
+    "@comfortdelgro/wc-compass": "workspace:*",
     "next": "^13.1.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "wc-compass": "workspace:*"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
