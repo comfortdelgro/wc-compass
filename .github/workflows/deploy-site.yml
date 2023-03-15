@@ -35,6 +35,9 @@ jobs:
       - name: Export the website
         run: BASE_PATH="/wc-compass" pnpm run --filter=@comfortdelgro/wc-compass-website export
 
+      - name: Disable jekyll
+        run: touch ./apps/docs/out/.nojekyll
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
