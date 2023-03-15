@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --port 3000",
     "build": "webpack build --config webpack.config.js --mode production",
+    "export": "next build && next export",
     "start": "next start",
     "lint": "next lint"
   },

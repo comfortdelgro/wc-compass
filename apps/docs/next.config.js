@@ -1,8 +1,7 @@
 module.exports = {
   reactStrictMode: false,
-  basePath: '/wc-compass',
+  basePath: process.env.BASE_PATH || '',
   transpilePackages: ['wc-compass'],
-  assetPrefix: '/wc-compass',
   rewrites: async () => [
     {
       source: '/public/index.html',
@@ -10,3 +9,5 @@ module.exports = {
     },
   ],
 };
+
+//assetPrefix: process.env.BASE_PATH || '',
