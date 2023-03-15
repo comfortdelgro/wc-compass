@@ -1,0 +1,413 @@
+<h2>Tooltip</h2>
+
+<div>
+  <label class="cdg-input-group" style="width: 350px; margin-bottom: 100px">
+    <cdg-dropdown placeholder="Select directions" name="directions">
+      <cdg-dropdown-option value="topLeft">topLeft</cdg-dropdown-option>
+      <cdg-dropdown-option value="top" selected="true">top</cdg-dropdown-option>
+      <cdg-dropdown-option value="topRight">topRight</cdg-dropdown-option>
+      <cdg-dropdown-option value="leftTop">leftTop</cdg-dropdown-option>
+      <cdg-dropdown-option value="left">left</cdg-dropdown-option>
+      <cdg-dropdown-option value="leftBottom">leftBottom</cdg-dropdown-option>
+      <cdg-dropdown-option value="rightTop">rightTop</cdg-dropdown-option>
+      <cdg-dropdown-option value="right">right</cdg-dropdown-option>
+      <cdg-dropdown-option value="rightBottom">rightBottom</cdg-dropdown-option>
+      <cdg-dropdown-option value="bottomLeft">bottomLeft</cdg-dropdown-option>
+      <cdg-dropdown-option value="bottom">bottom</cdg-dropdown-option>
+      <cdg-dropdown-option value="bottomRight">bottomRight</cdg-dropdown-option>
+    </cdg-dropdown>
+  </label>
+</div>
+
+<h3 class="sample-section-title">Title + Description + CTA Button</h3>
+<div style="display: flex; align-items: center; justify-content: space-around">
+  <div>
+    <h4>Primary</h4>
+    <cdg-tooltip title="Tooltip" event="click" type="primary">
+      <button class="cdg-button" cdg-tooltip-header>Click to open</button>
+      <div cdg-tooltip-content>
+        <span
+          >This it tooltips message, you can use it to educate user about the
+          actions. This it tooltips message, you can use it to educate user
+          about the actions.
+        </span>
+      </div>
+      <div class="cdg-tooltip-bottom" cdg-tooltip-bottom>
+        <button class="bottom-close-button cdg-button" click-to-close>
+          Close
+        </button>
+        <button class="cdg-button secondary">OK</button>
+      </div>
+    </cdg-tooltip>
+  </div>
+
+  <div>
+    <h4>Secondary</h4>
+    <cdg-tooltip title="Tooltip" event="click" type="secondary">
+      <button class="cdg-button secondary" cdg-tooltip-header>
+        Click to open
+      </button>
+      <div cdg-tooltip-content>
+        <span
+          >This it tooltips message, you can use it to educate user about the
+          actions. This it tooltips message, you can use it to educate user
+          about the actions.
+        </span>
+      </div>
+      <div class="cdg-tooltip-bottom" cdg-tooltip-bottom>
+        <button
+          class="bottom-close-button cdg-button ghost"
+          style="color: var(--background)"
+          click-to-close
+        >
+          Close
+        </button>
+        <button class="cdg-button secondary">OK</button>
+      </div>
+    </cdg-tooltip>
+  </div>
+
+  <div>
+    <h4>Ghost</h4>
+    <cdg-tooltip title="Tooltip" event="click" type="ghost">
+      <button class="cdg-button ghost" cdg-tooltip-header>Click to open</button>
+      <div cdg-tooltip-content>
+        <span
+          >This it tooltips message, you can use it to educate user about the
+          actions. This it tooltips message, you can use it to educate user
+          about the actions.
+        </span>
+      </div>
+      <div class="cdg-tooltip-bottom" cdg-tooltip-bottom>
+        <button
+          class="bottom-close-button cdg-button ghost"
+          style="color: var(--info)"
+          click-to-close
+        >
+          Close
+        </button>
+        <button class="cdg-button">OK</button>
+      </div>
+    </cdg-tooltip>
+  </div>
+</div>
+
+<div>
+  <pre>
+    <code class="language-html">
+    &lt;cdg-tooltip title=&quot;Tooltip&quot; event=&quot;click&quot; type=&quot;primary&quot;&gt;
+      &lt;button class=&quot;cdg-button&quot; cdg-tooltip-header&gt;Click to open&lt;/button&gt;
+      &lt;div cdg-tooltip-content&gt;
+        &lt;span
+          &gt;This it tooltips message, you can use it to educate user about the
+          actions. This it tooltips message, you can use it to educate user
+          about the actions.
+        &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;cdg-tooltip-bottom&quot; cdg-tooltip-bottom&gt;
+        &lt;button class=&quot;bottom-close-button cdg-button&quot; click-to-close&gt;
+          Close
+        &lt;/button&gt;
+        &lt;button class=&quot;cdg-button secondary&quot;&gt;OK&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/cdg-tooltip&gt;
+    </code>
+  </pre>
+</div>
+
+<div style="display: flex; align-items: center; justify-content: space-around">
+  <div>
+    <h4>Primary</h4>
+    <cdg-tooltip title="Tooltip" type="primary">
+      <button class="cdg-button primary" cdg-tooltip-header>
+        Hover to open
+      </button>
+      <div cdg-tooltip-content>
+        <span
+          >This it tooltips message, you can use it to educate user about the
+          actions. This it tooltips message, you can use it to educate user
+          about the actions.
+        </span>
+      </div>
+      <div class="cdg-tooltip-bottom" cdg-tooltip-bottom>
+        <button class="bottom-close-button cdg-button" click-to-close>
+          Close
+        </button>
+        <button class="cdg-button secondary">OK</button>
+      </div>
+    </cdg-tooltip>
+  </div>
+
+  <div>
+    <h4>Secondary</h4>
+    <cdg-tooltip title="Tooltip" type="secondary">
+      <button class="cdg-button secondary" cdg-tooltip-header>
+        Hover to open
+      </button>
+      <div cdg-tooltip-content>
+        <span
+          >This it tooltips message, you can use it to educate user about the
+          actions. This it tooltips message, you can use it to educate user
+          about the actions.
+        </span>
+      </div>
+      <div class="cdg-tooltip-bottom" cdg-tooltip-bottom>
+        <button
+          class="bottom-close-button cdg-button ghost"
+          style="color: var(--background)"
+          click-to-close
+        >
+          Close
+        </button>
+        <button class="cdg-button secondary">OK</button>
+      </div>
+    </cdg-tooltip>
+  </div>
+
+  <div>
+    <h4>Ghost</h4>
+    <cdg-tooltip title="Tooltip" type="ghost">
+      <button class="cdg-button ghost" cdg-tooltip-header>Hover to open</button>
+      <div cdg-tooltip-content>
+        <span
+          >This it tooltips message, you can use it to educate user about the
+          actions. This it tooltips message, you can use it to educate user
+          about the actions.
+        </span>
+      </div>
+      <div class="cdg-tooltip-bottom" cdg-tooltip-bottom>
+        <button
+          class="bottom-close-button cdg-button ghost"
+          style="color: var(--info)"
+          click-to-close
+        >
+          Close
+        </button>
+        <button class="cdg-button">OK</button>
+      </div>
+    </cdg-tooltip>
+  </div>
+</div>
+
+<div>
+  <pre>
+    <code class="language-html">
+    &lt;cdg-tooltip title=&quot;Tooltip&quot; type=&quot;primary&quot;&gt;
+      &lt;button class=&quot;cdg-button primary&quot; cdg-tooltip-header&gt;
+        Hover to open
+      &lt;/button&gt;
+      &lt;div cdg-tooltip-content&gt;
+        &lt;span
+          &gt;This it tooltips message, you can use it to educate user about the
+          actions. This it tooltips message, you can use it to educate user
+          about the actions.
+        &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;cdg-tooltip-bottom&quot; cdg-tooltip-bottom&gt;
+        &lt;button class=&quot;bottom-close-button cdg-button&quot; click-to-close&gt;
+          Close
+        &lt;/button&gt;
+        &lt;button class=&quot;cdg-button secondary&quot;&gt;OK&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/cdg-tooltip&gt;
+    </code>
+  </pre>
+</div>
+
+<h3 class="sample-section-title">Title + Description</h3>
+<div style="display: flex; align-items: center; justify-content: space-around">
+  <div>
+    <h4>Primary</h4>
+    <cdg-tooltip title="Tooltip" event="click" type="primary">
+      <button class="cdg-button primary" cdg-tooltip-header>
+        Click to open
+      </button>
+      <div cdg-tooltip-content>
+        <span
+          >This it tooltips message, you can use it to educate user about the
+          actions. This it tooltips message, you can use it to educate user
+          about the actions.
+        </span>
+      </div>
+    </cdg-tooltip>
+  </div>
+
+  <div>
+    <h4>Secondary</h4>
+    <cdg-tooltip title="Tooltip" event="click" type="secondary">
+      <button class="cdg-button secondary" cdg-tooltip-header>
+        Click to open
+      </button>
+      <div cdg-tooltip-content>
+        <span
+          >This it tooltips message, you can use it to educate user about the
+          actions. This it tooltips message, you can use it to educate user
+          about the actions.
+        </span>
+      </div>
+    </cdg-tooltip>
+  </div>
+
+  <div>
+    <h4>Ghost</h4>
+    <cdg-tooltip title="Tooltip" event="click" type="ghost">
+      <button class="cdg-button ghost" cdg-tooltip-header>Click to open</button>
+      <div cdg-tooltip-content>
+        <span
+          >This it tooltips message, you can use it to educate user about the
+          actions. This it tooltips message, you can use it to educate user
+          about the actions.
+        </span>
+      </div>
+    </cdg-tooltip>
+  </div>
+</div>
+
+<div style="display: flex; align-items: center; justify-content: space-around">
+  <div>
+    <h4>Primary</h4>
+    <cdg-tooltip title="Tooltip" type="primary">
+      <button class="cdg-button primary" cdg-tooltip-header>
+        Hover to open
+      </button>
+      <div cdg-tooltip-content>
+        <span
+          >This it tooltips message, you can use it to educate user about the
+          actions. This it tooltips message, you can use it to educate user
+          about the actions.
+        </span>
+      </div>
+    </cdg-tooltip>
+  </div>
+
+  <div>
+    <h4>Secondary</h4>
+    <cdg-tooltip title="Tooltip" type="secondary">
+      <button class="cdg-button secondary" cdg-tooltip-header>
+        Hover to open
+      </button>
+      <div cdg-tooltip-content>
+        <span
+          >This it tooltips message, you can use it to educate user about the
+          actions. This it tooltips message, you can use it to educate user
+          about the actions.
+        </span>
+      </div>
+    </cdg-tooltip>
+  </div>
+
+  <div>
+    <h4>Ghost</h4>
+    <cdg-tooltip title="Tooltip" type="ghost">
+      <button class="cdg-button ghost" cdg-tooltip-header>Hover to open</button>
+      <div cdg-tooltip-content>
+        <span
+          >This it tooltips message, you can use it to educate user about the
+          actions. This it tooltips message, you can use it to educate user
+          about the actions.
+        </span>
+      </div>
+    </cdg-tooltip>
+  </div>
+</div>
+
+<div>
+  <pre>
+    <code class="language-html">
+    &lt;cdg-tooltip title=&quot;Tooltip&quot; event=&quot;click&quot; type=&quot;primary&quot;&gt;
+      &lt;button class=&quot;cdg-button primary&quot; cdg-tooltip-header&gt;
+        Click to open
+      &lt;/button&gt;
+      &lt;div cdg-tooltip-content&gt;
+        &lt;span
+          &gt;This it tooltips message, you can use it to educate user about the
+          actions. This it tooltips message, you can use it to educate user
+          about the actions.
+        &lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/cdg-tooltip&gt;
+    </code>
+  </pre>
+</div>
+
+<h3 class="sample-section-title">Title</h3>
+<div style="display: flex; align-items: center; justify-content: space-around">
+  <div>
+    <h3 class="sample-section-title">Primary</h3>
+    <cdg-tooltip title="Tooltip" event="click" type="primary">
+      <button class="cdg-button primary" cdg-tooltip-header>
+        Click to open
+      </button>
+    </cdg-tooltip>
+  </div>
+
+  <div>
+    <h4>Secondary</h4>
+    <cdg-tooltip title="Tooltip" event="click" type="secondary">
+      <button class="cdg-button secondary" cdg-tooltip-header>
+        Click to open
+      </button>
+    </cdg-tooltip>
+  </div>
+
+  <div>
+    <h4>Ghost</h4>
+    <cdg-tooltip title="Tooltip" event="click" type="ghost">
+      <button class="cdg-button ghost" cdg-tooltip-header>Click to open</button>
+    </cdg-tooltip>
+  </div>
+</div>
+
+<div style="display: flex; align-items: center; justify-content: space-around">
+  <div>
+    <h4>Primary</h4>
+    <cdg-tooltip title="Tooltip" type="primary">
+      <button class="cdg-button primary" cdg-tooltip-header>
+        Hover to open
+      </button>
+    </cdg-tooltip>
+  </div>
+
+  <div>
+    <h4>Secondary</h4>
+    <cdg-tooltip title="Tooltip" type="secondary">
+      <button class="cdg-button secondary" cdg-tooltip-header>
+        Hover to open
+      </button>
+    </cdg-tooltip>
+  </div>
+
+  <div>
+    <h4>Ghost</h4>
+    <cdg-tooltip title="Tooltip" type="ghost">
+      <button class="cdg-button ghost" cdg-tooltip-header>Hover to open</button>
+    </cdg-tooltip>
+  </div>
+</div>
+
+<div>
+  <pre>
+    <code class="language-html">
+    &lt;cdg-tooltip title=&quot;Tooltip&quot; event=&quot;click&quot; type=&quot;primary&quot;&gt;
+      &lt;button class=&quot;cdg-button primary&quot; cdg-tooltip-header&gt;
+        Click to open
+      &lt;/button&gt;
+    &lt;/cdg-tooltip&gt;
+    </code>
+  </pre>
+</div>
+
+<div style="height: 500px"></div>
+
+<script>
+  const directions = document.querySelector('cdg-dropdown[name="directions"]');
+  const cdgPopovers = document.querySelectorAll('cdg-tooltip');
+  directions.addEventListener('onchangevalue', function (event) {
+    cdgPopovers.forEach((cdgPopover) => {
+      if (cdgPopover) {
+        const closeButton = document.querySelector('bottom-close-button');
+        cdgPopover.setAttribute('direction', event.detail);
+      }
+    });
+  });
+</script>

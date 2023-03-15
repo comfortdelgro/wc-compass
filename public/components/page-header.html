@@ -1,0 +1,156 @@
+<h2>Page Title</h2>
+
+<h3 class="sample-section-title">Title</h3>
+<div class="sample-section">
+  <cdg-page-title>Title Here<small>This is a subtitle</small></cdg-page-title>
+</div>
+
+<pre>
+    <code class="language-html">&lt;cdg-page-title&gt;Title Here&lt;small&gt;This is a subtitle&lt;/small&gt;&lt;/cdg-page-title&gt;</code>
+</pre>
+
+<h3 class="sample-section-title">Header</h3>
+<div class="sample-section" style="display: block">
+  <cdg-page-header>
+    <cdg-page-header-row>
+      <cdg-page-title>
+        Title Here<small>This is a subtitle</small>
+      </cdg-page-title>
+      <cdg-page-actions>
+        <button class="cdg-button secondary" size="small">Save</button>
+        <button class="cdg-button secondary" size="small">Share</button>
+        <button class="cdg-button" size="small">Export</button>
+      </cdg-page-actions>
+    </cdg-page-header-row>
+  </cdg-page-header>
+</div>
+
+<pre>
+    <code class="language-html">&lt;cdg-page-header&gt;
+    &lt;cdg-page-header-row&gt;
+        &lt;cdg-page-title
+        &gt;Title Here&lt;small&gt;This is a subtitle&lt;/small&gt;&lt;/cdg-page-title
+        &gt;
+        &lt;cdg-page-actions&gt;
+        &lt;button class=&quot;cdg-button secondary&quot; size=&quot;small&quot;&gt;Save&lt;/button&gt;
+        &lt;button class=&quot;cdg-button secondary&quot; size=&quot;small&quot;&gt;Share&lt;/button&gt;
+        &lt;button class=&quot;cdg-button&quot; size=&quot;small&quot;&gt;Export&lt;/button&gt;
+        &lt;/cdg-page-actions&gt;
+    &lt;/cdg-page-header-row&gt;
+&lt;/cdg-page-header&gt;</code>
+</pre>
+
+<h3 class="sample-section-title">Header & Breadcrumbs</h3>
+<div class="sample-section" style="display: block">
+  <cdg-page-header>
+    <cdg-page-header-row>
+      <cdg-breadcrumbs>
+        <a href="#">Home</a>
+        <cdg-icon name="arrowRight"></cdg-icon>
+        <a href="#" disabled>Disabled</a>
+        <cdg-icon name="arrowRight"></cdg-icon>
+        <a href="#">Sub</a>
+        <cdg-icon name="arrowRight"></cdg-icon>
+        <a>Detail</a>
+      </cdg-breadcrumbs>
+    </cdg-page-header-row>
+    <cdg-page-header-row>
+      <cdg-page-title
+        >Title Here<small>This is a longer subtitle</small></cdg-page-title
+      >
+      <cdg-page-actions>
+        <button class="cdg-button secondary" size="small">
+          Share this page
+        </button>
+        <button class="cdg-button" size="small">Export</button>
+      </cdg-page-actions>
+    </cdg-page-header-row>
+  </cdg-page-header>
+</div>
+
+<pre>
+    <code class="language-html">&lt;cdg-page-header&gt;
+    &lt;cdg-page-header-row&gt;
+        &lt;cdg-breadcrumbs&gt;
+        &lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;
+        &lt;cdg-icon name=&quot;arrowRight&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;a href=&quot;#&quot; disabled&gt;Disabled&lt;/a&gt;
+        &lt;cdg-icon name=&quot;arrowRight&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;a href=&quot;#&quot;&gt;Sub&lt;/a&gt;
+        &lt;cdg-icon name=&quot;arrowRight&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;a&gt;Detail&lt;/a&gt;
+        &lt;/cdg-breadcrumbs&gt;
+    &lt;/cdg-page-header-row&gt;
+    &lt;cdg-page-header-row&gt;
+        &lt;cdg-page-title&gt;
+            Title Here&lt;small&gt;This is a longer subtitle&lt;/small&gt;&lt;/cdg-page-title&gt;
+        &lt;cdg-page-actions&gt;
+        &lt;button class=&quot;cdg-button secondary&quot; size=&quot;small&quot;&gt;
+            Share this page
+        &lt;/button&gt;
+        &lt;button class=&quot;cdg-button&quot; size=&quot;small&quot;&gt;Export&lt;/button&gt;
+        &lt;/cdg-page-actions&gt;
+    &lt;/cdg-page-header-row&gt;
+&lt;/cdg-page-header&gt;</code>
+</pre>
+
+<h3 class="sample-section-title">Reverse</h3>
+<div class="sample-section" style="display: block">
+  <cdg-page-header class="reverse-blue">
+    <cdg-page-header-row>
+      <cdg-breadcrumbs>
+        <a href="#">Home</a>
+        <cdg-icon name="arrowRight"></cdg-icon>
+        <a href="#" disabled>Disabled</a>
+        <cdg-icon name="arrowRight"></cdg-icon>
+        <a href="#">Sub</a>
+        <cdg-icon name="arrowRight"></cdg-icon>
+        <a>Detail</a>
+      </cdg-breadcrumbs>
+    </cdg-page-header-row>
+    <cdg-page-header-row>
+      <cdg-page-title
+        >Title Here<small>This is a longer subtitle</small>
+        <cdg-pill-badge type="info" pill-style="secondary">
+          Processing
+        </cdg-pill-badge>
+      </cdg-page-title>
+      <cdg-page-actions>
+        <button class="cdg-button secondary" size="small">
+          Share this page
+        </button>
+        <button class="cdg-button" size="small">Export</button>
+      </cdg-page-actions>
+    </cdg-page-header-row>
+  </cdg-page-header>
+</div>
+
+<pre>
+    <code class="language-html">&lt;cdg-page-header class=&quot;reverse-blue&quot;&gt;
+    &lt;cdg-page-header-row&gt;
+        &lt;cdg-breadcrumbs&gt;
+        &lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;
+        &lt;cdg-icon name=&quot;arrowRight&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;a href=&quot;#&quot; disabled&gt;Disabled&lt;/a&gt;
+        &lt;cdg-icon name=&quot;arrowRight&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;a href=&quot;#&quot;&gt;Sub&lt;/a&gt;
+        &lt;cdg-icon name=&quot;arrowRight&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;a&gt;Detail&lt;/a&gt;
+        &lt;/cdg-breadcrumbs&gt;
+    &lt;/cdg-page-header-row&gt;
+    &lt;cdg-page-header-row&gt;
+        &lt;cdg-page-title&gt;
+            Title Here&lt;small&gt;This is a longer subtitle&lt;/small&gt;
+            &lt;cdg-pill-badge type=&quot;info&quot; pill-style=&quot;secondary&quot;&gt;
+                Processing
+            &lt;/cdg-pill-badge&gt;
+        &lt;/cdg-page-title&gt;
+        &lt;cdg-page-actions&gt;
+        &lt;button class=&quot;cdg-button secondary&quot; size=&quot;small&quot;&gt;
+            Share this page
+        &lt;/button&gt;
+        &lt;button class=&quot;cdg-button&quot; size=&quot;small&quot;&gt;Export&lt;/button&gt;
+        &lt;/cdg-page-actions&gt;
+    &lt;/cdg-page-header-row&gt;
+&lt;/cdg-page-header&gt;</code>
+</pre>
