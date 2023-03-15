@@ -1,0 +1,195 @@
+cdg-nav-rail,
+.cdg-nav-rail {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 270px;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+
+  .cdg-nav-rail-inner {
+    display: flex;
+    flex-direction: column;
+    background: var(--background);
+    box-sizing: border-box;
+    padding: 16px 0;
+    width: 270px;
+    flex: 1;
+    overflow: auto;
+    border-right: 1px solid #8a88861a;
+  }
+
+  .workbench-title {
+    font-size: 24px;
+    line-height: 60px;
+    font-weight: 400;
+  }
+
+  .module-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .module-name {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 600;
+  }
+
+  .sever-time {
+    color: var(--grey70);
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .cdg-button.module-selection {
+    background-color: var(--grey40);
+    border-color: var(--grey40);
+    color: var(--grey100);
+    padding: 10px 5px;
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  cdg-divider,
+  .cdg-divider {
+    &.vertical {
+      border-color: 1px solid var(--grey100);
+      height: 18px;
+    }
+  }
+
+  &.auto-collapse {
+    width: 72px;
+    .cdg-nav-rail-inner {
+      width: 72px;
+      overflow: hidden;
+      @extend %quickSmoothTransition;
+    }
+
+    .cdg-nav-rail-body {
+      overflow: hidden;
+    }
+
+    .cdg-nav-item .item-arrow,
+    .cdg-nav-item span:not(.avatar-text),
+    .module-info,
+    .workbench-title {
+      display: none;
+    }
+
+    &[open='true'],
+    &:hover {
+      .cdg-nav-rail-inner {
+        width: 270px;
+        overflow: auto;
+        @extend %quickSmoothTransition;
+      }
+
+      .cdg-nav-rail-body {
+        overflow: auto;
+      }
+
+      .cdg-nav-item .item-arrow,
+      .cdg-nav-item span:not(.avatar-text),
+      .module-info,
+      .workbench-title {
+        position: relative;
+        overflow: hidden;
+        white-space: nowrap;
+        animation: fadeIn 0.4s;
+        max-width: 9999px;
+        display: inline-flex;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    max-width: 0;
+  }
+  50% {
+    opacity: 0;
+    max-width: 0;
+  }
+  100% {
+    opacity: 1;
+    max-width: 9999px;
+  }
+}
+
+.cdg-nav-rail-foot,
+.cdg-nav-rail-body,
+.cdg-nav-rail-header {
+  padding: 0 12px;
+}
+
+.cdg-nav-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cdg-nav-rail-header {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  .workbench-logo {
+    padding: 10px 0;
+  }
+}
+
+.cdg-nav-rail-foot {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 16px;
+}
+
+.cdg-nav-rail-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: auto;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  gap: 12px;
+}
+
+.cdg-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  color: var(--grey80);
+  cursor: pointer;
+  border-left: 3px solid transparent;
+
+  &:hover {
+    color: var(--accent);
+    background-color: var(--hover-background);
+    border-radius: 4px;
+  }
+
+  &.active {
+    border-left: 3px solid var(--accent);
+    color: var(--accent);
+    &:hover {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  span {
+    flex: 1;
+    overflow: hidden;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

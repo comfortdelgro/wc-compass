@@ -1,0 +1,247 @@
+<h2>Carousel</h2>
+<p>Carousels are used to display promotions.</p>
+
+<style>
+  .custom-slide .cdg-slide {
+    padding: 16px;
+    border: 1px solid var(--grey50);
+    background: var(--grey40);
+    height: 120px;
+  }
+</style>
+
+<h3 class="sample-section-title">Any content</h3>
+<div class="sample-section custom-slide">
+  <cdg-carousel useArrow="true" autoSwitch="true">
+    <cdg-slide>A</cdg-slide>
+    <cdg-slide>B</cdg-slide>
+    <cdg-slide>C</cdg-slide>
+    <cdg-slide>D</cdg-slide>
+  </cdg-carousel>
+</div>
+
+<pre>
+    <code class="language-html">&lt;cdg-carousel useArrow=&quot;true&quot; autoSwitch=&quot;true&quot;&gt;
+    &lt;cdg-slide&gt;A&lt;/cdg-slide&gt;
+    &lt;cdg-slide&gt;B&lt;/cdg-slide&gt;
+    &lt;cdg-slide&gt;C&lt;/cdg-slide&gt;
+    &lt;cdg-slide&gt;D&lt;/cdg-slide&gt;
+&lt;/cdg-carousel&gt;</code>
+</pre>
+
+<h3 class="sample-section-title">Images</h3>
+<div class="sample-section">
+  <cdg-carousel useArrow="true" autoSwitch="true">
+    <cdg-slide>
+      <img
+        class="cdg-slide-background"
+        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(16).webp"
+      />
+    </cdg-slide>
+    <cdg-slide>
+      <img
+        class="cdg-slide-background"
+        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(19).webp"
+      />
+    </cdg-slide>
+    <cdg-slide>
+      <img
+        class="cdg-slide-background"
+        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(23).webp"
+      />
+    </cdg-slide>
+    <cdg-slide>
+      <img
+        class="cdg-slide-background"
+        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(17).webp"
+      />
+    </cdg-slide>
+    <cdg-slide>
+      <img
+        class="cdg-slide-background"
+        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(18).webp"
+      />
+    </cdg-slide>
+  </cdg-carousel>
+</div>
+
+<pre>
+    <code class="language-html">&lt;cdg-carousel useArrow=&quot;true&quot; autoSwitch=&quot;true&quot;&gt;
+    &lt;cdg-slide&gt;
+        &lt;img
+        class=&quot;cdg-slide-background&quot;
+        src=&quot;https://mdbcdn.b-cdn.net/img/Photos/Slides/img (16).webp&quot;
+        /&gt;
+    &lt;/cdg-slide&gt;
+    ... Other slides
+&lt;/cdg-carousel&gt;</code>
+</pre>
+
+<h3 class="sample-section-title">Promotion</h3>
+<div class="sample-section">
+  <cdg-carousel>
+    <cdg-slide type="promotion">
+      <img
+        class="cdg-slide-background"
+        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(16).webp"
+      />
+      <div class="cdg-promotion-container cdg-layout align-center-start">
+        <div class="cdg-promotion-body">
+          <h3 class="cdg-promotion-title">Slide title</h3>
+          <p class="cdg-promotion-description">
+            Some representative placeholder content for the first slide.
+          </p>
+          <div class="cdg-promotion-actions">
+            <button class="cdg-button secondary">It's Ok</button>
+            <button class="cdg-button">Awesome</button>
+          </div>
+        </div>
+      </div>
+    </cdg-slide>
+    <cdg-slide type="promotion">
+      <img
+        class="cdg-slide-background"
+        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(17).webp"
+      />
+      <div class="cdg-promotion-container cdg-layout align-start-end">
+        <div class="cdg-promotion-body">
+          <h3 class="cdg-promotion-title">Second Slide</h3>
+          <p class="cdg-promotion-description">
+            Use align-start-end lets the content align with the background
+            image.
+          </p>
+          <div class="cdg-promotion-actions">
+            <button class="cdg-button">Awesome</button>
+          </div>
+        </div>
+      </div>
+    </cdg-slide>
+    <cdg-slide type="promotion">
+      <img
+        class="cdg-slide-background"
+        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(18).webp"
+      />
+      <div class="cdg-promotion-container cdg-layout align-start-center">
+        <div class="cdg-promotion-body">
+          <h3 class="cdg-promotion-title">Top Center</h3>
+          <p class="cdg-promotion-description">
+            With nine parts alignment layout, you can align eveything in
+            everywhere you want.
+          </p>
+        </div>
+      </div>
+    </cdg-slide>
+    <cdg-slide type="promotion">
+      <img
+        class="cdg-slide-background"
+        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(19).webp"
+      />
+      <div class="cdg-promotion-container cdg-layout align-center-end">
+        <div class="cdg-promotion-body">
+          <h3 class="cdg-promotion-title">Last Slide</h3>
+          <p class="cdg-promotion-description">
+            Align on the right by align-center-end.
+          </p>
+        </div>
+      </div>
+    </cdg-slide>
+  </cdg-carousel>
+</div>
+
+<pre>
+    <code class="language-html">&lt;cdg-carousel&gt;
+    &lt;cdg-slide type=&quot;promotion&quot;&gt;
+        &lt;img
+            class=&quot;cdg-slide-background&quot;
+            src=&quot;https://mdbcdn.b-cdn.net/img/Photos/Slides/img (16).webp&quot;
+        /&gt;
+        &lt;div class=&quot;cdg-promotion-container cdg-layout align-center-start&quot;&gt;
+        &lt;div class=&quot;cdg-promotion-body&quot;&gt;
+            &lt;h3 class=&quot;cdg-promotion-title&quot;&gt;Slide title&lt;/h3&gt;
+            &lt;p class=&quot;cdg-promotion-description&quot;&gt;
+                Some representative placeholder content for the first slide.
+            &lt;/p&gt;
+            &lt;div class=&quot;cdg-promotion-actions&quot;&gt;
+                &lt;button class=&quot;cdg-button secondary&quot;&gt;It's Ok&lt;/button&gt;
+                &lt;button class=&quot;cdg-button&quot;&gt;Awesome&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/cdg-slide&gt;
+    ... Other slides
+&lt;/cdg-carousel&gt;</code>
+</pre>
+
+<h3 class="sample-section-title">Mobile</h3>
+<style>
+  .my-mobile-carousel .cdg-slide {
+    height: 412px;
+  }
+  .my-mobile-carousel .cdg-slide-background {
+    height: 100%;
+  }
+</style>
+<div class="sample-section" style="width: 320px">
+  <cdg-carousel class="my-mobile-carousel" mobileMode>
+    <cdg-slide type="promotion">
+      <img
+        class="cdg-slide-background"
+        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(16).webp"
+      />
+      <div class="cdg-promotion-container cdg-layout align-center-start">
+        <div class="cdg-promotion-body">
+          <h3 class="cdg-promotion-title">Slide title</h3>
+          <p class="cdg-promotion-description">
+            Some representative placeholder content for the first slide.
+          </p>
+        </div>
+      </div>
+    </cdg-slide>
+    <cdg-slide type="promotion">
+      <img
+        class="cdg-slide-background"
+        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(17).webp"
+      />
+      <div class="cdg-promotion-container cdg-layout align-center-center">
+        <div class="cdg-promotion-body">
+          <h3 class="cdg-promotion-title">Second Slide</h3>
+          <p class="cdg-promotion-description">
+            Use align-start-end lets the content align with the background
+            image.
+          </p>
+          <div class="cdg-promotion-actions">
+            <button class="cdg-button">Awesome</button>
+          </div>
+        </div>
+      </div>
+    </cdg-slide>
+    <div class="cdg-mobile-actions">
+      <button class="cdg-button secondary">It's Ok</button>
+      <button class="cdg-button">Awesome</button>
+    </div>
+  </cdg-carousel>
+</div>
+
+<pre>
+    <code class="language-html">&lt;cdg-carousel class=&quot;my-mobile-carousel&quot; mobileMode&gt;
+    &lt;cdg-slide type=&quot;promotion&quot;&gt;
+        &lt;img
+            class=&quot;cdg-slide-background&quot;
+            src=&quot;https://mdbcdn.b-cdn.net/img/Photos/Slides/img (16).webp&quot;
+        /&gt;
+        &lt;div class=&quot;cdg-promotion-container cdg-layout align-center-start&quot;&gt;
+        &lt;div class=&quot;cdg-promotion-body&quot;&gt;
+            &lt;h3 class=&quot;cdg-promotion-title&quot;&gt;Slide title&lt;/h3&gt;
+            &lt;p class=&quot;cdg-promotion-description&quot;&gt;
+                Some representative placeholder content for the first slide.
+            &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/cdg-slide&gt;
+    // Other slides
+    &lt;div class=&quot;cdg-mobile-actions&quot;&gt;
+        &lt;button class=&quot;cdg-button secondary&quot;&gt;It's Ok&lt;/button&gt;
+        &lt;button class=&quot;cdg-button&quot;&gt;Awesome&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/cdg-carousel&gt;</code>
+</pre>

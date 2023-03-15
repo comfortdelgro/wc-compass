@@ -1,0 +1,20 @@
+.cdg-datepicker {
+  .cdg-datepicker-input-container {
+    display: flex;
+    gap: 24px;
+    .cdg-input-group {
+      gap: 8px;
+    }
+    .cdg-input-with-icon {
+      .cdg-icon {
+        color: var(--grey80);
+      }
+    }
+  }
+}
+.cdg-datepicker-floating-container {
+  .cdg-floating-content {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+}
