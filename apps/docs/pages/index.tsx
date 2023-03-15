@@ -4,7 +4,7 @@ export default function Docs() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push('/index.html');
+    router.push('/public.html');
   });
 
   return null;

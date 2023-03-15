@@ -3,10 +3,4 @@ module.exports = {
   basePath: process.env.BASE_PATH || '',
   assetPrefix: process.env.BASE_PATH || '',
   transpilePackages: ['wc-compass'],
-  rewrites: async () => [
-    {
-      source: '/public/index.html',
-      destination: '/pages/api/index.js',
-    },
-  ],
 };
