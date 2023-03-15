@@ -30,6 +30,6 @@ jobs:
           pnpm run --filter=@comfortdelgro/wc-compass build
 
       - name: Publish to NPM
-        run: cd packages/wc-compass/dist && npm publish --access public
+        run: cd packages/wc-compass/dist && pnpm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
