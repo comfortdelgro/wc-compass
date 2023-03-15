@@ -1,0 +1,236 @@
+<h2>Dialog</h2>
+<p>
+  Dialogs inform users about a task and can contain critical information,
+  require decisions, or involve multiple tasks.
+</p>
+
+<h3 class="sample-section-title">Alert</h3>
+<div class="sample-section">
+  <button class="cdg-button" onclick="showAlert()">Show Alert</button>
+  <button class="cdg-button" onclick="showAlertWithTitle()">
+    Show Alert With Title
+  </button>
+</div>
+
+<pre>
+    <code class="language-html">&lt;button class=&quot;cdg-button&quot; onclick=&quot;showAlert()&quot;&gt;Show Alert&lt;/button&gt;
+&lt;button class=&quot;cdg-button&quot; onclick=&quot;showAlertWithTitle()&quot;&gt;
+    Show Alert With Title
+&lt;/button&gt;
+
+&lt;script&gt;
+    function showAlert() {
+        cdgDialogService.alert({
+            message: 'This is a message that let you know everything is ok!',
+        });
+    };
+
+    function showAlertWithTitle() {
+        cdgDialogService.alert({
+            dialogTitle: 'Title of this alert',
+            message: 'This is a message that let you know everything is ok!',
+        });
+    };
+&lt;/script&gt;</code>
+</pre>
+
+<h3 class="sample-section-title">Warning</h3>
+<div
+  class="sample-section"
+  style="flex-direction: column; align-items: flex-start"
+>
+  <button class="cdg-button" onclick="showWarning()">Show Warning</button>
+  <div id="output1"></div>
+</div>
+
+<pre>
+    <code class="language-html">&lt;button class=&quot;cdg-button&quot; onclick=&quot;showWarning()&quot;&gt;Show Warning&lt;/button&gt;
+&lt;div id=&quot;output1&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    function showWarning() {
+        const dialog = cdgDialogService.warning({
+            dialogTitle: 'Are you sure you want to delete this deal?',
+            message: 'Only admin users can restore deleted deals.',
+            executeLabel: 'Delete',
+        });
+
+        const output1 = document.querySelector('#output1');
+
+        dialog.addEventListener('close', (event) =&gt; {
+            output1.textContent =
+            'User says: ' + (event.detail ? 'Yes, delete it!' : 'Cancel');
+        });
+    };
+&lt;/script&gt;</code>
+</pre>
+
+<h3 class="sample-section-title">Confirm</h3>
+<div
+  class="sample-section"
+  style="flex-direction: column; align-items: flex-start"
+>
+  <button class="cdg-button" onclick="showConfirm()">Show Confirm</button>
+  <div id="output2"></div>
+</div>
+
+<pre>
+    <code class="language-html">&lt;button class=&quot;cdg-button&quot; onclick=&quot;showConfirm()&quot;&gt;Show Confirm&lt;/button&gt;
+&lt;div id=&quot;output2&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    function showConfirm() {
+        const dialog = cdgDialogService.confirm({
+            dialogTitle: 'Is this helpful?',
+            message: 'This confirm dialog can help you to ask user.',
+            executeLabel: 'Execute',
+        });
+
+        const output2 = document.querySelector('#output2');
+
+        dialog.addEventListener('close', (event) =&gt; {
+            output2.textContent =
+            'User says: ' + (event.detail ? 'Yes, do it!' : 'Cancel');
+        });
+    };
+&lt;/script&gt;</code>
+</pre>
+
+<h3 class="sample-section-title">Confirm & Custom</h3>
+<div
+  class="sample-section"
+  style="flex-direction: column; align-items: flex-start"
+>
+  <template id="customConfirmDialog">
+    <div class="cdg-dialog-content">
+      <h4 class="cdg-dialog-title">Enter your comments</h4>
+      <p class="cdg-dialog-message">
+        This comment will be sent to us automatically
+      </p>
+      <label class="cdg-input-group">
+        <span class="cdg-input-label">Comment field</span>
+        <textarea
+          id="sampleTextarea"
+          class="cdg-textarea"
+          placeholder="Enter your message here"
+        ></textarea>
+      </label>
+    </div>
+  </template>
+  <button class="cdg-button" onclick="showConfirmCustom()">Show Confirm</button>
+  <div id="output3"></div>
+</div>
+
+<pre>
+    <code class="language-html">&lt;template id=&quot;customConfirmDialog&quot;&gt;
+    &lt;div class=&quot;cdg-dialog-content&quot;&gt;
+        &lt;h4 class=&quot;cdg-dialog-title&quot;&gt;Enter your comments&lt;/h4&gt;
+        &lt;p class=&quot;cdg-dialog-message&quot;&gt;
+        This comment will be sent to us automatically
+        &lt;/p&gt;
+        &lt;label class=&quot;cdg-input-group&quot;&gt;
+        &lt;span class=&quot;cdg-input-label&quot;&gt;Comment field&lt;/span&gt;
+        &lt;textarea
+            id=&quot;sampleTextarea&quot;
+            class=&quot;cdg-textarea&quot;
+            placeholder=&quot;Enter your message here&quot;
+        &gt;&lt;/textarea&gt;
+        &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;/template&gt;
+    &lt;button class=&quot;cdg-button&quot; onclick=&quot;showConfirmCustom()&quot;&gt;Show Confirm&lt;/button&gt;
+&lt;div id=&quot;output3&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    function showConfirmCustom() {
+        const content = document
+            .querySelector('#customConfirmDialog')
+            .content.firstElementChild.cloneNode(true);
+
+        const textarea = content.querySelector('#sampleTextarea');
+
+        const dialog = cdgDialogService.confirmCustom({
+            content,
+            executeLabel: 'Submit',
+        });
+
+        const output3 = document.querySelector('#output3');
+
+        dialog.addEventListener('close', (event) =&gt; {
+            output3.textContent =
+            'User says: ' +
+            (event.detail
+                ? 'Submit with message &quot;' + textarea.value + '&quot;'
+                : 'Cancel');
+        });
+    };
+&lt;/script&gt;</code>
+</pre>
+
+<script>
+  window.showAlert = () => {
+    cdgDialogService.alert({
+      message: 'This is a message that let you know everything is ok!',
+    });
+  };
+
+  window.showAlertWithTitle = () => {
+    cdgDialogService.alert({
+      dialogTitle: 'Title of this alert',
+      message: 'This is a message that let you know everything is ok!',
+    });
+  };
+
+  window.showWarning = () => {
+    const dialog = cdgDialogService.warning({
+      dialogTitle: 'Are you sure you want to delete this deal?',
+      message: 'Only admin users can restore deleted deals.',
+      executeLabel: 'Delete',
+    });
+
+    const output1 = document.querySelector('#output1');
+
+    dialog.addEventListener('close', (event) => {
+      output1.textContent =
+        'User says: ' + (event.detail ? 'Yes, delete it!' : 'Cancel');
+    });
+  };
+
+  window.showConfirm = () => {
+    const dialog = cdgDialogService.confirm({
+      dialogTitle: 'Is this helpful?',
+      message: 'This confirm dialog can help you to ask user.',
+      executeLabel: 'Execute',
+    });
+
+    const output2 = document.querySelector('#output2');
+
+    dialog.addEventListener('close', (event) => {
+      output2.textContent =
+        'User says: ' + (event.detail ? 'Yes, do it!' : 'Cancel');
+    });
+  };
+
+  window.showConfirmCustom = () => {
+    const content = document
+      .querySelector('#customConfirmDialog')
+      .content.firstElementChild.cloneNode(true);
+
+    const textarea = content.querySelector('#sampleTextarea');
+
+    const dialog = cdgDialogService.confirmCustom({
+      content,
+      executeLabel: 'Submit',
+    });
+
+    const output3 = document.querySelector('#output3');
+
+    dialog.addEventListener('close', (event) => {
+      output3.textContent =
+        'User says: ' +
+        (event.detail
+          ? 'Submit with message "' + textarea.value + '"'
+          : 'Cancel');
+    });
+  };
+</script>
