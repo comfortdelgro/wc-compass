@@ -30,6 +30,57 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
+        uses: actions/checkout@v2
+      - name: Detect package manager
+        id: detect-package-manager
+        run: |
+          if [ -f "${{ github.workspace }}/pnpm-lock.yaml" ]; then
+            echo "manager=pnpm" >> $GITHUB_ENV
+            echo "command=install" >> $GITHUB_ENV
+            echo "runner=pnpx" >> $GITHUB_ENV
+            exit 0
+          elif [ -f "${{ github.workspace }}/yarn.lock" ]; then
+            echo "manager=yarn" >> $GITHUB_ENV
+            echo "command=install" >> $GITHUB_ENV
+            echo "runner=yarn" >> $GITHUB_ENV
+            exit 0
+          elif [ -f "${{ github.workspace }}/package-lock.json" ]; then
+            echo "manager=npm" >> $GITHUB_ENV
+            echo "command=ci" >> $GITHUB_ENV
+            echo "runner=npx" >> $GITHUB_ENV
+            exit 0
+          else
+            echo "Unable to determine package manager"
+            exit 1
+          fi
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          cache: ${{ steps.detect-package-manager.outputs.manager }}
+      - name: Setup Pages
+        uses: actions/configure-pages@v1
+        with:
+          # Automatically inject basePath in your Next.js configuration file and disable
+          # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
+          #
+          # You may remove this line if you want to manage the configuration yourself.
+          static_site_generator: next
+      - name: Install dependencies
+        run: ${{ steps.detect-package-manager.outputs.runner }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Build with Next.js
+        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+      - name: Static HTML export with Next.js
+        run: ${{ steps.detect-package-manager.outputs.runner }} next export
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: out
+          path: out
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
         uses: actions/checkout@v3
       - name: Detect package manager
         id: detect-package-manager
