@@ -1,0 +1,103 @@
+<h2>Tabs</h2>
+<p>
+  Tabs organize content into multiple sections and allow users to navigate
+  between them. The content under the set of tabs should be related and form a
+  coherent unit.
+</p>
+
+<h3 class="sample-section-title">Status</h3>
+<div class="sample-section darker">
+  <cdg-tabs>
+    <cdg-tab>Activated</cdg-tab>
+    <cdg-tab>Normal</cdg-tab>
+    <cdg-tab disabled>Disabled</cdg-tab>
+    <cdg-tab activated disabled>Activated Disabled</cdg-tab>
+  </cdg-tabs>
+</div>
+
+<pre>
+    <code class="language-html">&lt;cdg-tabs&gt;
+    &lt;cdg-tab&gt;Activated&lt;/cdg-tab&gt;
+    &lt;cdg-tab&gt;Normal&lt;/cdg-tab&gt;
+    &lt;cdg-tab disabled&gt;Disabled&lt;/cdg-tab&gt;
+    &lt;cdg-tab activated disabled&gt;Activated Disabled&lt;/cdg-tab&gt;
+&lt;/cdg-tabs&gt;</code>
+</pre>
+
+<h3 class="sample-section-title">Interaction</h3>
+<style>
+  .tab-content {
+    display: none;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+</style>
+
+<div class="sample-section column darker">
+  <div class="tab-top-custom-wrapper">
+    <cdg-tabs id="sample-tab">
+      <cdg-tab activated>First Tab</cdg-tab>
+      <cdg-tab>Middle Tab</cdg-tab>
+      <cdg-tab>Last Tab</cdg-tab>
+      <cdg-tab disabled>Disabled Tab</cdg-tab>
+    </cdg-tabs>
+  </div>
+  <div class="tab-contents" for="sample-tab">
+    <div class="tab-content active">Content of tab 1</div>
+    <div class="tab-content">Content of tab 2</div>
+    <div class="tab-content">Content of tab 3</div>
+    <div class="tab-content">Content of Disabled tab</div>
+  </div>
+</div>
+
+<pre>
+    <code class="language-html">&lt;div class=&quot;tab-top-custom-wrapper&quot;&gt;
+    &lt;cdg-tabs id=&quot;sample-tab&quot;&gt;
+        &lt;cdg-tab activated&gt;First Tab&lt;/cdg-tab&gt;
+        &lt;cdg-tab&gt;Middle Tab&lt;/cdg-tab&gt;
+        &lt;cdg-tab&gt;Last Tab&lt;/cdg-tab&gt;
+        &lt;cdg-tab disabled&gt;Disabled Tab&lt;/cdg-tab&gt;
+    &lt;/cdg-tabs&gt;
+&lt;/div&gt;
+&lt;div class=&quot;tab-contents&quot; for=&quot;sample-tab&quot;&gt;
+    &lt;div class=&quot;tab-content active&quot;&gt;Content of tab 1&lt;/div&gt;
+    &lt;div class=&quot;tab-content&quot;&gt;Content of tab 2&lt;/div&gt;
+    &lt;div class=&quot;tab-content&quot;&gt;Content of tab 3&lt;/div&gt;
+    &lt;div class=&quot;tab-content&quot;&gt;Content of Disabled tab&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+let activeIndex = 0;
+
+const tab = document.querySelector(&apos;#sample-tab&apos;);
+const tabContent = document.querySelector(&apos;[for=&quot;sample-tab&quot;]&apos;);
+
+function onSwitchTab(data) {
+  tabContent.children[activeIndex].classList.remove(&apos;active&apos;);
+  activeIndex = data.detail;
+  tabContent.children[activeIndex].classList.add(&apos;active&apos;);
+}
+
+tab.addEventListener(&apos;switchTab&apos;, onSwitchTab);
+&lt;/script&gt;</code>
+</pre>
+
+<script>
+  function listenTabs() {
+    let activeIndex = 0;
+
+    const onSwitchTab = (data) => {
+      tabContent.children[activeIndex].classList.remove('active');
+      activeIndex = data.detail;
+      tabContent.children[activeIndex].classList.add('active');
+    };
+
+    const tab = document.querySelector('#sample-tab');
+    const tabContent = document.querySelector('[for="sample-tab"]');
+    tab.addEventListener('switchTab', onSwitchTab);
+  }
+
+  listenTabs();
+</script>

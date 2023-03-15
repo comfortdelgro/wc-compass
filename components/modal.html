@@ -1,0 +1,232 @@
+<h2>Modal</h2>
+<p>
+  Modal is a window on the top of the page that contains a single task to be
+  performed by the user.
+</p>
+
+<h3 class="sample-section-title">Default</h3>
+<div class="sample-section">
+  <button class="cdg-button" id="defaultModal">Show Modal</button>
+  <template for="defaultModal">
+    <cdg-modal>
+      <cdg-modal-header title="Title" useCloseButton="true"></cdg-modal-header>
+      <cdg-modal-body>
+        This is place holder text. The basic dialog for modals should contain
+        only valuable and relevant information. Simplify dialogs by removing
+        unnecessary elements or content that does not support user tasks. If you
+        find that the number of required elements for your design are making the
+        dialog excessively large, then try a different design solution.
+      </cdg-modal-body>
+      <cdg-modal-actions>
+        <div class="cdg-separator"></div>
+        <button class="cdg-button secondary" id="cancelButton">Cancel</button>
+        <button class="cdg-button" id="okButton">Approve</button>
+      </cdg-modal-actions>
+    </cdg-modal>
+  </template>
+  <div class="sample1output"></div>
+</div>
+
+<pre>
+    <code class="language-html">&lt;button class=&quot;cdg-button&quot; id=&quot;defaultModal&quot;&gt;Show Modal&lt;/button&gt;
+    &lt;template for=&quot;defaultModal&quot;&gt;
+        &lt;cdg-modal&gt;
+            &lt;cdg-modal-header title=&quot;Title&quot; useCloseButton=&quot;true&quot;&gt;&lt;/cdg-modal-header&gt;
+            &lt;cdg-modal-body&gt;
+                This is place holder text. The basic dialog for modals should contain
+                only valuable and relevant information. Simplify dialogs by removing
+                unnecessary elements or content that does not support user tasks. If you
+                find that the number of required elements for your design are making the
+                dialog excessively large, then try a different design solution.
+            &lt;/cdg-modal-body&gt;
+            &lt;cdg-modal-actions&gt;
+                &lt;div class=&quot;cdg-separator&quot;&gt;&lt;/div&gt;
+                &lt;button class=&quot;cdg-button secondary&quot; id=&quot;cancelButton&quot;&gt;Cancel&lt;/button&gt;
+                &lt;button class=&quot;cdg-button&quot; id=&quot;okButton&quot;&gt;Approve&lt;/button&gt;
+            &lt;/cdg-modal-actions&gt;
+        &lt;/cdg-modal&gt;
+    &lt;/template&gt;
+&lt;div class=&quot;sample1output&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  const output1 = document.querySelector('.sample1output');
+  const button = document.querySelector('#defaultModal');
+  const modal = document
+    .querySelector('[for=&quot;defaultModal&quot;]')
+    .content.firstElementChild.cloneNode(true);
+  const cancelButton = modal.querySelector('#cancelButton');
+  const okButton = modal.querySelector('#okButton');
+
+  modal.addEventListener('close', () =&gt; {
+    output1.textContent = 'Dialog is closed!';
+  });
+
+  okButton.addEventListener('click', () =&gt; {
+    modal.close();
+    output1.textContent += &quot; You've approved it!&quot;;
+  });
+
+  cancelButton.addEventListener('click', () =&gt; {
+    modal.close();
+    output1.textContent += &quot; You've cancelled it!&quot;;
+  });
+
+  button.addEventListener('click', () =&gt; {
+    cdgDialogService.show('sampleDefaultModal', modal);
+  });
+&lt;/script&gt;
+    </code>
+</pre>
+
+<h3 class="sample-section-title">Large</h3>
+
+<label class="cdg-input-group" style="width: 300px">
+  <span class="cdg-input-label">Dialog size</span>
+  <cdg-dropdown id="sizing" placeholder="Select an item">
+    <cdg-dropdown-option value="small"> Small </cdg-dropdown-option>
+    <cdg-dropdown-option value="medium"> Medium </cdg-dropdown-option>
+    <cdg-dropdown-option value="large" selected="true">
+      Large
+    </cdg-dropdown-option>
+    <cdg-dropdown-option value="auto"> Auto </cdg-dropdown-option>
+  </cdg-dropdown>
+</label>
+
+<div class="sample-section">
+  <button class="cdg-button" id="largeModal">Show Large Modal</button>
+  <template for="largeModal">
+    <cdg-modal size="large">
+      <cdg-modal-header
+        title="I'm a large modal"
+        useCloseButton="true"
+      ></cdg-modal-header>
+      <cdg-modal-body>
+        <h2>Sample of dialog content</h2>
+        <p>
+          This is place holder text. The basic dialog for modals should contain
+          only valuable and relevant information. Simplify dialogs by removing
+          unnecessary elements or content that does not support user tasks. If
+          you find that the number of required elements for your design are
+          making the dialog excessively large, then try a different design
+          solution.
+        </p>
+
+        <img
+          src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(16).webp"
+          alt="sample image"
+          style="width: 100%"
+        />
+
+        <p>
+          This is place holder text. The basic dialog for modals should contain
+          only valuable and relevant information. Simplify dialogs by removing
+          unnecessary elements or content that does not support user tasks. If
+          you find that the number of required elements for your design are
+          making the dialog excessively large, then try a different design
+          solution.
+        </p>
+
+        <img
+          src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(17).webp"
+          alt="sample image"
+          style="width: 100%"
+        />
+        <p>
+          This is place holder text. The basic dialog for modals should contain
+          only valuable and relevant information. Simplify dialogs by removing
+          unnecessary elements or content that does not support user tasks. If
+          you find that the number of required elements for your design are
+          making the dialog excessively large, then try a different design
+          solution.
+        </p>
+      </cdg-modal-body>
+      <cdg-modal-actions>
+        <a href="http://google.com" target="_blank" class="cdg-button link">
+          Details
+        </a>
+        <div class="cdg-separator"></div>
+        <button class="cdg-button secondary" id="largeCancelButton">
+          Cancel
+        </button>
+        <button class="cdg-button" id="largeOkButton">Approve</button>
+      </cdg-modal-actions>
+    </cdg-modal>
+  </template>
+</div>
+
+<pre>
+    <code class="language-html">&lt;button class=&quot;cdg-button&quot; id=&quot;defaultModal&quot;&gt;Show Modal&lt;/button&gt;
+&lt;template for=&quot;defaultModal&quot;&gt;
+    &lt;cdg-modal size=&quot;small | medium | large | auto&quot;&gt;
+        &lt;cdg-modal-header title=&quot;Title&quot; useCloseButton=&quot;true&quot;&gt;&lt;/cdg-modal-header&gt;
+        &lt;cdg-modal-body&gt;
+            // Any content is here
+        &lt;/cdg-modal-body&gt;
+        &lt;cdg-modal-actions&gt;
+            &lt;div class=&quot;cdg-separator&quot;&gt;&lt;/div&gt;
+            &lt;button class=&quot;cdg-button secondary&quot; id=&quot;cancelButton&quot;&gt;Cancel&lt;/button&gt;
+            &lt;button class=&quot;cdg-button&quot; id=&quot;okButton&quot;&gt;Approve&lt;/button&gt;
+        &lt;/cdg-modal-actions&gt;
+    &lt;/cdg-modal&gt;
+&lt;/template&gt;
+&lt;div class=&quot;sample1output&quot;&gt;&lt;/div&gt;</code>
+</pre>
+
+<script>
+  const output1 = document.querySelector('.sample1output');
+  const button = document.querySelector('#defaultModal');
+  const modal = document
+    .querySelector('[for="defaultModal"]')
+    .content.firstElementChild.cloneNode(true);
+  const cancelButton = modal.querySelector('#cancelButton');
+  const okButton = modal.querySelector('#okButton');
+
+  modal.addEventListener('close', () => {
+    output1.textContent = 'Dialog is closed!';
+  });
+
+  okButton.addEventListener('click', () => {
+    modal.close();
+    output1.textContent += " You've approved it!";
+  });
+
+  cancelButton.addEventListener('click', () => {
+    modal.close();
+    output1.textContent += " You've cancelled it!";
+  });
+
+  button.addEventListener('click', () => {
+    cdgDialogService.show('sampleDefaultModal', modal);
+  });
+
+  const output2 = document.querySelector('.sample2output');
+  const largeSampleButton = document.querySelector('#largeModal');
+  const largeModal = document
+    .querySelector('[for="largeModal"]')
+    .content.firstElementChild.cloneNode(true);
+  const largeCancelButton = largeModal.querySelector('#largeCancelButton');
+  const largeOkButton = largeModal.querySelector('#largeOkButton');
+
+  const sizeDropdown = document.querySelector('#sizing');
+  sizeDropdown.addEventListener('onchangevalue', (event) => {
+    console.log(event.detail);
+    largeModal.setAttribute('size', event.detail);
+  });
+
+  largeModal.addEventListener('close', () => {
+    output2.textContent = 'Dialog is closed!';
+  });
+
+  largeOkButton.addEventListener('click', () => {
+    largeModal.close();
+    output2.textContent += " You've approved it!";
+  });
+
+  largeCancelButton.addEventListener('click', () => {
+    largeModal.close();
+    output2.textContent += " You've cancelled it!";
+  });
+
+  largeSampleButton.addEventListener('click', () => {
+    cdgDialogService.show('sampleLargeModal', largeModal);
+  });
+</script>

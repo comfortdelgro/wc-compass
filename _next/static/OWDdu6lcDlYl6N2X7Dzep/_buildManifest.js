@@ -1,0 +1,1 @@
+self.__BUILD_MANIFEST={__rewrites:{beforeFiles:[],afterFiles:[{source:"/wc-compass/public/index.html",destination:"/wc-compass/pages/api/index.js"}],fallback:[]},"/":["static/chunks/pages/index-9e42abae0e9d6ac5.js"],"/_error":["static/chunks/pages/_error-398126cf0c3225a0.js"],sortedPages:["/","/_app","/_error"]},self.__BUILD_MANIFEST_CB&&self.__BUILD_MANIFEST_CB();
