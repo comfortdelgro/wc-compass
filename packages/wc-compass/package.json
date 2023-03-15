@@ -1,5 +1,5 @@
 {
-  "name": "wc-compass",
+  "name": "@comfortdelgro/wc-compass",
   "version": "0.0.0",
   "main": "./index.tsx",
   "types": "./index.tsx",
@@ -32,4 +32,3 @@
     "webpack-dev-server": "^4.11.1"
   }
 }
-
