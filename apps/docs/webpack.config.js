@@ -9,7 +9,7 @@ module.exports = {
   entry: { sidebar: './public/sidebar.js' },
   mode: 'development',
   output: {
-    path: path.resolve(__dirname, './public/dist'),
+    path: path.resolve(__dirname, './public/bundled'),
     filename: 'main.js',
     library: 'wc-compass', // if you keen to have a name for library
   },
@@ -73,7 +73,7 @@ module.exports = {
     extensions: ['*', '.js', '.jsx'],
   },
   output: {
-    path: path.resolve(__dirname, './public/dist'),
+    path: path.resolve(__dirname, './public/bundled'),
     filename: devMode ? '[name].min.js' : '[name].' + version + '.min',
     chunkFilename: '[name].js',
   },

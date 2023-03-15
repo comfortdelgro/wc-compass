@@ -1,0 +1,145 @@
+<h2>Progress Bar</h2>
+<p>
+  A progress bar is used for a visual representation of completion for an
+  operation or process.
+</p>
+
+<h3 class="sample-section-title">Default</h3>
+<section class="sample-percentage">
+  <div class="sample-section" style="display: block">
+    <cdg-progress percentage="0"></cdg-progress>
+  </div>
+  <div class="sample-section" style="display: block">
+    <cdg-progress percentage="0" size="medium"></cdg-progress>
+  </div>
+  <div class="sample-section" style="display: block">
+    <cdg-progress percentage="0" size="large"></cdg-progress>
+  </div>
+  <div class="sample-section" style="display: block">
+    <cdg-progress percentage="0" size="xlarge"></cdg-progress>
+  </div>
+</section>
+
+<pre>
+    <code class="language-html">&lt;cdg-progress percentage=&quot;0&quot;&gt;&lt;/cdg-progress&gt;
+&lt;cdg-progress percentage=&quot;0&quot; size=&quot;medium&quot;&gt;&lt;/cdg-progress&gt;
+&lt;cdg-progress percentage=&quot;0&quot; size=&quot;large&quot;&gt;&lt;/cdg-progress&gt;
+&lt;cdg-progress percentage=&quot;0&quot; size=&quot;xlarge&quot;&gt;&lt;/cdg-progress&gt;</code>
+</pre>
+
+<h3 class="sample-section-title">Rounded</h3>
+<div class="sample-section" style="display: block">
+  <cdg-progress percentage="50" rounded></cdg-progress>
+</div>
+<div class="sample-section" style="display: block">
+  <cdg-progress percentage="50" size="medium" rounded></cdg-progress>
+</div>
+<div class="sample-section" style="display: block">
+  <cdg-progress percentage="50" size="large" rounded></cdg-progress>
+</div>
+<div class="sample-section" style="display: block">
+  <cdg-progress percentage="50" size="xlarge" rounded></cdg-progress>
+</div>
+
+<pre>
+    <code class="language-html">&lt;cdg-progress percentage=&quot;0&quot; rounded&gt;&lt;/cdg-progress&gt;
+&lt;cdg-progress percentage=&quot;0&quot; size=&quot;medium&quot; rounded&gt;&lt;/cdg-progress&gt;
+&lt;cdg-progress percentage=&quot;0&quot; size=&quot;large&quot; rounded&gt;&lt;/cdg-progress&gt;
+&lt;cdg-progress percentage=&quot;0&quot; size=&quot;xlarge&quot; rounded&gt;&lt;/cdg-progress&gt;</code>
+</pre>
+
+<h3 class="sample-section-title">Indeterminate</h3>
+<section class="sample-percentage">
+  <div class="sample-section" style="display: block">
+    <cdg-progress></cdg-progress>
+  </div>
+  <div class="sample-section" style="display: block">
+    <cdg-progress size="medium"></cdg-progress>
+  </div>
+  <div class="sample-section" style="display: block">
+    <cdg-progress size="large"></cdg-progress>
+  </div>
+  <div class="sample-section" style="display: block">
+    <cdg-progress size="xlarge"></cdg-progress>
+  </div>
+</section>
+
+<pre>
+    <code class="language-html">&lt;cdg-progress&gt;&lt;/cdg-progress&gt;
+&lt;cdg-progress size=&quot;medium&quot;&gt;&lt;/cdg-progress&gt;
+&lt;cdg-progress size=&quot;large&quot;&gt;&lt;/cdg-progress&gt;
+&lt;cdg-progress size=&quot;xlarge&quot;&gt;&lt;/cdg-progress&gt;</code>
+</pre>
+
+<h3 class="sample-section-title">Color</h3>
+<div class="sample-section" style="display: block">
+  <cdg-progress percentage="50" color="#107c10"></cdg-progress>
+</div>
+<div class="sample-section" style="display: block">
+  <cdg-progress percentage="50" size="medium" color="#107c10"></cdg-progress>
+</div>
+<div class="sample-section" style="display: block">
+  <cdg-progress percentage="50" size="large" color="#107c10"></cdg-progress>
+</div>
+<div class="sample-section" style="display: block">
+  <cdg-progress percentage="50" size="xlarge" color="#107c10"></cdg-progress>
+</div>
+
+<pre>
+    <code class="language-html">&lt;cdg-progress percentage=&quot;50&quot; color=&quot;#107c10&quot;&gt;&lt;/cdg-progress&gt;</code>
+</pre>
+
+<h3 class="sample-section-title">With label</h3>
+<div class="sample-section" style="display: block">
+  <div class="cdg-progress-group">
+    <label class="cdg-progress-label">Uploading file</label>
+    <cdg-progress percentage="50" color="#107c10"></cdg-progress>
+    <p class="cdg-progress-description">We're uploading this file</p>
+  </div>
+</div>
+<div class="sample-section" style="display: block">
+  <div class="cdg-progress-group">
+    <label class="cdg-progress-label">This progress label</label>
+    <cdg-progress percentage="50" size="medium"></cdg-progress>
+  </div>
+</div>
+<div class="sample-section" style="display: block">
+  <div class="cdg-progress-group">
+    <cdg-progress percentage="50" size="large"></cdg-progress>
+    <p class="cdg-progress-description">
+      Some text describes about this progressbar
+    </p>
+  </div>
+</div>
+<pre>
+    <code class="language-html">&lt;div class=&quot;cdg-progress-group&quot;&gt;
+    &lt;label class=&quot;cdg-progress-label&quot;&gt;Uploading file&lt;/label&gt;
+    &lt;cdg-progress percentage=&quot;50&quot; color=&quot;#107c10&quot;&gt;&lt;/cdg-progress&gt;
+    &lt;p class=&quot;cdg-progress-description&quot;&gt;We&apos;re uploading this file&lt;/p&gt;
+&lt;/div&gt;</code>
+</pre>
+
+<script>
+  let progress = 0;
+  const progressBars = document
+    .querySelector('.sample-percentage')
+    .querySelectorAll('cdg-progress');
+
+  function countUp() {
+    progress += 1;
+    progressBars.forEach((element) => {
+      element.percentage = progress;
+    });
+
+    if (progress < 100) {
+      setTimeout(() => {
+        countUp();
+      }, 20);
+    } else {
+      progress = 0;
+      countUp();
+    }
+  }
+
+  countUp();
+</script>
