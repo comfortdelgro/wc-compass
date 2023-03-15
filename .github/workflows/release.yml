@@ -29,18 +29,14 @@ jobs:
         run: |
           pnpm run --filter=@comfortdelgro/wc-compass build
 
-      - name: Publish
-        run: pnpm publish --access public --tag latest
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.CDG_PUBLISHER_NPM_TOKEN }}
-          NPM_CONFIG_REGISTRY: 'https://registry.npmjs.org/'
-
-      - name: Create Release Pull Request
-        uses: peter-evans/create-pull-request@v3.9.2
+      - name: Create Release Pull Request or Publish
+        uses: changesets/action@v1
         with:
-          commit-message: 'chore: release'
+          version: pnpm run version
+          publish: pnpm exec changeset publish  --access public --tag latest
+          commit: 'chore: release'
           title: 'A New Release'
-          body: 'This PR includes the latest changes.'
-          branch: 'release'
+          setupGitUser: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.CDG_PUBLISHER_NPM_TOKEN }}
