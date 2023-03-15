@@ -1,6 +1,6 @@
 module.exports = {
   reactStrictMode: true,
-  transpilePackages: ['ui'],
+  transpilePackages: ['wc-compass'],
   rewrites: async () => [
     {
       source: '/public/index.html',
