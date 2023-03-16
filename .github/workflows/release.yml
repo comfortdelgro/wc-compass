@@ -13,6 +13,11 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
 
+      - name: Setup Bot
+        run: |
+          git config --global user.email "services.shared@zig.live"
+          git config --global user.name "CDG Zig Bot"
+
       - name: Setup PNPM
         uses: pnpm/action-setup@v2
 
