@@ -5,7 +5,7 @@
   <cdg-pagination
     id="simple-pagination"
     current-page="1"
-    total="50"
+    total="30"
     page-size="10"
   ></cdg-pagination>
 </div>
@@ -14,7 +14,7 @@
   <code class="language-html">&lt;cdg-pagination
   id=&quot;simple-pagination&quot;
   current-page=&quot;1&quot;
-  total=&quot;50&quot;
+  total=&quot;30&quot;
   page-size=&quot;10&quot;
 &gt;&lt;/cdg-pagination&gt;
 &lt;script&gt;
@@ -53,10 +53,10 @@ paging.addEventListener(&apos;navigate&apos;, (data) =&gt; {
 &lt;/script&gt;</code>
 </pre>
 
-<h3 class="sample-section-title">Active page 2</h3>
+<h3 class="sample-section-title">Active page 10</h3>
 <div class="sample-section">
   <cdg-pagination
-    current-page="2"
+    current-page="10"
     total="250"
     page-size="10"
     id="sample-pagination1"
@@ -78,6 +78,86 @@ paging1.addEventListener(&apos;navigate&apos;, (data) =&gt; {
   paging1.currentPage = data.detail;
 });
 &lt;/script&gt;</code>
+</pre>
+
+<h3 class="sample-section-title">Number of buttons</h3>
+<div class="sample-section">
+  <cdg-pagination
+    current-page="20"
+    total="600"
+    page-size="10"
+    display-button-count="10"
+  ></cdg-pagination>
+</div>
+
+<pre>
+  <code class="language-html">&lt;cdg-pagination
+  current-page=&quot;20&quot;
+  total=&quot;600&quot;
+  page-size=&quot;10&quot;
+  display-button-count=&quot;10&quot;
+&gt;&lt;/cdg-pagination&gt;</code>
+</pre>
+
+<h3 class="sample-section-title">Button as Link</h3>
+<div class="sample-section">
+  <cdg-link-pagination>
+    <a class="cdg-button" href="#pagination?page=19">
+      <cdg-icon name="arrowLeft" size="16"></cdg-icon>
+    </a>
+    <a class="cdg-button" href="#pagination?page=1">1</a>
+    <a class="cdg-button" href="#pagination?page=10">...</a>
+
+    <div class="cdg-pagination-pages">
+      <a class="cdg-button" href="#pagination?page=15">15</a>
+      <a class="cdg-button" href="#pagination?page=16">16</a>
+      <a class="cdg-button" href="#pagination?page=17">17</a>
+      <a class="cdg-button" href="#pagination?page=18">18</a>
+      <a class="cdg-button" href="#pagination?page=19">19</a>
+      <a class="cdg-button active" href="#pagination?page=20">20</a>
+      <a class="cdg-button" href="#pagination?page=21">21</a>
+      <a class="cdg-button" href="#pagination?page=22">22</a>
+      <a class="cdg-button" href="#pagination?page=23">23</a>
+      <a class="cdg-button" href="#pagination?page=24">24</a>
+      <a class="cdg-button" href="#pagination?page=25">25</a>
+    </div>
+
+    <a class="cdg-button" href="#pagination?page=30">...</a>
+    <a class="cdg-button" href="#pagination?page=60">60</a>
+    <a class="cdg-button" href="#pagination?page=21">
+      <cdg-icon name="arrowRight" size="16"></cdg-icon>
+    </a>
+  </cdg-link-pagination>
+</div>
+
+<pre>
+  <code class="language-html">&lt;cdg-link-pagination&gt;
+  &lt;a class=&quot;cdg-button&quot; href=&quot;#pagination?page=19&quot;&gt;
+    &lt;cdg-icon name=&quot;arrowLeft&quot; size=&quot;16&quot;&gt;&lt;/cdg-icon&gt;
+  &lt;/a&gt;
+  &lt;a class=&quot;cdg-button&quot; href=&quot;#pagination?page=1&quot;&gt;1&lt;/a&gt;
+  &lt;a class=&quot;cdg-button&quot; href=&quot;#pagination?page=10&quot;&gt;...&lt;/a&gt;
+
+  &lt;div class=&quot;cdg-pagination-pages&quot;&gt;
+    &lt;a class=&quot;cdg-button&quot; href=&quot;#pagination?page=15&quot;&gt;15&lt;/a&gt;
+    &lt;a class=&quot;cdg-button&quot; href=&quot;#pagination?page=16&quot;&gt;16&lt;/a&gt;
+    &lt;a class=&quot;cdg-button&quot; href=&quot;#pagination?page=17&quot;&gt;17&lt;/a&gt;
+    &lt;a class=&quot;cdg-button&quot; href=&quot;#pagination?page=18&quot;&gt;18&lt;/a&gt;
+    &lt;a class=&quot;cdg-button&quot; href=&quot;#pagination?page=19&quot;&gt;19&lt;/a&gt;
+    &lt;a class=&quot;cdg-button active&quot; href=&quot;#pagination?page=20&quot;&gt;20&lt;/a&gt;
+    &lt;a class=&quot;cdg-button&quot; href=&quot;#pagination?page=21&quot;&gt;21&lt;/a&gt;
+    &lt;a class=&quot;cdg-button&quot; href=&quot;#pagination?page=22&quot;&gt;22&lt;/a&gt;
+    &lt;a class=&quot;cdg-button&quot; href=&quot;#pagination?page=23&quot;&gt;23&lt;/a&gt;
+    &lt;a class=&quot;cdg-button&quot; href=&quot;#pagination?page=24&quot;&gt;24&lt;/a&gt;
+    &lt;a class=&quot;cdg-button&quot; href=&quot;#pagination?page=25&quot;&gt;25&lt;/a&gt;
+  &lt;/div&gt;
+
+  &lt;a class=&quot;cdg-button&quot; href=&quot;#pagination?page=30&quot;&gt;...&lt;/a&gt;
+  &lt;a class=&quot;cdg-button&quot; href=&quot;#pagination?page=60&quot;&gt;60&lt;/a&gt;
+  &lt;a class=&quot;cdg-button&quot; href=&quot;#pagination?page=21&quot;&gt;
+    &lt;cdg-icon name=&quot;arrowRight&quot; size=&quot;16&quot;&gt;&lt;/cdg-icon&gt;
+  &lt;/a&gt;
+&lt;/cdg-link-pagination&gt;</code>
 </pre>
 
 <script>
