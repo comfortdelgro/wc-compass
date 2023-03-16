@@ -8,7 +8,7 @@ export class Pointer {
   currentPoint = new Position();
 
   start(position) {
-this.startPoint = position;
+    this.startPoint = position;
   }
 
   update(position) {

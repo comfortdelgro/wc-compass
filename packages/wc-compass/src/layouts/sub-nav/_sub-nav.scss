@@ -4,6 +4,7 @@ cdg-sub-nav,
   width: 200px;
   padding-bottom: 8px;
   flex-shrink: 0;
+  overflow: auto;
 }
 
 cdg-sub-nav-group,
@@ -78,9 +79,12 @@ cdg-sub-nav-group,
   padding: 8px 12px;
   color: var(--grey80);
   border-radius: 4px;
-  display: flex;
+  display: inline-flex;
   gap: 8px;
   align-items: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   outline-offset: -1px;
 
   &.active,

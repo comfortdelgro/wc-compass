@@ -1,11 +1,16 @@
+const DISPLAY_PAGES = 3;
+
 export class CdgPagination extends HTMLElement {
   static get observedAttributes() {
-    return ['total', 'current-page', 'page-size'];
+    return ['total', 'current-page', 'page-size', 'display-button-count'];
   }
 
-  totalPage = 0;
-  constructor() {
-    super();
+  get displayButtonCount() {
+    return Number(this.getAttribute('display-button-count')) || DISPLAY_PAGES;
+  }
+
+  set displayButtonCount(page) {
+    this.setAttribute('display-button-count', page);
   }
 
   get currentPage() {
@@ -32,28 +37,81 @@ export class CdgPagination extends HTMLElement {
     this.setAttribute('page-size', pageSize);
   }
 
+  totalPage = 0;
+  batch = [];
+
+  pages;
+  btnFirstPage;
+  btnLastPage;
+  btnPrev;
+  btnNext;
+  btnMoreLeft;
+  btnMoreRight;
+
+  constructor() {
+    super();
+  }
+
   connectedCallback() {
     this.classList.add('cdg-pagination');
     this.ariaLabel = 'Page navigation';
     this.totalPage = Math.ceil(this.total / this.pageSize);
 
-    this.attachButtons();
+    this.btnPrev = this.createPrevButton();
+    this.appendChild(this.btnPrev);
+
+    this.btnFirstPage = this.createPageIndex(1);
+    this.appendChild(this.btnFirstPage);
+
+    this.btnMoreLeft = this.createDotButton();
+    this.appendChild(this.btnMoreLeft);
+    this.btnMoreLeft.addEventListener('click', this.handleMoreLeft.bind(this));
+
+    this.pages = document.createElement('div');
+    this.pages.classList.add('cdg-pagination-pages');
+    this.appendChild(this.pages);
+
+    this.btnMoreRight = this.createDotButton();
+    this.appendChild(this.btnMoreRight);
+    this.btnMoreRight.addEventListener(
+      'click',
+      this.handleMoreRight.bind(this)
+    );
+
+    this.btnLastPage = this.createPageIndex(this.totalPage);
+    this.appendChild(this.btnLastPage);
+
+    this.btnNext = this.createNextButton();
+    this.appendChild(this.btnNext);
+
+    this.updateBatch();
+    this.setActiveButton(null, this.currentPage);
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
-    if (attr === 'current-page') {
-      this.setActiveButton(Number(oldValue), Number(newValue));
+    switch (attr) {
+      case 'current-page':
+        this.setActiveButton(Number(oldValue), Number(newValue));
+        break;
+
+      case 'total':
+        // console.log(this.total);
+        break;
+
+      default:
+        break;
     }
   }
 
   setActiveButton(oldValue, newValue) {
+    const buttons = this.querySelectorAll('button');
     // Set active
-    for (let button of this.children) {
-      if (button) {
-        const buttonValue = Number(button.textContent);
+    for (let button of buttons) {
+      const buttonValue = Number(button.textContent);
+      if (buttonValue) {
         if (buttonValue === newValue) {
           button.classList.add('active');
-        } else if (buttonValue === oldValue) {
+        } else if (oldValue && buttonValue === oldValue) {
           button.classList.remove('active');
         }
       }
@@ -118,40 +176,115 @@ export class CdgPagination extends HTMLElement {
     return button;
   }
 
-  attachButtons() {
-    // Empty the element
-    this.textContent = '';
+  attachButtonsByBatch() {
+    this.pages.textContent = '';
+    for (let i = 0; i < this.batch.length; i++) {
+      this.pages.appendChild(this.createPageIndex(this.batch[i]));
+    }
+  }
 
-    let from = this.totalPage;
-    let isOverflow = false;
-    if (this.totalPage > 5) {
-      from = 3;
-      isOverflow = true;
+  batchStartFrom() {
+    const half = Math.floor(this.displayButtonCount / 2);
+
+    let start = this.currentPage - half;
+    while (start < 1) {
+      start += 1;
     }
 
-    // Start part
-    if (isOverflow) {
-      // Let's add the left arrow icon button
-      this.appendChild(this.createPrevButton());
+    while (start + half * 2 > this.totalPage) {
+      start -= 1;
     }
 
-    // Middle part
-    for (let i = 1; i <= from; i++) {
-      this.appendChild(this.createPageIndex(i));
-    }
-    if (isOverflow) {
-      this.appendChild(this.createDotButton());
-      this.appendChild(this.createPageIndex(this.totalPage));
+    return start;
+  }
 
-      // Let's add the right arrow icon button
-      this.appendChild(this.createNextButton());
+  updateBatch() {
+    this.batch = [];
+    if (this.totalPage > this.displayButtonCount) {
+      const start = this.batchStartFrom();
+      for (let i = 0; i < this.displayButtonCount; i++) {
+        this.batch.push(start + i);
+      }
+    } else {
+      for (let i = 1; i <= this.totalPage; i++) {
+        this.batch.push(i);
+      }
     }
+    this.attachButtonsByBatch();
+    this.updateButtonVisible();
+  }
 
-    this.setActiveButton(0, this.currentPage);
+  updateButtonVisible() {
+    // Prev & Next button
+    if (this.totalPage <= this.displayButtonCount) {
+      this.btnPrev.style.display = 'none';
+      this.btnNext.style.display = 'none';
+      this.btnMoreLeft.style.display = 'none';
+      this.btnMoreRight.style.display = 'none';
+      this.btnFirstPage.style.display = 'none';
+      this.btnLastPage.style.display = 'none';
+    } else {
+      // More left button
+      if (this.batch[0] < 3) {
+        this.btnMoreLeft.style.display = 'none';
+      } else {
+        this.btnMoreLeft.style.display = 'inline-flex';
+      }
+
+      // Fist page button
+      if (this.batch[0] > 1) {
+        this.btnFirstPage.style.display = 'inline-flex';
+      } else {
+        this.btnFirstPage.style.display = 'none';
+      }
+
+      // More right button
+      if (this.batch[this.batch.length - 1] > this.totalPage - 2) {
+        this.btnMoreRight.style.display = 'none';
+      } else {
+        this.btnMoreRight.style.display = 'inline-flex';
+      }
+
+      // Last page button
+      if (this.batch[this.batch.length - 1] < this.totalPage) {
+        this.btnLastPage.style.display = 'inline-flex';
+      } else {
+        this.btnLastPage.style.display = 'none';
+      }
+
+      // Prev button
+      if (this.currentPage === 1) {
+        this.btnPrev.setAttribute('disabled', '');
+      } else {
+        this.btnPrev.removeAttribute('disabled');
+      }
+
+      // Prev button
+      if (this.currentPage === this.totalPage) {
+        this.btnNext.setAttribute('disabled', '');
+      } else {
+        this.btnNext.removeAttribute('disabled');
+      }
+    }
+  }
+
+  handleMoreLeft() {
+    this.setIndex(this.currentPage - this.displayButtonCount);
+  }
+
+  handleMoreRight() {
+    this.setIndex(this.currentPage + this.displayButtonCount);
   }
 
   handleItemClick(event, index) {
-    this.onnavigate && this.onnavigate(index);
+    this.setIndex(index);
+  }
+
+  setIndex(index) {
+    const oldIndex = this.currentPage;
+    this.currentPage = index;
+    this.updateBatch();
+    this.setActiveButton(oldIndex, this.currentPage);
     this.dispatchEvent(new CustomEvent('navigate', { detail: index }));
   }
 }

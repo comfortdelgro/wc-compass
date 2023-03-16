@@ -15,6 +15,7 @@ export class CdgDialogAlert extends CdgDialogBase {
     this.actions = document.createElement('cdg-dialog-actions');
     this.actions.classList.add('center');
     this.executeButton = document.createElement('button');
+    this.executeButton.setAttribute('execute-button', '');
     this.executeButton.setAttribute('class', 'cdg-button secondary');
     this.executeButton.textContent = this.executeLabel || 'Okay';
     this.closeListener = this.close.bind(this);

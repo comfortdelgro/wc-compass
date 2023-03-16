@@ -1,0 +1,135 @@
+.cdg-tag-box {
+  display: flex;
+  flex-direction: column;
+  min-height: 44px;
+  gap: 8px;
+  padding: 8px 16px 0;
+  width: fit-content;
+
+  &.cdg-tag-box-label-left {
+    flex-direction: row;
+    gap: 32px;
+    padding-top: 0;
+  }
+
+  .cdg-input-label {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+.cdg-tag-box-main {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cdg-tag-box-container {
+  width: 327px;
+  padding: 8px 16px;
+  background-color: var(--background);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+
+  &.open {
+    flex-wrap: wrap;
+  }
+
+  &:focus-within {
+    outline: 2px solid #00a3ff;
+  }
+
+  .cdg-tag-box-input-text {
+    height: 34px;
+    border: none;
+    width: 100%;
+  }
+
+  .cdg-tag-box-pre-icon {
+    min-width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cdg-tag-box-toggle-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    transition: transform 0.3s linear;
+    background-color: transparent;
+    border: none;
+
+    &.cdg-tag-box-toggle-icon-show {
+      transform: rotate(180deg);
+    }
+  }
+  &.cdg-tag-box-message-box {
+    height: 82px;
+    overflow: auto;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+.cdg-tag-box-item {
+  padding: 8px;
+  background: var(--tag-box-background);
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+
+  .cdg-tag-box-item-close-button {
+    color: var(--primary-color);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  &:hover {
+    background-color: var(--darker-background);
+  }
+  &[disabled] {
+    background-color: var(--secondary-background);
+    opacity: 0.8;
+    cursor: not-allowed;
+    color: var(--grey80);
+    > * {
+      cursor: not-allowed;
+    }
+  }
+  &[error] {
+    border: 1px solid var(--danger);
+  }
+}
+
+.cdg-tag-box-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .cdg-tag-box-bottom-text {
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 15px;
+    color: var(--grey60);
+  }
+}

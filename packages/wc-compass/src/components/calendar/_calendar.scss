@@ -1,7 +1,7 @@
 .cdg-calendar-container {
   display: flex;
   background: var(--background);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-04);
   width: fit-content;
 }
 
@@ -39,6 +39,7 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  color: var(--primary-color);
 }
 .month-selector-right {
   display: flex;
@@ -148,7 +149,7 @@
 }
 
 .day-of-week {
-  color: var(--accent-darker);
+  color: var(--color-week-day);
   font-weight: 600;
   font-size: 12px;
   line-height: 18px;
@@ -188,12 +189,13 @@
     height: 32px;
     button {
       border-radius: 4px;
+      color: var(--primary-color);
       &:hover {
         background-color: var(--grey20);
       }
       &.active-selected-date {
         background-color: var(--accent);
-        color: var(--revese-color);
+        color: #ffffff;
       }
       &.selected-date {
         background-color: var(--grey20);

@@ -51,6 +51,7 @@ export class CdgDialogBase extends HTMLElement {
     this.setAttribute('useCustomContent', useCustomContent);
   }
 
+  cancellable = false;
   content;
   titleElement;
   messageElement;
@@ -59,6 +60,7 @@ export class CdgDialogBase extends HTMLElement {
   cancelButton;
   closeListener;
   executeListener;
+  keyListener;
 
   constructor() {
     super();
@@ -66,7 +68,12 @@ export class CdgDialogBase extends HTMLElement {
 
   connectedCallback() {
     this.classList.add('cdg-dialog');
+    this.setAttribute('aria-modal', true);
     this.attachContent();
+    if (this.cancellable) {
+      this.keyListener = this.handleKeydown.bind(this);
+      this.addEventListener('keydown', this.keyListener);
+    }
   }
 
   attributeChangedCallback(attr) {
@@ -120,6 +127,12 @@ export class CdgDialogBase extends HTMLElement {
       return;
     }
     this.messageElement.textContent = this.message;
+  }
+
+  handleKeydown(event) {
+    if (event.key === 'Escape') {
+      this.close();
+    }
   }
 
   close(answer) {

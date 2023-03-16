@@ -1,0 +1,100 @@
+cdg-quantity-toggle,
+.cdg-quantity-toggle {
+  display: flex;
+  align-items: stretch;
+  width: 328px;
+  min-width: 160px;
+  font-size: 14px;
+  line-height: 21px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+
+  @extend %smoothTransition;
+
+  &:focus-within {
+    border-color: var(--accent);
+
+    .cdg-button {
+      &:first-child {
+        border-right-color: var(--accent);
+      }
+      &:last-child {
+        border-left-color: var(--accent);
+      }
+    }
+  }
+
+  &.error {
+    border-color: var(--danger);
+
+    .cdg-button {
+      &:first-child {
+        border-right-color: var(--danger);
+      }
+      &:last-child {
+        border-left-color: var(--danger);
+      }
+    }
+  }
+
+  input {
+    padding: 12px 16px;
+    flex: 1;
+    appearance: none;
+    box-sizing: border-box;
+    border: none;
+    text-align: center;
+    border-radius: 0;
+    font-weight: 600;
+    background: var(--background);
+    color: var(--primary-color);
+    min-width: 0;
+    outline: none;
+    font-family: var(--font-family);
+
+    &:focus {
+      outline: 2px solid #00a3ff;
+    }
+
+    &[type='number'] {
+      -moz-appearance: textfield; /* Firefox */
+    }
+
+    &[disabled] {
+      cursor: not-allowed;
+      background-color: var(--grey30);
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      /* display: none; <- Crashes Chrome on hover */
+      -webkit-appearance: none;
+      margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+  }
+
+  .cdg-button {
+    background-color: var(--background);
+    color: var(--primary-color);
+    flex-shrink: 0;
+    outline-offset: -1px;
+    border-top: none;
+    border-bottom: none;
+    width: 54px;
+    font-weight: 400;
+    font-size: 18px;
+
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-left: none;
+      border-right: 1px solid var(--border-color);
+    }
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-right: none;
+      border-left: 1px solid var(--border-color);
+    }
+  }
+}
