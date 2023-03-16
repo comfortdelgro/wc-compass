@@ -1,12 +1,12 @@
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const PACKAGE = require('./package.json');
-const version = PACKAGE.version;
+const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const PACKAGE = require('./package.json')
+const version = PACKAGE.version
 
-const devMode = process.env.NODE_ENV !== 'production';
+const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
-  entry: { main: './src/main.js' },
+  entry: {main: './src/main.js'},
   mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -59,4 +59,4 @@ module.exports = {
       chunkFilename: devMode ? '[id].css' : '[id].[contenthash].css',
     }),
   ],
-};
+}

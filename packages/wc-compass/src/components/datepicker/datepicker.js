@@ -1,6 +1,8 @@
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { createFloating } from '../floating-content/floating-content';
 
-const customParseFormat = window.dayjs_plugin_customParseFormat;
+// const customParseFormat = window.dayjs_plugin_customParseFormat;
 dayjs.extend(customParseFormat);
 
 function createInputs(isDouble, disabled, startTitle = '', endTitle = '') {

@@ -40,7 +40,6 @@
   style="flex-direction: column; align-items: flex-start"
 >
   <button class="cdg-button" onclick="showWarning()">Show Warning</button>
-  <div id="output1"></div>
 </div>
 
 <pre>
@@ -55,11 +54,10 @@
             executeLabel: 'Delete',
         });
 
-        const output1 = document.querySelector('#output1');
-
         dialog.addEventListener('close', (event) =&gt; {
-            output1.textContent =
-            'User says: ' + (event.detail ? 'Yes, delete it!' : 'Cancel');
+          cdgToastService.toast(
+            &apos;User says: &apos; + (event.detail ? &apos;Yes, delete it!&apos; : &apos;Cancel&apos;)
+          );
         });
     };
 &lt;/script&gt;</code>
@@ -71,12 +69,10 @@
   style="flex-direction: column; align-items: flex-start"
 >
   <button class="cdg-button" onclick="showConfirm()">Show Confirm</button>
-  <div id="output2"></div>
 </div>
 
 <pre>
     <code class="language-html">&lt;button class=&quot;cdg-button&quot; onclick=&quot;showConfirm()&quot;&gt;Show Confirm&lt;/button&gt;
-&lt;div id=&quot;output2&quot;&gt;&lt;/div&gt;
 
 &lt;script&gt;
     function showConfirm() {
@@ -86,11 +82,10 @@
             executeLabel: 'Execute',
         });
 
-        const output2 = document.querySelector('#output2');
-
         dialog.addEventListener('close', (event) =&gt; {
-            output2.textContent =
-            'User says: ' + (event.detail ? 'Yes, do it!' : 'Cancel');
+          cdgToastService.toast(
+            &apos;User says: &apos; + (event.detail ? &apos;Yes, delete it!&apos; : &apos;Cancel&apos;)
+          );
         });
     };
 &lt;/script&gt;</code>
@@ -113,12 +108,12 @@
           id="sampleTextarea"
           class="cdg-textarea"
           placeholder="Enter your message here"
+          autofocus
         ></textarea>
       </label>
     </div>
   </template>
   <button class="cdg-button" onclick="showConfirmCustom()">Show Confirm</button>
-  <div id="output3"></div>
 </div>
 
 <pre>
@@ -139,7 +134,6 @@
     &lt;/div&gt;
     &lt;/template&gt;
     &lt;button class=&quot;cdg-button&quot; onclick=&quot;showConfirmCustom()&quot;&gt;Show Confirm&lt;/button&gt;
-&lt;div id=&quot;output3&quot;&gt;&lt;/div&gt;
 
 &lt;script&gt;
     function showConfirmCustom() {
@@ -154,14 +148,77 @@
             executeLabel: 'Submit',
         });
 
-        const output3 = document.querySelector('#output3');
+        dialog.addEventListener('close', (event) =&gt; {
+          cdgToastService.toast(
+            event.detail ? &apos;Submit with message &quot;&apos; + textarea.value + &apos;&quot;&apos; : &apos;Cancel&apos;
+          );
+        });
+    };
+&lt;/script&gt;</code>
+</pre>
+
+<h3 class="sample-section-title">Show rating</h3>
+<div
+  class="sample-section"
+  style="flex-direction: column; align-items: flex-start"
+>
+  <template id="showRating">
+    <div class="cdg-dialog-content">
+      <div class="cdg-dialog-header">
+        <h4 class="cdg-dialog-title">Help us to improve</h4>
+        <button class="cdg-button ghost icon" size="small">
+          <cdg-icon name="question" size="24"></cdg-icon>
+        </button>
+      </div>
+      <p class="cdg-dialog-message">How would you rate this product?</p>
+      <div class="cdg-input-group" style="margin-top: 16px">
+        <cdg-rating use-icon autofocus></cdg-rating>
+        <label class="cdg-rating-label">
+          <span>Not satisfied</span>
+          <span>Satisfied</span>
+        </label>
+      </div>
+    </div>
+  </template>
+  <button class="cdg-button" onclick="showRating()">Show Rating</button>
+</div>
+
+<pre>
+    <code class="language-html">&lt;template id=&quot;customConfirmDialog&quot;&gt;
+    &lt;div class=&quot;cdg-dialog-content&quot;&gt;
+        &lt;h4 class=&quot;cdg-dialog-title&quot;&gt;Enter your comments&lt;/h4&gt;
+        &lt;p class=&quot;cdg-dialog-message&quot;&gt;
+        This comment will be sent to us automatically
+        &lt;/p&gt;
+        &lt;label class=&quot;cdg-input-group&quot;&gt;
+        &lt;span class=&quot;cdg-input-label&quot;&gt;Comment field&lt;/span&gt;
+        &lt;textarea
+            id=&quot;sampleTextarea&quot;
+            class=&quot;cdg-textarea&quot;
+            placeholder=&quot;Enter your message here&quot;
+        &gt;&lt;/textarea&gt;
+        &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;/template&gt;
+    &lt;button class=&quot;cdg-button&quot; onclick=&quot;showConfirmCustom()&quot;&gt;Show Confirm&lt;/button&gt;
+
+&lt;script&gt;
+    function showConfirmCustom() {
+        const content = document
+            .querySelector('#customConfirmDialog')
+            .content.firstElementChild.cloneNode(true);
+
+        const textarea = content.querySelector('#sampleTextarea');
+
+        const dialog = cdgDialogService.confirmCustom({
+            content,
+            executeLabel: 'Submit',
+        });
 
         dialog.addEventListener('close', (event) =&gt; {
-            output3.textContent =
-            'User says: ' +
-            (event.detail
-                ? 'Submit with message &quot;' + textarea.value + '&quot;'
-                : 'Cancel');
+          cdgToastService.toast(
+            event.detail ? &apos;Submit with message &quot;&apos; + textarea.value + &apos;&quot;&apos; : &apos;Cancel&apos;
+          );
         });
     };
 &lt;/script&gt;</code>
@@ -188,11 +245,10 @@
       executeLabel: 'Delete',
     });
 
-    const output1 = document.querySelector('#output1');
-
     dialog.addEventListener('close', (event) => {
-      output1.textContent =
-        'User says: ' + (event.detail ? 'Yes, delete it!' : 'Cancel');
+      cdgToastService.toast(
+        'User says: ' + (event.detail ? 'Yes, delete it!' : 'Cancel')
+      );
     });
   };
 
@@ -203,11 +259,10 @@
       executeLabel: 'Execute',
     });
 
-    const output2 = document.querySelector('#output2');
-
     dialog.addEventListener('close', (event) => {
-      output2.textContent =
-        'User says: ' + (event.detail ? 'Yes, do it!' : 'Cancel');
+      cdgToastService.toast(
+        'User says: ' + (event.detail ? 'Yes, delete it!' : 'Cancel')
+      );
     });
   };
 
@@ -223,14 +278,33 @@
       executeLabel: 'Submit',
     });
 
-    const output3 = document.querySelector('#output3');
+    dialog.addEventListener('close', (event) => {
+      cdgToastService.toast(
+        event.detail ? 'Submit with message "' + textarea.value + '"' : 'Cancel'
+      );
+    });
+  };
+
+  window.showRating = () => {
+    let value;
+    const content = document
+      .querySelector('#showRating')
+      .content.firstElementChild.cloneNode(true);
+
+    const rating = content.querySelector('cdg-rating');
+    rating.addEventListener('rate', (event) => {
+      value = event.detail;
+    });
+
+    const dialog = cdgDialogService.confirmCustom({
+      content,
+      executeLabel: 'Submit',
+    });
 
     dialog.addEventListener('close', (event) => {
-      output3.textContent =
-        'User says: ' +
-        (event.detail
-          ? 'Submit with message "' + textarea.value + '"'
-          : 'Cancel');
+      cdgToastService.toast(
+        event.detail ? 'Rated with value: ' + value + '' : 'Cancel'
+      );
     });
   };
 </script>

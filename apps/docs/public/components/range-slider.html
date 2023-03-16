@@ -1,0 +1,30 @@
+<h2>Range Slider</h2>
+
+<h3>Default</h3>
+
+<p>Custom range slider:</p>
+<div style="width: 250px">
+  <cdg-range-slider min="0" max="100" value="50"></cdg-range-slider>
+</div>
+<script>
+  const rangeSlider = document.querySelector('cdg-range-slider');
+  rangeSlider.addEventListener('change', (event) => {
+    const newValue = event.detail.value;
+    console.log('Slider value changed:', newValue);
+  });
+</script>
+
+<h3>Usage</h3>
+
+<pre>
+    <code>&lt;div style=&quot;width: 250px&quot;&gt;
+&lt;cdg-range-slider min=&quot;0&quot; max=&quot;1000&quot; value=&quot;50&quot;&gt;&lt;/cdg-range-slider&gt;
+&lt;/div&gt;
+
+const rangeSlider = document.querySelector('cdg-range-slider');
+rangeSlider.addEventListener('change', (event) => {
+    const newValue = event.detail.value;
+    console.log('Slider value changed:', newValue);
+  });
+</code>
+</pre>

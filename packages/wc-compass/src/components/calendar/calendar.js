@@ -1,5 +1,7 @@
-const weekdayPlugin = window.dayjs_plugin_weekday;
-const weekOfYear = window.dayjs_plugin_weekOfYear;
+import dayjs from 'dayjs';
+import weekdayPlugin from 'dayjs/plugin/weekday';
+import weekOfYear from 'dayjs/plugin/weekOfYear';
+
 dayjs.extend(weekdayPlugin);
 dayjs.extend(weekOfYear);
 
