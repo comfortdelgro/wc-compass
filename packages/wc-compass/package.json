@@ -1,10 +1,9 @@
 {
   "name": "@comfortdelgro/wc-compass",
-  "version": "0.0.1",
+  "version": "0.0.1-test2",
   "private": false,
   "license": "MIT",
-  "main": "./index.tsx",
-  "types": "./index.tsx",
+  "main": "dist/main.min.js",
   "scripts": {
     "build": "webpack build --config webpack.config.js --mode production",
     "lint": "eslint *.ts*"
@@ -34,8 +33,6 @@
     "webpack-dev-server": "^4.11.1"
   },
   "publishConfig": {
-    "access": "public",
-    "directory": "dist",
-    "linkDirectory": true
+    "access": "public"
   }
 }
