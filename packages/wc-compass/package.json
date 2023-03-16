@@ -1,6 +1,7 @@
 {
   "name": "@comfortdelgro/wc-compass",
   "version": "0.0.1",
+  "private": false,
   "license": "MIT",
   "main": "./index.tsx",
   "types": "./index.tsx",
