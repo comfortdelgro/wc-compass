@@ -27,7 +27,7 @@ export class CdgIcon extends CdgIconSize {
 
   fetchAndShowIcon() {
     // if (this.getAttribute('source') === 'host') {
-    this.iconSource = './images/'
+    this.iconSource = './bundled/images/'
     // }
 
     if (this.name) {
