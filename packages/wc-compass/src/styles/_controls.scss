@@ -34,6 +34,9 @@ input.cdg-input {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  &.row {
+    flex-direction: row;
+  }
   .cdg-input-label {
     font-weight: 600;
     font-size: 14px;
