@@ -1,12 +1,12 @@
 {
   "name": "@comfortdelgro/wc-compass",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "license": "MIT",
   "main": "./index.tsx",
   "types": "./index.tsx",
-  "license": "MIT",
   "scripts": {
-    "lint": "eslint *.ts*",
-    "build": "webpack build --config webpack.config.js --mode production"
+    "build": "webpack build --config webpack.config.js --mode production",
+    "lint": "eslint *.ts*"
   },
   "dependencies": {
     "dayjs": "^1.11.7"
