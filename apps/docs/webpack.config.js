@@ -1,12 +1,15 @@
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const PACKAGE = require('./package.json');
-const version = PACKAGE.version;
+const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const PACKAGE = require('./package.json')
+const version = PACKAGE.version
 
-const devMode = process.env.NODE_ENV !== 'production';
+const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
-  entry: { sidebar: './public/sidebar.js' },
+  entry: {
+    docs: './public/demo.js',
+    compassDesign: '../../packages/wc-compass/src/index.js',
+  },
   mode: 'development',
   output: {
     path: path.resolve(__dirname, './public/bundled'),
@@ -85,4 +88,4 @@ module.exports = {
       chunkFilename: devMode ? '[id].css' : '[id].[contenthash].css',
     }),
   ],
-};
+}

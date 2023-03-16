@@ -2,7 +2,17 @@ import { CdgIconSize } from '../../shared/core.js';
 import { downloadSVGContent, toLowerCaseAndDash } from '../../shared/utilities';
 
 export class CdgIcon extends CdgIconSize {
-  name = '';
+  static get observedAttributes() {
+    return ['name', 'size'];
+  }
+
+  get name() {
+    return this.getAttribute('name');
+  }
+
+  set name(name) {
+    this.setAttribute('name', name);
+  }
 
   iconSource =
     'https://cdn.jsdelivr.net/gh/comfortdelgro/wc-compass-design@main/dist/images/';
@@ -13,7 +23,9 @@ export class CdgIcon extends CdgIconSize {
 
   connectedCallback() {
     this.classList.add('cdg-icon');
-    this.name = this.getAttribute('name');
+  }
+
+  fetchAndShowIcon() {
     if (this.getAttribute('source') === 'host') {
       this.iconSource = './images/';
     }
@@ -25,7 +37,20 @@ export class CdgIcon extends CdgIconSize {
 
   download(url) {
     downloadSVGContent(url).then((data) => {
+      this.textContent = '';
       this.appendChild(data);
     });
+  }
+
+  attributeChangedCallback(attr, oldValue, newValue) {
+    super.attributeChangedCallback(attr, oldValue, newValue);
+    switch (attr) {
+      case 'name':
+        this.fetchAndShowIcon();
+        break;
+
+      default:
+        break;
+    }
   }
 }

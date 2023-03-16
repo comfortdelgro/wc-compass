@@ -1,0 +1,143 @@
+.cdg-toast-container {
+  --toast-container-height: 80px;
+  position: fixed;
+  top: var(--toast-container-height);
+  max-height: calc(100vh - var(--toast-container-height));
+  padding: 4px 20px;
+  right: 0;
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 61;
+  @extend %quickSmoothTransition;
+}
+
+cdg-toast,
+.cdg-toast {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 420px;
+  padding: 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 21px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  background-color: var(--background);
+  box-shadow: var(--shadow-03);
+  animation: fadeInLeft 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  &.fade-out {
+    animation: fadeOutRight 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  &[color='grey'] {
+    background-color: var(--grey30);
+  }
+
+  &[color='blue'] {
+    background-color: var(--blue20);
+  }
+
+  &[color='green'] {
+    background-color: var(--status-success-background);
+  }
+
+  &[color='red'] {
+    background-color: var(--status-error-background);
+  }
+
+  &:has(cdg-toast-title),
+  &:has(.cdg-toast-title) {
+    padding: 0;
+    cdg-toast-actions,
+    .cdg-toast-actions {
+      padding: 0 16px 16px 16px;
+    }
+  }
+}
+
+cdg-toast-header,
+.cdg-toast-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  &:has(cdg-toast-title),
+  &:has(.cdg-toast-title) {
+    padding: 16px;
+    background-color: var(--background);
+  }
+
+  cdg-toast-message,
+  .cdg-toast-message {
+    font-weight: 600;
+    flex: 1;
+    padding: 0;
+  }
+}
+
+cdg-toast-title,
+.cdg-toast-title {
+  font-size: 16px;
+  font-weight: 600;
+  flex: 1;
+}
+
+cdg-toast-message,
+.cdg-toast-message {
+  color: var(--grey110);
+  padding: 0 16px;
+}
+
+cdg-toast-time,
+.cdg-toast-time {
+  font-size: 12px;
+  color: var(--grey70);
+}
+
+cdg-toast-top-actions,
+.cdg-toast-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  .cdg-button.link {
+    color: var(--info);
+  }
+}
+
+cdg-toast-actions,
+.cdg-toast-actions {
+  display: flex;
+  gap: 16px;
+  .cdg-button.secondary {
+    background-color: var(--grey10);
+    border-color: var(--grey10);
+    color: var(--primary-text);
+    &:hover {
+      border-color: var(--grey10);
+    }
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeOutRight {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(100%, 0, 0);
+  }
+}

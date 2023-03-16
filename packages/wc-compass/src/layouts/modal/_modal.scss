@@ -6,6 +6,10 @@
   align-items: center;
   justify-content: center;
   inset: 0;
+  &.right {
+    justify-content: flex-end;
+    align-items: stretch;
+  }
 }
 
 cdg-modal,
@@ -37,6 +41,15 @@ cdg-modal-header,
   display: flex;
   gap: 16px;
   border-bottom: 1px solid var(--grey30);
+}
+
+.cdg-dialog-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  .cdg-dialog-title {
+    flex: 1;
+  }
 }
 
 cdg-modal-body,

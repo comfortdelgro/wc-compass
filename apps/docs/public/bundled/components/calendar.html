@@ -11,12 +11,17 @@
 
 <h3 class="sample-section-title">Double picker</h3>
 <div class="cdg-calendar-container">
-  <cdg-calendar double has-bottom></cdg-calendar>
+  <cdg-calendar double has-bottom id="test-double-calendar"></cdg-calendar>
 </div>
 
 <script>
   const test = document.querySelector('#test-calendar');
   test.addEventListener('ondateclick', function (event) {
-    console.log(event.detail);
+    cdgToastService.toast(event.detail);
+  });
+
+  const testDouble = document.querySelector('#test-double-calendar');
+  testDouble.addEventListener('ondateclick', function (event) {
+    cdgToastService.toast(event.detail);
   });
 </script>

@@ -46,6 +46,16 @@ import { CdgTimelineCardHeader } from './timeline/timeline-card-header';
 import { CdgTimelineCardBody } from './timeline/timeline-card-body';
 import { CdgSubNav } from './sub-nav/sub-nav';
 import { CdgSubNavGroup } from './sub-nav/sub-nav-group';
+import { CdgToast } from './toast/toast';
+import { CdgToastTopActions } from './toast/toast-top-actions';
+import { CdgToastTime } from './toast/toast-time';
+import { CdgToastMessage } from './toast/toast-message';
+import { CdgToastHeader } from './toast/toast-header';
+import { CdgToastTitle } from './toast/toast-title';
+import { CdgSidebar } from './sidebar/sidebar';
+import { CdgSidebarHeader } from './sidebar/sidebar-header';
+import { CdgSidebarBody } from './sidebar/sidebar-body';
+import { CdgSidebarActions } from './sidebar/sidebar-actions';
 
 // Layouts
 customElements.define('cdg-action-bar', CdgActionBar);
@@ -97,6 +107,16 @@ customElements.define('cdg-timeline-card-header', CdgTimelineCardHeader);
 customElements.define('cdg-timeline-card-body', CdgTimelineCardBody);
 customElements.define('cdg-sub-nav', CdgSubNav);
 customElements.define('cdg-sub-nav-group', CdgSubNavGroup);
+customElements.define('cdg-toast', CdgToast);
+customElements.define('cdg-toast-top-actions', CdgToastTopActions);
+customElements.define('cdg-toast-time', CdgToastTime);
+customElements.define('cdg-toast-message', CdgToastMessage);
+customElements.define('cdg-toast-header', CdgToastHeader);
+customElements.define('cdg-toast-title', CdgToastTitle);
+customElements.define('cdg-sidebar', CdgSidebar);
+customElements.define('cdg-sidebar-header', CdgSidebarHeader);
+customElements.define('cdg-sidebar-body', CdgSidebarBody);
+customElements.define('cdg-sidebar-actions', CdgSidebarActions);
 
 export const LAYOUT_COMPONENTS = [
   CdgGroupAvatar,
@@ -148,4 +168,14 @@ export const LAYOUT_COMPONENTS = [
   CdgTimelineCardBody,
   CdgSubNav,
   CdgSubNavGroup,
+  CdgToast,
+  CdgToastTopActions,
+  CdgToastTime,
+  CdgToastMessage,
+  CdgToastHeader,
+  CdgToastTitle,
+  CdgSidebar,
+  CdgSidebarHeader,
+  CdgSidebarBody,
+  CdgSidebarActions,
 ];

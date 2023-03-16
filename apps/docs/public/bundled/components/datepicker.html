@@ -176,7 +176,9 @@
   }
   datepickers.forEach((datepicker) => {
     datepicker.addEventListener('onDateChange', function (event) {
-      console.log('onDateChange: ', event.detail);
+      cdgToastService.toast(
+        'onDateChange: ' + JSON.stringify(event.detail)
+      );
     });
   });
 </script>
