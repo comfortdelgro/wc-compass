@@ -43,5 +43,5 @@ jobs:
           title: 'A New Release'
           setupGitUser: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.CDG_BOT_GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.CDG_PUBLISHER_NPM_TOKEN }}
