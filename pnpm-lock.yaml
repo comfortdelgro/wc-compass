@@ -50,7 +50,7 @@ importers:
       webpack-cli: ^5.0.1
       webpack-dev-server: ^4.11.1
     dependencies:
-      '@comfortdelgro/wc-compass': link:../../packages/wc-compass/dist
+      '@comfortdelgro/wc-compass': link:../../packages/wc-compass
       next: 13.2.4_l4i6tgmfppzwb2u4w42uz3wi4m
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -59,14 +59,14 @@ importers:
       '@types/node': 17.0.45
       '@types/react': 17.0.53
       '@types/react-dom': 17.0.19
-      autoprefixer: 10.4.14_postcss@8.4.21
+      autoprefixer: 10.4.14
       babel-loader: 9.1.2_h5x7dh6zbbyopr7jvxivhylqpa
       css-loader: 6.7.3_webpack@5.76.2
       eslint: 7.32.0
       file-loader: 6.2.0_webpack@5.76.2
       gh-pages: 5.0.0
       mini-css-extract-plugin: 2.7.3_webpack@5.76.2
-      postcss-loader: 7.0.2_6puvukfnwbwq425eep7g4z27be
+      postcss-loader: 7.0.2_webpack@5.76.2
       sass: 1.59.3
       sass-loader: 13.2.0_sass@1.59.3+webpack@5.76.2
       style-loader: 3.3.2_webpack@5.76.2
@@ -103,14 +103,14 @@ importers:
       '@babel/core': 7.21.3
       '@types/react': 17.0.53
       '@types/react-dom': 17.0.19
-      autoprefixer: 10.4.14_postcss@8.4.21
+      autoprefixer: 10.4.14
       babel-loader: 9.1.2_h5x7dh6zbbyopr7jvxivhylqpa
       css-loader: 6.7.3_webpack@5.76.2
       eslint: 7.32.0
       file-loader: 6.2.0_webpack@5.76.2
       gh-pages: 5.0.0
       mini-css-extract-plugin: 2.7.3_webpack@5.76.2
-      postcss-loader: 7.0.2_6puvukfnwbwq425eep7g4z27be
+      postcss-loader: 7.0.2_webpack@5.76.2
       react: 18.2.0
       sass: 1.59.3
       sass-loader: 13.2.0_sass@1.59.3+webpack@5.76.2
@@ -119,7 +119,6 @@ importers:
       webpack: 5.76.2_webpack-cli@5.0.1
       webpack-cli: 5.0.1_iev7xpt4dnfxbwvbjsx6igtdnu
       webpack-dev-server: 4.12.0_4puitx5hps5iiy4n2enrchvjna
-    publishDirectory: dist
 
 packages:
 
@@ -1136,10 +1135,8 @@ packages:
       indent-string: 4.0.0
     dev: true
 
-  /ajv-formats/2.1.1_ajv@8.12.0:
+  /ajv-formats/2.1.1:
     resolution: {integrity: sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==}
-    peerDependencies:
-      ajv: ^8.0.0
     peerDependenciesMeta:
       ajv:
         optional: true
@@ -1297,7 +1294,7 @@ packages:
     resolution: {integrity: sha512-iAB+JbDEGXhyIUavoDl9WP/Jj106Kz9DEn1DPgYw5ruDn0e3Wgi3sKFm55sASdGBNOQB8F59d9qQ7deqrHA8wQ==}
     dev: true
 
-  /autoprefixer/10.4.14_postcss@8.4.21:
+  /autoprefixer/10.4.14:
     resolution: {integrity: sha512-FQzyfOsTlwVzjHxKEqRIAdJx9niO6VCBCoEwax/VLSoQF29ggECcPuBqUMZ+u8jCZOPSy8b8/8KnuFbp0SaFZQ==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
@@ -1309,7 +1306,6 @@ packages:
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
-      postcss: 8.4.21
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -3771,7 +3767,7 @@ packages:
       find-up: 4.1.0
     dev: true
 
-  /postcss-loader/7.0.2_6puvukfnwbwq425eep7g4z27be:
+  /postcss-loader/7.0.2_webpack@5.76.2:
     resolution: {integrity: sha512-fUJzV/QH7NXUAqV8dWJ9Lg4aTkDCezpTS5HgJ2DvqznexTbSTxgi/dTECvTZ15BwKTtk8G/bqI/QTu2HPd3ZCg==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
@@ -3780,7 +3776,6 @@ packages:
     dependencies:
       cosmiconfig: 7.1.0
       klona: 2.0.6
-      postcss: 8.4.21
       semver: 7.3.8
       webpack: 5.76.2_webpack-cli@5.0.1
     dev: true
@@ -4235,7 +4230,7 @@ packages:
     dependencies:
       '@types/json-schema': 7.0.11
       ajv: 8.12.0
-      ajv-formats: 2.1.1_ajv@8.12.0
+      ajv-formats: 2.1.1
       ajv-keywords: 5.1.0_ajv@8.12.0
     dev: true
 
