@@ -7,8 +7,11 @@ import { CdgAlertContent } from './alert/alert-content';
 import { CdgAvatar } from './avatar/avatar';
 import { CdgIcon } from './icon/icon';
 import { CdgInlineLoading } from './inline-loading/inline-loading';
+import { CdgFile } from './file/file';
+import { CdgFileUpload } from './file/file-upload';
 import { CdgLoading } from './loading/loading';
 import { CdgPagination } from './pagination/pagination';
+import { CdgLinkPagination } from './pagination/link-pagination';
 import { CdgPillBadge } from './pill-badge/pill-badge';
 import { CdgStatus } from './status/status';
 import { CdgTab } from './tab/tab';
@@ -25,6 +28,14 @@ import { CdgDatePicker } from './datepicker/datepicker';
 import { CdgListview } from './list-view/list-view';
 import { CdgListItem } from './list-view/list-item';
 import { CdgTooltip } from './tooltip/tooltip';
+import { CdgRangeSlider } from './range-slider/range-slider';
+import { CdgQuantityToggle } from './quantity-toggle/quantity-toggle';
+import { CdgTagBoxContainer } from './tag-box/tag-box';
+import { CdgTagBoxItem } from './tag-box/tag-box-item';
+import { CdgVideoPlayer } from './video/video';
+import { CdgVideoControls } from './video/video-controls';
+import { CdgVolume } from './volume/volume';
+import { CdgRating } from './rating/rating';
 
 customElements.define('cdg-accordion', CdgAccordion);
 customElements.define('cdg-accordion-header', CdgAccordionHeader);
@@ -35,8 +46,11 @@ customElements.define('cdg-alert-content', CdgAlertContent);
 customElements.define('cdg-avatar', CdgAvatar);
 customElements.define('cdg-icon', CdgIcon);
 customElements.define('cdg-inline-loading', CdgInlineLoading);
+customElements.define('cdg-file', CdgFile);
+customElements.define('cdg-file-upload', CdgFileUpload);
 customElements.define('cdg-loading', CdgLoading);
 customElements.define('cdg-pagination', CdgPagination);
+customElements.define('cdg-link-pagination', CdgLinkPagination);
 customElements.define('cdg-pill-badge', CdgPillBadge);
 customElements.define('cdg-status', CdgStatus);
 customElements.define('cdg-tab', CdgTab);
@@ -53,6 +67,14 @@ customElements.define('cdg-datepicker', CdgDatePicker);
 customElements.define('cdg-list-view', CdgListview);
 customElements.define('cdg-list-item', CdgListItem);
 customElements.define('cdg-tooltip', CdgTooltip);
+customElements.define('cdg-range-slider', CdgRangeSlider);
+customElements.define('cdg-quantity-toggle', CdgQuantityToggle);
+customElements.define('cdg-tag-box-container', CdgTagBoxContainer);
+customElements.define('cdg-tag-box-item', CdgTagBoxItem);
+customElements.define('cdg-video-player', CdgVideoPlayer);
+customElements.define('cdg-video-controls', CdgVideoControls);
+customElements.define('cdg-volume', CdgVolume);
+customElements.define('cdg-rating', CdgRating);
 
 export const CONTROL_COMPONENTS = [
   CdgAccordion,
@@ -63,9 +85,12 @@ export const CONTROL_COMPONENTS = [
   CdgAlertBadge,
   CdgAvatar,
   CdgIcon,
+  CdgFile,
+  CdgFileUpload,
   CdgInlineLoading,
   CdgLoading,
   CdgPagination,
+  CdgLinkPagination,
   CdgPillBadge,
   CdgStatus,
   CdgTab,
@@ -76,4 +101,10 @@ export const CONTROL_COMPONENTS = [
   CdgListItem,
   CdgTooltip,
   CdgDatePicker,
+  CdgRangeSlider,
+  CdgQuantityToggle,
+  CdgVideoPlayer,
+  CdgVideoControls,
+  CdgVolume,
+  CdgRating,
 ];

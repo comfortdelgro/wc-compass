@@ -1,6 +1,7 @@
 .cdg-pagination {
   display: flex;
   gap: 1rem;
+  a.cdg-button,
   .cdg-button {
     border-radius: 50%;
     padding: 8px 1rem;
@@ -9,6 +10,8 @@
     text-align: center;
     width: 2rem;
     height: 2rem;
+    display: inline-flex;
+    box-sizing: border-box;
     align-items: center;
     justify-content: center;
     border: none;
@@ -20,9 +23,22 @@
     &.active {
       color: #ffffff;
       background-color: var(--accent);
+      &:hover {
+        background-color: var(--accent);
+      }
     }
-    &:not(.active):hover {
+    &:hover {
       background-color: var(--hover-background);
     }
+    &[disabled] {
+      color: var(--grey40);
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+  .cdg-pagination-pages {
+    display: flex;
+    gap: 1rem;
   }
 }

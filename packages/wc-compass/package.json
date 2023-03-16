@@ -8,6 +8,9 @@
     "lint": "eslint *.ts*",
     "build": "webpack build --config webpack.config.js --mode production"
   },
+  "dependencies": {
+    "dayjs": "^1.11.7"
+  },
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@types/react": "^18.0.17",

@@ -1,43 +1,54 @@
-import './pages/home.html';
-import './components/accordion.html';
-import './components/alert.html';
-import './components/alert-badges.html';
-import './components/avatar.html';
-import './components/breadcrumbs.html';
-import './components/checkboxes.html';
-import './components/dashboard-side-card.html';
-import './components/footer.html';
-import './components/icon.html';
-import './components/button.html';
-import './components/cards.html';
-import './components/carousel.html';
-import './components/inline-loading.html';
-import './components/list-view.html';
-import './components/loading.html';
-import './components/modal.html';
-import './components/nav-rail.html';
-import './components/navbar.html';
-import './components/page-header.html';
-import './components/pagination.html';
-import './components/pill-badges.html';
-import './components/radios.html';
-import './components/status.html';
-import './components/action-bar.html';
-import './components/sub-header.html';
-import './components/tabs.html';
-import './components/text-field.html';
-import './components/sub-nav.html';
-import './components/table.html';
-import './components/dialog.html';
-import './components/dropdown.html';
-import './components/popover.html';
-import './components/progress.html';
-import './components/timeline.html';
-import './components/toggle.html';
-import './components/wizards.html';
-import './components/calendar.html';
-import './components/datepicker.html';
-import './components/tooltip.html';
+import './components/accordion.html'
+import './components/action-bar.html'
+import './components/alert-badges.html'
+import './components/alert.html'
+import './components/avatar.html'
+import './components/breadcrumbs.html'
+import './components/button.html'
+import './components/calendar.html'
+import './components/cards.html'
+import './components/carousel.html'
+import './components/checkboxes.html'
+import './components/dashboard-side-card.html'
+import './components/datepicker.html'
+import './components/dialog.html'
+import './components/dropdown.html'
+import './components/file-upload.html'
+import './components/file.html'
+import './components/footer.html'
+import './components/icon.html'
+import './components/inline-loading.html'
+import './components/layouts.html'
+import './components/list-view.html'
+import './components/loading.html'
+import './components/modal.html'
+import './components/nav-rail.html'
+import './components/navbar.html'
+import './components/page-header.html'
+import './components/pagination.html'
+import './components/pill-badges.html'
+import './components/popover.html'
+import './components/progress.html'
+import './components/quantity-toggle.html'
+import './components/radios.html'
+import './components/range-slider.html'
+import './components/rating.html'
+import './components/sidebar.html'
+import './components/status.html'
+import './components/sub-header.html'
+import './components/sub-nav.html'
+import './components/table.html'
+import './components/tabs.html'
+import './components/tag-box.html'
+import './components/text-field.html'
+import './components/timeline.html'
+import './components/toast.html'
+import './components/toggle.html'
+import './components/tooltip.html'
+import './components/video.html'
+import './components/volume.html'
+import './components/wizards.html'
+import './pages/home.html'
 
 const contentMap = {
   home: './pages/home.html',
@@ -48,6 +59,8 @@ const contentMap = {
   breadcrumbs: './components/breadcrumbs.html',
   checkboxes: './components/checkboxes.html',
   dashboardSideCard: './components/dashboard-side-card.html',
+  file: './components/file.html',
+  fileUpload: './components/file-upload.html',
   footer: './components/footer.html',
   icon: './components/icon.html',
   dialog: './components/dialog.html',
@@ -56,6 +69,7 @@ const contentMap = {
   cards: './components/cards.html',
   carousel: './components/carousel.html',
   inlineLoading: './components/inline-loading.html',
+  layouts: './components/layouts.html',
   listView: './components/list-view.html',
   loading: './components/loading.html',
   modal: './components/modal.html',
@@ -64,7 +78,10 @@ const contentMap = {
   pageHeader: './components/page-header.html',
   pagination: './components/pagination.html',
   pillBadges: './components/pill-badges.html',
+  quantityToggle: './components/quantity-toggle.html',
   radios: './components/radios.html',
+  rating: './components/rating.html',
+  sidebar: './components/sidebar.html',
   status: './components/status.html',
   actionBar: './components/action-bar.html',
   subHeader: './components/sub-header.html',
@@ -74,13 +91,18 @@ const contentMap = {
   table: './components/table.html',
   popover: './components/popover.html',
   progress: './components/progress.html',
+  toast: './components/toast.html',
   toggle: './components/toggle.html',
   timeline: './components/timeline.html',
+  volume: './components/volume.html',
   wizards: './components/wizards.html',
   calendar: './components/calendar.html',
   datepicker: './components/datepicker.html',
   tooltip: './components/tooltip.html',
-};
+  rangeSlider: './components/range-slider.html',
+  tagBox: './components/tag-box.html',
+  video: './components/video.html',
+}
 
 const documentContent = [
   {
@@ -95,10 +117,6 @@ const documentContent = [
       {
         name: 'Action Bar',
         slug: 'actionBar',
-      },
-      {
-        name: 'Alert',
-        slug: 'alert',
       },
       {
         name: 'Breadcrumbs',
@@ -121,20 +139,16 @@ const documentContent = [
         slug: 'pageHeader',
       },
       {
+        name: 'Layouts',
+        slug: 'layouts',
+      },
+      {
         name: 'List View',
         slug: 'listView',
       },
       {
         name: 'Sub Header',
         slug: 'subHeader',
-      },
-      {
-        name: 'Modal',
-        slug: 'modal',
-      },
-      {
-        name: 'Dialog',
-        slug: 'dialog',
       },
       {
         name: 'Nav Rail',
@@ -184,12 +198,28 @@ const documentContent = [
         slug: 'dropdown',
       },
       {
+        name: 'File',
+        slug: 'file',
+      },
+      {
+        name: 'File Upload',
+        slug: 'fileUpload',
+      },
+      {
         name: 'Text Field',
         slug: 'textField',
       },
       {
+        name: 'Quantity Toggle',
+        slug: 'quantityToggle',
+      },
+      {
         name: 'Radios',
         slug: 'radios',
+      },
+      {
+        name: 'RangeSlider',
+        slug: 'rangeSlider',
       },
       {
         name: 'Toggle',
@@ -205,6 +235,10 @@ const documentContent = [
       {
         name: 'Avatar',
         slug: 'avatar',
+      },
+      {
+        name: 'Alert',
+        slug: 'alert',
       },
       {
         name: 'Alert Badges',
@@ -235,6 +269,10 @@ const documentContent = [
         slug: 'pillBadges',
       },
       {
+        name: 'Rating',
+        slug: 'rating',
+      },
+      {
         name: 'Status',
         slug: 'status',
       },
@@ -247,6 +285,10 @@ const documentContent = [
         slug: 'tooltip',
       },
       {
+        name: 'Tag Box',
+        slug: 'tagBox',
+      },
+      {
         name: 'Popover',
         slug: 'popover',
       },
@@ -255,45 +297,76 @@ const documentContent = [
         slug: 'progress',
       },
       {
+        name: 'Video',
+        slug: 'video',
+      },
+      {
+        name: 'Volume',
+        slug: 'volume',
+      },
+      {
         name: 'Wizards',
         slug: 'wizards',
       },
     ],
   },
-];
+  {
+    name: 'Services',
+    id: 'services',
+    icon: 'job',
+    children: [
+      {
+        name: 'Dialog',
+        slug: 'dialog',
+      },
+      {
+        name: 'Modal',
+        slug: 'modal',
+      },
+      {
+        name: 'Sidebar',
+        slug: 'sidebar',
+      },
+      {
+        name: 'Toast',
+        slug: 'toast',
+      },
+    ],
+  },
+]
 
 function downloadHTMLContent(url) {
   return new Promise((resolve, reject) => {
-    fetch(url, { cache: 'no-cache' })
+    fetch(url, {cache: 'no-cache'})
       .then((response) => response.text())
       .then((data) => {
         if (data) {
-          resolve(data);
+          resolve(data)
         } else {
-          reject(new Error('Loaded file is not valid HTML File"'));
+          reject(new Error('Loaded file is not valid HTML File"'))
         }
       })
       .catch(() => {
-        reject(new Error('Error loading HTML'));
-      });
-  });
+        reject(new Error('Error loading HTML'))
+      })
+  })
 }
 
-const content = document.querySelector('#component-content');
-const scriptElement = document.querySelector('#sample-script');
+const content = document.querySelector('#component-content')
+const scriptElement = document.querySelector('#sample-script')
 
-let activatedMenu = null;
-let activeParent = null;
+let activatedMenu = null
+let activeParent = null
 
 function isParentContains(menu, child) {
   if (menu.children.length) {
-    return menu.children.find((item) => item.slug === child);
+    return menu.children.find((item) => item.slug === child)
   }
-  return false;
+  return false
 }
 
 function findParentMenu(hash) {
-  return documentContent.find((item) => isParentContains(item, hash));
+  return documentContent.find((item) => isParentContains(item, hash))
 }
 
 function activeMenu(hash) {
@@ -301,124 +374,124 @@ function activeMenu(hash) {
     // Handle main nav active states
     if (activeParent) {
       activeParent.forEach((element) => {
-        element.classList.remove('active');
-      });
+        element.classList.remove('active')
+      })
     }
 
-    const parent = findParentMenu(hash);
+    const parent = findParentMenu(hash)
     if (parent) {
-      activeParent = document.querySelectorAll('#' + parent.id);
+      activeParent = document.querySelectorAll('#' + parent.id)
 
       activeParent.forEach((element) => {
-        element.classList.add('active');
-      });
+        element.classList.add('active')
+      })
 
-      showSubMenu(parent);
+      showSubMenu(parent)
     }
 
     if (activatedMenu) {
       activatedMenu.forEach((element) => {
-        element.classList.remove('active');
-      });
+        element.classList.remove('active')
+      })
     }
 
-    activatedMenu = document.querySelectorAll('[href="#' + hash + '"]');
+    activatedMenu = document.querySelectorAll('[href="#' + hash + '"]')
     activatedMenu.forEach((element) => {
-      element.classList.add('active');
-    });
+      element.classList.add('active')
+    })
 
     // Close menu
-    document.querySelector('cdg-nav-rail').open = false;
-  });
+    document.querySelector('cdg-nav-rail').open = false
+  })
 }
 
 function handlePageChange(url) {
   // Remove old script
-  scriptElement.textContent = '';
+  scriptElement.textContent = ''
 
-  const lastPrams = url.split('#')[1] || 'home';
-  const hash = lastPrams.split('?')[0];
-  activeMenu(hash);
+  const lastPrams = url.split('#')[1] || 'home'
+  const hash = lastPrams.split('?')[0]
+  activeMenu(hash)
   if (hash === 'home') {
-    document.querySelector('cdg-sub-nav').classList.add('hide');
+    document.querySelector('cdg-sub-nav').classList.add('hide')
   } else {
-    document.querySelector('cdg-sub-nav').classList.remove('hide');
+    document.querySelector('cdg-sub-nav').classList.remove('hide')
   }
 
   downloadHTMLContent(contentMap[hash]).then((data) => {
-    content.innerHTML = data;
+    content.innerHTML = data
 
     // Make demo script works
-    const scriptElement = content.querySelector('script');
+    const scriptElement = content.querySelector('script')
     if (scriptElement) {
-      eval(scriptElement.innerHTML);
+      eval(scriptElement.innerHTML)
     }
 
     // Wait for content render
     setTimeout(() => {
-      hljs.highlightAll();
-    }, 10);
-  });
+      hljs.highlightAll()
+    }, 10)
+  })
 }
 
 window.addEventListener('hashchange', function (event) {
-  handlePageChange(event.newURL);
-});
+  handlePageChange(event.newURL)
+})
 
-const subTitle = document.querySelector('.cdg-sub-nav-title');
-const subNav = document.querySelector('.cdg-sub-nav-group-content');
+const subTitle = document.querySelector('.cdg-sub-nav-title')
+const subNav = document.querySelector('.cdg-sub-nav-group-content')
 
 function createSubMenu(item) {
-  const menu = document.createElement('a');
-  menu.classList.add('cdg-sub-nav-item');
-  menu.textContent = item.name;
-  menu.setAttribute('href', '#' + item.slug);
+  const menu = document.createElement('a')
+  menu.classList.add('cdg-sub-nav-item')
+  menu.textContent = item.name
+  menu.setAttribute('href', '#' + item.slug)
 
-  return menu;
+  return menu
 }
 
 function showSubMenu(data, first) {
-  subNav.textContent = '';
-  subTitle.textContent = data.name;
+  subNav.textContent = ''
+  subTitle.textContent = data.name
   if (data.children.length) {
     data.children.forEach((item) => {
-      subNav.appendChild(createSubMenu(item));
-    });
+      subNav.appendChild(createSubMenu(item))
+    })
   }
 
   if (first) {
-    window.location.href = '#' + data.children[0].slug;
+    window.location.href = '#' + data.children[0].slug
   }
 }
 
 function createNavMenu(item) {
-  const menu = document.createElement('a');
-  menu.classList.add('cdg-nav-item');
-  menu.setAttribute('id', item.id);
+  const menu = document.createElement('a')
+  menu.classList.add('cdg-nav-item')
+  menu.setAttribute('id', item.id)
   if (item.slug) {
-    menu.setAttribute('href', '#' + item.slug);
+    menu.setAttribute('href', '#' + item.slug)
   } else {
-    menu.addEventListener('click', () => showSubMenu(item, true));
+    menu.addEventListener('click', () => showSubMenu(item, true))
   }
 
-  const menuIcon = document.createElement('cdg-icon');
-  menuIcon.setAttribute('name', item.icon);
+  const menuIcon = document.createElement('cdg-icon')
+  menuIcon.setAttribute('name', item.icon)
   // menuIcon.setAttribute('source', 'host');
 
-  const menuText = document.createElement('span');
-  menuText.textContent = item.name;
+  const menuText = document.createElement('span')
+  menuText.textContent = item.name
 
-  menu.appendChild(menuIcon);
-  menu.appendChild(menuText);
+  menu.appendChild(menuIcon)
+  menu.appendChild(menuText)
 
-  return menu;
+  return menu
 }
 
 document.onreadystatechange = () => {
-  handlePageChange(window.location.href);
-};
+  handlePageChange(window.location.href)
+}
 
-const navRail = document.querySelector('.cdg-nav-rail-body');
+const navRail = document.querySelector('.cdg-nav-rail-body')
 documentContent.forEach((item) => {
-  navRail.appendChild(createNavMenu(item));
-});
+  navRail.appendChild(createNavMenu(item))
+})

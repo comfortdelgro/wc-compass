@@ -1,8 +1,4 @@
 export class CdgIconSize extends HTMLElement {
-  static get observedAttributes() {
-    return ['size'];
-  }
-
   get size() {
     return Number(this.getAttribute('size')) || 24;
   }

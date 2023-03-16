@@ -20,11 +20,10 @@
       <cdg-modal-actions>
         <div class="cdg-separator"></div>
         <button class="cdg-button secondary" id="cancelButton">Cancel</button>
-        <button class="cdg-button" id="okButton">Approve</button>
+        <button class="cdg-button" id="okButton" autofocus>Approve</button>
       </cdg-modal-actions>
     </cdg-modal>
   </template>
-  <div class="sample1output"></div>
 </div>
 
 <pre>
@@ -42,13 +41,11 @@
             &lt;cdg-modal-actions&gt;
                 &lt;div class=&quot;cdg-separator&quot;&gt;&lt;/div&gt;
                 &lt;button class=&quot;cdg-button secondary&quot; id=&quot;cancelButton&quot;&gt;Cancel&lt;/button&gt;
-                &lt;button class=&quot;cdg-button&quot; id=&quot;okButton&quot;&gt;Approve&lt;/button&gt;
+                &lt;button class=&quot;cdg-button&quot; id=&quot;okButton&quot; autofocus&gt;Approve&lt;/button&gt;
             &lt;/cdg-modal-actions&gt;
         &lt;/cdg-modal&gt;
     &lt;/template&gt;
-&lt;div class=&quot;sample1output&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
-  const output1 = document.querySelector('.sample1output');
   const button = document.querySelector('#defaultModal');
   const modal = document
     .querySelector('[for=&quot;defaultModal&quot;]')
@@ -57,17 +54,17 @@
   const okButton = modal.querySelector('#okButton');
 
   modal.addEventListener('close', () =&gt; {
-    output1.textContent = 'Dialog is closed!';
+    cdgToastService.toast(&apos;Dialog is closed!&apos;);
   });
 
   okButton.addEventListener('click', () =&gt; {
     modal.close();
-    output1.textContent += &quot; You've approved it!&quot;;
+    cdgToastService.toast(&quot;You&apos;ve approved it!&quot;);
   });
 
   cancelButton.addEventListener('click', () =&gt; {
     modal.close();
-    output1.textContent += &quot; You've cancelled it!&quot;;
+    cdgToastService.toast(&quot;You&apos;ve cancelled it!&quot;);
   });
 
   button.addEventListener('click', () =&gt; {
@@ -147,7 +144,7 @@
         <button class="cdg-button secondary" id="largeCancelButton">
           Cancel
         </button>
-        <button class="cdg-button" id="largeOkButton">Approve</button>
+        <button class="cdg-button" id="largeOkButton" autofocus>Approve</button>
       </cdg-modal-actions>
     </cdg-modal>
   </template>
@@ -164,15 +161,36 @@
         &lt;cdg-modal-actions&gt;
             &lt;div class=&quot;cdg-separator&quot;&gt;&lt;/div&gt;
             &lt;button class=&quot;cdg-button secondary&quot; id=&quot;cancelButton&quot;&gt;Cancel&lt;/button&gt;
-            &lt;button class=&quot;cdg-button&quot; id=&quot;okButton&quot;&gt;Approve&lt;/button&gt;
+            &lt;button class=&quot;cdg-button&quot; id=&quot;okButton&quot; autofocus&gt;Approve&lt;/button&gt;
         &lt;/cdg-modal-actions&gt;
     &lt;/cdg-modal&gt;
 &lt;/template&gt;
-&lt;div class=&quot;sample1output&quot;&gt;&lt;/div&gt;</code>
+&lt;script&gt;
+...
+// To show nested dialog
+largeOkButton.addEventListener(&apos;click&apos;, () =&gt; {
+    const confirm = cdgDialogService.confirm({
+      dialogTitle: &apos;Do you really want to approve it?&apos;,
+      message: &apos;You can not rollback this action anymore.&apos;,
+      executeLabel: &apos;Yeah, do it!&apos;,
+    });
+
+    confirm.addEventListener(&apos;close&apos;, (event) =&gt; {
+      cdgToastService.toast(
+        &apos;User says: &apos; + (event.detail ? &apos;Yeah, do it!&apos; : &apos;Cancel&apos;)
+      );
+      if (event.detail) {
+        // Going to close both
+        largeModal.close();
+      }
+    });
+  });
+...
+&lt;/script&gt;
+</code>
 </pre>
 
 <script>
-  const output1 = document.querySelector('.sample1output');
   const button = document.querySelector('#defaultModal');
   const modal = document
     .querySelector('[for="defaultModal"]')
@@ -181,24 +199,23 @@
   const okButton = modal.querySelector('#okButton');
 
   modal.addEventListener('close', () => {
-    output1.textContent = 'Dialog is closed!';
+    cdgToastService.toast('Dialog is closed!');
   });
 
   okButton.addEventListener('click', () => {
     modal.close();
-    output1.textContent += " You've approved it!";
+    cdgToastService.toast("You've approved it!");
   });
 
   cancelButton.addEventListener('click', () => {
     modal.close();
-    output1.textContent += " You've cancelled it!";
+    cdgToastService.toast("You've cancelled it!");
   });
 
   button.addEventListener('click', () => {
     cdgDialogService.show('sampleDefaultModal', modal);
   });
 
-  const output2 = document.querySelector('.sample2output');
   const largeSampleButton = document.querySelector('#largeModal');
   const largeModal = document
     .querySelector('[for="largeModal"]')
@@ -208,22 +225,35 @@
 
   const sizeDropdown = document.querySelector('#sizing');
   sizeDropdown.addEventListener('onchangevalue', (event) => {
-    console.log(event.detail);
     largeModal.setAttribute('size', event.detail);
   });
 
   largeModal.addEventListener('close', () => {
-    output2.textContent = 'Dialog is closed!';
+    cdgToastService.toast('Dialog is closed!');
   });
 
   largeOkButton.addEventListener('click', () => {
-    largeModal.close();
-    output2.textContent += " You've approved it!";
+    // largeModal.close();
+    const confirm = cdgDialogService.confirm({
+      dialogTitle: 'Do you really want to approve it?',
+      message: 'You can not rollback this action anymore.',
+      executeLabel: 'Yeah, do it!',
+    });
+
+    confirm.addEventListener('close', (event) => {
+      cdgToastService.toast(
+        'User says: ' + (event.detail ? 'Yeah, do it!' : 'Cancel')
+      );
+      if (event.detail) {
+        // Going to close both
+        largeModal.close();
+      }
+    });
   });
 
   largeCancelButton.addEventListener('click', () => {
     largeModal.close();
-    output2.textContent += " You've cancelled it!";
+    cdgToastService.toast("You've cancelled it!");
   });
 
   largeSampleButton.addEventListener('click', () => {

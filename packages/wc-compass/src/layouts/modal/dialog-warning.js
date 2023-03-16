@@ -6,6 +6,7 @@ export class CdgDialogWarning extends CdgDialogBase {
   }
 
   connectedCallback() {
+    this.cancellable = true;
     super.connectedCallback();
     this.classList.add('cdg-dialog-warning');
     this.attachFooter();
@@ -23,6 +24,7 @@ export class CdgDialogWarning extends CdgDialogBase {
 
     this.executeButton = document.createElement('button');
     this.executeButton.setAttribute('class', 'cdg-button danger');
+    this.executeButton.setAttribute('execute-button', '');
     this.executeButton.textContent = this.executeLabel || 'Okay';
     this.executeListener = this.close.bind(this, true);
     this.executeButton.addEventListener('click', this.executeListener);

@@ -2,10 +2,17 @@ export class DialogService {
   modals = {};
 
   show(id, modal) {
-    const modalElement = this.wrapByOverlay(modal);
+    modal.setAttribute('role', 'dialog');
     modal.id = id;
-    this.modals[id] = modalElement;
-    document.body.appendChild(modalElement);
+    const modalElement = this.wrapByOverlay(modal);
+    this.attachDialog(id, modalElement);
+  }
+
+  showSidebar(id, modal, placement = 'right') {
+    modal.setAttribute('role', 'dialog');
+    modal.id = id;
+    const modalElement = this.wrapByOverlay(modal, placement);
+    this.attachDialog(id, modalElement);
   }
 
   alert({ dialogTitle = '', message = '', buttonLabel = 'Okay' }) {
@@ -71,18 +78,76 @@ export class DialogService {
       return;
     }
 
-    this.modals[id].firstElementChild.dispatchEvent(
+    this.modals[id].ref.firstElementChild.dispatchEvent(
       new CustomEvent('close', { detail: answer })
     );
 
-    document.body.removeChild(this.modals[id]);
+    if (this.modals[id].lastFocus) {
+      this.modals[id].lastFocus.focus();
+    }
+
+    document.body.removeChild(this.modals[id].ref);
     delete this.modals[id];
   }
 
-  wrapByOverlay(modal) {
+  wrapByOverlay(modal, placement = '') {
     const wrapper = document.createElement('div');
     wrapper.classList.add('cdg-modal-overlay');
+    if (placement) {
+      wrapper.classList.add(placement);
+    }
     wrapper.appendChild(modal);
     return wrapper;
+  }
+
+  focusOnElement(modal) {
+    const afElement = modal.querySelector('[autofocus]');
+    if (afElement) {
+      afElement.focus();
+    } else {
+      const button = modal.querySelector('[execute-button]');
+      if (button) {
+        button.focus();
+      }
+    }
+  }
+
+  /**
+   * Todo: Keep focus inside dialog when user press Tab and Shift + Tab key
+   * @param {string} id
+   */
+  keepFocus(id) {
+    const ref = this.modals[id].ref;
+    this.modals[id].lastFocus = document.activeElement;
+    const focusable = ref.querySelectorAll(
+      'a[href], button, input, textarea, select, details,[tabindex]:not([tabindex="-1"])'
+    );
+
+    if (focusable.length) {
+      focusable[0].addEventListener('keydown', (event) => {
+        if (event.key === 'Tab' && event.shiftKey) {
+          focusable[focusable.length - 1].focus();
+          event.preventDefault();
+        }
+      });
+      focusable[focusable.length - 1].addEventListener('keydown', (event) => {
+        if (event.key === 'Tab' && !event.shiftKey) {
+          focusable[0].focus();
+          event.preventDefault();
+        }
+      });
+    }
+  }
+
+  attachDialog(id, modalElement) {
+    const modal = {};
+    modal.id = id;
+    modal.ref = modalElement;
+
+    this.modals[id] = modal;
+
+    document.body.appendChild(modalElement);
+    this.keepFocus(id);
+    this.focusOnElement(modalElement);
   }
 }
