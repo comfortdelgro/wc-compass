@@ -14,8 +14,7 @@ export class CdgIcon extends CdgIconSize {
     this.setAttribute('name', name)
   }
 
-  iconSource =
-    'https://cdn.jsdelivr.net/gh/comfortdelgro/wc-compass-design@main/dist/images/'
+  iconSource = 'https://unpkg.com/@comfortdelgro/wc-compass@latest/dist/images/'
 
   constructor() {
     super()
@@ -26,9 +25,9 @@ export class CdgIcon extends CdgIconSize {
   }
 
   fetchAndShowIcon() {
-    // if (this.getAttribute('source') === 'host') {
-    this.iconSource = './bundled/images/'
-    // }
+    if (this.getAttribute('source') === 'host') {
+      this.iconSource = './bundled/images/'
+    }
 
     if (this.name) {
       this.download(this.iconSource + toLowerCaseAndDash(this.name) + '.svg')

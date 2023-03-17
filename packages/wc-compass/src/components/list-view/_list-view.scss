@@ -10,14 +10,31 @@
   color: var(--grey90);
   border: 1px solid transparent;
   position: relative;
-  touch-action: manipulation;
+  user-select: none;
+  touch-action: none;
   cursor: pointer;
 
-  &.dragging-hidden {
+  &.moving {
+    opacity: 0;
+  }
+
+  &.dragging {
     opacity: 0;
     pointer-events: none;
     overflow: hidden;
+    padding: 0;
     height: 0;
+    border: none;
+
+    // To not handle any events from children
+    * {
+      pointer-events: none;
+    }
+  }
+
+  &.dragging-hidden {
+    height: 0;
+    opacity: 0;
     padding: 0;
   }
 
@@ -33,17 +50,11 @@
     }
   }
 
-  &.dragging {
-    // To not handle any events from children
-    * {
-      pointer-events: none;
-    }
+  &.cloned {
+    pointer-events: none;
   }
 
-  &.dragenter {
-  }
-
-  &[draggable] {
+  &[allow-drag] {
     padding-left: 42px;
   }
 }
@@ -99,7 +110,6 @@
 
 .cdg-list-view {
   .cdg-list-placeholder-item {
-    height: 85px;
     background: transparent;
   }
   .cdg-list-item {
@@ -114,7 +124,7 @@
     }
   }
 
-  &[draggable] {
+  &[allow-drag] {
     .cdg-list-item {
       cursor: pointer;
       &:active {
