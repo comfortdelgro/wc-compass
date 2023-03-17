@@ -22,12 +22,21 @@ This turborepo has some additional tools already setup for you:
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
 
+### Setting up
+
+First we need to install packages:
+
+```
+cd cw-compass
+pnpm i
+```
+
 ### Build
 
 To build all apps and packages, run the following command:
 
 ```
-cd my-turborepo
+cd cw-compass
 pnpm run build
 ```
 
@@ -36,7 +45,14 @@ pnpm run build
 To develop all apps and packages, run the following command:
 
 ```
-cd my-turborepo
+cd cw-compass
+pnpm run dev
+```
+
+Currently, when you take changes in wc-compass package, you will need to run the build command again. To avoid that, you can start only dev mode with following command:
+
+```
+cd cw-compass/packages/wc-compass
 pnpm run dev
 ```
 
