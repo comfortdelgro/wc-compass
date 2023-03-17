@@ -402,7 +402,7 @@
     gap: 0;
   "
 >
-  <cdg-list-view draggable id="dragsample">
+  <cdg-list-view allow-drag id="dragsample">
     <cdg-list-item>
       <div class="cdg-list-item-icon">
         <cdg-avatar name="Jacqueline Jordan" size="40"></cdg-avatar>
@@ -491,15 +491,15 @@
 </div>
 
 <script>
-  const listView = document.querySelector('#dragsample');
+  const listView = document.querySelector('#dragsample')
   listView.addEventListener('dragitem', (event) => {
-    console.log(event.detail);
-  });
+    console.log(event.detail)
+  })
 
-  const toggleButton = document.querySelector('#toggleDraggable');
+  const toggleButton = document.querySelector('#toggleDraggable')
   toggleButton.addEventListener('click', () => {
-    listView.draggable = !listView.draggable;
-  });
+    listView.draggable = !listView.draggable
+  })
 </script>
 
 <pre>

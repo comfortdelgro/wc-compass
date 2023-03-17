@@ -27,6 +27,7 @@ export class CdgDotsIndicator extends HTMLElement {
 
   connectedCallback() {
     this.classList.add('cdg-dots-indicator');
+    this.attachDots();
   }
 
   attributeChangedCallback(attr, oldValue) {
