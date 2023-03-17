@@ -354,9 +354,20 @@ function downloadHTMLContent(url) {
 
 const content = document.querySelector('#component-content')
 const scriptElement = document.querySelector('#sample-script')
+const subTitle = document.querySelector('.cdg-sub-nav-title')
+const subNavParent = document.querySelector('cdg-sub-nav')
+const subNav = document.querySelector('.cdg-sub-nav-group-content')
+const pageHeader = document.querySelector('.cdg-page-header')
+const pageTitle = document.querySelector('.cdg-page-title')
+const subpage = document.querySelector('.sub-page-breadcrumb')
+const currentPage = document.querySelector('.current-page-breadcrumb')
 
 let activatedMenu = null
 let activeParent = null
+
+window.showSubNav = () => {
+  subNavParent.classList.add('stick')
+}
 
 function isParentContains(menu, child) {
   if (menu.children.length) {
@@ -367,6 +378,22 @@ function isParentContains(menu, child) {
 
 function findParentMenu(hash) {
   return documentContent.find((item) => isParentContains(item, hash))
+}
+
+function findChildren(menu, child) {
+  if (menu.children.length) {
+    return menu.children.find((item) => item.slug === child)
+  }
+  return null
+}
+
+function getMenuInfo(hash) {
+  for (let index in documentContent) {
+    const child = findChildren(documentContent[index], hash)
+    if (child) {
+      return child
+    }
+  }
 }
 
 function activeMenu(hash) {
@@ -386,7 +413,11 @@ function activeMenu(hash) {
         element.classList.add('active')
       })
 
+      subpage.textContent = parent.name
+
       showSubMenu(parent)
+    } else {
+      console.log(hash)
     }
 
     if (activatedMenu) {
@@ -411,11 +442,18 @@ function handlePageChange(url) {
 
   const lastPrams = url.split('#')[1] || 'home'
   const hash = lastPrams.split('?')[0]
+  console.log(hash)
   activeMenu(hash)
+  subNavParent.classList.remove('stick')
   if (hash === 'home') {
     document.querySelector('cdg-sub-nav').classList.add('hide')
+    pageHeader.classList.add('hide')
   } else {
     document.querySelector('cdg-sub-nav').classList.remove('hide')
+    pageHeader.classList.remove('hide')
+    const menu = getMenuInfo(hash)
+    pageTitle.textContent = menu.name
+    currentPage.textContent = menu.name
   }
 
   downloadHTMLContent(contentMap[hash]).then((data) => {
@@ -438,9 +476,6 @@ window.addEventListener('hashchange', function (event) {
   handlePageChange(event.newURL)
 })
 
-const subTitle = document.querySelector('.cdg-sub-nav-title')
-const subNav = document.querySelector('.cdg-sub-nav-group-content')
-
 function createSubMenu(item) {
   const menu = document.createElement('a')
   menu.classList.add('cdg-sub-nav-item')
@@ -458,7 +493,6 @@ function showSubMenu(data, first) {
       subNav.appendChild(createSubMenu(item))
     })
   }
-
   if (first) {
     window.location.href = '#' + data.children[0].slug
   }
