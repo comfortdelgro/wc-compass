@@ -400,9 +400,11 @@
     padding: 20px;
     flex-direction: column;
     gap: 0;
+    height: 580px;
+    overflow-y: auto;
   "
 >
-  <cdg-list-view draggable id="dragsample">
+  <cdg-list-view allow-drag id="dragsample">
     <cdg-list-item>
       <div class="cdg-list-item-icon">
         <cdg-avatar name="Jacqueline Jordan" size="40"></cdg-avatar>
@@ -491,19 +493,26 @@
 </div>
 
 <script>
-  const listView = document.querySelector('#dragsample');
+  const listView = document.querySelector('#dragsample')
   listView.addEventListener('dragitem', (event) => {
-    console.log(event.detail);
-  });
+    console.log(event.detail)
+  })
 
-  const toggleButton = document.querySelector('#toggleDraggable');
+  let draggable = true
+
+  const toggleButton = document.querySelector('#toggleDraggable')
   toggleButton.addEventListener('click', () => {
-    listView.draggable = !listView.draggable;
-  });
+    draggable = !draggable
+    if (draggable) {
+      listView.setAttribute('allow-drag', '')
+    } else {
+      listView.removeAttribute('allow-drag')
+    }
+  })
 </script>
 
 <pre>
-    <code class="language-html">&lt;cdg-list-view draggable id=&quot;dragsample&quot;&gt;
+    <code class="language-html">&lt;cdg-list-view allow-drag id=&quot;dragsample&quot;&gt;
     &lt;cdg-list-item&gt;
         &lt;div class=&quot;cdg-list-item-icon&quot;&gt;
             // Place your icon / avatar here
