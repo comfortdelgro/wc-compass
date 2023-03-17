@@ -35,6 +35,10 @@ export class CdgListItem extends HTMLElement {
   clonedElement
   startBound
 
+  dragListener
+  moveListener
+  cancelListener
+
   constructor() {
     super()
   }
@@ -76,7 +80,7 @@ export class CdgListItem extends HTMLElement {
   }
 
   removeEvents() {
-    this.removeEventListener('dragstart', this.handleDrag.bind(this))
+    this.removeEventListener('pointerdown', this.dragListener)
   }
 
   removeDragIcon() {
@@ -84,22 +88,29 @@ export class CdgListItem extends HTMLElement {
   }
 
   listenEvents() {
-    this.addEventListener('pointerdown', this.handleDrag.bind(this))
+    this.dragListener = this.handleStartDrag.bind(this)
+    this.addEventListener('pointerdown', this.dragListener)
   }
 
-  handleDrag(event) {
-    this.setPointerCapture(event.pointerId)
+  handleStartDrag(event) {
     this.pointer = new Pointer()
+    this.setPointerCapture(event.pointerId)
     this.pointer.start({x: event.pageX, y: event.pageY})
     this.startBound = this.getBoundingClientRect()
 
-    this.addEventListener('pointermove', this.handlePointerMove)
-    this.addEventListener('pointerup', this.handlePointerUp, {
+    this.moveListener = this.handlePointerMove.bind(this)
+    this.addEventListener('pointermove', this.moveListener)
+    document.addEventListener('pointerup', this.handlePointerUp.bind(this), {
       once: true,
     })
-    this.addEventListener('pointercancel', this.handlePointerUp, {
-      once: true,
-    })
+
+    document.addEventListener(
+      'pointercancel',
+      this.handlePointerUp.bind(this),
+      {
+        once: true,
+      },
+    )
 
     this.dispatchEvent(
       new CustomEvent('dragstart', {
@@ -111,7 +122,7 @@ export class CdgListItem extends HTMLElement {
   isBeingDrag() {
     const x = Math.abs(this.pointer.distance.x)
     const y = Math.abs(this.pointer.distance.y)
-    return !this.pointer.didMoving && (x <= 3 || y <= 3)
+    return !this.pointer.didMoving && (x <= 1 || y <= 1)
   }
 
   handlePointerMove(event) {
@@ -131,6 +142,7 @@ export class CdgListItem extends HTMLElement {
       this.clonedElement.style.width = this.clientWidth + 'px'
       this.clonedElement.style.zIndex = '65'
       this.clonedElement.style.position = 'fixed'
+      this.clonedElement.style.pointerEvent = 'none'
       this.clonedElement.classList.add('cloned')
       document.body.appendChild(this.clonedElement)
     }
@@ -158,12 +170,21 @@ export class CdgListItem extends HTMLElement {
 
   handlePointerUp() {
     this.classList.remove('dragging')
-    if (this.clonedElement && document.body.contains(this.clonedElement)) {
-      document.body.removeChild(this.clonedElement)
-      this.clonedElement = null
+    this.removeEventListener('pointermove', this.moveListener)
+    // Only raise event when user has moved
+    if (this.pointer.didMoving) {
+      this.dispatchEvent(
+        new CustomEvent('dragend', {
+          detail: {
+            element: this.clonedElement,
+            onAnimationDone: this.onAnimationDone.bind(this),
+          },
+        }),
+      )
     }
-    this.removeEventListener('pointermove', this.handlePointerMove)
+  }
 
-    this.dispatchEvent(new Event('dragend'))
+  onAnimationDone() {
+    this.clonedElement = null
   }
 }

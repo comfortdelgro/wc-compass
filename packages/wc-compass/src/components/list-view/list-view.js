@@ -39,7 +39,11 @@ export class CdgListview extends HTMLElement {
   setDraggableChildren() {
     this.querySelectorAll('cdg-list-item').forEach((listItem, index) => {
       if (listItem) {
-        listItem.setAttribute('allow-drag', this.allowDrag)
+        if (this.allowDrag) {
+          listItem.setAttribute('allow-drag', this.allowDrag)
+        } else {
+          listItem.removeAttribute('allow-drag')
+        }
       }
       if (this.allowDrag) {
         listItem.addEventListener('dragstart', this.handleDragStart.bind(this))
@@ -65,37 +69,58 @@ export class CdgListview extends HTMLElement {
   handleDragStart(event) {
     this.draggingItem = event.detail
     this.dragIndex = Array.from(this.children).indexOf(this.draggingItem)
+    this.placeholder.style.height = this.draggingItem.clientHeight + 2 + 'px' // 2 for border
   }
 
   handleDragThrough(event) {
     const to = event.detail
-
-    if (to === 0 || this.dragIndex === to) {
-      return
-    }
-
     let target = this.dragIndex + to
     target = target < 0 ? 0 : target
-    target = target > this.children.length ? this.children.length : target
+    target =
+      target > this.children.length + 1 ? this.children.length + 1 : target
 
-    this.insertBefore(this.placeholder, this.children[target])
+    if (this.children[target]) {
+      this.insertBefore(this.placeholder, this.children[target])
+    } else {
+      this.appendChild(this.placeholder)
+    }
   }
 
-  handleDragEnd() {
+  handleDragEnd(event) {
     if (this.contains(this.placeholder)) {
       this.insertBefore(this.draggingItem, this.placeholder)
       this.removeChild(this.placeholder)
-      const toIndex = Array.from(this.children).indexOf(this.draggingItem)
-
-      this.dispatchEvent(
-        new CustomEvent('dragitem', {
-          detail: {
-            draggIndex: this.dragIndex,
-            dragElement: this.draggingItem,
-            toIndex,
-          },
-        }),
-      )
     }
+    const toIndex = Array.from(this.children).indexOf(this.draggingItem)
+
+    this.dispatchEvent(
+      new CustomEvent('dragitem', {
+        detail: {
+          draggIndex: this.dragIndex,
+          dragElement: this.draggingItem,
+          toIndex,
+        },
+      }),
+    )
+
+    this.playEndAnimation(event.detail)
+  }
+
+  playEndAnimation(detail) {
+    const animationTime = 300
+    const element = detail.element
+    element.style.transition = `all ${animationTime}ms ease-in-out`
+    this.draggingItem.classList.add('moving')
+    const bound = this.draggingItem.getBoundingClientRect()
+    element.style.top = bound.top + 'px'
+    element.style.left = bound.left + 'px'
+
+    setTimeout(() => {
+      if (element && document.body.contains(element)) {
+        this.draggingItem.classList.remove('moving')
+        document.body.removeChild(element)
+        detail.onAnimationDone && detail.onAnimationDone()
+      }
+    }, animationTime)
   }
 }
