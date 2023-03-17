@@ -400,6 +400,8 @@
     padding: 20px;
     flex-direction: column;
     gap: 0;
+    height: 580px;
+    overflow-y: auto;
   "
 >
   <cdg-list-view allow-drag id="dragsample">
@@ -496,14 +498,21 @@
     console.log(event.detail)
   })
 
+  let draggable = true
+
   const toggleButton = document.querySelector('#toggleDraggable')
   toggleButton.addEventListener('click', () => {
-    listView.draggable = !listView.draggable
+    draggable = !draggable
+    if (draggable) {
+      listView.setAttribute('allow-drag', '')
+    } else {
+      listView.removeAttribute('allow-drag')
+    }
   })
 </script>
 
 <pre>
-    <code class="language-html">&lt;cdg-list-view draggable id=&quot;dragsample&quot;&gt;
+    <code class="language-html">&lt;cdg-list-view allow-drag id=&quot;dragsample&quot;&gt;
     &lt;cdg-list-item&gt;
         &lt;div class=&quot;cdg-list-item-icon&quot;&gt;
             // Place your icon / avatar here
