@@ -81,6 +81,7 @@ cdg-dots-indicator,
   border-radius: 6px;
   background-color: transparent;
   border: 2px solid #ffffff;
+  box-sizing: content-box;
   cursor: pointer;
   @extend %quickSmoothTransition;
   &.current {

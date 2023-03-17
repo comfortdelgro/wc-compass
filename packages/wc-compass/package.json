@@ -5,6 +5,7 @@
   "license": "MIT",
   "main": "dist/main.min.js",
   "scripts": {
+    "dev": "webpack serve --config webpack.config.js --mode development",
     "build": "webpack build --config webpack.config.js --mode production",
     "lint": "eslint *.ts*"
   },

@@ -11,13 +11,26 @@
   border: 1px solid transparent;
   position: relative;
   touch-action: manipulation;
+  user-select: none;
   cursor: pointer;
 
-  &.dragging-hidden {
+  &.dragging {
     opacity: 0;
     pointer-events: none;
     overflow: hidden;
     height: 0;
+    opacity: 0;
+    padding: 0;
+
+    // To not handle any events from children
+    * {
+      pointer-events: none;
+    }
+  }
+
+  &.dragging-hidden {
+    height: 0;
+    opacity: 0;
     padding: 0;
   }
 
@@ -33,17 +46,10 @@
     }
   }
 
-  &.dragging {
-    // To not handle any events from children
-    * {
-      pointer-events: none;
-    }
+  &.dragover {
   }
 
-  &.dragenter {
-  }
-
-  &[draggable] {
+  &[allow-drag] {
     padding-left: 42px;
   }
 }
@@ -101,6 +107,7 @@
   .cdg-list-placeholder-item {
     height: 85px;
     background: transparent;
+    animation: fillIn 0.2s;
   }
   .cdg-list-item {
     border-radius: 0;
@@ -114,12 +121,21 @@
     }
   }
 
-  &[draggable] {
+  &[allow-drag] {
     .cdg-list-item {
       cursor: pointer;
       &:active {
         cursor: grabbing;
       }
     }
+  }
+}
+
+@keyframes fillIn {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
   }
 }
