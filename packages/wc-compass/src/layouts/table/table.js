@@ -37,19 +37,25 @@ export class CdgTable extends HTMLElement {
     this.tableContainerElement = document.createElement('div')
     this.tableContainerElement.classList.add('cdg-table-container')
     this.tableHeadElement = this.querySelector('cdg-table-head')
-    this.tableHeadElement.addEventListener(
-      'onCheckAll',
-      this.handleTableHeadCheckAll.bind(this),
-    )
+    if (this.tableHeadElement) {
+      this.tableHeadElement.addEventListener(
+        'onCheckAll',
+        this.handleTableHeadCheckAll.bind(this),
+      )
+      this.tableContainerElement.appendChild(this.tableHeadElement)
+    }
     this.tableBodyElement = this.querySelector('cdg-table-body')
-    this.tableBodyElement.addEventListener(
-      'onRowCheck',
-      this.handleTableBodyRowCheck.bind(this),
-    )
-    this.tableContainerElement.appendChild(this.tableHeadElement)
-    this.tableContainerElement.appendChild(this.tableBodyElement)
+    if (this.tableBodyElement) {
+      this.tableBodyElement.addEventListener(
+        'onRowCheck',
+        this.handleTableBodyRowCheck.bind(this),
+      )
+      this.tableContainerElement.appendChild(this.tableBodyElement)
+    }
     this.appendChild(this.tableContainerElement)
-    this.appendChild(this.tableFooter)
+    if (this.tableFooter) {
+      this.appendChild(this.tableFooter)
+    }
   }
 
   handleTableBodyRowCheck() {
