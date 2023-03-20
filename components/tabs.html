@@ -1,9 +1,27 @@
-<h2>Tabs</h2>
 <p>
   Tabs organize content into multiple sections and allow users to navigate
   between them. The content under the set of tabs should be related and form a
   coherent unit.
 </p>
+
+<h3 class="sample-section-title">Link</h3>
+<div class="sample-section column darker">
+  <cdg-tabs id="sample-tab">
+    <a class="cdg-tab" href="#tabs?firstTab" activated>First Tab</a>
+    <a class="cdg-tab" href="#tabs?secondTab">Middle Tab</a>
+    <a class="cdg-tab" href="#tabs?thirdTab">Last Tab</a>
+    <a class="cdg-tab" disabled>Disabled Tab</a>
+  </cdg-tabs>
+</div>
+
+<pre>
+  <code class="language-html">&lt;cdg-tabs id=&quot;sample-tab&quot;&gt;
+  &lt;a class=&quot;cdg-tab&quot; href=&quot;#tabs?firstTab&quot; activated&gt;First Tab&lt;/a&gt;
+  &lt;a class=&quot;cdg-tab&quot; href=&quot;#tabs?secondTab&quot;&gt;Middle Tab&lt;/a&gt;
+  &lt;a class=&quot;cdg-tab&quot; href=&quot;#tabs?thirdTab&quot;&gt;Last Tab&lt;/a&gt;
+  &lt;a class=&quot;cdg-tab&quot; disabled&gt;Disabled Tab&lt;/a&gt;
+&lt;/cdg-tabs&gt;</code>
+</pre>
 
 <h3 class="sample-section-title">Status</h3>
 <div class="sample-section darker">
@@ -86,18 +104,18 @@ tab.addEventListener(&apos;switchTab&apos;, onSwitchTab);
 
 <script>
   function listenTabs() {
-    let activeIndex = 0;
+    let activeIndex = 0
 
     const onSwitchTab = (data) => {
-      tabContent.children[activeIndex].classList.remove('active');
-      activeIndex = data.detail;
-      tabContent.children[activeIndex].classList.add('active');
-    };
+      tabContent.children[activeIndex].classList.remove('active')
+      activeIndex = data.detail
+      tabContent.children[activeIndex].classList.add('active')
+    }
 
-    const tab = document.querySelector('#sample-tab');
-    const tabContent = document.querySelector('[for="sample-tab"]');
-    tab.addEventListener('switchTab', onSwitchTab);
+    const tab = document.querySelector('#sample-tab')
+    const tabContent = document.querySelector('[for="sample-tab"]')
+    tab.addEventListener('switchTab', onSwitchTab)
   }
 
-  listenTabs();
+  listenTabs()
 </script>

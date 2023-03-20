@@ -1,42 +1,174 @@
-<h2>Table</h2>
+<!-- <h2>Table 111</h2> -->
 
-<h3 class="sample-section-title">Default</h3>
+<!-- <h3 class="sample-section-title">Default</h3> -->
 
-<cdg-table class="cdg-table">
-  <cdg-table-head class="cdg-table-head">
-    <cdg-table-row class="cdg-table-head-row">
-      <cdg-table-header-cell class="cdg-table-head-cell" label="ID"
-        ></cdg-table-header-cell
-      >
-      <cdg-table-header-cell class="cdg-table-head-cell" label="Name"
-        ></cdg-table-header-cell
-      >
-      <cdg-table-header-cell class="cdg-table-head-cell" label="Age"
-        ></cdg-table-header-cell
-      >
-      <cdg-table-header-cell class="cdg-table-head-cell" label="Gender"
-        ></cdg-table-header-cell
-      >
-    </cdg-table-row>
-  </cdg-table-head>
-  <cdg-table-body class="cdg-table-body">
-    <cdg-table-row class="cdg-table-row">
-      <cdg-table-cell class="cdg-table-cell" >1</cdg-table-cell>
-      <cdg-table-cell class="cdg-table-cell">Yagin</cdg-table-cell>
-      <cdg-table-cell class="cdg-table-cell">30</cdg-table-cell>
-      <cdg-table-cell class="cdg-table-cell">Male</cdg-table-cell>
-    </cdg-table-row>
-    <cdg-table-row class="cdg-table-row">
-      <cdg-table-cell class="cdg-table-cell">2</cdg-table-cell>
-      <cdg-table-cell class="cdg-table-cell">Tom</cdg-table-cell>
-      <cdg-table-cell class="cdg-table-cell">25</cdg-table-cell>
-      <cdg-table-cell class="cdg-table-cell">Male</cdg-table-cell>
-    </cdg-table-row>
-    <cdg-table-row class="cdg-table-row">
-      <cdg-table-cell class="cdg-table-cell">3</cdg-table-cell>
-      <cdg-table-cell class="cdg-table-cell">John</cdg-table-cell>
-      <cdg-table-cell class="cdg-table-cell">40</cdg-table-cell>
-      <cdg-table-cell class="cdg-table-cell">Male</cdg-table-cell>
-    </cdg-table-row>
-  </cdg-table-body>
+<cdg-table class="cdg-table" checkable>
+    <div class="cdg-table-toolbar" cdg-table-toolbar>
+        <div class="cdg-table-toolbar-left">
+            <label class="cdg-input-group" style="width: 100px">
+                <cdg-dropdown placeholder="Select">
+                    <cdg-dropdown-option value="1"> Select Select 1 </cdg-dropdown-option>
+                    <cdg-dropdown-option value="2"> Select Select 2 </cdg-dropdown-option>
+                    <cdg-dropdown-option value="3"> Select Select 3 </cdg-dropdown-option>
+                </cdg-dropdown>
+            </label>
+
+            <label class="cdg-input-group" style="width: 320px">
+                <div class="cdg-input-with-icon right">
+                    <input class="cdg-input" placeholder="Type something..." />
+                    <cdg-icon name="search" size="16"></cdg-icon>
+                </div>
+            </label>
+        </div>
+        <div class="cdg-table-toolbar-right">
+            <button class="cdg-button left">
+                <cdg-icon name="plus"></cdg-icon> Add employee
+            </button>
+            <button class="cdg-button ghost">
+                <cdg-icon name="outlineTrash"></cdg-icon>
+            </button>
+            <button class="cdg-button ghost">
+                <cdg-icon name="copy"></cdg-icon>
+            </button>
+        </div>
+    </div>
+
+    <cdg-table-head class="cdg-table-head">
+        <cdg-table-row class="cdg-table-head-row">
+            <cdg-table-head-cell name="id" width="100px">
+                <a href="#table?sort=id&sortDirection=desc" class="cdg-table-head-cell-content">
+                    <label class="cdg-table-head-cell-text has-sorting">ID</label>
+                    <div class="cdg-table-head-cell-sorting">
+                        <cdg-icon class="cdg-table-head-cell-icon asc" name="filledArrowUp" size="16"></cdg-icon>
+                        <cdg-icon class="cdg-table-head-cell-icon desc" name="filledArrowDown" size="16"></cdg-icon>
+                    </div>
+                </a>
+            </cdg-table-head-cell>
+            <cdg-table-head-cell name="name">
+                <a href="#table?sort=name&sortDirection=desc" class="cdg-table-head-cell-content">
+                    <label class="cdg-table-head-cell-text has-sorting">Name</label>
+                    <div class="cdg-table-head-cell-sorting">
+                        <cdg-icon class="cdg-table-head-cell-icon asc" name="filledArrowUp" size="16"></cdg-icon>
+                        <cdg-icon class="cdg-table-head-cell-icon desc" name="filledArrowDown" size="16"></cdg-icon>
+                    </div>
+                </a>
+            </cdg-table-head-cell>
+            <cdg-table-head-cell name="age">
+                <div class="cdg-table-head-cell-text text-right">Age</div>
+            </cdg-table-head-cell>
+            <cdg-table-head-cell name="gender">
+                <div class="cdg-table-head-cell-text">Gender</div>
+            </cdg-table-head-cell>
+        </cdg-table-row>
+    </cdg-table-head>
+
+    <cdg-table-body class="cdg-table-body">
+    </cdg-table-body>
+
+    <div class="cdg-table-footer" cdg-table-footer>
+        <div class="cdg-table-footer-left">
+            <span>Rows per page: </span>
+            <div class="cdg-table-row-page-select">
+                <label class="cdg-input-group" style="width: 138px">
+                    <cdg-dropdown id="pageSizeDropdown">
+                        <cdg-dropdown-option value="10" selected="true">
+                            10 rows
+                        </cdg-dropdown-option>
+                        <cdg-dropdown-option value="20"> 20 rows </cdg-dropdown-option>
+                        <cdg-dropdown-option value="30"> 30 rows </cdg-dropdown-option>
+                    </cdg-dropdown>
+                </label>
+            </div>
+        </div>
+        <div class="cdg-table-footer-right">
+            <span id="displayedRows">Showing 1 - 10 out of 1000</span>
+            <div class="cdg-table-pagination">
+                <cdg-pagination current-page="1" total="1000" page-size="10" display-button-count="3"></cdg-pagination>
+            </div>
+        </div>
+    </div>
 </cdg-table>
+
+<div style="height: 300px;"></div>
+
+<script>
+    function generateRandomData(numData) {
+        const data = [];
+
+        for (let i = 0; i < numData; i++) {
+            const id = i + 1; // generate a random ID between 0 and 9999
+            const name = generateRandomName(); // generate a random name
+            const age = Math.floor(Math.random() * 60);
+            data.push({
+                id,
+                name,
+                age
+            }); // add the ID and name to the data array as an object
+        }
+
+        return data;
+    }
+
+    function generateRandomName() {
+        const firstNames = ["Alice", "Bob", "Charlie", "David", "Emily", "Frank", "Gina", "Haley", "Isaac", "John"];
+        const lastNames = ["Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson", "Moore", "Taylor"];
+        const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+        const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+        return `${firstName} ${lastName}`;
+    }
+
+    function createRow(data) {
+        const rowTemplate = document.createElement('template');
+        rowTemplate.innerHTML = `
+            <cdg-table-row class="cdg-table-row" checkable>
+                <cdg-table-cell>${data.id}</cdg-table-cell>
+                <cdg-table-cell class="text-center">${data.name}</cdg-table-cell>
+                <cdg-table-cell class="text-right">${data.age}</cdg-table-cell>
+                <cdg-table-cell>Male</cdg-table-cell>
+            </cdg-table-row>
+        `;
+        return rowTemplate;
+    }
+
+    let fakeData = [];
+    let pageIndex = 1;
+    let pageSize = 10;
+    const tableElement = document.querySelector('cdg-table');
+    const tableBody = tableElement.querySelector('cdg-table-body');
+    const paginationElement = document.querySelector('cdg-pagination');
+    const pageSizeDropdown = document.getElementById('pageSizeDropdown')
+    const displayedRows = document.getElementById('displayedRows')
+
+    if (!fakeData.length) {
+        fakeData = generateRandomData(1000);
+        fakeData.slice((pageIndex - 1) * pageSize, (pageIndex * pageSize)).forEach(data => {
+            const row = createRow(data);
+            tableBody.append(row.content.cloneNode(true));
+        })
+    }
+
+    if (pageSizeDropdown) {
+        pageSizeDropdown.addEventListener('onchangevalue', function(event) {
+            pageSize = Number(event.detail);
+            renderNewRows(pageIndex, pageSize)
+        })
+    }
+
+    if (paginationElement) {
+        paginationElement.addEventListener('navigate', function(event) {
+            pageIndex = Number(event.detail);
+            renderNewRows(pageIndex, pageSize)
+        })
+    }
+
+    function renderNewRows(pageIndex, pageSize) {
+        tableBody.innerHTML = ''
+        paginationElement.setAttribute('page-size', pageSize)
+        paginationElement.setAttribute('current-page', pageIndex)
+        displayedRows.innerHTML = `Showing ${pageIndex * pageSize - pageSize + 1} - ${pageIndex * pageSize} out of ${fakeData.length}`;
+        fakeData.slice((pageIndex - 1) * pageSize, (pageIndex * pageSize)).forEach(data => {
+            const row = createRow(data);
+            tableBody.append(row.content.cloneNode(true));
+        })
+    }
+</script>
