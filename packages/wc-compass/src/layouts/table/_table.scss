@@ -170,3 +170,20 @@
     gap: 10px;
   }
 }
+@media screen and (max-width: 767px) {
+  .cdg-table-toolbar {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .cdg-table-footer {
+    flex-direction: column;
+    gap: 16px;
+    .cdg-table-footer-left {
+      justify-content: center;
+    }
+    .cdg-table-footer-right {
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+}

@@ -200,6 +200,10 @@
       &.selected-date {
         background-color: var(--grey20);
       }
+      &:disabled {
+        background-color: var(--disabled-background);
+        border-radius: unset;
+      }
     }
   }
   .calendar-day--not-current {
