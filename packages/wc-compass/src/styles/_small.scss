@@ -61,9 +61,19 @@
     left: 32px;
     right: 32px;
   }
+
+  cdg-page-header,
+  .cdg-page-header {
+    padding: 16px;
+  }
 }
 
 @media screen and (max-width: 479px) {
+  cdg-page-header,
+  .cdg-page-header {
+    padding: 16px 12px;
+  }
+
   .cdg-promotion-title {
     font-size: 18px;
     line-height: 22px;
@@ -91,5 +101,29 @@
   .cdg-modal {
     width: auto;
     max-width: calc(100vw - 40px);
+  }
+
+  .cdg-list-item {
+    padding: 12px;
+    gap: 12px;
+    &[allow-drag] {
+      padding-left: 32px;
+    }
+  }
+
+  .cdg-list-draggable-icon {
+    left: 10px;
+  }
+
+  .cdg-list-item-button {
+    font-size: 12px;
+  }
+
+  .cdg-list-item-title {
+    font-size: 16px;
+  }
+
+  .cdg-list-item-description {
+    font-size: 12px;
   }
 }

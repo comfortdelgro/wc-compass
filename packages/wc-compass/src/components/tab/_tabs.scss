@@ -12,6 +12,10 @@ cdg-tabs,
   user-select: none;
 }
 
+a.cdg-tab {
+  color: var(--accent);
+}
+
 cdg-tab,
 .cdg-tab {
   padding: 8px 16px;
