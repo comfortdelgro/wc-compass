@@ -11,7 +11,7 @@
   border: 1px solid transparent;
   position: relative;
   user-select: none;
-  touch-action: none;
+  touch-action: manipulation;
   cursor: pointer;
 
   &.moving {
