@@ -102,6 +102,7 @@ const contentMap = {
   rangeSlider: './components/range-slider.html',
   tagBox: './components/tag-box.html',
   video: './components/video.html',
+  selectingThemeModal: './components/template/selecting-theme-modal.html',
 }
 
 const documentContent = [
@@ -330,6 +331,17 @@ const documentContent = [
       {
         name: 'Toast',
         slug: 'toast',
+      },
+    ],
+  },
+  {
+    name: 'Templates',
+    id: 'template',
+    icon: 'signature',
+    children: [
+      {
+        name: 'Selecting Theme Modal',
+        slug: 'selectingThemeModal',
       },
     ],
   },

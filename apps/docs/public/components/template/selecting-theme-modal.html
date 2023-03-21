@@ -1,0 +1,553 @@
+<p>Create sample layout for selecting theme modal</p>
+
+<h3 class="sample-section-title">Default dashboard</h3>
+<div class="sample-section column">
+  <cdg-modal class="cdg-selecting-theme">
+    <cdg-modal-header
+      title="Default Dashboard"
+      useCloseButton="true"
+      class="cdg-selecting-theme-header"
+    ></cdg-modal-header>
+    <cdg-modal-body class="cdg-selecting-theme-body">
+      <div class="cdg-selecting-theme-body-content">
+        <div class="cdg-text">
+          <p>
+            Please select your default
+            <span style="color: blue"> dashboard</span><br />
+            so ever time we can take your to your favourite service
+          </p>
+        </div>
+        <div class="cdg-select">
+          <div class="cdg-select-candidate">
+            <img src="/assets/images/selected-candidate.svg" alt="svg-image" />
+            <label class="cdg-radio">
+              <input type="radio" name="sample2" />
+              <span>Option</span>
+            </label>
+          </div>
+          <div class="cdg-select-candidate">
+            <img
+              src="/assets/images/unselected-candidate.svg"
+              alt="svg-image"
+            />
+            <label class="cdg-radio">
+              <input type="radio" name="sample2" />
+              <span>Option</span>
+            </label>
+          </div>
+          <div class="cdg-select-candidate">
+            <img
+              src="/assets/images/unselected-candidate.svg"
+              alt="svg-image"
+            />
+            <label class="cdg-radio">
+              <input type="radio" name="sample2" />
+              <span>Option</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="cdg-selecting-theme-body-checkbox">
+        <label class="cdg-checkbox">
+          <input type="checkbox" />
+          <span class="checkbox-label">Don’t ask me again</span>
+        </label>
+      </div>
+    </cdg-modal-body>
+    <cdg-modal-actions class="cdg-selecting-theme-footer">
+      <div class="cdg-selecting-theme-footer-button">
+        <div class="cdg-separator"></div>
+        <button class="cdg-button" id="approveButton" autofocus>
+          Get Started
+        </button>
+      </div>
+    </cdg-modal-actions>
+  </cdg-modal>
+</div>
+<style>
+  .cdg-selecting-theme {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    width: 800px;
+    height: 482px;
+    background: #ffffff;
+    /* Shadows/Depth 16 */
+    box-shadow: 0px 1.2px 3.6px rgba(0, 0, 0, 0.1),
+      0px 6.4px 14.4px rgba(0, 0, 0, 0.13);
+    border-radius: 5px;
+  }
+  .cdg-selecting-theme-header {
+    /* Content */
+    box-sizing: border-box;
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+    width: 800px;
+    height: 62px;
+    /* Grey Shades/20 */
+    border-bottom: 0.5px solid #e6e6e6;
+  }
+  .cdg-selecting-theme-body {
+    /* _base/Modal/Body */
+    box-sizing: border-box;
+    overflow: hidden;
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 26px 16px;
+    gap: 12px;
+    width: 800px;
+    height: 351px;
+    /* Grey Shades/20 */
+    border-bottom: 0.5px solid #e6e6e6;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+  }
+  .cdg-selecting-theme-footer {
+    /* _base/Modal/Footer */
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 0px;
+    width: 800px;
+    height: 69px;
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    align-self: stretch;
+    flex-grow: 0;
+  }
+  .cdg-selecting-theme-footer-button {
+    /* Buttons */
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    width: 800px;
+    height: 69px;
+  }
+  #approveButton {
+    /* Button */
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-right: 16px;
+    padding: 8px 20px;
+    gap: 8px;
+    width: 133px;
+    height: 40px;
+    /* Theme/CDGBLUE 100 */
+    background: #0142af;
+    border-radius: 4px;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  .cdg-selecting-theme-body-content {
+    /* Frame 427319759 */
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 30px;
+    width: 768px;
+    height: 247px;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  .cdg-selecting-theme-body-checkbox {
+    /* Frame 427319757 */
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    width: 768px;
+    height: 40px;
+    /* Greys/Grey 20 */
+    background: #f3f2f1;
+    border-radius: 4px;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+  }
+  .cdg-checkbox {
+    /* Checkbox */
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 12px;
+    padding: 0px;
+    gap: 8px;
+    width: 168px;
+    height: 24px;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  .checkbox-label {
+    width: 136px;
+    height: 21px;
+    /* Body/Body 3 */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    /* identical to box height */
+    /* Grey Shades/100 */
+    color: #333333;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  .cdg-text {
+    width: 768px;
+    height: 42px;
+    /* Body/Body 3 Emphasis */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* Greys/Grey 110 */
+    color: #201f1e;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  .cdg-select {
+    /* Frame 427319758 */
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 30px;
+    width: 657px;
+    height: 175px;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  .cdg-select-candidate {
+    /* Frame 427319756 */
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 20px;
+    width: 199px;
+    height: 175px;
+  }
+</style>
+<pre>
+      <code class="language-html">
+  &lt;cdg-modal class="cdg-selecting-theme"&gt;
+    &lt;cdg-modal-header
+      title="Default Dashboard"
+      useCloseButton="true"
+      class="cdg-selecting-theme-header"
+    &gt;&lt;/cdg-modal-header&gt;
+    &lt;cdg-modal-body class="cdg-selecting-theme-body"&gt;
+      &lt;div class="cdg-selecting-theme-body-content"&gt;
+        &lt;div class="cdg-text"&gt;
+          &lt;p&gt;
+            Please select your default
+            &lt;span style="color: blue"&gt; dashboard&lt;/span&gt;&lt;br /&gt;
+            so ever time we can take your to your favourite service
+          &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="cdg-select"&gt;
+          &lt;div class="cdg-select-candidate"&gt;
+            &lt;img src="/assets/images/selected-candidate.svg" alt="svg-image"&gt;
+            &lt;label class="cdg-radio"&gt;
+              &lt;input type="radio" name="sample2" /&gt;
+              &lt;span&gt;Option&lt;/span&gt;
+            &lt;/label&gt;
+          &lt;/div&gt;
+          &lt;div class="cdg-select-candidate"&gt;
+            &lt;img src="/assets/images/unselected-candidate.svg" alt="svg-image"&gt;
+            &lt;label class="cdg-radio"&gt;
+              &lt;input type="radio" name="sample2" /&gt;
+              &lt;span&gt;Option&lt;/span&gt;
+            &lt;/label&gt;
+          &lt;/div&gt;
+          &lt;div class="cdg-select-candidate"&gt;
+            &lt;img src="/assets/images/unselected-candidate.svg" alt="svg-image"&gt;
+            &lt;label class="cdg-radio"&gt;
+              &lt;input type="radio" name="sample2" /&gt;
+              &lt;span&gt;Option&lt;/span&gt;
+            &lt;/label&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="cdg-selecting-theme-body-checkbox"&gt;
+        &lt;label class="cdg-checkbox"&gt;
+          &lt;input type="checkbox" /&gt;
+          &lt;span class="checkbox-label"&gt;Don’t ask me again&lt;/span&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/cdg-modal-body&gt;
+    &lt;cdg-modal-actions class="cdg-selecting-theme-footer"&gt;
+      &lt;div class="cdg-selecting-theme-footer-button"&gt;
+        &lt;div class="cdg-separator"&gt;&lt;/div&gt;
+        &lt;button class="cdg-button" id="approveButton" autofocus&gt;
+          Get Started
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/cdg-modal-actions&gt;
+  &lt;/cdg-modal&gt;
+      </code>
+</pre>
+<pre>
+  <code>
+    .cdg-selecting-theme {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0px;
+      width: 800px;
+      height: 482px;
+      background: #ffffff;
+      /* Shadows/Depth 16 */
+      box-shadow: 0px 1.2px 3.6px rgba(0, 0, 0, 0.1),
+        0px 6.4px 14.4px rgba(0, 0, 0, 0.13);
+      border-radius: 5px;
+    }
+    .cdg-selecting-theme-header {
+      /* Content */
+      box-sizing: border-box;
+      /* Auto layout */
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      gap: 16px;
+      width: 800px;
+      height: 62px;
+      /* Grey Shades/20 */
+      border-bottom: 0.5px solid #e6e6e6;
+    }
+    .cdg-selecting-theme-body {
+      /* _base/Modal/Body */
+      box-sizing: border-box;
+      overflow: hidden;
+      /* Auto layout */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 26px 16px;
+      gap: 12px;
+      width: 800px;
+      height: 351px;
+      /* Grey Shades/20 */
+      border-bottom: 0.5px solid #e6e6e6;
+      /* Inside auto layout */
+      flex: none;
+      order: 1;
+      align-self: stretch;
+      flex-grow: 0;
+    }
+    .cdg-selecting-theme-footer {
+      /* _base/Modal/Footer */
+      /* Auto layout */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-end;
+      padding: 0px;
+      width: 800px;
+      height: 69px;
+      /* Inside auto layout */
+      flex: none;
+      order: 2;
+      align-self: stretch;
+      flex-grow: 0;
+    }
+    .cdg-selecting-theme-footer-button {
+      /* Buttons */
+      /* Auto layout */
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0px;
+      gap: 8px;
+      width: 800px;
+      height: 69px;
+    }
+    #approveButton {
+      /* Button */
+      /* Auto layout */
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin-right: 16px;
+      padding: 8px 20px;
+      gap: 8px;
+      width: 133px;
+      height: 40px;
+      /* Theme/CDGBLUE 100 */
+      background: #0142af;
+      border-radius: 4px;
+      /* Inside auto layout */
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+    }
+    .cdg-selecting-theme-body-content {
+      /* Frame 427319759 */
+      /* Auto layout */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0px;
+      gap: 30px;
+      width: 768px;
+      height: 247px;
+      /* Inside auto layout */
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+    }
+    .cdg-selecting-theme-body-checkbox {
+      /* Frame 427319757 */
+      /* Auto layout */
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0px;
+      gap: 8px;
+      width: 768px;
+      height: 40px;
+      /* Greys/Grey 20 */
+      background: #f3f2f1;
+      border-radius: 4px;
+      /* Inside auto layout */
+      flex: none;
+      order: 1;
+      align-self: stretch;
+      flex-grow: 0;
+    }
+    .cdg-checkbox {
+      /* Checkbox */
+      /* Auto layout */
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-left: 12px;
+      padding: 0px;
+      gap: 8px;
+      width: 168px;
+      height: 24px;
+      /* Inside auto layout */
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+    }
+    .checkbox-label {
+      width: 136px;
+      height: 21px;
+      /* Body/Body 3 */
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      /* identical to box height */
+      /* Grey Shades/100 */
+      color: #333333;
+      /* Inside auto layout */
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+    }
+    .cdg-text {
+      width: 768px;
+      height: 42px;
+      /* Body/Body 3 Emphasis */
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      /* Greys/Grey 110 */
+      color: #201f1e;
+      /* Inside auto layout */
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+    }
+    .cdg-select {
+      /* Frame 427319758 */
+      /* Auto layout */
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 30px;
+      width: 657px;
+      height: 175px;
+      /* Inside auto layout */
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+    }
+    .cdg-select-candidate {
+      /* Frame 427319756 */
+      /* Auto layout */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0px;
+      gap: 20px;
+      width: 199px;
+      height: 175px;
+    }
+  </code>
+</pre>
