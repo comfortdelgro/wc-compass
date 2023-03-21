@@ -59,13 +59,34 @@
         </div>
       </cdg-portal-navbar>
       <div class="page-body">
-        <cdg-sub-nav>
+        <cdg-sub-nav class="stick">
           <div class="cdg-sub-nav-header">
             <span class="cdg-sub-nav-title"></span>
           </div>
           <div class="cdg-sub-nav-group-content"></div>
         </cdg-sub-nav>
-        <div id="component-content" class="doc-container"></div>
+        <div class="page-container">
+          <cdg-page-header>
+            <cdg-page-header-row>
+              <cdg-breadcrumbs>
+                <a href="#home">Home</a>
+                <cdg-icon name="arrowRight"></cdg-icon>
+                <a
+                  class="sub-page-breadcrumb"
+                  href="javascript:void(0)"
+                  onclick="showSubNav()"
+                >
+                </a>
+                <cdg-icon name="arrowRight"></cdg-icon>
+                <a class="current-page-breadcrumb"></a>
+              </cdg-breadcrumbs>
+            </cdg-page-header-row>
+            <cdg-page-header-row>
+              <cdg-page-title></cdg-page-title>
+            </cdg-page-header-row>
+          </cdg-page-header>
+          <div id="component-content" class="doc-container"></div>
+        </div>
       </div>
       <div id="sample-script"></div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>

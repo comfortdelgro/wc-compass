@@ -1,8 +1,7 @@
-<h2>Layouts</h2>
 <p>Our common css class to arrange your layout</p>
 
 <style>
-  .sample-parent {
+  .sample-parent > .cdg-layout {
     width: 100%;
     height: 240px;
     gap: 10px;
@@ -10,7 +9,7 @@
     border: 1px solid var(--border-color);
   }
 
-  .sample-parent > div {
+  .sample-parent > .cdg-layout > div {
     padding: 10px;
     border: 1px solid var(--border-color);
   }
@@ -78,8 +77,8 @@
     </label>
   </div>
 </cdg-action-bar>
-<div class="sample-section">
-  <div class="sample-parent cdg-layout">
+<div class="sample-section sample-parent">
+  <div class="cdg-layout">
     <div>Child 1</div>
     <div>Child 2</div>
     <div>Child 3</div>
@@ -91,22 +90,16 @@
 <script>
   let alignment = ''
   let stretch = false
-  let template = ''
 
-  const sampleParent = document.querySelector('.sample-parent')
-  const children = document.querySelectorAll('.sample-parent > div')
+  const sampleParent = document.querySelector('.sample-parent > .cdg-layout')
+  const children = document.querySelectorAll(
+    '.sample-parent > .cdg-layout > div',
+  )
   const alignmentDropdown = document.querySelector('#alignmentDropdown')
   const sampleCode = document.querySelector('.sample-code')
 
   function rebuildTemplate() {
-    template =
-      `<div class="cdg-layout` +
-      `${alignment ? ' ' + alignment : ''}` +
-      `${stretch ? ' stretch' : ''}` +
-      `">` +
-      sampleParent.innerHTML +
-      `</div>`
-    sampleCode.textContent = template
+    sampleCode.textContent = sampleParent.parentElement.innerHTML
     hljs.highlightElement(sampleCode)
   }
 

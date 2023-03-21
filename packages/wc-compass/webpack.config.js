@@ -6,7 +6,7 @@ const version = PACKAGE.version
 const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
-  entry: {main: './src/main.js'},
+  entry: {main: './src/main.js', docs: '../../apps/docs/public/demo.js'},
   mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -41,6 +41,32 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.html$/,
+        include: [path.resolve(__dirname, '../../apps/docs/public/components')],
+        use: [
+          {
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'components/',
+            },
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
+        test: /\.html$/,
+        include: [path.resolve(__dirname, '../../apps/docs/public/pages')],
+        use: [
+          {
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'pages/',
+            },
+            loader: 'file-loader',
+          },
+        ],
+      },
     ],
   },
   resolve: {
@@ -59,4 +85,10 @@ module.exports = {
       chunkFilename: devMode ? '[id].css' : '[id].[contenthash].css',
     }),
   ],
+  devServer: {
+    static: {
+      directory: path.join(__dirname, '../../apps/docs/public'),
+    },
+    port: 8080,
+  },
 }

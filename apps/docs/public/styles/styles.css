@@ -84,15 +84,13 @@ cdg-nav-rail .cdg-nav-rail-inner,
 }
 
 .doc-container {
-  flex: 1;
-  overflow: auto;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
 }
 
 .doc-container .sample-section-title {
   background: var(--background);
   position: sticky;
-  top: -20px;
+  top: 0px;
   left: 0;
   right: 0;
   z-index: 5;
@@ -102,7 +100,7 @@ cdg-nav-rail .cdg-nav-rail-inner,
 }
 
 .doc-container h3:not(:first-child) {
-  margin-top: 60px;
+  margin-top: 20px;
 }
 
 .component-item {
@@ -192,11 +190,30 @@ pre code.hljs {
   padding: 10px 20px;
 }
 
-.cdg-nav-rail-body a {
-  cursor: pointer;
+.page-container {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  flex: 1;
+}
+
+.cdg-page-header {
+  padding: 20px;
+}
+
+.cdg-page-header.hide {
+  display: none;
 }
 
 @media screen and (max-width: 767px) {
+  .page-container {
+    background-color: var(--background);
+  }
+
+  .cdg-page-header {
+    padding: 20px 12px;
+  }
+
   .doc-container {
     padding: 0 12px;
   }
@@ -204,5 +221,30 @@ pre code.hljs {
   .sample-section.reverse {
     padding: 12px;
     background: var(--grey10);
+  }
+
+  .doc-container .sample-section-title {
+    background: transparent;
+    position: relative;
+  }
+
+  .cdg-sub-nav {
+    position: fixed;
+    top: 46px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    z-index: -1;
+  }
+
+  .cdg-sub-nav.stick {
+    position: fixed;
+    top: 46px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    z-index: 11;
   }
 }
