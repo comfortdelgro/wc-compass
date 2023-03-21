@@ -1,0 +1,40 @@
+cdg-rich-text-editor,
+.cdg-rich-text-editor {
+  appearance: none;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  max-width: 820px;
+  border-radius: 5px;
+  border: 1px solid #e9ecef;
+  display: block;
+  cdg-rte-toolbar,
+  .cdg-rte-toolbar {
+    display: block;
+    appearance: none;
+    border: none;
+    box-sizing: border-box;
+    margin: 0px;
+    // Styling
+    padding: 5px 20px;
+    background-color: #f3f2f1;
+    overflow: hidden;
+    max-height: 38px;
+    position: relative;
+    row-gap: 5px;
+
+    button {
+      display: inline-flex;
+      float: left;
+    }
+  }
+
+  cdg-rte-content,
+  .cdg-rte-content {
+    display: block;
+    appearance: none;
+    border: none;
+    box-sizing: border-box;
+    margin: 0px;
+  }
+}

@@ -50,6 +50,7 @@ import './components/volume.html'
 import './components/wizards.html'
 import './pages/home.html'
 
+
 const contentMap = {
   home: './pages/home.html',
   accordion: './components/accordion.html',
@@ -102,6 +103,7 @@ const contentMap = {
   rangeSlider: './components/range-slider.html',
   tagBox: './components/tag-box.html',
   video: './components/video.html',
+  richTextEditor: './components/rich-text-editor.html',
 }
 
 const documentContent = [
@@ -220,6 +222,10 @@ const documentContent = [
       {
         name: 'RangeSlider',
         slug: 'rangeSlider',
+      },
+      {
+        name: 'Rich Text Editor',
+        slug: 'richTextEditor',
       },
       {
         name: 'Toggle',
