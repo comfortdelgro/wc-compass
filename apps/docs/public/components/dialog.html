@@ -38,68 +38,44 @@
   class="sample-section"
   style="flex-direction: row; align-items: flex-start"
 >
-  <template id="successDialog">
-    <div class="cdg-dialog-content">
-      <div class="cdg-dialog-content-image">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(16).webp" width="220" height="220" />
-      </div>
-      <h4 class="cdg-dialog-title">Successfully Completed Content</h4>
-      <p class="cdg-dialog-message">
-        Lorem ipsum dolor sit amet, consectetur...
-      </p>
-    </div>
-  </template>
-  <button class="cdg-button" onclick="showStatusDialog('success')">Show Success</button>
-  <button class="cdg-button" onclick="showStatusDialog('error')">Show Error</button>
-  <button class="cdg-button" onclick="showStatusDialogWithContent()">Show custom Content</button>
+  <button
+    class="cdg-button"
+    onclick="showStatusDialog('Successfully Completed', 'Lorem ipsum dolor sit amet, consectetur', 'success')"
+  >
+    Show Success
+  </button>
+  <button
+    class="cdg-button"
+    onclick="showStatusDialog('Sorry something went wrong', 'Lorem ipsum dolor sit amet, consectetur', 'error')"
+  >
+    Show Error
+  </button>
 </div>
 
 <pre>
     <code class="language-html">
-&lt;button class=&quot;cdg-button&quot; onclick=&quot;showStatusDialog(&apos;success&apos;)&quot;&gt;Show Success&lt;/button&gt;
-&lt;button class=&quot;cdg-button&quot; onclick=&quot;showStatusDialog(&apos;error&apos;)&quot;&gt;Show Error&lt;/button&gt;
-
-
-&lt;template id=&quot;successDialog&quot;&gt;
-&lt;div class=&quot;cdg-dialog-content&quot;&gt;
-  &lt;div class=&quot;cdg-dialog-content-image&quot;&gt;
-    &lt;img src=&quot;https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(16).webp&quot; width=&quot;220&quot; height=&quot;220&quot; /&gt;
-  &lt;/div&gt;
-  &lt;h4 class=&quot;cdg-dialog-title&quot;&gt;Successfully Completed Content&lt;/h4&gt;
-  &lt;p class=&quot;cdg-dialog-message&quot;&gt;
-    Lorem ipsum dolor sit amet, consectetur...
-  &lt;/p&gt;
-&lt;/div&gt;
-&lt;/template&gt;
-&lt;button class=&quot;cdg-button&quot; onclick=&quot;showStatusDialogWithContent()&quot;&gt;Show custom Content&lt;/button&gt;
+&lt;button
+  class=&quot;cdg-button&quot;
+  onclick=&quot;showStatusDialog(&apos;Successfully Completed&apos;, &apos;Lorem ipsum dolor sit amet, consectetur&apos;, &apos;success&apos;)&quot;
+&gt;
+  Show Success
+&lt;/button&gt;
+&lt;button
+  class=&quot;cdg-button&quot;
+  onclick=&quot;showStatusDialog(&apos;Sorry something went wrong&apos;, &apos;Lorem ipsum dolor sit amet, consectetur&apos;, &apos;error&apos;)&quot;
+&gt;
+  Show Error
+&lt;/button&gt;
 
 &lt;script&gt;
-  const showStatusDialog = (status) =&gt; {
+  const showStatusDialog = (title, message, status) =&gt; {
     const dialog = cdgDialogService.showStatus({
       status,
-      title: &apos;Sorry something went wrong&apos;,
-      message: &apos;Lorem ipsum dolor sit amet, consectetur&apos;,
+      title,
+      message,
       executeLabel: &apos;Okay&apos;,
-      // .cdg-animate__zoomInDown
-      // .cdg-animate__zoomIn
-      // .cdg-animate__heartBeat
-      // .cdg-animate__fadeInDown
-      animation: status === &apos;success&apos; ? &apos;cdg-animate__heartBeat&apos; : &apos;&apos;
     });
   };
-
-  const showStatusDialogWithContent = () =&gt; {
-    const content = document
-      .querySelector(&apos;#successDialog&apos;)
-      .content.firstElementChild.cloneNode(true);
-
-    const dialog = cdgDialogService.showStatus({
-      title: &apos;Sorry something went wrong&apos;,
-      message: &apos;Lorem ipsum dolor sit amet, consectetur&apos;,
-      executeLabel: &apos;Okay&apos;,
-      content,
-    });
-  }
 &lt;/script&gt;
     </code>
 </pre>
@@ -298,110 +274,94 @@
   window.showAlert = () => {
     cdgDialogService.alert({
       message: 'This is a message that let you know everything is ok!',
-    });
-  };
+    })
+  }
 
   window.showAlertWithTitle = () => {
     cdgDialogService.alert({
       dialogTitle: 'Title of this alert',
       message: 'This is a message that let you know everything is ok!',
-    });
-  };
+    })
+  }
 
   window.showWarning = () => {
     const dialog = cdgDialogService.warning({
       dialogTitle: 'Are you sure you want to delete this deal?',
       message: 'Only admin users can restore deleted deals.',
       executeLabel: 'Delete',
-    });
+    })
 
     dialog.addEventListener('close', (event) => {
       cdgToastService.toast(
-        'User says: ' + (event.detail ? 'Yes, delete it!' : 'Cancel')
-      );
-    });
-  };
+        'User says: ' + (event.detail ? 'Yes, delete it!' : 'Cancel'),
+      )
+    })
+  }
 
   window.showConfirm = () => {
     const dialog = cdgDialogService.confirm({
       dialogTitle: 'Is this helpful?',
       message: 'This confirm dialog can help you to ask user.',
       executeLabel: 'Execute',
-    });
+    })
 
     dialog.addEventListener('close', (event) => {
       cdgToastService.toast(
-        'User says: ' + (event.detail ? 'Yes, delete it!' : 'Cancel')
-      );
-    });
-  };
+        'User says: ' + (event.detail ? 'Yes, delete it!' : 'Cancel'),
+      )
+    })
+  }
 
   window.showConfirmCustom = () => {
     const content = document
       .querySelector('#customConfirmDialog')
-      .content.firstElementChild.cloneNode(true);
+      .content.firstElementChild.cloneNode(true)
 
-    const textarea = content.querySelector('#sampleTextarea');
+    const textarea = content.querySelector('#sampleTextarea')
 
     const dialog = cdgDialogService.confirmCustom({
       content,
       executeLabel: 'Submit',
-    });
+    })
 
     dialog.addEventListener('close', (event) => {
       cdgToastService.toast(
-        event.detail ? 'Submit with message "' + textarea.value + '"' : 'Cancel'
-      );
-    });
-  };
+        event.detail
+          ? 'Submit with message "' + textarea.value + '"'
+          : 'Cancel',
+      )
+    })
+  }
 
   window.showRating = () => {
-    let value;
+    let value
     const content = document
       .querySelector('#showRating')
-      .content.firstElementChild.cloneNode(true);
+      .content.firstElementChild.cloneNode(true)
 
-    const rating = content.querySelector('cdg-rating');
+    const rating = content.querySelector('cdg-rating')
     rating.addEventListener('rate', (event) => {
-      value = event.detail;
-    });
+      value = event.detail
+    })
 
     const dialog = cdgDialogService.confirmCustom({
       content,
       executeLabel: 'Submit',
-    });
+    })
 
     dialog.addEventListener('close', (event) => {
       cdgToastService.toast(
-        event.detail ? 'Rated with value: ' + value + '' : 'Cancel'
-      );
-    });
-  };
+        event.detail ? 'Rated with value: ' + value + '' : 'Cancel',
+      )
+    })
+  }
 
-  window.showStatusDialog = (status) => {
+  window.showStatusDialog = (title, message, status) => {
     const dialog = cdgDialogService.showStatus({
       status,
-      title: 'Sorry something went wrong',
-      message: 'Lorem ipsum dolor sit amet, consectetur',
+      title,
+      message,
       executeLabel: 'Okay',
-      // .cdg-animate__zoomInDown
-      // .cdg-animate__zoomIn
-      // .cdg-animate__heartBeat
-      // .cdg-animate__fadeInDown
-      animation: status === 'success' ? 'cdg-animate__heartBeat' : ''
-    });
-  };
-
-  window.showStatusDialogWithContent = () => {
-    const content = document
-      .querySelector('#successDialog')
-      .content.firstElementChild.cloneNode(true);
-
-    const dialog = cdgDialogService.showStatus({
-      title: 'Sorry something went wrong',
-      message: 'Lorem ipsum dolor sit amet, consectetur',
-      executeLabel: 'Okay',
-      content,
-    });
+    })
   }
 </script>

@@ -24,21 +24,27 @@ export class DialogService {
     return alert
   }
 
-  showStatus({
-    status,
-    title = '',
-    message = '',
-    buttonLabel = 'Okay',
-    content,
-    animation,
-  }) {
+  isMyScriptLoaded(url) {
+    const scripts = document.head.getElementsByTagName('script')
+    for (var i = scripts.length; i--; ) {
+      if (scripts[i].src == url) return true
+    }
+    return false
+  }
+
+  showStatus({status, title = '', message = '', buttonLabel = 'Okay'}) {
+    if (
+      !this.isMyScriptLoaded(
+        'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js',
+      )
+    ) {
+      const lottiePlayer = document.createElement('script')
+      lottiePlayer.src =
+        'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js'
+      document.head.appendChild(lottiePlayer)
+    }
+
     const alert = document.createElement('cdg-dialog-status')
-    if (content) {
-      alert.appendChild(content)
-    }
-    if (animation) {
-      alert.setAttribute('animation', animation)
-    }
     alert.setAttribute('title', title)
     alert.setAttribute('status', status)
     alert.setAttribute('useCustomContent', 'true')
