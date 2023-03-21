@@ -54,6 +54,56 @@
   <button class="cdg-button" onclick="showStatusDialogWithContent()">Show custom Content</button>
 </div>
 
+<pre>
+    <code class="language-html">
+&lt;button class=&quot;cdg-button&quot; onclick=&quot;showStatusDialog(&apos;success&apos;)&quot;&gt;Show Success&lt;/button&gt;
+&lt;button class=&quot;cdg-button&quot; onclick=&quot;showStatusDialog(&apos;error&apos;)&quot;&gt;Show Error&lt;/button&gt;
+
+
+&lt;template id=&quot;successDialog&quot;&gt;
+&lt;div class=&quot;cdg-dialog-content&quot;&gt;
+  &lt;div class=&quot;cdg-dialog-content-image&quot;&gt;
+    &lt;img src=&quot;https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(16).webp&quot; width=&quot;220&quot; height=&quot;220&quot; /&gt;
+  &lt;/div&gt;
+  &lt;h4 class=&quot;cdg-dialog-title&quot;&gt;Successfully Completed Content&lt;/h4&gt;
+  &lt;p class=&quot;cdg-dialog-message&quot;&gt;
+    Lorem ipsum dolor sit amet, consectetur...
+  &lt;/p&gt;
+&lt;/div&gt;
+&lt;/template&gt;
+&lt;button class=&quot;cdg-button&quot; onclick=&quot;showStatusDialogWithContent()&quot;&gt;Show custom Content&lt;/button&gt;
+
+&lt;script&gt;
+  const showStatusDialog = (status) =&gt; {
+    const dialog = cdgDialogService.showStatus({
+      status,
+      title: &apos;Sorry something went wrong&apos;,
+      message: &apos;Lorem ipsum dolor sit amet, consectetur&apos;,
+      executeLabel: &apos;Okay&apos;,
+      // .cdg-animate__zoomInDown
+      // .cdg-animate__zoomIn
+      // .cdg-animate__heartBeat
+      // .cdg-animate__fadeInDown
+      animation: status === &apos;success&apos; ? &apos;cdg-animate__heartBeat&apos; : &apos;&apos;
+    });
+  };
+
+  const showStatusDialogWithContent = () =&gt; {
+    const content = document
+      .querySelector(&apos;#successDialog&apos;)
+      .content.firstElementChild.cloneNode(true);
+
+    const dialog = cdgDialogService.showStatus({
+      title: &apos;Sorry something went wrong&apos;,
+      message: &apos;Lorem ipsum dolor sit amet, consectetur&apos;,
+      executeLabel: &apos;Okay&apos;,
+      content,
+    });
+  }
+&lt;/script&gt;
+    </code>
+</pre>
+
 <h3 class="sample-section-title">Warning</h3>
 <div
   class="sample-section"
