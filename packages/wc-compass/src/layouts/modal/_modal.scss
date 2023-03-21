@@ -105,6 +105,10 @@ cdg-dialog,
   display: flex;
   flex-direction: column;
   gap: 16px;
+  .cdg-dialog-content-image {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .cdg-dialog-actions {

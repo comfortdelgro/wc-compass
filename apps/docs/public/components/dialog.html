@@ -33,6 +33,27 @@
 &lt;/script&gt;</code>
 </pre>
 
+<h3 class="sample-section-title">Success & Error</h3>
+<div
+  class="sample-section"
+  style="flex-direction: row; align-items: flex-start"
+>
+  <template id="successDialog">
+    <div class="cdg-dialog-content">
+      <div class="cdg-dialog-content-image">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(16).webp" width="220" height="220" />
+      </div>
+      <h4 class="cdg-dialog-title">Successfully Completed Content</h4>
+      <p class="cdg-dialog-message">
+        Lorem ipsum dolor sit amet, consectetur...
+      </p>
+    </div>
+  </template>
+  <button class="cdg-button" onclick="showStatusDialog('success')">Show Success</button>
+  <button class="cdg-button" onclick="showStatusDialog('error')">Show Error</button>
+  <button class="cdg-button" onclick="showStatusDialogWithContent()">Show custom Content</button>
+</div>
+
 <h3 class="sample-section-title">Warning</h3>
 <div
   class="sample-section"
@@ -306,4 +327,31 @@
       );
     });
   };
+
+  window.showStatusDialog = (status) => {
+    const dialog = cdgDialogService.showStatus({
+      status,
+      title: 'Sorry something went wrong',
+      message: 'Lorem ipsum dolor sit amet, consectetur',
+      executeLabel: 'Okay',
+      // .cdg-animate__zoomInDown
+      // .cdg-animate__zoomIn
+      // .cdg-animate__heartBeat
+      // .cdg-animate__fadeInDown
+      animation: status === 'success' ? 'cdg-animate__heartBeat' : ''
+    });
+  };
+
+  window.showStatusDialogWithContent = () => {
+    const content = document
+      .querySelector('#successDialog')
+      .content.firstElementChild.cloneNode(true);
+
+    const dialog = cdgDialogService.showStatus({
+      title: 'Sorry something went wrong',
+      message: 'Lorem ipsum dolor sit amet, consectetur',
+      executeLabel: 'Okay',
+      content,
+    });
+  }
 </script>
