@@ -156,6 +156,7 @@ mobTaxi,
 money,
 mute,
 notification,
+openExternal,
 organization,
 outlineAddGroup,
 outlineAddUser,
@@ -163,6 +164,7 @@ outlineTick,
 outlineTrash,
 outlineUserGroupSettings,
 paste,
+pencil,
 pause,
 plus,
 profile,
@@ -178,6 +180,7 @@ settings,
 shapes,
 signature,
 spinner,
+sort,
 status,
 store,
 table,
@@ -200,23 +203,23 @@ wLogo,
 warning,
 zigLogo,
 zoomMinus,
-zoomPlus`.split(',');
+zoomPlus`.split(',')
 
   function createIcon(name) {
     const iconTemplate = `<cdg-icon name="{{name}}"></cdg-icon>
-    <span class="icon-name">{{name}}</span>`;
+    <span class="icon-name">{{name}}</span>`
 
-    const icon = iconTemplate.replace(/{{name}}/g, name);
-    const template = document.createElement('div');
-    template.classList.add('icon-sample');
-    template.innerHTML = icon;
+    const icon = iconTemplate.replace(/{{name}}/g, name)
+    const template = document.createElement('div')
+    template.classList.add('icon-sample')
+    template.innerHTML = icon
 
-    return template;
+    return template
   }
 
-  const iconGrid = document.querySelector('#icon-grid');
+  const iconGrid = document.querySelector('#icon-grid')
 
   for (let icon of iconList) {
-    iconGrid.appendChild(createIcon(icon.trim()));
+    iconGrid.appendChild(createIcon(icon.trim()))
   }
 </script>

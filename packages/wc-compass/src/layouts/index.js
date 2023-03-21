@@ -58,7 +58,7 @@ import {CdgWizardStep} from './wizards/wizard-step'
 import {CdgWizards} from './wizards/wizards'
 
 // Layouts
-customElements.define('cdg-action-bar', CdgActionBar)
+customElements.define('cdg-toolbar', CdgActionBar)
 customElements.define('cdg-card', CdgCard)
 customElements.define('cdg-card-header', CdgCardHeader)
 customElements.define('cdg-card-body', CdgCardBody)
