@@ -1,0 +1,229 @@
+<h3 class="sample-section-title">Raised</h3>
+<div class="sample-section">
+  <cdg-toolbar raised>
+    <div class="cdg-left-group">
+      <button class="cdg-button ghost">
+        <cdg-icon name="eyeSolid"></cdg-icon>
+        Launch Pad
+      </button>
+
+      <button class="cdg-button ghost">
+        <cdg-icon name="refresh"></cdg-icon>
+        Refresh
+      </button>
+      <button class="cdg-button ghost">
+        <cdg-icon name="pencil"></cdg-icon>
+        Edit
+      </button>
+    </div>
+    <div class="cdg-right-group">
+      <button class="cdg-button ghost">
+        <cdg-icon name="filter"></cdg-icon>
+        Filter
+      </button>
+      <button class="cdg-button ghost">
+        <cdg-icon name="sort"></cdg-icon>
+        Sort
+      </button>
+      <label class="cdg-input-group">
+        <div class="cdg-input-with-icon right">
+          <input
+            class="cdg-input"
+            type="text"
+            placeholder="Search..."
+            oninput="console.log(this.value)"
+          />
+          <cdg-icon name="search" size="16"></cdg-icon>
+        </div>
+      </label>
+    </div>
+  </cdg-toolbar>
+</div>
+
+<h3 class="sample-section-title">3 Columns</h3>
+<div class="sample-section">
+  <cdg-toolbar>
+    <div class="cdg-left-group">
+      <label class="cdg-input-group">
+        <div class="cdg-input-with-icon right">
+          <input
+            class="cdg-input"
+            type="text"
+            placeholder="Search..."
+            oninput="console.log(this.value)"
+          />
+          <cdg-icon name="search" size="16"></cdg-icon>
+        </div>
+      </label>
+    </div>
+    <div class="cdg-center-group">
+      <button
+        class="cdg-button secondary"
+        alt="Sample Button"
+        title="Sample Button"
+      >
+        Button
+      </button>
+      <button
+        class="cdg-button ghost icon"
+        size="small"
+        alt="Delete Button"
+        title="Delete Button"
+      >
+        <cdg-icon name="arrowDown"></cdg-icon>
+      </button>
+    </div>
+    <div class="cdg-right-group">
+      <button
+        class="cdg-button ghost icon"
+        size="small"
+        alt="Delete Button"
+        title="Delete Button"
+      >
+        <cdg-icon name="outlineTrash"></cdg-icon>
+      </button>
+      <button
+        class="cdg-button ghost icon"
+        size="small"
+        alt="Paste Button"
+        title="Paste Button"
+      >
+        <cdg-icon name="paste"></cdg-icon>
+      </button>
+      <button
+        class="cdg-button ghost icon"
+        size="small"
+        alt="Copy Button"
+        title="Copy Button"
+      >
+        <cdg-icon name="copy"></cdg-icon>
+      </button>
+    </div>
+  </cdg-toolbar>
+</div>
+
+<h3 class="sample-section-title">2 Columns - <small>Left and Right</small></h3>
+<div class="sample-section">
+  <cdg-toolbar>
+    <div class="cdg-left-group">
+      <label class="cdg-input-group">
+        <div class="cdg-input-with-icon right">
+          <input
+            class="cdg-input"
+            type="text"
+            placeholder="Search..."
+            oninput="console.log(this.value)"
+          />
+          <cdg-icon name="search" size="16"></cdg-icon>
+        </div>
+      </label>
+    </div>
+    <div class="cdg-right-group">
+      <button
+        class="cdg-button ghost icon"
+        size="small"
+        alt="Delete Button"
+        title="Delete Button"
+      >
+        <cdg-icon name="outlineTrash"></cdg-icon>
+      </button>
+      <button
+        class="cdg-button ghost icon"
+        size="small"
+        alt="Paste Button"
+        title="Paste Button"
+      >
+        <cdg-icon name="paste"></cdg-icon>
+      </button>
+      <button
+        class="cdg-button ghost icon"
+        size="small"
+        alt="Copy Button"
+        title="Copy Button"
+      >
+        <cdg-icon name="copy"></cdg-icon>
+      </button>
+    </div>
+  </cdg-toolbar>
+</div>
+
+<h3 class="sample-section-title">1 Column - <small>Left</small></h3>
+<div class="sample-section">
+  <cdg-toolbar>
+    <div class="cdg-left-group">
+      <label class="cdg-input-group">
+        <div class="cdg-input-with-icon right">
+          <input
+            class="cdg-input"
+            type="text"
+            placeholder="Search..."
+            oninput="console.log(this.value)"
+          />
+          <cdg-icon name="search" size="16"></cdg-icon>
+        </div>
+      </label>
+    </div>
+  </cdg-toolbar>
+</div>
+
+<h3 class="sample-section-title">1 Column - <small>Right</small></h3>
+<div class="sample-section">
+  <cdg-toolbar>
+    <div class="cdg-right-group">
+      <button
+        class="cdg-button ghost icon"
+        size="small"
+        alt="Delete Button"
+        title="Delete Button"
+      >
+        <cdg-icon name="outlineTrash"></cdg-icon>
+      </button>
+      <button
+        class="cdg-button ghost icon"
+        size="small"
+        alt="Paste Button"
+        title="Paste Button"
+      >
+        <cdg-icon name="paste"></cdg-icon>
+      </button>
+      <button
+        class="cdg-button ghost icon"
+        size="small"
+        alt="Copy Button"
+        title="Copy Button"
+      >
+        <cdg-icon name="copy"></cdg-icon>
+      </button>
+    </div>
+  </cdg-toolbar>
+</div>
+
+<h3 class="sample-section-title">Usage:</h3>
+<pre>
+    <code class="language-html">&lt;cdg-toolbar&gt;
+    &lt;div class=&quot;cdg-left-group&quot;&gt;
+        Place your any item here
+    &lt;/div&gt;
+    &lt;div class=&quot;cdg-center-group&quot;&gt;
+        Place your any item here
+    &lt;/div&gt;
+    &lt;div class=&quot;cdg-right-group&quot;&gt;
+        Place your any item here
+    &lt;/div&gt;
+&lt;/cdg-toolbar&gt;
+Or
+&lt;cdg-toolbar&gt;
+    &lt;div class=&quot;cdg-left-group&quot;&gt;
+    Place your any item here
+    &lt;/div&gt;
+    &lt;div class=&quot;cdg-right-group&quot;&gt;
+    Place your any item here
+    &lt;/div&gt;
+&lt;/cdg-toolbar&gt;
+Or
+&lt;cdg-toolbar&gt;
+    &lt;div class=&quot;cdg-left-group&quot;&gt;
+    Place your any item here
+    &lt;/div&gt;
+&lt;/cdg-toolbar&gt;</code>
+</pre>

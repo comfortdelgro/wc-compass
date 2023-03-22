@@ -1,5 +1,4 @@
 import './components/accordion.html'
-import './components/action-bar.html'
 import './components/alert-badges.html'
 import './components/alert.html'
 import './components/avatar.html'
@@ -44,6 +43,7 @@ import './components/text-field.html'
 import './components/timeline.html'
 import './components/toast.html'
 import './components/toggle.html'
+import './components/toolbar.html'
 import './components/tooltip.html'
 import './components/video.html'
 import './components/volume.html'
@@ -83,7 +83,7 @@ const contentMap = {
   rating: './components/rating.html',
   sidebar: './components/sidebar.html',
   status: './components/status.html',
-  actionBar: './components/action-bar.html',
+  toolbar: './components/toolbar.html',
   subHeader: './components/sub-header.html',
   tabs: './components/tabs.html',
   textField: './components/text-field.html',
@@ -113,10 +113,6 @@ const documentContent = [
       {
         name: 'Accordion',
         slug: 'accordion',
-      },
-      {
-        name: 'Action Bar',
-        slug: 'actionBar',
       },
       {
         name: 'Breadcrumbs',
@@ -169,6 +165,10 @@ const documentContent = [
       {
         name: 'Timeline',
         slug: 'timeline',
+      },
+      {
+        name: 'Toolbar',
+        slug: 'toolbar',
       },
       {
         name: 'Footer',
