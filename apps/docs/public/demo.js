@@ -6,6 +6,7 @@ import './components/breadcrumbs.html'
 import './components/button.html'
 import './components/calendar.html'
 import './components/cards.html'
+import './components/card-blogs.html'
 import './components/carousel.html'
 import './components/checkboxes.html'
 import './components/dashboard-side-card.html'
@@ -67,6 +68,7 @@ const contentMap = {
   dropdown: './components/dropdown.html',
   button: './components/button.html',
   cards: './components/cards.html',
+  cardBlogs: './components/card-blogs.html',
   carousel: './components/carousel.html',
   inlineLoading: './components/inline-loading.html',
   layouts: './components/layouts.html',
@@ -121,6 +123,10 @@ const documentContent = [
       {
         name: 'Cards',
         slug: 'cards',
+      },
+      {
+        name: 'Card for Blogs',
+        slug: 'cardBlogs',
       },
       {
         name: 'Carousel',
