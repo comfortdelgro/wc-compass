@@ -63,7 +63,7 @@ cdg-carousel,
     .cdg-carousel-navigation .cdg-button {
       background-color: transparent;
       color: var(--grey80);
-      transform: scale(0.8) translateY(-50%);
+      transform: scale(0.8) translateY(calc(-50% - 24px));
       &.prev {
         left: 0px;
       }
@@ -75,8 +75,8 @@ cdg-carousel,
     cdg-slide,
     .cdg-slide {
       display: flex;
-      gap: 18px;
       padding: 0 60px;
+      gap: 18px;
       cdg-card,
       .cdg-card {
         flex: 1;
@@ -84,6 +84,10 @@ cdg-carousel,
     }
 
     &[single-center] {
+      .cdg-carousel-container {
+        padding-left: 60px;
+        padding-right: 60px;
+      }
       .cdg-carousel-scroller {
         gap: 24px;
       }
@@ -101,6 +105,7 @@ cdg-carousel,
   width: 100%;
   overflow: hidden;
   position: relative;
+  box-sizing: border-box;
 }
 
 cdg-carousel-scroller,

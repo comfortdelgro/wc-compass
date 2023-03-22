@@ -60,7 +60,11 @@ export class CdgCarouselScroller extends HTMLElement {
   attributeChangedCallback(attr) {
     switch (attr) {
       case 'current':
-        this.position = Math.floor(this.slideWidth * this.current)
+        let position = Math.floor(this.slideWidth * this.current)
+        if (this.singleCenter) {
+          position = position - this.parentElement.clientWidth * 0.2 + 60
+        }
+        this.position = position
         this.updatePosition()
         this.dispatchEvent(
           new CustomEvent('updatePosition', {detail: this.position}),
@@ -72,8 +76,7 @@ export class CdgCarouselScroller extends HTMLElement {
         break
 
       case 'single-center':
-        this.updateSize()
-        this.updatePosition()
+        this.updateViewResize()
         break
 
       default:
@@ -101,7 +104,12 @@ export class CdgCarouselScroller extends HTMLElement {
 
     this.updateSize()
     let position = Math.floor(this.slideWidth * this.current)
-    position = this.position < 0 ? 0 : this.position
+    if (!this.singleCenter) {
+      position = position < 0 ? 0 : position
+    } else {
+      position = position - this.parentElement.clientWidth * 0.2 + 60
+    }
+
     this.position = position
     this.updatePosition()
   }
@@ -112,11 +120,31 @@ export class CdgCarouselScroller extends HTMLElement {
 
   updatePosition() {
     // To not let slide moves on start and end
-    if (
-      this.singleCenter ||
-      this.position <= this.clientWidth - this.slideWidth
-    ) {
-      this.style.transform = `translate3d(-${this.position}px, 0, 0)`
+    const position =
+      this.position < 0 ? Math.abs(this.position) : -this.position
+    this.style.transform = `translate3d(${position}px, 0, 0)`
+
+    const firstSlide = this.children[0]
+    const lastSlide = this.children[this.children.length - 1]
+    const spacing = this.singleCenter ? 24 : 0
+    if (this.current === 0) {
+      // Move last slide to first place
+      lastSlide.style.transform = `translate3d(-${
+        (lastSlide.clientWidth + spacing) * this.children.length
+      }px, 0 ,0)`
+    } else {
+      // Move back to last
+      lastSlide.style.transform = `translate3d(0, 0 ,0)`
+    }
+
+    if (this.current === this.children.length - 1) {
+      // Move last slide to first place
+      firstSlide.style.transform = `translate3d(${
+        (firstSlide.clientWidth + spacing) * this.children.length
+      }px, 0 ,0)`
+    } else {
+      // Move back to last
+      firstSlide.style.transform = `translate3d(0, 0 ,0)`
     }
   }
 }
