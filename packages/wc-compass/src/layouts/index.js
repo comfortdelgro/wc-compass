@@ -15,6 +15,7 @@ import {CdgDialogActions} from './modal/dialog-actions'
 import {CdgDialogAlert} from './modal/dialog-alert'
 import {CdgDialogConfirm} from './modal/dialog-confirm'
 import {CdgDialogConfirmCustom} from './modal/dialog-confirm-custom'
+import {CdgDialogStatus} from './modal/dialog-success'
 import {CdgDialogWarning} from './modal/dialog-warning'
 import {CdgModal} from './modal/modal'
 import {CdgModalActions} from './modal/modal-actions'
@@ -95,6 +96,7 @@ customElements.define('cdg-dialog-confirm', CdgDialogConfirm)
 customElements.define('cdg-dialog-confirm-custom', CdgDialogConfirmCustom)
 customElements.define('cdg-dialog-warning', CdgDialogWarning)
 customElements.define('cdg-dialog-actions', CdgDialogActions)
+customElements.define('cdg-dialog-status', CdgDialogStatus)
 customElements.define('cdg-timeline', CdgTimeline)
 customElements.define('cdg-timeline-header', CdgTimelineHeader)
 customElements.define('cdg-timeline-group', CdgTimelineGroup)
@@ -154,6 +156,7 @@ export const LAYOUT_COMPONENTS = [
   CdgDialogWarning,
   CdgDialogConfirm,
   CdgDialogConfirmCustom,
+  CdgDialogStatus,
   CdgTimeline,
   CdgTimelineHeader,
   CdgTimelineGroup,
