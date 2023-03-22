@@ -1,6 +1,6 @@
 export class CdgCarouselScroller extends HTMLElement {
   static get observedAttributes() {
-    return ['current', 'position']
+    return ['current', 'position', 'single-center']
   }
 
   get current() {
@@ -17,6 +17,22 @@ export class CdgCarouselScroller extends HTMLElement {
 
   set position(position) {
     this.setAttribute('position', position)
+  }
+
+  get singleCenter() {
+    return this.hasAttribute('single-center')
+  }
+
+  set singleCenter(singleCenter) {
+    if (singleCenter) {
+      this.setAttribute('single-center', '')
+    } else {
+      this.removeAttribute('single-center')
+    }
+  }
+
+  get slideWidth() {
+    return this.parentElement.clientWidth * (this.singleCenter ? 0.6 : 1)
   }
 
   sizingTimer
@@ -44,7 +60,7 @@ export class CdgCarouselScroller extends HTMLElement {
   attributeChangedCallback(attr) {
     switch (attr) {
       case 'current':
-        this.position = this.parentElement.clientWidth * this.current
+        this.position = Math.floor(this.slideWidth * this.current)
         this.updatePosition()
         this.dispatchEvent(
           new CustomEvent('updatePosition', {detail: this.position}),
@@ -52,6 +68,11 @@ export class CdgCarouselScroller extends HTMLElement {
         break
 
       case 'position':
+        this.updatePosition()
+        break
+
+      case 'single-center':
+        this.updateSize()
         this.updatePosition()
         break
 
@@ -78,18 +99,22 @@ export class CdgCarouselScroller extends HTMLElement {
       this.classList.remove('resizing')
     }, 200)
 
-    this.style.width =
-      this.parentElement.clientWidth * this.children.length + 'px'
-
-    this.position = this.parentElement.clientWidth * this.current
+    this.updateSize()
+    let position = Math.floor(this.slideWidth * this.current)
+    position = this.position < 0 ? 0 : this.position
+    this.position = position
     this.updatePosition()
+  }
+
+  updateSize() {
+    this.style.width = Math.floor(this.slideWidth * this.children.length) + 'px'
   }
 
   updatePosition() {
     // To not let slide moves on start and end
     if (
-      this.position >= 0 &&
-      this.position <= this.clientWidth - this.parentElement.clientWidth
+      this.singleCenter ||
+      this.position <= this.clientWidth - this.slideWidth
     ) {
       this.style.transform = `translate3d(-${this.position}px, 0, 0)`
     }

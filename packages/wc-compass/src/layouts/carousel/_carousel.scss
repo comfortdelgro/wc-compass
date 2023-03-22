@@ -44,6 +44,57 @@ cdg-carousel,
       }
     }
   }
+
+  &[cards] {
+    .cdg-carousel-container {
+      padding-bottom: 40px;
+    }
+    .cdg-carousel-controllers {
+      bottom: 10px;
+    }
+    .cdg-dot {
+      background-color: var(--grey40);
+      border-color: var(--grey40);
+      &.current {
+        background-color: var(--grey80);
+        border-color: var(--grey80);
+      }
+    }
+    .cdg-carousel-navigation .cdg-button {
+      background-color: transparent;
+      color: var(--grey80);
+      transform: scale(0.8) translateY(-50%);
+      &.prev {
+        left: 0px;
+      }
+      &.next {
+        right: 0px;
+      }
+    }
+
+    cdg-slide,
+    .cdg-slide {
+      display: flex;
+      gap: 18px;
+      padding: 0 60px;
+      cdg-card,
+      .cdg-card {
+        flex: 1;
+      }
+    }
+
+    &[single-center] {
+      .cdg-carousel-scroller {
+        gap: 24px;
+      }
+
+      cdg-slide,
+      .cdg-slide {
+        display: flex;
+        padding: 0;
+      }
+    }
+  }
 }
 
 .cdg-carousel-container {
