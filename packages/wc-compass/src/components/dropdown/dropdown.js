@@ -8,11 +8,13 @@ template.innerHTML = `
     </button>
 `
 
-function createSelectedItem(value, text) {
+function createSelectedItem(value, text, displayEl) {
   const templateSelectedItem = document.createElement('template')
   templateSelectedItem.innerHTML = `
       <button class="cdg-dropdown-button-selected-item" tabindex="-1">
-          <span class="cdg-dropdown-button-selected-item-text">${text}</span>
+          <span class="cdg-dropdown-button-selected-item-text">${
+            displayEl ? displayEl.outerHTML : text
+          }</span>
           <cdg-icon name="close" size="10" class="cdg-dropdown-button-selected-item-icon" data-value="${value}"></cdg-icon>
       </button>
   `
@@ -101,9 +103,13 @@ export class CdgDropdown extends HTMLElement {
 
         if (item.hasAttribute('selected')) {
           checkbox.checked = true
+          const selectedDisplayElement = item.querySelector('[displaySelect]')
           this.selectedItems.push({
             value: item.getAttribute('value'),
             text: item.textContent,
+            displayEl: selectedDisplayElement
+              ? selectedDisplayElement.cloneNode(true)
+              : null,
           })
         }
       }
@@ -206,7 +212,11 @@ export class CdgDropdown extends HTMLElement {
         this.buttonTextElement.innerHTML = ''
         this.selectedItems.forEach((item) => {
           this.buttonTextElement.append(
-            createSelectedItem(item.value, item.text).content.cloneNode(true),
+            createSelectedItem(
+              item.value,
+              item.text,
+              item.displayEl,
+            ).content.cloneNode(true),
           )
           const icon = this.buttonTextElement.querySelector(
             `cdg-icon.cdg-dropdown-button-selected-item-icon[data-value="${item.value}"]`,
@@ -218,10 +228,16 @@ export class CdgDropdown extends HTMLElement {
           }
         })
       } else {
-        this.buttonTextElement.textContent = this.selectedItems[0].text
+        if (this.selectedItems[0].displayEl) {
+          this.buttonTextElement.innerHTML = ''
+          this.buttonTextElement.appendChild(this.selectedItems[0].displayEl)
+        } else {
+          this.buttonTextElement.textContent = this.selectedItems[0].text
+        }
       }
     } else {
       if (this._isMultiple) {
+        this.buttonTextElement.innerHTML = ''
         this.displayInputElement.classList.remove('has-value')
       }
       if (this._placeholder) {
@@ -264,6 +280,8 @@ export class CdgDropdown extends HTMLElement {
   handleDropdownOptionClick(event, dropdownOption) {
     const selectedValue = event.target.getAttribute('value')
     const selectedText = dropdownOption.textContent
+    const selectedDisplayElement =
+      dropdownOption.querySelector('[displaySelect]')
     if (!this._isMultiple) {
       if (!dropdownOption.hasAttribute('selected')) {
         // Remove all previous selected options
@@ -272,7 +290,15 @@ export class CdgDropdown extends HTMLElement {
           .forEach((b) => b.removeAttribute('selected'))
 
         dropdownOption.setAttribute('selected', 'true')
-        this.selectedItems = [{value: selectedValue, text: selectedText}]
+        this.selectedItems = [
+          {
+            value: selectedValue,
+            text: selectedText,
+            displayEl: selectedDisplayElement
+              ? selectedDisplayElement.cloneNode(true)
+              : null,
+          },
+        ]
       }
       this.handleCloseContent()
     } else {
@@ -284,7 +310,13 @@ export class CdgDropdown extends HTMLElement {
           checkbox.checked = !checkbox.checked
         }
         if (checkbox.checked) {
-          this.selectedItems.push({value: selectedValue, text: selectedText})
+          this.selectedItems.push({
+            value: selectedValue,
+            text: selectedText,
+            displayEl: selectedDisplayElement
+              ? selectedDisplayElement.cloneNode(true)
+              : null,
+          })
           dropdownOption.setAttribute('selected', 'true')
           dropdownOption.classList.add('cdg-dropdown-option-selected')
         } else {

@@ -149,6 +149,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 8px;
 
     &:hover {
       background-color: var(--grey20);
@@ -187,6 +188,12 @@
   .cdg-floating-content {
     margin-top: 4px;
   }
+}
+
+.cdg-dropdown-option-content {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 @-moz-keyframes spin {
