@@ -151,3 +151,25 @@ cdg-dialog,
   margin: 0;
   color: var(--grey80);
 }
+
+cdg-dialog,
+.cdg-dialog,
+cdg-modal,
+.cdg-modal {
+  animation: zoomingIn 0.2s;
+}
+
+@keyframes zoomingIn {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+  70% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
