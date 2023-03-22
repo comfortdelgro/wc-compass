@@ -1,9 +1,9 @@
-const template = document.createElement('template');
+const template = document.createElement('template')
 template.innerHTML = `
     <div class="cdg-floating-content-overlay"></div>
-`;
-const ARROW_HEIGHT = 8;
-const OUTLINE_HEIGHT = 2;
+`
+const ARROW_HEIGHT = 8
+const OUTLINE_HEIGHT = 2
 export const DIRECTIONS = [
   'topLeft',
   'top',
@@ -17,101 +17,101 @@ export const DIRECTIONS = [
   'bottomLeft',
   'bottom',
   'bottomRight',
-];
+]
 
 function getScrollParent(node) {
   if (node == null) {
-    return null;
+    return null
   }
 
   if (node.scrollHeight > node.clientHeight) {
-    return node;
+    return node
   } else {
-    return getScrollParent(node.parentNode);
+    return getScrollParent(node.parentNode)
   }
 }
 
 export class CdgFloatingContent extends HTMLElement {
-  _position = 'bottom';
-  containerElement;
-  childrenNode;
+  _position = 'bottom'
+  containerElement
+  childrenNode
 
   get position() {
-    return this._position;
+    return this._position
   }
 
   set position(value) {
-    this._position = value;
-    this.classList.remove(...DIRECTIONS);
-    this.classList.add('cdg-floating-content');
-    this.hasAttribute('hasArrow') && this.classList.add('hasArrow');
-    this.classList.add(this._position);
+    this._position = value
+    this.classList.remove(...DIRECTIONS)
+    this.classList.add('cdg-floating-content')
+    this.hasAttribute('hasArrow') && this.classList.add('hasArrow')
+    this.classList.add(this._position)
   }
 
   static get observedAttributes() {
-    return ['opening', 'placement', 'has-outline'];
+    return ['opening', 'placement', 'has-outline']
   }
 
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-floating-content');
+    this.classList.add('cdg-floating-content')
     this.addEventListener('mousedown', (event) => {
-      event.preventDefault();
-    });
+      event.preventDefault()
+    })
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
-    if (oldValue === newValue) return;
+    if (oldValue === newValue) return
     switch (attr) {
       case 'placement':
-        this.position = newValue;
-        break;
+        this.position = newValue
+        break
       case 'has-outline':
-        this.hasOutline = newValue;
-        break;
+        this.hasOutline = newValue
+        break
       case 'opening':
         if (newValue) {
-          this.style.height = 'auto';
-          this.eventScroll = this.handleWindowScroll.bind(this);
-          window.addEventListener('scroll', this.eventScroll, true);
+          this.style.height = 'auto'
+          this.eventScroll = this.handleWindowScroll.bind(this)
+          window.addEventListener('scroll', this.eventScroll, true)
 
           if (this.parentElement) {
-            const anchorElement = this.parentElement.anchorElement;
+            const anchorElement = this.parentElement.anchorElement
             setTimeout(() => {
-              this.style.visibility = 'visible';
-              this.style.opacity = '1';
+              this.style.visibility = 'visible'
+              this.style.opacity = '1'
               const newPosition = getNewPosition(
                 anchorElement,
                 this.position,
                 this.clientHeight,
                 this.clientWidth,
                 this.classList.contains('hasArrow'),
-                this.hasOutline
-              );
+                this.hasOutline,
+              )
 
-              this.style.top = `${newPosition.topPosition}px`;
-              this.style.left = `${newPosition.leftPosition}px`;
-            }, 0);
+              this.style.top = `${newPosition.topPosition}px`
+              this.style.left = `${newPosition.leftPosition}px`
+            }, 0)
 
-            document.body.appendChild(this.parentElement);
+            document.body.appendChild(this.parentElement)
           }
         } else {
-          window.removeEventListener('scroll', this.eventScroll, true);
-          this.style.visibility = 'hidden';
-          this.style.opacity = '0';
-          this.style.height = '0';
+          window.removeEventListener('scroll', this.eventScroll, true)
+          this.style.visibility = 'hidden'
+          this.style.opacity = '0'
+          this.style.height = '0'
 
           if (this.parentElement) {
-            document.body.removeChild(this.parentElement);
+            document.body.removeChild(this.parentElement)
           }
         }
-        break;
+        break
 
       default:
-        break;
+        break
     }
   }
 
@@ -127,11 +127,11 @@ export class CdgFloatingContent extends HTMLElement {
         this.clientHeight,
         this.clientWidth,
         this.classList.contains('hasArrow'),
-        this.hasOutline
-      );
+        this.hasOutline,
+      )
 
-      this.style.top = `${newPosition.topPosition}px`;
-      this.style.left = `${newPosition.leftPosition}px`;
+      this.style.top = `${newPosition.topPosition}px`
+      this.style.left = `${newPosition.leftPosition}px`
     }
   }
 }
@@ -154,46 +154,46 @@ export function createFloating(
   isFullWidth = false,
   hasArrow = false,
   hasOutline = false,
-  hasbackdrop = true
+  hasbackdrop = true,
 ) {
   // Create overlay for floating
-  const containerElement = document.createElement('div');
-  containerElement.setAttribute('class', 'cdg-floating-content-overlay');
-  containerElement.anchorElement = anchorElement;
-  rootClass && containerElement.classList.add(rootClass);
+  const containerElement = document.createElement('div')
+  containerElement.setAttribute('class', 'cdg-floating-content-overlay')
+  containerElement.anchorElement = anchorElement
+  rootClass && containerElement.classList.add(rootClass)
 
-  let backdropElement;
+  let backdropElement
   if (hasbackdrop) {
     // Create backdrop for floating
-    backdropElement = document.createElement('div');
-    backdropElement.setAttribute('class', 'cdg-floating-content-backdrop');
+    backdropElement = document.createElement('div')
+    backdropElement.setAttribute('class', 'cdg-floating-content-backdrop')
     backdropElement.addEventListener('click', () => {
-      this.removeAttribute('opening');
-      this.dispatchEvent(new CustomEvent('onDropdownSelectClose'));
-    });
+      this.removeAttribute('opening')
+      this.dispatchEvent(new CustomEvent('onDropdownSelectClose'))
+    })
   }
 
   // Create new floating
-  const floatingElement = document.createElement('cdg-floating-content');
-  floatingElement.setAttribute('placement', position);
-  floatingElement.classList.add(position);
+  const floatingElement = document.createElement('cdg-floating-content')
+  floatingElement.setAttribute('placement', position)
+  floatingElement.classList.add(position)
   if (hasArrow) {
-    floatingElement.classList.add('hasArrow');
-    floatingElement.setAttribute('hasArrow', 'true');
+    floatingElement.classList.add('hasArrow')
+    floatingElement.setAttribute('hasArrow', 'true')
   }
-  hasOutline && floatingElement.setAttribute('has-outline', true);
+  hasOutline && floatingElement.setAttribute('has-outline', true)
 
   // 100% width of the origin
   if (isFullWidth) {
-    floatingElement.style.width = `${anchorElement.clientWidth}px`;
+    floatingElement.style.minWidth = `${anchorElement.clientWidth}px`
   }
 
-  floatingElement.appendChild(contentElement || this);
+  floatingElement.appendChild(contentElement || this)
   if (hasbackdrop) {
-    containerElement.appendChild(backdropElement);
+    containerElement.appendChild(backdropElement)
   }
-  containerElement.append(floatingElement);
-  return floatingElement;
+  containerElement.append(floatingElement)
+  return floatingElement
 }
 
 function getNewPosition(
@@ -202,21 +202,19 @@ function getNewPosition(
   currentHeight = 0,
   currentWidth = 0,
   hasArrow = false,
-  hasOutline = false
+  hasOutline = false,
 ) {
-  let topPosition = 0;
-  let leftPosition = 0;
-  const nearestScrollParent = getScrollParent(anchorElement);
-  const scrollTop = nearestScrollParent
-    ? nearestScrollParent.scrollTop || 0
-    : 0;
+  let topPosition = 0
+  let leftPosition = 0
+  const nearestScrollParent = getScrollParent(anchorElement)
+  const scrollTop = nearestScrollParent ? nearestScrollParent.scrollTop || 0 : 0
   const scrollLeft = nearestScrollParent
     ? nearestScrollParent.scrollLeft || 0
-    : 0;
-  const arrowHeight = hasArrow ? ARROW_HEIGHT : 0;
-  const outlineHeight = hasOutline ? OUTLINE_HEIGHT : 0;
+    : 0
+  const arrowHeight = hasArrow ? ARROW_HEIGHT : 0
+  const outlineHeight = hasOutline ? OUTLINE_HEIGHT : 0
 
-  const boundLeft = anchorElement.getBoundingClientRect().left;
+  const boundLeft = anchorElement.getBoundingClientRect().left
 
   // Set position by placement param
   switch (position) {
@@ -226,103 +224,103 @@ function getNewPosition(
         currentHeight -
         scrollTop -
         arrowHeight -
-        outlineHeight;
-      leftPosition = boundLeft - scrollLeft;
-      break;
+        outlineHeight
+      leftPosition = boundLeft - scrollLeft
+      break
     case 'top':
       topPosition =
         anchorElement.offsetTop -
         currentHeight -
         scrollTop -
         arrowHeight -
-        outlineHeight;
-      leftPosition = boundLeft + anchorElement.clientWidth / 2 - scrollLeft;
-      break;
+        outlineHeight
+      leftPosition = boundLeft + anchorElement.clientWidth / 2 - scrollLeft
+      break
     case 'topRight':
       topPosition =
         anchorElement.offsetTop -
         currentHeight -
         scrollTop -
         arrowHeight -
-        outlineHeight;
-      leftPosition = boundLeft + anchorElement.clientWidth - currentWidth;
-      break;
+        outlineHeight
+      leftPosition = boundLeft + anchorElement.clientWidth - currentWidth
+      break
     case 'leftTop':
-      topPosition = anchorElement.offsetTop - scrollTop;
+      topPosition = anchorElement.offsetTop - scrollTop
       leftPosition =
-        boundLeft - currentWidth - scrollLeft - arrowHeight - outlineHeight;
-      break;
+        boundLeft - currentWidth - scrollLeft - arrowHeight - outlineHeight
+      break
     case 'left':
       topPosition =
-        anchorElement.offsetTop + anchorElement.clientHeight / 2 - scrollTop;
+        anchorElement.offsetTop + anchorElement.clientHeight / 2 - scrollTop
       leftPosition =
-        boundLeft - currentWidth - scrollLeft - arrowHeight - outlineHeight;
-      break;
+        boundLeft - currentWidth - scrollLeft - arrowHeight - outlineHeight
+      break
     case 'leftBottom':
       topPosition =
-        anchorElement.offsetTop + anchorElement.clientHeight - scrollTop;
+        anchorElement.offsetTop + anchorElement.clientHeight - scrollTop
       leftPosition =
-        boundLeft - currentWidth - scrollLeft - arrowHeight - outlineHeight;
-      break;
+        boundLeft - currentWidth - scrollLeft - arrowHeight - outlineHeight
+      break
     case 'rightTop':
-      topPosition = anchorElement.offsetTop - scrollTop;
+      topPosition = anchorElement.offsetTop - scrollTop
       leftPosition =
         boundLeft +
         anchorElement.clientWidth -
         scrollLeft +
         arrowHeight +
-        outlineHeight;
-      break;
+        outlineHeight
+      break
     case 'right':
       topPosition =
-        anchorElement.offsetTop + anchorElement.clientHeight / 2 - scrollTop;
+        anchorElement.offsetTop + anchorElement.clientHeight / 2 - scrollTop
       leftPosition =
         boundLeft +
         anchorElement.clientWidth -
         scrollLeft +
         arrowHeight +
-        outlineHeight;
-      break;
+        outlineHeight
+      break
     case 'rightBottom':
       topPosition =
-        anchorElement.offsetTop + anchorElement.clientHeight - scrollTop;
+        anchorElement.offsetTop + anchorElement.clientHeight - scrollTop
       leftPosition =
         boundLeft +
         anchorElement.clientWidth -
         scrollLeft +
         arrowHeight +
-        outlineHeight;
-      break;
+        outlineHeight
+      break
     case 'bottomLeft':
       topPosition =
         anchorElement.offsetTop +
         anchorElement.clientHeight -
         scrollTop +
         arrowHeight +
-        outlineHeight;
-      leftPosition = boundLeft - scrollLeft;
-      break;
+        outlineHeight
+      leftPosition = boundLeft - scrollLeft
+      break
     case 'bottom':
       topPosition =
         anchorElement.offsetTop +
         anchorElement.clientHeight -
         scrollTop +
         arrowHeight +
-        outlineHeight;
-      leftPosition = boundLeft + anchorElement.clientWidth / 2 - scrollLeft;
-      break;
+        outlineHeight
+      leftPosition = boundLeft + anchorElement.clientWidth / 2 - scrollLeft
+      break
     case 'bottomRight':
       topPosition =
         anchorElement.offsetTop +
         anchorElement.clientHeight -
         scrollTop +
         arrowHeight +
-        outlineHeight;
-      leftPosition = boundLeft + anchorElement.clientWidth - scrollLeft;
-      break;
+        outlineHeight
+      leftPosition = boundLeft + anchorElement.clientWidth - scrollLeft
+      break
 
     default:
-      break;
+      break
   }
-  return { topPosition, leftPosition };
+  return {topPosition, leftPosition}
 }

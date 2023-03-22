@@ -135,15 +135,15 @@
           solution.
         </p>
       </cdg-modal-body>
-      <cdg-modal-actions>
+      <cdg-modal-actions class="multiple">
         <a href="http://google.com" target="_blank" class="cdg-button link">
           Details
         </a>
         <div class="cdg-separator"></div>
+        <button class="cdg-button" id="largeOkButton" autofocus>Approve</button>
         <button class="cdg-button secondary" id="largeCancelButton">
           Cancel
         </button>
-        <button class="cdg-button" id="largeOkButton" autofocus>Approve</button>
       </cdg-modal-actions>
     </cdg-modal>
   </template>
@@ -190,46 +190,46 @@ largeOkButton.addEventListener(&apos;click&apos;, () =&gt; {
 </pre>
 
 <script>
-  const button = document.querySelector('#defaultModal');
+  const button = document.querySelector('#defaultModal')
   const modal = document
     .querySelector('[for="defaultModal"]')
-    .content.firstElementChild.cloneNode(true);
-  const cancelButton = modal.querySelector('#cancelButton');
-  const okButton = modal.querySelector('#okButton');
+    .content.firstElementChild.cloneNode(true)
+  const cancelButton = modal.querySelector('#cancelButton')
+  const okButton = modal.querySelector('#okButton')
 
   modal.addEventListener('close', () => {
-    cdgToastService.toast('Dialog is closed!');
-  });
+    cdgToastService.toast('Dialog is closed!')
+  })
 
   okButton.addEventListener('click', () => {
-    modal.close();
-    cdgToastService.toast("You've approved it!");
-  });
+    modal.close()
+    cdgToastService.toast("You've approved it!")
+  })
 
   cancelButton.addEventListener('click', () => {
-    modal.close();
-    cdgToastService.toast("You've cancelled it!");
-  });
+    modal.close()
+    cdgToastService.toast("You've cancelled it!")
+  })
 
   button.addEventListener('click', () => {
-    cdgDialogService.show('sampleDefaultModal', modal);
-  });
+    cdgDialogService.show('sampleDefaultModal', modal)
+  })
 
-  const largeSampleButton = document.querySelector('#largeModal');
+  const largeSampleButton = document.querySelector('#largeModal')
   const largeModal = document
     .querySelector('[for="largeModal"]')
-    .content.firstElementChild.cloneNode(true);
-  const largeCancelButton = largeModal.querySelector('#largeCancelButton');
-  const largeOkButton = largeModal.querySelector('#largeOkButton');
+    .content.firstElementChild.cloneNode(true)
+  const largeCancelButton = largeModal.querySelector('#largeCancelButton')
+  const largeOkButton = largeModal.querySelector('#largeOkButton')
 
-  const sizeDropdown = document.querySelector('#sizing');
+  const sizeDropdown = document.querySelector('#sizing')
   sizeDropdown.addEventListener('onchangevalue', (event) => {
-    largeModal.setAttribute('size', event.detail);
-  });
+    largeModal.setAttribute('size', event.detail)
+  })
 
   largeModal.addEventListener('close', () => {
-    cdgToastService.toast('Dialog is closed!');
-  });
+    cdgToastService.toast('Dialog is closed!')
+  })
 
   largeOkButton.addEventListener('click', () => {
     // largeModal.close();
@@ -237,25 +237,25 @@ largeOkButton.addEventListener(&apos;click&apos;, () =&gt; {
       dialogTitle: 'Do you really want to approve it?',
       message: 'You can not rollback this action anymore.',
       executeLabel: 'Yeah, do it!',
-    });
+    })
 
     confirm.addEventListener('close', (event) => {
       cdgToastService.toast(
-        'User says: ' + (event.detail ? 'Yeah, do it!' : 'Cancel')
-      );
+        'User says: ' + (event.detail ? 'Yeah, do it!' : 'Cancel'),
+      )
       if (event.detail) {
         // Going to close both
-        largeModal.close();
+        largeModal.close()
       }
-    });
-  });
+    })
+  })
 
   largeCancelButton.addEventListener('click', () => {
-    largeModal.close();
-    cdgToastService.toast("You've cancelled it!");
-  });
+    largeModal.close()
+    cdgToastService.toast("You've cancelled it!")
+  })
 
   largeSampleButton.addEventListener('click', () => {
-    cdgDialogService.show('sampleLargeModal', largeModal);
-  });
+    cdgDialogService.show('sampleLargeModal', largeModal)
+  })
 </script>

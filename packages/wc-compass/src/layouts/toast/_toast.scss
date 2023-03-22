@@ -12,6 +12,10 @@
   overflow-y: auto;
   z-index: 61;
   @extend %quickSmoothTransition;
+  &:not(:has(cdg-toast)),
+  &:not(:has(.cdg-toast)) {
+    padding: 0;
+  }
 }
 
 cdg-toast,

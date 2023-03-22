@@ -125,6 +125,9 @@
   --spacing-4_5: 1.125rem;
   //font
   --bold: 700;
+  --animate-duration: 1s;
+  --animate-delay: 1s;
+  --animate-repeat: 1;
 }
 
 @media (prefers-color-scheme: dark) {
