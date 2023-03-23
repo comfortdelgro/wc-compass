@@ -49,6 +49,7 @@ import './components/tooltip.html'
 import './components/video.html'
 import './components/volume.html'
 import './components/wizards.html'
+import './components/multi-level-dropdown.html'
 import './pages/home.html'
 
 const contentMap = {
@@ -104,6 +105,7 @@ const contentMap = {
   rangeSlider: './components/range-slider.html',
   tagBox: './components/tag-box.html',
   video: './components/video.html',
+  multiLevelDropdown: './components/multi-level-dropdown.html',
 }
 
 const documentContent = [
@@ -151,6 +153,10 @@ const documentContent = [
       {
         name: 'Sub Header',
         slug: 'subHeader',
+      },
+      {
+        name: 'Multi Level Dropdown',
+        slug: 'multiLevelDropdown',
       },
       {
         name: 'Nav Rail',
