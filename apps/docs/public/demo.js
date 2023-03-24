@@ -50,6 +50,7 @@ import './components/video.html'
 import './components/volume.html'
 import './components/wizards.html'
 import './components/multi-level-dropdown.html'
+import './components/context-menu.html'
 import './pages/home.html'
 
 const contentMap = {
@@ -106,6 +107,7 @@ const contentMap = {
   tagBox: './components/tag-box.html',
   video: './components/video.html',
   multiLevelDropdown: './components/multi-level-dropdown.html',
+  contextMenu: './components/context-menu.html',
 }
 
 const documentContent = [
@@ -133,6 +135,10 @@ const documentContent = [
       {
         name: 'Carousel',
         slug: 'carousel',
+      },
+      {
+        name: 'Context Menu',
+        slug: 'contextMenu',
       },
       {
         name: 'Dashboard Side Card',

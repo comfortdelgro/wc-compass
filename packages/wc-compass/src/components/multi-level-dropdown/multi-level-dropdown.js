@@ -3,6 +3,7 @@ import {isElement} from '../../main'
 export class CdgMultiLevelDropdown extends HTMLElement {
   dropdownMenuToggleElement
   dropdownMenuElement
+  floatingElement
 
   get event() {
     this.getAttribute('event') || 'click'
@@ -10,7 +11,7 @@ export class CdgMultiLevelDropdown extends HTMLElement {
 
   set event(value) {
     this.setAttribute('event', value || 'click')
-    if (this.dropdownMenuToggleElement) {
+    if (this.dropdownMenuToggleElement && !this.hasAttribute('trigger')) {
       this.clearListener()
       if (value === 'click' || this.isMobile) {
         this.dropdownMenuToggleElement.addEventListener(
@@ -43,6 +44,7 @@ export class CdgMultiLevelDropdown extends HTMLElement {
   static get observedAttributes() {
     return ['event']
   }
+
   constructor() {
     super()
     this.classList.add('cdg-dropdown-menu-container')
@@ -121,8 +123,6 @@ export class CdgMultiLevelDropdown extends HTMLElement {
       )
     }
   }
-
-  connectedCallback() {}
 
   attributeChangedCallback(attr, oldValue, newValue) {
     if (oldValue === newValue) return
