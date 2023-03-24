@@ -3,6 +3,8 @@ import {isElement} from '../../main'
 export class CdgMultiLevelDropdown extends HTMLElement {
   dropdownMenuToggleElement
   dropdownMenuElement
+  floatingElement
+  contextMenuContainerElement
 
   get event() {
     this.getAttribute('event') || 'click'
@@ -56,6 +58,53 @@ export class CdgMultiLevelDropdown extends HTMLElement {
 
     this.handleToggleButtonBlurFn = this.handleToggleButtonBlur.bind(this)
     this.handleToggleClickFn = this.handleToggleClick.bind(this)
+
+    if (this.getAttribute('trigger') === 'contextMenu') {
+      this.createContextMenu()
+    }
+  }
+
+  createContextMenu() {
+    // Create context-menu container
+    const contextMenuElement =
+      document.querySelector('div.cdg-dropdown-context-container') ||
+      document.createElement('div')
+    contextMenuElement.innerHTML = ''
+    contextMenuElement.classList.add('cdg-dropdown-context-container')
+
+    // Create context-menu wrapper
+    this.contextMenuContainerElement = document.createElement('div')
+    this.contextMenuContainerElement.classList.add(
+      'cdg-dropdown-context-menu-container',
+    )
+    this.contextMenuContainerElement.appendChild(this.dropdownMenuElement)
+
+    contextMenuElement.appendChild(this.contextMenuContainerElement)
+    document.body.appendChild(contextMenuElement)
+
+    // Add event listener
+    if (!this.handleWindowClickOutFn) {
+      this.handleWindowClickOutFn = this.handleWindowClickOut.bind(this)
+    }
+    this.dropdownMenuToggleElement.addEventListener(
+      'contextmenu',
+      this.handleOpenContextMenu.bind(this),
+    )
+  }
+
+  handleOpenContextMenu(event) {
+    event.preventDefault()
+    window.addEventListener('click', this.handleWindowClickOutFn)
+    this.contextMenuContainerElement.style.left = `${event.clientX}px`
+    this.contextMenuContainerElement.style.top = `${event.clientY}px`
+  }
+
+  handleWindowClickOut(event) {
+    if (!this.contextMenuContainerElement.contains(event.target)) {
+      this.contextMenuContainerElement.style.left = `-9999px`
+      this.contextMenuContainerElement.style.top = `-9999px`
+      window.removeEventListener('click', this.handleWindowClickOutFn)
+    }
   }
 
   addHoverEventForSubmenu(dropdownMenu) {
