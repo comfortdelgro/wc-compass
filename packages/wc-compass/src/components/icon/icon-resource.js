@@ -21,6 +21,12 @@ import zoomPlus from '../../images/assesibility/zoom-plus.svg'
 import callCenter from '../../images/call-center.svg'
 import caretRight from '../../images/caret-right.svg'
 import clipBoard from '../../images/clip-board.svg'
+import backward from '../../images/backward.svg'
+import calendar from '../../images/calendar.svg'
+import callCenter from '../../images/call-center.svg'
+import caretRight from '../../images/caret-right.svg'
+import clipBoard from '../../images/clip-board.svg'
+import clock from '../../images/clock.svg'
 import close from '../../images/close.svg'
 import cloudUpload from '../../images/cloud-upload.svg'
 import compassLogo from '../../images/compass-logo.svg'
@@ -61,6 +67,7 @@ import emoSmile from '../../images/emoji/emo-smile.svg'
 import emoTear from '../../images/emoji/emo-tear.svg'
 import filledArrowDown from '../../images/filled-arrow-down.svg'
 import filledArrowUp from '../../images/filled-arrow-up.svg'
+import forward from '../../images/forward.svg'
 import globe from '../../images/globe.svg'
 import grid from '../../images/grid.svg'
 import gripDots from '../../images/grip-dots.svg'
@@ -77,6 +84,7 @@ import mobMaintenance from '../../images/mobility/mob-maintenance.svg'
 import mobRoadTax from '../../images/mobility/mob-roadtax.svg'
 import mobShield from '../../images/mobility/mob-shield.svg'
 import mobTaxi from '../../images/mobility/mob-taxi.svg'
+import openExternal from '../../images/open-external.svg'
 import alt from '../../images/operations/alt.svg'
 import browser from '../../images/operations/browser.svg'
 import cancelled from '../../images/operations/cancelled.svg'
@@ -101,10 +109,12 @@ import paste from '../../images/paste.svg'
 import profileCard from '../../images/profile-card.svg'
 import profile from '../../images/profile.svg'
 import question from '../../images/question.svg'
+import shapes from '../../images/shapes.svg'
 import facebook from '../../images/social-media/facebook.svg'
 import instagram from '../../images/social-media/instagram.svg'
 import linkedin from '../../images/social-media/linkedin.svg'
 import twitter from '../../images/social-media/twitter.svg'
+import sort from '../../images/sort.svg'
 import spinner from '../../images/spinner.svg'
 import taxi from '../../images/taxi.svg'
 import ticks from '../../images/ticks.svg'
@@ -226,6 +236,7 @@ export const ICONS_IMAGES = [
   mobTaxi,
   money,
   mute,
+  openExternal,
   organization,
   outlineAddGroup,
   outlineAddUser,
@@ -247,6 +258,7 @@ export const ICONS_IMAGES = [
   settings,
   signature,
   spinner,
+  sort,
   status,
   store,
   table,

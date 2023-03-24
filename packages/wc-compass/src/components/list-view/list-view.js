@@ -109,6 +109,9 @@ export class CdgListview extends HTMLElement {
   playEndAnimation(detail) {
     const animationTime = 300
     const element = detail.element
+    if (!element) {
+      return
+    }
     element.style.transition = `all ${animationTime}ms ease-in-out`
     this.draggingItem.classList.add('moving')
     const bound = this.draggingItem.getBoundingClientRect()

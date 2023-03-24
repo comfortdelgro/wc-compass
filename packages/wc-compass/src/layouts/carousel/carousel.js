@@ -7,7 +7,7 @@ const ARROW_LEFT_TEXT = `Prev`
 
 export class CdgCarousel extends HTMLElement {
   static get observedAttributes() {
-    return ['current', 'useArrow', 'autoSwitch']
+    return ['current', 'use-arrow', 'auto-switch', 'single-center']
   }
 
   get current() {
@@ -19,19 +19,39 @@ export class CdgCarousel extends HTMLElement {
   }
 
   get useArrow() {
-    return this.getAttribute('useArrow') === 'true'
+    return this.hasAttribute('use-arrow')
   }
 
   set useArrow(useArrow) {
-    this.setAttribute('useArrow', useArrow)
+    if (useArrow) {
+      this.setAttribute('use-arrow', '')
+    } else {
+      this.removeAttribute('use-arrow')
+    }
   }
 
   get autoSwitch() {
-    return this.getAttribute('autoSwitch') === 'true'
+    return this.hasAttribute('auto-switch')
   }
 
   set autoSwitch(autoSwitch) {
-    this.setAttribute('autoSwitch', autoSwitch)
+    if (autoSwitch) {
+      this.setAttribute('auto-switch', '')
+    } else {
+      this.removeAttribute('auto-switch')
+    }
+  }
+
+  get singleCenter() {
+    return this.hasAttribute('single-center')
+  }
+
+  set singleCenter(singleCenter) {
+    if (singleCenter) {
+      this.setAttribute('single-center', '')
+    } else {
+      this.removeAttribute('single-center')
+    }
   }
 
   get length() {
@@ -99,6 +119,11 @@ export class CdgCarousel extends HTMLElement {
 
     // Init first state of scroller
     this.scroller.setAttribute('current', this.current)
+    if (this.singleCenter) {
+      this.scroller.setAttribute('single-center', '')
+    } else {
+      this.scroller.removeAttribute('single-center')
+    }
 
     this.attachNavigation()
     this.listenEvents()
@@ -150,11 +175,21 @@ export class CdgCarousel extends HTMLElement {
         }
         break
 
-      case 'autoSwitch':
+      case 'auto-switch':
         if (this.autoSwitch) {
           this.switchSlide()
         } else {
           this.stop()
+        }
+        break
+
+      case 'single-center':
+        if (this.scroller) {
+          if (this.singleCenter) {
+            this.scroller.setAttribute('single-center', '')
+          } else {
+            this.scroller.removeAttribute('single-center')
+          }
         }
         break
 
