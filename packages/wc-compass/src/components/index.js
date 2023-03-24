@@ -6,6 +6,7 @@ import {CdgAlert} from './alert/alert'
 import {CdgAlertContent} from './alert/alert-content'
 import {CdgAvatar} from './avatar/avatar'
 import {CdgCalendar} from './calendar/calendar'
+import {CdgContextMenu} from './context-menu/context-menu'
 import {CdgDatePicker} from './datepicker/datepicker'
 import {CdgDropdown} from './dropdown/dropdown'
 import {CdgDropdownOption} from './dropdown/dropdown-option'
@@ -83,6 +84,7 @@ customElements.define('cdg-rich-text-editor', CdgRichTextEditor)
 customElements.define('cdg-rte-toolbar', CdgRichTextEditorToolbar)
 customElements.define('cdg-rte-content', CdgRichTextEditorContent)
 customElements.define('cdg-dropdown-menu', CdgMultiLevelDropdown)
+customElements.define('cdg-context-menu', CdgContextMenu)
 
 export const CONTROL_COMPONENTS = [
   CdgAccordion,
@@ -119,4 +121,5 @@ export const CONTROL_COMPONENTS = [
   CdgRichTextEditorToolbar,
   CdgRichTextEditorContent,
   CdgMultiLevelDropdown,
+  CdgContextMenu,
 ]
