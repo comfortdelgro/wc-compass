@@ -23,9 +23,32 @@ cdg-rich-text-editor,
     position: relative;
     row-gap: 5px;
 
-    button {
+    .cdg-rte-buttons-group {
+      margin: 0 8px;
+    }
+    .cdg-rte-buttons {
       display: inline-flex;
       float: left;
+      width: 32px;
+      height: 28px;
+      border-radius: 4px;
+      background-color: #f3f2f1;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      &:hover {
+        background-color: #e1dfdd;
+        cursor: pointer;
+      }
+
+      cdg-icon {
+        width: 16px;
+      }
+    }
+
+    .active {
+      background-color: #605e5c;
+      color: #ffffff;
     }
   }
 

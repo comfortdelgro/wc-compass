@@ -1,11 +1,131 @@
 <div class="sample-section column">
   <cdg-rich-text-editor>
     <cdg-rte-toolbar>
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
-      <button>4</button>
+      <button class="cdg-rte-buttons" name="bold" operation="toggleBold">
+        <cdg-icon name="bold" source="host"></cdg-icon>
+      </button>
+      <button class="cdg-rte-buttons" name="italic" operation="toggleItalic">
+        <cdg-icon name="italic" source="host"></cdg-icon>
+      </button>
+      <button class="cdg-rte-buttons" name="strike" operation="toggleStrike">
+        <cdg-icon name="strikeThrough" source="host"></cdg-icon>
+      </button>
+      <button
+        class="cdg-rte-buttons"
+        name="underline"
+        operation="toggleUnderline"
+      >
+        <cdg-icon name="underline" source="host"></cdg-icon>
+      </button>
+      <button
+        class="cdg-rte-buttons"
+        name="bulletList"
+        operation="toggleBulletList"
+      >
+        <cdg-icon name="listUlRound" source="host"></cdg-icon>
+      </button>
+      <button
+        class="cdg-rte-buttons"
+        name="orderedList"
+        operation="toggleOrderedList"
+      >
+        <cdg-icon name="listOl" source="host"></cdg-icon>
+      </button>
+      <button
+        class="cdg-rte-buttons"
+        name="blockquote"
+        operation="toggleBlockquote"
+      >
+        <cdg-icon name="quoteLeft" source="host"></cdg-icon>
+      </button>
+      <button
+        class="cdg-rte-buttons"
+        name="textAlign"
+        operation="setTextAlign"
+        alignment="left"
+      >
+        <cdg-icon name="textAlignLeft" source="host"></cdg-icon>
+      </button>
+      <button
+        class="cdg-rte-buttons"
+        operation="setTextAlign"
+        alignment="right"
+        name="textAlign"
+      >
+        <cdg-icon name="textAlignRight" source="host"></cdg-icon>
+      </button>
+      <button
+        class="cdg-rte-buttons"
+        operation="setTextAlign"
+        alignment="center"
+        name="textAlign"
+      >
+        <cdg-icon name="textAlignCenter" source="host"></cdg-icon>
+      </button>
+      <button
+        class="cdg-rte-buttons"
+        operation="setTextAlign"
+        alignment="justify"
+        name="textAlign"
+      >
+        <cdg-icon name="textAlignJustify" source="host"></cdg-icon>
+      </button>
+      <button class="cdg-rte-buttons" name="undo" operation="undo">
+        <cdg-icon name="undo" source="host"></cdg-icon>
+      </button>
+      <button class="cdg-rte-buttons" name="redo" operation="redo">
+        <cdg-icon name="redo" source="host"></cdg-icon>
+      </button>
+      <button
+        class="cdg-rte-buttons"
+        name="heading"
+        operation="toggleHeading"
+        level="1"
+      >
+        <cdg-icon name="h1" source="host"></cdg-icon>
+      </button>
+      <button
+        class="cdg-rte-buttons"
+        name="heading"
+        operation="toggleHeading"
+        level="2"
+      >
+        <cdg-icon name="h2" source="host"></cdg-icon>
+      </button>
+      <button
+        class="cdg-rte-buttons"
+        name="heading"
+        operation="toggleHeading"
+        level="3"
+      >
+        <cdg-icon name="h3" source="host"></cdg-icon>
+      </button>
+      <button
+        class="cdg-rte-buttons"
+        name="heading"
+        operation="toggleHeading"
+        level="4"
+      >
+        <cdg-icon name="h4" source="host"></cdg-icon>
+      </button>
+      <button
+        class="cdg-rte-buttons"
+        name="heading"
+        operation="toggleHeading"
+        level="5"
+      >
+        <cdg-icon name="h5" source="host"></cdg-icon>
+      </button>
+      <button
+        class="cdg-rte-buttons"
+        name="heading"
+        operation="toggleHeading"
+        level="6"
+      >
+        <cdg-icon name="h6" source="host"></cdg-icon>
+      </button>
+      <!-- <button class="cdg-rte-buttons" operation="toggleHeading" level="1">H1</button> -->
     </cdg-rte-toolbar>
-    <cdg-rte-content></cdg-rte-content>
+    <div class="rte-content"></div>
   </cdg-rich-text-editor>
 </div>
