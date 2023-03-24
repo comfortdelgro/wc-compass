@@ -1,36 +1,37 @@
 export class CdgActionBar extends HTMLElement {
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-action-bar');
-    this.attachElements();
+    this.classList.add('cdg-toolbar')
+    this.attachElements()
   }
 
   attachElements() {
-    const leftGroup = this.querySelector('#cdg-action-left-group');
-    const leftGroupElement = document.createElement('div');
-    leftGroupElement.classList.add('cdg-action-left-group');
-    if (leftGroup) {
-      leftGroupElement.appendChild(leftGroup.content);
+    const leftGroup = this.querySelector('.cdg-left-group')
+    if (!leftGroup) {
+      const leftGroupElement = document.createElement('div')
+      leftGroupElement.classList.add('cdg-left-group')
+      this.prepend(leftGroupElement)
     }
-    this.appendChild(leftGroupElement);
 
-    const centerGroup = this.querySelector('#cdg-action-center-group');
-    const centerGroupElement = document.createElement('div');
-    centerGroupElement.classList.add('cdg-action-center-group');
-    if (centerGroup) {
-      centerGroupElement.appendChild(centerGroup.content);
+    const centerGroup = this.querySelector('.cdg-center-group')
+    const rightGroup = this.querySelector('.cdg-right-group')
+    if (!centerGroup) {
+      const centerGroupElement = document.createElement('div')
+      centerGroupElement.classList.add('cdg-center-group')
+      if (rightGroup) {
+        this.insertBefore(centerGroupElement, rightGroup)
+      } else {
+        this.appendChild(centerGroupElement)
+      }
     }
-    this.appendChild(centerGroupElement);
 
-    const rightGroup = this.querySelector('#cdg-action-right-group');
-    const rightGroupElement = document.createElement('div');
-    rightGroupElement.classList.add('cdg-action-right-group');
-    if (rightGroup) {
-      rightGroupElement.appendChild(rightGroup.content);
+    if (!rightGroup) {
+      const rightGroupElement = document.createElement('div')
+      rightGroupElement.classList.add('cdg-right-group')
+      this.appendChild(rightGroupElement)
     }
-    this.appendChild(rightGroupElement);
   }
 }
