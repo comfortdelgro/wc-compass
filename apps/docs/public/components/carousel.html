@@ -11,7 +11,7 @@
 
 <h3 class="sample-section-title">Any content</h3>
 <div class="sample-section custom-slide">
-  <cdg-carousel useArrow="true" autoSwitch="true">
+  <cdg-carousel use-arrow="true" autoSwitch="true">
     <cdg-slide>A</cdg-slide>
     <cdg-slide>B</cdg-slide>
     <cdg-slide>C</cdg-slide>
@@ -20,7 +20,7 @@
 </div>
 
 <pre>
-    <code class="language-html">&lt;cdg-carousel useArrow=&quot;true&quot; autoSwitch=&quot;true&quot;&gt;
+    <code class="language-html">&lt;cdg-carousel use-arrow=&quot;true&quot; autoSwitch=&quot;true&quot;&gt;
     &lt;cdg-slide&gt;A&lt;/cdg-slide&gt;
     &lt;cdg-slide&gt;B&lt;/cdg-slide&gt;
     &lt;cdg-slide&gt;C&lt;/cdg-slide&gt;
@@ -30,7 +30,7 @@
 
 <h3 class="sample-section-title">Images</h3>
 <div class="sample-section">
-  <cdg-carousel useArrow="true" autoSwitch="true">
+  <cdg-carousel use-arrow="true" autoSwitch="true">
     <cdg-slide>
       <img
         class="cdg-slide-background"
@@ -65,7 +65,7 @@
 </div>
 
 <pre>
-    <code class="language-html">&lt;cdg-carousel useArrow=&quot;true&quot; autoSwitch=&quot;true&quot;&gt;
+    <code class="language-html">&lt;cdg-carousel use-arrow=&quot;true&quot; autoSwitch=&quot;true&quot;&gt;
     &lt;cdg-slide&gt;
         &lt;img
         class=&quot;cdg-slide-background&quot;
@@ -97,7 +97,10 @@
             >
               It's Ok
             </button>
-            <button class="cdg-button" onclick="cdgToastService.toast('Awesome!')">
+            <button
+              class="cdg-button"
+              onclick="cdgToastService.toast('Awesome!')"
+            >
               Awesome
             </button>
           </div>
@@ -117,7 +120,10 @@
             image.
           </p>
           <div class="cdg-promotion-actions">
-            <button class="cdg-button" onclick="cdgToastService.toast('Awesome!')">
+            <button
+              class="cdg-button"
+              onclick="cdgToastService.toast('Awesome!')"
+            >
               Awesome
             </button>
           </div>
@@ -180,6 +186,114 @@
 &lt;/cdg-carousel&gt;</code>
 </pre>
 
+<h3 class="sample-section-title">Cards</h3>
+<div class="sample-section">
+  <cdg-carousel cards use-arrow="true">
+    <cdg-slide type="cards">
+      <cdg-card class="raised">
+        <cdg-card-cover src="https://picsum.photos/300/200?1"></cdg-card-cover>
+        <cdg-card-header title="Card title"> </cdg-card-header>
+        <cdg-card-body>
+          Lorem ipsum dolor sit amet, consectetur adipiscingr
+        </cdg-card-body>
+      </cdg-card>
+      <cdg-card class="raised">
+        <cdg-card-cover src="https://picsum.photos/300/200?2"></cdg-card-cover>
+        <cdg-card-header title="Card title"> </cdg-card-header>
+        <cdg-card-body>
+          Lorem ipsum dolor sit amet, consectetur adipiscingr
+        </cdg-card-body>
+      </cdg-card>
+      <cdg-card class="raised">
+        <cdg-card-cover src="https://picsum.photos/300/200?2"></cdg-card-cover>
+        <cdg-card-header title="Card title"> </cdg-card-header>
+        <cdg-card-body>
+          Lorem ipsum dolor sit amet, consectetur adipiscingr
+        </cdg-card-body>
+      </cdg-card>
+    </cdg-slide>
+    <cdg-slide type="cards">
+      <cdg-card class="raised">
+        <cdg-card-cover src="https://picsum.photos/300/200?1"></cdg-card-cover>
+        <cdg-card-header title="Card title"> </cdg-card-header>
+        <cdg-card-body>
+          Lorem ipsum dolor sit amet, consectetur adipiscingr
+        </cdg-card-body>
+      </cdg-card>
+      <cdg-card class="raised">
+        <cdg-card-cover src="https://picsum.photos/300/200?2"></cdg-card-cover>
+        <cdg-card-header title="Card title"> </cdg-card-header>
+        <cdg-card-body>
+          Lorem ipsum dolor sit amet, consectetur adipiscingr
+        </cdg-card-body>
+      </cdg-card>
+      <cdg-card class="raised">
+        <cdg-card-cover src="https://picsum.photos/300/200?2"></cdg-card-cover>
+        <cdg-card-header title="Card title"> </cdg-card-header>
+        <cdg-card-body>
+          Lorem ipsum dolor sit amet, consectetur adipiscingr
+        </cdg-card-body>
+      </cdg-card>
+    </cdg-slide>
+    <cdg-slide type="cards">
+      <cdg-card class="raised">
+        <cdg-card-cover src="https://picsum.photos/300/200?1"></cdg-card-cover>
+        <cdg-card-header title="Card title"> </cdg-card-header>
+        <cdg-card-body>
+          Lorem ipsum dolor sit amet, consectetur adipiscingr
+        </cdg-card-body>
+      </cdg-card>
+      <cdg-card class="raised">
+        <cdg-card-cover src="https://picsum.photos/300/200?2"></cdg-card-cover>
+        <cdg-card-header title="Card title"> </cdg-card-header>
+        <cdg-card-body>
+          Lorem ipsum dolor sit amet, consectetur adipiscingr
+        </cdg-card-body>
+      </cdg-card>
+      <cdg-card class="raised">
+        <cdg-card-cover src="https://picsum.photos/300/200?2"></cdg-card-cover>
+        <cdg-card-header title="Card title"> </cdg-card-header>
+        <cdg-card-body>
+          Lorem ipsum dolor sit amet, consectetur adipiscingr
+        </cdg-card-body>
+      </cdg-card>
+    </cdg-slide>
+  </cdg-carousel>
+</div>
+
+<h3 class="sample-section-title">Cards - Single</h3>
+<div class="sample-section">
+  <cdg-carousel cards single-center use-arrow>
+    <cdg-slide type="cards">
+      <cdg-card class="raised">
+        <cdg-card-cover src="https://picsum.photos/300/200?5"></cdg-card-cover>
+        <cdg-card-header title="Card title"> </cdg-card-header>
+        <cdg-card-body>
+          Lorem ipsum dolor sit amet, consectetur adipiscingr
+        </cdg-card-body>
+      </cdg-card>
+    </cdg-slide>
+    <cdg-slide type="cards">
+      <cdg-card class="raised">
+        <cdg-card-cover src="https://picsum.photos/300/200?6"></cdg-card-cover>
+        <cdg-card-header title="Card title"> </cdg-card-header>
+        <cdg-card-body>
+          Lorem ipsum dolor sit amet, consectetur adipiscingr
+        </cdg-card-body>
+      </cdg-card>
+    </cdg-slide>
+    <cdg-slide type="cards">
+      <cdg-card class="raised">
+        <cdg-card-cover src="https://picsum.photos/300/200?7"></cdg-card-cover>
+        <cdg-card-header title="Card title"> </cdg-card-header>
+        <cdg-card-body>
+          Lorem ipsum dolor sit amet, consectetur adipiscingr
+        </cdg-card-body>
+      </cdg-card>
+    </cdg-slide>
+  </cdg-carousel>
+</div>
+
 <h3 class="sample-section-title">Mobile</h3>
 <style>
   .my-mobile-carousel .cdg-slide {
@@ -218,7 +332,10 @@
             image.
           </p>
           <div class="cdg-promotion-actions">
-            <button class="cdg-button" onclick="cdgToastService.toast('Awesome!')">
+            <button
+              class="cdg-button"
+              onclick="cdgToastService.toast('Awesome!')"
+            >
               Awesome
             </button>
           </div>
