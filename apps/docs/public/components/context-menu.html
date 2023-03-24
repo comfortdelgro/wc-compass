@@ -74,6 +74,19 @@
         &lt;/ul&gt;
       &lt;/div&gt;
     &lt;/cdg-context-menu&gt;
+
+    &lt;script&gt;
+      const contextMenus = document.querySelectorAll(&apos;cdg-context-menu&apos;)
+      for (let index = 0; index &lt; contextMenus.length; index++) {
+        const contextMenu = contextMenus.item(index)
+        contextMenu.addEventListener(&apos;onContextMenuOpen&apos;, () =&gt; {
+          console.log(`Context menu &quot;${contextMenu.getAttribute(&apos;name&apos;)}&quot; opened`)
+        })
+        contextMenu.addEventListener(&apos;onContextMenuClose&apos;, () =&gt; {
+          console.log(`Context menu &quot;${contextMenu.getAttribute(&apos;name&apos;)}&quot; closed`)
+        })
+      }
+    &lt;/script&gt;
     </code>
 </pre>
 
@@ -187,3 +200,16 @@
 &lt;/cdg-context-menu&gt;
   </code>
 </pre>
+
+<script>
+  const contextMenus = document.querySelectorAll('cdg-context-menu')
+  for (let index = 0; index < contextMenus.length; index++) {
+    const contextMenu = contextMenus.item(index)
+    contextMenu.addEventListener('onContextMenuOpen', () => {
+      console.log(`Context menu "${contextMenu.getAttribute('name')}" opened`)
+    })
+    contextMenu.addEventListener('onContextMenuClose', () => {
+      console.log(`Context menu "${contextMenu.getAttribute('name')}" closed`)
+    })
+  }
+</script>

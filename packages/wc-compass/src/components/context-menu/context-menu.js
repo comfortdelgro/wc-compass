@@ -3,7 +3,10 @@ export class CdgContextMenu extends HTMLElement {
   contextMenuContentElement
 
   get name() {
-    return this.getAttribute('name') || 'context-menu'
+    if (!this.getAttribute('name')) {
+      this.setAttribute('name', 'context-menu')
+    }
+    return this.getAttribute('name')
   }
 
   static get observedAttributes() {
@@ -60,6 +63,7 @@ export class CdgContextMenu extends HTMLElement {
 
   handleOpenContextMenu(event) {
     event.preventDefault()
+    this.dispatchEvent(new CustomEvent('onContextMenuOpen'))
     this.contextMenuContentElement.classList.add('show')
     window.addEventListener('click', this.handleWindowClickOutFn)
     this.contextMenuToggleElement.style.left = `${event.clientX}px`
@@ -69,6 +73,7 @@ export class CdgContextMenu extends HTMLElement {
   handleWindowClickOut(event) {
     if (!this.contextMenuToggleElement.contains(event.target)) {
       this.contextMenuContentElement.classList.remove('show')
+      this.dispatchEvent(new CustomEvent('onContextMenuClose'))
       this.contextMenuToggleElement.style.left = `-9999px`
       this.contextMenuToggleElement.style.top = `-9999px`
       window.removeEventListener('click', this.handleWindowClickOutFn)
