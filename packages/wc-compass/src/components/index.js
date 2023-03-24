@@ -6,6 +6,7 @@ import {CdgAlert} from './alert/alert'
 import {CdgAlertContent} from './alert/alert-content'
 import {CdgAvatar} from './avatar/avatar'
 import {CdgCalendar} from './calendar/calendar'
+import {CdgContextMenu} from './context-menu/context-menu'
 import {CdgDatePicker} from './datepicker/datepicker'
 import {CdgDropdown} from './dropdown/dropdown'
 import {CdgDropdownOption} from './dropdown/dropdown-option'
@@ -77,6 +78,7 @@ customElements.define('cdg-video-controls', CdgVideoControls)
 customElements.define('cdg-volume', CdgVolume)
 customElements.define('cdg-rating', CdgRating)
 customElements.define('cdg-dropdown-menu', CdgMultiLevelDropdown)
+customElements.define('cdg-context-menu', CdgContextMenu)
 
 export const CONTROL_COMPONENTS = [
   CdgAccordion,
@@ -110,4 +112,5 @@ export const CONTROL_COMPONENTS = [
   CdgVolume,
   CdgRating,
   CdgMultiLevelDropdown,
+  CdgContextMenu,
 ]
