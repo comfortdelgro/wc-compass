@@ -134,6 +134,7 @@ import listOl from '../../images/information/list-ol.svg'
 import listUlRound from '../../images/information/list-ul-round.svg'
 import quoteLeft from '../../images/information/quote-left.svg'
 import quoteRight from '../../images/information/quote-right.svg'
+import activity from '../../images/information/activity.svg'
 import bold from '../../images/text-editor/bold.svg'
 import h1 from '../../images/text-editor/h1.svg'
 import h2 from '../../images/text-editor/h2.svg'
@@ -152,6 +153,7 @@ import underline from '../../images/text-editor/underline.svg'
 import undo from '../../images/text-editor/undo.svg'
 
 export const ICONS_IMAGES = [
+  activity,
   addGroup,
   addUser,
   alt,

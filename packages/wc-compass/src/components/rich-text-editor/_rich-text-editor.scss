@@ -10,7 +10,10 @@ cdg-rich-text-editor,
   display: block;
   cdg-rte-toolbar,
   .cdg-rte-toolbar {
-    display: block;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
     appearance: none;
     border: none;
     box-sizing: border-box;
@@ -21,10 +24,12 @@ cdg-rich-text-editor,
     overflow: hidden;
     max-height: 38px;
     position: relative;
-    row-gap: 5px;
+    padding-right: 32px;
 
     .cdg-rte-buttons-group {
-      margin: 0 8px;
+      display: flex;
+      float: left;
+      gap: 8px;
     }
     .cdg-rte-buttons {
       display: inline-flex;
@@ -49,6 +54,24 @@ cdg-rich-text-editor,
     .active {
       background-color: #605e5c;
       color: #ffffff;
+      &:hover {
+        background-color: #605e5c;
+        color: #ffffff;
+      }
+    }
+
+    .more-button {
+      position: absolute;
+      right: 5px;
+      width: 32px;
+      height: 28px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hide {
+      display: none;
     }
   }
 

@@ -1,8 +1,11 @@
 export class CdgRichTextEditorToolbar extends HTMLElement {
   constructor() {
     super()
-    // const viewMoreButton = document.createElement(button);
-    // viewMoreButton.innerHTML = 
+    this.viewMoreButton = document.createElement('button')
+    this.viewMoreButton.classList.add('more-button')
+    this.viewMoreButton.innerHTML =
+      '<cdg-icon name="activity" source="host"></cdg-icon>'
+    this.appendChild(this.viewMoreButton)
   }
 
   set editor(value) {
@@ -12,6 +15,7 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
     return this._editor
   }
   buttonList
+  viewMoreButton
   connectedCallback() {
     this.buttonList = document.querySelectorAll('button.cdg-rte-buttons')
     this.editor.on('transaction', ({editor, transaction}) => {
@@ -31,10 +35,21 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
     }
 
     window.addEventListener('resize', (event) => {
-      if(this.scrollHeight > this.clientHeight) {
-        
+      this.style.maxHeight = '38px'
+      if (this.scrollHeight > this.clientHeight) {
+        console.log('show view more btn')
+        this.viewMoreButton.classList.remove('hide')
+      } else {
+        this.viewMoreButton.classList.add('hide')
       }
-      
+    })
+
+    this.viewMoreButton.addEventListener('click', () => {
+      if (this.clientHeight === 38) {
+        this.style.maxHeight = '300px'
+      } else {
+        this.style.maxHeight = '38px'
+      }
     })
   }
 
