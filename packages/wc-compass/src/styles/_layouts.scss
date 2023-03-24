@@ -1,37 +1,41 @@
-cdg-action-bar,
-.cdg-action-bar,
-cdg-action-left-group,
-.cdg-action-left-group,
-cdg-action-center-group,
-.cdg-action-center-group,
-cdg-action-right-group,
-.cdg-action-right-group {
+cdg-toolbar,
+.cdg-toolbar,
+cdg-left-group,
+.cdg-left-group,
+cdg-center-group,
+.cdg-center-group,
+cdg-right-group,
+.cdg-right-group {
   display: flex;
   gap: 16px;
   align-items: center;
 }
 
-cdg-action-bar,
-.cdg-action-bar {
+cdg-toolbar,
+.cdg-toolbar {
   width: 100%;
   .cdg-input {
     height: 35px;
   }
+  &[raised] {
+    box-shadow: var(--shadow-depth-04);
+    padding: 12px 16px;
+  }
 }
 
-cdg-action-left-group,
-.cdg-action-left-group {
+cdg-left-group,
+.cdg-left-group {
   display: flex;
 }
 
-cdg-action-center-group,
-.cdg-action-center-group {
+cdg-center-group,
+.cdg-center-group {
   flex: 1;
   justify-content: center;
 }
 
-cdg-action-right-group,
-.cdg-action-right-group {
+cdg-right-group,
+.cdg-right-group {
   display: flex;
 }
 
@@ -282,6 +286,72 @@ cdg-divider,
 
   &.stretch {
     align-items: stretch;
+  }
+}
+
+.cdg-card-blogs {
+  &.grid-3-columns {
+    flex-wrap: wrap;
+    row-gap: 32px;
+    column-gap: 24px;
+    & > * {
+      width: calc(100% / 3 - 32px);
+    }
+    @media (max-width: 768px) {
+      gap: 16px;
+      & > * {
+        width: 100%;
+      }
+      .cdg-card {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 20px;
+        & > * {
+          width: 50%;
+        }
+        .cdg-card-blog-category {
+          margin-top: 0;
+          font-size: 10px;
+          line-height: 16px;
+        }
+        .cdg-card-blog-title {
+          font-size: 16px;
+          line-height: 24px;
+          margin-top: 4px;
+        }
+        .cdg-card-blog-date {
+          font-size: 10px;
+          line-height: 15px;
+        }
+      }
+    }
+  }
+
+  .cdg-card-cover {
+    aspect-ratio: 4/3;
+    img {
+      border-radius: 8px;
+    }
+  }
+  .cdg-card-blog-category {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--info);
+    margin-top: 8px;
+  }
+  .cdg-card-blog-title {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 42px;
+    color: var(--grey-shades-80);
+  }
+  .cdg-card-blog-date {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: var(--grey-shades-80);
+    margin-top: 4px;
   }
 }
 

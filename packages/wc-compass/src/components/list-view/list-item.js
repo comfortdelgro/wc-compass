@@ -39,6 +39,9 @@ export class CdgListItem extends HTMLElement {
   moveListener
   cancelListener
 
+  timer
+  dragging
+
   constructor() {
     super()
   }
@@ -93,6 +96,14 @@ export class CdgListItem extends HTMLElement {
   }
 
   handleStartDrag(event) {
+    this.clearTimer()
+
+    // To allow user to drag this item after holding it for 300ms
+    // This is to not block user to swipe screen to scroll
+    this.timer = setTimeout(() => {
+      this.dragging = true
+    }, 300)
+
     this.pointer = new Pointer()
     this.setPointerCapture(event.pointerId)
     this.pointer.start({x: event.pageX, y: event.pageY})
@@ -100,6 +111,7 @@ export class CdgListItem extends HTMLElement {
 
     this.moveListener = this.handlePointerMove.bind(this)
     this.addEventListener('pointermove', this.moveListener)
+    this.addEventListener('touchmove', this.handleTouchMove)
     document.addEventListener('pointerup', this.handlePointerUp.bind(this), {
       once: true,
     })
@@ -119,19 +131,25 @@ export class CdgListItem extends HTMLElement {
     )
   }
 
-  isBeingDrag() {
-    const x = Math.abs(this.pointer.distance.x)
-    const y = Math.abs(this.pointer.distance.y)
-    return !this.pointer.didMoving && (x <= 1 || y <= 1)
+  clearTimer() {
+    if (this.timer) {
+      clearTimeout(this.timer)
+    }
+  }
+
+  handleTouchMove(event) {
+    if (this.dragging) {
+      event.preventDefault()
+    }
   }
 
   handlePointerMove(event) {
     this.pointer.update({x: event.pageX, y: event.pageY})
-    if (this.isBeingDrag()) {
+
+    if (!this.dragging) {
+      this.clearTimer()
       return
     }
-
-    this.pointer.didMoving = true
 
     // Setting up clone element to capture
     if (!this.clonedElement) {
@@ -169,10 +187,12 @@ export class CdgListItem extends HTMLElement {
   }
 
   handlePointerUp() {
+    this.clearTimer()
     this.classList.remove('dragging')
+    this.removeEventListener('touchmove', this.handleTouchMove)
     this.removeEventListener('pointermove', this.moveListener)
     // Only raise event when user has moved
-    if (this.pointer.didMoving) {
+    if (this.dragging) {
       this.dispatchEvent(
         new CustomEvent('dragend', {
           detail: {
@@ -181,6 +201,7 @@ export class CdgListItem extends HTMLElement {
           },
         }),
       )
+      this.dragging = false
     }
   }
 

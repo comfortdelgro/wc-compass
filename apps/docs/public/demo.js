@@ -1,5 +1,4 @@
 import './components/accordion.html'
-import './components/action-bar.html'
 import './components/alert-badges.html'
 import './components/alert.html'
 import './components/avatar.html'
@@ -7,6 +6,7 @@ import './components/breadcrumbs.html'
 import './components/button.html'
 import './components/calendar.html'
 import './components/cards.html'
+import './components/card-blogs.html'
 import './components/carousel.html'
 import './components/checkboxes.html'
 import './components/dashboard-side-card.html'
@@ -44,10 +44,12 @@ import './components/text-field.html'
 import './components/timeline.html'
 import './components/toast.html'
 import './components/toggle.html'
+import './components/toolbar.html'
 import './components/tooltip.html'
 import './components/video.html'
 import './components/volume.html'
 import './components/wizards.html'
+import './components/multi-level-dropdown.html'
 import './pages/home.html'
 
 const contentMap = {
@@ -67,6 +69,7 @@ const contentMap = {
   dropdown: './components/dropdown.html',
   button: './components/button.html',
   cards: './components/cards.html',
+  cardBlogs: './components/card-blogs.html',
   carousel: './components/carousel.html',
   inlineLoading: './components/inline-loading.html',
   layouts: './components/layouts.html',
@@ -83,7 +86,7 @@ const contentMap = {
   rating: './components/rating.html',
   sidebar: './components/sidebar.html',
   status: './components/status.html',
-  actionBar: './components/action-bar.html',
+  toolbar: './components/toolbar.html',
   subHeader: './components/sub-header.html',
   tabs: './components/tabs.html',
   textField: './components/text-field.html',
@@ -103,7 +106,8 @@ const contentMap = {
   tagBox: './components/tag-box.html',
   video: './components/video.html',
   selectingThemeModal: './components/template/selecting-theme-modal.html',
-  servicesMenu: './components/template/services-menu.html'
+  servicesMenu: './components/template/services-menu.html',
+  multiLevelDropdown: './components/multi-level-dropdown.html',
 }
 
 const documentContent = [
@@ -117,16 +121,16 @@ const documentContent = [
         slug: 'accordion',
       },
       {
-        name: 'Action Bar',
-        slug: 'actionBar',
-      },
-      {
         name: 'Breadcrumbs',
         slug: 'breadcrumbs',
       },
       {
         name: 'Cards',
         slug: 'cards',
+      },
+      {
+        name: 'Card for Blogs',
+        slug: 'cardBlogs',
       },
       {
         name: 'Carousel',
@@ -153,6 +157,10 @@ const documentContent = [
         slug: 'subHeader',
       },
       {
+        name: 'Multi Level Dropdown',
+        slug: 'multiLevelDropdown',
+      },
+      {
         name: 'Nav Rail',
         slug: 'navRail',
       },
@@ -171,6 +179,10 @@ const documentContent = [
       {
         name: 'Timeline',
         slug: 'timeline',
+      },
+      {
+        name: 'Toolbar',
+        slug: 'toolbar',
       },
       {
         name: 'Footer',
