@@ -278,7 +278,7 @@ export class CdgDropdown extends HTMLElement {
   }
 
   handleDropdownOptionClick(event, dropdownOption) {
-    const selectedValue = event.target.getAttribute('value')
+    const selectedValue = dropdownOption.getAttribute('value')
     const selectedText = dropdownOption.textContent
     const selectedDisplayElement =
       dropdownOption.querySelector('[displaySelect]')
