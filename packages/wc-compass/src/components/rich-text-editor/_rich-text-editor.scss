@@ -24,7 +24,6 @@ cdg-rich-text-editor,
     overflow: hidden;
     max-height: 38px;
     position: relative;
-    padding-right: 32px;
 
     .cdg-rte-buttons-group {
       display: flex;
@@ -74,6 +73,9 @@ cdg-rich-text-editor,
       display: none;
     }
   }
+  .ProseMirror {
+    outline: none;
+  }
 
   cdg-rte-content,
   .cdg-rte-content {
@@ -82,5 +84,35 @@ cdg-rich-text-editor,
     border: none;
     box-sizing: border-box;
     margin: 0px;
+    padding: 1em;
+  }
+
+  code {
+    background-color: rgba(#616161, 0.1);
+    color: #616161;
+  }
+
+  pre {
+    background: #0d0d0d;
+    color: #fff;
+    font-family: 'JetBrainsMono', monospace;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  blockquote {
+    padding-left: 1rem;
+    border-left: 2px solid rgba(#0d0d0d, 0.1);
+  }
+
+  hr {
+    border: none;
+    border-top: 2px solid rgba(#0d0d0d, 0.1);
+    margin: 2rem 0;
   }
 }

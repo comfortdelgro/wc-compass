@@ -6,6 +6,7 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
     this.viewMoreButton.innerHTML =
       '<cdg-icon name="activity" source="host"></cdg-icon>'
     this.appendChild(this.viewMoreButton)
+    this.checkMoreButtonVisibility()
   }
 
   set editor(value) {
@@ -16,10 +17,10 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
   }
   buttonList
   viewMoreButton
+  headingSelector
   connectedCallback() {
     this.buttonList = document.querySelectorAll('button.cdg-rte-buttons')
     this.editor.on('transaction', ({editor, transaction}) => {
-      // The editor state has changed.
       if (this.buttonList.length) {
         this.checkActive()
       }
@@ -35,13 +36,7 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
     }
 
     window.addEventListener('resize', (event) => {
-      this.style.maxHeight = '38px'
-      if (this.scrollHeight > this.clientHeight) {
-        console.log('show view more btn')
-        this.viewMoreButton.classList.remove('hide')
-      } else {
-        this.viewMoreButton.classList.add('hide')
-      }
+      this.checkMoreButtonVisibility()
     })
 
     this.viewMoreButton.addEventListener('click', () => {
@@ -51,6 +46,18 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
         this.style.maxHeight = '38px'
       }
     })
+
+    this.headingSelector = document.querySelector('#heading-selector')
+    if (this.headingSelector) {
+      this.headingSelector.addEventListener('onchangevalue', (event) => {
+        console.log(event.detail);
+        // this.editor
+        //   .chain()
+        //   .focus()
+        //   .toggleHeading({level: +event.detail})
+        //   .run()
+      })
+    }
   }
 
   getEventData(button) {
@@ -85,5 +92,21 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
         button.classList.remove('active')
       }
     })
+  }
+
+  checkMoreButtonVisibility() {
+    this.style.maxHeight = '38px'
+
+    if (
+      this.scrollHeight &&
+      this.clientHeight &&
+      this.scrollHeight > this.clientHeight
+    ) {
+      this.viewMoreButton.classList.remove('hide')
+      this.style.paddingRight = '40px'
+    } else {
+      this.style.paddingRight = '20px'
+      this.viewMoreButton.classList.add('hide')
+    }
   }
 }
