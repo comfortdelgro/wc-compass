@@ -1,5 +1,6 @@
-import { Editor } from '@tiptap/core'
+import {Editor} from '@tiptap/core'
 import Highlight from '@tiptap/extension-highlight'
+import Image from '@tiptap/extension-image'
 import Link from '@tiptap/extension-link'
 import SubScript from '@tiptap/extension-subscript'
 import Superscript from '@tiptap/extension-superscript'
@@ -25,6 +26,7 @@ export class CdgRichTextEditor extends HTMLElement {
         SubScript,
         Highlight,
         Link,
+        Image,
       ],
       content: '<p>Hello World2!</p>',
     })
@@ -35,6 +37,5 @@ export class CdgRichTextEditor extends HTMLElement {
     if (toolbar) {
       toolbar.editor = this.editor
     }
-    
   }
 }

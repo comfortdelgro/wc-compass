@@ -6,7 +6,6 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
     this.viewMoreButton.innerHTML =
       '<cdg-icon name="activity" source="host"></cdg-icon>'
     this.appendChild(this.viewMoreButton)
-    this.checkMoreButtonVisibility()
   }
 
   set editor(value) {
@@ -30,7 +29,13 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
         button.addEventListener('click', () => {
           const detail = this.getEventData(button)
           const {operation, data} = detail
-          this.editor.chain().focus()[operation](data).run()
+          if (button.getAttribute('name') === 'link') {
+            this.setLink()
+          } else if (button.getAttribute('name') === 'image') {
+            this.setImage()
+          } else {
+            this.editor.chain().focus()[operation](data).run()
+          }
         })
       })
     }
@@ -50,14 +55,30 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
     this.headingSelector = document.querySelector('#heading-selector')
     if (this.headingSelector) {
       this.headingSelector.addEventListener('onchangevalue', (event) => {
-        console.log(event.detail);
-        // this.editor
-        //   .chain()
-        //   .focus()
-        //   .toggleHeading({level: +event.detail})
-        //   .run()
+        if (+event.detail === 0) {
+          this.editor.commands.setNode('paragraph')
+          this.editor.chain().focus().run()
+        } else {
+          this.editor
+            .chain()
+            .focus()
+            .toggleHeading({level: +event.detail})
+            .run()
+        }
       })
     }
+    this.textAlignmentSelector = document.querySelector(
+      '#text-alignment-selector',
+    )
+    if (this.textAlignmentSelector) {
+      this.textAlignmentSelector.addEventListener('onchangevalue', (event) => {
+        this.editor.chain().focus().setTextAlign(event.detail).run()
+      })
+    }
+
+    setTimeout(() => {
+      this.checkMoreButtonVisibility()
+    })
   }
 
   getEventData(button) {
@@ -76,8 +97,6 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
       case 'setTextAlign':
         detail.data = alignment
         break
-
-      // TODO: link and image
     }
 
     return detail
@@ -96,7 +115,7 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
 
   checkMoreButtonVisibility() {
     this.style.maxHeight = '38px'
-
+    console.log(this.scrollHeight);
     if (
       this.scrollHeight &&
       this.clientHeight &&
@@ -107,6 +126,29 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
     } else {
       this.style.paddingRight = '20px'
       this.viewMoreButton.classList.add('hide')
+    }
+  }
+
+  setLink() {
+    const url = window.prompt('URL')
+    if (url === null) {
+      return
+    }
+
+    if (url === '') {
+      this.editor.chain().focus().unsetLink().run()
+
+      return
+    }
+
+    this.editor.chain().focus().setLink({href: url}).run()
+  }
+
+  setImage() {
+    const url = window.prompt('URL')
+
+    if (url) {
+      this.editor.chain().focus().setImage({src: url}).run()
     }
   }
 }

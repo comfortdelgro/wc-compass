@@ -13,7 +13,7 @@ cdg-rich-text-editor,
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 16px;
     appearance: none;
     border: none;
     box-sizing: border-box;
@@ -71,6 +71,23 @@ cdg-rich-text-editor,
 
     .hide {
       display: none;
+    }
+
+    .toolbar-selector {
+      display: flex;
+      align-items: center;
+      button.cdg-dropdown-button {
+        padding: 0;
+        background-color: #f3f2f1;
+        gap: 8px;
+        border: none;
+        .cdg-dropdown-button-text {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 21px;
+          color: #323130;
+        }
+      }
     }
   }
   .ProseMirror {

@@ -2,6 +2,14 @@
   <cdg-rich-text-editor>
     <cdg-rte-toolbar>
       <div class="cdg-rte-buttons-group">
+        <button class="cdg-rte-buttons" name="undo" operation="undo">
+          <cdg-icon name="undo" source="host"></cdg-icon>
+        </button>
+        <button class="cdg-rte-buttons" name="redo" operation="redo">
+          <cdg-icon name="redo" source="host"></cdg-icon>
+        </button>
+      </div>
+      <div class="cdg-rte-buttons-group">
         <button class="cdg-rte-buttons" name="bold" operation="toggleBold">
           <cdg-icon name="bold" source="host"></cdg-icon>
         </button>
@@ -21,134 +29,111 @@
       </div>
 
       <div class="cdg-rte-buttons-group">
-        <cdg-dropdown id="heading-selector">
-          <cdg-dropdown-option value="1">
-            <h1>Heading 1</h1>
+        <cdg-dropdown id="text-alignment-selector" class="toolbar-selector">
+          <cdg-dropdown-option value="left" selected="true">
+            <div class="cdg-dropdown-option-content">
+              <cdg-icon
+                name="textAlignLeft"
+                displaySelect
+                size="14"
+                source="host"
+              ></cdg-icon>
+              <span>left</span>
+            </div>
           </cdg-dropdown-option>
-          <cdg-dropdown-option value="2">
-            <h2>Heading 2</h2>
+          <cdg-dropdown-option value="right">
+            <div class="cdg-dropdown-option-content">
+              <cdg-icon
+                name="textAlignRight"
+                displaySelect
+                size="14"
+                source="host"
+              ></cdg-icon>
+              <span>right</span>
+            </div>
           </cdg-dropdown-option>
-          <cdg-dropdown-option value="3">
-            <h3>Heading 3</h3>
+          <cdg-dropdown-option value="center">
+            <div class="cdg-dropdown-option-content">
+              <cdg-icon
+                name="textAlignCenter"
+                displaySelect
+                size="14"
+                source="host"
+              ></cdg-icon>
+              <span>center</span>
+            </div>
           </cdg-dropdown-option>
-          <cdg-dropdown-option value="4">
-            <h4>Heading 4</h4>
-          </cdg-dropdown-option>
-          <cdg-dropdown-option value="5">
-            <h5>Heading 5</h5>
-          </cdg-dropdown-option>
-          <cdg-dropdown-option value="6">
-            <h6>Heading 6</h6>
+          <cdg-dropdown-option value="justify">
+            <div class="cdg-dropdown-option-content">
+              <cdg-icon
+                name="textAlignJustify"
+                displaySelect
+                size="14"
+                source="host"
+              ></cdg-icon>
+              <span>justify</span>
+            </div>
           </cdg-dropdown-option>
         </cdg-dropdown>
       </div>
-      <button
-        class="cdg-rte-buttons"
-        name="bulletList"
-        operation="toggleBulletList"
-      >
-        <cdg-icon name="listUlRound" source="host"></cdg-icon>
-      </button>
-      <button
-        class="cdg-rte-buttons"
-        name="orderedList"
-        operation="toggleOrderedList"
-      >
-        <cdg-icon name="listOl" source="host"></cdg-icon>
-      </button>
-      <button
-        class="cdg-rte-buttons"
-        name="blockquote"
-        operation="toggleBlockquote"
-      >
-        <cdg-icon name="quoteLeft" source="host"></cdg-icon>
-      </button>
-      <button
-        class="cdg-rte-buttons"
-        name="textAlign"
-        operation="setTextAlign"
-        alignment="left"
-      >
-        <cdg-icon name="textAlignLeft" source="host"></cdg-icon>
-      </button>
-      <button
-        class="cdg-rte-buttons"
-        operation="setTextAlign"
-        alignment="right"
-        name="textAlign"
-      >
-        <cdg-icon name="textAlignRight" source="host"></cdg-icon>
-      </button>
-      <button
-        class="cdg-rte-buttons"
-        operation="setTextAlign"
-        alignment="center"
-        name="textAlign"
-      >
-        <cdg-icon name="textAlignCenter" source="host"></cdg-icon>
-      </button>
-      <button
-        class="cdg-rte-buttons"
-        operation="setTextAlign"
-        alignment="justify"
-        name="textAlign"
-      >
-        <cdg-icon name="textAlignJustify" source="host"></cdg-icon>
-      </button>
-      <button class="cdg-rte-buttons" name="undo" operation="undo">
-        <cdg-icon name="undo" source="host"></cdg-icon>
-      </button>
-      <button class="cdg-rte-buttons" name="redo" operation="redo">
-        <cdg-icon name="redo" source="host"></cdg-icon>
-      </button>
-      <button
-        class="cdg-rte-buttons"
-        name="heading"
-        operation="toggleHeading"
-        level="1"
-      >
-        <cdg-icon name="h1" source="host"></cdg-icon>
-      </button>
-      <button
-        class="cdg-rte-buttons"
-        name="heading"
-        operation="toggleHeading"
-        level="2"
-      >
-        <cdg-icon name="h2" source="host"></cdg-icon>
-      </button>
-      <button
-        class="cdg-rte-buttons"
-        name="heading"
-        operation="toggleHeading"
-        level="3"
-      >
-        <cdg-icon name="h3" source="host"></cdg-icon>
-      </button>
-      <button
-        class="cdg-rte-buttons"
-        name="heading"
-        operation="toggleHeading"
-        level="4"
-      >
-        <cdg-icon name="h4" source="host"></cdg-icon>
-      </button>
-      <button
-        class="cdg-rte-buttons"
-        name="heading"
-        operation="toggleHeading"
-        level="5"
-      >
-        <cdg-icon name="h5" source="host"></cdg-icon>
-      </button>
-      <button
-        class="cdg-rte-buttons"
-        name="heading"
-        operation="toggleHeading"
-        level="6"
-      >
-        <cdg-icon name="h6" source="host"></cdg-icon>
-      </button>
+
+      <div class="cdg-rte-buttons-group">
+        <cdg-dropdown id="heading-selector" class="toolbar-selector">
+          <cdg-dropdown-option value="0" selected="true">
+            Normal Text
+          </cdg-dropdown-option>
+          <cdg-dropdown-option value="1">
+            <h1 style="margin: 0;">Heading 1</h1>
+          </cdg-dropdown-option>
+          <cdg-dropdown-option value="2">
+            <h2 style="margin: 0;">Heading 2</h2>
+          </cdg-dropdown-option>
+          <cdg-dropdown-option value="3">
+            <h3 style="margin: 0;">Heading 3</h3>
+          </cdg-dropdown-option>
+          <cdg-dropdown-option value="4">
+            <h4 style="margin: 0;">Heading 4</h4>
+          </cdg-dropdown-option>
+          <cdg-dropdown-option value="5">
+            <h5 style="margin: 0;">Heading 5</h5>
+          </cdg-dropdown-option>
+          <cdg-dropdown-option value="6">
+            <h6 style="margin: 0;">Heading 6</h6>
+          </cdg-dropdown-option>
+        </cdg-dropdown>
+      </div>
+      <div class="cdg-rte-buttons-group">
+        <button
+          class="cdg-rte-buttons"
+          name="bulletList"
+          operation="toggleBulletList"
+        >
+          <cdg-icon name="listUlRound" source="host"></cdg-icon>
+        </button>
+        <button
+          class="cdg-rte-buttons"
+          name="orderedList"
+          operation="toggleOrderedList"
+        >
+          <cdg-icon name="listOl" source="host"></cdg-icon>
+        </button>
+      </div>
+      <div class="cdg-rte-buttons-group">
+        <button class="cdg-rte-buttons" name="link" operation="setLink">
+          <cdg-icon name="link" source="host"></cdg-icon>
+        </button>
+        <button class="cdg-rte-buttons" name="image" operation="setImage">
+          <cdg-icon name="imageOutline" source="host"></cdg-icon>
+        </button>
+        <button
+          class="cdg-rte-buttons"
+          name="blockquote"
+          operation="toggleBlockquote"
+        >
+          <cdg-icon name="quoteLeft" source="host"></cdg-icon>
+        </button>
+      </div>
+
       <!-- <button class="cdg-rte-buttons" operation="toggleHeading" level="1">H1</button> -->
     </cdg-rte-toolbar>
     <div class="cdg-rte-content"></div>
