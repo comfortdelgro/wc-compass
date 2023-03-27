@@ -1,4 +1,7 @@
 import {Editor} from '@tiptap/core'
+import Color from '@tiptap/extension-color'
+import TextStyle from '@tiptap/extension-text-style'
+
 import Highlight from '@tiptap/extension-highlight'
 import Image from '@tiptap/extension-image'
 import Link from '@tiptap/extension-link'
@@ -27,6 +30,8 @@ export class CdgRichTextEditor extends HTMLElement {
         Highlight,
         Link,
         Image,
+        TextStyle,
+        Color,
       ],
       content: '',
       onUpdate: ({editor}) => {

@@ -79,12 +79,14 @@ importers:
     specifiers:
       '@babel/core': ^7.0.0
       '@tiptap/core': 2.0.0-beta.220
+      '@tiptap/extension-color': 2.0.0-beta.220
       '@tiptap/extension-highlight': 2.0.0-beta.220
       '@tiptap/extension-image': 2.0.0-beta.220
       '@tiptap/extension-link': 2.0.0-beta.220
       '@tiptap/extension-subscript': 2.0.0-beta.220
       '@tiptap/extension-superscript': 2.0.0-beta.220
       '@tiptap/extension-text-align': 2.0.0-beta.220
+      '@tiptap/extension-text-style': 2.0.0-beta.220
       '@tiptap/extension-underline': 2.0.0-beta.220
       '@tiptap/pm': 2.0.0-beta.220
       '@tiptap/starter-kit': 2.0.0-beta.220
@@ -109,12 +111,14 @@ importers:
       webpack-dev-server: ^4.11.1
     dependencies:
       '@tiptap/core': 2.0.0-beta.220_@tiptap+pm@2.0.0-beta.220
+      '@tiptap/extension-color': 2.0.0-beta.220_fgzihh3z3pqzu3tukvfwtssou4
       '@tiptap/extension-highlight': 2.0.0-beta.220_7w7m52asdh3tod4ocz57yex63q
       '@tiptap/extension-image': 2.0.0-beta.220_7w7m52asdh3tod4ocz57yex63q
       '@tiptap/extension-link': 2.0.0-beta.220_ohumfzynigfck3hzagxvh2a4ky
       '@tiptap/extension-subscript': 2.0.0-beta.220_7w7m52asdh3tod4ocz57yex63q
       '@tiptap/extension-superscript': 2.0.0-beta.220_7w7m52asdh3tod4ocz57yex63q
       '@tiptap/extension-text-align': 2.0.0-beta.220_7w7m52asdh3tod4ocz57yex63q
+      '@tiptap/extension-text-style': 2.0.0-beta.220_7w7m52asdh3tod4ocz57yex63q
       '@tiptap/extension-underline': 2.0.0-beta.220_7w7m52asdh3tod4ocz57yex63q
       '@tiptap/pm': 2.0.0-beta.220_7w7m52asdh3tod4ocz57yex63q
       '@tiptap/starter-kit': 2.0.0-beta.220_@tiptap+pm@2.0.0-beta.220
@@ -880,6 +884,16 @@ packages:
       '@tiptap/core': 2.0.0-beta.220_@tiptap+pm@2.0.0-beta.220
     dev: false
 
+  /@tiptap/extension-color/2.0.0-beta.220_fgzihh3z3pqzu3tukvfwtssou4:
+    resolution: {integrity: sha512-a2P1jlCHsc3ICcVFEfStF0xTeDe8nkJ2FB5QLFAPe1VZi6AgFAGG0FLC904Zfb988Rr+TZK8AQku/X1MlMqa/A==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.209
+      '@tiptap/extension-text-style': ^2.0.0-beta.209
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.220_@tiptap+pm@2.0.0-beta.220
+      '@tiptap/extension-text-style': 2.0.0-beta.220_7w7m52asdh3tod4ocz57yex63q
+    dev: false
+
   /@tiptap/extension-document/2.0.0-beta.220_7w7m52asdh3tod4ocz57yex63q:
     resolution: {integrity: sha512-2sja4ZvOb4iynHrzinnclCSFgLyo6fJc1fBV5fIYaOgZOYcvz9KK8fgKiq+wIpG58sJEmQ5kcwwBlkXv+NTK+g==}
     peerDependencies:
@@ -1029,6 +1043,14 @@ packages:
 
   /@tiptap/extension-text-align/2.0.0-beta.220_7w7m52asdh3tod4ocz57yex63q:
     resolution: {integrity: sha512-xUYhozdJA0UVLxlrxYLHLhwDYD5oDDiy0omAzFKAyRRtHAkNSPot7Vp7UJW2M0R6XHIQDMFEopxKQNJMBTRk3w==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.209
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.220_@tiptap+pm@2.0.0-beta.220
+    dev: false
+
+  /@tiptap/extension-text-style/2.0.0-beta.220_7w7m52asdh3tod4ocz57yex63q:
+    resolution: {integrity: sha512-eKavMVrVrnHq/iR1ksyPvoJTfiT6rxDKYZoN8WifqRyOz/y+TjuqH/AzV6NgAU+mSu6c0AY7a3Y0FfFU2BV7JA==}
     peerDependencies:
       '@tiptap/core': ^2.0.0-beta.209
     dependencies:

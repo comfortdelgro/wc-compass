@@ -141,5 +141,8 @@ cdg-rich-text-editor,
 }
 .color-selector {
   flex-direction: row !important;
-  width: 300px !important;
+  max-width: 450px !important;
+  border-radius: 4px;
+  flex-wrap: wrap;
+  border-radius: 4px;
 }

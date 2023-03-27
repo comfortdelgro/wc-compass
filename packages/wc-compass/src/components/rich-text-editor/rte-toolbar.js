@@ -17,6 +17,7 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
   buttonList
   viewMoreButton
   headingSelector
+  colorSelector
   connectedCallback() {
     this.buttonList = document.querySelectorAll('button.cdg-rte-buttons')
     this.editor.on('transaction', ({editor, transaction}) => {
@@ -80,6 +81,12 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
     if (this.textAlignmentSelector) {
       this.textAlignmentSelector.addEventListener('onchangevalue', (event) => {
         this.editor.chain().focus().setTextAlign(event.detail).run()
+      })
+    }
+    this.colorSelector = document.querySelector('#color-selector')
+    if (this.colorSelector) {
+      this.colorSelector.addEventListener('onchangevalue', (event) => {
+        this.editor.chain().focus().setColor(event.detail).run()
       })
     }
   }
