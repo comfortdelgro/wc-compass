@@ -1,4 +1,10 @@
-<div class="sample-section column">
+<p>
+  A text area to input text with rich formatting. It supports most text
+  formatting and presentation attributes, such as images, lists, and links, and
+  includes a formatting toolbar.
+</p>
+
+<div class="sample-section column" id="rte-example-1">
   <cdg-rich-text-editor>
     <cdg-rte-toolbar>
       <div class="cdg-rte-buttons-group">
@@ -28,6 +34,57 @@
         </button>
       </div>
 
+      <div class="cdg-rte-buttons-group">
+        <cdg-dropdown id="heading-selector" class="toolbar-selector">
+          <cdg-dropdown-option value="0" selected="true">
+            Normal Text
+          </cdg-dropdown-option>
+          <cdg-dropdown-option value="1">
+            <h1 style="margin: 0">Heading 1</h1>
+          </cdg-dropdown-option>
+          <cdg-dropdown-option value="2">
+            <h2 style="margin: 0">Heading 2</h2>
+          </cdg-dropdown-option>
+          <cdg-dropdown-option value="3">
+            <h3 style="margin: 0">Heading 3</h3>
+          </cdg-dropdown-option>
+          <cdg-dropdown-option value="4">
+            <h4 style="margin: 0">Heading 4</h4>
+          </cdg-dropdown-option>
+          <cdg-dropdown-option value="5">
+            <h5 style="margin: 0">Heading 5</h5>
+          </cdg-dropdown-option>
+          <cdg-dropdown-option value="6">
+            <h6 style="margin: 0">Heading 6</h6>
+          </cdg-dropdown-option>
+        </cdg-dropdown>
+      </div>
+
+      <div class="cdg-rte-buttons-group">
+        <cdg-dropdown select-class="color-selector" class="toolbar-selector">
+          <cdg-dropdown-option
+            value="1"
+            current-color="black"
+          ></cdg-dropdown-option>
+          <cdg-dropdown-option
+            value="2"
+            current-color="blue"
+          ></cdg-dropdown-option>
+          <cdg-dropdown-option
+            value="3"
+            current-color="red"
+            selected="true"
+          ></cdg-dropdown-option>
+          <cdg-dropdown-option
+            value="4"
+            current-color="yellow"
+          ></cdg-dropdown-option>
+          <cdg-dropdown-option
+            value="5"
+            current-color="brown"
+          ></cdg-dropdown-option>
+        </cdg-dropdown>
+      </div>
       <div class="cdg-rte-buttons-group">
         <cdg-dropdown id="text-alignment-selector" class="toolbar-selector">
           <cdg-dropdown-option value="left" selected="true">
@@ -78,31 +135,6 @@
       </div>
 
       <div class="cdg-rte-buttons-group">
-        <cdg-dropdown id="heading-selector" class="toolbar-selector">
-          <cdg-dropdown-option value="0" selected="true">
-            Normal Text
-          </cdg-dropdown-option>
-          <cdg-dropdown-option value="1">
-            <h1 style="margin: 0;">Heading 1</h1>
-          </cdg-dropdown-option>
-          <cdg-dropdown-option value="2">
-            <h2 style="margin: 0;">Heading 2</h2>
-          </cdg-dropdown-option>
-          <cdg-dropdown-option value="3">
-            <h3 style="margin: 0;">Heading 3</h3>
-          </cdg-dropdown-option>
-          <cdg-dropdown-option value="4">
-            <h4 style="margin: 0;">Heading 4</h4>
-          </cdg-dropdown-option>
-          <cdg-dropdown-option value="5">
-            <h5 style="margin: 0;">Heading 5</h5>
-          </cdg-dropdown-option>
-          <cdg-dropdown-option value="6">
-            <h6 style="margin: 0;">Heading 6</h6>
-          </cdg-dropdown-option>
-        </cdg-dropdown>
-      </div>
-      <div class="cdg-rte-buttons-group">
         <button
           class="cdg-rte-buttons"
           name="bulletList"
@@ -133,9 +165,157 @@
           <cdg-icon name="quoteLeft" source="host"></cdg-icon>
         </button>
       </div>
-
-      <!-- <button class="cdg-rte-buttons" operation="toggleHeading" level="1">H1</button> -->
     </cdg-rte-toolbar>
     <div class="cdg-rte-content"></div>
   </cdg-rich-text-editor>
 </div>
+
+<pre>
+  <code class="language-html">
+  &lt;cdg-rich-text-editor&gt;
+    &lt;cdg-rte-toolbar&gt;
+      &lt;div class=&quot;cdg-rte-buttons-group&quot;&gt;
+        &lt;button class=&quot;cdg-rte-buttons&quot; name=&quot;undo&quot; operation=&quot;undo&quot;&gt;
+          &lt;cdg-icon name=&quot;undo&quot; source=&quot;host&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+        &lt;button class=&quot;cdg-rte-buttons&quot; name=&quot;redo&quot; operation=&quot;redo&quot;&gt;
+          &lt;cdg-icon name=&quot;redo&quot; source=&quot;host&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;cdg-rte-buttons-group&quot;&gt;
+        &lt;button class=&quot;cdg-rte-buttons&quot; name=&quot;bold&quot; operation=&quot;toggleBold&quot;&gt;
+          &lt;cdg-icon name=&quot;bold&quot; source=&quot;host&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+        &lt;button class=&quot;cdg-rte-buttons&quot; name=&quot;italic&quot; operation=&quot;toggleItalic&quot;&gt;
+          &lt;cdg-icon name=&quot;italic&quot; source=&quot;host&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+        &lt;button class=&quot;cdg-rte-buttons&quot; name=&quot;strike&quot; operation=&quot;toggleStrike&quot;&gt;
+          &lt;cdg-icon name=&quot;strikeThrough&quot; source=&quot;host&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+        &lt;button
+          class=&quot;cdg-rte-buttons&quot;
+          name=&quot;underline&quot;
+          operation=&quot;toggleUnderline&quot;
+        &gt;
+          &lt;cdg-icon name=&quot;underline&quot; source=&quot;host&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;cdg-rte-buttons-group&quot;&gt;
+        &lt;cdg-dropdown id=&quot;heading-selector&quot; class=&quot;toolbar-selector&quot;&gt;
+          &lt;cdg-dropdown-option value=&quot;0&quot; selected=&quot;true&quot;&gt;
+            Normal Text
+          &lt;/cdg-dropdown-option&gt;
+          &lt;cdg-dropdown-option value=&quot;1&quot;&gt;
+            &lt;h1 style=&quot;margin: 0&quot;&gt;Heading 1&lt;/h1&gt;
+          &lt;/cdg-dropdown-option&gt;
+          &lt;cdg-dropdown-option value=&quot;2&quot;&gt;
+            &lt;h2 style=&quot;margin: 0&quot;&gt;Heading 2&lt;/h2&gt;
+          &lt;/cdg-dropdown-option&gt;
+          &lt;cdg-dropdown-option value=&quot;3&quot;&gt;
+            &lt;h3 style=&quot;margin: 0&quot;&gt;Heading 3&lt;/h3&gt;
+          &lt;/cdg-dropdown-option&gt;
+          &lt;cdg-dropdown-option value=&quot;4&quot;&gt;
+            &lt;h4 style=&quot;margin: 0&quot;&gt;Heading 4&lt;/h4&gt;
+          &lt;/cdg-dropdown-option&gt;
+          &lt;cdg-dropdown-option value=&quot;5&quot;&gt;
+            &lt;h5 style=&quot;margin: 0&quot;&gt;Heading 5&lt;/h5&gt;
+          &lt;/cdg-dropdown-option&gt;
+          &lt;cdg-dropdown-option value=&quot;6&quot;&gt;
+            &lt;h6 style=&quot;margin: 0&quot;&gt;Heading 6&lt;/h6&gt;
+          &lt;/cdg-dropdown-option&gt;
+        &lt;/cdg-dropdown&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;cdg-rte-buttons-group&quot;&gt;
+        &lt;cdg-dropdown id=&quot;text-alignment-selector&quot; class=&quot;toolbar-selector&quot;&gt;
+          &lt;cdg-dropdown-option value=&quot;left&quot; selected=&quot;true&quot;&gt;
+            &lt;div class=&quot;cdg-dropdown-option-content&quot;&gt;
+              &lt;cdg-icon
+                name=&quot;textAlignLeft&quot;
+                displaySelect
+                size=&quot;14&quot;
+                source=&quot;host&quot;
+              &gt;&lt;/cdg-icon&gt;
+              &lt;span&gt;left&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/cdg-dropdown-option&gt;
+          &lt;cdg-dropdown-option value=&quot;right&quot;&gt;
+            &lt;div class=&quot;cdg-dropdown-option-content&quot;&gt;
+              &lt;cdg-icon
+                name=&quot;textAlignRight&quot;
+                displaySelect
+                size=&quot;14&quot;
+                source=&quot;host&quot;
+              &gt;&lt;/cdg-icon&gt;
+              &lt;span&gt;right&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/cdg-dropdown-option&gt;
+          &lt;cdg-dropdown-option value=&quot;center&quot;&gt;
+            &lt;div class=&quot;cdg-dropdown-option-content&quot;&gt;
+              &lt;cdg-icon
+                name=&quot;textAlignCenter&quot;
+                displaySelect
+                size=&quot;14&quot;
+                source=&quot;host&quot;
+              &gt;&lt;/cdg-icon&gt;
+              &lt;span&gt;center&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/cdg-dropdown-option&gt;
+          &lt;cdg-dropdown-option value=&quot;justify&quot;&gt;
+            &lt;div class=&quot;cdg-dropdown-option-content&quot;&gt;
+              &lt;cdg-icon
+                name=&quot;textAlignJustify&quot;
+                displaySelect
+                size=&quot;14&quot;
+                source=&quot;host&quot;
+              &gt;&lt;/cdg-icon&gt;
+              &lt;span&gt;justify&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/cdg-dropdown-option&gt;
+        &lt;/cdg-dropdown&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;cdg-rte-buttons-group&quot;&gt;
+        &lt;button
+          class=&quot;cdg-rte-buttons&quot;
+          name=&quot;bulletList&quot;
+          operation=&quot;toggleBulletList&quot;
+        &gt;
+          &lt;cdg-icon name=&quot;listUlRound&quot; source=&quot;host&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+        &lt;button
+          class=&quot;cdg-rte-buttons&quot;
+          name=&quot;orderedList&quot;
+          operation=&quot;toggleOrderedList&quot;
+        &gt;
+          &lt;cdg-icon name=&quot;listOl&quot; source=&quot;host&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;cdg-rte-buttons-group&quot;&gt;
+        &lt;button class=&quot;cdg-rte-buttons&quot; name=&quot;link&quot; operation=&quot;setLink&quot;&gt;
+          &lt;cdg-icon name=&quot;link&quot; source=&quot;host&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+        &lt;button class=&quot;cdg-rte-buttons&quot; name=&quot;image&quot; operation=&quot;setImage&quot;&gt;
+          &lt;cdg-icon name=&quot;imageOutline&quot; source=&quot;host&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+        &lt;button
+          class=&quot;cdg-rte-buttons&quot;
+          name=&quot;blockquote&quot;
+          operation=&quot;toggleBlockquote&quot;
+        &gt;
+          &lt;cdg-icon name=&quot;quoteLeft&quot; source=&quot;host&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+
+    &lt;/cdg-rte-toolbar&gt;
+    &lt;div class=&quot;cdg-rte-content&quot;&gt;&lt;/div&gt;
+  &lt;/cdg-rich-text-editor&gt;
+  </code>
+</pre>
+<script>
+  const example1 = document.querySelector('#rte-example-1 cdg-rich-text-editor')
+  example1.addEventListener('onRichTextEditorUpdate', (event) => {
+    console.log(event.detail)
+  })
+</script>

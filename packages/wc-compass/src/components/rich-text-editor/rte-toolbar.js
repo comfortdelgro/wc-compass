@@ -24,6 +24,13 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
         this.checkActive()
       }
     })
+    this.bindEventHandler()
+    setTimeout(() => {
+      this.checkMoreButtonVisibility()
+    })
+  }
+
+  bindEventHandler() {
     if (this.buttonList && this.buttonList.length) {
       this.buttonList.forEach((button) => {
         button.addEventListener('click', () => {
@@ -75,10 +82,6 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
         this.editor.chain().focus().setTextAlign(event.detail).run()
       })
     }
-
-    setTimeout(() => {
-      this.checkMoreButtonVisibility()
-    })
   }
 
   getEventData(button) {
@@ -115,7 +118,6 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
 
   checkMoreButtonVisibility() {
     this.style.maxHeight = '38px'
-    console.log(this.scrollHeight);
     if (
       this.scrollHeight &&
       this.clientHeight &&

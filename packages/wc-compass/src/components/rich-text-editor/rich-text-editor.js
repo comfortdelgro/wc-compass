@@ -28,7 +28,14 @@ export class CdgRichTextEditor extends HTMLElement {
         Link,
         Image,
       ],
-      content: '<p>Hello World2!</p>',
+      content: '',
+      onUpdate: ({editor}) => {
+        const output = editor.getHTML()
+        if (!output) return
+        this.dispatchEvent(
+          new CustomEvent('onRichTextEditorUpdate', {detail: output}),
+        )
+      },
     })
   }
 

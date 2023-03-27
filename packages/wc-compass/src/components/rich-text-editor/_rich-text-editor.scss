@@ -90,6 +90,7 @@ cdg-rich-text-editor,
       }
     }
   }
+
   .ProseMirror {
     outline: none;
   }
@@ -132,4 +133,8 @@ cdg-rich-text-editor,
     border-top: 2px solid rgba(#0d0d0d, 0.1);
     margin: 2rem 0;
   }
+}
+.color-selector {
+  flex-direction: row !important;
+  width: 300px !important;
 }
