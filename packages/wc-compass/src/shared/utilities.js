@@ -50,3 +50,13 @@ export function getScrollParent(node) {
     return getScrollParent(node.parentNode)
   }
 }
+
+export function getRealHeight(obj) {
+  const clone = obj.cloneNode(true)
+  clone.style.display = 'block'
+  clone.style.visibility = 'hidden'
+  document.querySelector('body').append(clone)
+  const height = clone.offsetHeight
+  clone.remove()
+  return height
+}
