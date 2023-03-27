@@ -1,4 +1,6 @@
-export class CdgContextMenu extends HTMLElement {
+import {CdgMultiLevelDropdown} from '../multi-level-dropdown/multi-level-dropdown'
+
+export class CdgContextMenu extends CdgMultiLevelDropdown {
   contextMenuToggleElement
   contextMenuContentElement
 

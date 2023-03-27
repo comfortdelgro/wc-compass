@@ -71,6 +71,12 @@ export class CdgDropdown extends HTMLElement {
     this.loadingElement.setAttribute('name', 'spinner')
     this.loadingElement.setAttribute('size', '16')
 
+    if (this.hasAttribute('select-class')) {
+      this.contentElement.classList.add(
+        ...this.getAttribute('select-class').split(' '),
+      )
+    }
+
     this.contentElement.addEventListener(
       'onDropdownSelectClose',
       this.handleCloseContent.bind(this),
@@ -103,13 +109,20 @@ export class CdgDropdown extends HTMLElement {
 
         if (item.hasAttribute('selected')) {
           checkbox.checked = true
-          const selectedDisplayElement = item.querySelector('[displaySelect]')
-          this.selectedItems.push({
-            value: item.getAttribute('value'),
-            text: item.textContent,
-            displayEl: selectedDisplayElement
-              ? selectedDisplayElement.cloneNode(true)
-              : null,
+          setTimeout(() => {
+            let selectedDisplayElement = item.querySelector('[displaySelect]')
+            if (!selectedDisplayElement && item.hasAttribute('current-color')) {
+              selectedDisplayElement = item.querySelector(
+                '.cdg-dropdown-option-color',
+              )
+            }
+            this.selectedItems.push({
+              value: item.getAttribute('value'),
+              text: item.textContent,
+              displayEl: selectedDisplayElement
+                ? selectedDisplayElement.cloneNode(true)
+                : null,
+            })
           })
         }
       }
@@ -147,7 +160,9 @@ export class CdgDropdown extends HTMLElement {
       this.handleCloseContent.bind(this),
     )
     this.displayInputElement.style.width = this.width
-    this.setNewTextButton(false)
+    setTimeout(() => {
+      this.setNewTextButton(false)
+    })
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
@@ -280,8 +295,15 @@ export class CdgDropdown extends HTMLElement {
   handleDropdownOptionClick(event, dropdownOption) {
     const selectedValue = dropdownOption.getAttribute('value')
     const selectedText = dropdownOption.textContent
-    const selectedDisplayElement =
-      dropdownOption.querySelector('[displaySelect]')
+    let selectedDisplayElement = dropdownOption.querySelector('[displaySelect]')
+    if (
+      !selectedDisplayElement &&
+      dropdownOption.hasAttribute('current-color')
+    ) {
+      selectedDisplayElement = dropdownOption.querySelector(
+        '.cdg-dropdown-option-color',
+      )
+    }
     if (!this._isMultiple) {
       if (!dropdownOption.hasAttribute('selected')) {
         // Remove all previous selected options
