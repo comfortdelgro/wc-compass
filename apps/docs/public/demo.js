@@ -1,3 +1,4 @@
+import './components/about.html'
 import './components/accordion.html'
 import './components/alert-badges.html'
 import './components/alert.html'
@@ -62,6 +63,7 @@ const contentMap = {
   file: './components/file.html',
   fileUpload: './components/file-upload.html',
   footer: './components/footer.html',
+  about: './components/about.html',
   icon: './components/icon.html',
   dialog: './components/dialog.html',
   dropdown: './components/dropdown.html',
@@ -173,6 +175,10 @@ const documentContent = [
       {
         name: 'Footer',
         slug: 'footer',
+      },
+      {
+        name: 'About',
+        slug: 'about',
       },
     ],
   },
