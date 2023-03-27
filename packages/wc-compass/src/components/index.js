@@ -30,7 +30,6 @@ import {CdgQuantityToggle} from './quantity-toggle/quantity-toggle'
 import {CdgRangeSlider} from './range-slider/range-slider'
 import {CdgRating} from './rating/rating'
 import { CdgRichTextEditor } from './rich-text-editor/rich-text-editor'
-import { CdgRichTextEditorContent } from './rich-text-editor/rte-content'
 import { CdgRichTextEditorToolbar } from './rich-text-editor/rte-toolbar'
 import {CdgStatus} from './status/status'
 import {CdgTab} from './tab/tab'
@@ -82,7 +81,6 @@ customElements.define('cdg-volume', CdgVolume)
 customElements.define('cdg-rating', CdgRating)
 customElements.define('cdg-rich-text-editor', CdgRichTextEditor)
 customElements.define('cdg-rte-toolbar', CdgRichTextEditorToolbar)
-customElements.define('cdg-rte-content', CdgRichTextEditorContent)
 customElements.define('cdg-dropdown-menu', CdgMultiLevelDropdown)
 customElements.define('cdg-context-menu', CdgContextMenu)
 
