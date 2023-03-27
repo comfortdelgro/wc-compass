@@ -39,6 +39,11 @@
       right: 100%;
       left: auto;
     }
+
+    &.show {
+      visibility: visible;
+      opacity: 1;
+    }
   }
   li {
     position: relative;
@@ -46,11 +51,6 @@
   .cdg-dropdown-menu {
     margin-left: 0;
     margin-right: 0;
-  }
-
-  & > li:hover > .submenu {
-    visibility: visible;
-    opacity: 1;
   }
 
   .cdg-dropdown-item {
