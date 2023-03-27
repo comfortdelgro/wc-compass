@@ -304,7 +304,6 @@ export class CdgDropdown extends HTMLElement {
         '.cdg-dropdown-option-color',
       )
     }
-    console.log(selectedDisplayElement)
     if (!this._isMultiple) {
       if (!dropdownOption.hasAttribute('selected')) {
         // Remove all previous selected options

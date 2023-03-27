@@ -1,4 +1,5 @@
 import {isElement} from '../../main'
+import {getRealHeight} from '../../shared/utilities'
 
 export class CdgMultiLevelDropdown extends HTMLElement {
   dropdownMenuToggleElement
@@ -22,6 +23,11 @@ export class CdgMultiLevelDropdown extends HTMLElement {
         if (!this.isMobile) {
           this.dropdownMenuToggleElement.addEventListener(
             'blur',
+            this.handleToggleButtonBlurFn,
+          )
+        } else {
+          this.dropdownMenuToggleElement.addEventListener(
+            'mouseout',
             this.handleToggleButtonBlurFn,
           )
         }
@@ -55,31 +61,51 @@ export class CdgMultiLevelDropdown extends HTMLElement {
     }
 
     this.dropdownItemElements = this.querySelectorAll('li.cdg-dropdown-item')
-    this.dropdownItemElements.forEach((dropdownItem) => {
-      const submenu = dropdownItem.querySelector('ul.submenu.cdg-dropdown-menu')
-      if (submenu) {
-        dropdownItem.addEventListener('mouseenter', () => {
-          submenu.classList.add('show')
-          if (
-            window.innerWidth <
-            dropdownItem.getBoundingClientRect().right + submenu.clientWidth
-          ) {
-            submenu.classList.add('submenu-left')
-          }
-        })
-        dropdownItem.addEventListener('mouseout', (event) => {
-          if (!dropdownItem.contains(event.relatedTarget)) {
-            submenu.classList.remove('show')
-          }
-        })
-      }
-    })
+    this.addDropdownItemEvents()
 
     this.dropdownMenuToggleElement = this.querySelector('[dropdownMenuToggle]')
     this.dropdownMenuElement = this.querySelector('[dropdownMenu]')
 
     this.handleToggleButtonBlurFn = this.handleToggleButtonBlur.bind(this)
     this.handleToggleClickFn = this.handleToggleClick.bind(this)
+  }
+
+  addDropdownItemEvents() {
+    this.dropdownItemElements.forEach((dropdownItem) => {
+      const submenu = dropdownItem.querySelector('ul.submenu.cdg-dropdown-menu')
+      if (submenu) {
+        if (!this.isMobile) {
+          this.handleDropdownItemHoverOnPC(dropdownItem, submenu)
+        } else {
+          dropdownItem.addEventListener('click', (event) => {
+            event.stopPropagation()
+            event.preventDefault()
+            submenu.classList.toggle('show')
+          })
+        }
+      }
+    })
+  }
+
+  handleDropdownItemHoverOnPC(dropdownItem, submenu) {
+    dropdownItem.addEventListener('mouseenter', () => {
+      const dropdownItemBound = dropdownItem.getBoundingClientRect()
+      submenu.classList.add('show')
+      if (window.innerWidth < dropdownItemBound.right + submenu.clientWidth) {
+        submenu.classList.add('submenu-left')
+      }
+      if (
+        window.innerHeight <
+        dropdownItemBound.bottom + submenu.clientHeight
+      ) {
+        submenu.classList.add('submenu-top')
+      }
+    })
+    dropdownItem.addEventListener('mouseout', (event) => {
+      if (!dropdownItem.contains(event.relatedTarget)) {
+        submenu.classList.remove('show')
+      }
+    })
   }
 
   addHoverEventForSubmenu(dropdownMenu) {
@@ -111,6 +137,15 @@ export class CdgMultiLevelDropdown extends HTMLElement {
 
   handleToggleClick() {
     if (this.dropdownMenuElement) {
+      if (
+        window.innerHeight <
+        this.dropdownMenuToggleElement.getBoundingClientRect().bottom +
+          getRealHeight(this.dropdownMenuElement)
+      ) {
+        this.dropdownMenuElement.classList.add('menuTop')
+      } else {
+        this.dropdownMenuElement.classList.remove('menuTop')
+      }
       this.dropdownMenuElement.classList.toggle('show')
     }
   }
