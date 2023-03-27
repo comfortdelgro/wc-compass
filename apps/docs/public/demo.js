@@ -39,6 +39,7 @@ import './components/sub-nav.html'
 import './components/table.html'
 import './components/tabs.html'
 import './components/tag-box.html'
+import './components/templates/dashboard.html'
 import './components/text-field.html'
 import './components/timeline.html'
 import './components/toast.html'
@@ -102,6 +103,7 @@ const contentMap = {
   rangeSlider: './components/range-slider.html',
   tagBox: './components/tag-box.html',
   video: './components/video.html',
+  dashboardTemplate: './components/templates/dashboard.html'
 }
 
 const documentContent = [
@@ -330,6 +332,17 @@ const documentContent = [
       {
         name: 'Toast',
         slug: 'toast',
+      },
+    ],
+  },
+  {
+    name: 'Templates',
+    id: 'template',
+    icon: 'signature',
+    children: [
+      {
+        name: 'Dashboard',
+        slug: 'dashboardTemplate',
       },
     ],
   },
