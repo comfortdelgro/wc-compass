@@ -102,7 +102,7 @@ export class CdgListItem extends HTMLElement {
     // This is to not block user to swipe screen to scroll
     this.timer = setTimeout(() => {
       this.dragging = true
-    }, 300)
+    }, 100)
 
     this.pointer = new Pointer()
     this.setPointerCapture(event.pointerId)
