@@ -4,6 +4,7 @@ export class CdgMultiLevelDropdown extends HTMLElement {
   dropdownMenuToggleElement
   dropdownMenuElement
   floatingElement
+  dropdownItemElements
 
   get event() {
     this.getAttribute('event') || 'click'
@@ -52,6 +53,27 @@ export class CdgMultiLevelDropdown extends HTMLElement {
     if (window.innerWidth < 992) {
       this.addHoverEventForSubmenu(this.dropdownMenuElement)
     }
+
+    this.dropdownItemElements = this.querySelectorAll('li.cdg-dropdown-item')
+    this.dropdownItemElements.forEach((dropdownItem) => {
+      const submenu = dropdownItem.querySelector('ul.submenu.cdg-dropdown-menu')
+      if (submenu) {
+        dropdownItem.addEventListener('mouseenter', () => {
+          submenu.classList.add('show')
+          if (
+            window.innerWidth <
+            dropdownItem.getBoundingClientRect().right + submenu.clientWidth
+          ) {
+            submenu.classList.add('submenu-left')
+          }
+        })
+        dropdownItem.addEventListener('mouseout', (event) => {
+          if (!dropdownItem.contains(event.relatedTarget)) {
+            submenu.classList.remove('show')
+          }
+        })
+      }
+    })
 
     this.dropdownMenuToggleElement = this.querySelector('[dropdownMenuToggle]')
     this.dropdownMenuElement = this.querySelector('[dropdownMenu]')
