@@ -205,55 +205,42 @@ function getNewPosition(
   const outlineHeight = hasOutline ? OUTLINE_HEIGHT : 0
 
   const boundLeft = anchorElement.getBoundingClientRect().left
+  const boundTop = anchorElement.getBoundingClientRect().top
 
   // Set position by placement param
   switch (position) {
     case 'topLeft':
       topPosition =
-        anchorElement.offsetTop -
-        currentHeight -
-        scrollTop -
-        arrowHeight -
-        outlineHeight
+        boundTop - currentHeight - scrollTop - arrowHeight - outlineHeight
       leftPosition = boundLeft - scrollLeft
       break
     case 'top':
       topPosition =
-        anchorElement.offsetTop -
-        currentHeight -
-        scrollTop -
-        arrowHeight -
-        outlineHeight
+        boundTop - currentHeight - scrollTop - arrowHeight - outlineHeight
       leftPosition = boundLeft + anchorElement.clientWidth / 2 - scrollLeft
       break
     case 'topRight':
       topPosition =
-        anchorElement.offsetTop -
-        currentHeight -
-        scrollTop -
-        arrowHeight -
-        outlineHeight
+        boundTop - currentHeight - scrollTop - arrowHeight - outlineHeight
       leftPosition = boundLeft + anchorElement.clientWidth - currentWidth
       break
     case 'leftTop':
-      topPosition = anchorElement.offsetTop - scrollTop
+      topPosition = boundTop - scrollTop
       leftPosition =
         boundLeft - currentWidth - scrollLeft - arrowHeight - outlineHeight
       break
     case 'left':
-      topPosition =
-        anchorElement.offsetTop + anchorElement.clientHeight / 2 - scrollTop
+      topPosition = boundTop + anchorElement.clientHeight / 2 - scrollTop
       leftPosition =
         boundLeft - currentWidth - scrollLeft - arrowHeight - outlineHeight
       break
     case 'leftBottom':
-      topPosition =
-        anchorElement.offsetTop + anchorElement.clientHeight - scrollTop
+      topPosition = boundTop + anchorElement.clientHeight - scrollTop
       leftPosition =
         boundLeft - currentWidth - scrollLeft - arrowHeight - outlineHeight
       break
     case 'rightTop':
-      topPosition = anchorElement.offsetTop - scrollTop
+      topPosition = boundTop - scrollTop
       leftPosition =
         boundLeft +
         anchorElement.clientWidth -
@@ -262,8 +249,7 @@ function getNewPosition(
         outlineHeight
       break
     case 'right':
-      topPosition =
-        anchorElement.offsetTop + anchorElement.clientHeight / 2 - scrollTop
+      topPosition = boundTop + anchorElement.clientHeight / 2 - scrollTop
       leftPosition =
         boundLeft +
         anchorElement.clientWidth -
@@ -272,8 +258,7 @@ function getNewPosition(
         outlineHeight
       break
     case 'rightBottom':
-      topPosition =
-        anchorElement.offsetTop + anchorElement.clientHeight - scrollTop
+      topPosition = boundTop + anchorElement.clientHeight - scrollTop
       leftPosition =
         boundLeft +
         anchorElement.clientWidth -
@@ -283,7 +268,7 @@ function getNewPosition(
       break
     case 'bottomLeft':
       topPosition =
-        anchorElement.offsetTop +
+        boundTop +
         anchorElement.clientHeight -
         scrollTop +
         arrowHeight +
@@ -292,7 +277,7 @@ function getNewPosition(
       break
     case 'bottom':
       topPosition =
-        anchorElement.offsetTop +
+        boundTop +
         anchorElement.clientHeight -
         scrollTop +
         arrowHeight +
@@ -301,7 +286,7 @@ function getNewPosition(
       break
     case 'bottomRight':
       topPosition =
-        anchorElement.offsetTop +
+        boundTop +
         anchorElement.clientHeight -
         scrollTop +
         arrowHeight +

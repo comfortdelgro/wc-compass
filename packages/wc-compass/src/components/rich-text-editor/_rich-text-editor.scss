@@ -86,6 +86,11 @@ cdg-rich-text-editor,
           font-size: 14px;
           line-height: 21px;
           color: #323130;
+          .cdg-dropdown-option-color {
+            .cdg-icon {
+              color: transparent !important;
+            }
+          }
         }
       }
     }
