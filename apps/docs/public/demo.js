@@ -354,7 +354,7 @@ const documentContent = [
   {
     name: 'Templates',
     id: 'templates',
-    icon: 'grid',
+    icon: 'grids',
     children: [
       {
         name: 'Selecting Theme Modal',
