@@ -1,10 +1,11 @@
 const CARD_MODE_PADDING = 60
 const CARD_GAP = 24
 const TRANSITION_TIME = 300
+const SCALED_ITEM = 0.9
 
 export class CdgCarouselScroller extends HTMLElement {
   static get observedAttributes() {
-    return ['current', 'position', 'single-center']
+    return ['current', 'position', 'single-center', 'scaled']
   }
 
   get current() {
@@ -13,6 +14,18 @@ export class CdgCarouselScroller extends HTMLElement {
 
   set current(current) {
     this.setAttribute('current', current)
+  }
+
+  get scaled() {
+    return this.hasAttribute('scaled')
+  }
+
+  set scaled(scaled) {
+    if (scaled) {
+      this.setAttribute('scaled', '')
+    } else {
+      this.removeAttribute('scaled')
+    }
   }
 
   get position() {
@@ -171,6 +184,9 @@ export class CdgCarouselScroller extends HTMLElement {
     this.updateSize()
 
     this.position = this.currentPosition
+    this.dispatchEvent(
+      new CustomEvent('updatePosition', {detail: this.position}),
+    )
     this.updatePosition(true)
   }
 
@@ -193,23 +209,29 @@ export class CdgCarouselScroller extends HTMLElement {
       const lastSlide = this.children[this.children.length - 1]
       const spacing = this.singleCenter ? 24 : 0
       if (this.current === 0) {
+        lastSlide.classList.add('last')
         // Move last slide to first place
         lastSlide.style.transform = `translate3d(-${
           (lastSlide.clientWidth + spacing) * this.children.length
-        }px, 0 ,0)`
+        }px, 0 ,0)${this.scaled ? ' scale(' + SCALED_ITEM + ')' : ''}`
       } else {
         // Move back to last
-        lastSlide.style.transform = `translate3d(0, 0 ,0)`
+        lastSlide.style.transform = `translate3d(0, 0 ,0)${
+          this.scaled ? ' scale(' + SCALED_ITEM + ')' : ''
+        }`
       }
 
       if (this.current === this.children.length - 1) {
+        firstSlide.classList.add('first')
         // Move last slide to first place
         firstSlide.style.transform = `translate3d(${
           (firstSlide.clientWidth + spacing) * this.children.length
-        }px, 0 ,0)`
+        }px, 0 ,0)${this.scaled ? ' scale(' + SCALED_ITEM + ')' : ''}`
       } else {
         // Move back to last
-        firstSlide.style.transform = `translate3d(0, 0 ,0)`
+        firstSlide.style.transform = `translate3d(0, 0 ,0)${
+          this.scaled ? ' scale(' + SCALED_ITEM + ')' : ''
+        }`
       }
     }
   }
