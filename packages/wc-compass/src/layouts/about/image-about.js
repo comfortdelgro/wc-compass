@@ -18,9 +18,8 @@ export class CdgImageAbout extends HTMLElement {
 
   connectedCallback() {
     this.container = document.createElement('div')
-    this.container.classList.add('cdg-about-left')
+    this.container.classList.add('cdg-section-about-cover')
     this.container.style.backgroundImage = `url('${this.src}')`
-    this.container.style.minHeight = '400px'
 
     const containerBackdrop = document.createElement('div')
     containerBackdrop.classList.add('cdg-about-backdrop')
