@@ -6,6 +6,7 @@ import './components/breadcrumbs.html'
 import './components/button.html'
 import './components/calendar.html'
 import './components/cards.html'
+import './components/card-blogs.html'
 import './components/carousel.html'
 import './components/checkboxes.html'
 import './components/dashboard-side-card.html'
@@ -48,6 +49,8 @@ import './components/tooltip.html'
 import './components/video.html'
 import './components/volume.html'
 import './components/wizards.html'
+import './components/multi-level-dropdown.html'
+import './components/context-menu.html'
 import './pages/home.html'
 
 const contentMap = {
@@ -67,6 +70,7 @@ const contentMap = {
   dropdown: './components/dropdown.html',
   button: './components/button.html',
   cards: './components/cards.html',
+  cardBlogs: './components/card-blogs.html',
   carousel: './components/carousel.html',
   inlineLoading: './components/inline-loading.html',
   layouts: './components/layouts.html',
@@ -102,6 +106,8 @@ const contentMap = {
   rangeSlider: './components/range-slider.html',
   tagBox: './components/tag-box.html',
   video: './components/video.html',
+  multiLevelDropdown: './components/multi-level-dropdown.html',
+  contextMenu: './components/context-menu.html',
 }
 
 const documentContent = [
@@ -123,8 +129,16 @@ const documentContent = [
         slug: 'cards',
       },
       {
+        name: 'Card for Blogs',
+        slug: 'cardBlogs',
+      },
+      {
         name: 'Carousel',
         slug: 'carousel',
+      },
+      {
+        name: 'Context Menu',
+        slug: 'contextMenu',
       },
       {
         name: 'Dashboard Side Card',
@@ -145,6 +159,10 @@ const documentContent = [
       {
         name: 'Sub Header',
         slug: 'subHeader',
+      },
+      {
+        name: 'Multi Level Dropdown',
+        slug: 'multiLevelDropdown',
       },
       {
         name: 'Nav Rail',
