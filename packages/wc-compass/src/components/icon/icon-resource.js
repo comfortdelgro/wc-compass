@@ -115,6 +115,7 @@ import linkedin from '../../images/social-media/linkedin.svg'
 import twitter from '../../images/social-media/twitter.svg'
 import sort from '../../images/sort.svg'
 import spinner from '../../images/spinner.svg'
+import star from '../../images/star.svg'
 import taxi from '../../images/taxi.svg'
 import ticks from '../../images/ticks.svg'
 import userGroupSettings from '../../images/user-group-settings.svg'
@@ -257,4 +258,5 @@ export const ICONS_IMAGES = [
   zigLogo,
   zoomMinus,
   zoomPlus,
+  star,
 ]

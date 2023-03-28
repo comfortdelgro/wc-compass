@@ -1,3 +1,5 @@
+import {getScrollParent} from '../../shared/utilities'
+
 const template = document.createElement('template')
 template.innerHTML = `
     <div class="cdg-floating-content-overlay"></div>
@@ -18,18 +20,6 @@ export const DIRECTIONS = [
   'bottom',
   'bottomRight',
 ]
-
-function getScrollParent(node) {
-  if (node == null) {
-    return null
-  }
-
-  if (node.scrollHeight > node.clientHeight) {
-    return node
-  } else {
-    return getScrollParent(node.parentNode)
-  }
-}
 
 export class CdgFloatingContent extends HTMLElement {
   _position = 'bottom'

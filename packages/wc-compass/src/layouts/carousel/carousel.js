@@ -7,7 +7,7 @@ const ARROW_LEFT_TEXT = `Prev`
 
 export class CdgCarousel extends HTMLElement {
   static get observedAttributes() {
-    return ['current', 'use-arrow', 'auto-switch', 'single-center']
+    return ['current', 'use-arrow', 'auto-switch', 'single-center', 'scaled']
   }
 
   get current() {
@@ -27,6 +27,18 @@ export class CdgCarousel extends HTMLElement {
       this.setAttribute('use-arrow', '')
     } else {
       this.removeAttribute('use-arrow')
+    }
+  }
+
+  get scaled() {
+    return this.hasAttribute('scaled')
+  }
+
+  set scaled(scaled) {
+    if (scaled) {
+      this.setAttribute('scaled', '')
+    } else {
+      this.removeAttribute('scaled')
     }
   }
 
@@ -101,6 +113,9 @@ export class CdgCarousel extends HTMLElement {
 
     const actions = this.querySelector('.cdg-mobile-actions')
     this.scroller.innerHTML = this.innerHTML
+    if (this.scaled) {
+      this.scroller.setAttribute('scaled', '')
+    }
 
     this.controller.appendChild(this.indicator)
     this.container.appendChild(this.scroller)
@@ -190,6 +205,17 @@ export class CdgCarousel extends HTMLElement {
           } else {
             this.scroller.removeAttribute('single-center')
           }
+        }
+        break
+
+      case 'scaled':
+        if (!this.scroller) {
+          return
+        }
+        if (this.scaled) {
+          this.scroller.setAttribute('scaled', '')
+        } else {
+          this.scroller.removeAttribute('scaled')
         }
         break
 
