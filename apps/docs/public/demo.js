@@ -1,3 +1,4 @@
+import './components/about.html'
 import './components/accordion.html'
 import './components/alert-badges.html'
 import './components/alert.html'
@@ -66,6 +67,7 @@ const contentMap = {
   file: './components/file.html',
   fileUpload: './components/file-upload.html',
   footer: './components/footer.html',
+  about: './components/about.html',
   icon: './components/icon.html',
   dialog: './components/dialog.html',
   dropdown: './components/dropdown.html',
@@ -357,16 +359,20 @@ const documentContent = [
     icon: 'grids',
     children: [
       {
+        name: 'About',
+        slug: 'about',
+      },
+      {
+        name: 'Card for Blogs',
+        slug: 'cardBlogs',
+      },
+      {
         name: 'Selecting Theme Modal',
         slug: 'selectingThemeModal',
       },
       {
         name: 'Services Menu',
         slug: 'servicesMenu',
-      },
-      {
-        name: 'Card for Blogs',
-        slug: 'cardBlogs',
       },
       {
         name: 'Testimonials',
