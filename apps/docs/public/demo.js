@@ -6,9 +6,11 @@ import './components/avatar.html'
 import './components/breadcrumbs.html'
 import './components/button.html'
 import './components/calendar.html'
+import './components/card-blogs.html'
 import './components/cards.html'
 import './components/carousel.html'
 import './components/checkboxes.html'
+import './components/context-menu.html'
 import './components/dashboard-side-card.html'
 import './components/datepicker.html'
 import './components/dialog.html'
@@ -22,6 +24,7 @@ import './components/layouts.html'
 import './components/list-view.html'
 import './components/loading.html'
 import './components/modal.html'
+import './components/multi-level-dropdown.html'
 import './components/nav-rail.html'
 import './components/navbar.html'
 import './components/page-header.html'
@@ -40,6 +43,7 @@ import './components/sub-nav.html'
 import './components/table.html'
 import './components/tabs.html'
 import './components/tag-box.html'
+import './components/testimonials.html'
 import './components/text-field.html'
 import './components/timeline.html'
 import './components/toast.html'
@@ -69,6 +73,7 @@ const contentMap = {
   dropdown: './components/dropdown.html',
   button: './components/button.html',
   cards: './components/cards.html',
+  cardBlogs: './components/card-blogs.html',
   carousel: './components/carousel.html',
   inlineLoading: './components/inline-loading.html',
   layouts: './components/layouts.html',
@@ -104,6 +109,11 @@ const contentMap = {
   rangeSlider: './components/range-slider.html',
   tagBox: './components/tag-box.html',
   video: './components/video.html',
+  selectingThemeModal: './components/template/selecting-theme-modal.html',
+  servicesMenu: './components/template/services-menu.html',
+  multiLevelDropdown: './components/multi-level-dropdown.html',
+  contextMenu: './components/context-menu.html',
+  testimonials: './components/testimonials.html',
 }
 
 const documentContent = [
@@ -129,6 +139,10 @@ const documentContent = [
         slug: 'carousel',
       },
       {
+        name: 'Context Menu',
+        slug: 'contextMenu',
+      },
+      {
         name: 'Dashboard Side Card',
         slug: 'dashboardSideCard',
       },
@@ -147,6 +161,10 @@ const documentContent = [
       {
         name: 'Sub Header',
         slug: 'subHeader',
+      },
+      {
+        name: 'Multi Level Dropdown',
+        slug: 'multiLevelDropdown',
       },
       {
         name: 'Nav Rail',
@@ -336,6 +354,29 @@ const documentContent = [
       {
         name: 'Toast',
         slug: 'toast',
+      },
+    ],
+  },
+  {
+    name: 'Templates',
+    id: 'templates',
+    icon: 'grids',
+    children: [
+      {
+        name: 'Selecting Theme Modal',
+        slug: 'selectingThemeModal',
+      },
+      {
+        name: 'Services Menu',
+        slug: 'servicesMenu',
+      },
+      {
+        name: 'Card for Blogs',
+        slug: 'cardBlogs',
+      },
+      {
+        name: 'Testimonials',
+        slug: 'testimonials',
       },
     ],
   },
