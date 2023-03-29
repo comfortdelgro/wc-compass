@@ -251,7 +251,6 @@ export class CdgCarousel extends HTMLElement {
   }
 
   handleUpdatePositon(event) {
-    console.log(event.detail)
     this.scrollerPosition = event.detail
   }
 

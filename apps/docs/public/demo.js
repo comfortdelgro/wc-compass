@@ -42,6 +42,7 @@ import './components/sub-nav.html'
 import './components/table.html'
 import './components/tabs.html'
 import './components/tag-box.html'
+import './components/testimonials.html'
 import './components/text-field.html'
 import './components/timeline.html'
 import './components/toast.html'
@@ -51,7 +52,6 @@ import './components/tooltip.html'
 import './components/video.html'
 import './components/volume.html'
 import './components/wizards.html'
-import './components/testimonials.html'
 import './pages/home.html'
 
 const contentMap = {
@@ -107,6 +107,8 @@ const contentMap = {
   rangeSlider: './components/range-slider.html',
   tagBox: './components/tag-box.html',
   video: './components/video.html',
+  selectingThemeModal: './components/template/selecting-theme-modal.html',
+  servicesMenu: './components/template/services-menu.html',
   multiLevelDropdown: './components/multi-level-dropdown.html',
   contextMenu: './components/context-menu.html',
   testimonials: './components/testimonials.html',
@@ -355,13 +357,21 @@ const documentContent = [
     icon: 'grids',
     children: [
       {
+        name: 'Selecting Theme Modal',
+        slug: 'selectingThemeModal',
+      },
+      {
+        name: 'Services Menu',
+        slug: 'servicesMenu',
+      },
+      {
         name: 'Card for Blogs',
         slug: 'cardBlogs',
       },
       {
         name: 'Testimonials',
-        slug: 'testimonials'
-      }
+        slug: 'testimonials',
+      },
     ],
   },
 ]
