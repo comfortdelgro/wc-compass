@@ -42,7 +42,6 @@ import gridBox from '../../images/dashboards/grid-box.svg'
 import grids from '../../images/dashboards/grids.svg'
 import menu from '../../images/dashboards/menu.svg'
 import money from '../../images/dashboards/money.svg'
-import notification from '../../images/dashboards/notification.svg'
 import refresh from '../../images/dashboards/refresh.svg'
 import school from '../../images/dashboards/school.svg'
 import signature from '../../images/dashboards/signature.svg'
@@ -82,6 +81,31 @@ import mobMaintenance from '../../images/mobility/mob-maintenance.svg'
 import mobRoadTax from '../../images/mobility/mob-roadtax.svg'
 import mobShield from '../../images/mobility/mob-shield.svg'
 import mobTaxi from '../../images/mobility/mob-taxi.svg'
+import addressBook from '../../images/objects/address-book.svg'
+import bug from '../../images/objects/bug.svg'
+import building from '../../images/objects/building.svg'
+import clapperboard from '../../images/objects/clapperboard.svg'
+import deleteRight from '../../images/objects/delete-right.svg'
+import hatWinzard from '../../images/objects/hat-winzard.svg'
+import hexagonXmark from '../../images/objects/hexagon-xmark.svg'
+import hourglass from '../../images/objects/hourglass.svg'
+import layers from '../../images/objects/layers.svg'
+import lightbulb from '../../images/objects/lightbulb.svg'
+import messageLine from '../../images/objects/message-line.svg'
+import notification from '../../images/objects/notification.svg'
+import orgChart from '../../images/objects/org-chart.svg'
+import password from '../../images/objects/password.svg'
+import pencil from '../../images/objects/pencil.svg'
+import phone from '../../images/objects/phone.svg'
+import shield from '../../images/objects/shield.svg'
+import sparkles from '../../images/objects/sparkles.svg'
+import squareMinus from '../../images/objects/square-minus.svg'
+import squarePlus from '../../images/objects/square-plus.svg'
+import stamp from '../../images/objects/stamp.svg'
+import tags from '../../images/objects/tags.svg'
+import ticket from '../../images/objects/ticket.svg'
+import trash from '../../images/objects/trash.svg'
+import verified from '../../images/objects/verified.svg'
 import openExternal from '../../images/open-external.svg'
 import alt from '../../images/operations/alt.svg'
 import browser from '../../images/operations/browser.svg'
@@ -104,7 +128,6 @@ import outlineTick from '../../images/outline-tick.svg'
 import outlineTrash from '../../images/outline-trash.svg'
 import outlineUserGroupSettings from '../../images/outline-user-group-settings.svg'
 import paste from '../../images/paste.svg'
-import pencil from '../../images/pencil.svg'
 import profileCard from '../../images/profile-card.svg'
 import profile from '../../images/profile.svg'
 import question from '../../images/question.svg'
@@ -136,10 +159,8 @@ export const ICONS_IMAGES = [
   arrowDown,
   arrowLeft,
   arrowRight,
-  backward,
   bid,
   browser,
-  calendar,
   callCenter,
   cancelled,
   caretRight,
@@ -148,7 +169,6 @@ export const ICONS_IMAGES = [
   checkmark,
   cities,
   clipBoard,
-  clock,
   close,
   cloudUpload,
   compassLogo,
@@ -178,7 +198,6 @@ export const ICONS_IMAGES = [
   filledArrowUp,
   filter,
   flag,
-  forward,
   globe,
   grid,
   gridBox,
@@ -209,7 +228,6 @@ export const ICONS_IMAGES = [
   mobTaxi,
   money,
   mute,
-  notification,
   openExternal,
   organization,
   outlineAddGroup,
@@ -218,7 +236,6 @@ export const ICONS_IMAGES = [
   outlineTrash,
   outlineUserGroupSettings,
   paste,
-  pencil,
   pause,
   plus,
   profile,
@@ -231,7 +248,6 @@ export const ICONS_IMAGES = [
   search,
   setting,
   settings,
-  shapes,
   signature,
   spinner,
   sort,
@@ -258,5 +274,35 @@ export const ICONS_IMAGES = [
   zigLogo,
   zoomMinus,
   zoomPlus,
+  addressBook,
+  backward,
+  bug,
+  building,
+  calendar,
+  clapperboard,
+  clock,
+  deleteRight,
+  forward,
+  hatWinzard,
+  hexagonXmark,
+  hourglass,
+  layers,
+  lightbulb,
+  messageLine,
+  notification,
+  orgChart,
+  password,
+  pencil,
+  phone,
+  shapes,
+  shield,
+  sparkles,
+  squareMinus,
+  squarePlus,
+  stamp,
+  tags,
+  ticket,
+  trash,
+  verified,
   star,
 ]
