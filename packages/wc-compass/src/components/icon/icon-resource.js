@@ -52,7 +52,7 @@ import table from '../../images/dashboards/table.svg'
 import timeline from '../../images/dashboards/timeline.svg'
 import docExcel from '../../images/document/doc-excel.svg'
 import docInvoice from '../../images/document/doc-invoice.svg'
-import docPDF from '../../images/document/doc-pdf.svg'
+import docPdf from '../../images/document/doc-pdf.svg'
 import docSheet from '../../images/document/doc-sheet.svg'
 import docWord from '../../images/document/doc-word.svg'
 import dots from '../../images/dots.svg'
@@ -72,13 +72,13 @@ import images from '../../images/images.svg'
 import info from '../../images/info.svg'
 import job from '../../images/job.svg'
 import mobBus from '../../images/mobility/mob-bus.svg'
-import mobBusCar from '../../images/mobility/mob-buscar.svg'
+import mobBuscar from '../../images/mobility/mob-buscar.svg'
 import mobCapacity from '../../images/mobility/mob-capacity.svg'
 import mobCar from '../../images/mobility/mob-car.svg'
 import mobClassification from '../../images/mobility/mob-classification.svg'
 import mobInspect from '../../images/mobility/mob-inspect.svg'
 import mobMaintenance from '../../images/mobility/mob-maintenance.svg'
-import mobRoadTax from '../../images/mobility/mob-roadtax.svg'
+import mobRoadTax from '../../images/mobility/mob-road-tax.svg'
 import mobShield from '../../images/mobility/mob-shield.svg'
 import mobTaxi from '../../images/mobility/mob-taxi.svg'
 import addressBook from '../../images/objects/address-book.svg'
@@ -179,7 +179,7 @@ export const ICONS_IMAGES = [
   dashboard,
   docExcel,
   docInvoice,
-  docPDF,
+  docPdf,
   docSheet,
   docWord,
   document,
@@ -217,7 +217,7 @@ export const ICONS_IMAGES = [
   menu,
   minus,
   mobBus,
-  mobBusCar,
+  mobBuscar,
   mobCapacity,
   mobCar,
   mobClassification,
