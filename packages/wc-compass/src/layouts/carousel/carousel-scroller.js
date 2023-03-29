@@ -1,6 +1,11 @@
+const CARD_MODE_PADDING = 60
+const CARD_GAP = 24
+const TRANSITION_TIME = 300
+const SCALED_ITEM = 0.9
+
 export class CdgCarouselScroller extends HTMLElement {
   static get observedAttributes() {
-    return ['current', 'position', 'single-center']
+    return ['current', 'position', 'single-center', 'scaled']
   }
 
   get current() {
@@ -9,6 +14,18 @@ export class CdgCarouselScroller extends HTMLElement {
 
   set current(current) {
     this.setAttribute('current', current)
+  }
+
+  get scaled() {
+    return this.hasAttribute('scaled')
+  }
+
+  set scaled(scaled) {
+    if (scaled) {
+      this.setAttribute('scaled', '')
+    } else {
+      this.removeAttribute('scaled')
+    }
   }
 
   get position() {
@@ -32,7 +49,27 @@ export class CdgCarouselScroller extends HTMLElement {
   }
 
   get slideWidth() {
-    return this.parentElement.clientWidth * (this.singleCenter ? 0.6 : 1)
+    return this.children[0].clientWidth
+  }
+
+  get currentPosition() {
+    const halfDistance =
+      (this.parentElement.clientWidth - CARD_MODE_PADDING - this.slideWidth) /
+        2 -
+      CARD_GAP
+    const width =
+      this.slideWidth +
+      (this.singleCenter ? CARD_GAP : 0) / this.children.length
+    const currentPosition = this.current * width
+    return currentPosition - (this.singleCenter ? halfDistance : 0)
+  }
+
+  get slideWidth() {
+    return (
+      (this.parentElement.clientWidth -
+        (this.singleCenter ? CARD_MODE_PADDING : 0)) *
+      (this.singleCenter ? 0.6 : 1)
+    )
   }
 
   sizingTimer
@@ -57,18 +94,16 @@ export class CdgCarouselScroller extends HTMLElement {
     window.removeEventListener('resize', this.updateViewResize.bind(this))
   }
 
-  attributeChangedCallback(attr) {
+  attributeChangedCallback(attr, oldVal, newVal) {
     switch (attr) {
       case 'current':
-        let position = Math.floor(this.slideWidth * this.current)
-        if (this.singleCenter) {
-          position = position - this.parentElement.clientWidth * 0.2 + 60
+        if (this.children[oldVal]) {
+          this.children[oldVal].removeAttribute('active')
         }
-        this.position = position
-        this.updatePosition()
-        this.dispatchEvent(
-          new CustomEvent('updatePosition', {detail: this.position}),
-        )
+        if (this.children[newVal]) {
+          this.children[newVal].setAttribute('active', '')
+        }
+        this.handleCurrentChange(Number(oldVal), Number(newVal))
         break
 
       case 'position':
@@ -82,6 +117,50 @@ export class CdgCarouselScroller extends HTMLElement {
       default:
         break
     }
+  }
+
+  handleCurrentChange(prevValue, currentValue) {
+    let loop = false
+    let position = this.position
+
+    // In loop case
+    if (prevValue === 0 && currentValue === this.children.length - 1) {
+      loop = true
+      position = this.slideWidth * (prevValue - 1) + CARD_MODE_PADDING * 0.5
+    } else if (prevValue === this.children.length - 1 && currentValue === 0) {
+      loop = true
+      position = this.slideWidth * (prevValue + 1) + CARD_MODE_PADDING
+    }
+
+    if (loop) {
+      if (this.singleCenter) {
+        position = -(position - this.parentElement.clientWidth * 0.2)
+      } else {
+        position = -position
+      }
+      this.style.transform = `translate3d(${position}px, 0, 0)`
+      // To keep the animation smooth
+      // Still transition to the positioned item
+      setTimeout(() => {
+        this.style.transition = 'none'
+        this.recalculatePosition()
+        this.updatePosition(loop)
+
+        setTimeout(() => {
+          this.style.transition = `all ${TRANSITION_TIME}ms ease-in-out`
+        })
+      }, TRANSITION_TIME)
+    } else {
+      this.recalculatePosition()
+    }
+  }
+
+  recalculatePosition() {
+    this.position = this.currentPosition
+    this.updatePosition(true)
+    this.dispatchEvent(
+      new CustomEvent('updatePosition', {detail: this.position}),
+    )
   }
 
   listenEvents() {
@@ -103,48 +182,57 @@ export class CdgCarouselScroller extends HTMLElement {
     }, 200)
 
     this.updateSize()
-    let position = Math.floor(this.slideWidth * this.current)
-    if (!this.singleCenter) {
-      position = position < 0 ? 0 : position
-    } else {
-      position = position - this.parentElement.clientWidth * 0.2 + 60
-    }
 
-    this.position = position
-    this.updatePosition()
+    this.position = this.currentPosition
+    this.dispatchEvent(
+      new CustomEvent('updatePosition', {detail: this.position}),
+    )
+    this.updatePosition(true)
   }
 
   updateSize() {
     this.style.width = Math.floor(this.slideWidth * this.children.length) + 'px'
   }
 
-  updatePosition() {
+  /**
+   * Only update last and first element when the current slide is switched
+   * @param {boolean} updateLastFirst
+   */
+  updatePosition(updateLastFirst) {
     // To not let slide moves on start and end
     const position =
       this.position < 0 ? Math.abs(this.position) : -this.position
     this.style.transform = `translate3d(${position}px, 0, 0)`
 
-    const firstSlide = this.children[0]
-    const lastSlide = this.children[this.children.length - 1]
-    const spacing = this.singleCenter ? 24 : 0
-    if (this.current === 0) {
-      // Move last slide to first place
-      lastSlide.style.transform = `translate3d(-${
-        (lastSlide.clientWidth + spacing) * this.children.length
-      }px, 0 ,0)`
-    } else {
-      // Move back to last
-      lastSlide.style.transform = `translate3d(0, 0 ,0)`
-    }
+    if (updateLastFirst) {
+      const firstSlide = this.children[0]
+      const lastSlide = this.children[this.children.length - 1]
+      const spacing = this.singleCenter ? 24 : 0
+      if (this.current === 0) {
+        lastSlide.classList.add('last')
+        // Move last slide to first place
+        lastSlide.style.transform = `translate3d(-${
+          (lastSlide.clientWidth + spacing) * this.children.length
+        }px, 0 ,0)${this.scaled ? ' scale(' + SCALED_ITEM + ')' : ''}`
+      } else {
+        // Move back to last
+        lastSlide.style.transform = `translate3d(0, 0 ,0)${
+          this.scaled ? ' scale(' + SCALED_ITEM + ')' : ''
+        }`
+      }
 
-    if (this.current === this.children.length - 1) {
-      // Move last slide to first place
-      firstSlide.style.transform = `translate3d(${
-        (firstSlide.clientWidth + spacing) * this.children.length
-      }px, 0 ,0)`
-    } else {
-      // Move back to last
-      firstSlide.style.transform = `translate3d(0, 0 ,0)`
+      if (this.current === this.children.length - 1) {
+        firstSlide.classList.add('first')
+        // Move last slide to first place
+        firstSlide.style.transform = `translate3d(${
+          (firstSlide.clientWidth + spacing) * this.children.length
+        }px, 0 ,0)${this.scaled ? ' scale(' + SCALED_ITEM + ')' : ''}`
+      } else {
+        // Move back to last
+        firstSlide.style.transform = `translate3d(0, 0 ,0)${
+          this.scaled ? ' scale(' + SCALED_ITEM + ')' : ''
+        }`
+      }
     }
   }
 }
