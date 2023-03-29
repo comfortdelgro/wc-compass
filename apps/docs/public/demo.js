@@ -194,10 +194,6 @@ const documentContent = [
         name: 'Footer',
         slug: 'footer',
       },
-      {
-        name: 'About',
-        slug: 'about',
-      },
     ],
   },
   {
@@ -363,16 +359,20 @@ const documentContent = [
     icon: 'grids',
     children: [
       {
+        name: 'About',
+        slug: 'about',
+      },
+      {
+        name: 'Card for Blogs',
+        slug: 'cardBlogs',
+      },
+      {
         name: 'Selecting Theme Modal',
         slug: 'selectingThemeModal',
       },
       {
         name: 'Services Menu',
         slug: 'servicesMenu',
-      },
-      {
-        name: 'Card for Blogs',
-        slug: 'cardBlogs',
       },
       {
         name: 'Testimonials',

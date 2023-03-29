@@ -1,5 +1,4 @@
 export class CdgImageAbout extends HTMLElement {
-  container
   static get observedAttributes() {
     return ['src']
   }
@@ -17,25 +16,20 @@ export class CdgImageAbout extends HTMLElement {
   }
 
   connectedCallback() {
-    this.container = document.createElement('div')
-    this.container.classList.add('cdg-section-about-cover')
-    this.container.style.backgroundImage = `url('${this.src}')`
+    this.classList.add('cdg-section-about-cover')
 
-    const containerBackdrop = document.createElement('div')
-    containerBackdrop.classList.add('cdg-about-backdrop')
+    const backgroundImage = document.createElement('img')
+    backgroundImage.setAttribute('src', this.src)
+    backgroundImage.classList.add('cdg-about-blur-image')
+    this.appendChild(backgroundImage)
+
+    const blurCover = document.createElement('div')
+    blurCover.classList.add('cdg-blur-cover')
+    this.appendChild(blurCover)
 
     const image = document.createElement('img')
     image.setAttribute('src', this.src)
-
-    image.onload = function handleImageLoaded() {
-      image.style.top = `calc(50% - ${image.clientHeight / 2}px)`
-      this.container.style.height = `${image.clientHeight + 40}px)`
-    }
     image.classList.add('cdg-about-image')
-    containerBackdrop.appendChild(image)
-
-    this.container.appendChild(containerBackdrop)
-
-    this.replaceWith(this.container)
+    this.appendChild(image)
   }
 }
