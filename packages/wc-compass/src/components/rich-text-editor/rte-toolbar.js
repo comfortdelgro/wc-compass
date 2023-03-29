@@ -19,9 +19,9 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
   headingSelector
   colorSelector
   connectedCallback() {
-    this.buttonList = document.querySelectorAll('button.cdg-rte-buttons')
+    this.buttonList = this.querySelectorAll('button.cdg-rte-buttons')
     this.editor.on('transaction', ({editor, transaction}) => {
-      if (this.buttonList.length) {
+      if (this.buttonList && this.buttonList.length) {
         this.checkActive()
       }
     })
@@ -32,6 +32,17 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
   }
 
   bindEventHandler() {
+    window.addEventListener('resize', (event) => {
+      this.checkMoreButtonVisibility()
+    })
+    this.bindClickHandlerToControls()
+    this.bindClickHandlerToMoreButton()
+    this.bindChangeHandlerToHeadingSelector()
+    this.bindChangeHandlerToTextAlignmentSelector()
+    this.bindChangeHandlerToColorSelector()
+  }
+
+  bindClickHandlerToControls() {
     if (this.buttonList && this.buttonList.length) {
       this.buttonList.forEach((button) => {
         button.addEventListener('click', () => {
@@ -47,11 +58,9 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
         })
       })
     }
+  }
 
-    window.addEventListener('resize', (event) => {
-      this.checkMoreButtonVisibility()
-    })
-
+  bindClickHandlerToMoreButton() {
     this.viewMoreButton.addEventListener('click', () => {
       if (this.clientHeight === 38) {
         this.style.maxHeight = '300px'
@@ -59,8 +68,10 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
         this.style.maxHeight = '38px'
       }
     })
+  }
 
-    this.headingSelector = document.querySelector('#heading-selector')
+  bindChangeHandlerToHeadingSelector() {
+    this.headingSelector = this.querySelector('#heading-selector')
     if (this.headingSelector) {
       this.headingSelector.addEventListener('onchangevalue', (event) => {
         if (+event.detail === 0) {
@@ -75,15 +86,19 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
         }
       })
     }
-    this.textAlignmentSelector = document.querySelector(
-      '#text-alignment-selector',
-    )
+  }
+
+  bindChangeHandlerToTextAlignmentSelector() {
+    this.textAlignmentSelector = this.querySelector('#text-alignment-selector')
     if (this.textAlignmentSelector) {
       this.textAlignmentSelector.addEventListener('onchangevalue', (event) => {
         this.editor.chain().focus().setTextAlign(event.detail).run()
       })
     }
-    this.colorSelector = document.querySelector('#color-selector')
+  }
+
+  bindChangeHandlerToColorSelector() {
+    this.colorSelector = this.querySelector('#color-selector')
     if (this.colorSelector) {
       this.colorSelector.addEventListener('onchangevalue', (event) => {
         this.editor.chain().focus().setColor(event.detail).run()
@@ -125,11 +140,7 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
 
   checkMoreButtonVisibility() {
     this.style.maxHeight = '38px'
-    if (
-      this.scrollHeight &&
-      this.clientHeight &&
-      this.scrollHeight > this.clientHeight
-    ) {
+    if (this.isScrollable()) {
       this.viewMoreButton.classList.remove('hide')
       this.style.paddingRight = '40px'
     } else {
@@ -138,6 +149,13 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
     }
   }
 
+  isScrollable() {
+    return (
+      this.scrollHeight &&
+      this.clientHeight &&
+      this.scrollHeight > this.clientHeight
+    )
+  }
   setLink() {
     const url = window.prompt('URL')
     if (url === null) {
@@ -146,7 +164,6 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
 
     if (url === '') {
       this.editor.chain().focus().unsetLink().run()
-
       return
     }
 

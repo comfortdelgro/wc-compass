@@ -1,4 +1,4 @@
-import {Editor} from '@tiptap/core'
+import { Editor } from '@tiptap/core'
 import Color from '@tiptap/extension-color'
 import TextStyle from '@tiptap/extension-text-style'
 
@@ -18,7 +18,7 @@ export class CdgRichTextEditor extends HTMLElement {
     super()
 
     this.editor = new Editor({
-      element: document.querySelector('.cdg-rte-content'),
+      element: this.querySelector('.cdg-rte-content'),
       extensions: [
         StarterKit,
         TextAlign.configure({
@@ -45,7 +45,7 @@ export class CdgRichTextEditor extends HTMLElement {
   }
 
   connectedCallback() {
-    const toolbar = document.querySelector('cdg-rte-toolbar')
+    const toolbar = this.querySelector('cdg-rte-toolbar')
     if (toolbar) {
       toolbar.editor = this.editor
     }
