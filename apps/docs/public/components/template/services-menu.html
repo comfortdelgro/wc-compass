@@ -17,11 +17,112 @@
         <span class="workbench-title">Workbench</span>
       </div>
       <div class="cdg-nav-row">
-        <button class="cdg-button icon module-selection">
-          ZB
-          <cdg-divider class="vertical"></cdg-divider>
-          <cdg-icon name="arrow-down" size="12"></cdg-icon>
-        </button>
+        <cdg-popover direction="bottomLeft">
+          <button
+            class="cdg-button icon module-selection"
+            cdg-popover-header
+            id="buttonPopover"
+          >
+            ZB
+            <cdg-divider class="vertical"></cdg-divider>
+            <cdg-icon name="arrow-down" size="12"></cdg-icon>
+          </button>
+          <cdg-popover-content>
+            <div class="cdg-services-menu">
+              <a href="#servicesMenu" class="cdg-list-item link-item">
+                <div class="cdg-list-item-info head-link">
+                  <span>Invite people to Zig Biz</span>
+                </div>
+                <div class="cdg-list-item-right-col">
+                  <div class="cdg-list-item-button">
+                    <cdg-icon name="arrowRight" size="16"></cdg-icon>
+                  </div>
+                </div>
+              </a>
+
+              <div class="cdg-services-menu-body">
+                <cdg-list-item>
+                  <div class="cdg-list-item-icon">
+                    <img src="/assets/images/zig-studio.svg" alt="svg-image" />
+                  </div>
+                  <div class="cdg-list-item-info">
+                    <div class="cdg-list-item-title">Zig Studio</div>
+                    <div class="cdg-list-item-description">
+                      Lorem ipsum dola sign crist phily tan le lorem ipsum dola
+                      sign crist phily tan le
+                    </div>
+                  </div>
+                  <div class="cdg-list-item-right-col">
+                    <label class="cdg-toggle">
+                      <input type="checkbox" checked />
+                    </label>
+                  </div>
+                </cdg-list-item>
+                <div class="cdg-divider"></div>
+                <cdg-list-item>
+                  <div class="cdg-list-item-icon">
+                    <img src="/assets/images/fms.svg" alt="svg-image" />
+                  </div>
+                  <div class="cdg-list-item-info">
+                    <div class="cdg-list-item-title">FMS</div>
+                    <div class="cdg-list-item-description">
+                      Lorem ipsum dola sign crist phily tan le lorem ipsum dola
+                      sign crist phily tan le
+                    </div>
+                  </div>
+                  <div class="cdg-list-item-right-col">
+                    <label class="cdg-toggle">
+                      <input type="checkbox" />
+                    </label>
+                  </div>
+                </cdg-list-item>
+                <div class="cdg-divider"></div>
+                <cdg-list-item>
+                  <div class="cdg-list-item-icon">
+                    <img src="/assets/images/zig-biz.svg" alt="svg-image" />
+                  </div>
+                  <div class="cdg-list-item-info">
+                    <div class="cdg-list-item-title">Zig Biz</div>
+                    <div class="cdg-list-item-description">
+                      Lorem ipsum dola sign crist phily tan le lorem ipsum dola
+                      sign crist phily tan le
+                    </div>
+                  </div>
+                  <div class="cdg-list-item-right-col">
+                    <label class="cdg-toggle">
+                      <input type="checkbox" />
+                    </label>
+                  </div>
+                </cdg-list-item>
+                <div class="cdg-divider"></div>
+                <cdg-list-item>
+                  <div class="cdg-list-item-icon">
+                    <img src="/assets/images/loyalty.svg" alt="svg-image" />
+                  </div>
+                  <div class="cdg-list-item-info">
+                    <div class="cdg-list-item-title">Loyalty + Promo</div>
+                    <div class="cdg-list-item-description">
+                      Lorem ipsum dola sign crist phily tan le lorem ipsum dola
+                      sign crist phily tan le
+                    </div>
+                  </div>
+                  <div class="cdg-list-item-right-col">
+                    <label class="cdg-toggle">
+                      <input type="checkbox" />
+                    </label>
+                  </div>
+                </cdg-list-item>
+              </div>
+
+              <a href="#servicesMenu" class="cdg-list-item link-item">
+                <div class="cdg-list-item-info foot-link">
+                  <span>View all services</span>
+                  <cdg-icon name="arrowRight" size="16"></cdg-icon>
+                </div>
+              </a>
+            </div>
+          </cdg-popover-content>
+        </cdg-popover>
         <div class="module-info">
           <span class="module-name">Zig Biz</span>
           <span class="sever-time">Fri 18 Nov 2:25 PM</span>
@@ -30,100 +131,6 @@
       <cdg-divider></cdg-divider>
     </div>
   </cdg-nav-rail>
-</div>
-
-<div class="cdg-services-menu">
-  <a href="#servicesMenu" class="cdg-list-item link-item">
-    <div class="cdg-list-item-info head-link">
-      <span>Invite people to Zig Biz</span>
-    </div>
-    <div class="cdg-list-item-right-col">
-      <div class="cdg-list-item-button">
-        <cdg-icon name="arrowRight" size="16"></cdg-icon>
-      </div>
-    </div>
-  </a>
-
-  <div class="cdg-services-menu-body">
-    <cdg-list-item>
-      <div class="cdg-list-item-icon">
-        <img src="/assets/images/zig-studio.svg" alt="svg-image" />
-      </div>
-      <div class="cdg-list-item-info">
-        <div class="cdg-list-item-title">Zig Studio</div>
-        <div class="cdg-list-item-description">
-          Lorem ipsum dola sign crist phily tan le lorem ipsum dola sign crist
-          phily tan le
-        </div>
-      </div>
-      <div class="cdg-list-item-right-col">
-        <label class="cdg-toggle">
-          <input type="checkbox" checked />
-        </label>
-      </div>
-    </cdg-list-item>
-    <div class="cdg-divider"></div>
-    <cdg-list-item>
-      <div class="cdg-list-item-icon">
-        <img src="/assets/images/fms.svg" alt="svg-image" />
-      </div>
-      <div class="cdg-list-item-info">
-        <div class="cdg-list-item-title">FMS</div>
-        <div class="cdg-list-item-description">
-          Lorem ipsum dola sign crist phily tan le lorem ipsum dola sign crist
-          phily tan le
-        </div>
-      </div>
-      <div class="cdg-list-item-right-col">
-        <label class="cdg-toggle">
-          <input type="checkbox" />
-        </label>
-      </div>
-    </cdg-list-item>
-    <div class="cdg-divider"></div>
-    <cdg-list-item>
-      <div class="cdg-list-item-icon">
-        <img src="/assets/images/zig-biz.svg" alt="svg-image" />
-      </div>
-      <div class="cdg-list-item-info">
-        <div class="cdg-list-item-title">Zig Biz</div>
-        <div class="cdg-list-item-description">
-          Lorem ipsum dola sign crist phily tan le lorem ipsum dola sign crist
-          phily tan le
-        </div>
-      </div>
-      <div class="cdg-list-item-right-col">
-        <label class="cdg-toggle">
-          <input type="checkbox" />
-        </label>
-      </div>
-    </cdg-list-item>
-    <div class="cdg-divider"></div>
-    <cdg-list-item>
-      <div class="cdg-list-item-icon">
-        <img src="/assets/images/loyalty.svg" alt="svg-image" />
-      </div>
-      <div class="cdg-list-item-info">
-        <div class="cdg-list-item-title">Loyalty + Promo</div>
-        <div class="cdg-list-item-description">
-          Lorem ipsum dola sign crist phily tan le lorem ipsum dola sign crist
-          phily tan le
-        </div>
-      </div>
-      <div class="cdg-list-item-right-col">
-        <label class="cdg-toggle">
-          <input type="checkbox" />
-        </label>
-      </div>
-    </cdg-list-item>
-  </div>
-
-  <a href="#servicesMenu" class="cdg-list-item link-item">
-    <div class="cdg-list-item-info foot-link">
-      <span>View all services</span>
-      <cdg-icon name="arrowRight" size="16"></cdg-icon>
-    </div>
-  </a>
 </div>
 
 <pre>
