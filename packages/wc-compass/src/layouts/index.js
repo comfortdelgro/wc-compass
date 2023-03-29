@@ -41,6 +41,8 @@ import {CdgTableCell} from './table/table-cell'
 import {CdgTableHead} from './table/table-head'
 import {CdgTableHeadCell} from './table/table-head-cell'
 import {CdgTableRow} from './table/table-row'
+import {CdgTestimonial} from './testimonial/testimonial'
+import {CdgTestimonialItem} from './testimonial/testimonial-item'
 import {CdgTimeline} from './timeline/timeline'
 import {CdgTimelineCard} from './timeline/timeline-card'
 import {CdgTimelineCardBody} from './timeline/timeline-card-body'
@@ -116,6 +118,8 @@ customElements.define('cdg-sidebar', CdgSidebar)
 customElements.define('cdg-sidebar-header', CdgSidebarHeader)
 customElements.define('cdg-sidebar-body', CdgSidebarBody)
 customElements.define('cdg-sidebar-actions', CdgSidebarActions)
+customElements.define('cdg-testimonial', CdgTestimonial)
+customElements.define('cdg-testimonial-box', CdgTestimonialItem)
 
 export const LAYOUT_COMPONENTS = [
   CdgGroupAvatar,
@@ -176,4 +180,6 @@ export const LAYOUT_COMPONENTS = [
   CdgSidebarHeader,
   CdgSidebarBody,
   CdgSidebarActions,
+  CdgTestimonial,
+  CdgTestimonialItem,
 ]

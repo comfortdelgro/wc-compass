@@ -115,6 +115,7 @@ import linkedin from '../../images/social-media/linkedin.svg'
 import twitter from '../../images/social-media/twitter.svg'
 import sort from '../../images/sort.svg'
 import spinner from '../../images/spinner.svg'
+import star from '../../images/star.svg'
 import taxi from '../../images/taxi.svg'
 import ticks from '../../images/ticks.svg'
 import userGroupSettings from '../../images/user-group-settings.svg'
@@ -151,7 +152,6 @@ import textAlignLeft from '../../images/text-editor/text-align-left.svg'
 import textAlignRight from '../../images/text-editor/text-align-right.svg'
 import underline from '../../images/text-editor/underline.svg'
 import undo from '../../images/text-editor/undo.svg'
-
 
 export const ICONS_IMAGES = [
   activity,
@@ -305,4 +305,5 @@ export const ICONS_IMAGES = [
   listOl,
   quoteLeft,
   quoteRight,
+  star,
 ]

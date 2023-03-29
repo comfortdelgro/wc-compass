@@ -1,12 +1,12 @@
 {
   "name": "@comfortdelgro/wc-compass",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "license": "MIT",
   "main": "dist/main.min.js",
   "scripts": {
-    "dev": "webpack serve --config webpack.config.js --mode development",
     "build": "webpack build --config webpack.config.js --mode production",
+    "dev": "webpack serve --config webpack.config.js --mode development",
     "lint": "eslint *.ts*"
   },
   "dependencies": {
