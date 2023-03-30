@@ -1,7 +1,7 @@
 import {Pointer} from '../../shared/pointer'
 
-const ARROW_RIGHT = `<cdg-icon name="arrowRight" size="32"></cdg-icon>`
-const ARROW_LEFT = `<cdg-icon name="arrowLeft" size="32"></cdg-icon>`
+const ARROW_RIGHT = `<cdg-icon name="arrowRight" size="24"></cdg-icon>`
+const ARROW_LEFT = `<cdg-icon name="arrowLeft" size="24"></cdg-icon>`
 const ARROW_RIGHT_TEXT = `Next`
 const ARROW_LEFT_TEXT = `Prev`
 
