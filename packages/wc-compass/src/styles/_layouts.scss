@@ -1,3 +1,13 @@
+.cdg-navbar-inner,
+.cdg-container {
+  max-width: 1310px;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 64px;
+  padding-right: 64px;
+  box-sizing: border-box;
+}
+
 cdg-toolbar,
 .cdg-toolbar,
 cdg-left-group,
@@ -401,26 +411,29 @@ cdg-divider,
       border-radius: 8px;
     }
   }
-  .cdg-card-blog-category {
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 21px;
-    color: var(--info);
-    margin-top: 8px;
-  }
-  .cdg-card-blog-title {
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 42px;
-    color: var(--grey-shades-80);
-  }
-  .cdg-card-blog-date {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 18px;
-    color: var(--grey-shades-80);
-    margin-top: 4px;
-  }
+}
+
+.cdg-card-blog-category {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--info);
+  margin-top: 8px;
+}
+
+.cdg-card-blog-title {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 42px;
+  color: var(--grey-shades-80);
+}
+
+.cdg-card-blog-date {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--grey-shades-80);
+  margin-top: 4px;
 }
 
 cdg-carousel,
