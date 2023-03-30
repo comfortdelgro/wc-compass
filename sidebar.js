@@ -7,6 +7,7 @@ import './components/breadcrumbs.html';
 import './components/checkboxes.html';
 import './components/dashboard-side-card.html';
 import './components/footer.html';
+import './components/about.html';
 import './components/icon.html';
 import './components/button.html';
 import './components/cards.html';
@@ -49,6 +50,7 @@ const contentMap = {
   checkboxes: './components/checkboxes.html',
   dashboardSideCard: './components/dashboard-side-card.html',
   footer: './components/footer.html',
+  about: './components/about.html',
   icon: './components/icon.html',
   dialog: './components/dialog.html',
   dropdown: './components/dropdown.html',
@@ -151,6 +153,10 @@ const documentContent = [
       {
         name: 'Footer',
         slug: 'footer',
+      },
+      {
+        name: 'About',
+        slug: 'about',
       },
     ],
   },
