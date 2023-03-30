@@ -1,3 +1,4 @@
+import './components/about.html'
 import './components/accordion.html'
 import './components/alert-badges.html'
 import './components/alert.html'
@@ -51,6 +52,7 @@ import './components/toolbar.html'
 import './components/tooltip.html'
 import './components/video.html'
 import './components/volume.html'
+import './components/website/news-and-blogs.html'
 import './components/wizards.html'
 import './pages/home.html'
 
@@ -67,6 +69,7 @@ const contentMap = {
   file: './components/file.html',
   fileUpload: './components/file-upload.html',
   footer: './components/footer.html',
+  about: './components/about.html',
   icon: './components/icon.html',
   dialog: './components/dialog.html',
   dropdown: './components/dropdown.html',
@@ -114,6 +117,7 @@ const contentMap = {
   multiLevelDropdown: './components/multi-level-dropdown.html',
   contextMenu: './components/context-menu.html',
   testimonials: './components/testimonials.html',
+  newsAndBlogs: './components/website/news-and-blogs.html',
 }
 
 const documentContent = [
@@ -363,16 +367,24 @@ const documentContent = [
     icon: 'grids',
     children: [
       {
+        name: 'About',
+        slug: 'about',
+      },
+      {
+        name: 'Card for Blogs',
+        slug: 'cardBlogs',
+      },
+      {
+        name: 'News And Blogs',
+        slug: 'newsAndBlogs',
+      },
+      {
         name: 'Selecting Theme Modal',
         slug: 'selectingThemeModal',
       },
       {
         name: 'Services Menu',
         slug: 'servicesMenu',
-      },
-      {
-        name: 'Card for Blogs',
-        slug: 'cardBlogs',
       },
       {
         name: 'Testimonials',
@@ -489,7 +501,6 @@ function handlePageChange(url) {
 
   const lastPrams = url.split('#')[1] || 'home'
   const hash = lastPrams.split('?')[0]
-  console.log(hash)
   activeMenu(hash)
   subNavParent.classList.remove('stick')
   if (hash === 'home') {

@@ -1,0 +1,10 @@
+@media screen and (max-width: 960px) {
+  .cdg-about-section {
+    flex-direction: column;
+  }
+
+  .cdg-section-about-cover {
+    width: 100%;
+    overflow: hidden;
+  }
+}

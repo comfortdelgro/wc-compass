@@ -1,3 +1,4 @@
+import {CdgImageAbout} from './about/image-about'
 import {CdgActionBar} from './action-bar/action-bar'
 import {CdgCard} from './card/card'
 import {CdgCardActions} from './card/card-actions'
@@ -101,6 +102,7 @@ customElements.define('cdg-dialog-actions', CdgDialogActions)
 customElements.define('cdg-dialog-status', CdgDialogStatus)
 customElements.define('cdg-timeline', CdgTimeline)
 customElements.define('cdg-timeline-header', CdgTimelineHeader)
+customElements.define('cdg-image-about', CdgImageAbout)
 customElements.define('cdg-timeline-group', CdgTimelineGroup)
 customElements.define('cdg-timeline-card', CdgTimelineCard)
 customElements.define('cdg-timeline-card-time', CdgTimelineCardTime)
@@ -163,6 +165,7 @@ export const LAYOUT_COMPONENTS = [
   CdgDialogStatus,
   CdgTimeline,
   CdgTimelineHeader,
+  CdgImageAbout,
   CdgTimelineGroup,
   CdgTimelineCard,
   CdgTimelineCardTime,
