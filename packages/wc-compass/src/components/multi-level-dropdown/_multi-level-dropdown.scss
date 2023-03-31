@@ -1,0 +1,126 @@
+.cdg-dropdown-menu-container {
+  position: relative;
+}
+.cdg-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 240px;
+  padding: 8px 0;
+  margin: 0;
+  text-align: left;
+  list-style: none;
+  background-color: var(--background);
+  background-clip: padding-box;
+  box-shadow: var(--shadow-04);
+  border-radius: 8px;
+  transition: visibility 0s, opacity 0.25s linear;
+  display: none;
+
+  &.menuTop {
+    transform: translateY(-100%);
+    top: 0;
+    margin-top: 0;
+  }
+
+  &.menu-left {
+    right: 0;
+    left: auto;
+  }
+
+  &.show {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+  }
+  .submenu {
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: -8px;
+    box-shadow: var(--shadow-03);
+
+    &.submenu-left {
+      right: 100%;
+      left: auto;
+    }
+    &.submenu-top {
+      top: 100%;
+      transform: translateY(-100%);
+    }
+
+    &.show {
+      visibility: visible;
+      opacity: 1;
+      display: block;
+    }
+  }
+  li {
+    position: relative;
+  }
+  .cdg-dropdown-menu {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .cdg-dropdown-item {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    .cdg-dropdown-item-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 16px;
+    }
+    &:hover {
+      & > * {
+        color: var(--accent);
+      }
+    }
+
+    & > * {
+      color: var(--dropdown-menu-text);
+    }
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .cdg-dropdown-menu {
+    &.show {
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%);
+      &.menuTop {
+        transform: translate(-50%, -100%);
+        flex-direction: column-reverse;
+        display: flex;
+        .cdg-dropdown-item {
+          flex-direction: column-reverse;
+          display: flex;
+        }
+        .submenu {
+          &.show {
+            flex-direction: column-reverse;
+            display: flex;
+          }
+        }
+      }
+    }
+    .submenu {
+      &.show {
+        position: relative;
+        right: auto;
+        left: auto;
+        top: auto;
+        bottom: auto;
+        transform: unset;
+      }
+    }
+  }
+}

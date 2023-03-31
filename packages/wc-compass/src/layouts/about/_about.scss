@@ -1,0 +1,76 @@
+.cdg-about-section {
+  display: flex;
+  flex-direction: row;
+  color: var(--grey100);
+  padding-top: 32px;
+  padding-bottom: 32px;
+  justify-content: space-between;
+  background-size: cover;
+
+  .cdg-section-about-content {
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.cdg-section-about-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  color: white;
+
+  .cdg-about-header {
+    font-size: 3rem;
+    line-height: 3.5rem;
+    margin: 0;
+  }
+
+  .cdg-about-description {
+    padding: 1rem 0;
+  }
+
+  .cdg-about-statistical {
+    margin-top: 3rem;
+    .cdg-about-statistical-description {
+      font-weight: bold;
+    }
+  }
+}
+
+.cdg-section-about-content-wrap {
+  padding: 100px;
+}
+
+.cdg-section-about-cover {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+
+  .cdg-blur-cover {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+  }
+
+  .cdg-about-blur-image {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cdg-about-image {
+    max-width: 100%;
+    border-radius: 20px;
+    position: relative;
+    right: -50px;
+  }
+}

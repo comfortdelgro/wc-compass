@@ -1,3 +1,4 @@
+import './components/about.html'
 import './components/accordion.html'
 import './components/alert-badges.html'
 import './components/alert.html'
@@ -5,9 +6,11 @@ import './components/avatar.html'
 import './components/breadcrumbs.html'
 import './components/button.html'
 import './components/calendar.html'
+import './components/card-blogs.html'
 import './components/cards.html'
 import './components/carousel.html'
 import './components/checkboxes.html'
+import './components/context-menu.html'
 import './components/dashboard-side-card.html'
 import './components/datepicker.html'
 import './components/dialog.html'
@@ -21,6 +24,7 @@ import './components/layouts.html'
 import './components/list-view.html'
 import './components/loading.html'
 import './components/modal.html'
+import './components/multi-level-dropdown.html'
 import './components/nav-rail.html'
 import './components/navbar.html'
 import './components/page-header.html'
@@ -40,6 +44,7 @@ import './components/table.html'
 import './components/tabs.html'
 import './components/tag-box.html'
 import './components/templates/dashboard.html'
+import './components/testimonials.html'
 import './components/text-field.html'
 import './components/timeline.html'
 import './components/toast.html'
@@ -48,6 +53,7 @@ import './components/toolbar.html'
 import './components/tooltip.html'
 import './components/video.html'
 import './components/volume.html'
+import './components/website/news-and-blogs.html'
 import './components/wizards.html'
 import './pages/home.html'
 
@@ -63,11 +69,13 @@ const contentMap = {
   file: './components/file.html',
   fileUpload: './components/file-upload.html',
   footer: './components/footer.html',
+  about: './components/about.html',
   icon: './components/icon.html',
   dialog: './components/dialog.html',
   dropdown: './components/dropdown.html',
   button: './components/button.html',
   cards: './components/cards.html',
+  cardBlogs: './components/card-blogs.html',
   carousel: './components/carousel.html',
   inlineLoading: './components/inline-loading.html',
   layouts: './components/layouts.html',
@@ -103,7 +111,13 @@ const contentMap = {
   rangeSlider: './components/range-slider.html',
   tagBox: './components/tag-box.html',
   video: './components/video.html',
-  dashboardTemplate: './components/templates/dashboard.html'
+  dashboardTemplate: './components/templates/dashboard.html',
+  selectingThemeModal: './components/template/selecting-theme-modal.html',
+  servicesMenu: './components/template/services-menu.html',
+  multiLevelDropdown: './components/multi-level-dropdown.html',
+  contextMenu: './components/context-menu.html',
+  testimonials: './components/testimonials.html',
+  newsAndBlogs: './components/website/news-and-blogs.html',
 }
 
 const documentContent = [
@@ -129,6 +143,10 @@ const documentContent = [
         slug: 'carousel',
       },
       {
+        name: 'Context Menu',
+        slug: 'contextMenu',
+      },
+      {
         name: 'Dashboard Side Card',
         slug: 'dashboardSideCard',
       },
@@ -147,6 +165,10 @@ const documentContent = [
       {
         name: 'Sub Header',
         slug: 'subHeader',
+      },
+      {
+        name: 'Multi Level Dropdown',
+        slug: 'multiLevelDropdown',
       },
       {
         name: 'Nav Rail',
@@ -337,13 +359,34 @@ const documentContent = [
   },
   {
     name: 'Templates',
-    id: 'template',
-    icon: 'signature',
+    id: 'templates',
+    icon: 'grids',
     children: [
       {
-        name: 'Dashboard',
-        slug: 'dashboardTemplate',
+        name: 'About',
+        slug: 'about',
       },
+      {
+        name: 'Card for Blogs',
+        slug: 'cardBlogs',
+      },
+      {
+        name: 'News And Blogs',
+        slug: 'newsAndBlogs',
+      },
+      {
+        name: 'Selecting Theme Modal',
+        slug: 'selectingThemeModal',
+      },
+      {
+        name: 'Services Menu',
+        slug: 'servicesMenu',
+      },
+      {
+        name: 'Testimonials',
+        slug: 'testimonials',
+      },
+      {name: 'Dashboard', slug: 'dashboardTemplate'},
     ],
   },
 ]
@@ -455,7 +498,6 @@ function handlePageChange(url) {
 
   const lastPrams = url.split('#')[1] || 'home'
   const hash = lastPrams.split('?')[0]
-  console.log(hash)
   activeMenu(hash)
   subNavParent.classList.remove('stick')
   if (hash === 'home') {

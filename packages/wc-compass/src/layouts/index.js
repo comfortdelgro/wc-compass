@@ -1,3 +1,4 @@
+import {CdgImageAbout} from './about/image-about'
 import {CdgActionBar} from './action-bar/action-bar'
 import {CdgCard} from './card/card'
 import {CdgCardActions} from './card/card-actions'
@@ -41,6 +42,8 @@ import {CdgTableCell} from './table/table-cell'
 import {CdgTableHead} from './table/table-head'
 import {CdgTableHeadCell} from './table/table-head-cell'
 import {CdgTableRow} from './table/table-row'
+import {CdgTestimonial} from './testimonial/testimonial'
+import {CdgTestimonialItem} from './testimonial/testimonial-item'
 import {CdgTimeline} from './timeline/timeline'
 import {CdgTimelineCard} from './timeline/timeline-card'
 import {CdgTimelineCardBody} from './timeline/timeline-card-body'
@@ -99,6 +102,7 @@ customElements.define('cdg-dialog-actions', CdgDialogActions)
 customElements.define('cdg-dialog-status', CdgDialogStatus)
 customElements.define('cdg-timeline', CdgTimeline)
 customElements.define('cdg-timeline-header', CdgTimelineHeader)
+customElements.define('cdg-image-about', CdgImageAbout)
 customElements.define('cdg-timeline-group', CdgTimelineGroup)
 customElements.define('cdg-timeline-card', CdgTimelineCard)
 customElements.define('cdg-timeline-card-time', CdgTimelineCardTime)
@@ -116,6 +120,8 @@ customElements.define('cdg-sidebar', CdgSidebar)
 customElements.define('cdg-sidebar-header', CdgSidebarHeader)
 customElements.define('cdg-sidebar-body', CdgSidebarBody)
 customElements.define('cdg-sidebar-actions', CdgSidebarActions)
+customElements.define('cdg-testimonial', CdgTestimonial)
+customElements.define('cdg-testimonial-box', CdgTestimonialItem)
 
 export const LAYOUT_COMPONENTS = [
   CdgGroupAvatar,
@@ -159,6 +165,7 @@ export const LAYOUT_COMPONENTS = [
   CdgDialogStatus,
   CdgTimeline,
   CdgTimelineHeader,
+  CdgImageAbout,
   CdgTimelineGroup,
   CdgTimelineCard,
   CdgTimelineCardTime,
@@ -176,4 +183,6 @@ export const LAYOUT_COMPONENTS = [
   CdgSidebarHeader,
   CdgSidebarBody,
   CdgSidebarActions,
+  CdgTestimonial,
+  CdgTestimonialItem,
 ]

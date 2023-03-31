@@ -97,6 +97,15 @@ cdg-carousel,
         display: flex;
         padding: 0;
       }
+      &[scaled] {
+        cdg-slide,
+        .cdg-slide {
+          transform: scale(0.9);
+          &[active] {
+            transform: scale(1);
+          }
+        }
+      }
     }
   }
 }
