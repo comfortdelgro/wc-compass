@@ -15,13 +15,15 @@
       <h4 class="launch-pad-title">Launch pad</h4>
     </div>
     <div class="launch-pad-services-container">
-      <div class="cdg-layout" style="gap: 24px">
+      <!-- service card -->
+      <a href="#dashboardTemplate">
         <cdg-card class="cdg-flex raised flex-row services-card">
-          <img
-            src="/assets/images/zigbiz.svg"
-            alt="zigbiz-icon"
+          <cdg-icon
+            name="zig-biz"
+            source="host"
+            size="32"
             style="margin-right: 8px"
-          />
+          ></cdg-icon>
           <div>
             <h4 class="launch-pad-services-name">Zig Biz</h4>
             <span class="launch-pad-services-description"
@@ -31,18 +33,23 @@
               distinctio iusto commodi delectus.</span
             >
           </div>
-          <img
-            src="/assets/images/export.svg"
-            alt="export-icon"
+          <cdg-icon
+            name="export"
+            source="host"
+            size="16"
             style="margin-right: 8px"
-          />
+          ></cdg-icon>
         </cdg-card>
+      </a>
+      <!-- service card -->
+      <a href="#dashboardTemplate">
         <cdg-card class="cdg-flex raised flex-row services-card">
-          <img
-            src="/assets/images/zigbiz.svg"
-            alt="zigbiz-icon"
+          <cdg-icon
+            name="b2b-rental"
+            source="host"
+            size="32"
             style="margin-right: 8px"
-          />
+          ></cdg-icon>
           <div>
             <h4 class="launch-pad-services-name">Zig Biz</h4>
             <span class="launch-pad-services-description"
@@ -52,18 +59,23 @@
               distinctio iusto commodi delectus.</span
             >
           </div>
-          <img
-            src="/assets/images/export.svg"
-            alt="export-icon"
+          <cdg-icon
+            name="export"
+            source="host"
+            size="16"
             style="margin-right: 8px"
-          />
+          ></cdg-icon>
         </cdg-card>
+      </a>
+      <!-- service card -->
+      <a href="#dashboardTemplate">
         <cdg-card class="cdg-flex raised flex-row services-card">
-          <img
-            src="/assets/images/zigbiz.svg"
-            alt="zigbiz-icon"
+          <cdg-icon
+            name="private-bus"
+            source="host"
+            size="32"
             style="margin-right: 8px"
-          />
+          ></cdg-icon>
           <div>
             <h4 class="launch-pad-services-name">Zig Biz</h4>
             <span class="launch-pad-services-description"
@@ -73,13 +85,109 @@
               distinctio iusto commodi delectus.</span
             >
           </div>
-          <img
-            src="/assets/images/export.svg"
-            alt="export-icon"
+          <cdg-icon
+            name="export"
+            source="host"
+            size="16"
             style="margin-right: 8px"
-          />
+          ></cdg-icon>
         </cdg-card>
-      </div>
+      </a>
+    </div>
+  </div>
+  <!--  -->
+  <h4 class="dashboard-title">Dashboard Title</h4>
+  <!--  -->
+  <div class="content-container">
+    <div class="content-first-row">
+      <!-- content card -->
+      <cdg-card class="raised content-card">
+        <div class="cdg-layout content-card-header">
+          <cdg-icon
+            name="money-bill-wave"
+            source="host"
+            style="margin-right: auto"
+          ></cdg-icon>
+          <button class="cdg-button ghost icon" size="small">
+            <cdg-icon name="dots"></cdg-icon>
+          </button>
+        </div>
+        <cdg-card-body>
+          <h2 class="content-value">23</h2>
+          <p class="content-description">Lorem Ipsum dola sign</p>
+        </cdg-card-body>
+      </cdg-card>
+      <!-- content card -->
+      <cdg-card class="raised content-card">
+        <div class="cdg-layout content-card-header">
+          <cdg-icon
+            name="notification-blue"
+            source="host"
+            style="margin-right: auto"
+          ></cdg-icon>
+          <button class="cdg-button ghost icon" size="small">
+            <cdg-icon name="dots"></cdg-icon>
+          </button>
+        </div>
+        <cdg-card-body>
+          <h2 class="content-value">23</h2>
+          <p class="content-description">Lorem Ipsum dola sign</p>
+        </cdg-card-body>
+      </cdg-card>
+      <!-- content card -->
+      <cdg-card class="raised content-card">
+        <div class="cdg-layout content-card-header">
+          <cdg-icon
+            name="chart-line-up-duotone"
+            source="host"
+            style="margin-right: auto"
+          ></cdg-icon>
+          <button class="cdg-button ghost icon" size="small">
+            <cdg-icon name="dots"></cdg-icon>
+          </button>
+        </div>
+        <cdg-card-body>
+          <h2 class="content-value">23</h2>
+          <p class="content-description">Lorem Ipsum dola sign</p>
+        </cdg-card-body>
+      </cdg-card>
+      <!-- content card -->
+      <cdg-card class="raised content-card">
+        <div class="cdg-layout content-card-header">
+          <cdg-icon
+            name="user-brown"
+            source="host"
+            style="margin-right: auto"
+          ></cdg-icon>
+          <button class="cdg-button ghost icon" size="small">
+            <cdg-icon name="dots"></cdg-icon>
+          </button>
+        </div>
+        <cdg-card-body>
+          <h2 class="content-value">23</h2>
+          <p class="content-description">Lorem Ipsum dola sign</p>
+        </cdg-card-body>
+      </cdg-card>
+    </div>
+    <!--  -->
+    <div class="content-second-row">
+      <!-- chart card (TODO: remove fixed height when insert chart to card body) -->
+      <cdg-card class="raised" style="height: 400px">
+        <cdg-card-header title="SectionTitle">
+          <button class="cdg-button ghost icon" size="small">
+            <cdg-icon name="dots"></cdg-icon>
+          </button>
+        </cdg-card-header>
+        <cdg-card-body></cdg-card-body>
+      </cdg-card>
+      <!-- chart card (TODO: remove fixed height when insert chart to card body)-->
+      <cdg-card class="raised" style="height: 400px">
+        <cdg-card-header title="SectionTitle">
+          <button class="cdg-button ghost icon" size="small">
+            <cdg-icon name="dots"></cdg-icon>
+          </button>
+        </cdg-card-header>
+      </cdg-card>
     </div>
   </div>
 </div>
@@ -87,11 +195,11 @@
 <style>
   .dashboard-container {
     background: #f5f5f6;
-    height: 100vh;
+    padding-bottom: 1rem;
   }
 
   .launch-pad-container {
-    height: 186px;
+    min-height: 186px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f5f5f6 100%),
       url('https://s3-alpha-sig.figma.com/img/c744/9f05/4d967c47e707d803861f0d482bbec323?Expires=1681084800&Signature=NVuIq8xJsFvCy2~oErN-5KK6j33yJ~jC7ruYrWLKumv-TmrRLpWWpJJn~IDfFdWqoqcd6m4DmB-qhbfRQzTNQ7JbSeZR6jFi5hg0GAXmGTAK58ynKHeIH-i9pORBwWwq2aBircFergNabAZaTU5M-KvR04oOSX9pq3l0jMpZimRB1Q7kfU-akqhsq3c4QaacdPnKvCXRgmkCiCOrvEicIBYQhloRTXkUzpOeeO97i2weVdrFVvT0qAtM0E2wgwJWeGlwRBSE2vWENYsse-s5dkLqJLzrOeMNMl0fA2FmEge7xDywpnGyAEIUdvYtnEMmySBXzDnGY7J201IAhVNgew__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
     background-repeat: no-repeat;
@@ -104,7 +212,7 @@
     background: rgba(222, 246, 255, 0.2);
     display: flex;
     align-items: center;
-    padding: 0 16px;
+    padding: 0 1rem;
   }
 
   .launch-pad-title {
@@ -117,7 +225,10 @@
   }
 
   .launch-pad-services-container {
-    padding: 16px;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
   }
 
   .flex-row {
@@ -160,5 +271,77 @@
     /* Text Colors/Secondary Text */
 
     color: #605e5c;
+  }
+
+  .dashboard-title {
+    margin: 1rem 0 0 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height */
+    color: #000000;
+  }
+
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px 1rem 1rem 1rem;
+  }
+
+  .content-first-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+  }
+
+  .content-second-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .content-first-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .content-second-row {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .launch-pad-services-container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  .content-card-header {
+    padding: 1rem;
+  }
+
+  .content-value {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 42px;
+    /* identical to box height */
+    /* Primary Colors/Type Heading */
+    color: #323130;
+  }
+
+  .content-description {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    /* identical to box height, or 150% */
+    /* Grey Shades/60 */
+    color: #757575;
   }
 </style>
