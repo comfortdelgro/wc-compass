@@ -42,8 +42,7 @@ export class CDGServiceCard extends HTMLElement {
     contentSection.appendChild(description)
 
     const linkIcon = document.createElement('cdg-icon')
-    linkIcon.setAttribute('name', 'arrowRight')
-    linkIcon.setAttribute('source', 'host') //TODO
+    linkIcon.setAttribute('name', 'arrowUpRightFromSquareDuotone')
     linkIcon.addEventListener('click', () => {
       window.open(this.serviceLink, '_blank')
     })

@@ -150,6 +150,7 @@ import volumeLow from '../../images/volume-low.svg'
 import volumeMute from '../../images/volume-mute.svg'
 import warning from '../../images/warning.svg'
 
+import servicesBanner from '../../images/services-banner.svg'
 import wLogo from '../../images/w-logo.svg'
 import zigLogo from '../../images/zig-logo.svg'
 
@@ -248,6 +249,7 @@ export const ICONS_IMAGES = [
   reveal,
   school,
   search,
+  servicesBanner,
   setting,
   settings,
   signature,
