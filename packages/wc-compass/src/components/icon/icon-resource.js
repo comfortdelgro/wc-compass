@@ -3,6 +3,7 @@ import addUser from '../../images/add-user.svg'
 import arrowDown from '../../images/arrow-down.svg'
 import arrowLeft from '../../images/arrow-left.svg'
 import arrowRight from '../../images/arrow-right.svg'
+import arrowUpRightFromSquareDuotone from '../../images/arrow-up-right-from-square-duotone.svg'
 import checkmark from '../../images/assesibility/checkmark.svg'
 import crossCircle from '../../images/assesibility/cross-circle.svg'
 import hide from '../../images/assesibility/hide.svg'
@@ -159,6 +160,7 @@ export const ICONS_IMAGES = [
   arrowDown,
   arrowLeft,
   arrowRight,
+  arrowUpRightFromSquareDuotone,
   bid,
   browser,
   callCenter,

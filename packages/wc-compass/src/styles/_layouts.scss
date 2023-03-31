@@ -366,15 +366,17 @@ cdg-divider,
     align-items: stretch;
   }
 }
-
+.grid-3-columns {
+  flex-wrap: wrap;
+  row-gap: 32px;
+  column-gap: 24px;
+  & > * {
+    width: calc(100% / 3 - 32px);
+  }
+}
 .cdg-card-blogs {
   &.grid-3-columns {
-    flex-wrap: wrap;
-    row-gap: 32px;
-    column-gap: 24px;
-    & > * {
-      width: calc(100% / 3 - 32px);
-    }
+    
     @media (max-width: 768px) {
       gap: 16px;
       & > * {

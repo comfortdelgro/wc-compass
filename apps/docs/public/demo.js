@@ -56,6 +56,7 @@ import './components/website/news-and-blogs.html'
 import './components/wizards.html'
 import './pages/home.html'
 
+
 const contentMap = {
   home: './pages/home.html',
   accordion: './components/accordion.html',
@@ -116,6 +117,7 @@ const contentMap = {
   contextMenu: './components/context-menu.html',
   testimonials: './components/testimonials.html',
   newsAndBlogs: './components/website/news-and-blogs.html',
+  services: './components/website/services.html',
 }
 
 const documentContent = [
@@ -383,6 +385,10 @@ const documentContent = [
       {
         name: 'Testimonials',
         slug: 'testimonials',
+      },
+      {
+        name: 'Services',
+        slug: 'services',
       },
     ],
   },
