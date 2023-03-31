@@ -1,5 +1,3 @@
-<p>My Chart</p>
-
 <style>
   .custom-slide .cdg-slide {
     padding: 16px;
@@ -11,18 +9,18 @@
 
 <h3 class="sample-section-title">Example chart</h3>
 <div class="sample-section custom-slide">
-  <base-chart
+  <cdg-chart
     data='{"labels":["January","February","March","April","May","June","July"],"datasets":[{"label":"My First Dataset","data":[65,59,80,81,56,55,40],"fill":false,"borderColor":"rgb(75, 192, 192)","lineTension":0.1}]}'
     options='{"scales":{"yAxes":[{"ticks":{"beginAtZero":true}}]}}'
     type="line"
-  ></base-chart>
+  ></cdg-chart>
 </div>
 
 <pre>
     <code class="language-html">&lt;cdg-carousel use-arrow=&quot;true&quot; autoSwitch=&quot;true&quot;&gt;
-    &lt;cdg-slide&gt;A&lt;/cdg-slide&gt;
-    &lt;cdg-slide&gt;B&lt;/cdg-slide&gt;
-    &lt;cdg-slide&gt;C&lt;/cdg-slide&gt;
-    &lt;cdg-slide&gt;D&lt;/cdg-slide&gt;
-&lt;/cdg-carousel&gt;</code>
+      &lt;cdg-chart
+      data=&apos;{&quot;labels&quot;:[&quot;January&quot;,&quot;February&quot;,&quot;March&quot;,&quot;April&quot;,&quot;May&quot;,&quot;June&quot;,&quot;July&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;My First Dataset&quot;,&quot;data&quot;:[65,59,80,81,56,55,40],&quot;fill&quot;:false,&quot;borderColor&quot;:&quot;rgb(75, 192, 192)&quot;,&quot;lineTension&quot;:0.1}]}&apos;
+      options=&apos;{&quot;scales&quot;:{&quot;yAxes&quot;:[{&quot;ticks&quot;:{&quot;beginAtZero&quot;:true}}]}}&apos;
+      type=&quot;line&quot;
+    &gt;&lt;/cdg-chart&gt;</code>
 </pre>
