@@ -62,6 +62,7 @@ import emoLaugh from '../../images/emoji/emo-laugh.svg'
 import emoMeh from '../../images/emoji/emo-meh.svg'
 import emoSmile from '../../images/emoji/emo-smile.svg'
 import emoTear from '../../images/emoji/emo-tear.svg'
+import exportSvg from '../../images/export.svg'
 import filledArrowDown from '../../images/filled-arrow-down.svg'
 import filledArrowUp from '../../images/filled-arrow-up.svg'
 import forward from '../../images/forward.svg'
@@ -149,7 +150,14 @@ import volumeLow from '../../images/volume-low.svg'
 import volumeMute from '../../images/volume-mute.svg'
 import warning from '../../images/warning.svg'
 
+import b2bRental from '../../images/b2b-rental.svg'
+import chartLineUpDuoTone from '../../images/chart-line-up-duotone.svg'
+import moneyBillWave from '../../images/money-bill-wave.svg'
+import notificationBlue from '../../images/notification-blue.svg'
+import privateBus from '../../images/private-bus.svg'
+import userBrown from '../../images/user-brown.svg'
 import wLogo from '../../images/w-logo.svg'
+import zigBizLogo from '../../images/zig-biz.svg'
 import zigLogo from '../../images/zig-logo.svg'
 
 import activity from '../../images/information/activity.svg'
@@ -299,6 +307,14 @@ export const ICONS_IMAGES = [
   zigLogo,
   zoomMinus,
   zoomPlus,
+  exportSvg,
+  zigBizLogo,
+  b2bRental,
+  moneyBillWave,
+  notificationBlue,
+  chartLineUpDuoTone,
+  userBrown,
+  privateBus,
   undo,
   redo,
   h1,

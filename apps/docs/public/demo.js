@@ -43,6 +43,7 @@ import './components/sub-nav.html'
 import './components/table.html'
 import './components/tabs.html'
 import './components/tag-box.html'
+import './components/template/dashboard.html'
 import './components/testimonials.html'
 import './components/text-field.html'
 import './components/timeline.html'
@@ -114,6 +115,7 @@ const contentMap = {
   rangeSlider: './components/range-slider.html',
   tagBox: './components/tag-box.html',
   video: './components/video.html',
+  dashboardTemplate: './components/template/dashboard.html',
   richTextEditor: './components/rich-text-editor.html',
   selectingThemeModal: './components/template/selecting-theme-modal.html',
   servicesMenu: './components/template/services-menu.html',
@@ -398,6 +400,7 @@ const documentContent = [
         name: 'Testimonials',
         slug: 'testimonials',
       },
+      {name: 'Dashboard', slug: 'dashboardTemplate'},
     ],
   },
 ]
