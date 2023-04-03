@@ -40,6 +40,7 @@ import {CdgTooltip} from './tooltip/tooltip'
 import {CdgVideoPlayer} from './video/video'
 import {CdgVideoControls} from './video/video-controls'
 import {CdgVolume} from './volume/volume'
+import { CdgChart } from './chart/chart'
 
 customElements.define('cdg-accordion', CdgAccordion)
 customElements.define('cdg-accordion-header', CdgAccordionHeader)
@@ -83,6 +84,7 @@ customElements.define('cdg-rich-text-editor', CdgRichTextEditor)
 customElements.define('cdg-rte-toolbar', CdgRichTextEditorToolbar)
 customElements.define('cdg-dropdown-menu', CdgMultiLevelDropdown)
 customElements.define('cdg-context-menu', CdgContextMenu)
+customElements.define('cdg-chart', CdgChart)
 
 export const CONTROL_COMPONENTS = [
   CdgAccordion,
@@ -120,4 +122,5 @@ export const CONTROL_COMPONENTS = [
   CdgRichTextEditorContent,
   CdgMultiLevelDropdown,
   CdgContextMenu,
+  CdgChart
 ]

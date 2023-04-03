@@ -52,9 +52,12 @@ import './components/toolbar.html'
 import './components/tooltip.html'
 import './components/video.html'
 import './components/volume.html'
+import './components/website/contents/news-blogs.html'
 import './components/website/news-and-blogs.html'
 import './components/wizards.html'
 import './pages/home.html'
+import './components/chart.html'
+
 
 
 const contentMap = {
@@ -118,6 +121,7 @@ const contentMap = {
   contextMenu: './components/context-menu.html',
   testimonials: './components/testimonials.html',
   newsAndBlogs: './components/website/news-and-blogs.html',
+  chart: './components/chart.html'
 }
 
 const documentContent = [
@@ -359,6 +363,10 @@ const documentContent = [
         name: 'Toast',
         slug: 'toast',
       },
+      {
+        name: 'Chart',
+        slug: 'chart'
+      }
     ],
   },
   {

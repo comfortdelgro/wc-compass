@@ -6,6 +6,7 @@
   height: 336px;
   color: #ffffff;
   background-size: cover;
+  background-position: center;
   background-color: var(--grey20);
   .cdg-page-cover-title {
     margin: 0;
@@ -49,18 +50,18 @@
 }
 
 .cdg-blog-slide-image-wrapper {
-  flex: 4.5;
 }
 
 .cdg-blog-slide-image {
-  width: 100%;
+  width: 525px;
+  height: 324px;
   border-radius: 8px;
-  min-height: 324px;
   object-fit: cover;
+  background-position: center;
 }
 
 .cdg-blog-slide-content {
-  flex: 5.5;
+  flex: 1;
 }
 
 .cdg-blog-slide-description {
