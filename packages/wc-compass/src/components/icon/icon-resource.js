@@ -63,6 +63,7 @@ import emoLaugh from '../../images/emoji/emo-laugh.svg'
 import emoMeh from '../../images/emoji/emo-meh.svg'
 import emoSmile from '../../images/emoji/emo-smile.svg'
 import emoTear from '../../images/emoji/emo-tear.svg'
+import exportSvg from '../../images/export.svg'
 import filledArrowDown from '../../images/filled-arrow-down.svg'
 import filledArrowUp from '../../images/filled-arrow-up.svg'
 import forward from '../../images/forward.svg'
@@ -150,11 +151,43 @@ import volumeLow from '../../images/volume-low.svg'
 import volumeMute from '../../images/volume-mute.svg'
 import warning from '../../images/warning.svg'
 
+import b2bRental from '../../images/b2b-rental.svg'
+import chartLineUpDuoTone from '../../images/chart-line-up-duotone.svg'
+import moneyBillWave from '../../images/money-bill-wave.svg'
+import notificationBlue from '../../images/notification-blue.svg'
+import privateBus from '../../images/private-bus.svg'
 import servicesBanner from '../../images/services-banner.svg'
+import userBrown from '../../images/user-brown.svg'
 import wLogo from '../../images/w-logo.svg'
+import zigBizLogo from '../../images/zig-biz.svg'
 import zigLogo from '../../images/zig-logo.svg'
 
+import activity from '../../images/information/activity.svg'
+import imageOutline from '../../images/information/image-outline.svg'
+import link from '../../images/information/link.svg'
+import listOl from '../../images/information/list-ol.svg'
+import listUlRound from '../../images/information/list-ul-round.svg'
+import quoteLeft from '../../images/information/quote-left.svg'
+import quoteRight from '../../images/information/quote-right.svg'
+import bold from '../../images/text-editor/bold.svg'
+import h1 from '../../images/text-editor/h1.svg'
+import h2 from '../../images/text-editor/h2.svg'
+import h3 from '../../images/text-editor/h3.svg'
+import h4 from '../../images/text-editor/h4.svg'
+import h5 from '../../images/text-editor/h5.svg'
+import h6 from '../../images/text-editor/h6.svg'
+import italic from '../../images/text-editor/italic.svg'
+import redo from '../../images/text-editor/redo.svg'
+import strikeThrough from '../../images/text-editor/strike-through.svg'
+import textAlignCenter from '../../images/text-editor/text-align-center.svg'
+import textAlignJustify from '../../images/text-editor/text-align-justify.svg'
+import textAlignLeft from '../../images/text-editor/text-align-left.svg'
+import textAlignRight from '../../images/text-editor/text-align-right.svg'
+import underline from '../../images/text-editor/underline.svg'
+import undo from '../../images/text-editor/undo.svg'
+
 export const ICONS_IMAGES = [
+  activity,
   addGroup,
   addUser,
   alt,
@@ -278,6 +311,36 @@ export const ICONS_IMAGES = [
   zigLogo,
   zoomMinus,
   zoomPlus,
+  exportSvg,
+  zigBizLogo,
+  b2bRental,
+  moneyBillWave,
+  notificationBlue,
+  chartLineUpDuoTone,
+  userBrown,
+  privateBus,
+  undo,
+  redo,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  bold,
+  italic,
+  underline,
+  strikeThrough,
+  textAlignLeft,
+  textAlignRight,
+  textAlignCenter,
+  textAlignJustify,
+  link,
+  imageOutline,
+  listUlRound,
+  listOl,
+  quoteLeft,
+  quoteRight,
   addressBook,
   backward,
   bug,
