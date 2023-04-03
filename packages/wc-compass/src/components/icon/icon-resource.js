@@ -3,6 +3,7 @@ import addUser from '../../images/add-user.svg'
 import arrowDown from '../../images/arrow-down.svg'
 import arrowLeft from '../../images/arrow-left.svg'
 import arrowRight from '../../images/arrow-right.svg'
+import arrowUpRightFromSquareDuotone from '../../images/arrow-up-right-from-square-duotone.svg'
 import checkmark from '../../images/assesibility/checkmark.svg'
 import crossCircle from '../../images/assesibility/cross-circle.svg'
 import hide from '../../images/assesibility/hide.svg'
@@ -155,6 +156,7 @@ import chartLineUpDuoTone from '../../images/chart-line-up-duotone.svg'
 import moneyBillWave from '../../images/money-bill-wave.svg'
 import notificationBlue from '../../images/notification-blue.svg'
 import privateBus from '../../images/private-bus.svg'
+import servicesBanner from '../../images/services-banner.svg'
 import userBrown from '../../images/user-brown.svg'
 import wLogo from '../../images/w-logo.svg'
 import zigBizLogo from '../../images/zig-biz.svg'
@@ -192,6 +194,7 @@ export const ICONS_IMAGES = [
   arrowDown,
   arrowLeft,
   arrowRight,
+  arrowUpRightFromSquareDuotone,
   bid,
   browser,
   callCenter,
@@ -279,6 +282,7 @@ export const ICONS_IMAGES = [
   reveal,
   school,
   search,
+  servicesBanner,
   setting,
   settings,
   signature,

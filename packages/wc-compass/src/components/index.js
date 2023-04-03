@@ -6,6 +6,7 @@ import {CdgAlert} from './alert/alert'
 import {CdgAlertContent} from './alert/alert-content'
 import {CdgAvatar} from './avatar/avatar'
 import {CdgCalendar} from './calendar/calendar'
+import {CdgChart} from './chart/chart'
 import {CdgContextMenu} from './context-menu/context-menu'
 import {CdgDatePicker} from './datepicker/datepicker'
 import {CdgDropdown} from './dropdown/dropdown'
@@ -29,8 +30,9 @@ import {CdgProgress} from './progress/progress'
 import {CdgQuantityToggle} from './quantity-toggle/quantity-toggle'
 import {CdgRangeSlider} from './range-slider/range-slider'
 import {CdgRating} from './rating/rating'
-import { CdgRichTextEditor } from './rich-text-editor/rich-text-editor'
-import { CdgRichTextEditorToolbar } from './rich-text-editor/rte-toolbar'
+import {CdgRichTextEditor} from './rich-text-editor/rich-text-editor'
+import {CdgRichTextEditorToolbar} from './rich-text-editor/rte-toolbar'
+import {CDGServiceCard} from './service-card/service-card'
 import {CdgStatus} from './status/status'
 import {CdgTab} from './tab/tab'
 import {CdgTabs} from './tab/tabs'
@@ -40,7 +42,6 @@ import {CdgTooltip} from './tooltip/tooltip'
 import {CdgVideoPlayer} from './video/video'
 import {CdgVideoControls} from './video/video-controls'
 import {CdgVolume} from './volume/volume'
-import { CdgChart } from './chart/chart'
 
 customElements.define('cdg-accordion', CdgAccordion)
 customElements.define('cdg-accordion-header', CdgAccordionHeader)
@@ -74,6 +75,7 @@ customElements.define('cdg-list-item', CdgListItem)
 customElements.define('cdg-tooltip', CdgTooltip)
 customElements.define('cdg-range-slider', CdgRangeSlider)
 customElements.define('cdg-quantity-toggle', CdgQuantityToggle)
+customElements.define('cdg-service-card', CDGServiceCard)
 customElements.define('cdg-tag-box-container', CdgTagBoxContainer)
 customElements.define('cdg-tag-box-item', CdgTagBoxItem)
 customElements.define('cdg-video-player', CdgVideoPlayer)
@@ -113,6 +115,7 @@ export const CONTROL_COMPONENTS = [
   CdgDatePicker,
   CdgRangeSlider,
   CdgQuantityToggle,
+  CDGServiceCard,
   CdgVideoPlayer,
   CdgVideoControls,
   CdgVolume,
@@ -122,5 +125,5 @@ export const CONTROL_COMPONENTS = [
   CdgRichTextEditorContent,
   CdgMultiLevelDropdown,
   CdgContextMenu,
-  CdgChart
+  CdgChart,
 ]

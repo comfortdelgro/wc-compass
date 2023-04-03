@@ -61,6 +61,7 @@ import './components/chart.html'
 
 
 
+
 const contentMap = {
   home: './pages/home.html',
   accordion: './components/accordion.html',
@@ -123,6 +124,7 @@ const contentMap = {
   contextMenu: './components/context-menu.html',
   testimonials: './components/testimonials.html',
   newsAndBlogs: './components/website/news-and-blogs.html',
+  services: './components/website/services.html',
   chart: './components/chart.html'
 }
 
@@ -399,6 +401,10 @@ const documentContent = [
       {
         name: 'Testimonials',
         slug: 'testimonials',
+      },
+      {
+        name: 'Services',
+        slug: 'services',
       },
       {name: 'Dashboard', slug: 'dashboardTemplate'},
     ],
