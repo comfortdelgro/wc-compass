@@ -1,3 +1,10 @@
+<p>Pagination should be used:</p>
+<ul>
+  <li>To enable users to focus on a few items at a time.</li>
+  <li>To make it clear there’s more to explore when ready.</li>
+  <li>For large collections of items.</li>
+</ul>
+
 <h3 class="sample-section-title">Default</h3>
 <div class="sample-section">
   <cdg-pagination
@@ -160,22 +167,22 @@ paging1.addEventListener(&apos;navigate&apos;, (data) =&gt; {
 
 <script>
   function listenPagination() {
-    const simplePaging = document.querySelector('#simple-pagination');
-    const paging = document.querySelector('#sample-pagination');
-    const paging1 = document.querySelector('#sample-pagination1');
+    const simplePaging = document.querySelector('#simple-pagination')
+    const paging = document.querySelector('#sample-pagination')
+    const paging1 = document.querySelector('#sample-pagination1')
 
     simplePaging.addEventListener('navigate', (data) => {
-      simplePaging.currentPage = data.detail;
-    });
+      simplePaging.currentPage = data.detail
+    })
 
     paging.addEventListener('navigate', (data) => {
-      paging.currentPage = data.detail;
-    });
+      paging.currentPage = data.detail
+    })
 
     paging1.addEventListener('navigate', (data) => {
-      paging1.currentPage = data.detail;
-    });
+      paging1.currentPage = data.detail
+    })
   }
 
-  listenPagination();
+  listenPagination()
 </script>

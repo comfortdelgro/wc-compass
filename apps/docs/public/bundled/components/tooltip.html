@@ -1,3 +1,8 @@
+<p>
+  Tooltips display informative text when users hover over a (usually
+  interactive) element.
+</p>
+
 <div>
   <label class="cdg-input-group" style="width: 350px; margin-bottom: 100px">
     <cdg-dropdown placeholder="Select directions" name="directions">
@@ -398,14 +403,14 @@
 <div style="height: 500px"></div>
 
 <script>
-  const directions = document.querySelector('cdg-dropdown[name="directions"]');
-  const cdgPopovers = document.querySelectorAll('cdg-tooltip');
+  const directions = document.querySelector('cdg-dropdown[name="directions"]')
+  const cdgPopovers = document.querySelectorAll('cdg-tooltip')
   directions.addEventListener('onchangevalue', function (event) {
     cdgPopovers.forEach((cdgPopover) => {
       if (cdgPopover) {
-        const closeButton = document.querySelector('bottom-close-button');
-        cdgPopover.setAttribute('direction', event.detail);
+        const closeButton = document.querySelector('bottom-close-button')
+        cdgPopover.setAttribute('direction', event.detail)
       }
-    });
-  });
+    })
+  })
 </script>
