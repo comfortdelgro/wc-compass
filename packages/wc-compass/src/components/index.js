@@ -122,7 +122,6 @@ export const CONTROL_COMPONENTS = [
   CdgRating,
   CdgRichTextEditor,
   CdgRichTextEditorToolbar,
-  CdgRichTextEditorContent,
   CdgMultiLevelDropdown,
   CdgContextMenu,
   CdgChart,
