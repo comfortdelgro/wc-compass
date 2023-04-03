@@ -56,6 +56,8 @@ import './components/website/contents/news-blogs.html'
 import './components/website/news-and-blogs.html'
 import './components/wizards.html'
 import './pages/home.html'
+import './components/chart.html'
+
 
 const contentMap = {
   home: './pages/home.html',
@@ -117,6 +119,7 @@ const contentMap = {
   contextMenu: './components/context-menu.html',
   testimonials: './components/testimonials.html',
   newsAndBlogs: './components/website/news-and-blogs.html',
+  chart: './components/chart.html'
 }
 
 const documentContent = [
@@ -354,6 +357,10 @@ const documentContent = [
         name: 'Toast',
         slug: 'toast',
       },
+      {
+        name: 'Chart',
+        slug: 'chart'
+      }
     ],
   },
   {

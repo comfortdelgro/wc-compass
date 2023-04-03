@@ -10,6 +10,7 @@
     "lint": "eslint *.ts*"
   },
   "dependencies": {
+    "chart.js": "2.9.4",
     "dayjs": "^1.11.7"
   },
   "devDependencies": {
