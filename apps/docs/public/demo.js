@@ -53,9 +53,13 @@ import './components/toolbar.html'
 import './components/tooltip.html'
 import './components/video.html'
 import './components/volume.html'
+import './components/website/contents/news-blogs.html'
 import './components/website/news-and-blogs.html'
 import './components/wizards.html'
 import './pages/home.html'
+import './components/chart.html'
+
+
 
 const contentMap = {
   home: './pages/home.html',
@@ -112,12 +116,14 @@ const contentMap = {
   tagBox: './components/tag-box.html',
   video: './components/video.html',
   dashboardTemplate: './components/template/dashboard.html',
+  richTextEditor: './components/rich-text-editor.html',
   selectingThemeModal: './components/template/selecting-theme-modal.html',
   servicesMenu: './components/template/services-menu.html',
   multiLevelDropdown: './components/multi-level-dropdown.html',
   contextMenu: './components/context-menu.html',
   testimonials: './components/testimonials.html',
   newsAndBlogs: './components/website/news-and-blogs.html',
+  chart: './components/chart.html'
 }
 
 const documentContent = [
@@ -246,6 +252,10 @@ const documentContent = [
         slug: 'rangeSlider',
       },
       {
+        name: 'Rich Text Editor',
+        slug: 'richTextEditor',
+      },
+      {
         name: 'Toggle',
         slug: 'toggle',
       },
@@ -355,6 +365,10 @@ const documentContent = [
         name: 'Toast',
         slug: 'toast',
       },
+      {
+        name: 'Chart',
+        slug: 'chart'
+      }
     ],
   },
   {
