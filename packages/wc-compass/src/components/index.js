@@ -29,6 +29,8 @@ import {CdgProgress} from './progress/progress'
 import {CdgQuantityToggle} from './quantity-toggle/quantity-toggle'
 import {CdgRangeSlider} from './range-slider/range-slider'
 import {CdgRating} from './rating/rating'
+import { CdgRichTextEditor } from './rich-text-editor/rich-text-editor'
+import { CdgRichTextEditorToolbar } from './rich-text-editor/rte-toolbar'
 import {CdgStatus} from './status/status'
 import {CdgTab} from './tab/tab'
 import {CdgTabs} from './tab/tabs'
@@ -78,6 +80,8 @@ customElements.define('cdg-video-player', CdgVideoPlayer)
 customElements.define('cdg-video-controls', CdgVideoControls)
 customElements.define('cdg-volume', CdgVolume)
 customElements.define('cdg-rating', CdgRating)
+customElements.define('cdg-rich-text-editor', CdgRichTextEditor)
+customElements.define('cdg-rte-toolbar', CdgRichTextEditorToolbar)
 customElements.define('cdg-dropdown-menu', CdgMultiLevelDropdown)
 customElements.define('cdg-context-menu', CdgContextMenu)
 customElements.define('cdg-chart', CdgChart)
@@ -113,6 +117,9 @@ export const CONTROL_COMPONENTS = [
   CdgVideoControls,
   CdgVolume,
   CdgRating,
+  CdgRichTextEditor,
+  CdgRichTextEditorToolbar,
+  CdgRichTextEditorContent,
   CdgMultiLevelDropdown,
   CdgContextMenu,
   CdgChart

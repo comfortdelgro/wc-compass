@@ -59,6 +59,7 @@ import './pages/home.html'
 import './components/chart.html'
 
 
+
 const contentMap = {
   home: './pages/home.html',
   accordion: './components/accordion.html',
@@ -113,6 +114,7 @@ const contentMap = {
   rangeSlider: './components/range-slider.html',
   tagBox: './components/tag-box.html',
   video: './components/video.html',
+  richTextEditor: './components/rich-text-editor.html',
   selectingThemeModal: './components/template/selecting-theme-modal.html',
   servicesMenu: './components/template/services-menu.html',
   multiLevelDropdown: './components/multi-level-dropdown.html',
@@ -246,6 +248,10 @@ const documentContent = [
       {
         name: 'RangeSlider',
         slug: 'rangeSlider',
+      },
+      {
+        name: 'Rich Text Editor',
+        slug: 'richTextEditor',
       },
       {
         name: 'Toggle',
