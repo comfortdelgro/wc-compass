@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.0.3
+
+### Patch Changes
+
+- 115f507: New layouts and fixing bugs
+
 ## 0.0.2
 
 ### Patch Changes
