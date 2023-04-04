@@ -58,6 +58,36 @@ cdg-card,
   background: var(--background);
   color: var(--grey100);
 
+  &[horizontal] {
+    flex-direction: row;
+    cdg-card-body,
+    .cdg-card-body {
+      padding-left: 2rem;
+      padding-top: 1rem;
+    }
+
+    cdg-card-header,
+    .cdg-card-header {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &.article-card {
+    cdg-card-body,
+    .cdg-card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cdg-card-title {
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 42px;
+    }
+  }
+
   &.raised {
     box-shadow: var(--shadow-01), var(--shadow-02);
   }

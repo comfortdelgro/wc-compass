@@ -39,15 +39,6 @@ footer.cdg-footer-section {
   }
 }
 
-cdg-footer,
-.cdg-footer,
-.cdg-footer-connect,
-.cdg-foot-logo-row,
-.cdg-footer-nav {
-  padding-left: 64px;
-  padding-right: 64px;
-}
-
 .cdg-footer-nav {
   display: flex;
   gap: 32px;
@@ -129,15 +120,6 @@ cdg-footer,
     grid-template-columns: repeat(3, 1fr);
     row-gap: 56px;
   }
-
-  cdg-footer,
-  .cdg-footer,
-  .cdg-footer-connect,
-  .cdg-foot-logo-row,
-  .cdg-footer-nav {
-    padding-left: 48px;
-    padding-right: 48px;
-  }
 }
 
 @container CdgFooter (max-width: 480px) {
@@ -174,14 +156,6 @@ cdg-footer,
     flex-direction: column;
   }
 
-  cdg-footer,
-  .cdg-footer,
-  .cdg-footer-connect,
-  .cdg-foot-logo-row,
-  .cdg-footer-nav {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
   .cdg-foot-logo-row .cdg-button.link {
     display: none;
   }

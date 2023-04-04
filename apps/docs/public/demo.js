@@ -9,6 +9,7 @@ import './components/calendar.html'
 import './components/card-blogs.html'
 import './components/cards.html'
 import './components/carousel.html'
+import './components/chart.html'
 import './components/checkboxes.html'
 import './components/context-menu.html'
 import './components/dashboard-side-card.html'
@@ -53,14 +54,12 @@ import './components/toolbar.html'
 import './components/tooltip.html'
 import './components/video.html'
 import './components/volume.html'
+import './components/website/contents/article.html'
 import './components/website/contents/news-blogs.html'
 import './components/website/news-and-blogs.html'
+import './components/website/post-detail.html'
 import './components/wizards.html'
 import './pages/home.html'
-import './components/chart.html'
-
-
-
 
 const contentMap = {
   home: './pages/home.html',
@@ -124,8 +123,9 @@ const contentMap = {
   contextMenu: './components/context-menu.html',
   testimonials: './components/testimonials.html',
   newsAndBlogs: './components/website/news-and-blogs.html',
+  article: './components/website/post-detail.html',
   services: './components/website/services.html',
-  chart: './components/chart.html'
+  chart: './components/chart.html',
 }
 
 const documentContent = [
@@ -369,8 +369,8 @@ const documentContent = [
       },
       {
         name: 'Chart',
-        slug: 'chart'
-      }
+        slug: 'chart',
+      },
     ],
   },
   {
@@ -381,6 +381,10 @@ const documentContent = [
       {
         name: 'About',
         slug: 'about',
+      },
+      {
+        name: 'Article',
+        slug: 'article',
       },
       {
         name: 'Card for Blogs',
