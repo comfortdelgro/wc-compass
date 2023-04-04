@@ -132,7 +132,7 @@ export class CdgCarouselScroller extends HTMLElement {
       position = this.slideWidth * (prevValue + 1) + CARD_MODE_PADDING
     }
 
-    if (loop) {
+    if (loop && this.children.length > 1) {
       if (this.singleCenter) {
         position = -(position - this.parentElement.clientWidth * 0.2)
       } else {
@@ -204,7 +204,7 @@ export class CdgCarouselScroller extends HTMLElement {
       this.position < 0 ? Math.abs(this.position) : -this.position
     this.style.transform = `translate3d(${position}px, 0, 0)`
 
-    if (updateLastFirst) {
+    if (updateLastFirst && this.children.length > 1) {
       const firstSlide = this.children[0]
       const lastSlide = this.children[this.children.length - 1]
       const spacing = this.singleCenter ? 24 : 0

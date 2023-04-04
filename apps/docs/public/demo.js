@@ -1,3 +1,4 @@
+import './components/about.html'
 import './components/accordion.html'
 import './components/alert-badges.html'
 import './components/alert.html'
@@ -8,6 +9,7 @@ import './components/calendar.html'
 import './components/card-blogs.html'
 import './components/cards.html'
 import './components/carousel.html'
+import './components/chart.html'
 import './components/checkboxes.html'
 import './components/context-menu.html'
 import './components/dashboard-side-card.html'
@@ -42,6 +44,7 @@ import './components/sub-nav.html'
 import './components/table.html'
 import './components/tabs.html'
 import './components/tag-box.html'
+import './components/template/dashboard.html'
 import './components/testimonials.html'
 import './components/text-field.html'
 import './components/timeline.html'
@@ -51,6 +54,10 @@ import './components/toolbar.html'
 import './components/tooltip.html'
 import './components/video.html'
 import './components/volume.html'
+import './components/website/contents/article.html'
+import './components/website/contents/news-blogs.html'
+import './components/website/news-and-blogs.html'
+import './components/website/post-detail.html'
 import './components/wizards.html'
 import './pages/home.html'
 
@@ -66,6 +73,7 @@ const contentMap = {
   file: './components/file.html',
   fileUpload: './components/file-upload.html',
   footer: './components/footer.html',
+  about: './components/about.html',
   icon: './components/icon.html',
   dialog: './components/dialog.html',
   dropdown: './components/dropdown.html',
@@ -107,10 +115,18 @@ const contentMap = {
   rangeSlider: './components/range-slider.html',
   tagBox: './components/tag-box.html',
   video: './components/video.html',
+  dashboardTemplate: './components/template/dashboard.html',
+  richTextEditor: './components/rich-text-editor.html',
+  selectingThemeModal: './components/template/selecting-theme-modal.html',
+  servicesMenu: './components/template/services-menu.html',
   multiLevelDropdown: './components/multi-level-dropdown.html',
   contextMenu: './components/context-menu.html',
   testimonials: './components/testimonials.html',
   zoomImageView: './components/zoom-image-view.html',
+  newsAndBlogs: './components/website/news-and-blogs.html',
+  article: './components/website/post-detail.html',
+  services: './components/website/services.html',
+  chart: './components/chart.html',
 }
 
 const documentContent = [
@@ -239,6 +255,10 @@ const documentContent = [
         slug: 'rangeSlider',
       },
       {
+        name: 'Rich Text Editor',
+        slug: 'richTextEditor',
+      },
+      {
         name: 'Toggle',
         slug: 'toggle',
       },
@@ -348,6 +368,10 @@ const documentContent = [
         name: 'Toast',
         slug: 'toast',
       },
+      {
+        name: 'Chart',
+        slug: 'chart',
+      },
     ],
   },
   {
@@ -356,8 +380,28 @@ const documentContent = [
     icon: 'grids',
     children: [
       {
+        name: 'About',
+        slug: 'about',
+      },
+      {
+        name: 'Article',
+        slug: 'article',
+      },
+      {
         name: 'Card for Blogs',
         slug: 'cardBlogs',
+      },
+      {
+        name: 'News And Blogs',
+        slug: 'newsAndBlogs',
+      },
+      {
+        name: 'Selecting Theme Modal',
+        slug: 'selectingThemeModal',
+      },
+      {
+        name: 'Services Menu',
+        slug: 'servicesMenu',
       },
       {
         name: 'Testimonials',
@@ -367,6 +411,11 @@ const documentContent = [
         name: 'Zoom image view',
         slug: 'zoomImageView',
       },
+      {
+        name: 'Services',
+        slug: 'services',
+      },
+      {name: 'Dashboard', slug: 'dashboardTemplate'},
     ],
   },
 ]
@@ -478,7 +527,6 @@ function handlePageChange(url) {
 
   const lastPrams = url.split('#')[1] || 'home'
   const hash = lastPrams.split('?')[0]
-  console.log(hash)
   activeMenu(hash)
   subNavParent.classList.remove('stick')
   if (hash === 'home') {

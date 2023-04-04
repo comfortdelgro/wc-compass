@@ -14,3 +14,33 @@ cdg-icon,
     height: 100%;
   }
 }
+
+cdg-zig-logo {
+  border-radius: 14px;
+  padding: 12px;
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  background-color: var(--accent);
+  color: #ffffff;
+  cdg-icon,
+  .cdg-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  &[size='52'] {
+    width: 52px;
+    height: 52px;
+    padding: 10px;
+    cdg-icon,
+    .cdg-icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
