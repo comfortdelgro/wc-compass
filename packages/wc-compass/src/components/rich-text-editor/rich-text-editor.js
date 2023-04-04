@@ -1,4 +1,4 @@
-import { Editor } from '@tiptap/core'
+import {Editor} from '@tiptap/core'
 import Color from '@tiptap/extension-color'
 import TextStyle from '@tiptap/extension-text-style'
 

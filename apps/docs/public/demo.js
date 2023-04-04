@@ -122,6 +122,7 @@ const contentMap = {
   multiLevelDropdown: './components/multi-level-dropdown.html',
   contextMenu: './components/context-menu.html',
   testimonials: './components/testimonials.html',
+  zoomImageView: './components/zoom-image-view.html',
   newsAndBlogs: './components/website/news-and-blogs.html',
   article: './components/website/post-detail.html',
   services: './components/website/services.html',
@@ -405,6 +406,10 @@ const documentContent = [
       {
         name: 'Testimonials',
         slug: 'testimonials',
+      },
+      {
+        name: 'Zoom image view',
+        slug: 'zoomImageView',
       },
       {
         name: 'Services',
