@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.1.0
+
+### Minor Changes
+
+- 41ce9e2: Add blog layout, image viewer and fixing bugs
+
 ## 0.0.3
 
 ### Patch Changes
