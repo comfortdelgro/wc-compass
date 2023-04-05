@@ -35,21 +35,10 @@
     justify-content: center;
     height: calc(100% - 100px);
     position: relative;
-    .test {
-      width: 5px;
-      height: 5px;
-      border: 1px solid red;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 999;
-    }
     img {
       width: auto;
       height: 100%;
       transition: all 0.3s linear;
-      touch-action: pinch-zoom;
     }
   }
 }

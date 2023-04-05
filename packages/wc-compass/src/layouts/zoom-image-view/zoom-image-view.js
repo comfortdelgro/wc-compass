@@ -16,7 +16,6 @@ function createModalTemplate(imgSrc) {
     <cdg-modal-body>
       <div class="cdg-zoom-image-view-body">
         <div class="cdg-zoom-image-view-transform">
-          <div class="test"></div>
           <img src="${imgSrc}" id="cdg-zoom-image-view-img" />
         </div>
       </div>
