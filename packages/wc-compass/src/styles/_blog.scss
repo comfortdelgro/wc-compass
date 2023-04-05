@@ -99,6 +99,10 @@
 .cdg-blog-post {
   font-size: 20px;
   line-height: 30px;
+  padding-bottom: 32px;
+  gap: 32px;
+  display: flex;
+  flex-direction: column;
 }
 
 .cdg-post-title {
@@ -111,8 +115,12 @@
   font-weight: 700;
   font-size: 28px;
   line-height: 42px;
-  margin-top: 32px;
   margin-bottom: 16px;
+}
+
+.cdg-post-actions {
+  display: flex;
+  align-items: center;
 }
 
 .cdg-post-callout {
@@ -129,4 +137,24 @@
 
 .cdg-image-description {
   color: var(--grey60);
+}
+
+.cdg-grey-section {
+  background: var(--grey10);
+}
+
+.cdg-card-section {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  gap: 32px;
+  cdg-card,
+  .cdg-card {
+    flex: 1;
+  }
+}
+
+.cdg-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 }

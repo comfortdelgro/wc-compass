@@ -55,7 +55,6 @@ cdg-card,
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background: var(--background);
   color: var(--grey100);
 
   &[horizontal] {
@@ -74,6 +73,11 @@ cdg-card,
   }
 
   &.article-card {
+    cdg-card-cover,
+    .cdg-card-cover {
+      flex: 1;
+    }
+
     cdg-card-body,
     .cdg-card-body {
       display: flex;
@@ -89,8 +93,10 @@ cdg-card,
   }
 
   &.raised {
+    background: var(--background);
     box-shadow: var(--shadow-01), var(--shadow-02);
   }
+
   &:focus {
     outline-color: var(--accent);
   }
@@ -216,6 +222,10 @@ cdg-card-actions,
 cdg-card-cover,
 .cdg-card-cover {
   display: flex;
+  &[rounded] {
+    border-radius: 8px;
+    overflow: hidden;
+  }
 }
 
 .cdg-card-cover-image {
