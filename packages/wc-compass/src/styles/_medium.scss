@@ -42,6 +42,13 @@
       bottom: 24px;
     }
   }
+
+  cdg-card.article-card .cdg-card-title,
+  .cdg-card.article-card .cdg-card-title,
+  .cdg-card-blog-title {
+    font-size: 22px;
+    line-height: 28px;
+  }
 }
 
 @media screen and (max-width: 960px) {
@@ -79,5 +86,60 @@
 
   .cdg-about-image {
     margin: 1.5rem 0;
+  }
+
+  .cdg-post-title {
+    font-size: 28px;
+    line-height: 42px;
+  }
+
+  cdg-card.article-card .cdg-card-title,
+  .cdg-card.article-card .cdg-card-title,
+  .cdg-card-blog-title {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  cdg-card[horizontal],
+  .cdg-card[horizontal] {
+    flex-direction: column;
+    cdg-card-cover,
+    .cdg-card-cover {
+      width: 100%;
+    }
+
+    cdg-card-body,
+    .cdg-card-body {
+      padding-left: 1rem;
+    }
+
+    .cdg-card-blog-category {
+      margin-top: 0;
+    }
+  }
+
+  .cdg-card-section {
+    flex-direction: column;
+    cdg-card,
+    .cdg-card {
+      flex-direction: row;
+      gap: 20px;
+    }
+    cdg-card-cover,
+    .cdg-card-cover {
+      flex: 0.7;
+      flex-shrink: 0;
+    }
+
+    .cdg-card-blog-content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+  }
+
+  cdg-card-header,
+  .cdg-card-header {
+    padding: 8px 0;
   }
 }

@@ -20,6 +20,12 @@ cdg-pill-badge,
     border: 1px solid var(--info);
   }
 
+  &[pill-style='tag'] {
+    color: var(--accent);
+    border: 1px solid currentColor;
+    background-color: var(--background);
+  }
+
   &[type='danger'] {
     background: var(--danger);
     &[pill-style='outline'],
@@ -29,6 +35,10 @@ cdg-pill-badge,
     }
     &[pill-style='outline'] {
       border: 1px solid var(--danger);
+    }
+    &[pill-style='tag'] {
+      color: var(--danger);
+      background-color: var(--background);
     }
   }
 
@@ -43,6 +53,10 @@ cdg-pill-badge,
     &[pill-style='outline'] {
       border: 1px solid var(--warning);
     }
+    &[pill-style='tag'] {
+      color: var(--warning);
+      background-color: var(--background);
+    }
   }
 
   &[type='success'] {
@@ -55,6 +69,11 @@ cdg-pill-badge,
 
     &[pill-style='outline'] {
       border: 1px solid var(--success);
+    }
+
+    &[pill-style='tag'] {
+      color: var(--success);
+      background-color: var(--background);
     }
   }
 
