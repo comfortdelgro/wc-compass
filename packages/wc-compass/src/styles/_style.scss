@@ -16,6 +16,7 @@
   --grey60: #666666;
   --grey70: #777777;
   --grey80: #888888;
+  --grey-shades-80: #888888;
   --grey90: #999999;
   --grey100: #cccccc;
   --grey110: #dddddd;
@@ -146,6 +147,7 @@ html,
 body {
   font-family: var(--font-family);
   color: var(--primary-color);
+  background: var(--background);
   font-size: 16px;
   line-height: 24px;
   margin: 0;

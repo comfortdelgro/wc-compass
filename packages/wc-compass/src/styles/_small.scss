@@ -66,6 +66,47 @@
   .cdg-page-header {
     padding: 16px;
   }
+
+  .cdg-post-actions {
+    flex-direction: column;
+  }
+
+  .cdg-post-section-title {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .cdg-blog-post {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .cdg-card-blog-title {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  cdg-card,
+  .cdg-card {
+    .cdg-card-blog-date,
+    .cdg-card-blog-category {
+      font-size: 10px;
+      line-height: 16px;
+    }
+
+    &.article-card .cdg-card-title,
+    &.article-card .cdg-card-title {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  .cdg-card-section {
+    cdg-card-cover,
+    .cdg-card-cover {
+      flex: 1;
+    }
+  }
 }
 
 @media screen and (max-width: 479px) {
