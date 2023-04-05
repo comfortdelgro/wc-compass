@@ -4,6 +4,7 @@ const ARROW_RIGHT = `<cdg-icon name="arrowRight" size="24"></cdg-icon>`
 const ARROW_LEFT = `<cdg-icon name="arrowLeft" size="24"></cdg-icon>`
 const ARROW_RIGHT_TEXT = `Next`
 const ARROW_LEFT_TEXT = `Prev`
+const CLICKABLE_ELEMENTS = ['BUTTON', 'A']
 
 export class CdgCarousel extends HTMLElement {
   static get observedAttributes() {
@@ -269,7 +270,7 @@ export class CdgCarousel extends HTMLElement {
 
     // Buttons will not trigger click event if we set pointer capture
     // This is to ignore buttons
-    if (event.target.tagName !== 'BUTTON') {
+    if (!CLICKABLE_ELEMENTS.includes(event.target.tagName)) {
       this.setPointerCapture(event.pointerId)
     }
 

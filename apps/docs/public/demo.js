@@ -1,3 +1,5 @@
+import {SampleSection} from './sample-section'
+
 import './components/about.html'
 import './components/accordion.html'
 import './components/alert-badges.html'
@@ -61,6 +63,8 @@ import './components/website/post-detail.html'
 import './components/wizards.html'
 import './pages/home.html'
 
+customElements.define('cdg-sample-section', SampleSection)
+
 const contentMap = {
   home: './pages/home.html',
   accordion: './components/accordion.html',
@@ -122,7 +126,7 @@ const contentMap = {
   multiLevelDropdown: './components/multi-level-dropdown.html',
   contextMenu: './components/context-menu.html',
   testimonials: './components/testimonials.html',
-  zoomImageView: './components/zoom-image-view.html',
+  imageViewer: './components/zoom-image-view.html',
   newsAndBlogs: './components/website/news-and-blogs.html',
   article: './components/website/post-detail.html',
   services: './components/website/services.html',
@@ -372,6 +376,10 @@ const documentContent = [
         name: 'Chart',
         slug: 'chart',
       },
+      {
+        name: 'Image Viewer',
+        slug: 'imageViewer',
+      },
     ],
   },
   {
@@ -406,10 +414,6 @@ const documentContent = [
       {
         name: 'Testimonials',
         slug: 'testimonials',
-      },
-      {
-        name: 'Zoom image view',
-        slug: 'zoomImageView',
       },
       {
         name: 'Services',
