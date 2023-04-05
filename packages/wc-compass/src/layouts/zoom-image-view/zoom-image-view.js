@@ -35,6 +35,7 @@ export class CdgZoomImageView extends HTMLElement {
   zoomValue = 1
   transformViewEl
   imgContentEl
+  ratioPointer = DEFAULT_POINT
 
   static get observedAttributes() {
     return []
@@ -98,8 +99,8 @@ export class CdgZoomImageView extends HTMLElement {
   handleZoomInClick() {
     if (this.zoomValue < MAX_ZOOM) {
       this.imgContentEl.style.transition = 'all 0.3s linear'
+      const {x, y} = this.getNewPointer(0.5)
       this.zoomValue = this.zoomValue + 0.5
-      const {x, y} = this.getNewPointer(0.5, this.imgContentEl)
       this.pointer.update({x, y})
       this.currentPosition = {x, y}
       this.imgContentEl.style.transform = `translate(${x}px, ${y}px) scale(${this.zoomValue})`
@@ -109,16 +110,17 @@ export class CdgZoomImageView extends HTMLElement {
   handleZoomOutClick() {
     if (this.zoomValue > MIN_ZOOM) {
       this.imgContentEl.style.transition = 'all 0.3s linear'
+      let {x, y} = this.getNewPointer(-0.5)
       this.zoomValue = this.zoomValue - 0.5
       // Set to center when zoom to min value
       if (this.zoomValue === MIN_ZOOM) {
         this.pointer.update(DEFAULT_POINT)
         this.currentPosition = DEFAULT_POINT
+        this.ratioPointer = DEFAULT_POINT
         this.imgContentEl.style.transform = `translate(0px, 0px) scale(${this.zoomValue})`
         return
       }
 
-      let {x, y} = this.getNewPointer(-0.5, this.imgContentEl)
       this.imgContentEl.style.transform = `translate(${x}px, ${y}px) scale(${this.zoomValue})`
       const bound = this.imgContentEl.getBoundingClientRect()
       const boundTransformView = this.transformViewEl.getBoundingClientRect()
@@ -144,23 +146,21 @@ export class CdgZoomImageView extends HTMLElement {
     }
   }
 
-  getNewPointer(calZoomValue, translateElement) {
-    const oldWidth = this.zoomValue * this.imgContentEl.clientWidth
-    const oldHeight = this.zoomValue * this.imgContentEl.clientHeight
+  getNewPointer(calZoomValue) {
     const newWidth =
       (this.zoomValue + calZoomValue) * this.imgContentEl.clientWidth
     const newHeight =
       (this.zoomValue + calZoomValue) * this.imgContentEl.clientHeight
-
-    const {translateX, translateY} = this.getTranslateValue(translateElement)
-    const x = (translateX / oldWidth) * newWidth
-    const y = (translateY / oldHeight) * newHeight
-    return {x, y}
+    return {
+      x: newWidth * this.ratioPointer.x,
+      y: newHeight * this.ratioPointer.y,
+    }
   }
 
   handleModalClose() {
     this.pointer.update(DEFAULT_POINT)
     this.currentPosition = DEFAULT_POINT
+    this.ratioPointer = DEFAULT_POINT
     this.zoomValue = 1
     this.overPointerTop = false
     this.overPointerBottom = false
@@ -272,6 +272,12 @@ export class CdgZoomImageView extends HTMLElement {
       this.pointer.update(nextPointer)
     }
     this.currentPosition = nextCurrentPointer
+    const newWidth = this.zoomValue * this.imgContentEl.clientWidth
+    const newHeight = this.zoomValue * this.imgContentEl.clientHeight
+    const {translateX, translateY} = this.getTranslateValue(this.imgContentEl)
+    const ratioX = translateX / newWidth
+    const ratioY = translateY / newHeight
+    this.ratioPointer = {x: ratioX, y: ratioY}
   }
 
   getImageContentPointer() {

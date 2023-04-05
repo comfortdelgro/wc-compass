@@ -19,9 +19,11 @@
   }
   .cdg-modal-body {
     display: flex;
-    width: 70%;
     overflow: hidden;
     margin: 0 auto;
+    width: 100%;
+    max-height: unset;
+    padding: 0;
   }
 }
 .cdg-zoom-image-view-body {
@@ -31,7 +33,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    height: 100%;
+    height: calc(100% - 100px);
     position: relative;
     img {
       width: auto;
