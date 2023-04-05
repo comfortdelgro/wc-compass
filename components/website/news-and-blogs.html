@@ -8,6 +8,7 @@
   #demo-content {
     flex: 1;
     overflow: auto;
+    border: 1px solid var(--border);
   }
 
   #demo-content iframe {
@@ -16,7 +17,17 @@
   }
 </style>
 
-<div id="demo-content"></div>
+<div style="display: flex; flex-direction: column; flex: 1; overflow: auto">
+  <a
+    href="./components/website/contents/news-blogs.html"
+    class="cdg-button link"
+    target="_blank"
+    style="margin-bottom: 20px"
+  >
+    Open in new tab
+  </a>
+  <div id="demo-content"></div>
+</div>
 
 <script>
   const demoContent = document.querySelector('#demo-content')
