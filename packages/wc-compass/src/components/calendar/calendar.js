@@ -165,14 +165,23 @@ export class CdgCalendar extends HTMLElement {
   multiYearView
   rangeYear
   monthView
-
   isDouble
-  format = 'YYYY-MM-DD'
-
   hasBottom
   bottomElement
   todayElement
   bottomSelectedDetailElement
+
+  get format() {
+    return this.getAttribute('format') || 'YYYY-MM-DD'
+  }
+
+  set format(value) {
+    if (value) {
+      this.setAttribute('format', value)
+    } else {
+      this.removeAttribute('format')
+    }
+  }
 
   get min() {
     return this.getAttribute('min')
@@ -214,10 +223,6 @@ export class CdgCalendar extends HTMLElement {
     super()
     this.append(templateHeader.content.cloneNode(true))
 
-    if (this.hasAttribute('format')) {
-      this.format = this.getAttribute('format')
-    }
-
     this.containerElement = document.createElement('div')
     this.containerElement.classList.add('calendar-container')
     this.appendChild(this.containerElement)
@@ -229,8 +234,6 @@ export class CdgCalendar extends HTMLElement {
 
     this.hasBottom = this.hasAttribute('has-bottom')
     this.createBottomLayout()
-    this.min = this.getAttribute('min')
-    this.max = this.getAttribute('max')
     this.renderLayout()
   }
 
