@@ -1,288 +1,7 @@
 <p>Lists show a large set of items or options to the user</p>
 
-<h3 class="sample-section-title">Avatar & 2 lines</h3>
-<div class="sample-section reverse" style="flex-direction: column; gap: 2px">
-  <cdg-list-item>
-    <div class="cdg-list-item-icon">
-      <cdg-avatar name="Jacqueline Jordan" size="40"></cdg-avatar>
-    </div>
-    <div class="cdg-list-item-info">
-      <div class="cdg-list-item-title">Jacqueline Jordan</div>
-      <div class="cdg-list-item-description">Project Manager</div>
-    </div>
-    <div class="cdg-list-item-right-col">
-      <div class="cdg-list-item-button">
-        Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
-      </div>
-    </div>
-  </cdg-list-item>
-  <cdg-list-item>
-    <div class="cdg-list-item-icon">
-      <cdg-avatar name="Wade Linsay" size="40"></cdg-avatar>
-    </div>
-    <div class="cdg-list-item-info">
-      <div class="cdg-list-item-title">Wade Linsay</div>
-      <div class="cdg-list-item-description">Delivery Manager</div>
-    </div>
-    <div class="cdg-list-item-right-col">
-      <div class="cdg-list-item-button">
-        <cdg-icon name="arrow-right" size="18"></cdg-icon>
-      </div>
-    </div>
-  </cdg-list-item>
-  <cdg-list-item>
-    <div class="cdg-list-item-icon">
-      <cdg-avatar name="Levina Biladen" size="40"></cdg-avatar>
-    </div>
-    <div class="cdg-list-item-info">
-      <div class="cdg-list-item-title">Levina Biladen</div>
-      <div class="cdg-list-item-description">Memeloper</div>
-    </div>
-    <div class="cdg-list-item-right-col">
-      <cdg-alert-badge type="danger">+99</cdg-alert-badge>
-    </div>
-  </cdg-list-item>
-  <cdg-list-item>
-    <div class="cdg-list-item-icon">
-      <cdg-avatar name="Wenrui Wang" size="40"></cdg-avatar>
-    </div>
-    <div class="cdg-list-item-info">
-      <div class="cdg-list-item-title">Wenrui Wang</div>
-      <div class="cdg-list-item-description">Designer</div>
-    </div>
-    <div class="cdg-list-item-right-col">
-      <div class="cdg-list-item-button">Details</div>
-    </div>
-  </cdg-list-item>
-  <cdg-list-item>
-    <div class="cdg-list-item-icon">
-      <cdg-avatar name="Justin Garza" size="40"></cdg-avatar>
-    </div>
-    <div class="cdg-list-item-info">
-      <div class="cdg-list-item-title">Justin Garza</div>
-      <div class="cdg-list-item-description">Developer</div>
-    </div>
-  </cdg-list-item>
-  <cdg-list-item>
-    <div class="cdg-list-item-icon">
-      <cdg-avatar name="Justin Garza" size="40"></cdg-avatar>
-    </div>
-    <div class="cdg-list-item-info">
-      <div class="cdg-list-item-title">Paule Nguyen</div>
-      <div class="cdg-list-item-description">Developer</div>
-    </div>
-    <div class="cdg-list-item-right-col">
-      <label class="cdg-toggle large">
-        <input type="checkbox" />
-      </label>
-    </div>
-  </cdg-list-item>
-</div>
-
-<pre>
-    <code class="language-html">&lt;cdg-list-item&gt;
-    &lt;div class=&quot;cdg-list-item-icon&quot;&gt;
-        // Place your icon / avatar here
-    &lt;/div&gt;
-    &lt;div class=&quot;cdg-list-item-info&quot;&gt;
-        &lt;div class=&quot;cdg-list-item-title&quot;&gt;Any title&lt;/div&gt;
-        &lt;div class=&quot;cdg-list-item-description&quot;&gt;Description of this list item&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;cdg-list-item-right-col&quot;&gt;
-        // Place any item here: button, text, icon, toggle...
-    &lt;/div&gt;
-&lt;/cdg-list-item&gt;</code>
-</pre>
-
-<h3 class="sample-section-title">Icon & 1 line</h3>
-<div
-  class="sample-section"
-  style="
-    background: var(--grey10);
-    padding: 10px;
-    flex-direction: column;
-    gap: 2px;
-  "
->
-  <cdg-list-item>
-    <div class="cdg-list-item-icon">
-      <cdg-icon name="user"></cdg-icon>
-    </div>
-    <div class="cdg-list-item-info">
-      <div class="cdg-list-item-title">Jacqueline Jordan</div>
-    </div>
-    <div class="cdg-list-item-right-col">
-      <div class="cdg-list-item-button">
-        Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
-      </div>
-    </div>
-  </cdg-list-item>
-  <cdg-list-item>
-    <div class="cdg-list-item-icon">
-      <cdg-icon name="user"></cdg-icon>
-    </div>
-    <div class="cdg-list-item-info">
-      <div class="cdg-list-item-title">Wade Linsay</div>
-    </div>
-    <div class="cdg-list-item-right-col">
-      <div class="cdg-list-item-button">
-        <cdg-icon name="arrow-right" size="18"></cdg-icon>
-      </div>
-    </div>
-  </cdg-list-item>
-  <cdg-list-item>
-    <div class="cdg-list-item-icon">
-      <cdg-icon name="user"></cdg-icon>
-    </div>
-    <div class="cdg-list-item-info">
-      <div class="cdg-list-item-title">Levina Biladen</div>
-    </div>
-    <div class="cdg-list-item-right-col">
-      <cdg-alert-badge type="danger">+99</cdg-alert-badge>
-    </div>
-  </cdg-list-item>
-  <cdg-list-item>
-    <div class="cdg-list-item-icon">
-      <cdg-icon name="user"></cdg-icon>
-    </div>
-    <div class="cdg-list-item-info">
-      <div class="cdg-list-item-title">Wenrui Wang</div>
-    </div>
-    <div class="cdg-list-item-right-col">
-      <div class="cdg-list-item-button">Details</div>
-    </div>
-  </cdg-list-item>
-  <cdg-list-item>
-    <div class="cdg-list-item-icon">
-      <cdg-icon name="user"></cdg-icon>
-    </div>
-    <div class="cdg-list-item-info">
-      <div class="cdg-list-item-title">Justin Garza</div>
-    </div>
-  </cdg-list-item>
-  <cdg-list-item>
-    <div class="cdg-list-item-icon">
-      <cdg-icon name="user"></cdg-icon>
-    </div>
-    <div class="cdg-list-item-info">
-      <div class="cdg-list-item-title">Paule Nguyen</div>
-    </div>
-    <div class="cdg-list-item-right-col">
-      <label class="cdg-toggle large">
-        <input type="checkbox" />
-      </label>
-    </div>
-  </cdg-list-item>
-</div>
-
-<pre>
-    <code class="language-html">// Just remove description element
-&lt;cdg-list-item&gt;
-    &lt;div class=&quot;cdg-list-item-icon&quot;&gt;
-        // Place your icon / avatar here
-    &lt;/div&gt;
-    &lt;div class=&quot;cdg-list-item-info&quot;&gt;
-        &lt;div class=&quot;cdg-list-item-title&quot;&gt;Any title&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;cdg-list-item-right-col&quot;&gt;
-        // Place any item here: button, text, icon, toggle...
-    &lt;/div&gt;
-&lt;/cdg-list-item&gt;</code>
-</pre>
-
-<h3 class="sample-section-title">No icon</h3>
-<div
-  class="sample-section"
-  style="
-    background: var(--grey10);
-    padding: 10px;
-    flex-direction: column;
-    gap: 2px;
-  "
->
-  <cdg-list-item>
-    <div class="cdg-list-item-info">
-      <div class="cdg-list-item-title">Jacqueline Jordan</div>
-      <div class="cdg-list-item-description">Project Manager</div>
-    </div>
-    <div class="cdg-list-item-right-col">
-      <div class="cdg-list-item-button">
-        Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
-      </div>
-    </div>
-  </cdg-list-item>
-  <cdg-list-item>
-    <div class="cdg-list-item-info">
-      <div class="cdg-list-item-title">Wade Linsay</div>
-      <div class="cdg-list-item-description">Delivery Manager</div>
-    </div>
-    <div class="cdg-list-item-right-col">
-      <div class="cdg-list-item-button">
-        <cdg-icon name="arrow-right" size="18"></cdg-icon>
-      </div>
-    </div>
-  </cdg-list-item>
-  <cdg-list-item>
-    <div class="cdg-list-item-info">
-      <div class="cdg-list-item-title">Levina Biladen</div>
-      <div class="cdg-list-item-description">Memeloper</div>
-    </div>
-    <div class="cdg-list-item-right-col">
-      <cdg-alert-badge type="danger">+99</cdg-alert-badge>
-    </div>
-  </cdg-list-item>
-  <cdg-list-item>
-    <div class="cdg-list-item-info">
-      <div class="cdg-list-item-title">Wenrui Wang</div>
-      <div class="cdg-list-item-description">Designer</div>
-    </div>
-    <div class="cdg-list-item-right-col">
-      <div class="cdg-list-item-button">Details</div>
-    </div>
-  </cdg-list-item>
-  <cdg-list-item>
-    <div class="cdg-list-item-info">
-      <div class="cdg-list-item-title">Justin Garza</div>
-      <div class="cdg-list-item-description">Developer</div>
-    </div>
-  </cdg-list-item>
-  <cdg-list-item>
-    <div class="cdg-list-item-info">
-      <div class="cdg-list-item-title">Paule Nguyen</div>
-      <div class="cdg-list-item-description">Developer</div>
-    </div>
-    <div class="cdg-list-item-right-col">
-      <label class="cdg-toggle large">
-        <input type="checkbox" />
-      </label>
-    </div>
-  </cdg-list-item>
-</div>
-
-<pre>
-    <code class="language-html">// And remove the first column
-&lt;cdg-list-item&gt;
-    &lt;div class=&quot;cdg-list-item-info&quot;&gt;
-        &lt;div class=&quot;cdg-list-item-title&quot;&gt;Any title&lt;/div&gt;
-        &lt;div class=&quot;cdg-list-item-description&quot;&gt;Description of this list item&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;cdg-list-item-right-col&quot;&gt;
-        // Place any item here: button, text, icon, toggle...
-    &lt;/div&gt;
-&lt;/cdg-list-item&gt;</code>
-</pre>
-
-<h3 class="sample-section-title">Default</h3>
-<div
-  class="sample-section"
-  style="
-    background: var(--grey10);
-    padding: 10px;
-    flex-direction: column;
-    gap: 0;
-  "
->
-  <cdg-list-view>
+<cdg-sample-section name="Avatar & 2 lines">
+  <div class="sample-section reverse" style="flex-direction: column; gap: 2px">
     <cdg-list-item>
       <div class="cdg-list-item-icon">
         <cdg-avatar name="Jacqueline Jordan" size="40"></cdg-avatar>
@@ -307,7 +26,7 @@
       </div>
       <div class="cdg-list-item-right-col">
         <div class="cdg-list-item-button">
-          Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+          <cdg-icon name="arrow-right" size="18"></cdg-icon>
         </div>
       </div>
     </cdg-list-item>
@@ -320,9 +39,7 @@
         <div class="cdg-list-item-description">Memeloper</div>
       </div>
       <div class="cdg-list-item-right-col">
-        <div class="cdg-list-item-button">
-          Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
-        </div>
+        <cdg-alert-badge type="danger">+99</cdg-alert-badge>
       </div>
     </cdg-list-item>
     <cdg-list-item>
@@ -334,9 +51,7 @@
         <div class="cdg-list-item-description">Designer</div>
       </div>
       <div class="cdg-list-item-right-col">
-        <div class="cdg-list-item-button">
-          Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
-        </div>
+        <div class="cdg-list-item-button">Details</div>
       </div>
     </cdg-list-item>
     <cdg-list-item>
@@ -347,6 +62,56 @@
         <div class="cdg-list-item-title">Justin Garza</div>
         <div class="cdg-list-item-description">Developer</div>
       </div>
+    </cdg-list-item>
+    <cdg-list-item>
+      <div class="cdg-list-item-icon">
+        <cdg-avatar name="Justin Garza" size="40"></cdg-avatar>
+      </div>
+      <div class="cdg-list-item-info">
+        <div class="cdg-list-item-title">Paule Nguyen</div>
+        <div class="cdg-list-item-description">Developer</div>
+      </div>
+      <div class="cdg-list-item-right-col">
+        <label class="cdg-toggle large">
+          <input type="checkbox" />
+        </label>
+      </div>
+    </cdg-list-item>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;cdg-list-item&gt;
+    &lt;div class=&quot;cdg-list-item-icon&quot;&gt;
+        // Place your icon / avatar here
+    &lt;/div&gt;
+    &lt;div class=&quot;cdg-list-item-info&quot;&gt;
+        &lt;div class=&quot;cdg-list-item-title&quot;&gt;Any title&lt;/div&gt;
+        &lt;div class=&quot;cdg-list-item-description&quot;&gt;Description of this list item&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cdg-list-item-right-col&quot;&gt;
+        // Place any item here: button, text, icon, toggle...
+    &lt;/div&gt;
+&lt;/cdg-list-item&gt;</code>
+</pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Icon & 1 line">
+  <div
+    class="sample-section"
+    style="
+      background: var(--grey10);
+      padding: 10px;
+      flex-direction: column;
+      gap: 2px;
+    "
+  >
+    <cdg-list-item>
+      <div class="cdg-list-item-icon">
+        <cdg-icon name="user"></cdg-icon>
+      </div>
+      <div class="cdg-list-item-info">
+        <div class="cdg-list-item-title">Jacqueline Jordan</div>
+      </div>
       <div class="cdg-list-item-right-col">
         <div class="cdg-list-item-button">
           Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
@@ -355,11 +120,92 @@
     </cdg-list-item>
     <cdg-list-item>
       <div class="cdg-list-item-icon">
-        <cdg-avatar name="Paule Nguyen" size="40"></cdg-avatar>
+        <cdg-icon name="user"></cdg-icon>
+      </div>
+      <div class="cdg-list-item-info">
+        <div class="cdg-list-item-title">Wade Linsay</div>
+      </div>
+      <div class="cdg-list-item-right-col">
+        <div class="cdg-list-item-button">
+          <cdg-icon name="arrow-right" size="18"></cdg-icon>
+        </div>
+      </div>
+    </cdg-list-item>
+    <cdg-list-item>
+      <div class="cdg-list-item-icon">
+        <cdg-icon name="user"></cdg-icon>
+      </div>
+      <div class="cdg-list-item-info">
+        <div class="cdg-list-item-title">Levina Biladen</div>
+      </div>
+      <div class="cdg-list-item-right-col">
+        <cdg-alert-badge type="danger">+99</cdg-alert-badge>
+      </div>
+    </cdg-list-item>
+    <cdg-list-item>
+      <div class="cdg-list-item-icon">
+        <cdg-icon name="user"></cdg-icon>
+      </div>
+      <div class="cdg-list-item-info">
+        <div class="cdg-list-item-title">Wenrui Wang</div>
+      </div>
+      <div class="cdg-list-item-right-col">
+        <div class="cdg-list-item-button">Details</div>
+      </div>
+    </cdg-list-item>
+    <cdg-list-item>
+      <div class="cdg-list-item-icon">
+        <cdg-icon name="user"></cdg-icon>
+      </div>
+      <div class="cdg-list-item-info">
+        <div class="cdg-list-item-title">Justin Garza</div>
+      </div>
+    </cdg-list-item>
+    <cdg-list-item>
+      <div class="cdg-list-item-icon">
+        <cdg-icon name="user"></cdg-icon>
       </div>
       <div class="cdg-list-item-info">
         <div class="cdg-list-item-title">Paule Nguyen</div>
-        <div class="cdg-list-item-description">Developer</div>
+      </div>
+      <div class="cdg-list-item-right-col">
+        <label class="cdg-toggle large">
+          <input type="checkbox" />
+        </label>
+      </div>
+    </cdg-list-item>
+  </div>
+
+  <pre>
+    <code class="language-html">// Just remove description element
+&lt;cdg-list-item&gt;
+    &lt;div class=&quot;cdg-list-item-icon&quot;&gt;
+        // Place your icon / avatar here
+    &lt;/div&gt;
+    &lt;div class=&quot;cdg-list-item-info&quot;&gt;
+        &lt;div class=&quot;cdg-list-item-title&quot;&gt;Any title&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cdg-list-item-right-col&quot;&gt;
+        // Place any item here: button, text, icon, toggle...
+    &lt;/div&gt;
+&lt;/cdg-list-item&gt;</code>
+</pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="No Icon">
+  <div
+    class="sample-section"
+    style="
+      background: var(--grey10);
+      padding: 10px;
+      flex-direction: column;
+      gap: 2px;
+    "
+  >
+    <cdg-list-item>
+      <div class="cdg-list-item-info">
+        <div class="cdg-list-item-title">Jacqueline Jordan</div>
+        <div class="cdg-list-item-description">Project Manager</div>
       </div>
       <div class="cdg-list-item-right-col">
         <div class="cdg-list-item-button">
@@ -367,10 +213,167 @@
         </div>
       </div>
     </cdg-list-item>
-  </cdg-list-view>
-</div>
+    <cdg-list-item>
+      <div class="cdg-list-item-info">
+        <div class="cdg-list-item-title">Wade Linsay</div>
+        <div class="cdg-list-item-description">Delivery Manager</div>
+      </div>
+      <div class="cdg-list-item-right-col">
+        <div class="cdg-list-item-button">
+          <cdg-icon name="arrow-right" size="18"></cdg-icon>
+        </div>
+      </div>
+    </cdg-list-item>
+    <cdg-list-item>
+      <div class="cdg-list-item-info">
+        <div class="cdg-list-item-title">Levina Biladen</div>
+        <div class="cdg-list-item-description">Memeloper</div>
+      </div>
+      <div class="cdg-list-item-right-col">
+        <cdg-alert-badge type="danger">+99</cdg-alert-badge>
+      </div>
+    </cdg-list-item>
+    <cdg-list-item>
+      <div class="cdg-list-item-info">
+        <div class="cdg-list-item-title">Wenrui Wang</div>
+        <div class="cdg-list-item-description">Designer</div>
+      </div>
+      <div class="cdg-list-item-right-col">
+        <div class="cdg-list-item-button">Details</div>
+      </div>
+    </cdg-list-item>
+    <cdg-list-item>
+      <div class="cdg-list-item-info">
+        <div class="cdg-list-item-title">Justin Garza</div>
+        <div class="cdg-list-item-description">Developer</div>
+      </div>
+    </cdg-list-item>
+    <cdg-list-item>
+      <div class="cdg-list-item-info">
+        <div class="cdg-list-item-title">Paule Nguyen</div>
+        <div class="cdg-list-item-description">Developer</div>
+      </div>
+      <div class="cdg-list-item-right-col">
+        <label class="cdg-toggle large">
+          <input type="checkbox" />
+        </label>
+      </div>
+    </cdg-list-item>
+  </div>
 
-<pre>
+  <pre>
+    <code class="language-html">// And remove the first column
+&lt;cdg-list-item&gt;
+    &lt;div class=&quot;cdg-list-item-info&quot;&gt;
+        &lt;div class=&quot;cdg-list-item-title&quot;&gt;Any title&lt;/div&gt;
+        &lt;div class=&quot;cdg-list-item-description&quot;&gt;Description of this list item&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cdg-list-item-right-col&quot;&gt;
+        // Place any item here: button, text, icon, toggle...
+    &lt;/div&gt;
+&lt;/cdg-list-item&gt;</code>
+</pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Default">
+  <div
+    class="sample-section"
+    style="
+      background: var(--grey10);
+      padding: 10px;
+      flex-direction: column;
+      gap: 0;
+    "
+  >
+    <cdg-list-view>
+      <cdg-list-item>
+        <div class="cdg-list-item-icon">
+          <cdg-avatar name="Jacqueline Jordan" size="40"></cdg-avatar>
+        </div>
+        <div class="cdg-list-item-info">
+          <div class="cdg-list-item-title">Jacqueline Jordan</div>
+          <div class="cdg-list-item-description">Project Manager</div>
+        </div>
+        <div class="cdg-list-item-right-col">
+          <div class="cdg-list-item-button">
+            Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+          </div>
+        </div>
+      </cdg-list-item>
+      <cdg-list-item>
+        <div class="cdg-list-item-icon">
+          <cdg-avatar name="Wade Linsay" size="40"></cdg-avatar>
+        </div>
+        <div class="cdg-list-item-info">
+          <div class="cdg-list-item-title">Wade Linsay</div>
+          <div class="cdg-list-item-description">Delivery Manager</div>
+        </div>
+        <div class="cdg-list-item-right-col">
+          <div class="cdg-list-item-button">
+            Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+          </div>
+        </div>
+      </cdg-list-item>
+      <cdg-list-item>
+        <div class="cdg-list-item-icon">
+          <cdg-avatar name="Levina Biladen" size="40"></cdg-avatar>
+        </div>
+        <div class="cdg-list-item-info">
+          <div class="cdg-list-item-title">Levina Biladen</div>
+          <div class="cdg-list-item-description">Memeloper</div>
+        </div>
+        <div class="cdg-list-item-right-col">
+          <div class="cdg-list-item-button">
+            Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+          </div>
+        </div>
+      </cdg-list-item>
+      <cdg-list-item>
+        <div class="cdg-list-item-icon">
+          <cdg-avatar name="Wenrui Wang" size="40"></cdg-avatar>
+        </div>
+        <div class="cdg-list-item-info">
+          <div class="cdg-list-item-title">Wenrui Wang</div>
+          <div class="cdg-list-item-description">Designer</div>
+        </div>
+        <div class="cdg-list-item-right-col">
+          <div class="cdg-list-item-button">
+            Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+          </div>
+        </div>
+      </cdg-list-item>
+      <cdg-list-item>
+        <div class="cdg-list-item-icon">
+          <cdg-avatar name="Justin Garza" size="40"></cdg-avatar>
+        </div>
+        <div class="cdg-list-item-info">
+          <div class="cdg-list-item-title">Justin Garza</div>
+          <div class="cdg-list-item-description">Developer</div>
+        </div>
+        <div class="cdg-list-item-right-col">
+          <div class="cdg-list-item-button">
+            Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+          </div>
+        </div>
+      </cdg-list-item>
+      <cdg-list-item>
+        <div class="cdg-list-item-icon">
+          <cdg-avatar name="Paule Nguyen" size="40"></cdg-avatar>
+        </div>
+        <div class="cdg-list-item-info">
+          <div class="cdg-list-item-title">Paule Nguyen</div>
+          <div class="cdg-list-item-description">Developer</div>
+        </div>
+        <div class="cdg-list-item-right-col">
+          <div class="cdg-list-item-button">
+            Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+          </div>
+        </div>
+      </cdg-list-item>
+    </cdg-list-view>
+  </div>
+
+  <pre>
     <code class="language-html">&lt;cdg-list-view&gt;
     &lt;cdg-list-item&gt;
         &lt;div class=&quot;cdg-list-item-icon&quot;&gt;
@@ -389,128 +392,131 @@
     // Other items
 &lt;/cdg-list-view&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3 class="sample-section-title">Draggable</h3>
-<button class="cdg-button" id="toggleDraggable">Toggle drag</button>
-<div
-  class="sample-section"
-  style="
-    background: var(--grey10);
-    padding: 10px;
-    flex-direction: column;
-    gap: 0;
-    height: 580px;
-    overflow-y: auto;
-  "
->
-  <cdg-list-view allow-drag id="dragsample">
-    <cdg-list-item>
-      <div class="cdg-list-item-icon">
-        <cdg-avatar name="Jacqueline Jordan" size="40"></cdg-avatar>
-      </div>
-      <div class="cdg-list-item-info">
-        <div class="cdg-list-item-title">Jacqueline Jordan</div>
-        <div class="cdg-list-item-description">Project Manager</div>
-      </div>
-      <div class="cdg-list-item-right-col">
-        <div class="cdg-list-item-button">
-          Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+<cdg-sample-section name="Draggable">
+  <div class="cdg-layout">
+    <button class="cdg-button" id="toggleDraggable">Toggle drag</button>
+  </div>
+  <div
+    class="sample-section"
+    style="
+      background: var(--grey10);
+      padding: 10px;
+      flex-direction: column;
+      gap: 0;
+      height: 580px;
+      overflow-y: auto;
+    "
+  >
+    <cdg-list-view allow-drag id="dragsample">
+      <cdg-list-item>
+        <div class="cdg-list-item-icon">
+          <cdg-avatar name="Jacqueline Jordan" size="40"></cdg-avatar>
         </div>
-      </div>
-    </cdg-list-item>
-    <cdg-list-item>
-      <div class="cdg-list-item-icon">
-        <cdg-avatar name="Wade Linsay" size="40"></cdg-avatar>
-      </div>
-      <div class="cdg-list-item-info">
-        <div class="cdg-list-item-title">Wade Linsay</div>
-        <div class="cdg-list-item-description">Delivery Manager</div>
-      </div>
-      <div class="cdg-list-item-right-col">
-        <div class="cdg-list-item-button">
-          Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+        <div class="cdg-list-item-info">
+          <div class="cdg-list-item-title">Jacqueline Jordan</div>
+          <div class="cdg-list-item-description">Project Manager</div>
         </div>
-      </div>
-    </cdg-list-item>
-    <cdg-list-item>
-      <div class="cdg-list-item-icon">
-        <cdg-avatar name="Levina Biladen" size="40"></cdg-avatar>
-      </div>
-      <div class="cdg-list-item-info">
-        <div class="cdg-list-item-title">Levina Biladen</div>
-        <div class="cdg-list-item-description">Memeloper</div>
-      </div>
-      <div class="cdg-list-item-right-col">
-        <div class="cdg-list-item-button">
-          Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+        <div class="cdg-list-item-right-col">
+          <div class="cdg-list-item-button">
+            Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+          </div>
         </div>
-      </div>
-    </cdg-list-item>
-    <cdg-list-item>
-      <div class="cdg-list-item-icon">
-        <cdg-avatar name="Wenrui Wang" size="40"></cdg-avatar>
-      </div>
-      <div class="cdg-list-item-info">
-        <div class="cdg-list-item-title">Wenrui Wang</div>
-        <div class="cdg-list-item-description">Designer</div>
-      </div>
-      <div class="cdg-list-item-right-col">
-        <div class="cdg-list-item-button">
-          Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+      </cdg-list-item>
+      <cdg-list-item>
+        <div class="cdg-list-item-icon">
+          <cdg-avatar name="Wade Linsay" size="40"></cdg-avatar>
         </div>
-      </div>
-    </cdg-list-item>
-    <cdg-list-item>
-      <div class="cdg-list-item-icon">
-        <cdg-avatar name="Justin Garza" size="40"></cdg-avatar>
-      </div>
-      <div class="cdg-list-item-info">
-        <div class="cdg-list-item-title">Justin Garza</div>
-        <div class="cdg-list-item-description">Developer</div>
-      </div>
-      <div class="cdg-list-item-right-col">
-        <div class="cdg-list-item-button">
-          Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+        <div class="cdg-list-item-info">
+          <div class="cdg-list-item-title">Wade Linsay</div>
+          <div class="cdg-list-item-description">Delivery Manager</div>
         </div>
-      </div>
-    </cdg-list-item>
-    <cdg-list-item>
-      <div class="cdg-list-item-icon">
-        <cdg-avatar name="Paule Nguyen" size="40"></cdg-avatar>
-      </div>
-      <div class="cdg-list-item-info">
-        <div class="cdg-list-item-title">Paule Nguyen</div>
-        <div class="cdg-list-item-description">Developer</div>
-      </div>
-      <div class="cdg-list-item-right-col">
-        <div class="cdg-list-item-button">
-          Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+        <div class="cdg-list-item-right-col">
+          <div class="cdg-list-item-button">
+            Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+          </div>
         </div>
-      </div>
-    </cdg-list-item>
-  </cdg-list-view>
-</div>
+      </cdg-list-item>
+      <cdg-list-item>
+        <div class="cdg-list-item-icon">
+          <cdg-avatar name="Levina Biladen" size="40"></cdg-avatar>
+        </div>
+        <div class="cdg-list-item-info">
+          <div class="cdg-list-item-title">Levina Biladen</div>
+          <div class="cdg-list-item-description">Memeloper</div>
+        </div>
+        <div class="cdg-list-item-right-col">
+          <div class="cdg-list-item-button">
+            Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+          </div>
+        </div>
+      </cdg-list-item>
+      <cdg-list-item>
+        <div class="cdg-list-item-icon">
+          <cdg-avatar name="Wenrui Wang" size="40"></cdg-avatar>
+        </div>
+        <div class="cdg-list-item-info">
+          <div class="cdg-list-item-title">Wenrui Wang</div>
+          <div class="cdg-list-item-description">Designer</div>
+        </div>
+        <div class="cdg-list-item-right-col">
+          <div class="cdg-list-item-button">
+            Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+          </div>
+        </div>
+      </cdg-list-item>
+      <cdg-list-item>
+        <div class="cdg-list-item-icon">
+          <cdg-avatar name="Justin Garza" size="40"></cdg-avatar>
+        </div>
+        <div class="cdg-list-item-info">
+          <div class="cdg-list-item-title">Justin Garza</div>
+          <div class="cdg-list-item-description">Developer</div>
+        </div>
+        <div class="cdg-list-item-right-col">
+          <div class="cdg-list-item-button">
+            Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+          </div>
+        </div>
+      </cdg-list-item>
+      <cdg-list-item>
+        <div class="cdg-list-item-icon">
+          <cdg-avatar name="Paule Nguyen" size="40"></cdg-avatar>
+        </div>
+        <div class="cdg-list-item-info">
+          <div class="cdg-list-item-title">Paule Nguyen</div>
+          <div class="cdg-list-item-description">Developer</div>
+        </div>
+        <div class="cdg-list-item-right-col">
+          <div class="cdg-list-item-button">
+            Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+          </div>
+        </div>
+      </cdg-list-item>
+    </cdg-list-view>
+  </div>
 
-<script>
-  const listView = document.querySelector('#dragsample')
-  listView.addEventListener('dragitem', (event) => {
-    console.log(event.detail)
-  })
+  <script>
+    const listView = document.querySelector('#dragsample')
+    listView.addEventListener('dragitem', (event) => {
+      console.log(event.detail)
+    })
 
-  let draggable = true
+    let draggable = true
 
-  const toggleButton = document.querySelector('#toggleDraggable')
-  toggleButton.addEventListener('click', () => {
-    draggable = !draggable
-    if (draggable) {
-      listView.setAttribute('allow-drag', '')
-    } else {
-      listView.removeAttribute('allow-drag')
-    }
-  })
-</script>
+    const toggleButton = document.querySelector('#toggleDraggable')
+    toggleButton.addEventListener('click', () => {
+      draggable = !draggable
+      if (draggable) {
+        listView.setAttribute('allow-drag', '')
+      } else {
+        listView.removeAttribute('allow-drag')
+      }
+    })
+  </script>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;cdg-list-view allow-drag id=&quot;dragsample&quot;&gt;
     &lt;cdg-list-item&gt;
         &lt;div class=&quot;cdg-list-item-icon&quot;&gt;
@@ -536,3 +542,4 @@
   });
 &lt;/script&gt;</code>
 </pre>
+</cdg-sample-section>

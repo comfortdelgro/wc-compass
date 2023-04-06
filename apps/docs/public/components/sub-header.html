@@ -1,21 +1,22 @@
 <p>Sub header is then used to follow up on the top of subsequent child pages</p>
-<h3 class="sample-section-title">Default</h3>
-<div class="sample-section" style="display: block">
-  <cdg-sub-header>
-    <div class="cdg-sub-header-info">
-      <h5 class="cdg-sub-header-title">Title</h5>
-      <p class="cdg-sub-header-description">
-        Description of this sub page header
-      </p>
-    </div>
-    <div class="cdg-sub-header-actions">
-      <button class="cdg-button secondary" size="small">Save</button>
-      <button class="cdg-button" size="small">Share</button>
-    </div>
-  </cdg-sub-header>
-</div>
 
-<pre>
+<cdg-sample-section name="With description">
+  <div class="sample-section" style="display: block">
+    <cdg-sub-header>
+      <div class="cdg-sub-header-info">
+        <h5 class="cdg-sub-header-title">Title</h5>
+        <p class="cdg-sub-header-description">
+          Description of this sub page header
+        </p>
+      </div>
+      <div class="cdg-sub-header-actions">
+        <button class="cdg-button secondary" size="small">Save</button>
+        <button class="cdg-button" size="small">Share</button>
+      </div>
+    </cdg-sub-header>
+  </div>
+
+  <pre>
     <code class="language-html">&lt;cdg-sub-header&gt;
     &lt;div class=&quot;cdg-sub-header-info&quot;&gt;
         &lt;h5 class=&quot;cdg-sub-header-title&quot;&gt;Title&lt;/h5&gt;
@@ -29,20 +30,21 @@
     &lt;/div&gt;
 &lt;/cdg-sub-header&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3 class="sample-section-title">Only Title</h3>
-<div class="sample-section" style="display: block">
-  <cdg-sub-header>
-    <div class="cdg-sub-header-info">
-      <h5 class="cdg-sub-header-title">Title</h5>
-    </div>
-    <div class="cdg-sub-header-actions">
-      <button class="cdg-button" size="small">Share</button>
-    </div>
-  </cdg-sub-header>
-</div>
+<cdg-sample-section name="No description">
+  <div class="sample-section" style="display: block">
+    <cdg-sub-header>
+      <div class="cdg-sub-header-info">
+        <h5 class="cdg-sub-header-title">Title</h5>
+      </div>
+      <div class="cdg-sub-header-actions">
+        <button class="cdg-button" size="small">Share</button>
+      </div>
+    </cdg-sub-header>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;cdg-sub-header&gt;
     &lt;div class=&quot;cdg-sub-header-info&quot;&gt;
         &lt;h5 class=&quot;cdg-sub-header-title&quot;&gt;Title&lt;/h5&gt;
@@ -52,12 +54,14 @@
     &lt;/div&gt;
 &lt;/cdg-sub-header&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3 class="sample-section-title">Only title</h3>
-<div class="sample-section" style="display: block">
-  <h5 class="cdg-sub-header-title">Title</h5>
-</div>
+<cdg-sample-section name="Only Title">
+  <div class="sample-section" style="display: block">
+    <h5 class="cdg-sub-header-title">Title</h5>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;h5 class=&quot;cdg-sub-header-title&quot;&gt;Title&lt;/h5&gt;</code>
 </pre>
+</cdg-sample-section>

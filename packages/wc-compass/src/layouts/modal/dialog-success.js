@@ -37,8 +37,8 @@ export class CdgDialogStatus extends CdgDialogBase {
     super.connectedCallback()
     this.classList.add(
       'cdg-dialog-status',
-      'cdg-animate__animated',
-      'cdg-animate__zoomInDown',
+      // 'cdg-animate__animated',
+      // 'cdg-animate__zoomInDown',
     )
     if (!this.children.length) {
       this.append(

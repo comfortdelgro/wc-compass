@@ -3,7 +3,10 @@
   without disrupting a user's experience or requiring an action to be taken.
 </p>
 
-<label class="cdg-input-group" style="width: 300px; margin-top: 40px">
+<label
+  class="cdg-input-group"
+  style="width: 300px; margin-top: 40px; margin-bottom: 32px"
+>
   <span class="cdg-input-label">Color of toast</span>
   <cdg-dropdown id="colorConfig" placeholder="Select a color">
     <cdg-dropdown-option value="" selected="true">
@@ -16,12 +19,12 @@
   </cdg-dropdown>
 </label>
 
-<h3>Default</h3>
-<div class="sample-section">
-  <button class="cdg-button" onclick="showToast()">Submit</button>
-</div>
+<cdg-sample-section name="Default">
+  <div class="sample-section">
+    <button class="cdg-button" onclick="showToast()">Submit</button>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;button class=&quot;cdg-button&quot; onclick=&quot;showToast()&quot;&gt;Submit&lt;/button&gt;
 &lt;script&gt;
     function showToast() {
@@ -32,31 +35,32 @@
     };
 &lt;/script&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3>Simple</h3>
-<div class="sample-section">
-  <button class="cdg-button" onclick="showSimple()">Submit</button>
-  <template id="simpleToast">
-    <cdg-toast>
-      <cdg-toast-header>
-        <cdg-icon name="images"></cdg-icon>
-        <cdg-toast-message>This is a toast</cdg-toast-message>
-        <cdg-toast-time>A few minutes ago</cdg-toast-time>
-        <cdg-toast-top-actions>
-          <button
-            class="cdg-button ghost icon"
-            id="toast-close-button"
-            size="small"
-          >
-            <cdg-icon name="close"></cdg-icon>
-          </button>
-        </cdg-toast-top-actions>
-      </cdg-toast-header>
-    </cdg-toast>
-  </template>
-</div>
+<cdg-sample-section name="Simple">
+  <div class="sample-section">
+    <button class="cdg-button" onclick="showSimple()">Submit</button>
+    <template id="simpleToast">
+      <cdg-toast>
+        <cdg-toast-header>
+          <cdg-icon name="images"></cdg-icon>
+          <cdg-toast-message>This is a toast</cdg-toast-message>
+          <cdg-toast-time>A few minutes ago</cdg-toast-time>
+          <cdg-toast-top-actions>
+            <button
+              class="cdg-button ghost icon"
+              id="toast-close-button"
+              size="small"
+            >
+              <cdg-icon name="close"></cdg-icon>
+            </button>
+          </cdg-toast-top-actions>
+        </cdg-toast-header>
+      </cdg-toast>
+    </template>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;button class=&quot;cdg-button&quot; onclick=&quot;showSimple()&quot;&gt;Submit&lt;/button&gt;
 &lt;!-- Let&apos;s init a toast template --&gt;
 &lt;template id=&quot;simpleToast&quot;&gt;
@@ -95,31 +99,32 @@
     };
 &lt;/script&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3>Undo Link</h3>
-<div class="sample-section">
-  <button class="cdg-button danger" onclick="showUndo()">Delete</button>
-  <template id="undoToast">
-    <cdg-toast>
-      <cdg-toast-header>
-        <cdg-icon name="images"></cdg-icon>
-        <cdg-toast-message>This is a toast</cdg-toast-message>
-        <cdg-toast-top-actions>
-          <button class="cdg-button link" id="undo-button">Undo</button>
-          <button
-            class="cdg-button ghost icon"
-            id="toast-close-button"
-            size="small"
-          >
-            <cdg-icon name="close"></cdg-icon>
-          </button>
-        </cdg-toast-top-actions>
-      </cdg-toast-header>
-    </cdg-toast>
-  </template>
-</div>
+<cdg-sample-section name="Undo link button">
+  <div class="sample-section">
+    <button class="cdg-button danger" onclick="showUndo()">Delete</button>
+    <template id="undoToast">
+      <cdg-toast>
+        <cdg-toast-header>
+          <cdg-icon name="images"></cdg-icon>
+          <cdg-toast-message>This is a toast</cdg-toast-message>
+          <cdg-toast-top-actions>
+            <button class="cdg-button link" id="undo-button">Undo</button>
+            <button
+              class="cdg-button ghost icon"
+              id="toast-close-button"
+              size="small"
+            >
+              <cdg-icon name="close"></cdg-icon>
+            </button>
+          </cdg-toast-top-actions>
+        </cdg-toast-header>
+      </cdg-toast>
+    </template>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;!-- Just customize the header in your template --&gt;
 &lt;cdg-toast-header&gt;
     &lt;cdg-icon name=&quot;images&quot; source=&quot;host&quot;&gt;&lt;/cdg-icon&gt;
@@ -136,30 +141,31 @@
     &lt;/cdg-toast-top-actions&gt;
 &lt;/cdg-toast-header&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3>With actions</h3>
-<div class="sample-section">
-  <button class="cdg-button" onclick="showToastActions()">Submit</button>
-  <template id="toastActions">
-    <cdg-toast>
-      <cdg-toast-header>
-        <cdg-icon name="images"></cdg-icon>
-        <cdg-toast-message>This is a toast</cdg-toast-message>
-        <cdg-toast-time>A few minutes ago</cdg-toast-time>
-      </cdg-toast-header>
-      <cdg-toast-actions>
-        <button class="cdg-button" size="small" id="toast-close-button">
-          Acknowledge
-        </button>
-        <button class="cdg-button secondary" size="small" id="dismiss-button">
-          Dismiss
-        </button>
-      </cdg-toast-actions>
-    </cdg-toast>
-  </template>
-</div>
+<cdg-sample-section name="With actions">
+  <div class="sample-section">
+    <button class="cdg-button" onclick="showToastActions()">Submit</button>
+    <template id="toastActions">
+      <cdg-toast>
+        <cdg-toast-header>
+          <cdg-icon name="images"></cdg-icon>
+          <cdg-toast-message>This is a toast</cdg-toast-message>
+          <cdg-toast-time>A few minutes ago</cdg-toast-time>
+        </cdg-toast-header>
+        <cdg-toast-actions>
+          <button class="cdg-button" size="small" id="toast-close-button">
+            Acknowledge
+          </button>
+          <button class="cdg-button secondary" size="small" id="dismiss-button">
+            Dismiss
+          </button>
+        </cdg-toast-actions>
+      </cdg-toast>
+    </template>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;!-- This is the toast template --&gt;
 &lt;cdg-toast&gt;
     &lt;cdg-toast-header&gt;
@@ -177,40 +183,44 @@
     &lt;/cdg-toast-actions&gt;
 &lt;/cdg-toast&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3>With header</h3>
-<div class="sample-section">
-  <button class="cdg-button" onclick="showToastHeader()">Submit</button>
-  <template id="toastHeader">
-    <cdg-toast>
-      <cdg-toast-header>
-        <cdg-avatar size="24" imageSrc="https://i.pravatar.cc/24"></cdg-avatar>
-        <cdg-toast-title>Toast title</cdg-toast-title>
-        <cdg-toast-time>A few minutes ago</cdg-toast-time>
-        <cdg-toast-top-actions>
-          <button
-            class="cdg-button ghost icon"
-            id="toast-close-button"
-            size="small"
-          >
-            <cdg-icon name="close"></cdg-icon>
+<cdg-sample-section name="With Header">
+  <div class="sample-section">
+    <button class="cdg-button" onclick="showToastHeader()">Submit</button>
+    <template id="toastHeader">
+      <cdg-toast>
+        <cdg-toast-header>
+          <cdg-avatar
+            size="24"
+            imageSrc="https://i.pravatar.cc/24"
+          ></cdg-avatar>
+          <cdg-toast-title>Toast title</cdg-toast-title>
+          <cdg-toast-time>A few minutes ago</cdg-toast-time>
+          <cdg-toast-top-actions>
+            <button
+              class="cdg-button ghost icon"
+              id="toast-close-button"
+              size="small"
+            >
+              <cdg-icon name="close"></cdg-icon>
+            </button>
+          </cdg-toast-top-actions>
+        </cdg-toast-header>
+        <cdg-toast-message>This is a toast message</cdg-toast-message>
+        <cdg-toast-actions>
+          <button class="cdg-button" size="small" id="toast-execute-button">
+            Acknowledge
           </button>
-        </cdg-toast-top-actions>
-      </cdg-toast-header>
-      <cdg-toast-message>This is a toast message</cdg-toast-message>
-      <cdg-toast-actions>
-        <button class="cdg-button" size="small" id="toast-execute-button">
-          Acknowledge
-        </button>
-        <button class="cdg-button secondary" size="small" id="dismiss-button">
-          Dismiss
-        </button>
-      </cdg-toast-actions>
-    </cdg-toast>
-  </template>
-</div>
+          <button class="cdg-button secondary" size="small" id="dismiss-button">
+            Dismiss
+          </button>
+        </cdg-toast-actions>
+      </cdg-toast>
+    </template>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;!-- Just simply move out message and add a title --&gt;
 &lt;cdg-toast&gt;
     &lt;cdg-toast-header&gt;
@@ -238,22 +248,23 @@
     &lt;/cdg-toast-actions&gt;
 &lt;/cdg-toast&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3>Quick toast</h3>
-<div class="sample-section">
-  <button class="cdg-button" onclick="quickToast()">Quick Toast</button>
-  <button class="cdg-button" onclick="quickToastIcon()">
-    Quick Toast + Icon
-  </button>
-  <button
-    class="cdg-button"
-    onclick="cdgToastService.toast('You can toast a toast with inline function!')"
-  >
-    Toast
-  </button>
-</div>
+<cdg-sample-section name="Quick toast">
+  <div class="sample-section">
+    <button class="cdg-button" onclick="quickToast()">Quick Toast</button>
+    <button class="cdg-button" onclick="quickToastIcon()">
+      Quick Toast + Icon
+    </button>
+    <button
+      class="cdg-button"
+      onclick="cdgToastService.toast('You can toast a toast with inline function!')"
+    >
+      Toast
+    </button>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;button class=&quot;cdg-button&quot; onclick=&quot;quickToast()&quot;&gt;Quick Toast&lt;/button&gt;
 &lt;button class=&quot;cdg-button&quot; onclick=&quot;quickToastIcon()&quot;&gt;
     Quick Toast + Icon
@@ -278,112 +289,113 @@
     };
 &lt;/script&gt;</code>
 </pre>
+</cdg-sample-section>
 
 <script>
-  let color = '';
-  const colorConfig = document.querySelector('#colorConfig');
+  let color = ''
+  const colorConfig = document.querySelector('#colorConfig')
   colorConfig.addEventListener('onchangevalue', (event) => {
-    color = event.detail;
-  });
+    color = event.detail
+  })
 
   window.showToast = function () {
-    const toast = document.createElement('cdg-toast');
-    toast.setAttribute('color', color);
+    const toast = document.createElement('cdg-toast')
+    toast.setAttribute('color', color)
 
-    const id = 'default' + new Date().getTime();
-    toast.textContent = 'Sample ' + id;
-    cdgToastService.show(id, toast);
-  };
+    const id = 'default' + new Date().getTime()
+    toast.textContent = 'Sample ' + id
+    cdgToastService.show(id, toast)
+  }
 
   window.showSimple = function () {
     const toast = document
       .querySelector('#simpleToast')
-      .content.firstElementChild.cloneNode(true);
-    toast.setAttribute('color', color);
+      .content.firstElementChild.cloneNode(true)
+    toast.setAttribute('color', color)
 
-    const closeButton = toast.querySelector('#toast-close-button');
-    const id = 'simple' + new Date().getTime();
+    const closeButton = toast.querySelector('#toast-close-button')
+    const id = 'simple' + new Date().getTime()
     closeButton.addEventListener('click', () => {
-      cdgToastService.close(id);
-    });
+      cdgToastService.close(id)
+    })
     cdgToastService.show(id, toast, {
       autoHideAfter: 0,
-    });
-  };
+    })
+  }
 
   window.showUndo = function () {
     const toast = document
       .querySelector('#undoToast')
-      .content.firstElementChild.cloneNode(true);
-    toast.setAttribute('color', color);
+      .content.firstElementChild.cloneNode(true)
+    toast.setAttribute('color', color)
 
-    const undoButton = toast.querySelector('#undo-button');
-    const closeButton = toast.querySelector('#toast-close-button');
-    const id = 'undo' + new Date().getTime();
+    const undoButton = toast.querySelector('#undo-button')
+    const closeButton = toast.querySelector('#toast-close-button')
+    const id = 'undo' + new Date().getTime()
     undoButton.addEventListener('click', () => {
-      cdgToastService.close(id);
-      cdgToastService.toast('User has selected Undo');
-    });
+      cdgToastService.close(id)
+      cdgToastService.toast('User has selected Undo')
+    })
     closeButton.addEventListener('click', () => {
-      cdgToastService.close(id);
-    });
+      cdgToastService.close(id)
+    })
     cdgToastService.show(id, toast, {
       autoHideAfter: 0,
-    });
-  };
+    })
+  }
 
   window.showToastActions = function () {
     const toast = document
       .querySelector('#toastActions')
-      .content.firstElementChild.cloneNode(true);
-    toast.setAttribute('color', color);
+      .content.firstElementChild.cloneNode(true)
+    toast.setAttribute('color', color)
 
-    const closeButton = toast.querySelector('#toast-close-button');
-    const dismissButton = toast.querySelector('#dismiss-button');
-    const id = 'actions' + new Date().getTime();
+    const closeButton = toast.querySelector('#toast-close-button')
+    const dismissButton = toast.querySelector('#dismiss-button')
+    const id = 'actions' + new Date().getTime()
     closeButton.addEventListener('click', () => {
-      cdgToastService.close(id);
-    });
+      cdgToastService.close(id)
+    })
     dismissButton.addEventListener('click', () => {
-      cdgToastService.close(id);
-    });
+      cdgToastService.close(id)
+    })
     cdgToastService.show(id, toast, {
       autoHideAfter: 5000,
-    });
-  };
+    })
+  }
 
   window.showToastHeader = function () {
     const toast = document
       .querySelector('#toastHeader')
-      .content.firstElementChild.cloneNode(true);
-    toast.setAttribute('color', color);
+      .content.firstElementChild.cloneNode(true)
+    toast.setAttribute('color', color)
 
-    const executeButton = toast.querySelector('#toast-execute-button');
-    const closeButton = toast.querySelector('#toast-close-button');
-    const dismissButton = toast.querySelector('#dismiss-button');
-    const id = 'header' + new Date().getTime();
+    const executeButton = toast.querySelector('#toast-execute-button')
+    const closeButton = toast.querySelector('#toast-close-button')
+    const dismissButton = toast.querySelector('#dismiss-button')
+    const id = 'header' + new Date().getTime()
     executeButton.addEventListener('click', () => {
-      cdgToastService.close(id);
-    });
+      cdgToastService.close(id)
+    })
     closeButton.addEventListener('click', () => {
-      cdgToastService.close(id);
-    });
+      cdgToastService.close(id)
+    })
     dismissButton.addEventListener('click', () => {
-      cdgToastService.close(id);
-    });
+      cdgToastService.close(id)
+    })
     cdgToastService.show(id, toast, {
       autoHideAfter: 0,
-    });
-  };
+    })
+  }
 
   window.quickToast = () => {
-    cdgToastService.toast('This is a quick toast');
-  };
+    cdgToastService.toast('This is a quick toast')
+  }
 
   window.quickToastIcon = () => {
     cdgToastService.toast('This is a quick toast with custom icon', {
       name: 'shapes',
       color: '#0142af',
-    });
-  };
+    })
+  }
 </script>

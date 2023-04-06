@@ -23,6 +23,7 @@ cdg-right-group,
 
 cdg-toolbar,
 .cdg-toolbar {
+  justify-content: space-between;
   width: 100%;
   .cdg-input {
     height: 35px;
@@ -55,6 +56,7 @@ cdg-card,
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  background: var(--background);
   color: var(--grey100);
 
   &[horizontal] {
@@ -70,6 +72,10 @@ cdg-card,
       padding-left: 0;
       padding-right: 0;
     }
+  }
+
+  &[transparent] {
+    background: transparent;
   }
 
   &.article-card {
@@ -93,7 +99,6 @@ cdg-card,
   }
 
   &.raised {
-    background: var(--background);
     box-shadow: var(--shadow-01), var(--shadow-02);
   }
 
@@ -108,6 +113,11 @@ cdg-card,
     cdg-card-body,
     .cdg-card-body {
       color: var(--disabled-color);
+    }
+
+    cdg-card-cover,
+    .cdg-card-cover {
+      opacity: 0.7;
     }
   }
   &:has(.cdg-card-float-content) {

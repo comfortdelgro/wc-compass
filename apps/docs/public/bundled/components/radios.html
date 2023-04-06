@@ -8,27 +8,30 @@
     href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio"
     target="
   "
-    >mdn web docs</a
   >
+    mdn web docs
+  </a>
 </p>
 
-<h3 class="sample-section-title">Default</h3>
-<div class="sample-section">
-  <label class="cdg-radio">
-    <input type="radio" name="sample2" />
-    <span>I'm the first one</span>
-  </label>
-  <label class="cdg-radio">
-    <input type="radio" name="sample2" checked />
-    <span>I'm second</span>
-  </label>
-  <label class="cdg-radio">
-    <input type="radio" name="sample2" />
-    <span>I'm the last</span>
-  </label>
-</div>
+<cdg-sample-section name="Default">
+  <div class="sample-section">
+    <div class="cdg-input-row">
+      <label class="cdg-radio">
+        <input type="radio" name="sample2" />
+        <span>I'm the first one</span>
+      </label>
+      <label class="cdg-radio">
+        <input type="radio" name="sample2" checked />
+        <span>I'm second</span>
+      </label>
+      <label class="cdg-radio">
+        <input type="radio" name="sample2" />
+        <span>I'm the last</span>
+      </label>
+    </div>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;label class=&quot;cdg-radio&quot;&gt;
   &lt;input type=&quot;radio&quot; name=&quot;sample2&quot; /&gt;
   &lt;span&gt;I&apos;m the first one&lt;/span&gt;
@@ -42,24 +45,27 @@
   &lt;span&gt;I&apos;m the last&lt;/span&gt;
 &lt;/label&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3 class="sample-section-title">Disabled</h3>
-<div class="sample-section">
-  <label class="cdg-radio">
-    <input type="radio" name="sample3" checked disabled />
-    <span>I'm the first one</span>
-  </label>
-  <label class="cdg-radio">
-    <input type="radio" name="sample3" disabled />
-    <span>I'm two</span>
-  </label>
-  <label class="cdg-radio">
-    <input type="radio" name="sample3" disabled />
-    <span>I'm the last</span>
-  </label>
-</div>
+<cdg-sample-section name="Disabled">
+  <div class="sample-section">
+    <div class="cdg-input-row">
+      <label class="cdg-radio">
+        <input type="radio" name="sample3" checked disabled />
+        <span>I'm the first one</span>
+      </label>
+      <label class="cdg-radio">
+        <input type="radio" name="sample3" disabled />
+        <span>I'm two</span>
+      </label>
+      <label class="cdg-radio">
+        <input type="radio" name="sample3" disabled />
+        <span>I'm the last</span>
+      </label>
+    </div>
+  </div>
 
-<pre>
+  <pre>
   <code class="language-html">&lt;label class=&quot;cdg-radio&quot;&gt;
   &lt;input type=&quot;radio&quot; name=&quot;sample3&quot; checked disabled /&gt;
   &lt;span&gt;I&apos;m the first one&lt;/span&gt;
@@ -73,38 +79,41 @@
   &lt;span&gt;I&apos;m the last&lt;/span&gt;
 &lt;/label&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3 class="sample-section-title">Custom content</h3>
-<div class="sample-section">
-  <label class="cdg-radio custom-content">
-    <input type="radio" name="sample4" checked />
-    <div class="radio-content">
-      <div class="radio-title">I'm the first one</div>
-      <div class="radio-description">
-        This is the description to give user more details about this option
-      </div>
+<cdg-sample-section name="Custom content">
+  <div class="sample-section">
+    <div class="cdg-input-row">
+      <label class="cdg-radio custom-content">
+        <input type="radio" name="sample4" checked />
+        <div class="radio-content">
+          <div class="radio-title">I'm the first one</div>
+          <div class="radio-description">
+            This is the description to give user more details about this option
+          </div>
+        </div>
+      </label>
+      <label class="cdg-radio custom-content">
+        <input type="radio" name="sample4" />
+        <div class="radio-content">
+          <div class="radio-title">I'm the second</div>
+          <div class="radio-description">
+            This is the description to give user more details about this option
+            and longer than the other radios of this demo
+          </div>
+        </div>
+      </label>
+      <label class="cdg-radio custom-content">
+        <input type="radio" name="sample4" />
+        <div class="radio-content">
+          <div class="radio-title">I'm the last one</div>
+          <div class="radio-description">This is the description</div>
+        </div>
+      </label>
     </div>
-  </label>
-  <label class="cdg-radio custom-content">
-    <input type="radio" name="sample4" />
-    <div class="radio-content">
-      <div class="radio-title">I'm the second</div>
-      <div class="radio-description">
-        This is the description to give user more details about this option and
-        longer than the other radios of this demo
-      </div>
-    </div>
-  </label>
-  <label class="cdg-radio custom-content">
-    <input type="radio" name="sample4" />
-    <div class="radio-content">
-      <div class="radio-title">I'm the last one</div>
-      <div class="radio-description">This is the description</div>
-    </div>
-  </label>
-</div>
+  </div>
 
-<pre>
+  <pre>
   <code class="language-html">&lt;label class=&quot;cdg-radio custom-content&quot;&gt;
   &lt;input type=&quot;radio&quot; name=&quot;sample4&quot; checked /&gt;
   &lt;div class=&quot;radio-content&quot;&gt;
@@ -132,3 +141,4 @@
   &lt;/div&gt;
 &lt;/label&gt;</code>
 </pre>
+</cdg-sample-section>

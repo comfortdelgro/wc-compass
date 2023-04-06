@@ -3,29 +3,33 @@
   performed by the user.
 </p>
 
-<h3 class="sample-section-title">Default</h3>
-<div class="sample-section">
-  <button class="cdg-button" id="defaultModal">Show Modal</button>
-  <template for="defaultModal">
-    <cdg-modal>
-      <cdg-modal-header title="Title" useCloseButton="true"></cdg-modal-header>
-      <cdg-modal-body>
-        This is place holder text. The basic dialog for modals should contain
-        only valuable and relevant information. Simplify dialogs by removing
-        unnecessary elements or content that does not support user tasks. If you
-        find that the number of required elements for your design are making the
-        dialog excessively large, then try a different design solution.
-      </cdg-modal-body>
-      <cdg-modal-actions>
-        <div class="cdg-separator"></div>
-        <button class="cdg-button secondary" id="cancelButton">Cancel</button>
-        <button class="cdg-button" id="okButton" autofocus>Approve</button>
-      </cdg-modal-actions>
-    </cdg-modal>
-  </template>
-</div>
+<cdg-sample-section name="Default">
+  <div class="sample-section">
+    <button class="cdg-button" id="defaultModal">Show Modal</button>
+    <template for="defaultModal">
+      <cdg-modal>
+        <cdg-modal-header
+          title="Title"
+          useCloseButton="true"
+        ></cdg-modal-header>
+        <cdg-modal-body>
+          This is place holder text. The basic dialog for modals should contain
+          only valuable and relevant information. Simplify dialogs by removing
+          unnecessary elements or content that does not support user tasks. If
+          you find that the number of required elements for your design are
+          making the dialog excessively large, then try a different design
+          solution.
+        </cdg-modal-body>
+        <cdg-modal-actions>
+          <div class="cdg-separator"></div>
+          <button class="cdg-button secondary" id="cancelButton">Cancel</button>
+          <button class="cdg-button" id="okButton" autofocus>Approve</button>
+        </cdg-modal-actions>
+      </cdg-modal>
+    </template>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;button class=&quot;cdg-button&quot; id=&quot;defaultModal&quot;&gt;Show Modal&lt;/button&gt;
     &lt;template for=&quot;defaultModal&quot;&gt;
         &lt;cdg-modal&gt;
@@ -72,84 +76,86 @@
 &lt;/script&gt;
     </code>
 </pre>
+</cdg-sample-section>
 
-<h3 class="sample-section-title">Large</h3>
+<cdg-sample-section name="Large">
+  <label class="cdg-input-group" style="width: 300px; margin-bottom: 24px">
+    <span class="cdg-input-label">Dialog size</span>
+    <cdg-dropdown id="sizing" placeholder="Select an item">
+      <cdg-dropdown-option value="small"> Small </cdg-dropdown-option>
+      <cdg-dropdown-option value="medium"> Medium </cdg-dropdown-option>
+      <cdg-dropdown-option value="large" selected="true">
+        Large
+      </cdg-dropdown-option>
+      <cdg-dropdown-option value="auto"> Auto </cdg-dropdown-option>
+    </cdg-dropdown>
+  </label>
 
-<label class="cdg-input-group" style="width: 300px">
-  <span class="cdg-input-label">Dialog size</span>
-  <cdg-dropdown id="sizing" placeholder="Select an item">
-    <cdg-dropdown-option value="small"> Small </cdg-dropdown-option>
-    <cdg-dropdown-option value="medium"> Medium </cdg-dropdown-option>
-    <cdg-dropdown-option value="large" selected="true">
-      Large
-    </cdg-dropdown-option>
-    <cdg-dropdown-option value="auto"> Auto </cdg-dropdown-option>
-  </cdg-dropdown>
-</label>
+  <div class="sample-section">
+    <button class="cdg-button" id="largeModal">Show Large Modal</button>
+    <template for="largeModal">
+      <cdg-modal size="large">
+        <cdg-modal-header
+          title="I'm a large modal"
+          useCloseButton="true"
+        ></cdg-modal-header>
+        <cdg-modal-body>
+          <h2>Sample of dialog content</h2>
+          <p>
+            This is place holder text. The basic dialog for modals should
+            contain only valuable and relevant information. Simplify dialogs by
+            removing unnecessary elements or content that does not support user
+            tasks. If you find that the number of required elements for your
+            design are making the dialog excessively large, then try a different
+            design solution.
+          </p>
 
-<div class="sample-section">
-  <button class="cdg-button" id="largeModal">Show Large Modal</button>
-  <template for="largeModal">
-    <cdg-modal size="large">
-      <cdg-modal-header
-        title="I'm a large modal"
-        useCloseButton="true"
-      ></cdg-modal-header>
-      <cdg-modal-body>
-        <h2>Sample of dialog content</h2>
-        <p>
-          This is place holder text. The basic dialog for modals should contain
-          only valuable and relevant information. Simplify dialogs by removing
-          unnecessary elements or content that does not support user tasks. If
-          you find that the number of required elements for your design are
-          making the dialog excessively large, then try a different design
-          solution.
-        </p>
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(16).webp"
+            alt="sample image"
+            style="width: 100%"
+          />
 
-        <img
-          src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(16).webp"
-          alt="sample image"
-          style="width: 100%"
-        />
+          <p>
+            This is place holder text. The basic dialog for modals should
+            contain only valuable and relevant information. Simplify dialogs by
+            removing unnecessary elements or content that does not support user
+            tasks. If you find that the number of required elements for your
+            design are making the dialog excessively large, then try a different
+            design solution.
+          </p>
 
-        <p>
-          This is place holder text. The basic dialog for modals should contain
-          only valuable and relevant information. Simplify dialogs by removing
-          unnecessary elements or content that does not support user tasks. If
-          you find that the number of required elements for your design are
-          making the dialog excessively large, then try a different design
-          solution.
-        </p>
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(17).webp"
+            alt="sample image"
+            style="width: 100%"
+          />
+          <p>
+            This is place holder text. The basic dialog for modals should
+            contain only valuable and relevant information. Simplify dialogs by
+            removing unnecessary elements or content that does not support user
+            tasks. If you find that the number of required elements for your
+            design are making the dialog excessively large, then try a different
+            design solution.
+          </p>
+        </cdg-modal-body>
+        <cdg-modal-actions class="multiple">
+          <a href="http://google.com" target="_blank" class="cdg-button link">
+            Details
+          </a>
+          <div class="cdg-separator"></div>
+          <button class="cdg-button" id="largeOkButton" autofocus>
+            Approve
+          </button>
+          <button class="cdg-button secondary" id="largeCancelButton">
+            Cancel
+          </button>
+        </cdg-modal-actions>
+      </cdg-modal>
+    </template>
+  </div>
 
-        <img
-          src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(17).webp"
-          alt="sample image"
-          style="width: 100%"
-        />
-        <p>
-          This is place holder text. The basic dialog for modals should contain
-          only valuable and relevant information. Simplify dialogs by removing
-          unnecessary elements or content that does not support user tasks. If
-          you find that the number of required elements for your design are
-          making the dialog excessively large, then try a different design
-          solution.
-        </p>
-      </cdg-modal-body>
-      <cdg-modal-actions class="multiple">
-        <a href="http://google.com" target="_blank" class="cdg-button link">
-          Details
-        </a>
-        <div class="cdg-separator"></div>
-        <button class="cdg-button" id="largeOkButton" autofocus>Approve</button>
-        <button class="cdg-button secondary" id="largeCancelButton">
-          Cancel
-        </button>
-      </cdg-modal-actions>
-    </cdg-modal>
-  </template>
-</div>
-
-<pre>
+  <pre>
     <code class="language-html">&lt;button class=&quot;cdg-button&quot; id=&quot;defaultModal&quot;&gt;Show Modal&lt;/button&gt;
 &lt;template for=&quot;defaultModal&quot;&gt;
     &lt;cdg-modal size=&quot;small | medium | large | auto&quot;&gt;
@@ -188,6 +194,7 @@ largeOkButton.addEventListener(&apos;click&apos;, () =&gt; {
 &lt;/script&gt;
 </code>
 </pre>
+</cdg-sample-section>
 
 <script>
   const button = document.querySelector('#defaultModal')

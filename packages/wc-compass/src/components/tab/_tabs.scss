@@ -10,6 +10,31 @@ cdg-tabs,
   font-weight: 600;
   color: var(--accent);
   user-select: none;
+  &[classic] {
+    padding: 0;
+    gap: 24px;
+    border-radius: 0;
+
+    cdg-tab,
+    .cdg-tab {
+      border-radius: 0;
+      padding-left: 0;
+      padding-right: 0;
+      border-bottom: 3px solid transparent;
+      color: var(--grey80);
+
+      &[activated] {
+        color: var(--accent);
+        background-color: var(--background);
+        border-color: currentColor;
+      }
+
+      &:hover {
+        color: var(--accent);
+        background-color: var(--background);
+      }
+    }
+  }
 }
 
 a.cdg-tab {

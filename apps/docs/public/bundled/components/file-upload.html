@@ -1,30 +1,30 @@
-<h3>Uploading</h3>
-<div class="sample-section" style="flex-direction: column">
-  <div class="cdg-file-list">
-    <cdg-file-upload
-      state="uploading"
-      fileName="sampe-file-name.pdf"
-    ></cdg-file-upload>
-    <cdg-file-upload
-      state="success"
-      fileName="sampe-file-name.pdf"
-    ></cdg-file-upload>
-    <cdg-file-upload
-      state="error"
-      fileName="sampe-file-name.pdf"
-    ></cdg-file-upload>
-    <cdg-file-upload
-      state="close"
-      fileName="sampe-file-name.pdf"
-    ></cdg-file-upload>
-    <cdg-file-upload
-      state="downloadable"
-      fileName="sampe-file-name.pdf"
-    ></cdg-file-upload>
+<cdg-sample-section name="Uploading">
+  <div class="sample-section" style="flex-direction: column">
+    <div class="cdg-file-list">
+      <cdg-file-upload
+        state="uploading"
+        fileName="sampe-file-name.pdf"
+      ></cdg-file-upload>
+      <cdg-file-upload
+        state="success"
+        fileName="sampe-file-name.pdf"
+      ></cdg-file-upload>
+      <cdg-file-upload
+        state="error"
+        fileName="sampe-file-name.pdf"
+      ></cdg-file-upload>
+      <cdg-file-upload
+        state="close"
+        fileName="sampe-file-name.pdf"
+      ></cdg-file-upload>
+      <cdg-file-upload
+        state="downloadable"
+        fileName="sampe-file-name.pdf"
+      ></cdg-file-upload>
+    </div>
   </div>
-</div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;div class=&quot;cdg-file-list&quot;&gt;
     &lt;cdg-file-upload
         state=&quot;uploading&quot;
@@ -38,19 +38,28 @@
         state=&quot;error&quot;
         fileName=&quot;sampe-file-name.pdf&quot;
     &gt;&lt;/cdg-file-upload&gt;
+    &lt;cdg-file-upload
+      state=&quot;close&quot;
+      fileName=&quot;sampe-file-name.pdf&quot;
+    &gt;&lt;/cdg-file-upload&gt;
+    &lt;cdg-file-upload
+      state=&quot;downloadable&quot;
+      fileName=&quot;sampe-file-name.pdf&quot;
+    &gt;&lt;/cdg-file-upload&gt;
 &lt;/div&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3>Integration</h3>
-<div class="sample-section" style="flex-direction: column">
-  <cdg-file allow-drop vertical style="width: 100%" id="fileUpload">
-    <div class="cdg-button upload-button">Browse files</div>
-    <input type="file" class="cdg-file-input" multiple />
-  </cdg-file>
-  <div class="cdg-file-list" id="fileList"></div>
-</div>
+<cdg-sample-section name="Integration">
+  <div class="sample-section" style="flex-direction: column">
+    <cdg-file allow-drop vertical style="width: 100%" id="fileUpload">
+      <div class="cdg-button upload-button">Browse files</div>
+      <input type="file" class="cdg-file-input" multiple />
+    </cdg-file>
+    <div class="cdg-file-list" id="fileList"></div>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;cdg-file allow-drop vertical id=&quot;fileUpload&quot;&gt;
     &lt;div class=&quot;cdg-button upload-button&quot;&gt;Browse files&lt;/div&gt;
     &lt;input type=&quot;file&quot; class=&quot;cdg-file-input&quot; multiple /&gt;
@@ -83,31 +92,32 @@
     });
 &lt;/script&gt;</code>
 </pre>
+</cdg-sample-section>
 
 <script>
-  const fileList = document.querySelector('#fileList');
-  const fileUpload = document.querySelector('#fileUpload');
+  const fileList = document.querySelector('#fileList')
+  const fileUpload = document.querySelector('#fileUpload')
 
   function createFile(file, index) {
-    const fileElement = document.createElement('cdg-file-upload');
-    fileElement.setAttribute('state', 'uploading');
-    fileElement.setAttribute('fileName', file.name);
+    const fileElement = document.createElement('cdg-file-upload')
+    fileElement.setAttribute('state', 'uploading')
+    fileElement.setAttribute('fileName', file.name)
     setTimeout(() => {
-      fileElement.setAttribute('state', 'success');
-      cdgToastService.toast('Uploaded file: "' + file.name + '"');
-    }, index * 2000);
+      fileElement.setAttribute('state', 'success')
+      cdgToastService.toast('Uploaded file: "' + file.name + '"')
+    }, index * 2000)
 
-    return fileElement;
+    return fileElement
   }
 
   fileUpload.addEventListener('selectFiles', (event) => {
-    const files = event.detail;
-    let i = 1;
+    const files = event.detail
+    let i = 1
     if (files.length) {
       for (let file of files) {
-        fileList.prepend(createFile(file, i));
-        i++;
+        fileList.prepend(createFile(file, i))
+        i++
       }
     }
-  });
+  })
 </script>

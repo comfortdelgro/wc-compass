@@ -4,33 +4,34 @@
   the user.
 </p>
 
-<h3>Default</h3>
-<div class="sample-section">
-  <cdg-file>
-    <div class="cdg-button">Browse file</div>
-    <input type="file" class="cdg-file-input" />
-  </cdg-file>
-</div>
+<cdg-sample-section name="Default">
+  <div class="sample-section">
+    <cdg-file>
+      <div class="cdg-button">Browse file</div>
+      <input type="file" class="cdg-file-input" />
+    </cdg-file>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;cdg-file&gt;
     &lt;div class=&quot;cdg-button&quot;&gt;Browse file&lt;/div&gt;
     &lt;input type=&quot;file&quot; class=&quot;cdg-file-input&quot; /&gt;
 &lt;/cdg-file&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3>Drag Horizontal</h3>
-<div class="sample-section">
-  <cdg-file allow-drop id="uploadFileHorizontal">
-    <div class="cdg-button upload-button">
-      <cdg-icon name="upload"></cdg-icon>
-      Upload files
-    </div>
-    <input type="file" class="cdg-file-input" multiple />
-  </cdg-file>
-</div>
+<cdg-sample-section name="Drag Horizontal">
+  <div class="sample-section">
+    <cdg-file allow-drop id="uploadFileHorizontal">
+      <div class="cdg-button upload-button">
+        <cdg-icon name="upload"></cdg-icon>
+        Upload files
+      </div>
+      <input type="file" class="cdg-file-input" multiple />
+    </cdg-file>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;cdg-file allow-drop id=&quot;uploadFileHorizontal&quot;&gt;
     &lt;div class=&quot;cdg-button upload-button&quot;&gt;
         &lt;cdg-icon name=&quot;upload&quot; source=&quot;host&quot;&gt;&lt;/cdg-icon&gt;
@@ -39,32 +40,45 @@
     &lt;input type=&quot;file&quot; class=&quot;cdg-file-input&quot; multiple /&gt;
 &lt;/cdg-file&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3>Drag Vertical</h3>
-<div class="sample-section">
-  <cdg-file allow-drop vertical>
-    <div class="cdg-button upload-button">Browse files</div>
-    <input type="file" class="cdg-file-input" multiple />
-  </cdg-file>
-</div>
+<cdg-sample-section name="Drag Vertical">
+  <div class="sample-section column">
+    <div class="cdg-layout">
+      <cdg-file allow-drop vertical>
+        <div class="cdg-button upload-button">Browse files</div>
+        <input type="file" class="cdg-file-input" multiple />
+      </cdg-file>
+    </div>
+  </div>
 
-<div class="sample-section">
-  <cdg-file allow-drop vertical style="width: 100%">
-    <div class="cdg-button upload-button">Browse files</div>
-    <input type="file" class="cdg-file-input" multiple />
-  </cdg-file>
-</div>
-
-<pre>
+  <pre>
     <code class="language-html">&lt;cdg-file allow-drop vertical&gt;
     &lt;div class=&quot;cdg-button upload-button&quot;&gt;Browse files&lt;/div&gt;
     &lt;input type=&quot;file&quot; class=&quot;cdg-file-input&quot; multiple /&gt;
 &lt;/cdg-file&gt;</code>
 </pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Drag Vertical Full Width">
+  <div class="sample-section column">
+    <cdg-file allow-drop vertical style="width: 100%">
+      <div class="cdg-button upload-button">Browse files</div>
+      <input type="file" class="cdg-file-input" multiple />
+    </cdg-file>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;cdg-file allow-drop vertical&gt;
+    &lt;div class=&quot;cdg-button upload-button&quot;&gt;Browse files&lt;/div&gt;
+    &lt;input type=&quot;file&quot; class=&quot;cdg-file-input&quot; multiple /&gt;
+&lt;/cdg-file&gt;</code>
+</pre>
+</cdg-sample-section>
 
 <script>
-  const uploadInput = document.querySelector('#uploadFileHorizontal');
+  const uploadInput = document.querySelector('#uploadFileHorizontal')
   uploadInput.addEventListener('selectFiles', (event) => {
-    cdgToastService.toast('User added ' + event.detail.length + ' files');
-  });
+    cdgToastService.toast('User added ' + event.detail.length + ' files')
+  })
 </script>
