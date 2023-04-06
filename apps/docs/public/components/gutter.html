@@ -1,0 +1,98 @@
+<style>
+  .sample-section {
+    flex-direction: column;
+  }
+
+  .sample-gutter-content {
+    height: 200px;
+    border: 1px solid var(--border-color);
+  }
+
+  .cdg-group-right {
+    width: 220px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-left: 1px solid var(--border-color);
+  }
+
+  .cdg-group-left {
+    width: 220px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-right: 1px solid var(--border-color);
+  }
+
+  .cdg-group-center {
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .right-col-content,
+  .left-col-content {
+    position: relative;
+    overflow: hidden;
+  }
+</style>
+
+<cdg-sample-section name="Default">
+  <div class="sample-section">
+    <div class="cdg-layout sample-gutter-content">
+      <div class="cdg-group-left">
+        <div class="left-col-content">Some content belong to left column</div>
+        <cdg-gutter></cdg-gutter>
+      </div>
+      <div class="cdg-group-center cdg-flex">Here is the main content</div>
+    </div>
+  </div>
+  <pre>
+    <code class="language-html">&lt;div class=&quot;cdg-layout sample-gutter-content&quot;&gt;
+    &lt;div class=&quot;cdg-group-left&quot;&gt;
+        &lt;div class=&quot;left-col-content&quot;&gt;Some content belong to left column&lt;/div&gt;
+        &lt;cdg-gutter&gt;&lt;/cdg-gutter&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cdg-group-center cdg-flex&quot;&gt;Here is the main content&lt;/div&gt;
+&lt;/div&gt;</code>
+  </pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Left">
+  <div class="sample-section">
+    <div class="cdg-layout sample-gutter-content">
+      <div class="cdg-group-center cdg-flex">Here is the main content</div>
+      <div class="cdg-group-right">
+        <div class="right-col-content">Some content belong to right column</div>
+        <cdg-gutter place="left"></cdg-gutter>
+      </div>
+    </div>
+  </div>
+  <pre>
+    <code class="language-html">&lt;div class=&quot;cdg-layout sample-gutter-content&quot;&gt;
+    &lt;div class=&quot;cdg-group-center cdg-flex&quot;&gt;Here is the main content&lt;/div&gt;
+    &lt;div class=&quot;cdg-group-right&quot;&gt;
+        &lt;div class=&quot;right-col-content&quot;&gt;Some content belong to right column&lt;/div&gt;
+        &lt;cdg-gutter place=&quot;left&quot;&gt;&lt;/cdg-gutter&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+  </pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="use-collapse">
+  <div class="sample-section">
+    <div class="cdg-layout sample-gutter-content">
+      <div class="cdg-group-left">
+        <div class="left-col-content">Some content belong to left column</div>
+        <cdg-gutter use-collapse></cdg-gutter>
+      </div>
+      <div class="cdg-group-center cdg-flex">Here is the main content</div>
+    </div>
+  </div>
+  <pre>
+      <code class="language-html">&lt;div class=&quot;cdg-layout sample-gutter-content&quot;&gt;
+    &lt;div class=&quot;cdg-group-left&quot;&gt;
+        &lt;div class=&quot;left-col-content&quot;&gt;Some content belong to left column&lt;/div&gt;
+        &lt;cdg-gutter use-collapse&gt;&lt;/cdg-gutter&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cdg-group-center cdg-flex&quot;&gt;Here is the main content&lt;/div&gt;
+&lt;/div&gt;</code>
+    </pre>
+</cdg-sample-section>
