@@ -174,6 +174,38 @@ export class CdgCalendar extends HTMLElement {
   todayElement
   bottomSelectedDetailElement
 
+  get min() {
+    return this.getAttribute('min')
+  }
+
+  set min(value) {
+    if (value) {
+      this.setAttribute('min', value)
+    } else {
+      this.removeAttribute('min')
+    }
+    this.createCalendar(
+      this.selectedMonth.format('YYYY'),
+      this.selectedMonth.format('M'),
+    )
+  }
+
+  get max() {
+    return this.getAttribute('max')
+  }
+
+  set max(value) {
+    if (value) {
+      this.setAttribute('max', value)
+    } else {
+      this.removeAttribute('max')
+    }
+    this.createCalendar(
+      this.selectedMonth.format('YYYY'),
+      this.selectedMonth.format('M'),
+    )
+  }
+
   static get observedAttributes() {
     return ['start-date', 'end-date', 'open', 'min', 'max']
   }
