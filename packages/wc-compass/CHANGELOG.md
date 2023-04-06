@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.1.1
+
+### Patch Changes
+
+- bc5bfee: Update document page structure and fixing bugs
+
 ## 0.1.0
 
 ### Minor Changes
