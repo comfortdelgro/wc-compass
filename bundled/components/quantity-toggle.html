@@ -4,16 +4,16 @@
   of a selected item.
 </p>
 
-<h3>Default</h3>
-<div class="sample-section">
-  <cdg-quantity-toggle onchange="handleOnchange(event)">
-    <button class="cdg-button">-</button>
-    <input type="number" placeholder="Input quantity" value="0" />
-    <button class="cdg-button">+</button>
-  </cdg-quantity-toggle>
-</div>
+<cdg-sample-section name="Default">
+  <div class="sample-section">
+    <cdg-quantity-toggle onchange="handleOnchange(event)">
+      <button class="cdg-button">-</button>
+      <input type="number" placeholder="Input quantity" value="0" />
+      <button class="cdg-button">+</button>
+    </cdg-quantity-toggle>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;cdg-quantity-toggle onchange=&quot;handleOnchange(event)&quot;&gt;
     &lt;button class=&quot;cdg-button&quot;&gt;-&lt;/button&gt;
     &lt;input type=&quot;number&quot; placeholder=&quot;Input quantity&quot; value=&quot;0&quot; /&gt;
@@ -26,22 +26,23 @@ function handleOnchange (event) {
 };
 &lt;/script&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3>Max & min</h3>
-<style>
-  .sample-size {
-    width: 160px;
-  }
-</style>
-<div class="sample-section">
-  <cdg-quantity-toggle max="10" min="1" id="maxMinSample" class="sample-size">
-    <button class="cdg-button">-</button>
-    <input type="number" placeholder="Input quantity" value="0" />
-    <button class="cdg-button">+</button>
-  </cdg-quantity-toggle>
-</div>
+<cdg-sample-section name="Max & min">
+  <style>
+    .sample-size {
+      width: 160px;
+    }
+  </style>
+  <div class="sample-section">
+    <cdg-quantity-toggle max="10" min="1" id="maxMinSample" class="sample-size">
+      <button class="cdg-button">-</button>
+      <input type="number" placeholder="Input quantity" value="0" />
+      <button class="cdg-button">+</button>
+    </cdg-quantity-toggle>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;style&gt;
 /** To customize size. It should not be smaller than 160px **/
 .sample-size {
@@ -60,23 +61,24 @@ function handleOnchange (event) {
   });
 &lt;/script&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3>Label & helper text</h3>
-<div class="sample-section">
-  <label class="cdg-input-group">
-    <span class="cdg-input-label">Quantity</span>
-    <cdg-quantity-toggle max="10" min="1">
-      <button class="cdg-button">-</button>
-      <input type="number" placeholder="Input quantity" value="0" />
-      <button class="cdg-button">+</button>
-    </cdg-quantity-toggle>
-    <span class="cdg-helper-message">
-      Quantity number should in range from 1 to 10
-    </span>
-  </label>
-</div>
+<cdg-sample-section name="Label & helper text">
+  <div class="sample-section">
+    <label class="cdg-input-group">
+      <span class="cdg-input-label">Quantity</span>
+      <cdg-quantity-toggle max="10" min="1">
+        <button class="cdg-button">-</button>
+        <input type="number" placeholder="Input quantity" value="0" />
+        <button class="cdg-button">+</button>
+      </cdg-quantity-toggle>
+      <span class="cdg-helper-message">
+        Quantity number should in range from 1 to 10
+      </span>
+    </label>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;label class=&quot;cdg-input-group&quot;&gt;
     &lt;span class=&quot;cdg-input-label&quot;&gt;Quantity&lt;/span&gt;
     &lt;cdg-quantity-toggle max=&quot;10&quot; min=&quot;1&quot;&gt;
@@ -89,23 +91,24 @@ function handleOnchange (event) {
     &lt;/span&gt;
 &lt;/label&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3>Disabled</h3>
-<div class="sample-section">
-  <label class="cdg-input-group">
-    <span class="cdg-input-label">Quantity</span>
-    <cdg-quantity-toggle max="10" min="1" disabled>
-      <button class="cdg-button">-</button>
-      <input type="number" placeholder="Input quantity" value="0" />
-      <button class="cdg-button">+</button>
-    </cdg-quantity-toggle>
-    <span class="cdg-helper-message">
-      Quantity number should in range from 1 to 10
-    </span>
-  </label>
-</div>
+<cdg-sample-section name="Disabled">
+  <div class="sample-section">
+    <label class="cdg-input-group">
+      <span class="cdg-input-label">Quantity</span>
+      <cdg-quantity-toggle max="10" min="1" disabled>
+        <button class="cdg-button">-</button>
+        <input type="number" placeholder="Input quantity" value="0" />
+        <button class="cdg-button">+</button>
+      </cdg-quantity-toggle>
+      <span class="cdg-helper-message">
+        Quantity number should in range from 1 to 10
+      </span>
+    </label>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;label class=&quot;cdg-input-group&quot;&gt;
     &lt;span class=&quot;cdg-input-label&quot;&gt;Quantity&lt;/span&gt;
     &lt;cdg-quantity-toggle max=&quot;10&quot; min=&quot;1&quot; disabled&gt;
@@ -118,14 +121,15 @@ function handleOnchange (event) {
     &lt;/span&gt;
 &lt;/label&gt;</code>
 </pre>
+</cdg-sample-section>
 
 <script>
   window.handleOnchange = (event) => {
-    cdgToastService.toast('Changed ' + event.target.value);
-  };
+    cdgToastService.toast('Changed ' + event.target.value)
+  }
 
-  const quantityToggle = document.querySelector('#maxMinSample');
+  const quantityToggle = document.querySelector('#maxMinSample')
   quantityToggle.addEventListener('validChange', (event) => {
-    cdgToastService.toast('Error: ' + JSON.stringify(event.detail));
-  });
+    cdgToastService.toast('Error: ' + JSON.stringify(event.detail))
+  })
 </script>
