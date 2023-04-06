@@ -71,6 +71,34 @@ export class CdgDatePicker extends HTMLElement {
   _selectedEndDate
   isDouble = true
 
+  get min() {
+    return this.getAttribute('min')
+  }
+
+  set min(value) {
+    if (value) {
+      this.setAttribute('min', value)
+      this.calendarElement.setAttribute('min', value)
+    } else {
+      this.removeAttribute('min')
+      this.calendarElement.removeAttribute('min')
+    }
+  }
+
+  get max() {
+    return this.getAttribute('max')
+  }
+
+  set max(value) {
+    if (value) {
+      this.setAttribute('max', value)
+      this.calendarElement.setAttribute('max', value)
+    } else {
+      this.removeAttribute('max')
+      this.calendarElement.removeAttribute('max')
+    }
+  }
+
   get selectedStartDate() {
     return this._selectedStartDate
   }
@@ -157,8 +185,6 @@ export class CdgDatePicker extends HTMLElement {
       this.format = this.getAttribute('format')
     }
 
-    this.min = this.getAttribute('min')
-    this.max = this.getAttribute('max')
     // Create calendar
     this.append(
       createCalendar(
