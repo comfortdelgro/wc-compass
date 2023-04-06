@@ -4,213 +4,226 @@
   includes a formatting toolbar.
 </p>
 
-<div class="sample-section column" id="rte-example-1">
-  <cdg-rich-text-editor>
-    <cdg-rte-toolbar>
-      <div class="cdg-rte-buttons-group">
-        <button class="cdg-rte-buttons" name="undo" operation="undo">
-          <cdg-icon name="undo"></cdg-icon>
-        </button>
-        <button class="cdg-rte-buttons" name="redo" operation="redo">
-          <cdg-icon name="redo"></cdg-icon>
-        </button>
-      </div>
-      <div class="cdg-rte-buttons-group">
-        <button class="cdg-rte-buttons" name="bold" operation="toggleBold">
-          <cdg-icon name="bold"></cdg-icon>
-        </button>
-        <button class="cdg-rte-buttons" name="italic" operation="toggleItalic">
-          <cdg-icon name="italic"></cdg-icon>
-        </button>
-        <button class="cdg-rte-buttons" name="strike" operation="toggleStrike">
-          <cdg-icon name="strikeThrough"></cdg-icon>
-        </button>
-        <button
-          class="cdg-rte-buttons"
-          name="underline"
-          operation="toggleUnderline"
-        >
-          <cdg-icon name="underline"></cdg-icon>
-        </button>
-      </div>
+<cdg-sample-section name="Default">
+  <div class="sample-section column" id="rte-example-1">
+    <cdg-rich-text-editor>
+      <cdg-rte-toolbar>
+        <div class="cdg-rte-buttons-group">
+          <button class="cdg-rte-buttons" name="undo" operation="undo">
+            <cdg-icon name="undo"></cdg-icon>
+          </button>
+          <button class="cdg-rte-buttons" name="redo" operation="redo">
+            <cdg-icon name="redo"></cdg-icon>
+          </button>
+        </div>
+        <div class="cdg-rte-buttons-group">
+          <button class="cdg-rte-buttons" name="bold" operation="toggleBold">
+            <cdg-icon name="bold"></cdg-icon>
+          </button>
+          <button
+            class="cdg-rte-buttons"
+            name="italic"
+            operation="toggleItalic"
+          >
+            <cdg-icon name="italic"></cdg-icon>
+          </button>
+          <button
+            class="cdg-rte-buttons"
+            name="strike"
+            operation="toggleStrike"
+          >
+            <cdg-icon name="strikeThrough"></cdg-icon>
+          </button>
+          <button
+            class="cdg-rte-buttons"
+            name="underline"
+            operation="toggleUnderline"
+          >
+            <cdg-icon name="underline"></cdg-icon>
+          </button>
+        </div>
 
-      <div class="cdg-rte-buttons-group">
-        <cdg-dropdown id="heading-selector" class="toolbar-selector">
-          <cdg-dropdown-option value="0" selected="true">
-            Normal Text
-          </cdg-dropdown-option>
-          <cdg-dropdown-option value="1">
-            <h1 style="margin: 0">Heading 1</h1>
-          </cdg-dropdown-option>
-          <cdg-dropdown-option value="2">
-            <h2 style="margin: 0">Heading 2</h2>
-          </cdg-dropdown-option>
-          <cdg-dropdown-option value="3">
-            <h3 style="margin: 0">Heading 3</h3>
-          </cdg-dropdown-option>
-          <cdg-dropdown-option value="4">
-            <h4 style="margin: 0">Heading 4</h4>
-          </cdg-dropdown-option>
-          <cdg-dropdown-option value="5">
-            <h5 style="margin: 0">Heading 5</h5>
-          </cdg-dropdown-option>
-          <cdg-dropdown-option value="6">
-            <h6 style="margin: 0">Heading 6</h6>
-          </cdg-dropdown-option>
-        </cdg-dropdown>
-      </div>
+        <div class="cdg-rte-buttons-group">
+          <cdg-dropdown id="heading-selector" class="toolbar-selector">
+            <cdg-dropdown-option value="0" selected="true">
+              Normal Text
+            </cdg-dropdown-option>
+            <cdg-dropdown-option value="1">
+              <h1 style="margin: 0">Heading 1</h1>
+            </cdg-dropdown-option>
+            <cdg-dropdown-option value="2">
+              <h2 style="margin: 0">Heading 2</h2>
+            </cdg-dropdown-option>
+            <cdg-dropdown-option value="3">
+              <h3 style="margin: 0">Heading 3</h3>
+            </cdg-dropdown-option>
+            <cdg-dropdown-option value="4">
+              <h4 style="margin: 0">Heading 4</h4>
+            </cdg-dropdown-option>
+            <cdg-dropdown-option value="5">
+              <h5 style="margin: 0">Heading 5</h5>
+            </cdg-dropdown-option>
+            <cdg-dropdown-option value="6">
+              <h6 style="margin: 0">Heading 6</h6>
+            </cdg-dropdown-option>
+          </cdg-dropdown>
+        </div>
 
-      <div class="cdg-rte-buttons-group">
-        <cdg-dropdown
-          select-class="color-selector"
-          id="color-selector"
-          class="toolbar-selector"
-        >
-          <cdg-dropdown-option
-            value="#212529"
-            current-color="#212529"
-            selected="true"
-          ></cdg-dropdown-option>
-          <cdg-dropdown-option
-            value="#845EF7"
-            current-color="#845EF7"
-          ></cdg-dropdown-option>
-          <cdg-dropdown-option
-            value="#339AF0"
-            current-color="#339AF0"
-          ></cdg-dropdown-option>
-          <cdg-dropdown-option
-            value="#22B8CF"
-            current-color="#22B8CF"
-          ></cdg-dropdown-option>
-          <cdg-dropdown-option
-            value="#51CF66"
-            current-color="#51CF66"
-          ></cdg-dropdown-option>
-          <cdg-dropdown-option
-            value="#FCC419"
-            current-color="#FCC419"
-          ></cdg-dropdown-option>
-          <cdg-dropdown-option
-            value="#FF6B6B"
-            current-color="#FF6B6B"
-          ></cdg-dropdown-option>
-          <cdg-dropdown-option
-            value="#F06595"
-            current-color="#F06595"
-          ></cdg-dropdown-option>
-          <cdg-dropdown-option
-            value="#CED4DA"
-            current-color="#CED4DA"
-          ></cdg-dropdown-option>
-          <cdg-dropdown-option
-            value="#5F3DC4"
-            current-color="#5F3DC4"
-          ></cdg-dropdown-option>
-          <cdg-dropdown-option
-            value="#1864AB"
-            current-color="#1864AB"
-          ></cdg-dropdown-option>
-          <cdg-dropdown-option
-            value="#0B7285"
-            current-color="#0B7285"
-          ></cdg-dropdown-option>
-          <cdg-dropdown-option
-            value="#2B8A3E"
-            current-color="#2B8A3E"
-          ></cdg-dropdown-option>
-          <cdg-dropdown-option
-            value="#E67700"
-            current-color="#E67700"
-          ></cdg-dropdown-option>
-          <cdg-dropdown-option
-            value="#C92A2A"
-            current-color="#C92A2A"
-          ></cdg-dropdown-option>
-          <cdg-dropdown-option
-            value="#C2255C"
-            current-color="#C2255C"
-          ></cdg-dropdown-option>
-        </cdg-dropdown>
-      </div>
-      <div class="cdg-rte-buttons-group">
-        <cdg-dropdown id="text-alignment-selector" class="toolbar-selector">
-          <cdg-dropdown-option value="left" selected="true">
-            <div class="cdg-dropdown-option-content">
-              <cdg-icon name="textAlignLeft" displaySelect size="14"></cdg-icon>
-              <span>left</span>
-            </div>
-          </cdg-dropdown-option>
-          <cdg-dropdown-option value="right">
-            <div class="cdg-dropdown-option-content">
-              <cdg-icon
-                name="textAlignRight"
-                displaySelect
-                size="14"
-              ></cdg-icon>
-              <span>right</span>
-            </div>
-          </cdg-dropdown-option>
-          <cdg-dropdown-option value="center">
-            <div class="cdg-dropdown-option-content">
-              <cdg-icon
-                name="textAlignCenter"
-                displaySelect
-                size="14"
-              ></cdg-icon>
-              <span>center</span>
-            </div>
-          </cdg-dropdown-option>
-          <cdg-dropdown-option value="justify">
-            <div class="cdg-dropdown-option-content">
-              <cdg-icon
-                name="textAlignJustify"
-                displaySelect
-                size="14"
-              ></cdg-icon>
-              <span>justify</span>
-            </div>
-          </cdg-dropdown-option>
-        </cdg-dropdown>
-      </div>
+        <div class="cdg-rte-buttons-group">
+          <cdg-dropdown
+            select-class="color-selector"
+            id="color-selector"
+            class="toolbar-selector"
+          >
+            <cdg-dropdown-option
+              value="#212529"
+              current-color="#212529"
+              selected="true"
+            ></cdg-dropdown-option>
+            <cdg-dropdown-option
+              value="#845EF7"
+              current-color="#845EF7"
+            ></cdg-dropdown-option>
+            <cdg-dropdown-option
+              value="#339AF0"
+              current-color="#339AF0"
+            ></cdg-dropdown-option>
+            <cdg-dropdown-option
+              value="#22B8CF"
+              current-color="#22B8CF"
+            ></cdg-dropdown-option>
+            <cdg-dropdown-option
+              value="#51CF66"
+              current-color="#51CF66"
+            ></cdg-dropdown-option>
+            <cdg-dropdown-option
+              value="#FCC419"
+              current-color="#FCC419"
+            ></cdg-dropdown-option>
+            <cdg-dropdown-option
+              value="#FF6B6B"
+              current-color="#FF6B6B"
+            ></cdg-dropdown-option>
+            <cdg-dropdown-option
+              value="#F06595"
+              current-color="#F06595"
+            ></cdg-dropdown-option>
+            <cdg-dropdown-option
+              value="#CED4DA"
+              current-color="#CED4DA"
+            ></cdg-dropdown-option>
+            <cdg-dropdown-option
+              value="#5F3DC4"
+              current-color="#5F3DC4"
+            ></cdg-dropdown-option>
+            <cdg-dropdown-option
+              value="#1864AB"
+              current-color="#1864AB"
+            ></cdg-dropdown-option>
+            <cdg-dropdown-option
+              value="#0B7285"
+              current-color="#0B7285"
+            ></cdg-dropdown-option>
+            <cdg-dropdown-option
+              value="#2B8A3E"
+              current-color="#2B8A3E"
+            ></cdg-dropdown-option>
+            <cdg-dropdown-option
+              value="#E67700"
+              current-color="#E67700"
+            ></cdg-dropdown-option>
+            <cdg-dropdown-option
+              value="#C92A2A"
+              current-color="#C92A2A"
+            ></cdg-dropdown-option>
+            <cdg-dropdown-option
+              value="#C2255C"
+              current-color="#C2255C"
+            ></cdg-dropdown-option>
+          </cdg-dropdown>
+        </div>
+        <div class="cdg-rte-buttons-group">
+          <cdg-dropdown id="text-alignment-selector" class="toolbar-selector">
+            <cdg-dropdown-option value="left" selected="true">
+              <div class="cdg-dropdown-option-content">
+                <cdg-icon
+                  name="textAlignLeft"
+                  displaySelect
+                  size="14"
+                ></cdg-icon>
+                <span>left</span>
+              </div>
+            </cdg-dropdown-option>
+            <cdg-dropdown-option value="right">
+              <div class="cdg-dropdown-option-content">
+                <cdg-icon
+                  name="textAlignRight"
+                  displaySelect
+                  size="14"
+                ></cdg-icon>
+                <span>right</span>
+              </div>
+            </cdg-dropdown-option>
+            <cdg-dropdown-option value="center">
+              <div class="cdg-dropdown-option-content">
+                <cdg-icon
+                  name="textAlignCenter"
+                  displaySelect
+                  size="14"
+                ></cdg-icon>
+                <span>center</span>
+              </div>
+            </cdg-dropdown-option>
+            <cdg-dropdown-option value="justify">
+              <div class="cdg-dropdown-option-content">
+                <cdg-icon
+                  name="textAlignJustify"
+                  displaySelect
+                  size="14"
+                ></cdg-icon>
+                <span>justify</span>
+              </div>
+            </cdg-dropdown-option>
+          </cdg-dropdown>
+        </div>
 
-      <div class="cdg-rte-buttons-group">
-        <button
-          class="cdg-rte-buttons"
-          name="bulletList"
-          operation="toggleBulletList"
-        >
-          <cdg-icon name="listUlRound"></cdg-icon>
-        </button>
-        <button
-          class="cdg-rte-buttons"
-          name="orderedList"
-          operation="toggleOrderedList"
-        >
-          <cdg-icon name="listOl"></cdg-icon>
-        </button>
-      </div>
-      <div class="cdg-rte-buttons-group">
-        <button class="cdg-rte-buttons" name="link" operation="setLink">
-          <cdg-icon name="link"></cdg-icon>
-        </button>
-        <button class="cdg-rte-buttons" name="image" operation="setImage">
-          <cdg-icon name="imageOutline"></cdg-icon>
-        </button>
-        <button
-          class="cdg-rte-buttons"
-          name="blockquote"
-          operation="toggleBlockquote"
-        >
-          <cdg-icon name="quoteLeft"></cdg-icon>
-        </button>
-      </div>
-    </cdg-rte-toolbar>
-    <div class="cdg-rte-content"></div>
-  </cdg-rich-text-editor>
-</div>
+        <div class="cdg-rte-buttons-group">
+          <button
+            class="cdg-rte-buttons"
+            name="bulletList"
+            operation="toggleBulletList"
+          >
+            <cdg-icon name="listUlRound"></cdg-icon>
+          </button>
+          <button
+            class="cdg-rte-buttons"
+            name="orderedList"
+            operation="toggleOrderedList"
+          >
+            <cdg-icon name="listOl"></cdg-icon>
+          </button>
+        </div>
+        <div class="cdg-rte-buttons-group">
+          <button class="cdg-rte-buttons" name="link" operation="setLink">
+            <cdg-icon name="link"></cdg-icon>
+          </button>
+          <button class="cdg-rte-buttons" name="image" operation="setImage">
+            <cdg-icon name="imageOutline"></cdg-icon>
+          </button>
+          <button
+            class="cdg-rte-buttons"
+            name="blockquote"
+            operation="toggleBlockquote"
+          >
+            <cdg-icon name="quoteLeft"></cdg-icon>
+          </button>
+        </div>
+      </cdg-rte-toolbar>
+      <div class="cdg-rte-content"></div>
+    </cdg-rich-text-editor>
+  </div>
 
-<pre>
+  <pre>
   <code class="language-html">
 &lt;cdg-rich-text-editor&gt;
   &lt;cdg-rte-toolbar&gt;
@@ -417,6 +430,7 @@
   &lt;/cdg-rich-text-editor&gt;
   </code>
 </pre>
+</cdg-sample-section>
 <script>
   const example1 = document.querySelector('#rte-example-1 cdg-rich-text-editor')
   example1.addEventListener('onRichTextEditorUpdate', (event) => {

@@ -1,20 +1,14 @@
-<h3>Default</h3>
+<cdg-sample-section name="Default">
+  <div class="sample-section" style="width: 250px">
+    <cdg-range-slider
+      id="sampleSlider"
+      min="0"
+      max="100"
+      value="50"
+    ></cdg-range-slider>
+  </div>
 
-<p>Custom range slider:</p>
-<div style="width: 250px">
-  <cdg-range-slider min="0" max="100" value="50"></cdg-range-slider>
-</div>
-<script>
-  const rangeSlider = document.querySelector('cdg-range-slider');
-  rangeSlider.addEventListener('change', (event) => {
-    const newValue = event.detail.value;
-    console.log('Slider value changed:', newValue);
-  });
-</script>
-
-<h3>Usage</h3>
-
-<pre>
+  <pre>
     <code>&lt;div style=&quot;width: 250px&quot;&gt;
 &lt;cdg-range-slider min=&quot;0&quot; max=&quot;1000&quot; value=&quot;50&quot;&gt;&lt;/cdg-range-slider&gt;
 &lt;/div&gt;
@@ -26,3 +20,23 @@ rangeSlider.addEventListener('change', (event) => {
   });
 </code>
 </pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Fill width">
+  <div class="sample-section" style="flex-direction: column">
+    <cdg-range-slider min="0" max="100" value="50"></cdg-range-slider>
+  </div>
+
+  <pre>
+    <code>&lt;cdg-range-slider min=&quot;0&quot; max=&quot;1000&quot; value=&quot;50&quot;&gt;&lt;/cdg-range-slider&gt;&gt;
+</code>
+</pre>
+</cdg-sample-section>
+
+<script>
+  const rangeSlider = document.querySelector('#sampleSlider')
+  rangeSlider.addEventListener('change', (event) => {
+    const newValue = event.detail.value
+    console.log('Slider value changed:', newValue)
+  })
+</script>

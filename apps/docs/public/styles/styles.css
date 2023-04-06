@@ -113,18 +113,8 @@ cdg-nav-rail .cdg-nav-rail-inner,
 }
 
 .sample-section.darker {
-  background: #f5f5f5;
+  background: var(--grey20);
   padding: 20px;
-}
-
-@media (prefers-color-scheme: dark) {
-  .sample-section.darker {
-    background: #222;
-  }
-}
-
-.dark .sample-section.darker {
-  background: #222;
 }
 
 .sample-section.center {

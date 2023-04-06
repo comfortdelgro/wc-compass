@@ -138,7 +138,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  body.theme-os {
     @include darkColors;
   }
 }
@@ -152,7 +152,7 @@ body {
   line-height: 24px;
   margin: 0;
   padding: 0;
-  &.dark {
+  &.theme-dark {
     @include darkColors;
   }
 }
