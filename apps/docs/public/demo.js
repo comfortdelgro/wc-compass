@@ -21,6 +21,7 @@ import './components/dropdown.html'
 import './components/file-upload.html'
 import './components/file.html'
 import './components/footer.html'
+import './components/gutter.html'
 import './components/icon.html'
 import './components/inline-loading.html'
 import './components/layouts.html'
@@ -78,6 +79,7 @@ const contentMap = {
   fileUpload: './components/file-upload.html',
   footer: './components/footer.html',
   about: './components/about.html',
+  gutter: './components/gutter.html',
   icon: './components/icon.html',
   dialog: './components/dialog.html',
   dropdown: './components/dropdown.html',
@@ -162,6 +164,10 @@ const documentContent = [
       {
         name: 'Dashboard Side Card',
         slug: 'dashboardSideCard',
+      },
+      {
+        name: 'Gutter',
+        slug: 'gutter',
       },
       {
         name: 'Page Header',

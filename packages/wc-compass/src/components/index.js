@@ -15,6 +15,7 @@ import {CdgDropdownSelect} from './dropdown/dropdown-select'
 import {CdgFile} from './file/file'
 import {CdgFileUpload} from './file/file-upload'
 import {CdgFloatingContent} from './floating-content/floating-content'
+import {CdgGutter} from './gutter/gutter'
 import {CdgIcon} from './icon/icon'
 import {CdgInlineLoading} from './inline-loading/inline-loading'
 import {CdgListItem} from './list-view/list-item'
@@ -87,6 +88,7 @@ customElements.define('cdg-rte-toolbar', CdgRichTextEditorToolbar)
 customElements.define('cdg-dropdown-menu', CdgMultiLevelDropdown)
 customElements.define('cdg-context-menu', CdgContextMenu)
 customElements.define('cdg-chart', CdgChart)
+customElements.define('cdg-gutter', CdgGutter)
 
 export const CONTROL_COMPONENTS = [
   CdgAccordion,
@@ -125,4 +127,5 @@ export const CONTROL_COMPONENTS = [
   CdgMultiLevelDropdown,
   CdgContextMenu,
   CdgChart,
+  CdgGutter,
 ]
