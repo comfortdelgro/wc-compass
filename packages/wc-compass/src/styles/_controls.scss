@@ -86,6 +86,11 @@ input.cdg-input {
   }
 }
 
+.cdg-input-row {
+  display: flex;
+  gap: 24px;
+}
+
 .cdg-textarea {
   border: 1px solid var(--border-color);
   border-radius: 4px;

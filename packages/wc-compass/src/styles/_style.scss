@@ -16,9 +16,11 @@
   --grey60: #666666;
   --grey70: #777777;
   --grey80: #888888;
+  --grey-shades-80: #888888;
   --grey90: #999999;
   --grey100: #cccccc;
   --grey110: #dddddd;
+  --grey120: #c8c6c4;
   --blue10: #1a1f27;
   --blue20: #2a3850;
   --blue60: #678ecf;
@@ -71,6 +73,7 @@
   --grey90: #3b3a39;
   --grey100: #333333;
   --grey110: #201f1e;
+  --grey120: #666666;
   --grey-shades-80: #3e3e3e;
   --blue10: #e6ecf7;
   --blue20: #ccd9ef;
@@ -106,6 +109,8 @@
     0px 3.2px 7.2px rgba(0, 0, 0, 0.13);
   --shadow-depth-04: 0px 0.3px 0.9px rgba(0, 0, 0, 0.1),
     0px 1.6px 3.6px rgba(0, 0, 0, 0.13);
+  --shadow-depth-08: 0px 0.6px 1.8px rgba(0, 0, 0, 0.1),
+    0px 3.2px 7.2px rgba(0, 0, 0, 0.13);
   --shadow-depth-16: 0px 1.2px 3.6px rgba(0, 0, 0, 0.1),
     0px 6.4px 14.4px rgba(0, 0, 0, 0.13);
   --shadow-04: 0px 2px 4px rgba(0, 0, 0, 0.08);
@@ -133,7 +138,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  body.theme-os {
     @include darkColors;
   }
 }
@@ -142,9 +147,12 @@ html,
 body {
   font-family: var(--font-family);
   color: var(--primary-color);
+  background: var(--background);
   font-size: 16px;
   line-height: 24px;
-  &.dark {
+  margin: 0;
+  padding: 0;
+  &.theme-dark {
     @include darkColors;
   }
 }

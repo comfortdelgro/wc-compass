@@ -1,3 +1,7 @@
+<p>Tags are compact UI elements that represent an attribute or an entity.</p>
+
+<h3 class="sample-section-title">Group</h3>
+
 <div>
   <cdg-tag-box-container
     label="Message box"
@@ -26,6 +30,34 @@
   </cdg-tag-box-container>
 </div>
 
+<pre>
+  <code class="language-html">&lt;cdg-tag-box-container
+    label=&quot;Message box&quot;
+    label-left
+    helperText=&quot;Bottom label&quot;
+    type=&quot;message-box&quot;
+    inputable
+    id=&quot;message-box&quot;
+  &gt;
+    &lt;cdg-tag-box-item value=&quot;1&quot; disabled&gt;Tag 1&lt;/cdg-tag-box-item&gt;
+    &lt;cdg-tag-box-item error value=&quot;2&quot;&gt;Tag 2&lt;/cdg-tag-box-item&gt;
+    &lt;cdg-tag-box-item value=&quot;3&quot;&gt;Tag 3&lt;/cdg-tag-box-item&gt;
+    &lt;cdg-tag-box-item value=&quot;4&quot;&gt;Tag 4&lt;/cdg-tag-box-item&gt;
+    &lt;cdg-tag-box-item value=&quot;5&quot; icon-name=&quot;warning&quot; icon-color=&quot;#A4262C&quot;
+      &gt;Tag 5&lt;/cdg-tag-box-item
+    &gt;
+    &lt;cdg-tag-box-item value=&quot;6&quot;&gt;Tag 6&lt;/cdg-tag-box-item&gt;
+    &lt;cdg-tag-box-item value=&quot;7&quot;&gt;Tag 7&lt;/cdg-tag-box-item&gt;
+    &lt;cdg-tag-box-item value=&quot;8&quot;&gt;Tag 8&lt;/cdg-tag-box-item&gt;
+    &lt;cdg-tag-box-item value=&quot;9&quot;&gt;Tag 9&lt;/cdg-tag-box-item&gt;
+    &lt;cdg-tag-box-item value=&quot;10&quot;&gt;Tag 10&lt;/cdg-tag-box-item&gt;
+
+    &lt;button class=&quot;cdg-button&quot; size=&quot;small&quot; tag-box-button&gt;
+      Call to action
+    &lt;/button&gt;
+  &lt;/cdg-tag-box-container&gt;</code>
+</pre>
+
 <div>
   <cdg-tag-box-container
     label="Text box"
@@ -50,3 +82,28 @@
     </button>
   </cdg-tag-box-container>
 </div>
+
+<pre>
+  <code class="language-html">&lt;cdg-tag-box-container
+    label=&quot;Text box&quot;
+    helperText=&quot;Bottom label&quot;
+    icon-name=&quot;addGroup&quot;
+    id=&quot;text-box&quot;
+    inputable
+  &gt;
+    &lt;cdg-tag-box-item value=&quot;1&quot; disabled&gt;11&lt;/cdg-tag-box-item&gt;
+    &lt;cdg-tag-box-item value=&quot;2&quot; error&gt;22&lt;/cdg-tag-box-item&gt;
+    &lt;cdg-tag-box-item value=&quot;3&quot;&gt;33&lt;/cdg-tag-box-item&gt;
+    &lt;cdg-tag-box-item value=&quot;4&quot;&gt;44&lt;/cdg-tag-box-item&gt;
+    &lt;cdg-tag-box-item value=&quot;5&quot; icon-name=&quot;warning&quot; icon-color=&quot;#A4262C&quot;
+      &gt;Tag 5&lt;/cdg-tag-box-item
+    &gt;
+    &lt;cdg-tag-box-item value=&quot;6&quot;&gt;Tag 6&lt;/cdg-tag-box-item&gt;
+    &lt;cdg-tag-box-item value=&quot;7&quot;&gt;Tag 7&lt;/cdg-tag-box-item&gt;
+    &lt;cdg-tag-box-item value=&quot;8&quot;&gt;Tag 8&lt;/cdg-tag-box-item&gt;
+
+    &lt;button class=&quot;cdg-button&quot; size=&quot;small&quot; tag-box-button&gt;
+      Call to action
+    &lt;/button&gt;
+  &lt;/cdg-tag-box-container&gt;</code>
+</pre>

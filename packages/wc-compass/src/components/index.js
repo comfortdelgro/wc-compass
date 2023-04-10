@@ -6,6 +6,8 @@ import {CdgAlert} from './alert/alert'
 import {CdgAlertContent} from './alert/alert-content'
 import {CdgAvatar} from './avatar/avatar'
 import {CdgCalendar} from './calendar/calendar'
+import {CdgChart} from './chart/chart'
+import {CdgContextMenu} from './context-menu/context-menu'
 import {CdgDatePicker} from './datepicker/datepicker'
 import {CdgDropdown} from './dropdown/dropdown'
 import {CdgDropdownOption} from './dropdown/dropdown-option'
@@ -13,6 +15,7 @@ import {CdgDropdownSelect} from './dropdown/dropdown-select'
 import {CdgFile} from './file/file'
 import {CdgFileUpload} from './file/file-upload'
 import {CdgFloatingContent} from './floating-content/floating-content'
+import {CdgGutter} from './gutter/gutter'
 import {CdgIcon} from './icon/icon'
 import {CdgInlineLoading} from './inline-loading/inline-loading'
 import {CdgListItem} from './list-view/list-item'
@@ -28,6 +31,9 @@ import {CdgProgress} from './progress/progress'
 import {CdgQuantityToggle} from './quantity-toggle/quantity-toggle'
 import {CdgRangeSlider} from './range-slider/range-slider'
 import {CdgRating} from './rating/rating'
+import {CdgRichTextEditor} from './rich-text-editor/rich-text-editor'
+import {CdgRichTextEditorToolbar} from './rich-text-editor/rte-toolbar'
+import {CDGServiceCard} from './service-card/service-card'
 import {CdgStatus} from './status/status'
 import {CdgTab} from './tab/tab'
 import {CdgTabs} from './tab/tabs'
@@ -70,13 +76,19 @@ customElements.define('cdg-list-item', CdgListItem)
 customElements.define('cdg-tooltip', CdgTooltip)
 customElements.define('cdg-range-slider', CdgRangeSlider)
 customElements.define('cdg-quantity-toggle', CdgQuantityToggle)
+customElements.define('cdg-service-card', CDGServiceCard)
 customElements.define('cdg-tag-box-container', CdgTagBoxContainer)
 customElements.define('cdg-tag-box-item', CdgTagBoxItem)
 customElements.define('cdg-video-player', CdgVideoPlayer)
 customElements.define('cdg-video-controls', CdgVideoControls)
 customElements.define('cdg-volume', CdgVolume)
 customElements.define('cdg-rating', CdgRating)
+customElements.define('cdg-rich-text-editor', CdgRichTextEditor)
+customElements.define('cdg-rte-toolbar', CdgRichTextEditorToolbar)
 customElements.define('cdg-dropdown-menu', CdgMultiLevelDropdown)
+customElements.define('cdg-context-menu', CdgContextMenu)
+customElements.define('cdg-chart', CdgChart)
+customElements.define('cdg-gutter', CdgGutter)
 
 export const CONTROL_COMPONENTS = [
   CdgAccordion,
@@ -105,9 +117,15 @@ export const CONTROL_COMPONENTS = [
   CdgDatePicker,
   CdgRangeSlider,
   CdgQuantityToggle,
+  CDGServiceCard,
   CdgVideoPlayer,
   CdgVideoControls,
   CdgVolume,
   CdgRating,
+  CdgRichTextEditor,
+  CdgRichTextEditorToolbar,
   CdgMultiLevelDropdown,
+  CdgContextMenu,
+  CdgChart,
+  CdgGutter,
 ]

@@ -1,14 +1,21 @@
-<h3 class="sample-section-title">Default</h3>
-<div class="sample-section">
-  <cdg-pagination
-    id="simple-pagination"
-    current-page="1"
-    total="30"
-    page-size="10"
-  ></cdg-pagination>
-</div>
+<p>Pagination should be used:</p>
+<ul>
+  <li>To enable users to focus on a few items at a time.</li>
+  <li>To make it clear there’s more to explore when ready.</li>
+  <li>For large collections of items.</li>
+</ul>
 
-<pre>
+<cdg-sample-section name="Default">
+  <div class="sample-section">
+    <cdg-pagination
+      id="simple-pagination"
+      current-page="1"
+      total="30"
+      page-size="10"
+    ></cdg-pagination>
+  </div>
+
+  <pre>
   <code class="language-html">&lt;cdg-pagination
   id=&quot;simple-pagination&quot;
   current-page=&quot;1&quot;
@@ -23,18 +30,19 @@ simplePaging.addEventListener(&apos;navigate&apos;, (data) =&gt; {
 });
 &lt;/script&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3 class="sample-section-title">More pages</h3>
-<div class="sample-section">
-  <cdg-pagination
-    current-page="1"
-    total="250"
-    page-size="10"
-    id="sample-pagination"
-  ></cdg-pagination>
-</div>
+<cdg-sample-section name="More pages">
+  <div class="sample-section">
+    <cdg-pagination
+      current-page="1"
+      total="250"
+      page-size="10"
+      id="sample-pagination"
+    ></cdg-pagination>
+  </div>
 
-<pre>
+  <pre>
   <code class="language-html">&lt;cdg-pagination
   current-page=&quot;1&quot;
   total=&quot;250&quot;
@@ -50,18 +58,19 @@ paging.addEventListener(&apos;navigate&apos;, (data) =&gt; {
 });
 &lt;/script&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3 class="sample-section-title">Active page 10</h3>
-<div class="sample-section">
-  <cdg-pagination
-    current-page="10"
-    total="250"
-    page-size="10"
-    id="sample-pagination1"
-  ></cdg-pagination>
-</div>
+<cdg-sample-section name="Active page 10">
+  <div class="sample-section">
+    <cdg-pagination
+      current-page="10"
+      total="250"
+      page-size="10"
+      id="sample-pagination1"
+    ></cdg-pagination>
+  </div>
 
-<pre>
+  <pre>
   <code class="language-html">&lt;cdg-pagination
   current-page=&quot;2&quot;
   total=&quot;250&quot;
@@ -77,18 +86,19 @@ paging1.addEventListener(&apos;navigate&apos;, (data) =&gt; {
 });
 &lt;/script&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3 class="sample-section-title">Number of buttons</h3>
-<div class="sample-section">
-  <cdg-pagination
-    current-page="20"
-    total="600"
-    page-size="10"
-    display-button-count="10"
-  ></cdg-pagination>
-</div>
+<cdg-sample-section name="Number of buttons">
+  <div class="sample-section">
+    <cdg-pagination
+      current-page="20"
+      total="600"
+      page-size="10"
+      display-button-count="10"
+    ></cdg-pagination>
+  </div>
 
-<pre>
+  <pre>
   <code class="language-html">&lt;cdg-pagination
   current-page=&quot;20&quot;
   total=&quot;600&quot;
@@ -96,39 +106,40 @@ paging1.addEventListener(&apos;navigate&apos;, (data) =&gt; {
   display-button-count=&quot;10&quot;
 &gt;&lt;/cdg-pagination&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3 class="sample-section-title">Button as Link</h3>
-<div class="sample-section">
-  <cdg-link-pagination>
-    <a class="cdg-button" href="#pagination?page=19">
-      <cdg-icon name="arrowLeft" size="16"></cdg-icon>
-    </a>
-    <a class="cdg-button" href="#pagination?page=1">1</a>
-    <a class="cdg-button" href="#pagination?page=10">...</a>
+<cdg-sample-section name="Button as Link">
+  <div class="sample-section">
+    <cdg-link-pagination>
+      <a class="cdg-button" href="#pagination?page=19">
+        <cdg-icon name="arrowLeft" size="16"></cdg-icon>
+      </a>
+      <a class="cdg-button" href="#pagination?page=1">1</a>
+      <a class="cdg-button" href="#pagination?page=10">...</a>
 
-    <div class="cdg-pagination-pages">
-      <a class="cdg-button" href="#pagination?page=15">15</a>
-      <a class="cdg-button" href="#pagination?page=16">16</a>
-      <a class="cdg-button" href="#pagination?page=17">17</a>
-      <a class="cdg-button" href="#pagination?page=18">18</a>
-      <a class="cdg-button" href="#pagination?page=19">19</a>
-      <a class="cdg-button active" href="#pagination?page=20">20</a>
-      <a class="cdg-button" href="#pagination?page=21">21</a>
-      <a class="cdg-button" href="#pagination?page=22">22</a>
-      <a class="cdg-button" href="#pagination?page=23">23</a>
-      <a class="cdg-button" href="#pagination?page=24">24</a>
-      <a class="cdg-button" href="#pagination?page=25">25</a>
-    </div>
+      <div class="cdg-pagination-pages">
+        <a class="cdg-button" href="#pagination?page=15">15</a>
+        <a class="cdg-button" href="#pagination?page=16">16</a>
+        <a class="cdg-button" href="#pagination?page=17">17</a>
+        <a class="cdg-button" href="#pagination?page=18">18</a>
+        <a class="cdg-button" href="#pagination?page=19">19</a>
+        <a class="cdg-button active" href="#pagination?page=20">20</a>
+        <a class="cdg-button" href="#pagination?page=21">21</a>
+        <a class="cdg-button" href="#pagination?page=22">22</a>
+        <a class="cdg-button" href="#pagination?page=23">23</a>
+        <a class="cdg-button" href="#pagination?page=24">24</a>
+        <a class="cdg-button" href="#pagination?page=25">25</a>
+      </div>
 
-    <a class="cdg-button" href="#pagination?page=30">...</a>
-    <a class="cdg-button" href="#pagination?page=60">60</a>
-    <a class="cdg-button" href="#pagination?page=21">
-      <cdg-icon name="arrowRight" size="16"></cdg-icon>
-    </a>
-  </cdg-link-pagination>
-</div>
+      <a class="cdg-button" href="#pagination?page=30">...</a>
+      <a class="cdg-button" href="#pagination?page=60">60</a>
+      <a class="cdg-button" href="#pagination?page=21">
+        <cdg-icon name="arrowRight" size="16"></cdg-icon>
+      </a>
+    </cdg-link-pagination>
+  </div>
 
-<pre>
+  <pre>
   <code class="language-html">&lt;cdg-link-pagination&gt;
   &lt;a class=&quot;cdg-button&quot; href=&quot;#pagination?page=19&quot;&gt;
     &lt;cdg-icon name=&quot;arrowLeft&quot; size=&quot;16&quot;&gt;&lt;/cdg-icon&gt;
@@ -157,25 +168,33 @@ paging1.addEventListener(&apos;navigate&apos;, (data) =&gt; {
   &lt;/a&gt;
 &lt;/cdg-link-pagination&gt;</code>
 </pre>
+  <p>
+    Why link?<br />
+    With sever side rendering, we will put the link directly into every single
+    button. So everything works without javascript. Else we will have to handle
+    everything on client using javascript to navigate the page, which is not
+    friendly with sever side rendering architecture.
+  </p>
+</cdg-sample-section>
 
 <script>
   function listenPagination() {
-    const simplePaging = document.querySelector('#simple-pagination');
-    const paging = document.querySelector('#sample-pagination');
-    const paging1 = document.querySelector('#sample-pagination1');
+    const simplePaging = document.querySelector('#simple-pagination')
+    const paging = document.querySelector('#sample-pagination')
+    const paging1 = document.querySelector('#sample-pagination1')
 
     simplePaging.addEventListener('navigate', (data) => {
-      simplePaging.currentPage = data.detail;
-    });
+      simplePaging.currentPage = data.detail
+    })
 
     paging.addEventListener('navigate', (data) => {
-      paging.currentPage = data.detail;
-    });
+      paging.currentPage = data.detail
+    })
 
     paging1.addEventListener('navigate', (data) => {
-      paging1.currentPage = data.detail;
-    });
+      paging1.currentPage = data.detail
+    })
   }
 
-  listenPagination();
+  listenPagination()
 </script>

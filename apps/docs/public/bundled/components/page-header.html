@@ -1,29 +1,35 @@
-<h3 class="sample-section-title">Title</h3>
-<div class="sample-section">
-  <cdg-page-title>Title Here<small>This is a subtitle</small></cdg-page-title>
-</div>
+<p>
+  Page header is used to begin pages and is a format guideline to how the top of
+  a page should be organised
+</p>
 
-<pre>
+<cdg-sample-section name="Title">
+  <div class="sample-section">
+    <cdg-page-title>Title Here<small>This is a subtitle</small></cdg-page-title>
+  </div>
+
+  <pre>
     <code class="language-html">&lt;cdg-page-title&gt;Title Here&lt;small&gt;This is a subtitle&lt;/small&gt;&lt;/cdg-page-title&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3 class="sample-section-title">Header</h3>
-<div class="sample-section" style="display: block">
-  <cdg-page-header>
-    <cdg-page-header-row>
-      <cdg-page-title>
-        Title Here<small>This is a subtitle</small>
-      </cdg-page-title>
-      <cdg-page-actions>
-        <button class="cdg-button secondary" size="small">Save</button>
-        <button class="cdg-button secondary" size="small">Share</button>
-        <button class="cdg-button" size="small">Export</button>
-      </cdg-page-actions>
-    </cdg-page-header-row>
-  </cdg-page-header>
-</div>
+<cdg-sample-section name="Header">
+  <div class="sample-section" style="flex-direction: column">
+    <cdg-page-header>
+      <cdg-page-header-row>
+        <cdg-page-title>
+          Title Here<small>This is a subtitle</small>
+        </cdg-page-title>
+        <cdg-page-actions>
+          <button class="cdg-button secondary" size="small">Save</button>
+          <button class="cdg-button secondary" size="small">Share</button>
+          <button class="cdg-button" size="small">Export</button>
+        </cdg-page-actions>
+      </cdg-page-header-row>
+    </cdg-page-header>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;cdg-page-header&gt;
     &lt;cdg-page-header-row&gt;
         &lt;cdg-page-title
@@ -37,36 +43,37 @@
     &lt;/cdg-page-header-row&gt;
 &lt;/cdg-page-header&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3 class="sample-section-title">Header & Breadcrumbs</h3>
-<div class="sample-section" style="display: block">
-  <cdg-page-header>
-    <cdg-page-header-row>
-      <cdg-breadcrumbs>
-        <a href="#">Home</a>
-        <cdg-icon name="arrowRight"></cdg-icon>
-        <a href="#" disabled>Disabled</a>
-        <cdg-icon name="arrowRight"></cdg-icon>
-        <a href="#">Sub</a>
-        <cdg-icon name="arrowRight"></cdg-icon>
-        <a>Detail</a>
-      </cdg-breadcrumbs>
-    </cdg-page-header-row>
-    <cdg-page-header-row>
-      <cdg-page-title
-        >Title Here<small>This is a longer subtitle</small></cdg-page-title
-      >
-      <cdg-page-actions>
-        <button class="cdg-button secondary" size="small">
-          Share this page
-        </button>
-        <button class="cdg-button" size="small">Export</button>
-      </cdg-page-actions>
-    </cdg-page-header-row>
-  </cdg-page-header>
-</div>
+<cdg-sample-section name="Header & Breadcrumbs">
+  <div class="sample-section" style="flex-direction: column">
+    <cdg-page-header>
+      <cdg-page-header-row>
+        <cdg-breadcrumbs>
+          <a href="#">Home</a>
+          <cdg-icon name="arrowRight"></cdg-icon>
+          <a href="#" disabled>Disabled</a>
+          <cdg-icon name="arrowRight"></cdg-icon>
+          <a href="#">Sub</a>
+          <cdg-icon name="arrowRight"></cdg-icon>
+          <a>Detail</a>
+        </cdg-breadcrumbs>
+      </cdg-page-header-row>
+      <cdg-page-header-row>
+        <cdg-page-title
+          >Title Here<small>This is a longer subtitle</small></cdg-page-title
+        >
+        <cdg-page-actions>
+          <button class="cdg-button secondary" size="small">
+            Share this page
+          </button>
+          <button class="cdg-button" size="small">Export</button>
+        </cdg-page-actions>
+      </cdg-page-header-row>
+    </cdg-page-header>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;cdg-page-header&gt;
     &lt;cdg-page-header-row&gt;
         &lt;cdg-breadcrumbs&gt;
@@ -91,39 +98,40 @@
     &lt;/cdg-page-header-row&gt;
 &lt;/cdg-page-header&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3 class="sample-section-title">Reverse</h3>
-<div class="sample-section" style="display: block">
-  <cdg-page-header class="reverse-blue">
-    <cdg-page-header-row>
-      <cdg-breadcrumbs>
-        <a href="#">Home</a>
-        <cdg-icon name="arrowRight"></cdg-icon>
-        <a href="#" disabled>Disabled</a>
-        <cdg-icon name="arrowRight"></cdg-icon>
-        <a href="#">Sub</a>
-        <cdg-icon name="arrowRight"></cdg-icon>
-        <a>Detail</a>
-      </cdg-breadcrumbs>
-    </cdg-page-header-row>
-    <cdg-page-header-row>
-      <cdg-page-title
-        >Title Here<small>This is a longer subtitle</small>
-        <cdg-pill-badge type="info" pill-style="secondary">
-          Processing
-        </cdg-pill-badge>
-      </cdg-page-title>
-      <cdg-page-actions>
-        <button class="cdg-button secondary" size="small">
-          Share this page
-        </button>
-        <button class="cdg-button" size="small">Export</button>
-      </cdg-page-actions>
-    </cdg-page-header-row>
-  </cdg-page-header>
-</div>
+<cdg-sample-section name="Reverse">
+  <div class="sample-section" style="flex-direction: column">
+    <cdg-page-header class="reverse-blue">
+      <cdg-page-header-row>
+        <cdg-breadcrumbs>
+          <a href="#">Home</a>
+          <cdg-icon name="arrowRight"></cdg-icon>
+          <a href="#" disabled>Disabled</a>
+          <cdg-icon name="arrowRight"></cdg-icon>
+          <a href="#">Sub</a>
+          <cdg-icon name="arrowRight"></cdg-icon>
+          <a>Detail</a>
+        </cdg-breadcrumbs>
+      </cdg-page-header-row>
+      <cdg-page-header-row>
+        <cdg-page-title
+          >Title Here<small>This is a longer subtitle</small>
+          <cdg-pill-badge type="info" pill-style="secondary">
+            Processing
+          </cdg-pill-badge>
+        </cdg-page-title>
+        <cdg-page-actions>
+          <button class="cdg-button secondary" size="small">
+            Share this page
+          </button>
+          <button class="cdg-button" size="small">Export</button>
+        </cdg-page-actions>
+      </cdg-page-header-row>
+    </cdg-page-header>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;cdg-page-header class=&quot;reverse-blue&quot;&gt;
     &lt;cdg-page-header-row&gt;
         &lt;cdg-breadcrumbs&gt;
@@ -152,3 +160,4 @@
     &lt;/cdg-page-header-row&gt;
 &lt;/cdg-page-header&gt;</code>
 </pre>
+</cdg-sample-section>
