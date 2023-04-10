@@ -59,6 +59,21 @@
       transition: all 0.3s linear;
       touch-action: pinch-zoom;
     }
+    .cdg-carousel {
+      height: 100%;
+      .cdg-carousel-container {
+        height: 100%;
+        .cdg-carousel-scroller {
+          height: 100%;
+          .cdg-slide {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+    }
   }
 }
 

@@ -1,8 +1,21 @@
 import {Pointer} from '../../shared/pointer'
 
-function createModalTemplate(imgSrc) {
+function createModalTemplate(imgSrcs, multiple, activeIndex) {
   const template = document.createElement('template')
   template.setAttribute('for', 'defaultModal')
+  let zoomContent = ''
+  if (multiple) {
+    zoomContent = `<cdg-carousel use-arrow="true" current="${activeIndex}" id="cdg-zoom-image-carousel">`
+    imgSrcs.forEach((imgSrc) => {
+      zoomContent += `
+        <cdg-slide>
+          <img src="${imgSrc}" class="cdg-zoom-image-view-img" />
+        </cdg-slide>`
+    })
+    zoomContent += '</cdg-carousel>'
+  } else {
+    zoomContent = `<img src="${imgSrcs}" class="cdg-zoom-image-view-img" id="cdg-zoom-image-view-img" />`
+  }
   template.innerHTML = `
   <cdg-modal size="auto" class="cdg-zoom-image-view-modal">
     <cdg-modal-header useCloseButton="true">
@@ -16,7 +29,7 @@ function createModalTemplate(imgSrc) {
     <cdg-modal-body>
       <div class="cdg-zoom-image-view-body">
         <div class="cdg-zoom-image-view-transform">
-          <img src="${imgSrc}" id="cdg-zoom-image-view-img" />
+        ${zoomContent}
         </div>
       </div>
     </cdg-modal-body>
@@ -34,8 +47,22 @@ export class CdgZoomImageView extends HTMLElement {
   pointer = new Pointer()
   zoomValue = 1
   transformViewEl
+  carouselEl
+  imgContentEls
   imgContentEl
   ratioPointer = DEFAULT_POINT
+
+  get multiple() {
+    this.hasAttribute('multiple')
+  }
+
+  set multiple(value) {
+    if (value) {
+      this.setAttribute('multiple', '')
+    } else {
+      this.removeAttribute('multiple', '')
+    }
+  }
 
   static get observedAttributes() {
     return []
@@ -57,30 +84,60 @@ export class CdgZoomImageView extends HTMLElement {
   bindEventForImage() {
     this.zoomImageViewItemEls = this.querySelectorAll('[zoomImageViewItem]')
     if (this.zoomImageViewItemEls && this.zoomImageViewItemEls.length) {
-      this.zoomImageViewItemEls.forEach((imageItem) => {
+      this.imageSrcs = []
+      for (let index = 0; index < this.zoomImageViewItemEls.length; index++) {
+        const element = this.zoomImageViewItemEls[index]
+        this.imageSrcs.push(element.getAttribute('src'))
+      }
+      this.zoomImageViewItemEls.forEach((imageItem, index) => {
         imageItem.addEventListener('click', () => {
-          this.handleImageItemThumbnailClick(imageItem)
+          this.handleImageItemThumbnailClick(imageItem, index)
         })
       })
     }
   }
 
-  handleImageItemThumbnailClick(imageItem) {
+  handleImageItemThumbnailClick(imageItem, index) {
     this.zoomValue = 1
     this.appendChild(
-      createModalTemplate(imageItem.getAttribute('src')).cloneNode(true),
+      createModalTemplate(
+        this.hasAttribute('multiple')
+          ? this.imageSrcs
+          : imageItem.getAttribute('src'),
+        this.hasAttribute('multiple'),
+        index,
+      ).cloneNode(true),
     )
-    this.bindingEventsOnModal()
+    this.bindingEventsOnModal(index)
   }
 
-  bindingEventsOnModal() {
+  bindingEventsOnModal(index) {
     const modal = this.querySelector(
       '[for="defaultModal"]',
     ).content.firstElementChild.cloneNode(true)
     cdgDialogService.show('sampleDefaultModal', modal)
 
     this.transformViewEl = modal.querySelector('.cdg-zoom-image-view-transform')
-    this.imgContentEl = modal.querySelector('#cdg-zoom-image-view-img')
+    this.imgContentEls = modal.querySelectorAll('.cdg-zoom-image-view-img')
+    this.carouselEl = modal.querySelector(
+      'cdg-carousel#cdg-zoom-image-carousel',
+    )
+    if (this.carouselEl) {
+      this.carouselEl.addEventListener('onCurrentChange', (event) => {
+        this.imgContentEl.removeEventListener(
+          'pointerdown',
+          this.handlePointerDown.bind(this),
+        )
+        this.imgContentEl.style.transform = `translate(0px, 0px) scale(1)`
+        this.imgContentEl = this.imgContentEls.item(event.detail)
+        this.resetPosition()
+        this.imgContentEl.addEventListener(
+          'pointerdown',
+          this.handlePointerDown.bind(this),
+        )
+      })
+    }
+    this.imgContentEl = this.imgContentEls.item(index)
     const buttonZoomIn = modal.querySelector('#cdg-zoom-image-view-zoom-in')
     const buttonZoomOut = modal.querySelector('#cdg-zoom-image-view-zoom-out')
 
@@ -158,6 +215,11 @@ export class CdgZoomImageView extends HTMLElement {
   }
 
   handleModalClose() {
+    this.resetPosition()
+    this.removeChild(this.querySelector('[for="defaultModal"]'))
+  }
+
+  resetPosition() {
     this.pointer.update(DEFAULT_POINT)
     this.currentPosition = DEFAULT_POINT
     this.ratioPointer = DEFAULT_POINT
@@ -166,11 +228,11 @@ export class CdgZoomImageView extends HTMLElement {
     this.overPointerBottom = false
     this.overPointerLeft = false
     this.overPointerRight = false
-    this.removeChild(this.querySelector('[for="defaultModal"]'))
   }
 
   handlePointerDown(event) {
     event.preventDefault()
+    event.stopPropagation()
     if (this.zoomValue === 1) {
       return
     }
@@ -209,10 +271,10 @@ export class CdgZoomImageView extends HTMLElement {
       this.imgContentEl.clientHeight * this.zoomValue >
       this.transformViewEl.clientHeight
     ) {
-      if (bound.top > boundTransformView.top) {
+      if (Math.round(bound.top) > Math.floor(boundTransformView.top)) {
         this.overPointerTop = true
       }
-      if (bound.bottom < boundTransformView.bottom) {
+      if (Math.round(bound.bottom) < Math.floor(boundTransformView.bottom)) {
         this.overPointerBottom = true
       }
     }
@@ -220,10 +282,10 @@ export class CdgZoomImageView extends HTMLElement {
       this.imgContentEl.clientWidth * this.zoomValue >
       this.transformViewEl.clientWidth
     ) {
-      if (bound.left > boundTransformView.left) {
+      if (Math.round(bound.left) > Math.floor(boundTransformView.left)) {
         this.overPointerLeft = true
       }
-      if (bound.right < boundTransformView.right) {
+      if (Math.floor(bound.right) < Math.round(boundTransformView.right)) {
         this.overPointerRight = true
       }
     }
