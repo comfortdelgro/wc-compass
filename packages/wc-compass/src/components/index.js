@@ -33,6 +33,7 @@ import {CdgRangeSlider} from './range-slider/range-slider'
 import {CdgRating} from './rating/rating'
 import {CdgRichTextEditor} from './rich-text-editor/rich-text-editor'
 import {CdgRichTextEditorToolbar} from './rich-text-editor/rte-toolbar'
+import {CdgSelectColor} from './select-color/select-color'
 import {CDGServiceCard} from './service-card/service-card'
 import {CdgStatus} from './status/status'
 import {CdgTab} from './tab/tab'
@@ -89,6 +90,7 @@ customElements.define('cdg-dropdown-menu', CdgMultiLevelDropdown)
 customElements.define('cdg-context-menu', CdgContextMenu)
 customElements.define('cdg-chart', CdgChart)
 customElements.define('cdg-gutter', CdgGutter)
+customElements.define('cdg-select-color', CdgSelectColor)
 
 export const CONTROL_COMPONENTS = [
   CdgAccordion,
@@ -128,4 +130,5 @@ export const CONTROL_COMPONENTS = [
   CdgContextMenu,
   CdgChart,
   CdgGutter,
+  CdgSelectColor,
 ]
