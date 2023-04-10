@@ -1,0 +1,60 @@
+<p>You want it to follow your style or your color scheme? It's easy!</p>
+<p>
+  By default, we display the layout with light theme. To display your content as
+  dark theme, just simply add <code>theme-dark</code> class name to your body.
+  To let the layout follows OS theme automatically, just add
+  <code>theme-os</code> into your body.
+</p>
+<p>
+  To customize with your own color plate, you just need to create an other css
+  file and import it under our import. With your customize css. To refer our css
+  color variables, please refer:
+  <a
+    href="https://github.com/comfortdelgro/wc-compass/blob/main/packages/wc-compass/src/styles/_style.scss"
+  >
+    _style.scss
+  </a>
+  <br />
+  Remember to give your css higher priority by adding it after our css or giving
+  it complex selector.
+</p>
+<p>
+  For example, if you want to override our color scheme. First let's go and
+  create a new css file and override our css variables by these:
+</p>
+
+<pre>
+    <code class="language-css">
+:root {
+    --background: #ffffff;
+    --revese-color: #ffffff;
+    --accent: #0142af;
+    ...and any other variables
+}
+    </code>
+</pre>
+
+<p>For dark theme</p>
+<pre>
+    <code class="language-css">
+/** Follow OS Configuration **/
+@media (prefers-color-scheme: dark) {
+    body.theme-os {
+        --background: #ffffff;
+        --revese-color: #ffffff;
+        --accent: #0142af;
+        ...and any other variables
+    }
+}
+
+/** By adding any custom class name **/
+body.theme-dark {
+    :root {
+        --background: #ffffff;
+        --revese-color: #ffffff;
+        --accent: #0142af;
+        ...and any other variables
+    }
+}
+    </code>
+</pre>

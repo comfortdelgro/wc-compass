@@ -62,12 +62,20 @@ import './components/website/contents/news-blogs.html'
 import './components/website/news-and-blogs.html'
 import './components/website/post-detail.html'
 import './components/wizards.html'
+import './pages/customization.html'
 import './pages/home.html'
+import './pages/layouts-and-controls.html'
+import './pages/theming.html'
+import './pages/z-index.html'
 
 customElements.define('cdg-sample-section', SampleSection)
 
 const contentMap = {
   home: './pages/home.html',
+  customization: './pages/customization.html',
+  zIndex: './pages/z-index.html',
+  theming: './pages/theming.html',
+  layoutsAndControls: './pages/layouts-and-controls.html',
   accordion: './components/accordion.html',
   alert: './components/alert.html',
   alertBadges: './components/alert-badges.html',
@@ -136,6 +144,29 @@ const contentMap = {
 }
 
 const documentContent = [
+  {
+    name: 'Getting started',
+    id: 'getingStarted',
+    icon: 'signature',
+    children: [
+      {
+        name: 'Theming',
+        slug: 'theming',
+      },
+      {
+        name: 'Layouts and Controls',
+        slug: 'layoutsAndControls',
+      },
+      {
+        name: 'zIndex',
+        slug: 'zIndex',
+      },
+      {
+        name: 'Customization',
+        slug: 'customization',
+      },
+    ],
+  },
   {
     name: 'Layouts',
     id: 'layouts',
@@ -428,17 +459,6 @@ const documentContent = [
       {name: 'Dashboard', slug: 'dashboardTemplate'},
     ],
   },
-  {
-    name: 'Templates',
-    id: 'template',
-    icon: 'signature',
-    children: [
-      {
-        name: 'Selecting Theme Modal',
-        slug: 'selectingThemeModal',
-      },
-    ],
-  },
 ]
 
 function downloadHTMLContent(url) {
@@ -543,6 +563,9 @@ function activeMenu(hash) {
 }
 
 function handlePageChange(url) {
+  if (!pageHeader) {
+    return
+  }
   // Remove old script
   scriptElement.textContent = ''
 
