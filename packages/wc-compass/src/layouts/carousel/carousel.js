@@ -244,11 +244,13 @@ export class CdgCarousel extends HTMLElement {
   next() {
     this.stop()
     this.current = (this.current + 1) % this.length
+    this.emitChangeCurrent()
   }
 
   prev() {
     this.stop()
     this.current = (this.length + (this.current - 1)) % this.length
+    this.emitChangeCurrent()
   }
 
   handleUpdatePositon(event) {
@@ -259,6 +261,13 @@ export class CdgCarousel extends HTMLElement {
     const target = event.detail || 0
     this.stop()
     this.current = target
+    this.emitChangeCurrent()
+  }
+
+  emitChangeCurrent() {
+    this.dispatchEvent(
+      new CustomEvent('onCurrentChange', {detail: this.current}),
+    )
   }
 
   handlePointerDown(event) {
