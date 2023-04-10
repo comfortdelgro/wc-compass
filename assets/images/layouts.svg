@@ -1,0 +1,54 @@
+<svg width="775" height="510" viewBox="0 0 775 510" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_207_77)">
+<rect width="775" height="510" fill="white"/>
+<rect x="555" y="455" width="90" height="34" rx="3" fill="#0142AF" stroke="#0142AF" stroke-width="2"/>
+<rect x="568" y="466" width="66" height="12" fill="white" fill-opacity="0.4"/>
+<rect x="665" y="455" width="90" height="34" rx="3" fill="white" stroke="#0142AF" stroke-width="2"/>
+<rect opacity="0.4" x="678" y="466" width="66" height="12" fill="#0142AF"/>
+<rect x="185" y="111" width="90" height="34" rx="17" fill="#0142AF" stroke="#0142AF" stroke-width="2"/>
+<rect x="198" y="122" width="66" height="12" fill="white" fill-opacity="0.4"/>
+<rect opacity="0.4" x="308" y="122" width="66" height="12" fill="#0142AF"/>
+<rect opacity="0.4" x="408" y="122" width="66" height="12" fill="#0142AF"/>
+<rect x="184" y="332" width="14" height="14" rx="7" fill="#0142AF" stroke="#0142AF" stroke-width="2"/>
+<rect x="207" y="334" width="66" height="10" fill="#999999"/>
+<rect x="334" y="332" width="14" height="14" rx="7" fill="white" stroke="#666666" stroke-width="2"/>
+<rect x="357" y="334" width="66" height="10" fill="#999999"/>
+<rect x="484" y="332" width="14" height="14" rx="7" fill="white" stroke="#666666" stroke-width="2"/>
+<rect x="507" y="334" width="66" height="10" fill="#999999"/>
+<rect x="184" y="267" width="203" height="34" rx="3" fill="white" stroke="#0142AF" stroke-width="2"/>
+<rect opacity="0.4" x="197" y="278" width="140" height="12" fill="#0142AF"/>
+<rect x="183" y="250" width="66" height="10" fill="#999999"/>
+<rect x="409" y="267" width="203" height="34" rx="3" fill="white" stroke="#0142AF" stroke-width="2"/>
+<rect opacity="0.4" x="422" y="278" width="96" height="12" fill="#0142AF"/>
+<rect opacity="0.4" width="12" height="12" transform="matrix(-1 0 0 1 599 278)" fill="#0142AF"/>
+<rect x="408" y="250" width="66" height="10" fill="#999999"/>
+<rect x="721" y="57" width="34" height="34" rx="3" fill="white" stroke="#0142AF" stroke-width="2"/>
+<rect opacity="0.4" x="732" y="68" width="12" height="12" fill="#0142AF"/>
+<rect x="183" y="181" width="430" height="4" rx="2" fill="#D9D9D9"/>
+<rect x="183" y="211" width="430" height="4" rx="2" fill="#D9D9D9"/>
+<rect x="183" y="181" width="215" height="4" rx="2" fill="#0142AF"/>
+<rect x="183" y="211" width="215" height="4" rx="2" fill="#0142AF"/>
+<circle cx="393" cy="183" r="8" fill="#0142AF"/>
+<rect x="44" width="120" height="510" fill="#D9D9D9"/>
+<rect x="184" y="66" width="156" height="16" fill="#999999"/>
+<rect x="44" width="731" height="40" fill="#0142AF"/>
+<g filter="url(#filter0_d_207_77)">
+<rect width="44" height="510" fill="white"/>
+</g>
+<rect x="11" y="11" width="20" height="20" fill="#0142AF"/>
+</g>
+<defs>
+<filter id="filter0_d_207_77" x="0" y="0" width="45" height="510" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="1"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_207_77"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_207_77" result="shape"/>
+</filter>
+<clipPath id="clip0_207_77">
+<rect width="775" height="510" fill="white"/>
+</clipPath>
+</defs>
+</svg>

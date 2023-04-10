@@ -1,0 +1,33 @@
+<h3 class="sample-section-title">Style</h3>
+<p>
+  Our components has built with simply css selector with prefix
+  <code>cdg</code> for you to use with any other libraries without impacts. So
+  to override our style, just make your css selector 1 more level
+  complicated.<br />
+  Remember to not use <code>!important</code> flag, this will pulls you into
+  other problems.
+</p>
+<p>For example:</p>
+<pre>
+    <code class="language-css">/** Our CSS **/
+.cdg-card {
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: var(--background);
+    color: var(--grey100);
+}
+
+/** To override **/
+.cdg-card.customized {
+    /** Any override css here **/
+    border-radius: 8px;
+    color: var(--grey800);
+}</code>
+</pre>
+
+<h3 class="sample-section-title">Component</h3>
+<p>
+  You can import and extend our component to build a new customized component.
+</p>
