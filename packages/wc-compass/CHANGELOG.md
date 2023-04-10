@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.1.2
+
+### Patch Changes
+
+- c87e5eb: Add more document pages and layouts
+
 ## 0.1.1
 
 ### Patch Changes
