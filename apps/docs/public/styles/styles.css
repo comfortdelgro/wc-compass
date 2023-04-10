@@ -161,7 +161,7 @@ pre code.hljs {
 
 .grid-sample-section {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 120px);
+  grid-template-columns: repeat(5, 1fr);
   row-gap: 20px;
 }
 
@@ -215,6 +215,11 @@ pre code.hljs {
 .cdg-sample-section pre.active,
 .cdg-sample-section .sample-section.active {
   display: flex;
+}
+
+.doc-sample-image {
+  max-width: 100%;
+  border: 1px solid var(--border-color);
 }
 
 @media screen and (max-width: 767px) {
