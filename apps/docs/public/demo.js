@@ -428,6 +428,17 @@ const documentContent = [
       {name: 'Dashboard', slug: 'dashboardTemplate'},
     ],
   },
+  {
+    name: 'Templates',
+    id: 'template',
+    icon: 'signature',
+    children: [
+      {
+        name: 'Selecting Theme Modal',
+        slug: 'selectingThemeModal',
+      },
+    ],
+  },
 ]
 
 function downloadHTMLContent(url) {
