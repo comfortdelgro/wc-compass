@@ -134,6 +134,7 @@ export class CdgZoomImageView extends HTMLElement {
     this.imgThumbnailEls = modal.querySelectorAll(
       '.cdg-zoom-image-view-thumbnail',
     )
+
     if (this.carouselEl) {
       this.carouselEl.addEventListener(
         'onCurrentChange',
