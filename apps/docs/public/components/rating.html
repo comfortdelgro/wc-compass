@@ -1,17 +1,15 @@
-<p></p>
-
-<h3>Default</h3>
-<div class="sample-section">
-  <div class="cdg-input-group">
-    <cdg-rating></cdg-rating>
-    <label class="cdg-rating-label">
-      <span>Not satisfied</span>
-      <span>Satisfied</span>
-    </label>
+<cdg-sample-section name="Default">
+  <div class="sample-section">
+    <div class="cdg-input-group">
+      <cdg-rating></cdg-rating>
+      <label class="cdg-rating-label">
+        <span>Not satisfied</span>
+        <span>Satisfied</span>
+      </label>
+    </div>
   </div>
-</div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;div class=&quot;cdg-input-group&quot;&gt;
     &lt;cdg-rating id=&quot;rating-id&quot;&gt;&lt;/cdg-rating&gt;
     &lt;label class=&quot;cdg-rating-label&quot;&gt;
@@ -26,19 +24,20 @@ rating.addEventListener(&apos;rate&apos;, (event) =&gt; {
 });
 &lt;/script&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3>Use Icon</h3>
-<div class="sample-section">
-  <div class="cdg-input-group">
-    <cdg-rating use-icon></cdg-rating>
-    <label class="cdg-rating-label">
-      <span>Not satisfied</span>
-      <span>Satisfied</span>
-    </label>
+<cdg-sample-section name="Use Icon">
+  <div class="sample-section">
+    <div class="cdg-input-group">
+      <cdg-rating use-icon></cdg-rating>
+      <label class="cdg-rating-label">
+        <span>Not satisfied</span>
+        <span>Satisfied</span>
+      </label>
+    </div>
   </div>
-</div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;div class=&quot;cdg-input-group&quot;&gt;
     &lt;cdg-rating use-icon id=&quot;rating-id&quot;&gt;&lt;/cdg-rating&gt;
     &lt;label class=&quot;cdg-rating-label&quot;&gt;
@@ -53,12 +52,13 @@ rating.addEventListener(&apos;rate&apos;, (event) =&gt; {
 });
 &lt;/script&gt;</code>
 </pre>
+</cdg-sample-section>
 
 <script>
-  const ratings = document.querySelectorAll('cdg-rating');
+  const ratings = document.querySelectorAll('cdg-rating')
   ratings.forEach((element) => {
     element.addEventListener('rate', (event) => {
-      cdgToastService.toast('Selected ' + event.detail);
-    });
-  });
+      cdgToastService.toast('Selected ' + event.detail)
+    })
+  })
 </script>

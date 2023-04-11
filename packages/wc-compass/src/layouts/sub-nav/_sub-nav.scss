@@ -69,7 +69,6 @@ cdg-sub-nav-group,
 .cdg-sub-nav-group-content {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   padding: 0 8px;
   gap: 4px;
   @extend %smoothTransition;
@@ -82,9 +81,9 @@ cdg-sub-nav-group,
   display: inline-flex;
   gap: 8px;
   align-items: center;
-  text-overflow: ellipsis;
+  // text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
+  // overflow: hidden;
   outline-offset: -1px;
 
   &.active,
