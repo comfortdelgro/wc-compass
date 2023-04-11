@@ -226,6 +226,25 @@ pre code.hljs {
   border: 1px solid var(--border-color);
 }
 
+.guideline-table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+.guideline-table thead {
+  background-color: var(--grey20);
+  font-weight: 500;
+}
+.guideline-table thead th {
+  padding: 14px 16px;
+}
+.guideline-table tbody td {
+  padding: 8px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
 @media screen and (max-width: 767px) {
   .page-container {
     background-color: var(--background);
