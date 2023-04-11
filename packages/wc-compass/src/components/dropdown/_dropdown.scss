@@ -79,17 +79,6 @@
     }
     .cdg-icon {
       color: var(--primary-color);
-      transition: transform 0.3s linear;
-    }
-  }
-
-  &.opening {
-    .cdg-dropdown-button {
-      .cdg-dropdown-button-icon {
-        &.cdg-icon {
-          transform: rotate(180deg);
-        }
-      }
     }
   }
 }
@@ -197,6 +186,13 @@
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+.cdg-select-color {
+  display: inline-flex;
+  .cdg-dropdown {
+    width: 100%;
+  }
 }
 
 @-moz-keyframes spin {

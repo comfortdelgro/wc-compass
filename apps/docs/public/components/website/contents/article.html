@@ -1,28 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Web Component Compass Design</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/agate.min.css"
-    />
-    <link
-      rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
     />
     <link rel="stylesheet" href="../../../bundled/compassDesign.min.css" />
-    <script>
-      function toggleDark() {
-        document.body.classList.toggle('dark')
-      }
-
-      function toggleMenu() {
-        const nav = document.querySelector('cdg-nav-rail')
-        nav.open = true
-        nav.focus()
-      }
-    </script>
   </head>
   <body class="cdg-layout as-column">
     <cdg-navbar>
@@ -35,9 +20,9 @@
       <div class="cdg-nav-links">
         <a href="#newsAndBlogs" class="cdg-button ghost" size="small">Home</a>
         <a href="#newsAndBlogs" class="cdg-button ghost" size="small">About</a>
-        <a href="#newsAndBlogs" class="cdg-button ghost" size="small"
-          >Zig Biz</a
-        >
+        <a href="#newsAndBlogs" class="cdg-button ghost" size="small">
+          Zig Biz
+        </a>
         <a href="#newsAndBlogs" class="cdg-button link active" size="small">
           Blogs
         </a>

@@ -50,6 +50,18 @@ cdg-right-group,
   display: flex;
 }
 
+.cdg-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  container-name: CardGrid;
+  container-type: inline-size;
+
+  &.columns-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 cdg-card,
 .cdg-card {
   border-radius: 4px;
@@ -518,5 +530,81 @@ cdg-carousel,
     &.align-end-end {
       text-align: right;
     }
+  }
+}
+
+.cdg-contains-gutter {
+  position: relative;
+}
+
+.cdg-gutter {
+  width: 5px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 3px;
+    width: 2px;
+    background-color: transparent;
+    @extend %smoothTransition;
+  }
+
+  &:hover {
+    cursor: col-resize;
+    &::after {
+      background-color: var(--accent);
+      @extend %smoothTransition;
+    }
+
+    .cdg-button {
+      opacity: 1;
+      @extend %smoothTransition;
+    }
+  }
+
+  &[place='left'] {
+    right: auto;
+    left: 0;
+    &::after {
+      top: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  &.collapsed {
+    .cdg-icon {
+      transform: rotate(180deg);
+    }
+
+    .cdg-button {
+      opacity: 1;
+    }
+  }
+
+  .cdg-button {
+    position: absolute;
+    top: 20px;
+    left: -8px;
+    z-index: 1;
+    width: 24px;
+    height: 24px;
+    border-radius: 20px;
+    background-color: var(--background);
+    box-shadow: var(--shadow-depth-04);
+    opacity: 0;
+    @extend %smoothTransition;
+    &[size='small'].icon {
+      padding: 5px;
+    }
+  }
+
+  .cdg-icon {
+    pointer-events: none;
   }
 }

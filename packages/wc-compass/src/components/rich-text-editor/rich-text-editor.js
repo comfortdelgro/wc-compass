@@ -13,16 +13,18 @@ import StarterKit from '@tiptap/starter-kit'
 
 
 export class CdgRichTextEditor extends HTMLElement {
-  static get observedAttributes() {
-    return ['content']
-  }
   editor
 
   constructor() {
     super()
+    const content = this.querySelector('.cdg-rte-content')
+
+    // Clone default value
+    const data = content.innerHTML
+    content.textContent = ''
 
     this.editor = new Editor({
-      element: this.querySelector('.cdg-rte-content'),
+      element: content,
       extensions: [
         StarterKit,
         TextAlign.configure({
@@ -37,7 +39,7 @@ export class CdgRichTextEditor extends HTMLElement {
         TextStyle,
         Color,
       ],
-      content: '',
+      content: data,
       onUpdate: ({editor}) => {
         const output = editor.getHTML()
         if (!output) return
@@ -52,13 +54,6 @@ export class CdgRichTextEditor extends HTMLElement {
     const toolbar = this.querySelector('cdg-rte-toolbar')
     if (toolbar) {
       toolbar.editor = this.editor
-    }
-  }
-
-  attributeChangedCallback() {
-    const content = this.getAttribute('content')
-    if (!!content && typeof content === 'string') {
-      this.editor.commands.setContent(content)
     }
   }
 }

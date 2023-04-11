@@ -1,0 +1,43 @@
+<p>
+  The problem is when developers see the other have zIndex with value 999, they
+  will increase number to let their zIndex higher. Someone uses 9999, someone
+  uses 10001... That time we will see so many inconsistent problems about zIndex
+  on the screen. For example: Dropdown content is under the dialog, or any
+  content is floatting above loading indicator.
+</p>
+
+<p>So that, following a rule will let our zIndex consistent.</p>
+<p style="display: flex; flex-direction: column">
+  <img src="/assets/images/z-index.svg" />
+</p>
+<p>
+  View on
+  <a
+    href="https://www.figma.com/file/MQVnynY3v1pI55Cm6l5qHK/CDGNotes?node-id=8-2&t=PMEQNnRxCQq55Hk3-4"
+  >
+    Figma
+  </a>
+</p>
+<p>Notes:</p>
+<ul>
+  <li>
+    The other or local component (absolute / relative inside one of above) will
+    have z-index in range from 1 to 10
+  </li>
+  <li>Don’t use 999 or 9999 or 99999 for z-index value</li>
+</ul>
+
+<p>
+  For better understanding about zIndex, please remember the rule: Highest of
+  lower floor will always lower than lowest of higher floor.
+</p>
+
+<p style="display: flex; flex-direction: column">
+  <img src="/assets/images/zindex-order.svg" />
+</p>
+<p>
+  Or Refer:
+  <a href="https://css-tricks.com/almanac/properties/z/z-index/">
+    https://css-tricks.com/almanac/properties/z/z-index/
+  </a>
+</p>

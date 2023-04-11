@@ -1,28 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Web Component Compass Design</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/agate.min.css"
-    />
-    <link
-      rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
     />
     <link rel="stylesheet" href="../../../bundled/compassDesign.min.css" />
-    <script>
-      function toggleDark() {
-        document.body.classList.toggle('dark')
-      }
-
-      function toggleMenu() {
-        const nav = document.querySelector('cdg-nav-rail')
-        nav.open = true
-        nav.focus()
-      }
-    </script>
   </head>
   <body class="cdg-layout as-column">
     <cdg-navbar>
@@ -35,9 +20,9 @@
       <div class="cdg-nav-links">
         <a href="#newsAndBlogs" class="cdg-button ghost" size="small">Home</a>
         <a href="#newsAndBlogs" class="cdg-button ghost" size="small">About</a>
-        <a href="#newsAndBlogs" class="cdg-button ghost" size="small"
-          >Zig Biz</a
-        >
+        <a href="#newsAndBlogs" class="cdg-button ghost" size="small">
+          Zig Biz
+        </a>
         <a href="#newsAndBlogs" class="cdg-button link active" size="small">
           Blogs
         </a>
@@ -148,9 +133,13 @@
         <a class="cdg-tab" href="#newsAndBlogs">Media Releases</a>
       </cdg-tabs>
     </section>
-    <div class="cdg-container cdg-layout cdg-card-blogs grid-3-columns">
+
+    <div class="cdg-card-grid cdg-container">
       <cdg-card>
-        <cdg-card-cover src="https://picsum.photos/300/200?1"></cdg-card-cover>
+        <cdg-card-cover
+          rounded
+          src="https://mdbcdn.b-cdn.net/img/new/standard/city/005.webp"
+        ></cdg-card-cover>
         <div class="cdg-card-blog-content">
           <div class="cdg-card-blog-category">RIDE WITH US</div>
           <div class="cdg-card-blog-title">
@@ -160,7 +149,10 @@
         </div>
       </cdg-card>
       <cdg-card>
-        <cdg-card-cover src="https://picsum.photos/300/200?2"></cdg-card-cover>
+        <cdg-card-cover
+          rounded
+          src="https://mdbcdn.b-cdn.net/img/new/standard/city/006.webp"
+        ></cdg-card-cover>
         <div class="cdg-card-blog-content">
           <div class="cdg-card-blog-category">RIDE WITH US</div>
           <div class="cdg-card-blog-title">
@@ -170,7 +162,10 @@
         </div>
       </cdg-card>
       <cdg-card>
-        <cdg-card-cover src="https://picsum.photos/300/200?3"></cdg-card-cover>
+        <cdg-card-cover
+          rounded
+          src="https://mdbcdn.b-cdn.net/img/new/standard/city/007.webp"
+        ></cdg-card-cover>
         <div class="cdg-card-blog-content">
           <div class="cdg-card-blog-category">FEATURED</div>
           <div class="cdg-card-blog-title">
@@ -180,7 +175,10 @@
         </div>
       </cdg-card>
       <cdg-card>
-        <cdg-card-cover src="https://picsum.photos/300/200?4"></cdg-card-cover>
+        <cdg-card-cover
+          rounded
+          src="https://mdbcdn.b-cdn.net/img/new/standard/city/008.webp"
+        ></cdg-card-cover>
         <div class="cdg-card-blog-content">
           <div class="cdg-card-blog-category">RIDE WITH US</div>
           <div class="cdg-card-blog-title">
@@ -190,7 +188,10 @@
         </div>
       </cdg-card>
       <cdg-card>
-        <cdg-card-cover src="https://picsum.photos/300/200?5"></cdg-card-cover>
+        <cdg-card-cover
+          rounded
+          src="https://mdbcdn.b-cdn.net/img/new/standard/city/009.webp"
+        ></cdg-card-cover>
         <div class="cdg-card-blog-content">
           <div class="cdg-card-blog-category">RIDE WITH US</div>
           <div class="cdg-card-blog-title">
@@ -200,7 +201,10 @@
         </div>
       </cdg-card>
       <cdg-card>
-        <cdg-card-cover src="https://picsum.photos/300/200?6"></cdg-card-cover>
+        <cdg-card-cover
+          rounded
+          src="https://mdbcdn.b-cdn.net/img/new/standard/city/010.webp"
+        ></cdg-card-cover>
         <div class="cdg-card-blog-content">
           <div class="cdg-card-blog-category">RIDE WITH US</div>
           <div class="cdg-card-blog-title">

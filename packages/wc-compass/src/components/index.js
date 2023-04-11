@@ -15,6 +15,7 @@ import {CdgDropdownSelect} from './dropdown/dropdown-select'
 import {CdgFile} from './file/file'
 import {CdgFileUpload} from './file/file-upload'
 import {CdgFloatingContent} from './floating-content/floating-content'
+import {CdgGutter} from './gutter/gutter'
 import {CdgIcon} from './icon/icon'
 import {CdgInlineLoading} from './inline-loading/inline-loading'
 import {CdgListItem} from './list-view/list-item'
@@ -32,6 +33,7 @@ import {CdgRangeSlider} from './range-slider/range-slider'
 import {CdgRating} from './rating/rating'
 import {CdgRichTextEditor} from './rich-text-editor/rich-text-editor'
 import {CdgRichTextEditorToolbar} from './rich-text-editor/rte-toolbar'
+import {CdgSelectColor} from './select-color/select-color'
 import {CDGServiceCard} from './service-card/service-card'
 import {CdgStatus} from './status/status'
 import {CdgTab} from './tab/tab'
@@ -87,6 +89,8 @@ customElements.define('cdg-rte-toolbar', CdgRichTextEditorToolbar)
 customElements.define('cdg-dropdown-menu', CdgMultiLevelDropdown)
 customElements.define('cdg-context-menu', CdgContextMenu)
 customElements.define('cdg-chart', CdgChart)
+customElements.define('cdg-gutter', CdgGutter)
+customElements.define('cdg-select-color', CdgSelectColor)
 
 export const CONTROL_COMPONENTS = [
   CdgAccordion,
@@ -125,4 +129,6 @@ export const CONTROL_COMPONENTS = [
   CdgMultiLevelDropdown,
   CdgContextMenu,
   CdgChart,
+  CdgGutter,
+  CdgSelectColor,
 ]
