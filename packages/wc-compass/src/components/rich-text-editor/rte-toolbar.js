@@ -9,7 +9,7 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
   constructor() {
     super()
     if (this.isItemsHidden) {
-      this.style.maxHeight='38px'
+      this.style.maxHeight = '38px'
       this.viewMoreButton = document.createElement('button')
       this.viewMoreButton.classList.add('more-button')
       this.viewMoreButton.innerHTML =
