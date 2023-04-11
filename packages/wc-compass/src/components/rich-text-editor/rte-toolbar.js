@@ -1,11 +1,26 @@
 export class CdgRichTextEditorToolbar extends HTMLElement {
+  static get observedAttributes() {
+    return ['hiddenItems']
+  }
+
+  get isItemsHidden() {
+    return this.hasAttribute('hiddenItems')
+  }
   constructor() {
     super()
-    this.viewMoreButton = document.createElement('button')
-    this.viewMoreButton.classList.add('more-button')
-    this.viewMoreButton.innerHTML =
-      '<cdg-icon name="activity" source="host"></cdg-icon>'
-    this.appendChild(this.viewMoreButton)
+    if (this.isItemsHidden) {
+      this.style.maxHeight='38px'
+      this.viewMoreButton = document.createElement('button')
+      this.viewMoreButton.classList.add('more-button')
+      this.viewMoreButton.innerHTML =
+        '<cdg-icon name="activity" source="host"></cdg-icon>'
+      this.appendChild(this.viewMoreButton)
+      setTimeout(() => {
+        this.checkMoreButtonVisibility()
+      })
+    } else {
+      this.style.maxHeight = '300px'
+    }
   }
 
   set editor(value) {
@@ -26,17 +41,16 @@ export class CdgRichTextEditorToolbar extends HTMLElement {
       }
     })
     this.bindEventHandler()
-    setTimeout(() => {
-      this.checkMoreButtonVisibility()
-    })
   }
 
   bindEventHandler() {
-    window.addEventListener('resize', (event) => {
-      this.checkMoreButtonVisibility()
-    })
+    if (this.isItemsHidden) {
+      window.addEventListener('resize', (event) => {
+        this.checkMoreButtonVisibility()
+      })
+      this.bindClickHandlerToMoreButton()
+    }
     this.bindClickHandlerToControls()
-    this.bindClickHandlerToMoreButton()
     this.bindChangeHandlerToHeadingSelector()
     this.bindChangeHandlerToTextAlignmentSelector()
     this.bindChangeHandlerToColorSelector()
