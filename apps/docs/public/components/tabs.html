@@ -4,17 +4,17 @@
   coherent unit.
 </p>
 
-<h3 class="sample-section-title">Link</h3>
-<div class="sample-section column darker">
-  <cdg-tabs>
-    <a class="cdg-tab" href="#tabs?firstTab" activated>First Tab</a>
-    <a class="cdg-tab" href="#tabs?secondTab">Middle Tab</a>
-    <a class="cdg-tab" href="#tabs?thirdTab">Last Tab</a>
-    <a class="cdg-tab" disabled>Disabled Tab</a>
-  </cdg-tabs>
-</div>
+<cdg-sample-section name="Link">
+  <div class="sample-section darker">
+    <cdg-tabs>
+      <a class="cdg-tab" href="#tabs?firstTab" activated>First Tab</a>
+      <a class="cdg-tab" href="#tabs?secondTab">Middle Tab</a>
+      <a class="cdg-tab" href="#tabs?thirdTab">Last Tab</a>
+      <a class="cdg-tab" disabled>Disabled Tab</a>
+    </cdg-tabs>
+  </div>
 
-<pre>
+  <pre>
   <code class="language-html">&lt;cdg-tabs id=&quot;sample-tab&quot;&gt;
   &lt;a class=&quot;cdg-tab&quot; href=&quot;#tabs?firstTab&quot; activated&gt;First Tab&lt;/a&gt;
   &lt;a class=&quot;cdg-tab&quot; href=&quot;#tabs?secondTab&quot;&gt;Middle Tab&lt;/a&gt;
@@ -22,18 +22,19 @@
   &lt;a class=&quot;cdg-tab&quot; disabled&gt;Disabled Tab&lt;/a&gt;
 &lt;/cdg-tabs&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3 class="sample-section-title">Status</h3>
-<div class="sample-section darker">
-  <cdg-tabs>
-    <cdg-tab>Activated</cdg-tab>
-    <cdg-tab>Normal</cdg-tab>
-    <cdg-tab disabled>Disabled</cdg-tab>
-    <cdg-tab activated disabled>Activated Disabled</cdg-tab>
-  </cdg-tabs>
-</div>
+<cdg-sample-section name="Status">
+  <div class="sample-section darker">
+    <cdg-tabs>
+      <cdg-tab>Activated</cdg-tab>
+      <cdg-tab>Normal</cdg-tab>
+      <cdg-tab disabled>Disabled</cdg-tab>
+      <cdg-tab activated disabled>Activated Disabled</cdg-tab>
+    </cdg-tabs>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;cdg-tabs&gt;
     &lt;cdg-tab&gt;Activated&lt;/cdg-tab&gt;
     &lt;cdg-tab&gt;Normal&lt;/cdg-tab&gt;
@@ -41,36 +42,56 @@
     &lt;cdg-tab activated disabled&gt;Activated Disabled&lt;/cdg-tab&gt;
 &lt;/cdg-tabs&gt;</code>
 </pre>
+</cdg-sample-section>
 
-<h3 class="sample-section-title">Interaction</h3>
-<style>
-  .tab-content {
-    display: none;
-  }
-
-  .tab-content.active {
-    display: block;
-  }
-</style>
-
-<div class="sample-section column darker">
-  <div class="tab-top-custom-wrapper">
-    <cdg-tabs id="sample-tab">
-      <cdg-tab activated>First Tab</cdg-tab>
-      <cdg-tab>Middle Tab</cdg-tab>
+<cdg-sample-section name="Classic">
+  <div class="sample-section darker">
+    <cdg-tabs classic>
+      <cdg-tab activated>Activated</cdg-tab>
+      <cdg-tab>Normal</cdg-tab>
       <cdg-tab>Last Tab</cdg-tab>
-      <cdg-tab disabled>Disabled Tab</cdg-tab>
     </cdg-tabs>
   </div>
-  <div class="tab-contents" for="sample-tab">
-    <div class="tab-content active">Content of tab 1</div>
-    <div class="tab-content">Content of tab 2</div>
-    <div class="tab-content">Content of tab 3</div>
-    <div class="tab-content">Content of Disabled tab</div>
-  </div>
-</div>
 
-<pre>
+  <pre>
+    <code class="language-html">&lt;cdg-tabs&gt;
+    &lt;cdg-tab&gt;Activated&lt;/cdg-tab&gt;
+    &lt;cdg-tab&gt;Normal&lt;/cdg-tab&gt;
+    &lt;cdg-tab disabled&gt;Disabled&lt;/cdg-tab&gt;
+    &lt;cdg-tab activated disabled&gt;Activated Disabled&lt;/cdg-tab&gt;
+&lt;/cdg-tabs&gt;</code>
+</pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Interaction">
+  <style>
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+
+  <div class="sample-section column darker">
+    <div class="tab-top-custom-wrapper">
+      <cdg-tabs id="sample-tab">
+        <cdg-tab activated>First Tab</cdg-tab>
+        <cdg-tab>Middle Tab</cdg-tab>
+        <cdg-tab>Last Tab</cdg-tab>
+        <cdg-tab disabled>Disabled Tab</cdg-tab>
+      </cdg-tabs>
+    </div>
+    <div class="tab-contents" for="sample-tab">
+      <div class="tab-content active">Content of tab 1</div>
+      <div class="tab-content">Content of tab 2</div>
+      <div class="tab-content">Content of tab 3</div>
+      <div class="tab-content">Content of Disabled tab</div>
+    </div>
+  </div>
+
+  <pre>
     <code class="language-html">&lt;div class=&quot;tab-top-custom-wrapper&quot;&gt;
     &lt;cdg-tabs id=&quot;sample-tab&quot;&gt;
         &lt;cdg-tab activated&gt;First Tab&lt;/cdg-tab&gt;
@@ -101,6 +122,7 @@ function onSwitchTab(data) {
 tab.addEventListener(&apos;switchTab&apos;, onSwitchTab);
 &lt;/script&gt;</code>
 </pre>
+</cdg-sample-section>
 
 <script>
   function listenTabs() {

@@ -245,6 +245,16 @@ pre code.hljs {
   border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
+.cdg-contains-gutter cdg-sub-nav,
+.cdg-contains-gutter .cdg-sub-nav {
+  width: 100%;
+  overflow: auto;
+}
+
+.sub-nav-wrapper {
+  min-width: 10px;
+}
+
 @media screen and (max-width: 767px) {
   .page-container {
     background-color: var(--background);
