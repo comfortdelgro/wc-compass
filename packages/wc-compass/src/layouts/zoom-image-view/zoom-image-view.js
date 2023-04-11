@@ -4,13 +4,17 @@ function createModalTemplate(imgSrcs, multiple, activeIndex) {
   const template = document.createElement('template')
   template.setAttribute('for', 'defaultModal')
   let zoomContent = ''
+  let thumbnailsContent = ''
   if (multiple) {
     zoomContent = `<cdg-carousel use-arrow="true" current="${activeIndex}" id="cdg-zoom-image-carousel">`
-    imgSrcs.forEach((imgSrc) => {
+    imgSrcs.forEach((imgSrc, index) => {
       zoomContent += `
         <cdg-slide>
           <img src="${imgSrc}" class="cdg-zoom-image-view-img" />
         </cdg-slide>`
+      thumbnailsContent += `<img src="${imgSrc}" class="cdg-zoom-image-view-thumbnail ${
+        activeIndex === index ? 'thumbnail-active' : ''
+      }" />`
     })
     zoomContent += '</cdg-carousel>'
   } else {
@@ -31,6 +35,9 @@ function createModalTemplate(imgSrcs, multiple, activeIndex) {
         <div class="cdg-zoom-image-view-transform">
         ${zoomContent}
         </div>
+        <div class="cdg-zoom-image-view-thumbnails-container">
+          ${thumbnailsContent}
+        </div>
       </div>
     </cdg-modal-body>
   </cdg-modal>
@@ -43,17 +50,19 @@ const DEFAULT_POINT = {x: 0, y: 0}
 
 export class CdgZoomImageView extends HTMLElement {
   zoomImageViewItemEls
-  currentPosition = DEFAULT_POINT
-  pointer = new Pointer()
-  zoomValue = 1
   transformViewEl
   carouselEl
   imgContentEls
   imgContentEl
+  imgThumbnailEls
+
+  currentPosition = DEFAULT_POINT
+  pointer = new Pointer()
+  zoomValue = 1
   ratioPointer = DEFAULT_POINT
 
   get multiple() {
-    this.hasAttribute('multiple')
+    return this.hasAttribute('multiple')
   }
 
   set multiple(value) {
@@ -122,18 +131,19 @@ export class CdgZoomImageView extends HTMLElement {
     this.carouselEl = modal.querySelector(
       'cdg-carousel#cdg-zoom-image-carousel',
     )
+    this.imgThumbnailEls = modal.querySelectorAll(
+      '.cdg-zoom-image-view-thumbnail',
+    )
     if (this.carouselEl) {
-      this.carouselEl.addEventListener('onCurrentChange', (event) => {
-        this.imgContentEl.removeEventListener(
-          'pointerdown',
-          this.handlePointerDown.bind(this),
-        )
-        this.imgContentEl.style.transform = `translate(0px, 0px) scale(1)`
-        this.imgContentEl = this.imgContentEls.item(event.detail)
-        this.resetPosition()
-        this.imgContentEl.addEventListener(
-          'pointerdown',
-          this.handlePointerDown.bind(this),
+      this.carouselEl.addEventListener(
+        'onCurrentChange',
+        this.handleCarouselIndexChange.bind(this),
+      )
+    }
+    if (this.multiple && this.imgThumbnailEls && this.imgThumbnailEls.length) {
+      this.imgThumbnailEls.forEach((imgThumbnail, index) => {
+        imgThumbnail.addEventListener('click', (event) =>
+          this.handleThumbnailModalClick(event, index),
         )
       })
     }
@@ -142,7 +152,6 @@ export class CdgZoomImageView extends HTMLElement {
     const buttonZoomOut = modal.querySelector('#cdg-zoom-image-view-zoom-out')
 
     buttonZoomIn.addEventListener('click', this.handleZoomInClick.bind(this))
-
     buttonZoomOut.addEventListener('click', this.handleZoomOutClick.bind(this))
 
     this.imgContentEl.addEventListener(
@@ -151,6 +160,44 @@ export class CdgZoomImageView extends HTMLElement {
     )
 
     modal.addEventListener('close', this.handleModalClose.bind(this))
+  }
+
+  handleCarouselIndexChange(event) {
+    this.changeImageActiveIndex(event.detail)
+    this.imgThumbnailEls.forEach((imgThumbnail, index) => {
+      imgThumbnail.classList.remove('thumbnail-active')
+      if (index === event.detail) {
+        imgThumbnail.classList.add('thumbnail-active')
+      }
+    })
+  }
+
+  handleThumbnailModalClick(event, index) {
+    if (!event.target.classList.contains('thumbnail-active')) {
+      const preActiveThumbnail = document.querySelector(
+        '.cdg-zoom-image-view-thumbnail.thumbnail-active',
+      )
+      if (preActiveThumbnail) {
+        preActiveThumbnail.classList.remove('thumbnail-active')
+      }
+      this.changeImageActiveIndex(index)
+      this.carouselEl.setAttribute('current', index)
+      event.target.classList.add('thumbnail-active')
+    }
+  }
+
+  changeImageActiveIndex(index) {
+    this.imgContentEl.removeEventListener(
+      'pointerdown',
+      this.handlePointerDown.bind(this),
+    )
+    this.imgContentEl.style.transform = `translate(0px, 0px) scale(1)`
+    this.imgContentEl = this.imgContentEls.item(index)
+    this.resetPosition()
+    this.imgContentEl.addEventListener(
+      'pointerdown',
+      this.handlePointerDown.bind(this),
+    )
   }
 
   handleZoomInClick() {
