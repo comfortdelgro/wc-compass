@@ -22,12 +22,12 @@ export class CdgTableHead extends HTMLElement {
 
   constructor() {
     super()
-    this.setAttribute('role', 'thead')
-    this.tableHeadRowElement = this.querySelector('cdg-table-row')
   }
 
   connectedCallback() {
     this.classList.add('cdg-table-head')
+    this.setAttribute('role', 'thead')
+    this.tableHeadRowElement = this.querySelector('cdg-table-row')
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {

@@ -6,9 +6,9 @@
   scan, sort, compare, and take action on large amounts of data.
 </p>
 
-<cdg-table class="cdg-table" checkable>
-  <div class="cdg-table-toolbar" cdg-table-toolbar>
-    <div class="cdg-table-toolbar-left">
+<div class="sample-section column">
+  <cdg-toolbar>
+    <div class="cdg-left-group">
       <label class="cdg-input-group" style="width: 100px">
         <cdg-dropdown placeholder="Select">
           <cdg-dropdown-option value="1"> Select Select 1 </cdg-dropdown-option>
@@ -16,7 +16,6 @@
           <cdg-dropdown-option value="3"> Select Select 3 </cdg-dropdown-option>
         </cdg-dropdown>
       </label>
-
       <label class="cdg-input-group" style="width: 320px">
         <div class="cdg-input-with-icon right">
           <input class="cdg-input" placeholder="Type something..." />
@@ -24,7 +23,7 @@
         </div>
       </label>
     </div>
-    <div class="cdg-table-toolbar-right">
+    <div class="cdg-right-group">
       <button class="cdg-button left">
         <cdg-icon name="plus"></cdg-icon> Add employee
       </button>
@@ -35,60 +34,61 @@
         <cdg-icon name="copy"></cdg-icon>
       </button>
     </div>
-  </div>
+  </cdg-toolbar>
 
-  <cdg-table-head class="cdg-table-head">
-    <cdg-table-row class="cdg-table-head-row">
-      <cdg-table-head-cell name="id" width="100px">
-        <a
-          href="#table?sort=id&sortDirection=desc"
-          class="cdg-table-head-cell-content"
-        >
-          <label class="cdg-table-head-cell-text has-sorting">ID</label>
-          <div class="cdg-table-head-cell-sorting">
-            <cdg-icon
-              class="cdg-table-head-cell-icon asc"
-              name="filledArrowUp"
-              size="16"
-            ></cdg-icon>
-            <cdg-icon
-              class="cdg-table-head-cell-icon desc"
-              name="filledArrowDown"
-              size="16"
-            ></cdg-icon>
-          </div>
-        </a>
-      </cdg-table-head-cell>
-      <cdg-table-head-cell name="name">
-        <a
-          href="#table?sort=name&sortDirection=desc"
-          class="cdg-table-head-cell-content"
-        >
-          <label class="cdg-table-head-cell-text has-sorting">Name</label>
-          <div class="cdg-table-head-cell-sorting">
-            <cdg-icon
-              class="cdg-table-head-cell-icon asc"
-              name="filledArrowUp"
-              size="16"
-            ></cdg-icon>
-            <cdg-icon
-              class="cdg-table-head-cell-icon desc"
-              name="filledArrowDown"
-              size="16"
-            ></cdg-icon>
-          </div>
-        </a>
-      </cdg-table-head-cell>
-      <cdg-table-head-cell name="age">
-        <div class="cdg-table-head-cell-text text-right">Age</div>
-      </cdg-table-head-cell>
-      <cdg-table-head-cell name="gender">
-        <div class="cdg-table-head-cell-text">Gender</div>
-      </cdg-table-head-cell>
-    </cdg-table-row>
-  </cdg-table-head>
-
-  <cdg-table-body class="cdg-table-body"> </cdg-table-body>
+  <cdg-table class="cdg-table" checkable>
+    <cdg-table-head class="cdg-table-head">
+      <cdg-table-row class="cdg-table-head-row">
+        <cdg-table-head-cell name="id" width="60px">
+          <a
+            href="#table?sort=id&sortDirection=desc"
+            class="cdg-table-head-cell-content"
+          >
+            <label class="cdg-table-head-cell-text has-sorting">ID</label>
+            <div class="cdg-table-head-cell-sorting">
+              <cdg-icon
+                class="cdg-table-head-cell-icon asc"
+                name="filledArrowUp"
+                size="16"
+              ></cdg-icon>
+              <cdg-icon
+                class="cdg-table-head-cell-icon desc"
+                name="filledArrowDown"
+                size="16"
+              ></cdg-icon>
+            </div>
+          </a>
+        </cdg-table-head-cell>
+        <cdg-table-head-cell name="name">
+          <a
+            href="#table?sort=name&sortDirection=desc"
+            class="cdg-table-head-cell-content"
+          >
+            <label class="cdg-table-head-cell-text has-sorting">Name</label>
+            <div class="cdg-table-head-cell-sorting">
+              <cdg-icon
+                class="cdg-table-head-cell-icon asc"
+                name="filledArrowUp"
+                size="16"
+              ></cdg-icon>
+              <cdg-icon
+                class="cdg-table-head-cell-icon desc"
+                name="filledArrowDown"
+                size="16"
+              ></cdg-icon>
+            </div>
+          </a>
+        </cdg-table-head-cell>
+        <cdg-table-head-cell name="age" width="100px">
+          <div class="cdg-table-head-cell-text">Age</div>
+        </cdg-table-head-cell>
+        <cdg-table-head-cell name="gender" width="100px">
+          <div class="cdg-table-head-cell-text">Gender</div>
+        </cdg-table-head-cell>
+      </cdg-table-row>
+    </cdg-table-head>
+    <cdg-table-body class="cdg-table-body"> </cdg-table-body>
+  </cdg-table>
 
   <div class="cdg-table-footer" cdg-table-footer>
     <div class="cdg-table-footer-left">
@@ -117,7 +117,7 @@
       </div>
     </div>
   </div>
-</cdg-table>
+</div>
 
 <div style="height: 300px"></div>
 
@@ -174,8 +174,8 @@
     rowTemplate.innerHTML = `
             <cdg-table-row class="cdg-table-row" checkable>
                 <cdg-table-cell>${data.id}</cdg-table-cell>
-                <cdg-table-cell class="text-center">${data.name}</cdg-table-cell>
-                <cdg-table-cell class="text-right">${data.age}</cdg-table-cell>
+                <cdg-table-cell>${data.name}</cdg-table-cell>
+                <cdg-table-cell>${data.age}</cdg-table-cell>
                 <cdg-table-cell>Male</cdg-table-cell>
             </cdg-table-row>
         `

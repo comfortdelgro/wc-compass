@@ -1,7 +1,11 @@
 .cdg-table {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  border-collapse: collapse;
+  display: table;
+  box-sizing: border-box;
+  text-indent: initial;
+  width: 100%;
+  table-layout: fixed;
+  border: 1px solid var(--border-color);
 }
 
 /* table */
@@ -54,6 +58,7 @@
   text-align: left;
   position: relative;
   font-size: var(--spacing-3_5);
+  text-transform: capitalize;
 }
 
 .cdg-table-head-cell-content {
@@ -124,6 +129,14 @@
 
   &[checked] {
     background-color: var(--blue10);
+  }
+
+  &:hover {
+    background-color: var(--hover-background);
+  }
+
+  &.cdg-table-head-row:hover {
+    background-color: transparent;
   }
 }
 

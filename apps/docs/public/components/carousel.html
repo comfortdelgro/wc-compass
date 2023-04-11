@@ -623,67 +623,48 @@
 </pre>
 </cdg-sample-section>
 
-
 <section class="guideline-section">
-  <h3>Props</h3>
-  <table class="guideline-table">
-    <thead>
-      <tr>
-        <th align="left">Name</th>
-        <th align="left">Type</th>
-        <th align="left">Default</th>
-        <th align="left">Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td align="left">current</td>
-        <td align="left"><code>number</code></td>
-        <td align="left"><code>0</code></td>
-        <td align="left">
-          <div>The active index of the slides.</div>
-        </td>
-      </tr>
-      <tr>
-        <td align="left">use-arrow</td>
-        <td align="left"><code>boolean</code></td>
-        <td align="left"><code>false</code></td>
-        <td align="left">
-          <div>Using button next/prev as an arrow.</div>
-        </td>
-      </tr>
-      <tr>
-        <td align="left">auto-switch</td>
-        <td align="left"><code>boolean</code></td>
-        <td align="left"><code>false</code></td>
-        <td align="left">
-          <div>If <code>true</code>, the slide will automatically switch.</div>
-        </td>
-      </tr>
-      <tr>
-        <td align="left">single-center</td>
-        <td align="left"><code>boolean</code></td>
-        <td align="left"><code>false</code></td>
-        <td align="left">
-          <div>If <code>true</code>, the first item will be centered.</div>
-        </td>
-      </tr>
-      <tr>
-        <td align="left">scaled</td>
-        <td align="left"><code>boolean</code></td>
-        <td align="left"><code>false</code></td>
-        <td align="left">
-          <div>If <code>true</code>, scale slide item <code>0.9</code> times.</div>
-        </td>
-      </tr>
-      <tr>
-        <td align="left">onCurrentChange</td>
-        <td align="left"><code>function</code></td>
-        <td align="left"></td>
-        <td align="left">
-          Emits when the current index is changed.
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <h3>Props & Methods</h3>
+
+  <cdg-info-table id="propertiesTable"></cdg-info-table>
 </section>
+
+<script>
+  const table = document.querySelector('#propertiesTable')
+  table.options = PROPERTIES_TABLE_OPTIONS
+
+  table.data = [
+    {
+      name: 'current',
+      type: '<code>number</code>',
+      default: '<code>0</code>',
+      description: 'Current active index.',
+    },
+    {
+      name: 'use-arrow',
+      type: '<code>boolean</code>',
+      default: '<code>false</code>',
+      description: 'Using button next/prev as an arrow.',
+    },
+    {
+      name: 'auto-switch',
+      type: '<code>boolean</code>',
+      default: '<code>false</code>',
+      description:
+        '<div>If <code>true</code>, the slide will automatically switch.</div>',
+    },
+    {
+      name: 'single-center',
+      type: '<code>boolean</code>',
+      default: '<code>false</code>',
+      description:
+        '<div>If <code>true</code>, the first item will be centered.</div>',
+    },
+    {
+      name: 'onCurrentChange',
+      type: '<code>event</code>',
+      default: '',
+      description: 'Emits when the current index is changed.',
+    },
+  ]
+</script>

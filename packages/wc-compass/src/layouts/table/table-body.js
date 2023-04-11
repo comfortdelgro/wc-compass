@@ -22,11 +22,11 @@ export class CdgTableBody extends HTMLElement {
 
   constructor() {
     super()
-    this.setAttribute('role', 'tbody')
   }
 
   connectedCallback() {
     this.classList.add('cdg-table-body')
+    this.setAttribute('role', 'tbody')
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {

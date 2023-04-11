@@ -34,15 +34,15 @@ export class CdgTable extends HTMLElement {
   createTableContent() {
     this.tableToolbar = this.querySelector('[cdg-table-toolbar]')
     this.tableFooter = this.querySelector('[cdg-table-footer]')
-    this.tableContainerElement = document.createElement('div')
-    this.tableContainerElement.classList.add('cdg-table-container')
+    // this.tableContainerElement = document.createElement('div')
+    // this.tableContainerElement.classList.add('cdg-table-container')
     this.tableHeadElement = this.querySelector('cdg-table-head')
     if (this.tableHeadElement) {
       this.tableHeadElement.addEventListener(
         'onCheckAll',
         this.handleTableHeadCheckAll.bind(this),
       )
-      this.tableContainerElement.appendChild(this.tableHeadElement)
+      this.appendChild(this.tableHeadElement)
     }
     this.tableBodyElement = this.querySelector('cdg-table-body')
     if (this.tableBodyElement) {
@@ -50,9 +50,9 @@ export class CdgTable extends HTMLElement {
         'onRowCheck',
         this.handleTableBodyRowCheck.bind(this),
       )
-      this.tableContainerElement.appendChild(this.tableBodyElement)
+      this.appendChild(this.tableBodyElement)
     }
-    this.appendChild(this.tableContainerElement)
+    // this.appendChild(this.tableContainerElement)
     if (this.tableFooter) {
       this.appendChild(this.tableFooter)
     }
