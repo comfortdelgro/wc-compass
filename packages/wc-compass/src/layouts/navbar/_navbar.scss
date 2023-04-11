@@ -31,7 +31,7 @@ cdg-navbar,
 }
 
 @container TopNavBar (max-width: 768px) {
-  .cdg-navbar-inner {
+  .cdg-navbar .cdg-navbar-inner {
     padding: 16px 48px;
   }
 
@@ -46,7 +46,7 @@ cdg-navbar,
 }
 
 @container TopNavBar (max-width: 428px) {
-  .cdg-navbar-inner {
+  .cdg-navbar .cdg-navbar-inner {
     padding: 16px;
   }
 

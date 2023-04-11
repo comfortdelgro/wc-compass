@@ -107,6 +107,13 @@
       flex: 1;
     }
   }
+
+  .cdg-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    &.columns-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 }
 
 @media screen and (max-width: 479px) {
@@ -217,5 +224,26 @@
     margin-top: 16px;
     font-size: 14px;
     line-height: 21px;
+  }
+
+  .cdg-card-grid {
+    grid-template-columns: repeat(1, 1fr);
+    &.columns-4 {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+@container CardGrid (max-width: 768px) {
+  .cdg-card-blog-title {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+@container CardGrid (max-width: 479px) {
+  .cdg-blog-slide-title {
+    font-size: 22px;
+    line-height: 28px;
   }
 }

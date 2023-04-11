@@ -202,6 +202,10 @@ pre code.hljs {
   align-items: center;
 }
 
+.cdg-sample-section .sample-header .cdg-tabs {
+  width: auto;
+}
+
 .cdg-sample-section pre code {
   width: 100%;
 }
