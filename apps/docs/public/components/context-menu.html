@@ -272,15 +272,17 @@
     })
   }
 
-  // const table = document.querySelector('#propertiesTable')
-  // table.options = PROPERTIES_TABLE_OPTIONS
+  const table = document.querySelector('#propertiesTable')
+  table.options = PROPERTIES_TABLE_OPTIONS
 
-  // table.data = [
-  //   {
-  //     name: 'start-date',
-  //     type: '<code>string</code>',
-  //     default: '',
-  //     description: 'The first selected date of a range of dates',
-  //   },
-  // ]
+  table.data = [
+    {
+      name: 'name',
+      type: '<code>string</code>',
+      default: '',
+      description: `The name of the context-menu.
+      <br>
+      <strong>Note</strong>: The names of the context-menu must be different`,
+    },
+  ]
 </script>

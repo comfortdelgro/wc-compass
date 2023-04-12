@@ -1,55 +1,73 @@
 <p>A Popover can be used to display some content on top of another.</p>
 
-<div>
-  <label class="cdg-input-group" style="width: 350px; margin-bottom: 100px">
-    <cdg-dropdown placeholder="Select directions" name="directions">
-      <cdg-dropdown-option value="topLeft">topLeft</cdg-dropdown-option>
-      <cdg-dropdown-option value="top">top</cdg-dropdown-option>
-      <cdg-dropdown-option value="topRight">topRight</cdg-dropdown-option>
-      <cdg-dropdown-option value="leftTop">leftTop</cdg-dropdown-option>
-      <cdg-dropdown-option value="left">left</cdg-dropdown-option>
-      <cdg-dropdown-option value="leftBottom">leftBottom</cdg-dropdown-option>
-      <cdg-dropdown-option value="rightTop">rightTop</cdg-dropdown-option>
-      <cdg-dropdown-option value="right">right</cdg-dropdown-option>
-      <cdg-dropdown-option value="rightBottom">rightBottom</cdg-dropdown-option>
-      <cdg-dropdown-option value="bottomLeft">bottomLeft</cdg-dropdown-option>
-      <cdg-dropdown-option value="bottom" selected="true"
-        >bottom</cdg-dropdown-option
-      >
-      <cdg-dropdown-option value="bottomRight">bottomRight</cdg-dropdown-option>
-    </cdg-dropdown>
-  </label>
+<cdg-sample-section name="Default">
+  <div class="sample-section">
+    <div style="width: 100%">
+      <label class="cdg-input-group" style="width: 350px; margin-bottom: 100px">
+        <cdg-dropdown placeholder="Select directions" name="directions">
+          <cdg-dropdown-option value="topLeft">topLeft</cdg-dropdown-option>
+          <cdg-dropdown-option value="top">top</cdg-dropdown-option>
+          <cdg-dropdown-option value="topRight">topRight</cdg-dropdown-option>
+          <cdg-dropdown-option value="leftTop">leftTop</cdg-dropdown-option>
+          <cdg-dropdown-option value="left">left</cdg-dropdown-option>
+          <cdg-dropdown-option value="leftBottom"
+            >leftBottom</cdg-dropdown-option
+          >
+          <cdg-dropdown-option value="rightTop">rightTop</cdg-dropdown-option>
+          <cdg-dropdown-option value="right">right</cdg-dropdown-option>
+          <cdg-dropdown-option value="rightBottom"
+            >rightBottom</cdg-dropdown-option
+          >
+          <cdg-dropdown-option value="bottomLeft"
+            >bottomLeft</cdg-dropdown-option
+          >
+          <cdg-dropdown-option value="bottom" selected="true"
+            >bottom</cdg-dropdown-option
+          >
+          <cdg-dropdown-option value="bottomRight"
+            >bottomRight</cdg-dropdown-option
+          >
+        </cdg-dropdown>
+      </label>
 
-  <div style="display: flex; justify-content: center">
-    <cdg-popover direction="bottom">
-      <button class="cdg-button" id="buttonPopover" cdg-popover-header>
-        Popover
-      </button>
-      <cdg-popover-content>
-        <div style="width: 250px; padding: 8px 16px">
-          <p>Line 1</p>
-          <p>Line 2</p>
-        </div>
-      </cdg-popover-content>
-    </cdg-popover>
+      <div style="display: flex; justify-content: center">
+        <cdg-popover direction="bottom">
+          <button class="cdg-button" id="buttonPopover" cdg-popover-header>
+            Popover
+          </button>
+          <cdg-popover-content>
+            <div style="width: 250px; padding: 8px 16px">
+              <p>Line 1</p>
+              <p>Line 2</p>
+            </div>
+          </cdg-popover-content>
+        </cdg-popover>
+      </div>
+    </div>
   </div>
-</div>
 
-<pre>
-  <code class="language-html">
-    &lt;cdg-popover direction=&quot;bottom&quot;&gt;
-      &lt;button class=&quot;cdg-button&quot; id=&quot;buttonPopover&quot; cdg-popover-header&gt;
-        Popover
-      &lt;/button&gt;
-      &lt;cdg-popover-content&gt;
-        &lt;div style=&quot;width: 250px; padding: 8px 16px&quot;&gt;
-          &lt;p&gt;Line 1&lt;/p&gt;
-          &lt;p&gt;Line 2&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/cdg-popover-content&gt;
-    &lt;/cdg-popover&gt;
-  </code>
-</pre>
+  <pre>
+    <code class="language-html">
+      &lt;cdg-popover direction=&quot;bottom&quot;&gt;
+        &lt;button class=&quot;cdg-button&quot; id=&quot;buttonPopover&quot; cdg-popover-header&gt;
+          Popover
+        &lt;/button&gt;
+        &lt;cdg-popover-content&gt;
+          &lt;div style=&quot;width: 250px; padding: 8px 16px&quot;&gt;
+            &lt;p&gt;Line 1&lt;/p&gt;
+            &lt;p&gt;Line 2&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/cdg-popover-content&gt;
+      &lt;/cdg-popover&gt;
+    </code>
+  </pre>
+</cdg-sample-section>
+
+<section class="guideline-section">
+  <h3>Props & Methods</h3>
+
+  <cdg-info-table id="propertiesTable"></cdg-info-table>
+</section>
 
 <script>
   const directions = document.querySelector('cdg-dropdown[name="directions"]')
@@ -63,4 +81,33 @@
       cdgPopover.setAttribute('open', 'true')
     })
   }
+
+  const table = document.querySelector('#propertiesTable')
+  table.options = PROPERTIES_TABLE_OPTIONS
+
+  table.data = [
+    {
+      name: 'direction',
+      type: `<code>'topLeft'</code>
+| <code>'top'</code>
+| <code>'topRight'</code>
+| <code>'leftTop'</code>
+| <code>'left'</code>
+| <code>'leftBottom'</code>
+| <code>'rightTop'</code>
+| <code>'rightBottom'</code>
+| <code>'right'</code>
+| <code>'bottomLeft'</code>
+| <code>'bottom'</code>
+| <code>'bottomRight'</code>`,
+      default: '<code>bottom</code>',
+      description: 'The first selected date of a range of dates.',
+    },
+    {
+      name: 'open',
+      type: '<code>boolean</code>',
+      default: '<code>false</code>',
+      description: "Popover's open/closed state.",
+    },
+  ]
 </script>
