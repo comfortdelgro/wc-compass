@@ -1,8 +1,9 @@
+import * as Accordion from './components/accordion/index'
 import * as Table from './components/table/index'
 import {SampleSection} from './sample-section'
 
-import './components/about.html'
-import './components/accordion.html'
+import './components/template/about.html'
+import './components/accordion/accordion.html'
 import './components/alert-badges.html'
 import './components/alert.html'
 import './components/avatar.html'
@@ -69,7 +70,7 @@ import './pages/layouts-and-controls.html'
 import './pages/theming.html'
 import './pages/z-index.html'
 
-export {Table}
+export {Accordion, Table}
 
 customElements.define('cdg-sample-section', SampleSection)
 
@@ -79,7 +80,7 @@ const contentMap = {
   zIndex: './pages/z-index.html',
   theming: './pages/theming.html',
   layoutsAndControls: './pages/layouts-and-controls.html',
-  accordion: './components/accordion.html',
+  accordion: './components/accordion/accordion.html',
   alert: './components/alert.html',
   alertBadges: './components/alert-badges.html',
   avatar: './components/avatar.html',
@@ -89,7 +90,7 @@ const contentMap = {
   file: './components/file.html',
   fileUpload: './components/file-upload.html',
   footer: './components/footer.html',
-  about: './components/about.html',
+  about: './components/template/about.html',
   gutter: './components/gutter.html',
   icon: './components/icon.html',
   dialog: './components/dialog.html',
@@ -118,7 +119,7 @@ const contentMap = {
   tabs: './components/tabs.html',
   textField: './components/text-field.html',
   subNav: './components/sub-nav.html',
-  table: './components/table.html',
+  table: './components/table/table.html',
   popover: './components/popover.html',
   progress: './components/progress.html',
   toast: './components/toast.html',
