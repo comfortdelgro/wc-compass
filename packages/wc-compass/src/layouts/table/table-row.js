@@ -48,12 +48,21 @@ export class CdgTableRow extends HTMLElement {
       checkboxElement.type = 'checkbox'
       checkboxElement.classList.add('cdg-cell-checkbox')
       checkboxContainer.appendChild(checkboxElement)
-      checkboxElement.addEventListener('change', (event) =>
-        this.handleCheckboxChange(this, event),
+      checkboxElement.addEventListener(
+        'change',
+        this.handleCheckboxChange.bind(this),
       )
       container.appendChild(checkboxContainer)
       checkboxCellElement.appendChild(container)
       this.prepend(checkboxCellElement)
     }
+  }
+
+  handleCheckboxChange(event) {
+    this.dispatchEvent(
+      new CustomEvent('onCheckAll', {
+        detail: {checked: event.target.checked},
+      }),
+    )
   }
 }

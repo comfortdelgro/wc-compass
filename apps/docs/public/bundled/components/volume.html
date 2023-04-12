@@ -1,11 +1,9 @@
-<p></p>
+<cdg-sample-section name="Default">
+  <div class="sample-section">
+    <cdg-volume volume="80"></cdg-volume>
+  </div>
 
-<h3>Default</h3>
-<div class="sample-section">
-  <cdg-volume volume="80"></cdg-volume>
-</div>
-
-<pre>
+  <pre>
     <code class="language-html">&lt;cdg-volume volume=&quot;80&quot;&gt;&lt;/cdg-volume&gt;
 &lt;script&gt;
     const volumeControl = document.querySelector(&apos;cdg-volume&apos;);
@@ -18,15 +16,16 @@
 &lt;/script&gt;
 </code>
 </pre>
+</cdg-sample-section>
 
 <script>
-  const volumeControl = document.querySelector('cdg-volume');
+  const volumeControl = document.querySelector('cdg-volume')
 
   volumeControl.addEventListener('volumechange', (event) => {
-    cdgToastService.toast('Volume: ' + event.detail);
-  });
+    cdgToastService.toast('Volume: ' + event.detail)
+  })
 
   volumeControl.addEventListener('mute', (event) => {
-    cdgToastService.toast('Mute: ' + event.detail);
-  });
+    cdgToastService.toast('Mute: ' + event.detail)
+  })
 </script>

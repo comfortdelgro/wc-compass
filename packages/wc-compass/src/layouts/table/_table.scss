@@ -127,6 +127,7 @@
   background-color: transparent;
   transition: all 250ms ease;
 
+  &:has(input[type='checkbox']:checked),
   &[checked] {
     background-color: var(--blue10);
   }
@@ -135,6 +136,7 @@
     background-color: var(--hover-background);
   }
 
+  &.cdg-table-head-row:has(input[type='checkbox']:checked),
   &.cdg-table-head-row:hover {
     background-color: transparent;
   }
