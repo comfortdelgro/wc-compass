@@ -18,8 +18,21 @@ export class CdgInfoTable extends HTMLElement {
     this.configurations = options
   }
 
+  get checkable() {
+    return this.selectingMode
+  }
+
+  set checkable(checkable) {
+    this.selectingMode = checkable
+    if (this.selectingMode && this.header && this.body) {
+      this.header.setAttribute('checkable', '')
+      this.body.setAttribute('checkable', '')
+    }
+  }
+
   source
   configurations
+  selectingMode = false
 
   header
   body
@@ -38,6 +51,10 @@ export class CdgInfoTable extends HTMLElement {
     this.textContent = ''
     this.attachHeader()
     this.attachBody()
+    if (this.selectingMode && this.header && this.body) {
+      this.header.setAttribute('checkable', '')
+      this.body.setAttribute('checkable', '')
+    }
   }
 
   createHeaderCell(name) {

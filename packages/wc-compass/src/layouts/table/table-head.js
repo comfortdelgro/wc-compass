@@ -31,11 +31,16 @@ export class CdgTableHead extends HTMLElement {
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
-    if (oldValue === newValue) return
+    if (oldValue === newValue) {
+      return
+    }
     this[attr] = this.hasAttribute(attr)
   }
 
   createCheckboxCell() {
+    if (!this.tableHeadRowElement) {
+      return
+    }
     if (!this.checkboxCellElement) {
       this.checkboxCellElement = document.createElement('cdg-table-head-cell')
       this.checkboxCellElement.classList.add('cdg-table-head-cell-checkbox')

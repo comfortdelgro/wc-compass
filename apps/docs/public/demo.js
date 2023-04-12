@@ -1,3 +1,4 @@
+import * as Table from './components/table/index'
 import {SampleSection} from './sample-section'
 
 import './components/about.html'
@@ -44,7 +45,7 @@ import './components/sidebar.html'
 import './components/status.html'
 import './components/sub-header.html'
 import './components/sub-nav.html'
-import './components/table.html'
+import './components/table/table.html'
 import './components/tabs.html'
 import './components/tag-box.html'
 import './components/template/dashboard.html'
@@ -67,6 +68,8 @@ import './pages/home.html'
 import './pages/layouts-and-controls.html'
 import './pages/theming.html'
 import './pages/z-index.html'
+
+export {Table}
 
 customElements.define('cdg-sample-section', SampleSection)
 
