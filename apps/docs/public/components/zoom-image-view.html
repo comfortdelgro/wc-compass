@@ -64,3 +64,23 @@
   </code>
 </pre>
 </cdg-sample-section>
+
+<section class="guideline-section">
+  <h3>Props & Methods</h3>
+
+  <cdg-info-table id="propertiesTable"></cdg-info-table>
+</section>
+
+<script>
+  const table = document.querySelector('#propertiesTable')
+  table.options = PROPERTIES_TABLE_OPTIONS
+
+  table.data = [
+    {
+      name: 'multiple',
+      type: '<code>boolean</code>',
+      default: 'false',
+      description: 'Set the image viewer with multiple images.',
+    },
+  ]
+</script>
