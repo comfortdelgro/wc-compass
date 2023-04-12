@@ -1,8 +1,9 @@
-import * as Accordion from './components/accordion/index'
-import * as Table from './components/table/index'
+export * from './components/accordion/index'
+export * from './components/carousel/index'
+export * from './components/table/index'
+
 import {SampleSection} from './sample-section'
 
-import './components/template/about.html'
 import './components/accordion/accordion.html'
 import './components/alert-badges.html'
 import './components/alert.html'
@@ -12,7 +13,7 @@ import './components/button.html'
 import './components/calendar.html'
 import './components/card-blogs.html'
 import './components/cards.html'
-import './components/carousel.html'
+import './components/carousel/carousel.html'
 import './components/chart.html'
 import './components/checkboxes.html'
 import './components/context-menu.html'
@@ -49,6 +50,7 @@ import './components/sub-nav.html'
 import './components/table/table.html'
 import './components/tabs.html'
 import './components/tag-box.html'
+import './components/template/about.html'
 import './components/template/dashboard.html'
 import './components/testimonials.html'
 import './components/text-field.html'
@@ -69,8 +71,6 @@ import './pages/home.html'
 import './pages/layouts-and-controls.html'
 import './pages/theming.html'
 import './pages/z-index.html'
-
-export {Accordion, Table}
 
 customElements.define('cdg-sample-section', SampleSection)
 
@@ -98,7 +98,7 @@ const contentMap = {
   button: './components/button.html',
   cards: './components/cards.html',
   cardBlogs: './components/card-blogs.html',
-  carousel: './components/carousel.html',
+  carousel: './components/carousel/carousel.html',
   inlineLoading: './components/inline-loading.html',
   layouts: './components/layouts.html',
   listView: './components/list-view.html',
@@ -599,7 +599,9 @@ function handlePageChange(url) {
 
     // Wait for content render
     setTimeout(() => {
-      hljs.highlightAll()
+      if (hljs) {
+        hljs.highlightAll()
+      }
     }, 10)
   })
 }

@@ -248,6 +248,10 @@ cdg-card-cover,
     border-radius: 8px;
     overflow: hidden;
   }
+
+  &[square] {
+    aspect-ratio: 1;
+  }
 }
 
 .cdg-card-cover-image {
