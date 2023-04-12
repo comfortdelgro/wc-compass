@@ -1,5 +1,4 @@
-import {isElement} from '../../main'
-import {getRealHeight} from '../../shared/utilities'
+import {getRealHeight, isElement} from '../../shared/utilities'
 
 export class CdgMultiLevelDropdown extends HTMLElement {
   dropdownMenuToggleElement

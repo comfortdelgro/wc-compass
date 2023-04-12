@@ -1,4 +1,4 @@
-import {isElement} from '../../main'
+import {isElement} from '../../shared/utilities'
 
 const template = document.createElement('template')
 template.innerHTML = `

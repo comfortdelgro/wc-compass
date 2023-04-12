@@ -4,7 +4,7 @@ export class CdgCarouselPropertiesSection extends CdgBaseComponent {
   constructor() {
     super()
     this.htmlContent = `<section class="guideline-section">
-    <h3>Props & Methods</h3>
+    <h3 class="sample-section-title">Props & Methods</h3>
   
     <cdg-info-table id="propertiesTable"></cdg-info-table>
   </section>

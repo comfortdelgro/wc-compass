@@ -1,7 +1,7 @@
 import {CdgBaseComponent} from '../../../shared/base-component'
-import template from './accordion-default.section.html'
+import template from './no-icon.section.html'
 
-export class CdgAccordionDefaultSection extends CdgBaseComponent {
+export class CdgListItemNoIconSection extends CdgBaseComponent {
   constructor() {
     super()
     this.template = template

@@ -1,6 +1,6 @@
 import {CdgBaseComponent} from '../../../shared/base-component'
 
-export class CdgAccordionPropertiesSection extends CdgBaseComponent {
+export class CdgListItemPropertiesSection extends CdgBaseComponent {
   constructor() {
     super()
     this.htmlContent = `<section class="guideline-section">
@@ -17,11 +17,16 @@ export class CdgAccordionPropertiesSection extends CdgBaseComponent {
 
     table.data = [
       {
-        name: 'opened',
-        type: '<code>boolean</code>',
-        default: '<code>false</code>',
-        description:
-          '<div>If <code>true</code>, expands the accordion by default.</div>',
+        name: '<code>disabled</code>',
+        type: '<code>property</code>',
+        default: "<code>''</code>",
+        description: 'To disable list item.',
+      },
+      {
+        name: '<code>allow-drag</code>',
+        type: '<code>property</code>',
+        default: "<code>''</code>",
+        description: 'To allow user to drag the item.',
       },
     ]
   }

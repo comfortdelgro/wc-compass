@@ -255,6 +255,14 @@ pre code.hljs {
   min-width: 10px;
 }
 
+.guideline-section {
+  margin-top: 32px;
+}
+
+.guideline-section .sample-section-title {
+  margin-bottom: 12px;
+}
+
 @media screen and (max-width: 767px) {
   .page-container {
     background-color: var(--background);

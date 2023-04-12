@@ -1,11 +1,10 @@
 import {CdgBaseComponent} from '../../../shared/base-component'
 
-export class CdgAccordionPropertiesSection extends CdgBaseComponent {
+export class CdgButtonPropertiesSection extends CdgBaseComponent {
   constructor() {
     super()
     this.htmlContent = `<section class="guideline-section">
     <h3 class="sample-section-title">Props & Methods</h3>
-  
     <cdg-info-table id="propertiesTable"></cdg-info-table>
   </section>
     `
@@ -17,11 +16,16 @@ export class CdgAccordionPropertiesSection extends CdgBaseComponent {
 
     table.data = [
       {
-        name: 'opened',
-        type: '<code>boolean</code>',
-        default: '<code>false</code>',
-        description:
-          '<div>If <code>true</code>, expands the accordion by default.</div>',
+        name: 'size',
+        type: "<code>'' | primary | danger | secondary | ghost</code>",
+        default: "<code>''</code>",
+        description: 'Style of the button',
+      },
+      {
+        name: 'disabled',
+        type: '<code>property</code>',
+        default: "<code>''</code>",
+        description: 'To disable the button',
       },
     ]
   }
