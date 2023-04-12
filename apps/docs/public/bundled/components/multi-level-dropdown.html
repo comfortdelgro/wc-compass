@@ -9,59 +9,63 @@
   </label>
 </div>
 
-<h3 class="sample-section-title">Default</h3>
-<div>
-  <cdg-dropdown-menu event="click">
-    <button class="cdg-button" type="button" dropdownMenuToggle>
-      Toggle Button <cdg-icon name="arrowDown"></cdg-icon>
-    </button>
-    <ul class="cdg-dropdown-menu" dropdownMenu>
-      <li class="cdg-dropdown-item">
-        <a href="#" class="cdg-dropdown-item-content"> Second level 1 </a>
-      </li>
-      <li class="cdg-dropdown-item">
-        <div class="cdg-dropdown-item-content">
-          Ride With Us <cdg-icon name="arrowRight" size="16"></cdg-icon>
-        </div>
-        <ul class="submenu cdg-dropdown-menu">
-          <li class="cdg-dropdown-item">
-            <div class="cdg-dropdown-item-content">CDG Zig App</div>
-          </li>
-          <li class="cdg-dropdown-item">
-            <a href="" class="cdg-dropdown-item-content"> ComfortProtect</a>
-          </li>
-          <li class="cdg-dropdown-item">
-            <div class="cdg-dropdown-item-content">
-              Third level 3 <cdg-icon name="arrowRight" size="16"></cdg-icon>
-            </div>
-            <ul class="submenu cdg-dropdown-menu">
-              <li class="cdg-dropdown-item">
-                <a href="" class="cdg-dropdown-item-content"> Fourth level 1</a>
-              </li>
-              <li class="cdg-dropdown-item">
-                <a href="" class="cdg-dropdown-item-content"> Fourth level 2</a>
-              </li>
-            </ul>
-          </li>
-          <li class="cdg-dropdown-item">
-            <a href="" class="cdg-dropdown-item-content"> Second level 4</a>
-          </li>
-          <li class="cdg-dropdown-item">
-            <a href="" class="cdg-dropdown-item-content"> Second level 5</a>
-          </li>
-        </ul>
-      </li>
-      <li class="cdg-dropdown-item">
-        <a href="#" class="cdg-dropdown-item-content"> Dropdown item 3 </a>
-      </li>
-      <li class="cdg-dropdown-item">
-        <a href="#" class="cdg-dropdown-item-content"> Dropdown item 4 </a>
-      </li>
-    </ul>
-  </cdg-dropdown-menu>
-</div>
+<cdg-sample-section name="Default">
+  <div class="sample-section">
+    <cdg-dropdown-menu event="click">
+      <button class="cdg-button" type="button" dropdownMenuToggle>
+        Toggle Button <cdg-icon name="arrowDown"></cdg-icon>
+      </button>
+      <ul class="cdg-dropdown-menu" dropdownMenu>
+        <li class="cdg-dropdown-item">
+          <a href="#" class="cdg-dropdown-item-content"> Second level 1 </a>
+        </li>
+        <li class="cdg-dropdown-item">
+          <div class="cdg-dropdown-item-content">
+            Ride With Us <cdg-icon name="arrowRight" size="16"></cdg-icon>
+          </div>
+          <ul class="submenu cdg-dropdown-menu">
+            <li class="cdg-dropdown-item">
+              <div class="cdg-dropdown-item-content">CDG Zig App</div>
+            </li>
+            <li class="cdg-dropdown-item">
+              <a href="" class="cdg-dropdown-item-content"> ComfortProtect</a>
+            </li>
+            <li class="cdg-dropdown-item">
+              <div class="cdg-dropdown-item-content">
+                Third level 3 <cdg-icon name="arrowRight" size="16"></cdg-icon>
+              </div>
+              <ul class="submenu cdg-dropdown-menu">
+                <li class="cdg-dropdown-item">
+                  <a href="" class="cdg-dropdown-item-content">
+                    Fourth level 1</a
+                  >
+                </li>
+                <li class="cdg-dropdown-item">
+                  <a href="" class="cdg-dropdown-item-content">
+                    Fourth level 2</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="cdg-dropdown-item">
+              <a href="" class="cdg-dropdown-item-content"> Second level 4</a>
+            </li>
+            <li class="cdg-dropdown-item">
+              <a href="" class="cdg-dropdown-item-content"> Second level 5</a>
+            </li>
+          </ul>
+        </li>
+        <li class="cdg-dropdown-item">
+          <a href="#" class="cdg-dropdown-item-content"> Dropdown item 3 </a>
+        </li>
+        <li class="cdg-dropdown-item">
+          <a href="#" class="cdg-dropdown-item-content"> Dropdown item 4 </a>
+        </li>
+      </ul>
+    </cdg-dropdown-menu>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">
 &lt;cdg-dropdown-menu event=&quot;hover&quot;&gt;
   &lt;button class=&quot;cdg-button&quot; type=&quot;button&quot; dropdownMenuToggle&gt;
@@ -113,80 +117,95 @@
 &lt;/cdg-dropdown-menu&gt;
     </code>
 </pre>
+</cdg-sample-section>
 
-<h3 class="sample-section-title">For position right</h3>
-<div style="display: flex; justify-content: flex-end">
-  <cdg-dropdown-menu event="click">
-    <button class="cdg-button" type="button" dropdownMenuToggle>
-      Toggle Button <cdg-icon name="arrowDown"></cdg-icon>
-    </button>
-    <ul class="cdg-dropdown-menu menu-left" dropdownMenu>
-      <li class="cdg-dropdown-item">
-        <a href="#" class="cdg-dropdown-item-content"> Second level 1 </a>
-      </li>
-      <li class="cdg-dropdown-item">
-        <div class="cdg-dropdown-item-content">
-          Ride With Us <cdg-icon name="arrowRight" size="16"></cdg-icon>
-        </div>
-        <ul class="submenu submenu-left cdg-dropdown-menu">
+<cdg-sample-section name="For position right">
+  <div class="sample-section">
+    <div style="display: flex; justify-content: flex-end; width: 100%">
+      <cdg-dropdown-menu event="click">
+        <button class="cdg-button" type="button" dropdownMenuToggle>
+          Toggle Button <cdg-icon name="arrowDown"></cdg-icon>
+        </button>
+        <ul class="cdg-dropdown-menu menu-left" dropdownMenu>
           <li class="cdg-dropdown-item">
-            <div class="cdg-dropdown-item-content">CDG Zig App</div>
-          </li>
-          <li class="cdg-dropdown-item">
-            <a href="" class="cdg-dropdown-item-content"> ComfortProtect</a>
+            <a href="#" class="cdg-dropdown-item-content"> Second level 1 </a>
           </li>
           <li class="cdg-dropdown-item">
             <div class="cdg-dropdown-item-content">
-              Third level 3 <cdg-icon name="arrowRight" size="16"></cdg-icon>
+              Ride With Us <cdg-icon name="arrowRight" size="16"></cdg-icon>
             </div>
             <ul class="submenu submenu-left cdg-dropdown-menu">
               <li class="cdg-dropdown-item">
-                <a href="" class="cdg-dropdown-item-content"> Fourth level 1</a>
+                <div class="cdg-dropdown-item-content">CDG Zig App</div>
               </li>
               <li class="cdg-dropdown-item">
-                <a href="" class="cdg-dropdown-item-content"> Fourth level 2</a>
+                <a href="" class="cdg-dropdown-item-content"> ComfortProtect</a>
+              </li>
+              <li class="cdg-dropdown-item">
+                <div class="cdg-dropdown-item-content">
+                  Third level 3
+                  <cdg-icon name="arrowRight" size="16"></cdg-icon>
+                </div>
+                <ul class="submenu submenu-left cdg-dropdown-menu">
+                  <li class="cdg-dropdown-item">
+                    <a href="" class="cdg-dropdown-item-content">
+                      Fourth level 1</a
+                    >
+                  </li>
+                  <li class="cdg-dropdown-item">
+                    <a href="" class="cdg-dropdown-item-content">
+                      Fourth level 2</a
+                    >
+                  </li>
+                </ul>
               </li>
             </ul>
           </li>
+          <li class="cdg-dropdown-item">
+            <a href="#" class="cdg-dropdown-item-content"> Dropdown item 3 </a>
+          </li>
         </ul>
-      </li>
-      <li class="cdg-dropdown-item">
-        <a href="#" class="cdg-dropdown-item-content"> Dropdown item 3 </a>
-      </li>
-    </ul>
-  </cdg-dropdown-menu>
-</div>
+      </cdg-dropdown-menu>
+    </div>
+  </div>
 
-<pre>
-    <code class="language-html">
-&lt;cdg-dropdown-menu event=&quot;click&quot;&gt;
-  &lt;button class=&quot;cdg-button&quot; type=&quot;button&quot; dropdownMenuToggle&gt;
-    Toggle Button &lt;cdg-icon name=&quot;arrowDown&quot;&gt;&lt;/cdg-icon&gt;
-  &lt;/button&gt;
-  &lt;ul class=&quot;cdg-dropdown-menu menu-left&quot; dropdownMenu&gt;
-    &lt;li class=&quot;cdg-dropdown-item&quot;&gt;
-      &lt;a href=&quot;#&quot; class=&quot;cdg-dropdown-item-content&quot;&gt; Second level 1 &lt;/a&gt;
-    &lt;/li&gt;
-    &lt;li class=&quot;cdg-dropdown-item&quot;&gt;
-      &lt;div class=&quot;cdg-dropdown-item-content&quot;&gt;
-        Ride With Us &lt;cdg-icon name=&quot;arrowRight&quot; size=&quot;16&quot;&gt;&lt;/cdg-icon&gt;
-      &lt;/div&gt;
-      &lt;ul class=&quot;submenu submenu-left cdg-dropdown-menu&quot;&gt;
-        &lt;li class=&quot;cdg-dropdown-item&quot;&gt;
-          &lt;div class=&quot;cdg-dropdown-item-content&quot;&gt;CDG Zig App&lt;/div&gt;
-        &lt;/li&gt;
-        &lt;li class=&quot;cdg-dropdown-item&quot;&gt;
-          &lt;a href=&quot;&quot; class=&quot;cdg-dropdown-item-content&quot;&gt; ComfortProtect&lt;/a&gt;
-        &lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/li&gt;
-    &lt;li class=&quot;cdg-dropdown-item&quot;&gt;
-      &lt;a href=&quot;#&quot; class=&quot;cdg-dropdown-item-content&quot;&gt; Dropdown item 3 &lt;/a&gt;
-    &lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/cdg-dropdown-menu&gt;
-    </code>
-</pre>
+  <pre>
+      <code class="language-html">
+  &lt;cdg-dropdown-menu event=&quot;click&quot;&gt;
+    &lt;button class=&quot;cdg-button&quot; type=&quot;button&quot; dropdownMenuToggle&gt;
+      Toggle Button &lt;cdg-icon name=&quot;arrowDown&quot;&gt;&lt;/cdg-icon&gt;
+    &lt;/button&gt;
+    &lt;ul class=&quot;cdg-dropdown-menu menu-left&quot; dropdownMenu&gt;
+      &lt;li class=&quot;cdg-dropdown-item&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot;cdg-dropdown-item-content&quot;&gt; Second level 1 &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class=&quot;cdg-dropdown-item&quot;&gt;
+        &lt;div class=&quot;cdg-dropdown-item-content&quot;&gt;
+          Ride With Us &lt;cdg-icon name=&quot;arrowRight&quot; size=&quot;16&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;/div&gt;
+        &lt;ul class=&quot;submenu submenu-left cdg-dropdown-menu&quot;&gt;
+          &lt;li class=&quot;cdg-dropdown-item&quot;&gt;
+            &lt;div class=&quot;cdg-dropdown-item-content&quot;&gt;CDG Zig App&lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;cdg-dropdown-item&quot;&gt;
+            &lt;a href=&quot;&quot; class=&quot;cdg-dropdown-item-content&quot;&gt; ComfortProtect&lt;/a&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li class=&quot;cdg-dropdown-item&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot;cdg-dropdown-item-content&quot;&gt; Dropdown item 3 &lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/cdg-dropdown-menu&gt;
+      </code>
+  </pre>
+</cdg-sample-section>
+
+<section class="guideline-section">
+  <h3>Props & Methods</h3>
+
+  <cdg-info-table id="propertiesTable"></cdg-info-table>
+</section>
 
 <script>
   const radios = document.querySelectorAll('input[name="sample2"]')
@@ -200,71 +219,16 @@
       })
     })
   }
-</script>
 
-<h3 class="sample-section-title">Sample for DropdownMenu at bottom</h3>
-<div style="display: flex; justify-content: center">
-  <cdg-dropdown-menu event="click">
-    <button class="cdg-button" type="button" dropdownMenuToggle>
-      Bottom sample <cdg-icon name="arrowDown"></cdg-icon>
-    </button>
-    <ul class="cdg-dropdown-menu" dropdownMenu>
-      <li class="cdg-dropdown-item">
-        <a href="#" class="cdg-dropdown-item-content"> Second level 1 </a>
-      </li>
-      <li class="cdg-dropdown-item">
-        <div class="cdg-dropdown-item-content">
-          Ride With Us <cdg-icon name="arrowRight" size="16"></cdg-icon>
-        </div>
-        <ul class="submenu cdg-dropdown-menu">
-          <li class="cdg-dropdown-item">
-            <div class="cdg-dropdown-item-content">CDG Zig App</div>
-          </li>
-          <li class="cdg-dropdown-item">
-            <a href="" class="cdg-dropdown-item-content"> ComfortProtect</a>
-          </li>
-          <li class="cdg-dropdown-item">
-            <div class="cdg-dropdown-item-content">
-              Third level 3 <cdg-icon name="arrowRight" size="16"></cdg-icon>
-            </div>
-            <ul class="submenu cdg-dropdown-menu">
-              <li class="cdg-dropdown-item">
-                <a href="" class="cdg-dropdown-item-content"> Fourth level 1</a>
-              </li>
-              <li class="cdg-dropdown-item">
-                <div class="cdg-dropdown-item-content">
-                  Fourth level 2
-                  <cdg-icon name="arrowRight" size="16"></cdg-icon>
-                </div>
-                <ul class="submenu cdg-dropdown-menu">
-                  <li class="cdg-dropdown-item">
-                    <a href="" class="cdg-dropdown-item-content">
-                      Fifth level 1</a
-                    >
-                  </li>
-                  <li class="cdg-dropdown-item">
-                    <a href="" class="cdg-dropdown-item-content">
-                      Fifth level 2</a
-                    >
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li class="cdg-dropdown-item">
-            <a href="" class="cdg-dropdown-item-content"> Second level 4</a>
-          </li>
-          <li class="cdg-dropdown-item">
-            <a href="" class="cdg-dropdown-item-content"> Second level 5</a>
-          </li>
-        </ul>
-      </li>
-      <li class="cdg-dropdown-item">
-        <a href="#" class="cdg-dropdown-item-content"> Dropdown item 3 </a>
-      </li>
-      <li class="cdg-dropdown-item">
-        <a href="#" class="cdg-dropdown-item-content"> Dropdown item 4 </a>
-      </li>
-    </ul>
-  </cdg-dropdown-menu>
-</div>
+  const table = document.querySelector('#propertiesTable')
+  table.options = PROPERTIES_TABLE_OPTIONS
+
+  table.data = [
+    {
+      name: 'event',
+      type: '<code>"click"</code><code>"hover"</code>',
+      default: '<code>click</code>',
+      description: 'The first selected date of a range of dates',
+    },
+  ]
+</script>
