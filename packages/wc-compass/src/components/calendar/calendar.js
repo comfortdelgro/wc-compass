@@ -216,7 +216,7 @@ export class CdgCalendar extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['start-date', 'end-date', 'open', 'min', 'max']
+    return ['start-date', 'end-date', 'open', 'min', 'max', 'format']
   }
 
   constructor() {
