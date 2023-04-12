@@ -371,7 +371,7 @@ export class CdgDropdown extends HTMLElement {
       this.classList.remove('opening')
       this.contentElement.removeAttribute('opening')
     }
-    this.dispatchEvent(new CustomEvent('onToggle', {isOpen: this.isOpen}))
+    this.dispatchEvent(new CustomEvent('onToggle', {detail: this.isOpen}))
   }
 
   handleKeydown(event) {
