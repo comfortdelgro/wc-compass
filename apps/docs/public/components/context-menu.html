@@ -3,37 +3,74 @@
   right click.
 </p>
 
-<h3>Default</h3>
-
-<div style="display: flex; justify-content: center">
-  <cdg-context-menu name="area-menu">
-    <div
-      contextMenuToggle
-      style="
-        color: rgba(0, 0, 0, 0.45);
-        background: rgb(245, 245, 245);
-        width: 300px;
-        height: 200px;
-        text-align: center;
-        line-height: 200px;
-      "
-    >
-      Right Click on here
-    </div>
-    <div contextMenuContent>
-      <ul class="cdg-dropdown-menu" dropdownMenu>
-        <li class="cdg-dropdown-item">
-          <div class="cdg-dropdown-item-content">
-            Ride With Us <cdg-icon name="arrowRight" size="16"></cdg-icon>
-          </div>
-          <ul class="submenu cdg-dropdown-menu">
+<cdg-sample-section name="Default">
+  <div class="sample-section">
+    <div style="display: flex; justify-content: center; width: 100%">
+      <cdg-context-menu name="area-menu">
+        <div
+          contextMenuToggle
+          style="
+            color: rgba(0, 0, 0, 0.45);
+            background: rgb(245, 245, 245);
+            width: 300px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+          "
+        >
+          Right Click on here
+        </div>
+        <div contextMenuContent>
+          <ul class="cdg-dropdown-menu" dropdownMenu>
             <li class="cdg-dropdown-item">
               <div class="cdg-dropdown-item-content">
-                Level 2 <cdg-icon name="arrowRight" size="16"></cdg-icon>
+                Level 1-1 <cdg-icon name="arrowRight" size="16"></cdg-icon>
               </div>
               <ul class="submenu cdg-dropdown-menu">
                 <li class="cdg-dropdown-item">
-                  <a href="" class="cdg-dropdown-item-content"> Level 2-1</a>
+                  <div class="cdg-dropdown-item-content">
+                    Level 2-1 <cdg-icon name="arrowRight" size="16"></cdg-icon>
+                  </div>
+                  <ul class="submenu cdg-dropdown-menu">
+                    <li class="cdg-dropdown-item">
+                      <a href="" class="cdg-dropdown-item-content">
+                        Level 2-1</a
+                      >
+                    </li>
+                    <li class="cdg-dropdown-item">
+                      <a href="" class="cdg-dropdown-item-content">
+                        Level 2-2</a
+                      >
+                    </li>
+                    <li class="cdg-dropdown-item">
+                      <div class="cdg-dropdown-item-content">
+                        Level 2-3
+                        <cdg-icon name="arrowRight" size="16"></cdg-icon>
+                      </div>
+                      <ul class="submenu cdg-dropdown-menu">
+                        <li class="cdg-dropdown-item">
+                          <a href="" class="cdg-dropdown-item-content">
+                            Level 3-1</a
+                          >
+                        </li>
+                        <li class="cdg-dropdown-item">
+                          <a href="" class="cdg-dropdown-item-content">
+                            Level 3-2</a
+                          >
+                        </li>
+                        <li class="cdg-dropdown-item">
+                          <a href="" class="cdg-dropdown-item-content">
+                            Level 3-3</a
+                          >
+                        </li>
+                        <li class="cdg-dropdown-item">
+                          <a href="" class="cdg-dropdown-item-content">
+                            Level 3-4</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
                 </li>
                 <li class="cdg-dropdown-item">
                   <a href="" class="cdg-dropdown-item-content"> Level 2-2</a>
@@ -41,19 +78,15 @@
               </ul>
             </li>
             <li class="cdg-dropdown-item">
-              <a href="" class="cdg-dropdown-item-content"> ComfortProtect</a>
+              <a href="#" class="cdg-dropdown-item-content"> Level 1-2 </a>
             </li>
           </ul>
-        </li>
-        <li class="cdg-dropdown-item">
-          <a href="#" class="cdg-dropdown-item-content"> Second level 1 </a>
-        </li>
-      </ul>
+        </div>
+      </cdg-context-menu>
     </div>
-  </cdg-context-menu>
-</div>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">
     &lt;cdg-context-menu name=&quot;area-menu&quot;&gt;
       &lt;div
@@ -105,117 +138,127 @@
     &lt;/script&gt;
     </code>
 </pre>
+</cdg-sample-section>
 
-<h3>Context menu for rows in table</h3>
-<cdg-context-menu name="table-menu">
-  <cdg-table class="cdg-table">
-    <cdg-table-head class="cdg-table-head">
-      <cdg-table-row class="cdg-table-head-row">
-        <cdg-table-head-cell name="id" width="100px">
-          <div class="cdg-table-head-cell-text">ID</div>
-        </cdg-table-head-cell>
-        <cdg-table-head-cell name="name">
-          <div class="cdg-table-head-cell-text text-center">Name</div>
-        </cdg-table-head-cell>
-        <cdg-table-head-cell name="age">
-          <div class="cdg-table-head-cell-text text-right">Age</div>
-        </cdg-table-head-cell>
-        <cdg-table-head-cell name="gender">
-          <div class="cdg-table-head-cell-text">Gender</div>
-        </cdg-table-head-cell>
-      </cdg-table-row>
-    </cdg-table-head>
+<cdg-sample-section name="Context menu for rows in table">
+  <div class="sample-section">
+    <cdg-context-menu name="table-menu">
+      <cdg-table class="cdg-table">
+        <cdg-table-head class="cdg-table-head">
+          <cdg-table-row class="cdg-table-head-row">
+            <cdg-table-head-cell name="id" width="100px">
+              <div class="cdg-table-head-cell-text">ID</div>
+            </cdg-table-head-cell>
+            <cdg-table-head-cell name="name">
+              <div class="cdg-table-head-cell-text text-center">Name</div>
+            </cdg-table-head-cell>
+            <cdg-table-head-cell name="age">
+              <div class="cdg-table-head-cell-text text-right">Age</div>
+            </cdg-table-head-cell>
+            <cdg-table-head-cell name="gender">
+              <div class="cdg-table-head-cell-text">Gender</div>
+            </cdg-table-head-cell>
+          </cdg-table-row>
+        </cdg-table-head>
 
-    <cdg-table-body class="cdg-table-body">
-      <cdg-table-row class="cdg-table-row" contextMenuToggle>
-        <cdg-table-cell>1</cdg-table-cell>
-        <cdg-table-cell class="text-center">Name 1</cdg-table-cell>
-        <cdg-table-cell class="text-right">23</cdg-table-cell>
-        <cdg-table-cell>Male</cdg-table-cell>
-      </cdg-table-row>
-      <cdg-table-row class="cdg-table-row" contextMenuToggle>
-        <cdg-table-cell>11</cdg-table-cell>
-        <cdg-table-cell class="text-center">Name 11</cdg-table-cell>
-        <cdg-table-cell class="text-right">24</cdg-table-cell>
-        <cdg-table-cell>Male</cdg-table-cell>
-      </cdg-table-row>
-      <cdg-table-row class="cdg-table-row" contextMenuToggle>
-        <cdg-table-cell>12</cdg-table-cell>
-        <cdg-table-cell class="text-center">Name 12</cdg-table-cell>
-        <cdg-table-cell class="text-right">25</cdg-table-cell>
-        <cdg-table-cell>Female</cdg-table-cell>
-      </cdg-table-row>
-    </cdg-table-body>
-  </cdg-table>
+        <cdg-table-body class="cdg-table-body">
+          <cdg-table-row class="cdg-table-row" contextMenuToggle>
+            <cdg-table-cell>1</cdg-table-cell>
+            <cdg-table-cell class="text-center">Name 1</cdg-table-cell>
+            <cdg-table-cell class="text-right">23</cdg-table-cell>
+            <cdg-table-cell>Male</cdg-table-cell>
+          </cdg-table-row>
+          <cdg-table-row class="cdg-table-row" contextMenuToggle>
+            <cdg-table-cell>11</cdg-table-cell>
+            <cdg-table-cell class="text-center">Name 11</cdg-table-cell>
+            <cdg-table-cell class="text-right">24</cdg-table-cell>
+            <cdg-table-cell>Male</cdg-table-cell>
+          </cdg-table-row>
+          <cdg-table-row class="cdg-table-row" contextMenuToggle>
+            <cdg-table-cell>12</cdg-table-cell>
+            <cdg-table-cell class="text-center">Name 12</cdg-table-cell>
+            <cdg-table-cell class="text-right">25</cdg-table-cell>
+            <cdg-table-cell>Female</cdg-table-cell>
+          </cdg-table-row>
+        </cdg-table-body>
+      </cdg-table>
 
-  <div contextMenuContent>
-    <ul class="cdg-dropdown-menu" dropdownMenu>
-      <li class="cdg-dropdown-item">
-        <a href="#" class="cdg-dropdown-item-content"> Second level 1-1 </a>
-      </li>
-      <li class="cdg-dropdown-item">
-        <a href="#" class="cdg-dropdown-item-content"> Second level 1-2 </a>
-      </li>
-    </ul>
+      <div contextMenuContent>
+        <ul class="cdg-dropdown-menu" dropdownMenu>
+          <li class="cdg-dropdown-item">
+            <a href="#" class="cdg-dropdown-item-content"> Second level 1-1 </a>
+          </li>
+          <li class="cdg-dropdown-item">
+            <a href="#" class="cdg-dropdown-item-content"> Second level 1-2 </a>
+          </li>
+        </ul>
+      </div>
+    </cdg-context-menu>
   </div>
-</cdg-context-menu>
 
-<pre>
-  <code class="language-html">
-&lt;cdg-context-menu name=&quot;table-menu&quot;&gt;
-  &lt;cdg-table class=&quot;cdg-table&quot;&gt;
-    &lt;cdg-table-head class=&quot;cdg-table-head&quot;&gt;
-      &lt;cdg-table-row class=&quot;cdg-table-head-row&quot;&gt;
-        &lt;cdg-table-head-cell name=&quot;id&quot; width=&quot;100px&quot;&gt;
-          &lt;div class=&quot;cdg-table-head-cell-text&quot;&gt;ID&lt;/div&gt;
-        &lt;/cdg-table-head-cell&gt;
-        &lt;cdg-table-head-cell name=&quot;name&quot;&gt;
-          &lt;div class=&quot;cdg-table-head-cell-text text-center&quot;&gt;Name&lt;/div&gt;
-        &lt;/cdg-table-head-cell&gt;
-        &lt;cdg-table-head-cell name=&quot;age&quot;&gt;
-          &lt;div class=&quot;cdg-table-head-cell-text text-right&quot;&gt;Age&lt;/div&gt;
-        &lt;/cdg-table-head-cell&gt;
-        &lt;cdg-table-head-cell name=&quot;gender&quot;&gt;
-          &lt;div class=&quot;cdg-table-head-cell-text&quot;&gt;Gender&lt;/div&gt;
-        &lt;/cdg-table-head-cell&gt;
-      &lt;/cdg-table-row&gt;
-    &lt;/cdg-table-head&gt;
+  <pre>
+    <code class="language-html">
+  &lt;cdg-context-menu name=&quot;table-menu&quot;&gt;
+    &lt;cdg-table class=&quot;cdg-table&quot;&gt;
+      &lt;cdg-table-head class=&quot;cdg-table-head&quot;&gt;
+        &lt;cdg-table-row class=&quot;cdg-table-head-row&quot;&gt;
+          &lt;cdg-table-head-cell name=&quot;id&quot; width=&quot;100px&quot;&gt;
+            &lt;div class=&quot;cdg-table-head-cell-text&quot;&gt;ID&lt;/div&gt;
+          &lt;/cdg-table-head-cell&gt;
+          &lt;cdg-table-head-cell name=&quot;name&quot;&gt;
+            &lt;div class=&quot;cdg-table-head-cell-text text-center&quot;&gt;Name&lt;/div&gt;
+          &lt;/cdg-table-head-cell&gt;
+          &lt;cdg-table-head-cell name=&quot;age&quot;&gt;
+            &lt;div class=&quot;cdg-table-head-cell-text text-right&quot;&gt;Age&lt;/div&gt;
+          &lt;/cdg-table-head-cell&gt;
+          &lt;cdg-table-head-cell name=&quot;gender&quot;&gt;
+            &lt;div class=&quot;cdg-table-head-cell-text&quot;&gt;Gender&lt;/div&gt;
+          &lt;/cdg-table-head-cell&gt;
+        &lt;/cdg-table-row&gt;
+      &lt;/cdg-table-head&gt;
+  
+      &lt;cdg-table-body class=&quot;cdg-table-body&quot;&gt;
+        &lt;cdg-table-row class=&quot;cdg-table-row&quot; contextMenuToggle&gt;
+          &lt;cdg-table-cell&gt;1&lt;/cdg-table-cell&gt;
+          &lt;cdg-table-cell class=&quot;text-center&quot;&gt;Name 1&lt;/cdg-table-cell&gt;
+          &lt;cdg-table-cell class=&quot;text-right&quot;&gt;23&lt;/cdg-table-cell&gt;
+          &lt;cdg-table-cell&gt;Male&lt;/cdg-table-cell&gt;
+        &lt;/cdg-table-row&gt;
+        &lt;cdg-table-row class=&quot;cdg-table-row&quot; contextMenuToggle&gt;
+          &lt;cdg-table-cell&gt;11&lt;/cdg-table-cell&gt;
+          &lt;cdg-table-cell class=&quot;text-center&quot;&gt;Name 11&lt;/cdg-table-cell&gt;
+          &lt;cdg-table-cell class=&quot;text-right&quot;&gt;24&lt;/cdg-table-cell&gt;
+          &lt;cdg-table-cell&gt;Male&lt;/cdg-table-cell&gt;
+        &lt;/cdg-table-row&gt;
+        &lt;cdg-table-row class=&quot;cdg-table-row&quot; contextMenuToggle&gt;
+          &lt;cdg-table-cell&gt;12&lt;/cdg-table-cell&gt;
+          &lt;cdg-table-cell class=&quot;text-center&quot;&gt;Name 12&lt;/cdg-table-cell&gt;
+          &lt;cdg-table-cell class=&quot;text-right&quot;&gt;25&lt;/cdg-table-cell&gt;
+          &lt;cdg-table-cell&gt;Female&lt;/cdg-table-cell&gt;
+        &lt;/cdg-table-row&gt;
+      &lt;/cdg-table-body&gt;
+    &lt;/cdg-table&gt;
+  
+    &lt;div contextMenuContent&gt;
+      &lt;ul class=&quot;cdg-dropdown-menu&quot; dropdownMenu&gt;
+        &lt;li class=&quot;cdg-dropdown-item&quot;&gt;
+          &lt;a href=&quot;#&quot; class=&quot;cdg-dropdown-item-content&quot;&gt; Second level 1-1 &lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;cdg-dropdown-item&quot;&gt;
+          &lt;a href=&quot;#&quot; class=&quot;cdg-dropdown-item-content&quot;&gt; Second level 1-2 &lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/cdg-context-menu&gt;
+    </code>
+  </pre>
+</cdg-sample-section>
 
-    &lt;cdg-table-body class=&quot;cdg-table-body&quot;&gt;
-      &lt;cdg-table-row class=&quot;cdg-table-row&quot; contextMenuToggle&gt;
-        &lt;cdg-table-cell&gt;1&lt;/cdg-table-cell&gt;
-        &lt;cdg-table-cell class=&quot;text-center&quot;&gt;Name 1&lt;/cdg-table-cell&gt;
-        &lt;cdg-table-cell class=&quot;text-right&quot;&gt;23&lt;/cdg-table-cell&gt;
-        &lt;cdg-table-cell&gt;Male&lt;/cdg-table-cell&gt;
-      &lt;/cdg-table-row&gt;
-      &lt;cdg-table-row class=&quot;cdg-table-row&quot; contextMenuToggle&gt;
-        &lt;cdg-table-cell&gt;11&lt;/cdg-table-cell&gt;
-        &lt;cdg-table-cell class=&quot;text-center&quot;&gt;Name 11&lt;/cdg-table-cell&gt;
-        &lt;cdg-table-cell class=&quot;text-right&quot;&gt;24&lt;/cdg-table-cell&gt;
-        &lt;cdg-table-cell&gt;Male&lt;/cdg-table-cell&gt;
-      &lt;/cdg-table-row&gt;
-      &lt;cdg-table-row class=&quot;cdg-table-row&quot; contextMenuToggle&gt;
-        &lt;cdg-table-cell&gt;12&lt;/cdg-table-cell&gt;
-        &lt;cdg-table-cell class=&quot;text-center&quot;&gt;Name 12&lt;/cdg-table-cell&gt;
-        &lt;cdg-table-cell class=&quot;text-right&quot;&gt;25&lt;/cdg-table-cell&gt;
-        &lt;cdg-table-cell&gt;Female&lt;/cdg-table-cell&gt;
-      &lt;/cdg-table-row&gt;
-    &lt;/cdg-table-body&gt;
-  &lt;/cdg-table&gt;
+<section class="guideline-section">
+  <h3>Props & Methods</h3>
 
-  &lt;div contextMenuContent&gt;
-    &lt;ul class=&quot;cdg-dropdown-menu&quot; dropdownMenu&gt;
-      &lt;li class=&quot;cdg-dropdown-item&quot;&gt;
-        &lt;a href=&quot;#&quot; class=&quot;cdg-dropdown-item-content&quot;&gt; Second level 1-1 &lt;/a&gt;
-      &lt;/li&gt;
-      &lt;li class=&quot;cdg-dropdown-item&quot;&gt;
-        &lt;a href=&quot;#&quot; class=&quot;cdg-dropdown-item-content&quot;&gt; Second level 1-2 &lt;/a&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-&lt;/cdg-context-menu&gt;
-  </code>
-</pre>
+  <cdg-info-table id="propertiesTable"></cdg-info-table>
+</section>
 
 <script>
   const contextMenus = document.querySelectorAll('cdg-context-menu')
@@ -228,4 +271,16 @@
       console.log(`Context menu "${contextMenu.getAttribute('name')}" closed`)
     })
   }
+
+  // const table = document.querySelector('#propertiesTable')
+  // table.options = PROPERTIES_TABLE_OPTIONS
+
+  // table.data = [
+  //   {
+  //     name: 'start-date',
+  //     type: '<code>string</code>',
+  //     default: '',
+  //     description: 'The first selected date of a range of dates',
+  //   },
+  // ]
 </script>
