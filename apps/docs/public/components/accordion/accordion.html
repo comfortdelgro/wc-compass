@@ -7,23 +7,4 @@
 
 <cdg-accordion-expanded-section></cdg-accordion-expanded-section>
 
-<section class="guideline-section">
-  <h3>Props & Methods</h3>
-
-  <cdg-info-table id="propertiesTable"></cdg-info-table>
-</section>
-
-<script>
-  const table = document.querySelector('#propertiesTable')
-  table.options = PROPERTIES_TABLE_OPTIONS
-
-  table.data = [
-    {
-      name: 'opened',
-      type: '<code>boolean</code>',
-      default: '<code>false</code>',
-      description:
-        '<div>If <code>true</code>, expands the accordion by default.</div>',
-    },
-  ]
-</script>
+<cdg-accordion-properties-section></cdg-accordion-properties-section>
