@@ -7,7 +7,7 @@
 <div class="sample-section column">
   <cdg-toolbar>
     <div class="cdg-left-group">
-      <button class="cdg-button secondary" id="selectButton">Select</button>
+      <!-- <button class="cdg-button secondary" id="selectButton">Select</button> -->
       <label class="cdg-input-group" style="width: 160px">
         <cdg-dropdown placeholder="Sample select">
           <cdg-dropdown-option value="1"> Select Select 1 </cdg-dropdown-option>
@@ -35,34 +35,12 @@
     </div>
   </cdg-toolbar>
 
-  <cdg-table class="cdg-table" checkable>
+  <cdg-info-table class="cdg-table" checkable>
     <cdg-table-head class="cdg-table-head">
       <cdg-table-row class="cdg-table-head-row">
-        <cdg-table-head-cell name="id" width="60px">
-          <a
-            href="#table?sort=id&sortDirection=desc"
-            class="cdg-table-head-cell-content"
-          >
-            <label class="cdg-table-head-cell-text has-sorting">ID</label>
-            <div class="cdg-table-head-cell-sorting">
-              <cdg-icon
-                class="cdg-table-head-cell-icon asc"
-                name="filledArrowUp"
-                size="16"
-              ></cdg-icon>
-              <cdg-icon
-                class="cdg-table-head-cell-icon desc"
-                name="filledArrowDown"
-                size="16"
-              ></cdg-icon>
-            </div>
-          </a>
-        </cdg-table-head-cell>
-        <cdg-table-head-cell name="name">
-          <a
-            href="#table?sort=name&sortDirection=desc"
-            class="cdg-table-head-cell-content"
-          >
+        <cdg-table-head-cell name="id" width="60px"> ID </cdg-table-head-cell>
+        <cdg-table-head-cell sortable name="name">
+          <a href="#table" class="cdg-table-head-cell-content">
             <label class="cdg-table-head-cell-text has-sorting">Name</label>
             <div class="cdg-table-head-cell-sorting">
               <cdg-icon
@@ -78,8 +56,22 @@
             </div>
           </a>
         </cdg-table-head-cell>
-        <cdg-table-head-cell name="age" width="100px">
-          <div class="cdg-table-head-cell-text">Age</div>
+        <cdg-table-head-cell sortable name="age" width="100px">
+          <a href="#table" class="cdg-table-head-cell-content">
+            <label class="cdg-table-head-cell-text has-sorting">Age</label>
+            <div class="cdg-table-head-cell-sorting">
+              <cdg-icon
+                class="cdg-table-head-cell-icon asc"
+                name="filledArrowUp"
+                size="16"
+              ></cdg-icon>
+              <cdg-icon
+                class="cdg-table-head-cell-icon desc"
+                name="filledArrowDown"
+                size="16"
+              ></cdg-icon>
+            </div>
+          </a>
         </cdg-table-head-cell>
         <cdg-table-head-cell name="gender" width="100px">
           <div class="cdg-table-head-cell-text">Gender</div>
@@ -87,7 +79,7 @@
       </cdg-table-row>
     </cdg-table-head>
     <cdg-table-body class="cdg-table-body"> </cdg-table-body>
-  </cdg-table>
+  </cdg-info-table>
 
   <div class="cdg-table-footer" cdg-table-footer>
     <div class="cdg-table-footer-left">

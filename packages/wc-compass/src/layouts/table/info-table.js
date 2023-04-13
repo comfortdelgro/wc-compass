@@ -1,4 +1,8 @@
 export class CdgInfoTable extends HTMLElement {
+  static get observedAttributes() {
+    return ['checkable']
+  }
+
   get data() {
     return this.source
   }
@@ -19,26 +23,48 @@ export class CdgInfoTable extends HTMLElement {
   }
 
   get checkable() {
-    return this.selectingMode
+    return this.hasAttribute('checkable')
   }
 
   set checkable(checkable) {
-    this.selectingMode = checkable
-    if (this.selectingMode && this.header && this.body) {
-      this.header.setAttribute('checkable', '')
-      this.body.setAttribute('checkable', '')
+    if (checkable) {
+      this.setAttribute('checkable', '')
+    } else {
+      this.removeAttribute('checkable')
     }
   }
 
   source
   configurations
-  selectingMode = false
 
   header
   body
 
   constructor() {
     super()
+  }
+
+  attributeChangedCallback(attr) {
+    switch (attr) {
+      case 'checkable':
+        if (!this.checkable) {
+          this.body.toggleAll(false)
+          this.header.check(false)
+          this.dispatchEvent(
+            new CustomEvent('selectionChange', {
+              detail: {
+                checked: false,
+                isCheckAll: false,
+                hasCheckedRow: false,
+              },
+            }),
+          )
+        }
+        break
+
+      default:
+        break
+    }
   }
 
   connectedCallback() {
@@ -51,9 +77,19 @@ export class CdgInfoTable extends HTMLElement {
     this.textContent = ''
     this.attachHeader()
     this.attachBody()
-    if (this.selectingMode && this.header && this.body) {
-      this.header.setAttribute('checkable', '')
-      this.body.setAttribute('checkable', '')
+  }
+
+  registerHeader(header) {
+    if (!this.header) {
+      this.header = header
+      this.header.addEventListener('toggleAll', this.handleToggleAll.bind(this))
+    }
+  }
+
+  registerBody(body) {
+    if (!this.body) {
+      this.body = body
+      this.body.addEventListener('onRowCheck', this.handleRowCheck.bind(this))
     }
   }
 
@@ -86,41 +122,39 @@ export class CdgInfoTable extends HTMLElement {
       })
     }
 
+    this.header.addEventListener('toggleAll', this.handleToggleAll.bind(this))
+
     this.header.appendChild(headerRow)
     this.appendChild(this.header)
   }
 
   attachBody() {
     this.body = document.createElement('cdg-table-body')
-    this.data.forEach((row) => {
-      const rowElement = this.createRow(row)
-      this.body.appendChild(rowElement)
-    })
+    this.body.addEventListener('onRowCheck', this.handleRowCheck.bind(this))
+    this.body.data = this.data
+
     this.appendChild(this.body)
   }
 
-  createCell(data) {
-    const cell = document.createElement('cdg-table-cell')
-    cell.innerHTML = data
+  handleToggleAll(event) {
+    this.body.toggleAll(event.detail.checked)
+    this.dispatchEvent(new CustomEvent('toggleAll', {detail: event.detail}))
 
-    return cell
+    this.dispatchEvent(
+      new CustomEvent('selectionChange', {
+        detail: {
+          checked: event.detail.checked,
+          isCheckAll: event.detail.checked,
+          hasCheckedRow: event.detail.checked,
+        },
+      }),
+    )
   }
 
-  createRow(rowData) {
-    const row = document.createElement('cdg-table-row')
-    if (this.options && this.options.columns) {
-      const columns = this.options.columns
-      columns.forEach((column) => {
-        const cell = this.createCell(rowData[column.fieldName])
-        row.appendChild(cell)
-      })
-    } else {
-      const item = this.data[0]
-      Object.keys(item).forEach((name) => {
-        const cell = this.createCell(rowData[name])
-        row.appendChild(cell)
-      })
-    }
-    return row
+  handleRowCheck(event) {
+    this.header.handleRowCheck(event.detail)
+    this.dispatchEvent(
+      new CustomEvent('selectionChange', {detail: event.detail}),
+    )
   }
 }

@@ -1,9 +1,7 @@
 export class CdgTable extends HTMLElement {
-  tableToolbar
-  tableFooter
-  tableContainerElement
-  tableHeadElement
-  tableBodyElement
+  static get observedAttributes() {
+    return ['checkable']
+  }
 
   get checkable() {
     return this.hasAttribute('checkable')
@@ -25,10 +23,38 @@ export class CdgTable extends HTMLElement {
     return ['checkable']
   }
 
+  tableToolbar
+  tableFooter
+  tableContainerElement
+  tableHeadElement
+  tableBodyElement
+  checkboxes
+
   constructor() {
     super()
 
     this.createTableContent()
+  }
+
+  attributeChangedCallback(attr) {
+    switch (attr) {
+      case 'checkable':
+        if (!this.tableBodyElement || !this.tableBodyElement) {
+          break
+        }
+
+        console.log(this.checkable)
+        if (this.checkable) {
+          this.tableHeadElement.setAttribute('checkable', '')
+          this.tableBodyElement.setAttribute('checkable', '')
+        } else {
+          this.tableHeadElement.removeAttribute('checkable', '')
+          this.tableBodyElement.removeAttribute('checkable', '')
+        }
+        break
+      default:
+        break
+    }
   }
 
   createTableContent() {
@@ -40,7 +66,7 @@ export class CdgTable extends HTMLElement {
     if (this.tableHeadElement) {
       this.tableHeadElement.addEventListener(
         'onCheckAll',
-        this.handleTableHeadCheckAll.bind(this),
+        this.checkAll.bind(this),
       )
       this.appendChild(this.tableHeadElement)
     }
@@ -58,7 +84,7 @@ export class CdgTable extends HTMLElement {
     }
   }
 
-  handleTableBodyRowCheck() {
+  handleTableBodyRowCheck(event) {
     const tableRows = this.tableBodyElement.querySelectorAll('cdg-table-row')
     let isCheckAll = true
     let hasCheckedRow = false
@@ -93,9 +119,13 @@ export class CdgTable extends HTMLElement {
       checkboxTableHead.indeterminate = false
       checkboxTableHead.checked = false
     }
+
+    this.dispatchEvent(
+      new CustomEvent('toggleSelectRow', {detail: event.detail}),
+    )
   }
 
-  handleTableHeadCheckAll(event) {
+  checkAll(event) {
     const checked = !!event.detail.checked
     const checkboxes = this.tableBodyElement.querySelectorAll(
       'input[type="checkbox"].cdg-cell-checkbox',
@@ -104,6 +134,8 @@ export class CdgTable extends HTMLElement {
       checkbox.checked = checked
       checkbox.dispatchEvent(new Event('change', {bubbles: false}))
     })
+
+    this.dispatchEvent(new CustomEvent('toggleSelectAll', {detail: checked}))
   }
 
   connectedCallback() {

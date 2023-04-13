@@ -1,24 +1,6 @@
 export class CdgTableHead extends HTMLElement {
-  tableHeadRowElement
-  checkboxCellElement
   checkboxElement
-
-  get checkable() {
-    return this.hasAttribute('checkable')
-  }
-
-  set checkable(value) {
-    if (value) {
-      this.createCheckboxCell()
-      this.setAttribute('checkable', '')
-    } else {
-      this.removeAttribute('checkable')
-    }
-  }
-
-  static get observedAttributes() {
-    return ['checkable']
-  }
+  headerRow
 
   constructor() {
     super()
@@ -27,7 +9,14 @@ export class CdgTableHead extends HTMLElement {
   connectedCallback() {
     this.classList.add('cdg-table-head')
     this.setAttribute('role', 'thead')
-    this.tableHeadRowElement = this.querySelector('cdg-table-row')
+    this.headerRow = this.querySelector('.cdg-table-head-row')
+    this.headerRow.addEventListener(
+      'toggleRow',
+      this.handleCheckboxChange.bind(this),
+    )
+    if (this.parentElement.classList.contains('cdg-info-table')) {
+      this.parentElement.registerHeader(this)
+    }
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
@@ -37,36 +26,38 @@ export class CdgTableHead extends HTMLElement {
     this[attr] = this.hasAttribute(attr)
   }
 
-  createCheckboxCell() {
-    if (!this.tableHeadRowElement) {
-      return
-    }
-    if (!this.checkboxCellElement) {
-      this.checkboxCellElement = document.createElement('cdg-table-head-cell')
-      this.checkboxCellElement.classList.add('cdg-table-head-cell-checkbox')
-
-      const container = document.createElement('div')
-      container.classList.add('cdg-table-checkbox-contaner')
-      const checkboxContainer = document.createElement('label')
-      checkboxContainer.classList.add('cdg-checkbox')
-      this.checkboxElement = document.createElement('input')
-      this.checkboxElement.type = 'checkbox'
-      this.checkboxElement.classList.add('cdg-head-checkbox')
-      this.checkboxElement.addEventListener(
-        'change',
-        this.handleCheckboxChange.bind(this),
+  updateCheckboxElement() {
+    if (!this.checkboxElement) {
+      this.checkboxElement = this.querySelector(
+        'input[type="checkbox"].cdg-cell-checkbox',
       )
-      checkboxContainer.appendChild(this.checkboxElement)
-      container.appendChild(checkboxContainer)
-      this.checkboxCellElement.appendChild(container)
-      this.tableHeadRowElement.prepend(this.checkboxCellElement)
+    }
+  }
+
+  check(checked) {
+    this.updateCheckboxElement()
+    this.checkboxElement.indeterminate = false
+    this.checkboxElement.checked = checked
+  }
+
+  handleRowCheck(detail) {
+    this.updateCheckboxElement()
+    if (detail.isCheckAll) {
+      this.checkboxElement.indeterminate = false
+      this.checkboxElement.checked = true
+    } else if (detail.hasCheckedRow) {
+      this.checkboxElement.checked = false
+      this.checkboxElement.indeterminate = true
+    } else {
+      this.checkboxElement.indeterminate = false
+      this.checkboxElement.checked = false
     }
   }
 
   handleCheckboxChange(event) {
     this.dispatchEvent(
-      new CustomEvent('onCheckAll', {
-        detail: {checked: event.target.checked},
+      new CustomEvent('toggleAll', {
+        detail: {checked: event.detail.checked},
       }),
     )
   }
