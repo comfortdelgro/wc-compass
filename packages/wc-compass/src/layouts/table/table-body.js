@@ -20,7 +20,7 @@ export class CdgTableBody extends HTMLElement {
   connectedCallback() {
     this.classList.add('cdg-table-body')
     this.setAttribute('role', 'tbody')
-    if (this.parentElement.classList.contains('cdg-info-table')) {
+    if (this.parentElement.classList.contains('cdg-table')) {
       this.parentElement.registerBody(this)
     }
   }

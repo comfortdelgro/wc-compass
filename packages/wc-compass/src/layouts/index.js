@@ -36,7 +36,6 @@ import {CdgSidebarBody} from './sidebar/sidebar-body'
 import {CdgSidebarHeader} from './sidebar/sidebar-header'
 import {CdgSubNav} from './sub-nav/sub-nav'
 import {CdgSubNavGroup} from './sub-nav/sub-nav-group'
-import {CdgInfoTable} from './table/info-table'
 import {CdgTable} from './table/table'
 import {CdgTableBody} from './table/table-body'
 import {CdgTableCell} from './table/table-cell'
@@ -74,7 +73,6 @@ customElements.define('cdg-table-body', CdgTableBody)
 customElements.define('cdg-table-cell', CdgTableCell)
 customElements.define('cdg-table-head-cell', CdgTableHeadCell)
 customElements.define('cdg-table-row', CdgTableRow)
-customElements.define('cdg-info-table', CdgInfoTable)
 customElements.define('cdg-card-cover', CdgCardCover)
 customElements.define('cdg-page-title', CdgPageTitle)
 customElements.define('cdg-page-header', CdgPageHeader)
@@ -144,7 +142,6 @@ export const LAYOUT_COMPONENTS = [
   CdgTableRow,
   CdgTableHeadCell,
   CdgTableCell,
-  CdgInfoTable,
   CdgCardCover,
   CdgDashboardSideCard,
   CdgCardActivity,

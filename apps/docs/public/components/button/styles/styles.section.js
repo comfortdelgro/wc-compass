@@ -5,7 +5,7 @@ export class CdgButtonStylesSection extends CdgBaseComponent {
     super()
     this.htmlContent = `<section class="guideline-section">
     <h3 class="sample-section-title">CSS class name</h3>
-    <cdg-info-table id="styleTable"></cdg-info-table>
+    <cdg-table id="styleTable"></cdg-table>
   </section>
     `
   }

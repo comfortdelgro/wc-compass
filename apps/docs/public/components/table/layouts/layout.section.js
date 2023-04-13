@@ -18,7 +18,7 @@ export class CdgTableLayoutSection extends CdgBaseComponent {
   }
 
   onInit() {
-    this.tableElement = this.querySelector('cdg-info-table')
+    this.tableElement = this.querySelector('cdg-table')
     this.tableBody = this.tableElement.querySelector('cdg-table-body')
     this.paginationElement = this.querySelector('cdg-pagination')
     this.pageSizeDropdown = this.querySelector('#pageSizeDropdown')
