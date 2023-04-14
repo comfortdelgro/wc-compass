@@ -1,117 +1,151 @@
+import {TableSelectionChangeEvent} from './model'
+
 export class CdgTable extends HTMLElement {
-  tableToolbar
-  tableFooter
-  tableContainerElement
-  tableHeadElement
-  tableBodyElement
+  static get observedAttributes() {
+    return ['checkable']
+  }
+
+  get data() {
+    return this.source
+  }
+
+  set data(data) {
+    this.source = data
+    if (data) {
+      this.displayData()
+    }
+  }
+
+  get options() {
+    return this.configurations
+  }
+
+  set options(options) {
+    this.configurations = options
+  }
 
   get checkable() {
     return this.hasAttribute('checkable')
   }
 
-  set checkable(value) {
-    if (value) {
+  set checkable(checkable) {
+    if (checkable) {
       this.setAttribute('checkable', '')
-      this.tableHeadElement.setAttribute('checkable', '')
-      this.tableBodyElement.setAttribute('checkable', '')
     } else {
       this.removeAttribute('checkable')
-      this.tableHeadElement.removeAttribute('checkable', '')
-      this.tableBodyElement.removeAttribute('checkable', '')
     }
   }
 
-  static get observedAttributes() {
-    return ['checkable']
-  }
+  source
+  configurations
+
+  header
+  body
 
   constructor() {
     super()
-
-    this.createTableContent()
   }
 
-  createTableContent() {
-    this.tableToolbar = this.querySelector('[cdg-table-toolbar]')
-    this.tableFooter = this.querySelector('[cdg-table-footer]')
-    // this.tableContainerElement = document.createElement('div')
-    // this.tableContainerElement.classList.add('cdg-table-container')
-    this.tableHeadElement = this.querySelector('cdg-table-head')
-    if (this.tableHeadElement) {
-      this.tableHeadElement.addEventListener(
-        'onCheckAll',
-        this.handleTableHeadCheckAll.bind(this),
-      )
-      this.appendChild(this.tableHeadElement)
-    }
-    this.tableBodyElement = this.querySelector('cdg-table-body')
-    if (this.tableBodyElement) {
-      this.tableBodyElement.addEventListener(
-        'onRowCheck',
-        this.handleTableBodyRowCheck.bind(this),
-      )
-      this.appendChild(this.tableBodyElement)
-    }
-    // this.appendChild(this.tableContainerElement)
-    if (this.tableFooter) {
-      this.appendChild(this.tableFooter)
-    }
-  }
-
-  handleTableBodyRowCheck() {
-    const tableRows = this.tableBodyElement.querySelectorAll('cdg-table-row')
-    let isCheckAll = true
-    let hasCheckedRow = false
-    for (let index = 0; index < tableRows.length; index++) {
-      const tableRow = tableRows.item(index)
-      const tableRowCheckbox = tableRow.querySelector(
-        'input[type="checkbox"].cdg-cell-checkbox',
-      )
-      if (!tableRowCheckbox.checked) {
-        isCheckAll = false
-      } else {
-        hasCheckedRow = true
-      }
-      // Stop loop
-      if (!isCheckAll && hasCheckedRow) {
+  attributeChangedCallback(attr) {
+    switch (attr) {
+      case 'checkable':
+        if (!this.checkable) {
+          this.body.toggleAll(false)
+          this.header.check(false)
+          this.dispatchEvent(
+            new CustomEvent('selectionChange', {
+              detail: {
+                checked: false,
+                isCheckAll: false,
+                hasCheckedRow: false,
+              },
+            }),
+          )
+        }
         break
-      }
-    }
 
-    const checkboxTableHead = this.tableHeadElement.querySelector(
-      'input[type="checkbox"].cdg-head-checkbox',
-    )
-    if (hasCheckedRow) {
-      if (!isCheckAll) {
-        checkboxTableHead.indeterminate = true
-        checkboxTableHead.checked = false
-      } else {
-        checkboxTableHead.indeterminate = false
-        checkboxTableHead.checked = true
-      }
-    } else {
-      checkboxTableHead.indeterminate = false
-      checkboxTableHead.checked = false
+      default:
+        break
     }
-  }
-
-  handleTableHeadCheckAll(event) {
-    const checked = !!event.detail.checked
-    const checkboxes = this.tableBodyElement.querySelectorAll(
-      'input[type="checkbox"].cdg-cell-checkbox',
-    )
-    checkboxes.forEach((checkbox) => {
-      checkbox.checked = checked
-      checkbox.dispatchEvent(new Event('change', {bubbles: false}))
-    })
   }
 
   connectedCallback() {
     this.classList.add('cdg-table')
   }
 
-  attributeChangedCallback(attr, oldValue, newValue) {
-    if (oldValue === newValue) return
-    this[attr] = this.hasAttribute(attr)
+  displayData() {
+    // Let's clean everything
+    this.textContent = ''
+    this.dispatchEvent(
+      new CustomEvent('selectionChange', {
+        detail: new TableSelectionChangeEvent(),
+      }),
+    )
+
+    this.attachHeader()
+    this.attachBody()
+  }
+
+  registerHeader(header) {
+    if (!this.header) {
+      this.header = header
+      this.header.addEventListener('toggleAll', this.handleToggleAll.bind(this))
+    }
+  }
+
+  registerBody(body) {
+    if (!this.body) {
+      this.body = body
+      this.body.addEventListener('onRowCheck', this.handleRowCheck.bind(this))
+    }
+  }
+
+  attachHeader() {
+    this.header = document.createElement('cdg-table-head')
+
+    if (!this.options) {
+      // Auto generate column title from object keys
+      this.options = {
+        columns: [],
+      }
+      const item = this.data[0]
+      Object.keys(item).forEach((name) => {
+        this.options.columns.push({
+          name,
+          width: 'auto',
+          fieldName: name,
+          sortable: false,
+        })
+      })
+    }
+    this.header.options = this.options
+    this.header.addEventListener('toggleAll', this.handleToggleAll.bind(this))
+    this.header.addEventListener('sort', this.handleColumnSort.bind(this))
+
+    this.appendChild(this.header)
+  }
+
+  attachBody() {
+    this.body = document.createElement('cdg-table-body')
+    this.body.addEventListener('onRowCheck', this.handleRowCheck.bind(this))
+    this.body.options = this.options
+    this.body.data = this.data
+
+    this.appendChild(this.body)
+  }
+
+  handleToggleAll(event) {
+    this.body.toggleAll(event.detail.checked)
+  }
+
+  handleRowCheck(event) {
+    this.header.handleRowCheck(event.detail)
+    this.dispatchEvent(
+      new CustomEvent('selectionChange', {detail: event.detail}),
+    )
+  }
+
+  handleColumnSort(event) {
+    this.dispatchEvent(new CustomEvent('sort', {detail: event.detail}))
   }
 }

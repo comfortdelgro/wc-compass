@@ -123,6 +123,37 @@ function handleOnchange (event) {
 </pre>
 </cdg-sample-section>
 
+<cdg-sample-section name="Step">
+  <div class="sample-section">
+    <div>
+      <div class="cdg-input-group" style="margin-bottom: 16px">
+        <input
+          class="cdg-input"
+          placeholder="Step value"
+          value="2"
+          type="number"
+          id="step-value"
+        />
+      </div>
+      <cdg-quantity-toggle step="2" id="quantity-toggle-step">
+        <button class="cdg-button">-</button>
+        <input type="number" placeholder="Input quantity" value="0" />
+        <button class="cdg-button">+</button>
+      </cdg-quantity-toggle>
+    </div>
+  </div>
+
+  <pre>
+    <code class="language-html">
+    &lt;cdg-quantity-toggle step=&quot;2&quot;&gt;
+      &lt;button class=&quot;cdg-button&quot;&gt;-&lt;/button&gt;
+      &lt;input type=&quot;number&quot; placeholder=&quot;Input quantity&quot; value=&quot;0&quot; /&gt;
+      &lt;button class=&quot;cdg-button&quot;&gt;+&lt;/button&gt;
+    &lt;/cdg-quantity-toggle&gt;
+    </code>
+</pre>
+</cdg-sample-section>
+
 <script>
   window.handleOnchange = (event) => {
     cdgToastService.toast('Changed ' + event.target.value)
@@ -131,5 +162,11 @@ function handleOnchange (event) {
   const quantityToggle = document.querySelector('#maxMinSample')
   quantityToggle.addEventListener('validChange', (event) => {
     cdgToastService.toast('Error: ' + JSON.stringify(event.detail))
+  })
+
+  const stepValue = document.getElementById('step-value')
+  const quantityToggleStep = document.getElementById('quantity-toggle-step')
+  stepValue.addEventListener('change', (event) => {
+    quantityToggleStep.setAttribute('step', event.target.value)
   })
 </script>

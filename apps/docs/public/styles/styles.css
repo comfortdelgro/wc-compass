@@ -255,6 +255,10 @@ pre code.hljs {
   min-width: 10px;
 }
 
+.sub-nav-wrapper.cdg-contains-gutter {
+  width: 200px;
+}
+
 .guideline-section {
   margin-top: 32px;
 }

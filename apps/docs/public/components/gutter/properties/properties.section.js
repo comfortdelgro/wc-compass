@@ -1,6 +1,6 @@
 import {CdgBaseComponent} from '../../../shared/base-component'
 
-export class CdgListviewPropertiesSection extends CdgBaseComponent {
+export class CdgGutterPropertiesSection extends CdgBaseComponent {
   constructor() {
     super()
     this.htmlContent = `<section class="guideline-section">
@@ -17,10 +17,16 @@ export class CdgListviewPropertiesSection extends CdgBaseComponent {
 
     table.data = [
       {
-        name: '<code>allow-drag</code>',
+        name: '<code>place</code>',
+        type: '<code>left</code> | <code>right</code>',
+        default: '<code>right</code>',
+        description: "The side that you want to resize of it's parent.",
+      },
+      {
+        name: '<code>use-collapse</code>',
         type: '<code>property</code>',
         default: "<code>''</code>",
-        description: 'To allow user to drag items.',
+        description: 'To display quick collapse icon button on top of gutter.',
       },
     ]
   }

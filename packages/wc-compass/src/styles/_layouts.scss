@@ -32,6 +32,19 @@ cdg-toolbar,
     box-shadow: var(--shadow-depth-04);
     padding: 12px 16px;
   }
+
+  .cdg-show-on-selected {
+    display: none;
+  }
+
+  &.selected {
+    .cdg-hide-on-selected {
+      display: none;
+    }
+    .cdg-show-on-selected {
+      display: flex;
+    }
+  }
 }
 
 cdg-left-group,
@@ -539,20 +552,26 @@ cdg-carousel,
 
 .cdg-contains-gutter {
   position: relative;
+  // @extend %smoothTransition;
+  * {
+    flex-shrink: 0;
+  }
 }
 
 .cdg-gutter {
-  width: 5px;
+  width: 12px;
   position: absolute;
-  right: 0;
+  right: -6px;
   top: 0;
   bottom: 0;
+  touch-action: none;
+
   &::after {
     content: '';
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 3px;
+    left: 4px;
     width: 2px;
     background-color: transparent;
     @extend %smoothTransition;
@@ -573,11 +592,21 @@ cdg-carousel,
 
   &[place='left'] {
     right: auto;
-    left: 0;
+    left: -6px;
     &::after {
       top: 0;
       bottom: 0;
-      left: 0;
+      left: 4px;
+    }
+
+    .cdg-icon {
+      transform: rotate(180deg);
+    }
+
+    &.collapsed {
+      .cdg-icon {
+        transform: rotate(0deg);
+      }
     }
   }
 

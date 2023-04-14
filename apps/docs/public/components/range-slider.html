@@ -33,9 +33,35 @@ rangeSlider.addEventListener('change', (event) => {
 </pre>
 </cdg-sample-section>
 
+<cdg-sample-section name="Step">
+  <div class="sample-section" style="width: 250px">
+    <cdg-range-slider
+      id="sampleSliderStep"
+      min="0"
+      max="100"
+      value="20"
+      step="10"
+    >
+    </cdg-range-slider>
+  </div>
+
+  <pre>
+    <code>
+&lt;cdg-range-slider id=&quot;sampleSlider&quot; min=&quot;0&quot; max=&quot;100&quot; value=&quot;20&quot; step=&quot;10&quot;&gt;
+&lt;/cdg-range-slider&gt;
+    </code>
+  </pre>
+</cdg-sample-section>
+
 <script>
   const rangeSlider = document.querySelector('#sampleSlider')
   rangeSlider.addEventListener('change', (event) => {
+    const newValue = event.detail.value
+    console.log('Slider value changed:', newValue)
+  })
+
+  const rangeSliderStep = document.querySelector('#sampleSliderStep')
+  rangeSliderStep.addEventListener('change', (event) => {
     const newValue = event.detail.value
     console.log('Slider value changed:', newValue)
   })

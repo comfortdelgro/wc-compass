@@ -3,7 +3,44 @@
   <cdg-toolbar>
     <div class="cdg-left-group">
       <button class="cdg-button secondary" id="selectButton">Select</button>
+      <span id="selectedText"></span>
+      <div class="cdg-input-row cdg-hide-on-selected">
+        <label class="cdg-input-group" style="width: 230px">
+          <div class="cdg-input-with-icon">
+            <input
+              class="cdg-input"
+              placeholder="Type a name..."
+              id="searchKeyword"
+            />
+            <cdg-icon name="search" size="16"></cdg-icon>
+          </div>
+        </label>
+      </div>
+    </div>
+    <div class="cdg-right-group cdg-show-on-selected">
+      <button class="cdg-button ghost">
+        <cdg-icon name="outlineTrash"></cdg-icon>
+      </button>
+      <button class="cdg-button ghost">
+        <cdg-icon name="copy"></cdg-icon>
+      </button>
     </div>
   </cdg-toolbar>
-  <cdg-info-table id="sampleTable"></cdg-info-table>
+  <cdg-table id="sampleTable"></cdg-table>
+
+  <div class="cdg-table-footer">
+    <div class="cdg-separator"></div>
+    <div class="cdg-right-group">
+      <div class="pagingation-label">
+        Showing <span id="startItem">1</span> - <span id="toItem">10</span> out
+        of <span id="totalItem">1000</span>
+      </div>
+      <cdg-pagination
+        current-page="1"
+        total="1000"
+        page-size="10"
+        display-button-count="3"
+      ></cdg-pagination>
+    </div>
+  </div>
 </div>

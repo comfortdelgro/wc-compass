@@ -1,33 +1,49 @@
+import {getClosestElement} from '../../shared/dom'
+import {TableSortEvent} from './model'
+
 export class CdgTableHead extends HTMLElement {
-  tableHeadRowElement
-  checkboxCellElement
+  get options() {
+    return this.configurations
+  }
+
+  set options(options) {
+    this.configurations = options
+    this.attachColumns()
+  }
+
   checkboxElement
+  headerRow
 
-  get checkable() {
-    return this.hasAttribute('checkable')
-  }
-
-  set checkable(value) {
-    if (value) {
-      this.createCheckboxCell()
-      this.setAttribute('checkable', '')
-    } else {
-      this.removeAttribute('checkable')
-    }
-  }
-
-  static get observedAttributes() {
-    return ['checkable']
-  }
+  configurations
+  currentSortedColumn
 
   constructor() {
     super()
   }
 
+  attachColumns() {
+    const row = document.createElement('cdg-table-row')
+    row.classList.add('cdg-table-head-row')
+    if (this.options && this.options.columns) {
+      this.options.columns.forEach((column) => {
+        const cell = this.createHeaderCell(column)
+        row.appendChild(cell)
+      })
+    }
+    this.appendChild(row)
+  }
+
   connectedCallback() {
     this.classList.add('cdg-table-head')
     this.setAttribute('role', 'thead')
-    this.tableHeadRowElement = this.querySelector('cdg-table-row')
+    this.headerRow = this.querySelector('.cdg-table-head-row')
+    this.headerRow.addEventListener(
+      'toggleRow',
+      this.handleCheckboxChange.bind(this),
+    )
+    if (this.parentElement.classList.contains('cdg-table')) {
+      this.parentElement.registerHeader(this)
+    }
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
@@ -37,36 +53,109 @@ export class CdgTableHead extends HTMLElement {
     this[attr] = this.hasAttribute(attr)
   }
 
-  createCheckboxCell() {
-    if (!this.tableHeadRowElement) {
-      return
-    }
-    if (!this.checkboxCellElement) {
-      this.checkboxCellElement = document.createElement('cdg-table-head-cell')
-      this.checkboxCellElement.classList.add('cdg-table-head-cell-checkbox')
+  createHeaderCell(data) {
+    const cell = document.createElement('cdg-table-head-cell')
 
-      const container = document.createElement('div')
-      container.classList.add('cdg-table-checkbox-contaner')
-      const checkboxContainer = document.createElement('label')
-      checkboxContainer.classList.add('cdg-checkbox')
-      this.checkboxElement = document.createElement('input')
-      this.checkboxElement.type = 'checkbox'
-      this.checkboxElement.classList.add('cdg-head-checkbox')
-      this.checkboxElement.addEventListener(
-        'change',
-        this.handleCheckboxChange.bind(this),
+    if (data.width) {
+      cell.setAttribute('width', data.width)
+    }
+
+    if (data.sortable) {
+      cell.setAttribute('sortable', '')
+      const sortParent = document.createElement('button')
+      sortParent.classList.add('cdg-button', 'cdg-table-header-button')
+
+      const label = document.createElement('span')
+      label.textContent = data.name
+
+      sortParent.appendChild(label)
+
+      const arrow = document.createElement('div')
+      arrow.classList.add('cdg-table-sort-arrows')
+      arrow.innerHTML = `<cdg-icon
+        class="cdg-table-sort-arrow asc"
+        name="filledArrowUp"
+        size="16"
+        ></cdg-icon>
+        <cdg-icon
+        class="cdg-table-sort-arrow desc"
+        name="filledArrowDown"
+        size="16"
+      ></cdg-icon>`
+
+      sortParent.appendChild(arrow)
+      cell.appendChild(sortParent)
+
+      const sortClassName =
+        data.sortDirection === 1
+          ? 'desc'
+          : data.sortDirection === -1
+          ? 'asc'
+          : ''
+      if (sortClassName) {
+        cell.classList.add(sortClassName)
+        this.currentSortedColumn = cell
+      }
+      cell.addEventListener('click', this.handleSortField.bind(this, data))
+    } else {
+      cell.textContent = data.name
+    }
+
+    return cell
+  }
+
+  handleSortField(data, event) {
+    if (this.currentSortedColumn) {
+      this.currentSortedColumn.classList.remove('asc')
+      this.currentSortedColumn.classList.remove('desc')
+    }
+
+    const headCell = getClosestElement(event.target, '.cdg-table-head-cell')
+    data.sortDirection =
+      !data.sortDirection || data.sortDirection === -1 ? 1 : -1
+    const sortClassName = data.sortDirection === 1 ? 'desc' : 'asc'
+    headCell.classList.add(sortClassName)
+    this.currentSortedColumn = headCell
+
+    this.dispatchEvent(
+      new CustomEvent('sort', {
+        detail: new TableSortEvent(data.fieldName, data.sortDirection),
+      }),
+    )
+  }
+
+  updateCheckboxElement() {
+    if (!this.checkboxElement) {
+      this.checkboxElement = this.querySelector(
+        'input[type="checkbox"].cdg-cell-checkbox',
       )
-      checkboxContainer.appendChild(this.checkboxElement)
-      container.appendChild(checkboxContainer)
-      this.checkboxCellElement.appendChild(container)
-      this.tableHeadRowElement.prepend(this.checkboxCellElement)
+    }
+  }
+
+  check(checked) {
+    this.updateCheckboxElement()
+    this.checkboxElement.indeterminate = false
+    this.checkboxElement.checked = checked
+  }
+
+  handleRowCheck(detail) {
+    this.updateCheckboxElement()
+    if (detail.isCheckAll) {
+      this.checkboxElement.indeterminate = false
+      this.checkboxElement.checked = true
+    } else if (detail.hasCheckedRow) {
+      this.checkboxElement.checked = false
+      this.checkboxElement.indeterminate = true
+    } else {
+      this.checkboxElement.indeterminate = false
+      this.checkboxElement.checked = false
     }
   }
 
   handleCheckboxChange(event) {
     this.dispatchEvent(
-      new CustomEvent('onCheckAll', {
-        detail: {checked: event.target.checked},
+      new CustomEvent('toggleAll', {
+        detail: {checked: event.detail.checked},
       }),
     )
   }

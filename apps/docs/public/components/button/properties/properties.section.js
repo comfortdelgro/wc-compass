@@ -5,7 +5,7 @@ export class CdgButtonPropertiesSection extends CdgBaseComponent {
     super()
     this.htmlContent = `<section class="guideline-section">
     <h3 class="sample-section-title">Props & Methods</h3>
-    <cdg-info-table id="propertiesTable"></cdg-info-table>
+    <cdg-table id="propertiesTable"></cdg-table>
   </section>
     `
   }
