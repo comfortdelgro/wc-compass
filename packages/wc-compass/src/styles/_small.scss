@@ -20,12 +20,13 @@
   }
 
   .cdg-promotion-title {
-    font-size: 32px;
-    line-height: 40px;
+    font-size: var(--heading1);
+    line-height: var(--line-height-heading1);
   }
 
   .cdg-promotion-description {
-    font-size: 14px;
+    font-size: var(--label1);
+    line-height: var(--line-height-label1);
   }
 
   .cdg-promotion-container {
@@ -72,18 +73,14 @@
   }
 
   .cdg-post-section-title {
-    font-size: 20px;
-    line-height: 30px;
+    font-size: var(--heading4);
+    line-height: var(--line-height-heading4);
   }
 
-  .cdg-blog-post {
-    font-size: 16px;
-    line-height: 24px;
-  }
-
+  .cdg-blog-post,
   .cdg-card-blog-title {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: var(--heading5);
+    line-height: var(--line-height-heading5);
   }
 
   cdg-card,
@@ -96,8 +93,8 @@
 
     &.article-card .cdg-card-title,
     &.article-card .cdg-card-title {
-      font-size: 16px;
-      line-height: 24px;
+      font-size: var(--heading5);
+      line-height: var(--line-height-heading5);
     }
   }
 
@@ -197,7 +194,8 @@
   }
 
   .cdg-list-item-title {
-    font-size: 16px;
+    font-size: var(--heading5);
+    line-height: var(--line-height-heading5);
   }
 
   .cdg-list-item-description {
@@ -236,8 +234,8 @@
 
 @container CardGrid (max-width: 768px) {
   .cdg-card-blog-title {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: var(--heading5);
+    line-height: var(--line-height-heading5);
   }
 }
 

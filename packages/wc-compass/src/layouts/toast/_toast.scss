@@ -87,7 +87,7 @@ cdg-toast-header,
 
 cdg-toast-title,
 .cdg-toast-title {
-  font-size: 16px;
+  @extend %body2;
   font-weight: 600;
   flex: 1;
 }

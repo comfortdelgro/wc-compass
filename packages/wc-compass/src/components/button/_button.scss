@@ -100,8 +100,7 @@ cdg-button,
   }
 
   &[size='large'] {
-    font-size: 16px;
-    line-height: 24px;
+    @extend %body2;
     padding: 8px 20px;
 
     &.icon {
