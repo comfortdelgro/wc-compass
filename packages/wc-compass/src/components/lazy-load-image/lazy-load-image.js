@@ -29,16 +29,35 @@ export class CdgLazyLoadImage extends HTMLElement {
     this.lazyLoadImage()
   }
 
+  static get observedAttributes() {
+    return ['src', 'width', 'height', 'fallbackSrc']
+  }
+
+  get src() {
+    return this.getAttribute('src')
+  }
+
+  get width() {
+    return this.getAttribute('width')
+  }
+
+  get height() {
+    return this.getAttribute('height')
+  }
+
+  get fallbackSrc() {
+    return this.getAttribute('fallbackSrc')
+  }
+
   // If image fail to load and there is user fallback src
   //  -> load user fallback src
   // else
   //  -> load default fallback src
   handleImageError() {
-    const fallbackSrc = this.attributes?.fallbackSrc?.value
     // Set fallback retry times to prevent callback loop when the fallback itself is causing errors
-    if (this.userFallbackRetry < MAX_RETRY_TIMES && fallbackSrc) {
+    if (this.userFallbackRetry < MAX_RETRY_TIMES && this.fallbackSrc) {
       this.userFallbackRetry = this.userFallbackRetry + 1
-      this.image.src = fallbackSrc
+      this.image.src = this.fallbackSrc
     } else if (this.defaultFallbackRetry < MAX_RETRY_TIMES) {
       this.defaultFallbackRetry = this.defaultFallbackRetry + 1
       this.image.src = placeholderSrc
@@ -46,7 +65,7 @@ export class CdgLazyLoadImage extends HTMLElement {
   }
 
   lazyLoadImage() {
-    const {src, width, height, ...props} = this.attributes
+    const props = this.attributes
     // pass the rest of the props
     Object.entries(props).forEach(([_, value]) => {
       if (value.name !== 'src') {
@@ -59,14 +78,14 @@ export class CdgLazyLoadImage extends HTMLElement {
       // Set the loading attribute of the image element to 'lazy'
       this.image.setAttribute('loading', 'lazy')
 
-      if (src.value) this.image.src = src.value
+      if (this.src) this.image.src = this.src
     }
     // if browser not support loading='lazy' -> use intersection observer to watch the image
     else {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && src.value) {
-            this.image.src = src.value
+          if (entry.isIntersecting && this.src) {
+            this.image.src = this.src
             observer.disconnect()
           }
         })
