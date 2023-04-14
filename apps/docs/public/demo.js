@@ -8,8 +8,11 @@ export * from './components/dropdown/index'
 export * from './components/gutter/index'
 export * from './components/list-item/index'
 export * from './components/listview/index'
+export * from './components/popover/index'
 export * from './components/progress/index'
 export * from './components/table/index'
+export * from './components/tooltip/index'
+export * from './components/zoom-image-view/index'
 
 import {SampleSection} from './sample-section'
 
@@ -46,7 +49,7 @@ import './components/navbar.html'
 import './components/page-header.html'
 import './components/pagination.html'
 import './components/pill-badges.html'
-import './components/popover.html'
+import './components/popover/popover.html'
 import './components/progress/progress.html'
 import './components/quantity-toggle.html'
 import './components/radios.html'
@@ -67,7 +70,7 @@ import './components/timeline.html'
 import './components/toast.html'
 import './components/toggle.html'
 import './components/toolbar.html'
-import './components/tooltip.html'
+import './components/tooltip/tooltip.html'
 import './components/video.html'
 import './components/volume.html'
 import './components/website/contents/article.html'
@@ -130,7 +133,7 @@ const contentMap = {
   textField: './components/text-field.html',
   subNav: './components/sub-nav.html',
   table: './components/table/table.html',
-  popover: './components/popover.html',
+  popover: './components/popover/popover.html',
   progress: './components/progress/progress.html',
   toast: './components/toast.html',
   toggle: './components/toggle.html',
@@ -139,7 +142,7 @@ const contentMap = {
   wizards: './components/wizards.html',
   calendar: './components/calendar/calendar.html',
   datepicker: './components/datepicker/datepicker.html',
-  tooltip: './components/tooltip.html',
+  tooltip: './components/tooltip/tooltip.html',
   rangeSlider: './components/range-slider.html',
   tagBox: './components/tag-box.html',
   video: './components/video.html',
@@ -150,7 +153,7 @@ const contentMap = {
   multiLevelDropdown: './components/multi-level-dropdown.html',
   contextMenu: './components/context-menu.html',
   testimonials: './components/testimonials.html',
-  imageViewer: './components/zoom-image-view.html',
+  imageViewer: './components/zoom-image-view/zoom-image-view.html',
   newsAndBlogs: './components/website/news-and-blogs.html',
   article: './components/website/post-detail.html',
   services: './components/website/services.html',
