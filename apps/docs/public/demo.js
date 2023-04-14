@@ -74,6 +74,7 @@ import './pages/home.html'
 import './pages/layouts-and-controls.html'
 import './pages/theming.html'
 import './pages/z-index.html'
+import './components/lazy-load-image.html'
 
 customElements.define('cdg-sample-section', SampleSection)
 
@@ -149,6 +150,7 @@ const contentMap = {
   article: './components/website/post-detail.html',
   services: './components/website/services.html',
   chart: './components/chart.html',
+  lazyLoadImage: './components/lazy-load-image.html'
 }
 
 const documentContent = [
@@ -349,6 +351,10 @@ const documentContent = [
       {
         name: 'Loading',
         slug: 'loading',
+      },
+      {
+        name: 'Lazy Load Image',
+        slug: 'lazyLoadImage',
       },
       {
         name: 'Pagination',
