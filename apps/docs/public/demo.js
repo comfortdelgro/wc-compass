@@ -1,5 +1,11 @@
 export * from './components/accordion/index'
+export * from './components/avatar/index'
+export * from './components/button/index'
 export * from './components/carousel/index'
+export * from './components/gutter/index'
+export * from './components/list-item/index'
+export * from './components/listview/index'
+export * from './components/progress/index'
 export * from './components/table/index'
 
 import {SampleSection} from './sample-section'
@@ -7,9 +13,9 @@ import {SampleSection} from './sample-section'
 import './components/accordion/accordion.html'
 import './components/alert-badges.html'
 import './components/alert.html'
-import './components/avatar.html'
+import './components/avatar/avatar.html'
 import './components/breadcrumbs.html'
-import './components/button.html'
+import './components/button/button.html'
 import './components/calendar.html'
 import './components/card-blogs.html'
 import './components/cards.html'
@@ -24,11 +30,11 @@ import './components/dropdown.html'
 import './components/file-upload.html'
 import './components/file.html'
 import './components/footer.html'
-import './components/gutter.html'
+import './components/gutter/gutter.html'
 import './components/icon.html'
 import './components/inline-loading.html'
 import './components/layouts.html'
-import './components/list-view.html'
+import './components/listview/list-view.html'
 import './components/loading.html'
 import './components/modal.html'
 import './components/multi-level-dropdown.html'
@@ -38,7 +44,7 @@ import './components/page-header.html'
 import './components/pagination.html'
 import './components/pill-badges.html'
 import './components/popover.html'
-import './components/progress.html'
+import './components/progress/progress.html'
 import './components/quantity-toggle.html'
 import './components/radios.html'
 import './components/range-slider.html'
@@ -83,7 +89,7 @@ const contentMap = {
   accordion: './components/accordion/accordion.html',
   alert: './components/alert.html',
   alertBadges: './components/alert-badges.html',
-  avatar: './components/avatar.html',
+  avatar: './components/avatar/avatar.html',
   breadcrumbs: './components/breadcrumbs.html',
   checkboxes: './components/checkboxes.html',
   dashboardSideCard: './components/dashboard-side-card.html',
@@ -91,17 +97,18 @@ const contentMap = {
   fileUpload: './components/file-upload.html',
   footer: './components/footer.html',
   about: './components/template/about.html',
-  gutter: './components/gutter.html',
+  gutter: './components/gutter/gutter.html',
   icon: './components/icon.html',
   dialog: './components/dialog.html',
   dropdown: './components/dropdown.html',
-  button: './components/button.html',
+  button: './components/button/button.html',
   cards: './components/cards.html',
   cardBlogs: './components/card-blogs.html',
   carousel: './components/carousel/carousel.html',
   inlineLoading: './components/inline-loading.html',
   layouts: './components/layouts.html',
-  listView: './components/list-view.html',
+  listItem: './components/list-item/list-item.html',
+  listView: './components/listview/list-view.html',
   loading: './components/loading.html',
   modal: './components/modal.html',
   navRail: './components/nav-rail.html',
@@ -121,7 +128,7 @@ const contentMap = {
   subNav: './components/sub-nav.html',
   table: './components/table/table.html',
   popover: './components/popover.html',
-  progress: './components/progress.html',
+  progress: './components/progress/progress.html',
   toast: './components/toast.html',
   toggle: './components/toggle.html',
   timeline: './components/timeline.html',
@@ -211,6 +218,10 @@ const documentContent = [
       {
         name: 'Layouts',
         slug: 'layouts',
+      },
+      {
+        name: 'List Item',
+        slug: 'listItem',
       },
       {
         name: 'List View',

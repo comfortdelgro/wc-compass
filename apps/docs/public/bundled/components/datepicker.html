@@ -3,183 +3,251 @@
   dates.
 </p>
 
-<h3 class="sample-section-title">Default</h3>
-<div>
-  <cdg-datepicker start-title="Single Datepicker" />
-</div>
-<pre>
-  <code class="language-html">
-&lt;div&gt;
-  &lt;cdg-datepicker start-title=&quot;Single Datepicker&quot; /&gt;
-&lt;/div&gt;
-  </code>
-</pre>
-
-<h3 class="sample-section-title">Set default date</h3>
-<div>
-  <cdg-datepicker start-title="Single Datepicker" date="2023-03-08" />
-</div>
-<pre>
-  <code class="language-html">
-&lt;div&gt;
-  &lt;cdg-datepicker start-title=&quot;Single Datepicker&quot; date=&quot;2023-03-08&quot; /&gt;
-&lt;/div&gt;
-  </code>
-</pre>
-
-<h3 class="sample-section-title">Disabled</h3>
-<div class="sample-section" style="margin-bottom: 20px">
-  <label class="cdg-radio">
-    <input type="radio" name="sample2" value="1" />
-    <span>Enable</span>
-  </label>
-  <label class="cdg-radio">
-    <input type="radio" name="sample2" value="0" checked />
-    <span>Disable</span>
-  </label>
-</div>
-<div style="display: flex; flex-direction: column; gap: 20px">
-  <div>
-    <cdg-datepicker
-      class="diabled-datepicker"
-      start-title="Disabled"
-      disabled="true"
-    />
+<cdg-sample-section name="Default">
+  <div class="sample-section">
+    <cdg-datepicker start-title="Single Datepicker" />
   </div>
-  <div>
+
+  <pre>
+    <code class="language-html">
+  &lt;div&gt;
+    &lt;cdg-datepicker start-title=&quot;Single Datepicker&quot; /&gt;
+  &lt;/div&gt;
+    </code>
+  </pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Set default date">
+  <div class="sample-section">
+    <cdg-datepicker start-title="Single Datepicker" date="2023-03-08" />
+  </div>
+
+  <pre>
+    <code class="language-html">
+  &lt;div&gt;
+    &lt;cdg-datepicker start-title=&quot;Single Datepicker&quot; date=&quot;2023-03-08&quot; /&gt;
+  &lt;/div&gt;
+    </code>
+  </pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Disabled">
+  <div class="sample-section">
+    <div>
+      <div style="margin-bottom: 20px">
+        <label class="cdg-radio">
+          <input type="radio" name="sample2" value="1" />
+          <span>Enable</span>
+        </label>
+        <label class="cdg-radio">
+          <input type="radio" name="sample2" value="0" checked />
+          <span>Disable</span>
+        </label>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 20px">
+        <div>
+          <cdg-datepicker
+            class="diabled-datepicker"
+            start-title="Disabled"
+            disabled="true"
+          />
+        </div>
+        <div>
+          <cdg-datepicker
+            class="diabled-datepicker"
+            start-title="Start"
+            end-title="End"
+            disabled="true"
+            double
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <pre>
+    <code class="language-html">
+  &lt;div style=&quot;display: flex; flex-direction: column; gap: 20px&quot;&gt;
+    &lt;div&gt;
+      &lt;cdg-datepicker
+        class=&quot;diabled-datepicker&quot;
+        start-title=&quot;Disabled&quot;
+        disabled=&quot;true&quot;
+      /&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;cdg-datepicker
+        class=&quot;diabled-datepicker&quot;
+        start-title=&quot;Start&quot;
+        end-title=&quot;End&quot;
+        disabled=&quot;true&quot;
+        double
+      /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+    </code>
+  </pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Datepicker with min&max">
+  <div class="sample-section">
+    <cdg-datepicker start-title="min&max" min="2023-03-08" max="2023-03-15" />
+  </div>
+
+  <pre>
+    <code class="language-html">
+  &lt;div&gt;
+    &lt;cdg-datepicker
+      start-title=&quot;min&max&quot;
+      min=&quot;2023-03-08&quot;
+      max=&quot;2023-03-15&quot;
+    /&gt;
+  &lt;/div&gt;
+    </code>
+  </pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Start & end inputs">
+  <div class="sample-section">
     <cdg-datepicker
-      class="diabled-datepicker"
+      double
       start-title="Start"
       end-title="End"
-      disabled="true"
-      double
+      format="DD-MM-YYYY"
     />
   </div>
-</div>
-<pre>
-  <code class="language-html">
-&lt;div style=&quot;display: flex; flex-direction: column; gap: 20px&quot;&gt;
+
+  <pre>
+    <code class="language-html">
   &lt;div&gt;
     &lt;cdg-datepicker
-      class=&quot;diabled-datepicker&quot;
-      start-title=&quot;Disabled&quot;
-      disabled=&quot;true&quot;
-    /&gt;
-  &lt;/div&gt;
-  &lt;div&gt;
-    &lt;cdg-datepicker
-      class=&quot;diabled-datepicker&quot;
+      double
       start-title=&quot;Start&quot;
       end-title=&quot;End&quot;
-      disabled=&quot;true&quot;
-      double
+      format=&quot;DD-MM-YYYY&quot;
     /&gt;
   &lt;/div&gt;
-&lt;/div&gt;
-  </code>
-</pre>
+    </code>
+  </pre>
+</cdg-sample-section>
 
-<h3 class="sample-section-title">Datepicker with min&max</h3>
-<div>
-  <cdg-datepicker start-title="min&max" min="2023-03-08" max="2023-03-15" />
-</div>
-<pre>
-  <code class="language-html">
-&lt;div&gt;
-  &lt;cdg-datepicker
-    start-title=&quot;min&max&quot;
-    min=&quot;2023-03-08&quot;
-    max=&quot;2023-03-15&quot;
-  /&gt;
-&lt;/div&gt;
-  </code>
-</pre>
+<cdg-sample-section name="Start & end with default values">
+  <div class="sample-section">
+    <cdg-datepicker
+      double
+      start-title="Start"
+      end-title="End"
+      start-date="2023-03-08"
+      end-date="2023-03-15"
+    />
+  </div>
 
-<h3 class="sample-section-title">Start & end inputs</h3>
-<div>
-  <cdg-datepicker
-    double
-    start-title="Start"
-    end-title="End"
-    format="DD-MM-YYYY"
-  />
-</div>
-<pre>
-  <code class="language-html">
-&lt;div&gt;
-  &lt;cdg-datepicker
-    double
-    start-title=&quot;Start&quot;
-    end-title=&quot;End&quot;
-    format=&quot;DD-MM-YYYY&quot;
-  /&gt;
-&lt;/div&gt;
-  </code>
-</pre>
+  <pre>
+    <code class="language-html">
+  &lt;div&gt;
+    &lt;cdg-datepicker
+      double
+      start-title=&quot;Start&quot;
+      end-title=&quot;End&quot;
+      start-date=&quot;2023-03-08&quot;
+      end-date=&quot;2023-03-15&quot;
+    /&gt;
+  &lt;/div&gt;
+    </code>
+  </pre>
+</cdg-sample-section>
 
-<h3 class="sample-section-title">Start & end with default values</h3>
-<div>
-  <cdg-datepicker
-    double
-    start-title="Start"
-    end-title="End"
-    start-date="2023-03-08"
-    end-date="2023-03-15"
-  />
-</div>
-<pre>
-  <code class="language-html">
-&lt;div&gt;
-  &lt;cdg-datepicker
-    double
-    start-title=&quot;Start&quot;
-    end-title=&quot;End&quot;
-    start-date=&quot;2023-03-08&quot;
-    end-date=&quot;2023-03-15&quot;
-  /&gt;
-&lt;/div&gt;
-  </code>
-</pre>
+<cdg-sample-section name="Format date with DD-MM-YYYY">
+  <div class="sample-section">
+    <cdg-datepicker start-title="Single Datepicker" format="DD-MM-YYYY" />
+  </div>
 
-<h3 class="sample-section-title">Format date with DD-MM-YYYY</h3>
-<div>
-  <cdg-datepicker start-title="Single Datepicker" format="DD-MM-YYYY" />
-</div>
-<pre>
-  <code class="language-html">
-&lt;div&gt;
-  &lt;cdg-datepicker start-title=&quot;Single Datepicker&quot; format=&quot;DD-MM-YYYY&quot; /&gt;
-&lt;/div&gt;
-  </code>
-</pre>
+  <pre>
+    <code class="language-html">
+  &lt;div&gt;
+    &lt;cdg-datepicker start-title=&quot;Single Datepicker&quot; format=&quot;DD-MM-YYYY&quot; /&gt;
+  &lt;/div&gt;
+    </code>
+  </pre>
+</cdg-sample-section>
+
+<section class="guideline-section">
+  <h3>Props & Methods</h3>
+
+  <cdg-table id="propertiesTable"></cdg-table>
+</section>
 
 <script>
-  const datepickers = document.querySelectorAll('cdg-datepicker');
-  const radios = document.querySelectorAll('input[name="sample2"]');
+  const datepickers = document.querySelectorAll('cdg-datepicker')
+  const radios = document.querySelectorAll('input[name="sample2"]')
   const disabledDatepickers = document.querySelectorAll(
-    'cdg-datepicker.diabled-datepicker'
-  );
+    'cdg-datepicker.diabled-datepicker',
+  )
   if (radios.length > 0) {
     radios.forEach((radio) => {
       radio.addEventListener('change', function change(params) {
-        const value = params.target.value;
+        const value = params.target.value
         disabledDatepickers.forEach((disabledDatepicker) => {
           if (value === '0') {
-            disabledDatepicker.setAttribute('disabled', 'true');
+            disabledDatepicker.setAttribute('disabled', 'true')
           } else {
-            disabledDatepicker.removeAttribute('disabled');
+            disabledDatepicker.removeAttribute('disabled')
           }
-        });
-      });
-    });
+        })
+      })
+    })
   }
   datepickers.forEach((datepicker) => {
     datepicker.addEventListener('onDateChange', function (event) {
-      cdgToastService.toast(
-        'onDateChange: ' + JSON.stringify(event.detail)
-      );
-    });
-  });
-</script>
+      cdgToastService.toast('onDateChange: ' + JSON.stringify(event.detail))
+    })
+  })
 
-<div style="height: 300px"></div>
+  const table = document.querySelector('#propertiesTable')
+  table.options = PROPERTIES_TABLE_OPTIONS
+
+  table.data = [
+    {
+      name: 'start-date',
+      type: '<code>string</code>',
+      default: '',
+      description: 'The first selected date of a range of dates',
+    },
+    {
+      name: 'end-date',
+      type: '<code>string</code>',
+      default: '',
+      description: 'The last selected date of a range of dates',
+    },
+    {
+      name: 'format',
+      type: '<code>string</code>',
+      default: 'YYYY-MM-DD',
+      description: 'The display format of the calendar.',
+    },
+    {
+      name: 'min',
+      type: '<code>string</code>',
+      default: '',
+      description: 'The smallest date that can be selected.',
+    },
+    {
+      name: 'max',
+      type: '<code>string</code>',
+      default: '',
+      description: 'The biggest date that can be selected.',
+    },
+    {
+      name: 'double',
+      type: '<code>boolean</code>',
+      default: '<code>false</code>',
+      description: 'Showing 2 months on calendar.',
+    },
+    {
+      name: 'disabled',
+      type: '<code>boolean</code>',
+      default: '<code>false</code>',
+      description: 'Whether the element is disabled.',
+    },
+  ]
+</script>

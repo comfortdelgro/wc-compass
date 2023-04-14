@@ -3,33 +3,36 @@
   list of options can change based on the context.
 </p>
 
-<h3 class="sample-section-title">Single dropdown</h3>
-<label class="cdg-input-group">
-  <span class="cdg-input-label">Single dropdown</span>
-  <cdg-dropdown placeholder="Select an item" header-title="Filter title">
-    <cdg-dropdown-option value="1"> Dropdown 1 </cdg-dropdown-option>
-    <cdg-dropdown-option value="2" current-color="black">
-      Dropdown 2
-    </cdg-dropdown-option>
-    <cdg-dropdown-option value="3"> Dropdown 3 </cdg-dropdown-option>
-  </cdg-dropdown>
-</label>
+<cdg-sample-section name="Single dropdown">
+  <div class="sample-section">
+    <label class="cdg-input-group">
+      <span class="cdg-input-label">Single dropdown</span>
+      <cdg-dropdown placeholder="Select an item" header-title="Filter title">
+        <cdg-dropdown-option value="1"> Dropdown 1 </cdg-dropdown-option>
+        <cdg-dropdown-option value="2" current-color="black">
+          Dropdown 2
+        </cdg-dropdown-option>
+        <cdg-dropdown-option value="3"> Dropdown 3 </cdg-dropdown-option>
+      </cdg-dropdown>
+    </label>
+  </div>
 
-<pre>
-  <code class="language-html">
-&lt;cdg-dropdown placeholder=&quot;Select an item&quot; header-title=&quot;Filter title&quot;&gt;
-  &lt;cdg-dropdown-option value=&quot;1&quot;&gt;
-    Dropdown 1
-  &lt;/cdg-dropdown-option&gt;
-  &lt;cdg-dropdown-option value=&quot;2&quot; current-color=&quot;black&quot;&gt;
-    Dropdown 2
-  &lt;/cdg-dropdown-option&gt;
-  &lt;cdg-dropdown-option value=&quot;3&quot;&gt;
-    Dropdown 3
-  &lt;/cdg-dropdown-option&gt;
-&lt;/cdg-dropdown&gt;
-  </code>
-</pre>
+  <pre>
+    <code class="language-html">
+  &lt;cdg-dropdown placeholder=&quot;Select an item&quot; header-title=&quot;Filter title&quot;&gt;
+    &lt;cdg-dropdown-option value=&quot;1&quot;&gt;
+      Dropdown 1
+    &lt;/cdg-dropdown-option&gt;
+    &lt;cdg-dropdown-option value=&quot;2&quot; current-color=&quot;black&quot;&gt;
+      Dropdown 2
+    &lt;/cdg-dropdown-option&gt;
+    &lt;cdg-dropdown-option value=&quot;3&quot;&gt;
+      Dropdown 3
+    &lt;/cdg-dropdown-option&gt;
+  &lt;/cdg-dropdown&gt;
+    </code>
+  </pre>
+</cdg-sample-section>
 
 <cdg-sample-section name="Colors">
   <div class="sample-section">
@@ -48,52 +51,191 @@
 </pre>
 </cdg-sample-section>
 
-<h3 class="sample-section-title">Disabled dropdown</h3>
-<div class="sample-section" style="margin-bottom: 20px">
-  <label class="cdg-radio">
-    <input type="radio" name="sample2" value="1" />
-    <span>Enable</span>
-  </label>
-  <label class="cdg-radio">
-    <input type="radio" name="sample2" value="0" checked />
-    <span>Disable</span>
-  </label>
-</div>
-<label class="cdg-input-group">
-  <span class="cdg-input-label">Disabled dropdown</span>
-  <cdg-dropdown
-    placeholder="Select an item"
-    header-title="Filter title"
-    disabled
-    id="disabledDropdown"
-  >
-    <cdg-dropdown-option value="1"> Dropdown 1 </cdg-dropdown-option>
-    <cdg-dropdown-option value="2" current-color="black" selected="true">
-      Dropdown 2
-    </cdg-dropdown-option>
-    <cdg-dropdown-option value="3"> Dropdown 3 </cdg-dropdown-option>
-  </cdg-dropdown>
-</label>
+<cdg-sample-section name="Disabled dropdown">
+  <div class="sample-section">
+    <div>
+      <div style="margin-bottom: 20px">
+        <label class="cdg-radio">
+          <input type="radio" name="sample2" value="1" />
+          <span>Enable</span>
+        </label>
+        <label class="cdg-radio">
+          <input type="radio" name="sample2" value="0" checked />
+          <span>Disable</span>
+        </label>
+      </div>
+      <label class="cdg-input-group">
+        <span class="cdg-input-label">Disabled dropdown</span>
+        <cdg-dropdown
+          placeholder="Select an item"
+          header-title="Filter title"
+          disabled
+          id="disabledDropdown"
+        >
+          <cdg-dropdown-option value="1"> Dropdown 1 </cdg-dropdown-option>
+          <cdg-dropdown-option value="2" current-color="black" selected="true">
+            Dropdown 2
+          </cdg-dropdown-option>
+          <cdg-dropdown-option value="3"> Dropdown 3 </cdg-dropdown-option>
+        </cdg-dropdown>
+      </label>
+    </div>
+  </div>
 
-<pre>
-  <code class="language-html">
-&lt;label class=&quot;cdg-input-group&quot;&gt;
-  &lt;span class=&quot;cdg-input-label&quot;&gt;Disabled dropdown&lt;/span&gt;
-  &lt;cdg-dropdown
-    placeholder=&quot;Select an item&quot;
-    header-title=&quot;Filter title&quot;
-    disabled
-    id=&quot;disabledDropdown&quot;
-  &gt;
-    &lt;cdg-dropdown-option value=&quot;1&quot;&gt; Dropdown 1 &lt;/cdg-dropdown-option&gt;
-    &lt;cdg-dropdown-option value=&quot;2&quot; current-color=&quot;black&quot; selected=&quot;true&quot;&gt;
-      Dropdown 2
-    &lt;/cdg-dropdown-option&gt;
-    &lt;cdg-dropdown-option value=&quot;3&quot;&gt; Dropdown 3 &lt;/cdg-dropdown-option&gt;
-  &lt;/cdg-dropdown&gt;
-&lt;/label&gt;
-  </code>
-</pre>
+  <pre>
+    <code class="language-html">
+  &lt;label class=&quot;cdg-input-group&quot;&gt;
+    &lt;span class=&quot;cdg-input-label&quot;&gt;Disabled dropdown&lt;/span&gt;
+    &lt;cdg-dropdown
+      placeholder=&quot;Select an item&quot;
+      header-title=&quot;Filter title&quot;
+      disabled
+      id=&quot;disabledDropdown&quot;
+    &gt;
+      &lt;cdg-dropdown-option value=&quot;1&quot;&gt; Dropdown 1 &lt;/cdg-dropdown-option&gt;
+      &lt;cdg-dropdown-option value=&quot;2&quot; current-color=&quot;black&quot; selected=&quot;true&quot;&gt;
+        Dropdown 2
+      &lt;/cdg-dropdown-option&gt;
+      &lt;cdg-dropdown-option value=&quot;3&quot;&gt; Dropdown 3 &lt;/cdg-dropdown-option&gt;
+    &lt;/cdg-dropdown&gt;
+  &lt;/label&gt;
+    </code>
+  </pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Multiple dropdown">
+  <div class="sample-section">
+    <label class="cdg-input-group" style="width: 550px; max-width: 100%">
+      <span class="cdg-input-label">Multiple dropdown</span>
+      <cdg-dropdown
+        multiple
+        header-title="Filter multiple"
+        placeholder="placeholder"
+      >
+        <cdg-dropdown-option value="1">Dropdown 1</cdg-dropdown-option>
+        <cdg-dropdown-option value="2" selected="true">
+          Dropdown 2
+        </cdg-dropdown-option>
+        <cdg-dropdown-option value="3" selected="true">
+          Dropdown 3
+        </cdg-dropdown-option>
+      </cdg-dropdown>
+    </label>
+  </div>
+
+  <pre>
+    <code class="language-html">
+  &lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 550px&quot;&gt;
+    &lt;span class=&quot;cdg-input-label&quot;&gt;Multiple dropdown&lt;/span&gt;
+    &lt;cdg-dropdown
+      multiple
+      header-title=&quot;Filter multiple&quot;
+      placeholder=&quot;placeholder&quot;
+    &gt;
+      &lt;cdg-dropdown-option value=&quot;1&quot;&gt;Dropdown 1&lt;/cdg-dropdown-option&gt;
+      &lt;cdg-dropdown-option value=&quot;2&quot; selected=&quot;true&quot;&gt;
+        Dropdown 2
+      &lt;/cdg-dropdown-option&gt;
+      &lt;cdg-dropdown-option value=&quot;3&quot; selected=&quot;true&quot;&gt;
+        Dropdown 3
+      &lt;/cdg-dropdown-option&gt;
+    &lt;/cdg-dropdown&gt;
+  &lt;/label&gt;
+    </code>
+  </pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Dropdown with loading">
+  <div class="sample-section">
+    <label class="cdg-input-group" style="width: 350px">
+      <span class="cdg-input-label">Loading dropdown</span>
+      <cdg-dropdown placeholder="-- Select an item --" is-loading="true">
+      </cdg-dropdown>
+    </label>
+  </div>
+
+  <pre>
+    <code class="language-html">
+  &lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 350px&quot;&gt;
+    &lt;span class=&quot;cdg-input-label&quot;&gt;Loading dropdown&lt;/span&gt;
+    &lt;cdg-dropdown placeholder=&quot;-- Select an item --&quot; is-loading=&quot;true&quot;&gt;
+    &lt;/cdg-dropdown&gt;
+  &lt;/label&gt;
+    </code>
+  </pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Only show icon of selected item">
+  <div class="sample-section">
+    <label class="cdg-input-group" style="width: 70px">
+      <cdg-dropdown>
+        <cdg-dropdown-option value="1" selected="true">
+          <div class="cdg-dropdown-option-content">
+            <cdg-icon name="info" displaySelect size="16"></cdg-icon>
+            <span>Dropdown 1</span>
+          </div>
+        </cdg-dropdown-option>
+        <cdg-dropdown-option value="2">
+          <div class="cdg-dropdown-option-content">
+            <cdg-icon name="copy" size="16" displaySelect></cdg-icon>
+            <span>Dropdown 2</span>
+          </div>
+        </cdg-dropdown-option>
+        <cdg-dropdown-option value="3">
+          <div class="cdg-dropdown-option-content">
+            <cdg-icon name="crossCircle" displaySelect size="16"></cdg-icon>
+            <span>Dropdown 3</span>
+          </div>
+        </cdg-dropdown-option>
+      </cdg-dropdown>
+    </label>
+  </div>
+
+  <pre>
+    <code class="language-html">
+  &lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 70px&quot;&gt;
+    &lt;cdg-dropdown&gt;
+      &lt;cdg-dropdown-option value=&quot;1&quot;&gt;
+        &lt;div class=&quot;cdg-dropdown-option-content&quot;&gt;
+          &lt;cdg-icon name=&quot;info&quot; displaySelect size=&quot;16&quot;&gt;&lt;/cdg-icon&gt;
+          &lt;span&gt;Dropdown 1&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/cdg-dropdown-option&gt;
+      &lt;cdg-dropdown-option value=&quot;2&quot;&gt;
+        &lt;div class=&quot;cdg-dropdown-option-content&quot;&gt;
+          &lt;cdg-icon name=&quot;copy&quot; size=&quot;16&quot; displaySelect&gt;&lt;/cdg-icon&gt;
+          &lt;span&gt;Dropdown 2&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/cdg-dropdown-option&gt;
+      &lt;cdg-dropdown-option value=&quot;3&quot;&gt;
+        &lt;div class=&quot;cdg-dropdown-option-content&quot;&gt;
+          &lt;cdg-icon name=&quot;crossCircle&quot; displaySelect size=&quot;16&quot;&gt;&lt;/cdg-icon&gt;
+          &lt;span&gt;Dropdown 3&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/cdg-dropdown-option&gt;
+    &lt;/cdg-dropdown&gt;
+  &lt;/label&gt;
+    </code>
+  </pre>
+</cdg-sample-section>
+
+<section class="guideline-section">
+  <h3>Props & Methods for <code>cdg-dropdown</code></h3>
+
+  <cdg-table id="dropdownPropertiesTable"></cdg-table>
+</section>
+
+<section class="guideline-section">
+  <h3>Props & Methods for <code>cdg-dropdown-opt</code></h3>
+
+  <cdg-table id="dropdownOptPropertiesTable"></cdg-table>
+</section>
+
+<section class="guideline-section">
+  <h3>Props & Methods for <code>cdg-select-color</code></h3>
+
+  <cdg-table id="selectColorPropertiesTable"></cdg-table>
+</section>
 
 <script>
   const radios = document.querySelectorAll('input[name="sample2"]')
@@ -110,112 +252,97 @@
       })
     })
   }
+
+  const table = document.querySelector('#dropdownPropertiesTable')
+  table.options = PROPERTIES_TABLE_OPTIONS
+
+  table.data = [
+    {
+      name: 'placeholder',
+      type: '<code>string</code>',
+      default: '',
+      description: 'The placeholder text of the dropdown.',
+    },
+    {
+      name: 'multiple',
+      type: '<code>boolean</code>',
+      default: '<code>false</code>',
+      description: 'Set the dropdown to multiple selection.',
+    },
+    {
+      name: 'is-loading',
+      type: '<code>boolean</code>',
+      default: '<code>false</code>',
+      description: 'Hide all items and show loading.',
+    },
+    {
+      name: 'disabled',
+      type: '<code>boolean</code>',
+      default: '<code>false</code>',
+      description: 'Whether the element is disabled.',
+    },
+    {
+      name: 'onchangevalue',
+      type: '<code>function</code><pre>',
+      default: '',
+      description: `Event emitted when the selected value has been changed by the user.
+        <br>
+        <b>Signature:</b>
+        <br>
+        <code>function(event: { detail: string | string[] }) => void</code>`,
+    },
+    {
+      name: 'onToggle',
+      type: '<code>function</code>',
+      default: '',
+      description: `Event emitted when the dropdown has been toggled.
+        <br>
+        <b>Signature:</b>
+        <br>
+        <code>function(event: { detail: boolean }) => void</code>`,
+    },
+  ]
+
+  const tableOpt = document.querySelector('#dropdownOptPropertiesTable')
+  tableOpt.options = PROPERTIES_TABLE_OPTIONS
+
+  tableOpt.data = [
+    {
+      name: 'value',
+      type: '<code>any</code>',
+      default: '',
+      description: 'The value of option.',
+    },
+    {
+      name: 'selected',
+      type: '<code>boolean</code>',
+      default: 'false',
+      description: 'The currently selected option.',
+    },
+    {
+      name: '<code>[displaySelect]</code>',
+      type: '<code>boolean</code>',
+      default: 'false',
+      description:
+        'To display the desired item, add <code>[displaySelect]</code>.',
+    },
+  ]
+
+  const selectColorTable = document.querySelector('#selectColorPropertiesTable')
+  selectColorTable.options = PROPERTIES_TABLE_OPTIONS
+
+  selectColorTable.data = [
+    {
+      name: 'colors',
+      type: '<code>string</code>',
+      default: '',
+      description: `
+      Color code list.
+      <br>
+      <strong>Sample</strong>
+      <br>
+      <code>colors="#212529,#845EF7,#339AF0"</code>
+      `,
+    },
+  ]
 </script>
-
-<h3 class="sample-section-title">Multiple dropdown</h3>
-<label class="cdg-input-group" style="width: 550px; max-width: 100%">
-  <span class="cdg-input-label">Multiple dropdown</span>
-  <cdg-dropdown
-    multiple
-    header-title="Filter multiple"
-    placeholder="placeholder"
-  >
-    <cdg-dropdown-option value="1">Dropdown 1</cdg-dropdown-option>
-    <cdg-dropdown-option value="2" selected="true">
-      Dropdown 2
-    </cdg-dropdown-option>
-    <cdg-dropdown-option value="3" selected="true">
-      Dropdown 3
-    </cdg-dropdown-option>
-  </cdg-dropdown>
-</label>
-
-<pre>
-  <code class="language-html">
-&lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 550px&quot;&gt;
-  &lt;span class=&quot;cdg-input-label&quot;&gt;Multiple dropdown&lt;/span&gt;
-  &lt;cdg-dropdown
-    multiple
-    header-title=&quot;Filter multiple&quot;
-    placeholder=&quot;placeholder&quot;
-  &gt;
-    &lt;cdg-dropdown-option value=&quot;1&quot;&gt;Dropdown 1&lt;/cdg-dropdown-option&gt;
-    &lt;cdg-dropdown-option value=&quot;2&quot; selected=&quot;true&quot;&gt;
-      Dropdown 2
-    &lt;/cdg-dropdown-option&gt;
-    &lt;cdg-dropdown-option value=&quot;3&quot; selected=&quot;true&quot;&gt;
-      Dropdown 3
-    &lt;/cdg-dropdown-option&gt;
-  &lt;/cdg-dropdown&gt;
-&lt;/label&gt;
-  </code>
-</pre>
-
-<h3 class="sample-section-title">Dropdown with loading</h3>
-<label class="cdg-input-group" style="width: 350px">
-  <span class="cdg-input-label">Loading dropdown</span>
-  <cdg-dropdown placeholder="-- Select an item --" is-loading="true">
-  </cdg-dropdown>
-</label>
-
-<pre>
-  <code class="language-html">
-&lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 350px&quot;&gt;
-  &lt;span class=&quot;cdg-input-label&quot;&gt;Loading dropdown&lt;/span&gt;
-  &lt;cdg-dropdown placeholder=&quot;-- Select an item --&quot; is-loading=&quot;true&quot;&gt;
-  &lt;/cdg-dropdown&gt;
-&lt;/label&gt;
-  </code>
-</pre>
-
-<h3 class="sample-section-title">Only show icon of selected item</h3>
-<label class="cdg-input-group" style="width: 70px">
-  <cdg-dropdown>
-    <cdg-dropdown-option value="1" selected="true">
-      <div class="cdg-dropdown-option-content">
-        <cdg-icon name="info" displaySelect size="16"></cdg-icon>
-        <span>Dropdown 1</span>
-      </div>
-    </cdg-dropdown-option>
-    <cdg-dropdown-option value="2">
-      <div class="cdg-dropdown-option-content">
-        <cdg-icon name="copy" size="16" displaySelect></cdg-icon>
-        <span>Dropdown 2</span>
-      </div>
-    </cdg-dropdown-option>
-    <cdg-dropdown-option value="3">
-      <div class="cdg-dropdown-option-content">
-        <cdg-icon name="crossCircle" displaySelect size="16"></cdg-icon>
-        <span>Dropdown 3</span>
-      </div>
-    </cdg-dropdown-option>
-  </cdg-dropdown>
-</label>
-<pre>
-  <code class="language-html">
-&lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 70px&quot;&gt;
-  &lt;cdg-dropdown&gt;
-    &lt;cdg-dropdown-option value=&quot;1&quot;&gt;
-      &lt;div class=&quot;cdg-dropdown-option-content&quot;&gt;
-        &lt;cdg-icon name=&quot;info&quot; displaySelect size=&quot;16&quot;&gt;&lt;/cdg-icon&gt;
-        &lt;span&gt;Dropdown 1&lt;/span&gt;
-      &lt;/div&gt;
-    &lt;/cdg-dropdown-option&gt;
-    &lt;cdg-dropdown-option value=&quot;2&quot;&gt;
-      &lt;div class=&quot;cdg-dropdown-option-content&quot;&gt;
-        &lt;cdg-icon name=&quot;copy&quot; size=&quot;16&quot; displaySelect&gt;&lt;/cdg-icon&gt;
-        &lt;span&gt;Dropdown 2&lt;/span&gt;
-      &lt;/div&gt;
-    &lt;/cdg-dropdown-option&gt;
-    &lt;cdg-dropdown-option value=&quot;3&quot;&gt;
-      &lt;div class=&quot;cdg-dropdown-option-content&quot;&gt;
-        &lt;cdg-icon name=&quot;crossCircle&quot; displaySelect size=&quot;16&quot;&gt;&lt;/cdg-icon&gt;
-        &lt;span&gt;Dropdown 3&lt;/span&gt;
-      &lt;/div&gt;
-    &lt;/cdg-dropdown-option&gt;
-  &lt;/cdg-dropdown&gt;
-&lt;/label&gt;
-  </code>
-</pre>
-
-<div style="height: 300px"></div>
