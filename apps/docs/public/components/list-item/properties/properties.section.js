@@ -13,8 +13,6 @@ export class CdgListItemPropertiesSection extends CdgBaseComponent {
 
   onInit() {
     const table = document.querySelector('#propertiesTable')
-    table.options = PROPERTIES_TABLE_OPTIONS
-
     table.data = [
       {
         name: '<code>disabled</code>',

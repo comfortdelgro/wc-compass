@@ -1,4 +1,4 @@
-import {TableSelectionChangeEvent, TableSelectionRow} from './model'
+import {TableSelectionEvent, TableSelectionRow} from './model'
 
 export class CdgTableBody extends HTMLElement {
   get data() {
@@ -38,6 +38,16 @@ export class CdgTableBody extends HTMLElement {
 
   registerRow(row, at) {
     row.addEventListener('toggleRow', this.handleCheckboxChange.bind(this))
+
+    // Add row click callback
+    if (this.options && this.options.onRowClick) {
+      row.addEventListener('click', (event) => {
+        if (event.target.tagName !== 'INPUT') {
+          this.options.onRowClick(event, this.data[at])
+        }
+      })
+    }
+
     this.rows[at] = row
   }
 
@@ -68,26 +78,20 @@ export class CdgTableBody extends HTMLElement {
 
     this.dispatchEvent(
       new CustomEvent('onRowCheck', {
-        detail: new TableSelectionChangeEvent(checked, checked, selectedRows),
+        detail: new TableSelectionEvent(checked, checked, selectedRows),
       }),
     )
   }
 
   createRow(rowData) {
     const row = document.createElement('cdg-table-row')
-
-    // Add row click callback
-    if (this.options && this.options.onRowClick) {
-      row.addEventListener('click', (event) => {
-        if (event.target.tagName !== 'INPUT') {
-          this.options.onRowClick(event, rowData)
-        }
-      })
-    }
     if (this.options && this.options.columns) {
       const columns = this.options.columns
       columns.forEach((column) => {
         const cell = this.createCell(rowData[column.fieldName])
+        if (column.align) {
+          cell.setAttribute('align', column.align)
+        }
         row.appendChild(cell)
       })
     } else {
@@ -132,7 +136,7 @@ export class CdgTableBody extends HTMLElement {
 
     this.dispatchEvent(
       new CustomEvent('onRowCheck', {
-        detail: new TableSelectionChangeEvent(
+        detail: new TableSelectionEvent(
           isCheckAll,
           hasCheckedRow,
           selectedRows,
