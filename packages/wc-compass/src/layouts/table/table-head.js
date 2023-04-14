@@ -1,3 +1,6 @@
+import {getClosestElement} from '../../shared/dom'
+import {TableSortEvent} from './model'
+
 export class CdgTableHead extends HTMLElement {
   get options() {
     return this.configurations
@@ -12,6 +15,7 @@ export class CdgTableHead extends HTMLElement {
   headerRow
 
   configurations
+  currentSortedColumn
 
   constructor() {
     super()
@@ -81,11 +85,43 @@ export class CdgTableHead extends HTMLElement {
 
       sortParent.appendChild(arrow)
       cell.appendChild(sortParent)
+
+      const sortClassName =
+        data.sortDirection === 1
+          ? 'desc'
+          : data.sortDirection === -1
+          ? 'asc'
+          : ''
+      if (sortClassName) {
+        cell.classList.add(sortClassName)
+        this.currentSortedColumn = cell
+      }
+      cell.addEventListener('click', this.handleSortField.bind(this, data))
     } else {
       cell.textContent = data.name
     }
 
     return cell
+  }
+
+  handleSortField(data, event) {
+    if (this.currentSortedColumn) {
+      this.currentSortedColumn.classList.remove('asc')
+      this.currentSortedColumn.classList.remove('desc')
+    }
+
+    const headCell = getClosestElement(event.target, '.cdg-table-head-cell')
+    data.sortDirection =
+      !data.sortDirection || data.sortDirection === -1 ? 1 : -1
+    const sortClassName = data.sortDirection === 1 ? 'desc' : 'asc'
+    headCell.classList.add(sortClassName)
+    this.currentSortedColumn = headCell
+
+    this.dispatchEvent(
+      new CustomEvent('sort', {
+        detail: new TableSortEvent(data.fieldName, data.sortDirection),
+      }),
+    )
   }
 
   updateCheckboxElement() {

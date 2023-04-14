@@ -38,6 +38,9 @@ cdg-toolbar,
   }
 
   &.selected {
+    .cdg-hide-on-selected {
+      display: none;
+    }
     .cdg-show-on-selected {
       display: flex;
     }

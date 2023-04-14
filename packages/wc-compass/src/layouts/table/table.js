@@ -1,3 +1,5 @@
+import {TableSelectionChangeEvent} from './model'
+
 export class CdgTable extends HTMLElement {
   static get observedAttributes() {
     return ['checkable']
@@ -9,7 +11,7 @@ export class CdgTable extends HTMLElement {
 
   set data(data) {
     this.source = data
-    if (data && data.length) {
+    if (data) {
       this.displayData()
     }
   }
@@ -74,6 +76,12 @@ export class CdgTable extends HTMLElement {
   displayData() {
     // Let's clean everything
     this.textContent = ''
+    this.dispatchEvent(
+      new CustomEvent('selectionChange', {
+        detail: new TableSelectionChangeEvent(),
+      }),
+    )
+
     this.attachHeader()
     this.attachBody()
   }
@@ -112,6 +120,7 @@ export class CdgTable extends HTMLElement {
     }
     this.header.options = this.options
     this.header.addEventListener('toggleAll', this.handleToggleAll.bind(this))
+    this.header.addEventListener('sort', this.handleColumnSort.bind(this))
 
     this.appendChild(this.header)
   }
@@ -119,6 +128,7 @@ export class CdgTable extends HTMLElement {
   attachBody() {
     this.body = document.createElement('cdg-table-body')
     this.body.addEventListener('onRowCheck', this.handleRowCheck.bind(this))
+    this.body.options = this.options
     this.body.data = this.data
 
     this.appendChild(this.body)
@@ -126,17 +136,6 @@ export class CdgTable extends HTMLElement {
 
   handleToggleAll(event) {
     this.body.toggleAll(event.detail.checked)
-    this.dispatchEvent(new CustomEvent('toggleAll', {detail: event.detail}))
-
-    this.dispatchEvent(
-      new CustomEvent('selectionChange', {
-        detail: {
-          checked: event.detail.checked,
-          isCheckAll: event.detail.checked,
-          hasCheckedRow: event.detail.checked,
-        },
-      }),
-    )
   }
 
   handleRowCheck(event) {
@@ -144,5 +143,9 @@ export class CdgTable extends HTMLElement {
     this.dispatchEvent(
       new CustomEvent('selectionChange', {detail: event.detail}),
     )
+  }
+
+  handleColumnSort(event) {
+    this.dispatchEvent(new CustomEvent('sort', {detail: event.detail}))
   }
 }

@@ -1,3 +1,5 @@
+import {TableSelectionChangeEvent, TableSelectionRow} from './model'
+
 export class CdgTableBody extends HTMLElement {
   get data() {
     return this.dataSource
@@ -10,6 +12,15 @@ export class CdgTableBody extends HTMLElement {
     }
   }
 
+  get options() {
+    return this.configurations
+  }
+
+  set options(options) {
+    this.configurations = options
+  }
+
+  configurations
   dataSource
   rows = []
 
@@ -41,13 +52,38 @@ export class CdgTableBody extends HTMLElement {
   }
 
   toggleAll(checked) {
-    this.rows.forEach((row) => {
+    const selectedRows = []
+    this.rows.forEach((row, index) => {
+      if (checked) {
+        selectedRows.push(
+          new TableSelectionRow(
+            index,
+            row,
+            (this.data && this.data[index]) || null,
+          ),
+        )
+      }
       row.checkboxElement.checked = checked
     })
+
+    this.dispatchEvent(
+      new CustomEvent('onRowCheck', {
+        detail: new TableSelectionChangeEvent(checked, checked, selectedRows),
+      }),
+    )
   }
 
   createRow(rowData) {
     const row = document.createElement('cdg-table-row')
+
+    // Add row click callback
+    if (this.options && this.options.onRowClick) {
+      row.addEventListener('click', (event) => {
+        if (event.target.tagName !== 'INPUT') {
+          this.options.onRowClick(event, rowData)
+        }
+      })
+    }
     if (this.options && this.options.columns) {
       const columns = this.options.columns
       columns.forEach((column) => {
@@ -72,28 +108,35 @@ export class CdgTableBody extends HTMLElement {
   }
 
   handleCheckboxChange(event) {
-    const checked = event.target.checkboxElement.checked
+    const selectedRows = []
 
     let isCheckAll = true
     let hasCheckedRow = false
 
     let i = 0
-    while ((isCheckAll || !hasCheckedRow) && i < this.rows.length) {
-      const row = this.rows[i]
-
+    this.rows.forEach((row, index) => {
       if (row.checkboxElement.checked) {
         hasCheckedRow = true
+        selectedRows.push(
+          new TableSelectionRow(
+            index,
+            row,
+            (this.data && this.data[index]) || null,
+          ),
+        )
       }
       if (!row.checkboxElement.checked) {
         isCheckAll = false
       }
-
-      i++
-    }
+    })
 
     this.dispatchEvent(
       new CustomEvent('onRowCheck', {
-        detail: {checked, isCheckAll, hasCheckedRow, target: event.target},
+        detail: new TableSelectionChangeEvent(
+          isCheckAll,
+          hasCheckedRow,
+          selectedRows,
+        ),
       }),
     )
   }
