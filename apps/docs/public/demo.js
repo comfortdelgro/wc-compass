@@ -1,7 +1,10 @@
 export * from './components/accordion/index'
 export * from './components/avatar/index'
 export * from './components/button/index'
+export * from './components/calendar/index'
 export * from './components/carousel/index'
+export * from './components/datepicker/index'
+export * from './components/dropdown/index'
 export * from './components/gutter/index'
 export * from './components/list-item/index'
 export * from './components/listview/index'
@@ -16,7 +19,7 @@ import './components/alert.html'
 import './components/avatar/avatar.html'
 import './components/breadcrumbs.html'
 import './components/button/button.html'
-import './components/calendar.html'
+import './components/calendar/calendar.html'
 import './components/card-blogs.html'
 import './components/cards.html'
 import './components/carousel/carousel.html'
@@ -24,9 +27,9 @@ import './components/chart.html'
 import './components/checkboxes.html'
 import './components/context-menu.html'
 import './components/dashboard-side-card.html'
-import './components/datepicker.html'
+import './components/datepicker/datepicker.html'
 import './components/dialog.html'
-import './components/dropdown.html'
+import './components/dropdown/dropdown.html'
 import './components/file-upload.html'
 import './components/file.html'
 import './components/footer.html'
@@ -100,7 +103,7 @@ const contentMap = {
   gutter: './components/gutter/gutter.html',
   icon: './components/icon.html',
   dialog: './components/dialog.html',
-  dropdown: './components/dropdown.html',
+  dropdown: './components/dropdown/dropdown.html',
   button: './components/button/button.html',
   cards: './components/cards.html',
   cardBlogs: './components/card-blogs.html',
@@ -134,8 +137,8 @@ const contentMap = {
   timeline: './components/timeline.html',
   volume: './components/volume.html',
   wizards: './components/wizards.html',
-  calendar: './components/calendar.html',
-  datepicker: './components/datepicker.html',
+  calendar: './components/calendar/calendar.html',
+  datepicker: './components/datepicker/datepicker.html',
   tooltip: './components/tooltip.html',
   rangeSlider: './components/range-slider.html',
   tagBox: './components/tag-box.html',
