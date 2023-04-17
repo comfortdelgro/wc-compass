@@ -63,11 +63,7 @@
   </pre>
 </cdg-sample-section>
 
-<section class="guideline-section">
-  <h3>Props & Methods</h3>
-
-  <cdg-table id="propertiesTable"></cdg-table>
-</section>
+<cdg-popover-properties-section></cdg-popover-properties-section>
 
 <script>
   const directions = document.querySelector('cdg-dropdown[name="directions"]')
@@ -81,31 +77,4 @@
       cdgPopover.setAttribute('open', 'true')
     })
   }
-
-  const table = document.querySelector('#propertiesTable')
-  table.data = [
-    {
-      name: 'direction',
-      type: `<code>'topLeft'</code>
-| <code>'top'</code>
-| <code>'topRight'</code>
-| <code>'leftTop'</code>
-| <code>'left'</code>
-| <code>'leftBottom'</code>
-| <code>'rightTop'</code>
-| <code>'rightBottom'</code>
-| <code>'right'</code>
-| <code>'bottomLeft'</code>
-| <code>'bottom'</code>
-| <code>'bottomRight'</code>`,
-      default: '<code>bottom</code>',
-      description: 'The first selected date of a range of dates.',
-    },
-    {
-      name: 'open',
-      type: '<code>boolean</code>',
-      default: '<code>false</code>',
-      description: "Popover's open/closed state.",
-    },
-  ]
 </script>

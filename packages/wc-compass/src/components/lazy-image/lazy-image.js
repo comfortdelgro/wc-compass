@@ -10,12 +10,18 @@ imageTemplate.innerHTML = `
   <style>
     :host {
       display: block;
+      line-height: 0;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   </style>
   <img src=${placeholderSrc}/>
 `
 
-export class CdgLazyLoadImage extends HTMLElement {
+export class CdgLazyImage extends HTMLElement {
   constructor() {
     super()
     const shadowRoot = this.attachShadow({mode: 'open'})
@@ -26,7 +32,6 @@ export class CdgLazyLoadImage extends HTMLElement {
     this.defaultFallbackRetry = 0
     this.image = shadowRoot.querySelector('img')
     this.image.addEventListener('error', () => this.handleImageError())
-    this.lazyLoadImage()
   }
 
   static get observedAttributes() {
@@ -35,6 +40,10 @@ export class CdgLazyLoadImage extends HTMLElement {
 
   get src() {
     return this.getAttribute('src')
+  }
+
+  set src(src) {
+    this.setAttribute('src', src)
   }
 
   get width() {
@@ -47,6 +56,10 @@ export class CdgLazyLoadImage extends HTMLElement {
 
   get fallbackSrc() {
     return this.getAttribute('fallbackSrc')
+  }
+
+  connectedCallback() {
+    this.lazyLoadImage()
   }
 
   // If image fail to load and there is user fallback src
@@ -77,7 +90,6 @@ export class CdgLazyLoadImage extends HTMLElement {
     if (this.isBrowserSupportLazyLoading()) {
       // Set the loading attribute of the image element to 'lazy'
       this.image.setAttribute('loading', 'lazy')
-
       if (this.src) this.image.src = this.src
     }
     // if browser not support loading='lazy' -> use intersection observer to watch the image
