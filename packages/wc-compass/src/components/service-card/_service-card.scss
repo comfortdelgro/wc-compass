@@ -33,8 +33,7 @@
       height: 21px;
       font-style: normal;
       font-weight: 700;
-      font-size: 14px;
-      line-height: 21px;
+      @extend %body3;
       color: #323130;
     }
 
@@ -42,8 +41,7 @@
       height: 36px;
       font-style: normal;
       font-weight: 400;
-      font-size: 12px;
-      line-height: 18px;
+      @extend %label2;
       color: #605e5c;
       max-width: 60%;
       display: -webkit-box;

@@ -89,8 +89,7 @@ cdg-rich-text-editor,
         border: none;
         .cdg-dropdown-button-text {
           font-weight: 400;
-          font-size: 14px;
-          line-height: 21px;
+          @extend %body3;
           color: #323130;
           .cdg-dropdown-option-color {
             .cdg-icon {

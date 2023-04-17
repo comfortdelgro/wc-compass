@@ -26,8 +26,7 @@ cdg-toast,
   width: 420px;
   padding: 16px;
   border-radius: 4px;
-  font-size: 14px;
-  line-height: 21px;
+  @extend %body3;
   overflow: hidden;
   flex-shrink: 0;
   box-sizing: border-box;

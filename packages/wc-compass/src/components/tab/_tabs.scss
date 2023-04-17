@@ -5,8 +5,7 @@ cdg-tabs,
   gap: 8px;
   border-radius: 32px;
   background: var(--background);
-  font-size: 14px;
-  line-height: 21px;
+  @extend %body3;
   font-weight: 600;
   color: var(--accent);
   user-select: none;

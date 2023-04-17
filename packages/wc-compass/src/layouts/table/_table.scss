@@ -136,8 +136,7 @@
   flex: 1;
   color: var(--grey100);
   font-weight: 600;
-  font-size: 14px;
-  line-height: 18px;
+  @extend %body3;
   &.has-sorting {
     padding-right: 24px;
   }

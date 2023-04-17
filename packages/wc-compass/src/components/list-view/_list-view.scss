@@ -93,16 +93,14 @@
 
 .cdg-list-item-description {
   color: var(--grey80);
-  font-size: 14px;
-  line-height: 21px;
+  @extend %body3;
 }
 
 .cdg-list-item-button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
-  line-height: 21px;
+  @extend %body3;
 }
 
 .cdg-list-item-info {

@@ -1,8 +1,7 @@
 cdg-pill-badge,
 .cdg-pill-badge {
   padding: 4px 12px;
-  font-size: 12px;
-  line-height: 18px;
+  @extend %label2;
   font-weight: 600;
   border-radius: 20px;
   display: inline-flex;
