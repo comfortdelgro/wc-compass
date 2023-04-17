@@ -10,7 +10,7 @@ function createInputs(isDouble, disabled, startTitle = '', endTitle = '') {
   template.innerHTML = `
 <div class="cdg-datepicker-input-container">
     <div class="cdg-datepicker-input-content">
-        <label class="cdg-input-group" style="width: 197px">
+        <label class="cdg-input-group">
             <span class="cdg-input-label">${startTitle}</span>
             <div class="cdg-input-with-icon right">
                 <input class="cdg-input" data-type="start-date" ${
@@ -24,7 +24,7 @@ function createInputs(isDouble, disabled, startTitle = '', endTitle = '') {
       isDouble
         ? `
         <div class="cdg-datepicker-input-content">
-            <label class="cdg-input-group" style="width: 197px">
+            <label class="cdg-input-group">
                 <span class="cdg-input-label">${endTitle}</span>
                 <div class="cdg-input-with-icon right">
                     <input class="cdg-input" data-type="end-date" ${
