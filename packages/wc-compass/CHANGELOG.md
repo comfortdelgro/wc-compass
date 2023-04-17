@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.1.3
+
+### Patch Changes
+
+- 7a1aac5: Update table logic and layout
+
 ## 0.1.2
 
 ### Patch Changes
