@@ -10,12 +10,11 @@ cdg-button,
   color: #ffffff;
   border: 1px solid var(--accent);
   background-color: var(--accent);
-  font-size: 14px;
-  line-height: 21px;
   font-weight: 600;
   cursor: pointer;
   appearance: none;
   @extend %smoothTransition;
+  @extend %body3;
 
   &:has(.cdg-icon),
   &:has(cdg-icon) {
@@ -100,8 +99,7 @@ cdg-button,
   }
 
   &[size='large'] {
-    font-size: 16px;
-    line-height: 24px;
+    @extend %body2;
     padding: 8px 20px;
 
     &.icon {
@@ -125,9 +123,8 @@ cdg-button,
   }
 
   &[size='small'] {
-    font-size: 12px;
-    line-height: 18px;
     padding: 4px 10px;
+    @extend %label2;
 
     &.icon {
       padding: 6px 7px;

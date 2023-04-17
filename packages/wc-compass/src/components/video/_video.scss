@@ -80,8 +80,7 @@ cdg-video-controls,
   .total-time {
     width: 50px;
     text-align: center;
-    font-size: 12px;
-    line-height: 18px;
+    @extend %label2;
   }
 
   .cdg-range-slider {

@@ -7,10 +7,8 @@ cdg-avatar,
   height: 48px;
   color: var(--info);
   background-color: var(--info-background);
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
   flex-shrink: 0;
+  @extend %heading5;
 
   &[type='icon'] {
     display: inline-flex;

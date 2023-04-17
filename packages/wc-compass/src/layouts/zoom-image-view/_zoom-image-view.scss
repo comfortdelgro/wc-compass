@@ -46,6 +46,7 @@
 .cdg-zoom-image-view-body {
   flex: 1;
   overflow: hidden;
+  position: relative;
   .cdg-zoom-image-view-transform {
     width: 100%;
     height: 100%;
@@ -58,6 +59,47 @@
       max-height: 100%;
       transition: all 0.3s linear;
       touch-action: pinch-zoom;
+    }
+    .cdg-carousel {
+      height: 100%;
+      .cdg-carousel-container {
+        height: 100%;
+        .cdg-carousel-scroller {
+          height: 100%;
+          .cdg-slide {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+        .cdg-carousel-controllers {
+          display: none;
+        }
+      }
+    }
+  }
+  .cdg-zoom-image-view-thumbnails-container {
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    overflow: auto;
+    justify-content: center;
+    .cdg-zoom-image-view-thumbnail {
+      height: 10vh;
+      width: 80px;
+      object-fit: cover;
+      border-radius: 6px;
+      cursor: pointer;
+      opacity: 1;
+      position: relative;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+      &.thumbnail-active {
+        border: 2px solid var(--info);
+      }
     }
   }
 }

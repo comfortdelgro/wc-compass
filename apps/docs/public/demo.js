@@ -1,31 +1,47 @@
+export * from './components/accordion/index'
+export * from './components/avatar/index'
+export * from './components/button/index'
+export * from './components/calendar/index'
+export * from './components/carousel/index'
+export * from './components/datepicker/index'
+export * from './components/dropdown/index'
+export * from './components/forms/index'
+export * from './components/gutter/index'
+export * from './components/list-item/index'
+export * from './components/listview/index'
+export * from './components/popover/index'
+export * from './components/progress/index'
+export * from './components/table/index'
+export * from './components/tooltip/index'
+export * from './components/zoom-image-view/index'
+
 import {SampleSection} from './sample-section'
 
-import './components/about.html'
-import './components/accordion.html'
 import './components/alert-badges.html'
 import './components/alert.html'
-import './components/avatar.html'
+import './components/avatar/avatar.html'
 import './components/breadcrumbs.html'
-import './components/button.html'
-import './components/calendar.html'
+import './components/button/button.html'
+import './components/calendar/calendar.html'
 import './components/card-blogs.html'
 import './components/cards.html'
-import './components/carousel.html'
+import './components/carousel/carousel.html'
 import './components/chart.html'
 import './components/checkboxes.html'
 import './components/context-menu.html'
 import './components/dashboard-side-card.html'
-import './components/datepicker.html'
+import './components/datepicker/datepicker.html'
 import './components/dialog.html'
-import './components/dropdown.html'
+import './components/dropdown/dropdown.html'
 import './components/file-upload.html'
 import './components/file.html'
 import './components/footer.html'
-import './components/gutter.html'
+import './components/gutter/gutter.html'
 import './components/icon.html'
 import './components/inline-loading.html'
 import './components/layouts.html'
-import './components/list-view.html'
+import './components/lazy-load-image.html'
+import './components/listview/list-view.html'
 import './components/loading.html'
 import './components/modal.html'
 import './components/multi-level-dropdown.html'
@@ -34,8 +50,8 @@ import './components/navbar.html'
 import './components/page-header.html'
 import './components/pagination.html'
 import './components/pill-badges.html'
-import './components/popover.html'
-import './components/progress.html'
+import './components/popover/popover.html'
+import './components/progress/progress.html'
 import './components/quantity-toggle.html'
 import './components/radios.html'
 import './components/range-slider.html'
@@ -44,9 +60,10 @@ import './components/sidebar.html'
 import './components/status.html'
 import './components/sub-header.html'
 import './components/sub-nav.html'
-import './components/table.html'
+import './components/table/table.html'
 import './components/tabs.html'
 import './components/tag-box.html'
+import './components/template/about.html'
 import './components/template/dashboard.html'
 import './components/testimonials.html'
 import './components/text-field.html'
@@ -54,7 +71,7 @@ import './components/timeline.html'
 import './components/toast.html'
 import './components/toggle.html'
 import './components/toolbar.html'
-import './components/tooltip.html'
+import './components/tooltip/tooltip.html'
 import './components/video.html'
 import './components/volume.html'
 import './components/website/contents/article.html'
@@ -76,28 +93,30 @@ const contentMap = {
   zIndex: './pages/z-index.html',
   theming: './pages/theming.html',
   layoutsAndControls: './pages/layouts-and-controls.html',
-  accordion: './components/accordion.html',
+  accordion: './components/accordion/accordion.html',
   alert: './components/alert.html',
   alertBadges: './components/alert-badges.html',
-  avatar: './components/avatar.html',
+  avatar: './components/avatar/avatar.html',
   breadcrumbs: './components/breadcrumbs.html',
   checkboxes: './components/checkboxes.html',
   dashboardSideCard: './components/dashboard-side-card.html',
   file: './components/file.html',
   fileUpload: './components/file-upload.html',
   footer: './components/footer.html',
-  about: './components/about.html',
-  gutter: './components/gutter.html',
+  about: './components/template/about.html',
+  gutter: './components/gutter/gutter.html',
   icon: './components/icon.html',
   dialog: './components/dialog.html',
-  dropdown: './components/dropdown.html',
-  button: './components/button.html',
+  dropdown: './components/dropdown/dropdown.html',
+  forms: './components/forms/forms.html',
+  button: './components/button/button.html',
   cards: './components/cards.html',
   cardBlogs: './components/card-blogs.html',
-  carousel: './components/carousel.html',
+  carousel: './components/carousel/carousel.html',
   inlineLoading: './components/inline-loading.html',
   layouts: './components/layouts.html',
-  listView: './components/list-view.html',
+  listItem: './components/list-item/list-item.html',
+  listView: './components/listview/list-view.html',
   loading: './components/loading.html',
   modal: './components/modal.html',
   navRail: './components/nav-rail.html',
@@ -115,17 +134,17 @@ const contentMap = {
   tabs: './components/tabs.html',
   textField: './components/text-field.html',
   subNav: './components/sub-nav.html',
-  table: './components/table.html',
-  popover: './components/popover.html',
-  progress: './components/progress.html',
+  table: './components/table/table.html',
+  popover: './components/popover/popover.html',
+  progress: './components/progress/progress.html',
   toast: './components/toast.html',
   toggle: './components/toggle.html',
   timeline: './components/timeline.html',
   volume: './components/volume.html',
   wizards: './components/wizards.html',
-  calendar: './components/calendar.html',
-  datepicker: './components/datepicker.html',
-  tooltip: './components/tooltip.html',
+  calendar: './components/calendar/calendar.html',
+  datepicker: './components/datepicker/datepicker.html',
+  tooltip: './components/tooltip/tooltip.html',
   rangeSlider: './components/range-slider.html',
   tagBox: './components/tag-box.html',
   video: './components/video.html',
@@ -136,11 +155,12 @@ const contentMap = {
   multiLevelDropdown: './components/multi-level-dropdown.html',
   contextMenu: './components/context-menu.html',
   testimonials: './components/testimonials.html',
-  imageViewer: './components/zoom-image-view.html',
+  imageViewer: './components/zoom-image-view/zoom-image-view.html',
   newsAndBlogs: './components/website/news-and-blogs.html',
   article: './components/website/post-detail.html',
   services: './components/website/services.html',
   chart: './components/chart.html',
+  lazyLoadImage: './components/lazy-load-image.html',
 }
 
 const documentContent = [
@@ -197,6 +217,10 @@ const documentContent = [
         slug: 'dashboardSideCard',
       },
       {
+        name: 'Forms',
+        slug: 'forms',
+      },
+      {
         name: 'Gutter',
         slug: 'gutter',
       },
@@ -207,10 +231,6 @@ const documentContent = [
       {
         name: 'Layouts',
         slug: 'layouts',
-      },
-      {
-        name: 'List View',
-        slug: 'listView',
       },
       {
         name: 'Sub Header',
@@ -337,6 +357,18 @@ const documentContent = [
       {
         name: 'Loading',
         slug: 'loading',
+      },
+      {
+        name: 'Lazy Load Image',
+        slug: 'lazyLoadImage',
+      },
+      {
+        name: 'List Item',
+        slug: 'listItem',
+      },
+      {
+        name: 'List View',
+        slug: 'listView',
       },
       {
         name: 'Pagination',
@@ -595,7 +627,9 @@ function handlePageChange(url) {
 
     // Wait for content render
     setTimeout(() => {
-      hljs.highlightAll()
+      if (hljs) {
+        hljs.highlightAll()
+      }
     }, 10)
   })
 }

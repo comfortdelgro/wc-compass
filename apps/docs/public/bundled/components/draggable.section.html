@@ -1,0 +1,130 @@
+<cdg-sample-section name="Draggable">
+  <div class="cdg-layout">
+    <button class="cdg-button" id="toggleDraggable">Toggle drag</button>
+  </div>
+  <div
+    class="sample-section"
+    style="
+      background: var(--grey10);
+      padding: 10px;
+      flex-direction: column;
+      gap: 0;
+      height: 580px;
+      overflow-y: auto;
+    "
+  >
+    <cdg-list-view allow-drag id="dragsample">
+      <cdg-list-item>
+        <div class="cdg-list-item-icon">
+          <cdg-avatar name="Jacqueline Jordan" size="40"></cdg-avatar>
+        </div>
+        <div class="cdg-list-item-info">
+          <div class="cdg-list-item-title">Jacqueline Jordan</div>
+          <div class="cdg-list-item-description">Project Manager</div>
+        </div>
+        <div class="cdg-list-item-right-col">
+          <div class="cdg-list-item-button">
+            Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+          </div>
+        </div>
+      </cdg-list-item>
+      <cdg-list-item>
+        <div class="cdg-list-item-icon">
+          <cdg-avatar name="Wade Linsay" size="40"></cdg-avatar>
+        </div>
+        <div class="cdg-list-item-info">
+          <div class="cdg-list-item-title">Wade Linsay</div>
+          <div class="cdg-list-item-description">Delivery Manager</div>
+        </div>
+        <div class="cdg-list-item-right-col">
+          <div class="cdg-list-item-button">
+            Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+          </div>
+        </div>
+      </cdg-list-item>
+      <cdg-list-item>
+        <div class="cdg-list-item-icon">
+          <cdg-avatar name="Levina Biladen" size="40"></cdg-avatar>
+        </div>
+        <div class="cdg-list-item-info">
+          <div class="cdg-list-item-title">Levina Biladen</div>
+          <div class="cdg-list-item-description">Memeloper</div>
+        </div>
+        <div class="cdg-list-item-right-col">
+          <div class="cdg-list-item-button">
+            Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+          </div>
+        </div>
+      </cdg-list-item>
+      <cdg-list-item>
+        <div class="cdg-list-item-icon">
+          <cdg-avatar name="Wenrui Wang" size="40"></cdg-avatar>
+        </div>
+        <div class="cdg-list-item-info">
+          <div class="cdg-list-item-title">Wenrui Wang</div>
+          <div class="cdg-list-item-description">Designer</div>
+        </div>
+        <div class="cdg-list-item-right-col">
+          <div class="cdg-list-item-button">
+            Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+          </div>
+        </div>
+      </cdg-list-item>
+      <cdg-list-item>
+        <div class="cdg-list-item-icon">
+          <cdg-avatar name="Justin Garza" size="40"></cdg-avatar>
+        </div>
+        <div class="cdg-list-item-info">
+          <div class="cdg-list-item-title">Justin Garza</div>
+          <div class="cdg-list-item-description">Developer</div>
+        </div>
+        <div class="cdg-list-item-right-col">
+          <div class="cdg-list-item-button">
+            Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+          </div>
+        </div>
+      </cdg-list-item>
+      <cdg-list-item>
+        <div class="cdg-list-item-icon">
+          <cdg-avatar name="Paule Nguyen" size="40"></cdg-avatar>
+        </div>
+        <div class="cdg-list-item-info">
+          <div class="cdg-list-item-title">Paule Nguyen</div>
+          <div class="cdg-list-item-description">Developer</div>
+        </div>
+        <div class="cdg-list-item-right-col">
+          <div class="cdg-list-item-button">
+            Details<cdg-icon name="arrow-right" size="18"></cdg-icon>
+          </div>
+        </div>
+      </cdg-list-item>
+    </cdg-list-view>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;cdg-list-view allow-drag id=&quot;dragsample&quot;&gt;
+    &lt;cdg-list-item&gt;
+        &lt;div class=&quot;cdg-list-item-icon&quot;&gt;
+            // Place your icon / avatar here
+        &lt;/div&gt;
+        &lt;div class=&quot;cdg-list-item-info&quot;&gt;
+            &lt;div class=&quot;cdg-list-item-title&quot;&gt;Any title&lt;/div&gt;
+            &lt;div class=&quot;cdg-list-item-description&quot;&gt;Description of this list item&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;cdg-list-item-right-col&quot;&gt;
+            &lt;div class=&quot;cdg-list-item-button&quot;&gt;
+                Details&lt;cdg-icon name=&quot;arrow-right&quot; size=&quot;18&quot;&gt;&lt;/cdg-icon&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/cdg-list-item&gt;
+    // Other items
+&lt;/cdg-list-view&gt;
+
+&lt;script&gt;
+  const listView = document.querySelector('#dragsample');
+  listView.addEventListener('dragitem', (event) =&gt; {
+    console.log(event.detail);
+  });
+&lt;/script&gt;</code>
+</pre>
+</cdg-sample-section>

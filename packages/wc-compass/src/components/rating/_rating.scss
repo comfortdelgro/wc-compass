@@ -7,8 +7,8 @@ cdg-rating,
     height: 60px;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
-    line-height: 30px;
+    font-size: var(--heading4);
+    line-height: var(--line-height-heading4);
     background-color: var(--background);
     border-color: var(--background);
     box-shadow: var(--shadow-depth-04);
@@ -31,7 +31,6 @@ cdg-rating,
   display: flex;
   gap: 24px;
   justify-content: space-between;
-  font-size: 12px;
-  line-height: 18px;
+  @extend %label2;
   color: var(--grey80);
 }

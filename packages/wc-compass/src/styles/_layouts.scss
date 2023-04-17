@@ -32,6 +32,19 @@ cdg-toolbar,
     box-shadow: var(--shadow-depth-04);
     padding: 12px 16px;
   }
+
+  .cdg-show-on-selected {
+    display: none;
+  }
+
+  &.selected {
+    .cdg-hide-on-selected {
+      display: none;
+    }
+    .cdg-show-on-selected {
+      display: flex;
+    }
+  }
 }
 
 cdg-left-group,
@@ -48,6 +61,18 @@ cdg-center-group,
 cdg-right-group,
 .cdg-right-group {
   display: flex;
+}
+
+.cdg-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  container-name: CardGrid;
+  container-type: inline-size;
+
+  &.columns-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 cdg-card,
@@ -92,9 +117,7 @@ cdg-card,
     }
 
     .cdg-card-title {
-      font-weight: 700;
-      font-size: 28px;
-      line-height: 42px;
+      @extend %heading2;
     }
   }
 
@@ -160,8 +183,7 @@ cdg-card,
     .cdg-card-header {
       padding: 0 40px;
       .cdg-card-title {
-        font-size: 28px;
-        line-height: 32px;
+        @extend %heading2;
       }
     }
 
@@ -186,8 +208,7 @@ cdg-card,
 }
 
 .cdg-card-time {
-  font-size: 14px;
-  line-height: 21px;
+  @extend %body3;
 }
 
 cdg-card-header,
@@ -236,6 +257,10 @@ cdg-card-cover,
     border-radius: 8px;
     overflow: hidden;
   }
+
+  &[square] {
+    aspect-ratio: 1;
+  }
 }
 
 .cdg-card-cover-image {
@@ -249,13 +274,10 @@ cdg-page-title,
   display: flex;
   align-items: center;
   gap: 12px;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 36px;
+  @extend %heading3;
   color: var(--grey110);
   small {
-    font-size: 14px;
-    line-height: 21px;
+    @extend %label1;
     color: var(--grey70);
     font-weight: 400;
   }
@@ -331,17 +353,15 @@ cdg-sub-header,
 
 .cdg-sub-header-title {
   margin: 0;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 600;
   color: var(--grey100);
+  font-weight: 600;
+  @extend %body2;
 }
 
 .cdg-sub-header-description {
   color: var(--grey70);
   margin: 0;
-  font-size: 14px;
-  line-height: 21px;
+  @extend %body3;
 }
 
 .cdg-separator {
@@ -425,42 +445,9 @@ cdg-divider,
   & > * {
     width: calc(100% / 3 - 32px);
   }
-  @media (max-width: 768px) {
-    gap: 16px;
-    & > * {
-      width: 100%;
-    }
-  }
 }
 
 .cdg-card-blogs {
-  &.grid-3-columns {
-    @media (max-width: 768px) {
-      .cdg-card {
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 20px;
-        & > * {
-          width: 50%;
-        }
-        .cdg-card-blog-category {
-          margin-top: 0;
-          font-size: 10px;
-          line-height: 16px;
-        }
-        .cdg-card-blog-title {
-          font-size: 16px;
-          line-height: 24px;
-          margin-top: 4px;
-        }
-        .cdg-card-blog-date {
-          font-size: 10px;
-          line-height: 15px;
-        }
-      }
-    }
-  }
-
   .cdg-card-cover {
     aspect-ratio: 4/3;
     img {
@@ -471,23 +458,19 @@ cdg-divider,
 
 .cdg-card-blog-category {
   font-weight: 600;
-  font-size: 14px;
-  line-height: 21px;
+  @extend %body3;
   color: var(--info);
   margin-top: 8px;
 }
 
 .cdg-card-blog-title {
-  font-weight: 700;
-  font-size: 28px;
-  line-height: 42px;
+  @extend %heading2;
   color: var(--grey-shades-80);
 }
 
 .cdg-card-blog-date {
   font-weight: 400;
-  font-size: 12px;
-  line-height: 18px;
+  @extend %label2;
   color: var(--grey-shades-80);
   margin-top: 4px;
 }
@@ -523,20 +506,26 @@ cdg-carousel,
 
 .cdg-contains-gutter {
   position: relative;
+  // @extend %smoothTransition;
+  * {
+    flex-shrink: 0;
+  }
 }
 
 .cdg-gutter {
-  width: 5px;
+  width: 12px;
   position: absolute;
-  right: 0;
+  right: -6px;
   top: 0;
   bottom: 0;
+  touch-action: none;
+
   &::after {
     content: '';
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 3px;
+    left: 4px;
     width: 2px;
     background-color: transparent;
     @extend %smoothTransition;
@@ -557,11 +546,21 @@ cdg-carousel,
 
   &[place='left'] {
     right: auto;
-    left: 0;
+    left: -6px;
     &::after {
       top: 0;
       bottom: 0;
-      left: 0;
+      left: 4px;
+    }
+
+    .cdg-icon {
+      transform: rotate(180deg);
+    }
+
+    &.collapsed {
+      .cdg-icon {
+        transform: rotate(0deg);
+      }
     }
   }
 

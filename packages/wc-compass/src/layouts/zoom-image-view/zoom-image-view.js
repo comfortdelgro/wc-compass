@@ -1,8 +1,25 @@
 import {Pointer} from '../../shared/pointer'
 
-function createModalTemplate(imgSrc) {
+function createModalTemplate(imgSrcs, multiple, activeIndex) {
   const template = document.createElement('template')
   template.setAttribute('for', 'defaultModal')
+  let zoomContent = ''
+  let thumbnailsContent = ''
+  if (multiple) {
+    zoomContent = `<cdg-carousel use-arrow="true" current="${activeIndex}" id="cdg-zoom-image-carousel">`
+    imgSrcs.forEach((imgSrc, index) => {
+      zoomContent += `
+        <cdg-slide>
+          <img src="${imgSrc}" class="cdg-zoom-image-view-img" />
+        </cdg-slide>`
+      thumbnailsContent += `<img src="${imgSrc}" class="cdg-zoom-image-view-thumbnail ${
+        activeIndex === index ? 'thumbnail-active' : ''
+      }" />`
+    })
+    zoomContent += '</cdg-carousel>'
+  } else {
+    zoomContent = `<img src="${imgSrcs}" class="cdg-zoom-image-view-img" id="cdg-zoom-image-view-img" />`
+  }
   template.innerHTML = `
   <cdg-modal size="auto" class="cdg-zoom-image-view-modal">
     <cdg-modal-header useCloseButton="true">
@@ -16,7 +33,10 @@ function createModalTemplate(imgSrc) {
     <cdg-modal-body>
       <div class="cdg-zoom-image-view-body">
         <div class="cdg-zoom-image-view-transform">
-          <img src="${imgSrc}" id="cdg-zoom-image-view-img" />
+        ${zoomContent}
+        </div>
+        <div class="cdg-zoom-image-view-thumbnails-container">
+          ${thumbnailsContent}
         </div>
       </div>
     </cdg-modal-body>
@@ -30,12 +50,28 @@ const DEFAULT_POINT = {x: 0, y: 0}
 
 export class CdgZoomImageView extends HTMLElement {
   zoomImageViewItemEls
+  transformViewEl
+  carouselEl
+  imgContentEls
+  imgContentEl
+  imgThumbnailEls
+
   currentPosition = DEFAULT_POINT
   pointer = new Pointer()
   zoomValue = 1
-  transformViewEl
-  imgContentEl
   ratioPointer = DEFAULT_POINT
+
+  get multiple() {
+    return this.hasAttribute('multiple')
+  }
+
+  set multiple(value) {
+    if (value) {
+      this.setAttribute('multiple', '')
+    } else {
+      this.removeAttribute('multiple', '')
+    }
+  }
 
   static get observedAttributes() {
     return []
@@ -57,35 +93,66 @@ export class CdgZoomImageView extends HTMLElement {
   bindEventForImage() {
     this.zoomImageViewItemEls = this.querySelectorAll('[zoomImageViewItem]')
     if (this.zoomImageViewItemEls && this.zoomImageViewItemEls.length) {
-      this.zoomImageViewItemEls.forEach((imageItem) => {
+      this.imageSrcs = []
+      for (let index = 0; index < this.zoomImageViewItemEls.length; index++) {
+        const element = this.zoomImageViewItemEls[index]
+        this.imageSrcs.push(element.getAttribute('src'))
+      }
+      this.zoomImageViewItemEls.forEach((imageItem, index) => {
         imageItem.addEventListener('click', () => {
-          this.handleImageItemThumbnailClick(imageItem)
+          this.handleImageItemThumbnailClick(imageItem, index)
         })
       })
     }
   }
 
-  handleImageItemThumbnailClick(imageItem) {
+  handleImageItemThumbnailClick(imageItem, index) {
     this.zoomValue = 1
     this.appendChild(
-      createModalTemplate(imageItem.getAttribute('src')).cloneNode(true),
+      createModalTemplate(
+        this.hasAttribute('multiple')
+          ? this.imageSrcs
+          : imageItem.getAttribute('src'),
+        this.hasAttribute('multiple'),
+        index,
+      ).cloneNode(true),
     )
-    this.bindingEventsOnModal()
+    this.bindingEventsOnModal(index)
   }
 
-  bindingEventsOnModal() {
+  bindingEventsOnModal(index) {
     const modal = this.querySelector(
       '[for="defaultModal"]',
     ).content.firstElementChild.cloneNode(true)
     cdgDialogService.show('sampleDefaultModal', modal)
 
     this.transformViewEl = modal.querySelector('.cdg-zoom-image-view-transform')
-    this.imgContentEl = modal.querySelector('#cdg-zoom-image-view-img')
+    this.imgContentEls = modal.querySelectorAll('.cdg-zoom-image-view-img')
+    this.carouselEl = modal.querySelector(
+      'cdg-carousel#cdg-zoom-image-carousel',
+    )
+    this.imgThumbnailEls = modal.querySelectorAll(
+      '.cdg-zoom-image-view-thumbnail',
+    )
+
+    if (this.carouselEl) {
+      this.carouselEl.addEventListener(
+        'onCurrentChange',
+        this.handleCarouselIndexChange.bind(this),
+      )
+    }
+    if (this.multiple && this.imgThumbnailEls && this.imgThumbnailEls.length) {
+      this.imgThumbnailEls.forEach((imgThumbnail, index) => {
+        imgThumbnail.addEventListener('click', (event) =>
+          this.handleThumbnailModalClick(event, index),
+        )
+      })
+    }
+    this.imgContentEl = this.imgContentEls.item(index)
     const buttonZoomIn = modal.querySelector('#cdg-zoom-image-view-zoom-in')
     const buttonZoomOut = modal.querySelector('#cdg-zoom-image-view-zoom-out')
 
     buttonZoomIn.addEventListener('click', this.handleZoomInClick.bind(this))
-
     buttonZoomOut.addEventListener('click', this.handleZoomOutClick.bind(this))
 
     this.imgContentEl.addEventListener(
@@ -94,6 +161,44 @@ export class CdgZoomImageView extends HTMLElement {
     )
 
     modal.addEventListener('close', this.handleModalClose.bind(this))
+  }
+
+  handleCarouselIndexChange(event) {
+    this.changeImageActiveIndex(event.detail)
+    this.imgThumbnailEls.forEach((imgThumbnail, index) => {
+      imgThumbnail.classList.remove('thumbnail-active')
+      if (index === event.detail) {
+        imgThumbnail.classList.add('thumbnail-active')
+      }
+    })
+  }
+
+  handleThumbnailModalClick(event, index) {
+    if (!event.target.classList.contains('thumbnail-active')) {
+      const preActiveThumbnail = document.querySelector(
+        '.cdg-zoom-image-view-thumbnail.thumbnail-active',
+      )
+      if (preActiveThumbnail) {
+        preActiveThumbnail.classList.remove('thumbnail-active')
+      }
+      this.changeImageActiveIndex(index)
+      this.carouselEl.setAttribute('current', index)
+      event.target.classList.add('thumbnail-active')
+    }
+  }
+
+  changeImageActiveIndex(index) {
+    this.imgContentEl.removeEventListener(
+      'pointerdown',
+      this.handlePointerDown.bind(this),
+    )
+    this.imgContentEl.style.transform = `translate(0px, 0px) scale(1)`
+    this.imgContentEl = this.imgContentEls.item(index)
+    this.resetPosition()
+    this.imgContentEl.addEventListener(
+      'pointerdown',
+      this.handlePointerDown.bind(this),
+    )
   }
 
   handleZoomInClick() {
@@ -158,6 +263,11 @@ export class CdgZoomImageView extends HTMLElement {
   }
 
   handleModalClose() {
+    this.resetPosition()
+    this.removeChild(this.querySelector('[for="defaultModal"]'))
+  }
+
+  resetPosition() {
     this.pointer.update(DEFAULT_POINT)
     this.currentPosition = DEFAULT_POINT
     this.ratioPointer = DEFAULT_POINT
@@ -166,11 +276,11 @@ export class CdgZoomImageView extends HTMLElement {
     this.overPointerBottom = false
     this.overPointerLeft = false
     this.overPointerRight = false
-    this.removeChild(this.querySelector('[for="defaultModal"]'))
   }
 
   handlePointerDown(event) {
     event.preventDefault()
+    event.stopPropagation()
     if (this.zoomValue === 1) {
       return
     }
@@ -209,10 +319,10 @@ export class CdgZoomImageView extends HTMLElement {
       this.imgContentEl.clientHeight * this.zoomValue >
       this.transformViewEl.clientHeight
     ) {
-      if (bound.top > boundTransformView.top) {
+      if (Math.round(bound.top) > Math.floor(boundTransformView.top)) {
         this.overPointerTop = true
       }
-      if (bound.bottom < boundTransformView.bottom) {
+      if (Math.round(bound.bottom) < Math.floor(boundTransformView.bottom)) {
         this.overPointerBottom = true
       }
     }
@@ -220,10 +330,10 @@ export class CdgZoomImageView extends HTMLElement {
       this.imgContentEl.clientWidth * this.zoomValue >
       this.transformViewEl.clientWidth
     ) {
-      if (bound.left > boundTransformView.left) {
+      if (Math.round(bound.left) > Math.floor(boundTransformView.left)) {
         this.overPointerLeft = true
       }
-      if (bound.right < boundTransformView.right) {
+      if (Math.floor(bound.right) < Math.round(boundTransformView.right)) {
         this.overPointerRight = true
       }
     }

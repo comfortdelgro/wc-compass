@@ -61,7 +61,7 @@
       }
       .cdg-testimonial-user-title {
         font-weight: 400;
-        font-size: 16px;
+        @extend %body2;
       }
     }
   }

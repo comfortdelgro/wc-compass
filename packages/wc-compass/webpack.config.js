@@ -6,11 +6,11 @@ const version = PACKAGE.version
 const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
-  entry: {main: './src/main.js', docs: '../../apps/docs/public/demo.js'},
+  entry: {main: './src/index.js', docs: '../../apps/docs/public/demo.js'},
   mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js',
+    filename: 'index.js',
     library: 'wc-compass', // if you keen to have a name for library
   },
   module: {

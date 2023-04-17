@@ -1,7 +1,47 @@
 .cdg-table {
+  border-collapse: collapse;
+  display: table;
+  box-sizing: border-box;
+  text-indent: initial;
+  width: 100%;
+  table-layout: fixed;
+  border: 1px solid var(--border-color);
+
+  &.auto-layout {
+    table-layout: auto;
+  }
+
+  .cdg-table-cell.cdg-table-cell-checkbox {
+    display: none;
+  }
+
+  &[checkable] {
+    .cdg-table-cell.cdg-table-cell-checkbox {
+      display: table-cell;
+    }
+  }
+}
+
+.cdg-table-header-button {
+  width: 100%;
+  padding: 16px 12px;
+  background-color: transparent;
+  color: var(--primary-color);
+  border: none;
+  border-radius: 0;
+  &:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+  }
+}
+
+.cdg-table-sort-arrows {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+}
+
+.cdg-table-sort-arrow {
+  color: var(--grey30);
 }
 
 /* table */
@@ -54,6 +94,31 @@
   text-align: left;
   position: relative;
   font-size: var(--spacing-3_5);
+  text-transform: capitalize;
+  box-sizing: border-box;
+
+  &[sortable] {
+    padding: 0;
+    .cdg-table-head-cell-content {
+      padding: 16px 12px;
+    }
+  }
+
+  &.asc {
+    .cdg-table-sort-arrow {
+      &.asc {
+        color: var(--grey90);
+      }
+    }
+  }
+
+  &.desc {
+    .cdg-table-sort-arrow {
+      &.desc {
+        color: var(--grey90);
+      }
+    }
+  }
 }
 
 .cdg-table-head-cell-content {
@@ -61,6 +126,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  box-sizing: border-box;
   > * {
     cursor: pointer;
   }
@@ -70,8 +136,7 @@
   flex: 1;
   color: var(--grey100);
   font-weight: 600;
-  font-size: 14px;
-  line-height: 18px;
+  @extend %body3;
   &.has-sorting {
     padding-right: 24px;
   }
@@ -122,8 +187,38 @@
   background-color: transparent;
   transition: all 250ms ease;
 
+  &:has(input[type='checkbox']:checked),
   &[checked] {
     background-color: var(--blue10);
+    border-left: 1px solid var(--accent);
+  }
+
+  &:hover {
+    background-color: var(--hover-background);
+  }
+
+  &.cdg-table-head-row:has(input[type='checkbox']:checked),
+  &.cdg-table-head-row:hover {
+    background-color: transparent;
+    border-color: var(--border-color);
+  }
+}
+
+.cdg-table-cell,
+.cdg-table-head-cell {
+  &[align='center'],
+  &.text-center {
+    text-align: center;
+  }
+
+  &[align='left'],
+  &.text-left {
+    text-align: left;
+  }
+
+  &[align='right'],
+  &.text-right {
+    text-align: right;
   }
 }
 
@@ -135,15 +230,6 @@
   vertical-align: inherit;
   font-size: var(--spacing-3_5);
   padding: var(--spacing-3_5) var(--spacing-3);
-  &.text-center {
-    text-align: center;
-  }
-  &.text-left {
-    text-align: left;
-  }
-  &.text-right {
-    text-align: right;
-  }
 }
 
 .cdg-table-cell-checkbox,

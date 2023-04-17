@@ -91,9 +91,8 @@ cdg-modal-actions,
 .cdg-modal-title {
   margin: 0;
   flex: 1;
-  font-size: 24px;
-  line-height: 36px;
-  font-weight: 600;
+  font-size: var(--heading3);
+  line-height: var(--line-height-heading3);
 }
 
 cdg-dialog,
@@ -123,15 +122,12 @@ cdg-dialog,
   .cdg-dialog-content {
     .cdg-dialog-title {
       text-align: center;
-      font-weight: 600;
-      font-size: 24px;
-      line-height: 36px;
+      @extend %heading3;
     }
     .cdg-dialog-message {
       text-align: center;
       font-weight: 400;
-      font-size: 16px;
-      line-height: 24px;
+      @extend %body2;
     }
   }
 }

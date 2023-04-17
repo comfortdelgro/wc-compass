@@ -42,9 +42,7 @@ cdg-card-activity,
   flex-direction: column;
 
   .activity-title {
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 24px;
+    @extend %heading5;
     margin: 0;
     &:not(:first-child) {
       margin-top: 24px;
@@ -67,9 +65,7 @@ cdg-card-activity,
     width: 84px;
     height: 58px;
     border-radius: 4px;
-    font-size: 28px;
-    font-weight: 600;
-    line-height: 42px;
+    @extend %heading2;
     padding: 8px 12px;
     box-sizing: border-box;
     display: flex;

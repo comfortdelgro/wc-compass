@@ -57,6 +57,20 @@
   &[allow-drag] {
     padding-left: 42px;
   }
+
+  &[disabled] {
+    opacity: 0.6;
+    background-color: var(--disabled-background);
+    cursor: not-allowed;
+    &:active,
+    &:hover {
+      background-color: var(--disabled-background);
+      color: var(--grey90);
+      .cdg-list-item-description {
+        color: var(--grey80);
+      }
+    }
+  }
 }
 
 .cdg-list-draggable-icon {
@@ -74,23 +88,19 @@
 }
 
 .cdg-list-item-title {
-  font-size: 20px;
-  line-height: 30px;
-  font-weight: 600;
+  @extend %heading4;
 }
 
 .cdg-list-item-description {
   color: var(--grey80);
-  font-size: 14px;
-  line-height: 21px;
+  @extend %body3;
 }
 
 .cdg-list-item-button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
-  line-height: 21px;
+  @extend %body3;
 }
 
 .cdg-list-item-info {

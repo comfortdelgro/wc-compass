@@ -23,7 +23,7 @@ export class CdgListItem extends HTMLElement {
 
   set allowDrag(allowDrag) {
     if (allowDrag) {
-      this.setAttribute('allow-drag', true)
+      this.setAttribute('allow-drag', '')
     } else {
       this.removeAttribute('allow-drag')
     }

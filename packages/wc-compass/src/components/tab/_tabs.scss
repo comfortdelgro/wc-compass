@@ -5,8 +5,7 @@ cdg-tabs,
   gap: 8px;
   border-radius: 32px;
   background: var(--background);
-  font-size: 14px;
-  line-height: 21px;
+  @extend %body3;
   font-weight: 600;
   color: var(--accent);
   user-select: none;
@@ -14,6 +13,7 @@ cdg-tabs,
     padding: 0;
     gap: 24px;
     border-radius: 0;
+    background-color: transparent;
 
     cdg-tab,
     .cdg-tab {
@@ -21,17 +21,18 @@ cdg-tabs,
       padding-left: 0;
       padding-right: 0;
       border-bottom: 3px solid transparent;
+      background-color: transparent;
       color: var(--grey80);
 
       &[activated] {
         color: var(--accent);
-        background-color: var(--background);
+        background-color: transparent;
         border-color: currentColor;
       }
 
       &:hover {
         color: var(--accent);
-        background-color: var(--background);
+        background-color: transparent;
       }
     }
   }

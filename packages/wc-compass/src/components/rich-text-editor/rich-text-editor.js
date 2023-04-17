@@ -16,9 +16,14 @@ export class CdgRichTextEditor extends HTMLElement {
 
   constructor() {
     super()
+    const content = this.querySelector('.cdg-rte-content')
+
+    // Clone default value
+    const data = content.innerHTML
+    content.textContent = ''
 
     this.editor = new Editor({
-      element: this.querySelector('.cdg-rte-content'),
+      element: content,
       extensions: [
         StarterKit,
         TextAlign.configure({
@@ -33,7 +38,7 @@ export class CdgRichTextEditor extends HTMLElement {
         TextStyle,
         Color,
       ],
-      content: '',
+      content: data,
       onUpdate: ({editor}) => {
         const output = editor.getHTML()
         if (!output) return

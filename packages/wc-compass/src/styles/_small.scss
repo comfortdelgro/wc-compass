@@ -20,12 +20,13 @@
   }
 
   .cdg-promotion-title {
-    font-size: 32px;
-    line-height: 40px;
+    font-size: var(--heading1);
+    line-height: var(--line-height-heading1);
   }
 
   .cdg-promotion-description {
-    font-size: 14px;
+    font-size: var(--label1);
+    line-height: var(--line-height-label1);
   }
 
   .cdg-promotion-container {
@@ -72,18 +73,14 @@
   }
 
   .cdg-post-section-title {
-    font-size: 20px;
-    line-height: 30px;
+    font-size: var(--heading4);
+    line-height: var(--line-height-heading4);
   }
 
-  .cdg-blog-post {
-    font-size: 16px;
-    line-height: 24px;
-  }
-
+  .cdg-blog-post,
   .cdg-card-blog-title {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: var(--heading5);
+    line-height: var(--line-height-heading5);
   }
 
   cdg-card,
@@ -96,8 +93,8 @@
 
     &.article-card .cdg-card-title,
     &.article-card .cdg-card-title {
-      font-size: 16px;
-      line-height: 24px;
+      font-size: var(--heading5);
+      line-height: var(--line-height-heading5);
     }
   }
 
@@ -105,6 +102,13 @@
     cdg-card-cover,
     .cdg-card-cover {
       flex: 1;
+    }
+  }
+
+  .cdg-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    &.columns-4 {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 }
@@ -190,7 +194,8 @@
   }
 
   .cdg-list-item-title {
-    font-size: 16px;
+    font-size: var(--heading5);
+    line-height: var(--line-height-heading5);
   }
 
   .cdg-list-item-description {
@@ -218,4 +223,34 @@
     font-size: 14px;
     line-height: 21px;
   }
+
+  .cdg-card-grid {
+    grid-template-columns: repeat(1, 1fr);
+    &.columns-4 {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+@container CardGrid (max-width: 768px) {
+  .cdg-card-blog-title {
+    font-size: var(--heading5);
+    line-height: var(--line-height-heading5);
+  }
+}
+
+@container CardGrid (max-width: 479px) {
+  .cdg-blog-slide-title {
+    font-size: 22px;
+    line-height: 28px;
+  }
+}
+
+@container CdgForm (max-width: 768px) {
+  .cdg-form-row {
+    flex-direction: column;
+  }
+}
+
+@container CdgForm (max-width: 479px) {
 }

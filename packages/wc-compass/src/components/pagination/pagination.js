@@ -1,290 +1,292 @@
-const DISPLAY_PAGES = 3;
+const DISPLAY_PAGES = 3
 
 export class CdgPagination extends HTMLElement {
   static get observedAttributes() {
-    return ['total', 'current-page', 'page-size', 'display-button-count'];
+    return ['total', 'current-page', 'page-size', 'display-button-count']
   }
 
   get displayButtonCount() {
-    return Number(this.getAttribute('display-button-count')) || DISPLAY_PAGES;
+    return Number(this.getAttribute('display-button-count')) || DISPLAY_PAGES
   }
 
   set displayButtonCount(page) {
-    this.setAttribute('display-button-count', page);
+    this.setAttribute('display-button-count', page)
   }
 
   get currentPage() {
-    return Number(this.getAttribute('current-page')) || 1;
+    return Number(this.getAttribute('current-page')) || 1
   }
 
   set currentPage(page) {
-    this.setAttribute('current-page', page);
+    this.setAttribute('current-page', page)
   }
 
   get total() {
-    return Number(this.getAttribute('total')) || 0;
+    return Number(this.getAttribute('total')) || 0
   }
 
   set total(total) {
-    this.setAttribute('total', total);
+    this.setAttribute('total', total)
   }
 
   get pageSize() {
-    return Number(this.getAttribute('page-size')) || 20;
+    return Number(this.getAttribute('page-size')) || 20
   }
 
   set pageSize(pageSize) {
-    this.setAttribute('page-size', pageSize);
+    this.setAttribute('page-size', pageSize)
   }
 
-  totalPage = 0;
-  batch = [];
+  totalPage = 0
+  batch = []
 
-  pages;
-  btnFirstPage;
-  btnLastPage;
-  btnPrev;
-  btnNext;
-  btnMoreLeft;
-  btnMoreRight;
+  pages
+  btnFirstPage
+  btnLastPage
+  btnPrev
+  btnNext
+  btnMoreLeft
+  btnMoreRight
 
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-pagination');
-    this.ariaLabel = 'Page navigation';
-    this.totalPage = Math.ceil(this.total / this.pageSize);
+    this.classList.add('cdg-pagination')
+    this.ariaLabel = 'Page navigation'
+    this.attachPagination()
+  }
 
-    this.btnPrev = this.createPrevButton();
-    this.appendChild(this.btnPrev);
+  attachPagination() {
+    this.textContent = ''
+    this.totalPage = Math.ceil(this.total / this.pageSize)
 
-    this.btnFirstPage = this.createPageIndex(1);
-    this.appendChild(this.btnFirstPage);
+    this.btnPrev = this.createPrevButton()
+    this.appendChild(this.btnPrev)
 
-    this.btnMoreLeft = this.createDotButton();
-    this.appendChild(this.btnMoreLeft);
-    this.btnMoreLeft.addEventListener('click', this.handleMoreLeft.bind(this));
+    this.btnFirstPage = this.createPageIndex(1)
+    this.appendChild(this.btnFirstPage)
 
-    this.pages = document.createElement('div');
-    this.pages.classList.add('cdg-pagination-pages');
-    this.appendChild(this.pages);
+    this.btnMoreLeft = this.createDotButton()
+    this.appendChild(this.btnMoreLeft)
+    this.btnMoreLeft.addEventListener('click', this.handleMoreLeft.bind(this))
 
-    this.btnMoreRight = this.createDotButton();
-    this.appendChild(this.btnMoreRight);
-    this.btnMoreRight.addEventListener(
-      'click',
-      this.handleMoreRight.bind(this)
-    );
+    this.pages = document.createElement('div')
+    this.pages.classList.add('cdg-pagination-pages')
+    this.appendChild(this.pages)
 
-    this.btnLastPage = this.createPageIndex(this.totalPage);
-    this.appendChild(this.btnLastPage);
+    this.btnMoreRight = this.createDotButton()
+    this.appendChild(this.btnMoreRight)
+    this.btnMoreRight.addEventListener('click', this.handleMoreRight.bind(this))
 
-    this.btnNext = this.createNextButton();
-    this.appendChild(this.btnNext);
+    this.btnLastPage = this.createPageIndex(this.totalPage)
+    this.appendChild(this.btnLastPage)
 
-    this.updateBatch();
-    this.setActiveButton(null, this.currentPage);
+    this.btnNext = this.createNextButton()
+    this.appendChild(this.btnNext)
+
+    this.updateBatch()
+    this.setActiveButton(null, this.currentPage)
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
     switch (attr) {
       case 'current-page':
-        this.setActiveButton(Number(oldValue), Number(newValue));
-        break;
+        this.setActiveButton(Number(oldValue), Number(newValue))
+        break
 
       case 'total':
-        // console.log(this.total);
-        break;
+        this.attachPagination()
+        break
 
       default:
-        break;
+        break
     }
   }
 
   setActiveButton(oldValue, newValue) {
-    const buttons = this.querySelectorAll('button');
+    const buttons = this.querySelectorAll('button')
     // Set active
     for (let button of buttons) {
-      const buttonValue = Number(button.textContent);
+      const buttonValue = Number(button.textContent)
       if (buttonValue) {
         if (buttonValue === newValue) {
-          button.classList.add('active');
+          button.classList.add('active')
         } else if (oldValue && buttonValue === oldValue) {
-          button.classList.remove('active');
+          button.classList.remove('active')
         }
       }
     }
   }
 
   createPageIndex(page) {
-    const button = document.createElement('button');
-    button.classList.add('cdg-button');
-    button.textContent = page;
+    const button = document.createElement('button')
+    button.classList.add('cdg-button')
+    button.textContent = page
 
     button.addEventListener('click', (event) => {
-      this.handleItemClick(event, page);
-    });
-    return button;
+      this.handleItemClick(event, page)
+    })
+    return button
   }
 
   createDotButton() {
-    const button = document.createElement('button');
-    button.classList.add('cdg-button');
-    button.textContent = '...';
-    return button;
+    const button = document.createElement('button')
+    button.classList.add('cdg-button')
+    button.textContent = '...'
+    return button
   }
 
   createNavButton(name) {
-    const icon = document.createElement('cdg-icon');
-    icon.setAttribute('name', name);
-    icon.setAttribute('size', '16');
+    const icon = document.createElement('cdg-icon')
+    icon.setAttribute('name', name)
+    icon.setAttribute('size', '16')
 
-    const button = document.createElement('button');
-    button.classList.add('cdg-button');
-    button.classList.add('arrow-icon');
-    button.appendChild(icon);
-    return button;
+    const button = document.createElement('button')
+    button.classList.add('cdg-button')
+    button.classList.add('arrow-icon')
+    button.appendChild(icon)
+    return button
   }
 
   createPrevButton() {
-    const button = this.createNavButton('arrowLeft');
+    const button = this.createNavButton('arrowLeft')
 
     button.addEventListener('click', (event) => {
       this.handleItemClick(
         event,
-        this.currentPage === 1 ? 1 : this.currentPage - 1
-      );
-    });
+        this.currentPage === 1 ? 1 : this.currentPage - 1,
+      )
+    })
 
-    return button;
+    return button
   }
 
   createNextButton() {
-    const button = this.createNavButton('arrowRight');
+    const button = this.createNavButton('arrowRight')
 
     button.addEventListener('click', (event) => {
       this.handleItemClick(
         event,
         this.currentPage === this.totalPage
           ? this.totalPage
-          : this.currentPage + 1
-      );
-    });
+          : this.currentPage + 1,
+      )
+    })
 
-    return button;
+    return button
   }
 
   attachButtonsByBatch() {
-    this.pages.textContent = '';
+    this.pages.textContent = ''
     for (let i = 0; i < this.batch.length; i++) {
-      this.pages.appendChild(this.createPageIndex(this.batch[i]));
+      this.pages.appendChild(this.createPageIndex(this.batch[i]))
     }
   }
 
   batchStartFrom() {
-    const half = Math.floor(this.displayButtonCount / 2);
+    const half = Math.floor(this.displayButtonCount / 2)
 
-    let start = this.currentPage - half;
+    let start = this.currentPage - half
     while (start < 1) {
-      start += 1;
+      start += 1
     }
 
     while (start + half * 2 > this.totalPage) {
-      start -= 1;
+      start -= 1
     }
 
-    return start;
+    return start
   }
 
   updateBatch() {
-    this.batch = [];
+    this.batch = []
     if (this.totalPage > this.displayButtonCount) {
-      const start = this.batchStartFrom();
+      const start = this.batchStartFrom()
       for (let i = 0; i < this.displayButtonCount; i++) {
-        this.batch.push(start + i);
+        this.batch.push(start + i)
       }
     } else {
       for (let i = 1; i <= this.totalPage; i++) {
-        this.batch.push(i);
+        this.batch.push(i)
       }
     }
-    this.attachButtonsByBatch();
-    this.updateButtonVisible();
+    this.attachButtonsByBatch()
+    this.updateButtonVisible()
   }
 
   updateButtonVisible() {
     // Prev & Next button
     if (this.totalPage <= this.displayButtonCount) {
-      this.btnPrev.style.display = 'none';
-      this.btnNext.style.display = 'none';
-      this.btnMoreLeft.style.display = 'none';
-      this.btnMoreRight.style.display = 'none';
-      this.btnFirstPage.style.display = 'none';
-      this.btnLastPage.style.display = 'none';
+      this.btnPrev.style.display = 'none'
+      this.btnNext.style.display = 'none'
+      this.btnMoreLeft.style.display = 'none'
+      this.btnMoreRight.style.display = 'none'
+      this.btnFirstPage.style.display = 'none'
+      this.btnLastPage.style.display = 'none'
     } else {
       // More left button
       if (this.batch[0] < 3) {
-        this.btnMoreLeft.style.display = 'none';
+        this.btnMoreLeft.style.display = 'none'
       } else {
-        this.btnMoreLeft.style.display = 'inline-flex';
+        this.btnMoreLeft.style.display = 'inline-flex'
       }
 
       // Fist page button
       if (this.batch[0] > 1) {
-        this.btnFirstPage.style.display = 'inline-flex';
+        this.btnFirstPage.style.display = 'inline-flex'
       } else {
-        this.btnFirstPage.style.display = 'none';
+        this.btnFirstPage.style.display = 'none'
       }
 
       // More right button
       if (this.batch[this.batch.length - 1] > this.totalPage - 2) {
-        this.btnMoreRight.style.display = 'none';
+        this.btnMoreRight.style.display = 'none'
       } else {
-        this.btnMoreRight.style.display = 'inline-flex';
+        this.btnMoreRight.style.display = 'inline-flex'
       }
 
       // Last page button
       if (this.batch[this.batch.length - 1] < this.totalPage) {
-        this.btnLastPage.style.display = 'inline-flex';
+        this.btnLastPage.style.display = 'inline-flex'
       } else {
-        this.btnLastPage.style.display = 'none';
+        this.btnLastPage.style.display = 'none'
       }
 
       // Prev button
       if (this.currentPage === 1) {
-        this.btnPrev.setAttribute('disabled', '');
+        this.btnPrev.setAttribute('disabled', '')
       } else {
-        this.btnPrev.removeAttribute('disabled');
+        this.btnPrev.removeAttribute('disabled')
       }
 
       // Prev button
       if (this.currentPage === this.totalPage) {
-        this.btnNext.setAttribute('disabled', '');
+        this.btnNext.setAttribute('disabled', '')
       } else {
-        this.btnNext.removeAttribute('disabled');
+        this.btnNext.removeAttribute('disabled')
       }
     }
   }
 
   handleMoreLeft() {
-    this.setIndex(this.currentPage - this.displayButtonCount);
+    this.setIndex(this.currentPage - this.displayButtonCount)
   }
 
   handleMoreRight() {
-    this.setIndex(this.currentPage + this.displayButtonCount);
+    this.setIndex(this.currentPage + this.displayButtonCount)
   }
 
   handleItemClick(event, index) {
-    this.setIndex(index);
+    this.setIndex(index)
   }
 
   setIndex(index) {
-    const oldIndex = this.currentPage;
-    this.currentPage = index;
-    this.updateBatch();
-    this.setActiveButton(oldIndex, this.currentPage);
-    this.dispatchEvent(new CustomEvent('navigate', { detail: index }));
+    const oldIndex = this.currentPage
+    this.currentPage = index
+    this.updateBatch()
+    this.setActiveButton(oldIndex, this.currentPage)
+    this.dispatchEvent(new CustomEvent('navigate', {detail: index}))
   }
 }

@@ -135,6 +135,36 @@
   --animate-duration: 1s;
   --animate-delay: 1s;
   --animate-repeat: 1;
+  // Font size
+  --display1: 56px;
+  --display2: 48px;
+  --display3: 40px;
+  --heading1: 32px;
+  --heading2: 28px;
+  --heading3: 24px;
+  --heading4: 20px;
+  --heading5: 16px;
+  --body1: 20px;
+  --body2: 16px;
+  --body3: 14px;
+  --label1: 14px;
+  --label2: 12px;
+  --label3: 10px;
+
+  --line-height-display1: 84px;
+  --line-height-display2: 72px;
+  --line-height-display3: 60px;
+  --line-height-heading1: 48px;
+  --line-height-heading2: 42px;
+  --line-height-heading3: 36px;
+  --line-height-heading4: 30px;
+  --line-height-heading5: 24px;
+  --line-height-body1: 30px;
+  --line-height-body2: 24px;
+  --line-height-body3: 21px;
+  --line-height-label1: 21px;
+  --line-height-label2: 18px;
+  --line-height-label3: 15px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -146,12 +176,14 @@
 html,
 body {
   font-family: var(--font-family);
+  font-size: var(--body2);
+  line-height: var(--line-height-body2);
+
   color: var(--primary-color);
   background: var(--background);
-  font-size: 16px;
-  line-height: 24px;
   margin: 0;
   padding: 0;
+
   &.theme-dark {
     @include darkColors;
   }

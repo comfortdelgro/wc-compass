@@ -9,14 +9,14 @@
     height: 180px;
     .cdg-page-cover-title {
       font-weight: 700;
-      font-size: 32px;
-      line-height: 48px;
+      font-size: var(--heading1);
+      line-height: var(--line-height-heading1);
     }
   }
 
   .cdg-blog-slide-title {
-    font-size: 28px;
-    line-height: 36px;
+    font-size: var(--heading2);
+    line-height: var(--line-height-heading2);
   }
 
   .cdg-blog-slide-image {
@@ -43,11 +43,16 @@
     }
   }
 
+  .cdg-card-blog-title,
   cdg-card.article-card .cdg-card-title,
   .cdg-card.article-card .cdg-card-title,
   .cdg-card-blog-title {
     font-size: 22px;
     line-height: 28px;
+  }
+
+  .cdg-card-grid {
+    gap: 24px;
   }
 }
 
@@ -89,8 +94,8 @@
   }
 
   .cdg-post-title {
-    font-size: 28px;
-    line-height: 42px;
+    font-size: var(--heading2);
+    line-height: var(--line-height-heading2);
   }
 
   cdg-card.article-card .cdg-card-title,
@@ -142,4 +147,31 @@
   .cdg-card-header {
     padding: 8px 0;
   }
+
+  .cdg-card-grid {
+    gap: 16px;
+    &.columns-4 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@container CardGrid (max-width: 1199px) {
+  .cdg-card-blog-title {
+    font-size: 22px;
+    line-height: 28px;
+  }
+}
+
+@container CardGrid (max-width: 960px) {
+  .cdg-card-blog-title {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+@container CdgForm (max-width: 1199px) {
+}
+
+@container CdgForm (max-width: 960px) {
 }
