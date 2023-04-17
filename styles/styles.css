@@ -15,7 +15,8 @@ body {
 
 body cdg-nav-rail .workbench-title,
 body .cdg-nav-rail .workbench-title {
-  font-size: 20px;
+  font-size: var(--heading4);
+  line-height: var(--line-height-heading4);
 }
 
 .sidebar a {
@@ -202,6 +203,10 @@ pre code.hljs {
   align-items: center;
 }
 
+.cdg-sample-section .sample-header .cdg-tabs {
+  width: auto;
+}
+
 .cdg-sample-section pre code {
   width: 100%;
 }
@@ -220,6 +225,47 @@ pre code.hljs {
 .doc-sample-image {
   max-width: 100%;
   border: 1px solid var(--border-color);
+}
+
+.guideline-table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+.guideline-table thead {
+  background-color: var(--grey20);
+  font-weight: 500;
+}
+.guideline-table thead th {
+  padding: 14px 16px;
+}
+.guideline-table tbody td {
+  padding: 8px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.cdg-contains-gutter cdg-sub-nav,
+.cdg-contains-gutter .cdg-sub-nav {
+  width: 100%;
+  overflow: auto;
+}
+
+.sub-nav-wrapper {
+  min-width: 10px;
+}
+
+.sub-nav-wrapper.cdg-contains-gutter {
+  width: 200px;
+}
+
+.guideline-section {
+  margin-top: 32px;
+}
+
+.guideline-section .sample-section-title {
+  margin-bottom: 12px;
 }
 
 @media screen and (max-width: 767px) {

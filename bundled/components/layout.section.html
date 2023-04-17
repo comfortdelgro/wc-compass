@@ -1,0 +1,309 @@
+<cdg-sample-section name="Table Layout">
+  <p>
+    If you want to control everything inside the table, go ahead to implement
+    the table layout by following html structure. <br />
+    For more convinient, we also have auto layout table with input data JSON.
+  </p>
+  <div class="sample-section column">
+    <cdg-toolbar>
+      <div class="cdg-left-group">
+        <label class="cdg-input-group" style="width: 160px">
+          <cdg-dropdown placeholder="Sample select">
+            <cdg-dropdown-option value="1">
+              Select Select 1
+            </cdg-dropdown-option>
+            <cdg-dropdown-option value="2">
+              Select Select 2
+            </cdg-dropdown-option>
+            <cdg-dropdown-option value="3">
+              Select Select 3
+            </cdg-dropdown-option>
+          </cdg-dropdown>
+        </label>
+        <label class="cdg-input-group" style="width: 320px">
+          <div class="cdg-input-with-icon right">
+            <input class="cdg-input" placeholder="Type something..." />
+            <cdg-icon name="search" size="16"></cdg-icon>
+          </div>
+        </label>
+      </div>
+      <div class="cdg-right-group">
+        <button class="cdg-button">
+          <cdg-icon name="plus"></cdg-icon> Add employee
+        </button>
+        <button class="cdg-button ghost">
+          <cdg-icon name="outlineTrash"></cdg-icon>
+        </button>
+        <button class="cdg-button ghost">
+          <cdg-icon name="copy"></cdg-icon>
+        </button>
+      </div>
+    </cdg-toolbar>
+
+    <cdg-table class="cdg-table" checkable>
+      <cdg-table-head class="cdg-table-head">
+        <cdg-table-row class="cdg-table-head-row">
+          <cdg-table-head-cell name="id" width="60px"> ID </cdg-table-head-cell>
+          <cdg-table-head-cell sortable name="name">
+            <a href="#table" class="cdg-table-head-cell-content">
+              <label class="cdg-table-head-cell-text has-sorting">Name</label>
+              <div class="cdg-table-head-cell-sorting">
+                <cdg-icon
+                  class="cdg-table-head-cell-icon asc"
+                  name="filledArrowUp"
+                  size="16"
+                ></cdg-icon>
+                <cdg-icon
+                  class="cdg-table-head-cell-icon desc"
+                  name="filledArrowDown"
+                  size="16"
+                ></cdg-icon>
+              </div>
+            </a>
+          </cdg-table-head-cell>
+          <cdg-table-head-cell sortable name="age" width="100px">
+            <a href="#table" class="cdg-table-head-cell-content">
+              <label class="cdg-table-head-cell-text has-sorting">Age</label>
+              <div class="cdg-table-head-cell-sorting">
+                <cdg-icon
+                  class="cdg-table-head-cell-icon asc"
+                  name="filledArrowUp"
+                  size="16"
+                ></cdg-icon>
+                <cdg-icon
+                  class="cdg-table-head-cell-icon desc"
+                  name="filledArrowDown"
+                  size="16"
+                ></cdg-icon>
+              </div>
+            </a>
+          </cdg-table-head-cell>
+          <cdg-table-head-cell name="gender" width="100px">
+            <div class="cdg-table-head-cell-text">Gender</div>
+          </cdg-table-head-cell>
+        </cdg-table-row>
+      </cdg-table-head>
+      <cdg-table-body class="cdg-table-body"> </cdg-table-body>
+    </cdg-table>
+
+    <div class="cdg-table-footer" cdg-table-footer>
+      <div class="cdg-table-footer-left">
+        <span>Rows per page: </span>
+        <div class="cdg-table-row-page-select">
+          <label class="cdg-input-group" style="width: 138px">
+            <cdg-dropdown id="pageSizeDropdown">
+              <cdg-dropdown-option value="10" selected="true">
+                10 rows
+              </cdg-dropdown-option>
+              <cdg-dropdown-option value="20"> 20 rows </cdg-dropdown-option>
+              <cdg-dropdown-option value="30"> 30 rows </cdg-dropdown-option>
+            </cdg-dropdown>
+          </label>
+        </div>
+      </div>
+      <div class="cdg-table-footer-right">
+        <span id="displayedRows">Showing 1 - 10 out of 1000</span>
+        <div class="cdg-table-pagination">
+          <cdg-pagination
+            current-page="1"
+            total="1000"
+            page-size="10"
+            display-button-count="3"
+          ></cdg-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+  <pre>
+    <code class="language-html">&lt;cdg-toolbar&gt;
+  &lt;div class=&quot;cdg-left-group&quot;&gt;
+    &lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 160px&quot;&gt;
+      &lt;cdg-dropdown placeholder=&quot;Sample select&quot;&gt;
+        &lt;cdg-dropdown-option value=&quot;1&quot;&gt;
+          Select Select 1
+        &lt;/cdg-dropdown-option&gt;
+        &lt;cdg-dropdown-option value=&quot;2&quot;&gt;
+          Select Select 2
+        &lt;/cdg-dropdown-option&gt;
+        &lt;cdg-dropdown-option value=&quot;3&quot;&gt;
+          Select Select 3
+        &lt;/cdg-dropdown-option&gt;
+      &lt;/cdg-dropdown&gt;
+    &lt;/label&gt;
+    &lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 320px&quot;&gt;
+      &lt;div class=&quot;cdg-input-with-icon right&quot;&gt;
+        &lt;input class=&quot;cdg-input&quot; placeholder=&quot;Type something...&quot; /&gt;
+        &lt;cdg-icon name=&quot;search&quot; size=&quot;16&quot;&gt;&lt;/cdg-icon&gt;
+      &lt;/div&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cdg-right-group&quot;&gt;
+    &lt;button class=&quot;cdg-button&quot;&gt;
+      &lt;cdg-icon name=&quot;plus&quot;&gt;&lt;/cdg-icon&gt; Add employee
+    &lt;/button&gt;
+    &lt;button class=&quot;cdg-button ghost&quot;&gt;
+      &lt;cdg-icon name=&quot;outlineTrash&quot;&gt;&lt;/cdg-icon&gt;
+    &lt;/button&gt;
+    &lt;button class=&quot;cdg-button ghost&quot;&gt;
+      &lt;cdg-icon name=&quot;copy&quot;&gt;&lt;/cdg-icon&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/cdg-toolbar&gt;
+
+&lt;cdg-table class=&quot;cdg-table&quot; checkable&gt;
+  &lt;cdg-table-head class=&quot;cdg-table-head&quot;&gt;
+    &lt;cdg-table-row class=&quot;cdg-table-head-row&quot;&gt;
+      &lt;cdg-table-head-cell name=&quot;id&quot; width=&quot;60px&quot;&gt; ID &lt;/cdg-table-head-cell&gt;
+      &lt;cdg-table-head-cell sortable name=&quot;name&quot;&gt;
+        &lt;a href=&quot;#table&quot; class=&quot;cdg-table-head-cell-content&quot;&gt;
+          &lt;label class=&quot;cdg-table-head-cell-text has-sorting&quot;&gt;Name&lt;/label&gt;
+          &lt;div class=&quot;cdg-table-head-cell-sorting&quot;&gt;
+            &lt;cdg-icon
+              class=&quot;cdg-table-head-cell-icon asc&quot;
+              name=&quot;filledArrowUp&quot;
+              size=&quot;16&quot;
+            &gt;&lt;/cdg-icon&gt;
+            &lt;cdg-icon
+              class=&quot;cdg-table-head-cell-icon desc&quot;
+              name=&quot;filledArrowDown&quot;
+              size=&quot;16&quot;
+            &gt;&lt;/cdg-icon&gt;
+          &lt;/div&gt;
+        &lt;/a&gt;
+      &lt;/cdg-table-head-cell&gt;
+      &lt;cdg-table-head-cell sortable name=&quot;age&quot; width=&quot;100px&quot;&gt;
+        &lt;a href=&quot;#table&quot; class=&quot;cdg-table-head-cell-content&quot;&gt;
+          &lt;label class=&quot;cdg-table-head-cell-text has-sorting&quot;&gt;Age&lt;/label&gt;
+          &lt;div class=&quot;cdg-table-head-cell-sorting&quot;&gt;
+            &lt;cdg-icon
+              class=&quot;cdg-table-head-cell-icon asc&quot;
+              name=&quot;filledArrowUp&quot;
+              size=&quot;16&quot;
+            &gt;&lt;/cdg-icon&gt;
+            &lt;cdg-icon
+              class=&quot;cdg-table-head-cell-icon desc&quot;
+              name=&quot;filledArrowDown&quot;
+              size=&quot;16&quot;
+            &gt;&lt;/cdg-icon&gt;
+          &lt;/div&gt;
+        &lt;/a&gt;
+      &lt;/cdg-table-head-cell&gt;
+      &lt;cdg-table-head-cell name=&quot;gender&quot; width=&quot;100px&quot;&gt;
+        &lt;div class=&quot;cdg-table-head-cell-text&quot;&gt;Gender&lt;/div&gt;
+      &lt;/cdg-table-head-cell&gt;
+    &lt;/cdg-table-row&gt;
+  &lt;/cdg-table-head&gt;
+  &lt;cdg-table-body class=&quot;cdg-table-body&quot;&gt; &lt;/cdg-table-body&gt;
+&lt;/cdg-table&gt;
+
+&lt;div class=&quot;cdg-table-footer&quot; cdg-table-footer&gt;
+  &lt;div class=&quot;cdg-table-footer-left&quot;&gt;
+    &lt;span&gt;Rows per page: &lt;/span&gt;
+    &lt;div class=&quot;cdg-table-row-page-select&quot;&gt;
+      &lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 138px&quot;&gt;
+        &lt;cdg-dropdown id=&quot;pageSizeDropdown&quot;&gt;
+          &lt;cdg-dropdown-option value=&quot;10&quot; selected=&quot;true&quot;&gt;
+            10 rows
+          &lt;/cdg-dropdown-option&gt;
+          &lt;cdg-dropdown-option value=&quot;20&quot;&gt; 20 rows &lt;/cdg-dropdown-option&gt;
+          &lt;cdg-dropdown-option value=&quot;30&quot;&gt; 30 rows &lt;/cdg-dropdown-option&gt;
+        &lt;/cdg-dropdown&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cdg-table-footer-right&quot;&gt;
+    &lt;span id=&quot;displayedRows&quot;&gt;Showing 1 - 10 out of 1000&lt;/span&gt;
+    &lt;div class=&quot;cdg-table-pagination&quot;&gt;
+      &lt;cdg-pagination
+        current-page=&quot;1&quot;
+        total=&quot;1000&quot;
+        page-size=&quot;10&quot;
+        display-button-count=&quot;3&quot;
+      &gt;&lt;/cdg-pagination&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+import {CdgBaseComponent} from &apos;../../../shared/base-component&apos;
+import {dummyData} from &apos;../table-data&apos;
+import template from &apos;./layout.section.html&apos;
+
+export class CdgTableLayoutSection extends CdgBaseComponent {
+  tableElement
+  tableBody
+  paginationElement
+  pageSizeDropdown
+  displayedRows
+
+  pageIndex = 1
+  pageSize = 10
+
+  constructor() {
+    super()
+    this.template = template
+  }
+
+  onInit() {
+    this.tableElement = this.querySelector(&apos;cdg-table&apos;)
+    this.tableBody = this.tableElement.querySelector(&apos;cdg-table-body&apos;)
+    this.paginationElement = this.querySelector(&apos;cdg-pagination&apos;)
+    this.pageSizeDropdown = this.querySelector(&apos;#pageSizeDropdown&apos;)
+    this.displayedRows = this.querySelector(&apos;#displayedRows&apos;)
+
+    dummyData
+      .slice(
+        (this.pageIndex - 1) * this.pageSize,
+        this.pageIndex * this.pageSize,
+      )
+      .forEach((data) =&gt; {
+        const row = this.createRow(data)
+        this.tableBody.append(row.content.cloneNode(true))
+      })
+
+    if (this.pageSizeDropdown) {
+      this.pageSizeDropdown.addEventListener(&apos;onchangevalue&apos;, (event) =&gt; {
+        this.pageSize = Number(event.detail)
+        this.renderNewRows(this.pageIndex, this.pageSize)
+      })
+    }
+
+    if (this.paginationElement) {
+      this.paginationElement.addEventListener(&apos;navigate&apos;, (event) =&gt; {
+        this.pageIndex = Number(event.detail)
+        this.renderNewRows(this.pageIndex, this.pageSize)
+      })
+    }
+  }
+
+  createRow(data) {
+    const rowTemplate = document.createElement(&apos;template&apos;)
+    rowTemplate.innerHTML = `
+            &lt;cdg-table-row class=&quot;cdg-table-row&quot; checkable&gt;
+                &lt;cdg-table-cell&gt;${data.id}&lt;/cdg-table-cell&gt;
+                &lt;cdg-table-cell&gt;${data.name}&lt;/cdg-table-cell&gt;
+                &lt;cdg-table-cell&gt;${data.age}&lt;/cdg-table-cell&gt;
+                &lt;cdg-table-cell&gt;${data.gender}&lt;/cdg-table-cell&gt;
+            &lt;/cdg-table-row&gt;
+        `
+    return rowTemplate
+  }
+
+  renderNewRows(pageIndex, pageSize) {
+    this.tableBody.innerHTML = &apos;&apos;
+    this.paginationElement.setAttribute(&apos;page-size&apos;, pageSize)
+    this.paginationElement.setAttribute(&apos;current-page&apos;, pageIndex)
+    this.displayedRows.innerHTML = `Showing ${
+      pageIndex * pageSize - pageSize + 1
+    } - ${pageIndex * pageSize} out of ${dummyData.length}`
+    dummyData
+      .slice((pageIndex - 1) * pageSize, pageIndex * pageSize)
+      .forEach((data) =&gt; {
+        const row = this.createRow(data)
+        this.tableBody.append(row.content.cloneNode(true))
+      })
+  }
+}
+
+&lt;/script&gt;</code>
+</pre>
+</cdg-sample-section>

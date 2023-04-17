@@ -1,0 +1,433 @@
+<p>
+  Form Layouts are common layout for you to put any input controls in. Input
+  controls will be automatically arranged inside the layout follows exactly UI
+  Design without any customization css. Just remember to follow the html
+  structure.
+</p>
+
+<cdg-sample-section name="Form Structure">
+  <div class="sample-section" style="flex-direction: column">
+    <forms class="cdg-form">
+      <div class="cdg-form-row stretch">
+        <label class="cdg-input-group error">
+          <span class="cdg-input-label">I'm an required field</span>
+          <input
+            class="cdg-input"
+            type="text"
+            placeholder="Please input me..."
+          />
+          <span class="cdg-helper-message">This field is required!</span>
+        </label>
+        <label class="cdg-input-group">
+          <span class="cdg-input-label">Next field</span>
+          <input class="cdg-input" placeholder="Please input me..." />
+          <span class="cdg-helper-message">You can input everything</span>
+        </label>
+        <label class="cdg-input-group">
+          <span class="cdg-input-label">Third field</span>
+          <input class="cdg-input" placeholder="Hi there..." />
+        </label>
+      </div>
+      <div class="cdg-form-row">
+        <label class="cdg-input-group" style="flex: 0.32">
+          <span class="cdg-input-label">Single dropdown</span>
+          <cdg-dropdown
+            placeholder="Select an item"
+            header-title="Filter title"
+          >
+            <cdg-dropdown-option value="1"> Dropdown 1 </cdg-dropdown-option>
+            <cdg-dropdown-option value="2" current-color="black">
+              Dropdown 2
+            </cdg-dropdown-option>
+            <cdg-dropdown-option value="3"> Dropdown 3 </cdg-dropdown-option>
+          </cdg-dropdown>
+        </label>
+      </div>
+      <div class="cdg-form-row">
+        <label class="cdg-input-group" style="flex: 0.32">
+          <cdg-datepicker start-title="Single Datepicker" />
+        </label>
+      </div>
+    </forms>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;forms class=&quot;cdg-form&quot;&gt;
+    &lt;div class=&quot;cdg-form-row stretch&quot;&gt;
+        &lt;label class=&quot;cdg-input-group error&quot;&gt;
+            &lt;span class=&quot;cdg-input-label&quot;&gt;I&apos;m an required field&lt;/span&gt;
+            &lt;input
+                class=&quot;cdg-input&quot;
+                type=&quot;text&quot;
+                placeholder=&quot;Please input me...&quot;
+            /&gt;
+            &lt;span class=&quot;cdg-helper-message&quot;&gt;This field is required!&lt;/span&gt;
+        &lt;/label&gt;
+        &lt;label class=&quot;cdg-input-group&quot;&gt;
+            &lt;span class=&quot;cdg-input-label&quot;&gt;Next field&lt;/span&gt;
+            &lt;input class=&quot;cdg-input&quot; placeholder=&quot;Please input me...&quot; /&gt;
+            &lt;span class=&quot;cdg-helper-message&quot;&gt;You can input everything&lt;/span&gt;
+        &lt;/label&gt;
+        &lt;label class=&quot;cdg-input-group&quot;&gt;
+            &lt;span class=&quot;cdg-input-label&quot;&gt;Third field&lt;/span&gt;
+            &lt;input class=&quot;cdg-input&quot; placeholder=&quot;Hi there...&quot; /&gt;
+        &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cdg-form-row&quot;&gt;
+        &lt;label class=&quot;cdg-input-group&quot; style=&quot;flex: 0.32&quot;&gt;
+            &lt;span class=&quot;cdg-input-label&quot;&gt;Single dropdown&lt;/span&gt;
+            &lt;cdg-dropdown
+                placeholder=&quot;Select an item&quot;
+                header-title=&quot;Filter title&quot;
+            &gt;
+                &lt;cdg-dropdown-option value=&quot;1&quot;&gt; Dropdown 1 &lt;/cdg-dropdown-option&gt;
+                &lt;cdg-dropdown-option value=&quot;2&quot; current-color=&quot;black&quot;&gt;
+                    Dropdown 2
+                &lt;/cdg-dropdown-option&gt;
+                &lt;cdg-dropdown-option value=&quot;3&quot;&gt; Dropdown 3 &lt;/cdg-dropdown-option&gt;
+            &lt;/cdg-dropdown&gt;
+        &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cdg-form-row&quot;&gt;
+        &lt;label class=&quot;cdg-input-group&quot; style=&quot;flex: 0.32&quot;&gt;
+            &lt;cdg-datepicker start-title=&quot;Single Datepicker&quot; /&gt;
+        &lt;/label&gt;
+    &lt;/div&gt;
+&lt;/forms&gt;</code>
+  </pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Sample">
+  <div class="sample-section" style="flex-direction: column">
+    <forms class="cdg-form">
+      <div class="cdg-form-section">
+        <div class="cdg-form-explaination">
+          <div class="cdg-form-section-title">Create New Time/Date Policy</div>
+          <div class="cdg-form-section-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </div>
+        </div>
+        <cdg-divider></cdg-divider>
+        <div class="cdg-form-row">
+          <label class="cdg-input-group" style="flex: 0.32">
+            <span class="cdg-input-label">Salutation</span>
+            <cdg-dropdown placeholder="Select an item">
+              <cdg-dropdown-option value="1" selected="true">
+                MR
+              </cdg-dropdown-option>
+              <cdg-dropdown-option value="2"> Dropdown 2 </cdg-dropdown-option>
+              <cdg-dropdown-option value="3"> Dropdown 3 </cdg-dropdown-option>
+            </cdg-dropdown>
+            <span class="cdg-helper-message">Helper text</span>
+          </label>
+        </div>
+        <div class="cdg-form-row">
+          <label class="cdg-radio custom-content">
+            <input type="radio" name="sample4" checked />
+            <div class="radio-content">
+              <div class="radio-title">I'm the first one</div>
+              <div class="radio-description">This is the description</div>
+            </div>
+          </label>
+          <label class="cdg-radio custom-content">
+            <input type="radio" name="sample4" />
+            <div class="radio-content">
+              <div class="radio-title">I'm the second</div>
+              <div class="radio-description">
+                This is the description to give user more details
+              </div>
+            </div>
+          </label>
+          <label class="cdg-radio custom-content">
+            <input type="radio" name="sample4" />
+            <div class="radio-content">
+              <div class="radio-title">I'm the last one</div>
+              <div class="radio-description">This is the description</div>
+            </div>
+          </label>
+        </div>
+        <div class="cdg-form-row">
+          <div class="cdg-form-explaination cdg-flex">
+            <div class="cdg-form-section-title">
+              Create New Time/Date Policy
+            </div>
+            <div class="cdg-form-section-description">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </div>
+          <div class="cdg-file-upload-wrapper cdg-flex">
+            <label class="cdg-input-group">
+              <span class="cdg-input-label">Upload file</span>
+              <cdg-file id="fileUpload">
+                <div class="cdg-button upload-button">Browse files</div>
+                <input type="file" class="cdg-file-input" multiple />
+              </cdg-file>
+            </label>
+            <div class="cdg-file-list" id="fileList">
+              <cdg-file-upload
+                state="uploading"
+                fileName="sampe-file-name.pdf"
+              ></cdg-file-upload>
+              <cdg-file-upload
+                state="success"
+                fileName="sampe-file-name.pdf"
+              ></cdg-file-upload>
+              <cdg-file-upload
+                state="error"
+                fileName="sampe-file-name.pdf"
+              ></cdg-file-upload>
+            </div>
+          </div>
+        </div>
+      </div>
+      <cdg-divider></cdg-divider>
+      <div class="cdg-form-section">
+        <div class="cdg-form-row">
+          <div class="cdg-form-explaination cdg-flex">
+            <div class="cdg-form-section-title">
+              Create New Time/Date Policy
+            </div>
+            <div class="cdg-form-section-description">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </div>
+          <div class="cdg-checkbox-group cdg-flex">
+            <label class="cdg-checkbox">
+              <input type="checkbox" />
+              <span>Check me!</span>
+            </label>
+            <label class="cdg-checkbox">
+              <input type="checkbox" />
+              <span>Check me!</span>
+            </label>
+            <label class="cdg-checkbox">
+              <input type="checkbox" />
+              <span>Check me!</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <cdg-divider></cdg-divider>
+      <div class="cdg-form-section">
+        <div class="cdg-form-row stretch">
+          <label class="cdg-input-group">
+            <span class="cdg-input-label">Salutation</span>
+            <cdg-dropdown placeholder="Select an item">
+              <cdg-dropdown-option value="1" selected="true">
+                MR
+              </cdg-dropdown-option>
+              <cdg-dropdown-option value="2"> Dropdown 2 </cdg-dropdown-option>
+              <cdg-dropdown-option value="3"> Dropdown 3 </cdg-dropdown-option>
+            </cdg-dropdown>
+          </label>
+          <label class="cdg-input-group">
+            <span class="cdg-input-label">Full name</span>
+            <input
+              class="cdg-input"
+              placeholder="Please input me..."
+              value="Phyllis"
+            />
+          </label>
+          <label class="cdg-input-group">
+            <span class="cdg-input-label">Last Name</span>
+            <input class="cdg-input" placeholder="Hi there..." value="Yang" />
+          </label>
+        </div>
+        <div class="cdg-form-row stretch">
+          <label class="cdg-input-group">
+            <span class="cdg-input-label">Contact Number</span>
+            <input class="cdg-input" placeholder="Input your number..." />
+          </label>
+          <label class="cdg-input-group">
+            <span class="cdg-input-label">Work Email</span>
+            <input
+              class="cdg-input"
+              placeholder="Please input me..."
+              value="Phyllis@email.com"
+            />
+          </label>
+          <label class="cdg-input-group">
+            <span class="cdg-input-label">Department</span>
+            <input
+              class="cdg-input"
+              placeholder="Hi there..."
+              value="PMG Department"
+            />
+          </label>
+        </div>
+      </div>
+    </forms>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;forms class=&quot;cdg-form&quot;&gt;
+    &lt;div class=&quot;cdg-form-section&quot;&gt;
+        &lt;div class=&quot;cdg-form-explaination&quot;&gt;
+            &lt;div class=&quot;cdg-form-section-title&quot;&gt;Create New Time/Date Policy&lt;/div&gt;
+            &lt;div class=&quot;cdg-form-section-description&quot;&gt;
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;cdg-divider&gt;&lt;/cdg-divider&gt;
+        &lt;div class=&quot;cdg-form-row&quot;&gt;
+            &lt;label class=&quot;cdg-input-group&quot; style=&quot;flex: 0.32&quot;&gt;
+                &lt;span class=&quot;cdg-input-label&quot;&gt;Salutation&lt;/span&gt;
+                &lt;cdg-dropdown placeholder=&quot;Select an item&quot;&gt;
+                    &lt;cdg-dropdown-option value=&quot;1&quot; selected=&quot;true&quot;&gt;
+                        MR
+                    &lt;/cdg-dropdown-option&gt;
+                    &lt;cdg-dropdown-option value=&quot;2&quot;&gt; Dropdown 2 &lt;/cdg-dropdown-option&gt;
+                    &lt;cdg-dropdown-option value=&quot;3&quot;&gt; Dropdown 3 &lt;/cdg-dropdown-option&gt;
+                &lt;/cdg-dropdown&gt;
+                &lt;span class=&quot;cdg-helper-message&quot;&gt;Helper text&lt;/span&gt;
+            &lt;/label&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;cdg-form-row&quot;&gt;
+        &lt;label class=&quot;cdg-radio custom-content&quot;&gt;
+            &lt;input type=&quot;radio&quot; name=&quot;sample4&quot; checked /&gt;
+            &lt;div class=&quot;radio-content&quot;&gt;
+                &lt;div class=&quot;radio-title&quot;&gt;I&apos;m the first one&lt;/div&gt;
+                &lt;div class=&quot;radio-description&quot;&gt;This is the description&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/label&gt;
+        &lt;label class=&quot;cdg-radio custom-content&quot;&gt;
+            &lt;input type=&quot;radio&quot; name=&quot;sample4&quot; /&gt;
+            &lt;div class=&quot;radio-content&quot;&gt;
+                &lt;div class=&quot;radio-title&quot;&gt;I&apos;m the second&lt;/div&gt;
+                &lt;div class=&quot;radio-description&quot;&gt;
+                    This is the description to give user more details
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/label&gt;
+        &lt;label class=&quot;cdg-radio custom-content&quot;&gt;
+            &lt;input type=&quot;radio&quot; name=&quot;sample4&quot; /&gt;
+            &lt;div class=&quot;radio-content&quot;&gt;
+                &lt;div class=&quot;radio-title&quot;&gt;I&apos;m the last one&lt;/div&gt;
+                &lt;div class=&quot;radio-description&quot;&gt;This is the description&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/label&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;cdg-form-row&quot;&gt;
+            &lt;div class=&quot;cdg-form-explaination cdg-flex&quot;&gt;
+                &lt;div class=&quot;cdg-form-section-title&quot;&gt;
+                    Create New Time/Date Policy
+                &lt;/div&gt;
+                &lt;div class=&quot;cdg-form-section-description&quot;&gt;
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;cdg-file-upload-wrapper cdg-flex&quot;&gt;
+                &lt;label class=&quot;cdg-input-group&quot;&gt;
+                &lt;span class=&quot;cdg-input-label&quot;&gt;Upload file&lt;/span&gt;
+                    &lt;cdg-file id=&quot;fileUpload&quot;&gt;
+                        &lt;div class=&quot;cdg-button upload-button&quot;&gt;Browse files&lt;/div&gt;
+                        &lt;input type=&quot;file&quot; class=&quot;cdg-file-input&quot; multiple /&gt;
+                    &lt;/cdg-file&gt;
+                &lt;/label&gt;
+                &lt;div class=&quot;cdg-file-list&quot; id=&quot;fileList&quot;&gt;
+                &lt;cdg-file-upload
+                    state=&quot;uploading&quot;
+                    fileName=&quot;sampe-file-name.pdf&quot;
+                &gt;&lt;/cdg-file-upload&gt;
+                &lt;cdg-file-upload
+                    state=&quot;success&quot;
+                    fileName=&quot;sampe-file-name.pdf&quot;
+                &gt;&lt;/cdg-file-upload&gt;
+                &lt;cdg-file-upload
+                    state=&quot;error&quot;
+                    fileName=&quot;sampe-file-name.pdf&quot;
+                &gt;&lt;/cdg-file-upload&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;cdg-divider&gt;&lt;/cdg-divider&gt;
+    &lt;div class=&quot;cdg-form-section&quot;&gt;
+        &lt;div class=&quot;cdg-form-row&quot;&gt;
+        &lt;div class=&quot;cdg-form-explaination cdg-flex&quot;&gt;
+            &lt;div class=&quot;cdg-form-section-title&quot;&gt;
+                Create New Time/Date Policy
+            &lt;/div&gt;
+            &lt;div class=&quot;cdg-form-section-description&quot;&gt;
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;cdg-checkbox-group cdg-flex&quot;&gt;
+            &lt;label class=&quot;cdg-checkbox&quot;&gt;
+                &lt;input type=&quot;checkbox&quot; /&gt;
+                &lt;span&gt;Check me!&lt;/span&gt;
+            &lt;/label&gt;
+            &lt;label class=&quot;cdg-checkbox&quot;&gt;
+                &lt;input type=&quot;checkbox&quot; /&gt;
+                &lt;span&gt;Check me!&lt;/span&gt;
+            &lt;/label&gt;
+            &lt;label class=&quot;cdg-checkbox&quot;&gt;
+                &lt;input type=&quot;checkbox&quot; /&gt;
+                &lt;span&gt;Check me!&lt;/span&gt;
+            &lt;/label&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;cdg-divider&gt;&lt;/cdg-divider&gt;
+    &lt;div class=&quot;cdg-form-section&quot;&gt;
+        &lt;div class=&quot;cdg-form-row stretch&quot;&gt;
+        &lt;label class=&quot;cdg-input-group&quot;&gt;
+            &lt;span class=&quot;cdg-input-label&quot;&gt;Salutation&lt;/span&gt;
+            &lt;cdg-dropdown placeholder=&quot;Select an item&quot;&gt;
+                &lt;cdg-dropdown-option value=&quot;1&quot; selected=&quot;true&quot;&gt;
+                    MR
+                &lt;/cdg-dropdown-option&gt;
+                &lt;cdg-dropdown-option value=&quot;2&quot;&gt; Dropdown 2 &lt;/cdg-dropdown-option&gt;
+                &lt;cdg-dropdown-option value=&quot;3&quot;&gt; Dropdown 3 &lt;/cdg-dropdown-option&gt;
+            &lt;/cdg-dropdown&gt;
+        &lt;/label&gt;
+        &lt;label class=&quot;cdg-input-group&quot;&gt;
+            &lt;span class=&quot;cdg-input-label&quot;&gt;Full name&lt;/span&gt;
+            &lt;input
+                class=&quot;cdg-input&quot;
+                placeholder=&quot;Please input me...&quot;
+                value=&quot;Phyllis&quot;
+            /&gt;
+        &lt;/label&gt;
+        &lt;label class=&quot;cdg-input-group&quot;&gt;
+            &lt;span class=&quot;cdg-input-label&quot;&gt;Last Name&lt;/span&gt;
+            &lt;input class=&quot;cdg-input&quot; placeholder=&quot;Hi there...&quot; value=&quot;Yang&quot; /&gt;
+        &lt;/label&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;cdg-form-row stretch&quot;&gt;
+        &lt;label class=&quot;cdg-input-group&quot;&gt;
+            &lt;span class=&quot;cdg-input-label&quot;&gt;Contact Number&lt;/span&gt;
+            &lt;input class=&quot;cdg-input&quot; placeholder=&quot;Input your number...&quot; /&gt;
+        &lt;/label&gt;
+        &lt;label class=&quot;cdg-input-group&quot;&gt;
+            &lt;span class=&quot;cdg-input-label&quot;&gt;Work Email&lt;/span&gt;
+            &lt;input
+                class=&quot;cdg-input&quot;
+                placeholder=&quot;Please input me...&quot;
+                value=&quot;Phyllis@email.com&quot;
+            /&gt;
+        &lt;/label&gt;
+        &lt;label class=&quot;cdg-input-group&quot;&gt;
+            &lt;span class=&quot;cdg-input-label&quot;&gt;Department&lt;/span&gt;
+            &lt;input
+                class=&quot;cdg-input&quot;
+                placeholder=&quot;Hi there...&quot;
+                value=&quot;PMG Department&quot;
+            /&gt;
+        &lt;/label&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/forms&gt;</code>
+  </pre>
+  <p>
+    Only use this <code>.cdg-form-section</code> class name when the form is too
+    complicated which have multiple sections separate by divider. Then you can
+    use <code>&lt;cdg-divider&gt;&lt;/cdg-divider&gt;</code> to separate them.
+  </p>
+</cdg-sample-section>

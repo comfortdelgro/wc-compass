@@ -4,16 +4,16 @@
   settings, volume) whilst watching a video.
 </p>
 
-<h3>Default</h3>
-<div class="sample-section">
-  <cdg-video-player id="player" controls volume="50">
-    <video
-      src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
-    ></video>
-  </cdg-video-player>
-</div>
+<cdg-sample-section name="Default">
+  <div class="sample-section">
+    <cdg-video-player id="player" controls volume="50">
+      <video
+        src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+      ></video>
+    </cdg-video-player>
+  </div>
 
-<pre>
+  <pre>
     <code class="language-html">&lt;cdg-video-player id=&quot;player&quot; controls volume=&quot;50&quot;&gt;
     &lt;video
         src=&quot;http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4&quot;
@@ -31,14 +31,15 @@
     });
 &lt;/script&gt;</code>
 </pre>
+</cdg-sample-section>
 
 <script>
-  const player = document.querySelector('#player');
+  const player = document.querySelector('#player')
   player.addEventListener('navigate', (event) => {
-    cdgToastService.toast(event.detail);
-  });
+    cdgToastService.toast(event.detail)
+  })
 
   player.addEventListener('play', (event) => {
-    cdgToastService.toast('Video is ' + (event.detail ? 'playing' : 'paused'));
-  });
+    cdgToastService.toast('Video is ' + (event.detail ? 'playing' : 'paused'))
+  })
 </script>
