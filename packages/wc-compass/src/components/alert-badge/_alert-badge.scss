@@ -6,10 +6,9 @@ cdg-alert-badge,
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 12px;
-  line-height: 18px;
   font-weight: 600;
   padding: 0 8px;
+  @extend %label2;
 
   cdg-icon,
   .cdg-icon {

@@ -56,8 +56,7 @@ footer.cdg-footer-section {
     @extend %heading5;
   }
   a {
-    font-size: 14px;
-    line-height: 21px;
+    @extend %body3;
     color: var(--grey70);
   }
 }
@@ -65,8 +64,7 @@ footer.cdg-footer-section {
 cdg-footer,
 .cdg-footer {
   font-weight: 600;
-  font-size: 14px;
-  line-height: 21px;
+  @extend %body3;
   display: flex;
   justify-content: space-between;
   .cdg-copyright {
@@ -103,8 +101,7 @@ cdg-footer,
   }
   .cdg-address {
     font-weight: 600;
-    font-size: 14px;
-    line-height: 21px;
+    @extend %body3;
   }
   .app-download {
     display: flex;

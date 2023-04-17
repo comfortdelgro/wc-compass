@@ -31,7 +31,6 @@ cdg-rating,
   display: flex;
   gap: 24px;
   justify-content: space-between;
-  font-size: 12px;
-  line-height: 18px;
+  @extend %label2;
   color: var(--grey80);
 }

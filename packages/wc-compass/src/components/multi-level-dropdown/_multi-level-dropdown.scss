@@ -70,8 +70,8 @@
 
   .cdg-dropdown-item {
     font-weight: 700;
-    font-size: 14px;
     line-height: 18px;
+    @extend %body3;
     .cdg-dropdown-item-content {
       display: flex;
       align-items: center;

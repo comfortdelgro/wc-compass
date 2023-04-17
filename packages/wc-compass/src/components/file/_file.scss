@@ -110,8 +110,7 @@ cdg-file,
 }
 
 .cdg-file-name-wrapper {
-  font-size: 14px;
-  line-height: 21px;
+  @extend %body3;
   font-weight: 600;
   color: var(--grey40);
   display: flex;
@@ -140,8 +139,7 @@ cdg-file-upload,
   background-color: var(--card-title-background);
   padding: 12px;
   gap: 8px;
-  font-size: 12px;
-  line-height: 18px;
+  @extend %label2;
   font-weight: 600;
   &.error {
     .cdg-icon {

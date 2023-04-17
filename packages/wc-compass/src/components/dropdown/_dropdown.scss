@@ -15,8 +15,7 @@
   .cdg-dropdown-label {
     font-style: normal;
     font-weight: 600;
-    font-size: 14px;
-    line-height: 21px;
+    @extend %label1;
     color: var(--primary-color);
     margin-bottom: 4px;
   }
@@ -48,8 +47,7 @@
       overflow: hidden;
       color: var(--primary-color);
       font-weight: 600;
-      font-size: 14px;
-      line-height: 21px;
+      @extend %body3;
       color: var(--grey100);
       &.placeholder {
         color: var(--placeholder);
@@ -67,8 +65,7 @@
         .cdg-dropdown-button-selected-item-text {
           white-space: nowrap;
           font-weight: 600;
-          font-size: 14px;
-          line-height: 21px;
+          @extend %body3;
           color: var(--primary-color);
         }
 
@@ -108,8 +105,7 @@
     .cdg-dropdown-option-header-label {
       font-style: normal;
       font-weight: 700;
-      font-size: 12px;
-      line-height: 18px;
+      @extend %label2;
     }
     .cdg-dropdown-option-header-actions {
       .cdg-dropdown-option-clear-button {
@@ -117,8 +113,7 @@
         padding: 0;
         font-style: normal;
         font-weight: 600;
-        font-size: 12px;
-        line-height: 18px;
+        @extend %label2;
         background-color: transparent;
         color: var(--danger);
         cursor: pointer;
@@ -132,8 +127,7 @@
     padding: 8px 16px;
     cursor: pointer;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 21px;
+    @extend %body3;
     color: var(--grey100);
     display: flex;
     align-items: center;

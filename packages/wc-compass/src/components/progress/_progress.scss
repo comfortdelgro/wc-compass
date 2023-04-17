@@ -46,14 +46,12 @@ cdg-progress,
 }
 
 .cdg-progress-label {
-  font-size: 12px;
-  line-height: 18px;
+  @extend %label2;
   font-weight: 600;
 }
 
 .cdg-progress-description {
-  font-size: 12px;
-  line-height: 18px;
+  @extend %label2;
   color: var(--grey70);
   margin: 0;
 }

@@ -7,9 +7,8 @@ input.cdg-input {
   appearance: none;
   border: 1px solid var(--border-color);
   color: var(--primary-color);
-  font-size: 14px;
+  @extend %body3;
   font-weight: 600;
-  line-height: 21px;
   padding: 8px 16px;
   height: 44px;
   box-sizing: border-box;
@@ -39,8 +38,7 @@ input.cdg-input {
   }
   .cdg-input-label {
     font-weight: 600;
-    font-size: 14px;
-    line-height: 21px;
+    @extend %label1;
     color: var(--grey90);
   }
   .cdg-helper-message {

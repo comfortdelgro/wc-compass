@@ -208,8 +208,7 @@ cdg-card,
 }
 
 .cdg-card-time {
-  font-size: 14px;
-  line-height: 21px;
+  @extend %body3;
 }
 
 cdg-card-header,
@@ -278,8 +277,7 @@ cdg-page-title,
   @extend %heading3;
   color: var(--grey110);
   small {
-    font-size: 14px;
-    line-height: 21px;
+    @extend %label1;
     color: var(--grey70);
     font-weight: 400;
   }
@@ -363,8 +361,7 @@ cdg-sub-header,
 .cdg-sub-header-description {
   color: var(--grey70);
   margin: 0;
-  font-size: 14px;
-  line-height: 21px;
+  @extend %body3;
 }
 
 .cdg-separator {
@@ -461,8 +458,7 @@ cdg-divider,
 
 .cdg-card-blog-category {
   font-weight: 600;
-  font-size: 14px;
-  line-height: 21px;
+  @extend %body3;
   color: var(--info);
   margin-top: 8px;
 }
@@ -474,8 +470,7 @@ cdg-divider,
 
 .cdg-card-blog-date {
   font-weight: 400;
-  font-size: 12px;
-  line-height: 18px;
+  @extend %label2;
   color: var(--grey-shades-80);
   margin-top: 4px;
 }

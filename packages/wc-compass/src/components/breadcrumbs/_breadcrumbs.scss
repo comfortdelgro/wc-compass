@@ -1,7 +1,6 @@
 cdg-breadcrumbs,
 .cdg-breadcrumbs {
-  font-size: 14px;
-  line-height: 21px;
+  @extend %body3;
   display: flex;
   align-items: center;
   gap: 16px;

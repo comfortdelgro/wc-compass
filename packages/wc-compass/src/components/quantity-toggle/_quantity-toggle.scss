@@ -4,8 +4,7 @@ cdg-quantity-toggle,
   align-items: stretch;
   width: 328px;
   min-width: 160px;
-  font-size: 14px;
-  line-height: 21px;
+  @extend %body3;
   border-radius: 4px;
   border: 1px solid var(--border-color);
 

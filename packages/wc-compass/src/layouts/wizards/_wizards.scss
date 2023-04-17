@@ -76,8 +76,7 @@ cdg-wizard-step,
   align-items: center;
   justify-content: center;
   border-radius: 20px;
-  font-size: 12px;
-  line-height: 18px;
+  @extend %label2;
   box-sizing: content-box;
   background-clip: content-box;
   position: relative;
@@ -95,8 +94,7 @@ cdg-wizard-step,
 }
 
 .cdg-wizard-step-name {
-  font-size: 12px;
-  line-height: 16px;
+  @extend %label2;
   font-weight: 600;
   position: absolute;
   bottom: 0;
