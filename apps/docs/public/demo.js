@@ -13,18 +13,21 @@ export * from './components/progress/index'
 export * from './components/table/index'
 export * from './components/tooltip/index'
 export * from './components/zoom-image-view/index'
+export * from './components/alert-badges/index'
+export * from './components/alert/index'
+export * from './components/cards/index'
 
 import {SampleSection} from './sample-section'
 
 import './components/accordion/accordion.html'
-import './components/alert-badges.html'
-import './components/alert.html'
+import './components/alert-badges/alert-badges.html'
+import './components/alert/alert.html'
 import './components/avatar/avatar.html'
 import './components/breadcrumbs.html'
 import './components/button/button.html'
 import './components/calendar/calendar.html'
 import './components/card-blogs.html'
-import './components/cards.html'
+import './components/cards/cards.html'
 import './components/carousel/carousel.html'
 import './components/chart.html'
 import './components/checkboxes.html'
@@ -94,8 +97,8 @@ const contentMap = {
   theming: './pages/theming.html',
   layoutsAndControls: './pages/layouts-and-controls.html',
   accordion: './components/accordion/accordion.html',
-  alert: './components/alert.html',
-  alertBadges: './components/alert-badges.html',
+  alert: './components/alert/alert.html',
+  alertBadges: './components/alert-badges/alert-badges.html',
   avatar: './components/avatar/avatar.html',
   breadcrumbs: './components/breadcrumbs.html',
   checkboxes: './components/checkboxes.html',
@@ -109,7 +112,7 @@ const contentMap = {
   dialog: './components/dialog.html',
   dropdown: './components/dropdown/dropdown.html',
   button: './components/button/button.html',
-  cards: './components/cards.html',
+  cards: './components/cards/cards.html',
   cardBlogs: './components/card-blogs.html',
   carousel: './components/carousel/carousel.html',
   inlineLoading: './components/inline-loading.html',
