@@ -331,6 +331,7 @@ input.cdg-input {
   align-items: center;
   position: relative;
   border-radius: 4px;
+  cursor: pointer;
 
   input[type='checkbox'] {
     opacity: 0;
@@ -339,9 +340,8 @@ input.cdg-input {
     margin: 4px;
     width: 32px;
     height: 16px;
-    top: 50%;
-    transform: translateY(-50%);
     appearance: none;
+    cursor: pointer;
   }
 
   span {
@@ -350,6 +350,7 @@ input.cdg-input {
 
   &::before,
   &::after {
+    box-sizing: border-box;
     content: '';
     position: absolute;
     cursor: none;
