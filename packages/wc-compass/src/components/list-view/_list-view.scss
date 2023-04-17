@@ -88,9 +88,7 @@
 }
 
 .cdg-list-item-title {
-  font-size: 20px;
-  line-height: 30px;
-  font-weight: 600;
+  @extend %heading4;
 }
 
 .cdg-list-item-description {

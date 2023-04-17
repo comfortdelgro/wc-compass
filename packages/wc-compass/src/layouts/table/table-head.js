@@ -60,6 +60,10 @@ export class CdgTableHead extends HTMLElement {
       cell.setAttribute('width', data.width)
     }
 
+    if (data.align) {
+      cell.setAttribute('align', data.align)
+    }
+
     if (data.sortable) {
       cell.setAttribute('sortable', '')
       const sortParent = document.createElement('button')

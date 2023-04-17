@@ -38,9 +38,8 @@ cdg-carousel,
       gap: 0;
       .cdg-button {
         border-radius: 0;
-        font-size: 16px;
-        line-height: 24px;
         padding: 16px 24px;
+        @extend %body2;
       }
     }
   }
@@ -191,9 +190,7 @@ cdg-dots-indicator,
 }
 
 .cdg-promotion-title {
-  font-size: 56px;
-  font-weight: 700;
-  line-height: 84px;
+  @extend %display1;
   margin: 0;
 }
 

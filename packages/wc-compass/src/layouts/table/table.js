@@ -1,4 +1,4 @@
-import {TableSelectionChangeEvent} from './model'
+import {TableSelectionEvent} from './model'
 
 export class CdgTable extends HTMLElement {
   static get observedAttributes() {
@@ -78,7 +78,7 @@ export class CdgTable extends HTMLElement {
     this.textContent = ''
     this.dispatchEvent(
       new CustomEvent('selectionChange', {
-        detail: new TableSelectionChangeEvent(),
+        detail: new TableSelectionEvent(),
       }),
     )
 
@@ -117,6 +117,10 @@ export class CdgTable extends HTMLElement {
           sortable: false,
         })
       })
+
+      this.classList.add('auto-layout')
+    } else {
+      this.classList.remove('auto-layout')
     }
     this.header.options = this.options
     this.header.addEventListener('toggleAll', this.handleToggleAll.bind(this))

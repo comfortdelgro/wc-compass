@@ -1,12 +1,18 @@
 export * from './components/accordion/index'
 export * from './components/avatar/index'
 export * from './components/button/index'
+export * from './components/calendar/index'
 export * from './components/carousel/index'
+export * from './components/datepicker/index'
+export * from './components/dropdown/index'
 export * from './components/gutter/index'
 export * from './components/list-item/index'
 export * from './components/listview/index'
+export * from './components/popover/index'
 export * from './components/progress/index'
 export * from './components/table/index'
+export * from './components/tooltip/index'
+export * from './components/zoom-image-view/index'
 
 import {SampleSection} from './sample-section'
 
@@ -16,7 +22,7 @@ import './components/alert.html'
 import './components/avatar/avatar.html'
 import './components/breadcrumbs.html'
 import './components/button/button.html'
-import './components/calendar.html'
+import './components/calendar/calendar.html'
 import './components/card-blogs.html'
 import './components/cards.html'
 import './components/carousel/carousel.html'
@@ -24,9 +30,9 @@ import './components/chart.html'
 import './components/checkboxes.html'
 import './components/context-menu.html'
 import './components/dashboard-side-card.html'
-import './components/datepicker.html'
+import './components/datepicker/datepicker.html'
 import './components/dialog.html'
-import './components/dropdown.html'
+import './components/dropdown/dropdown.html'
 import './components/file-upload.html'
 import './components/file.html'
 import './components/footer.html'
@@ -43,7 +49,7 @@ import './components/navbar.html'
 import './components/page-header.html'
 import './components/pagination.html'
 import './components/pill-badges.html'
-import './components/popover.html'
+import './components/popover/popover.html'
 import './components/progress/progress.html'
 import './components/quantity-toggle.html'
 import './components/radios.html'
@@ -64,7 +70,7 @@ import './components/timeline.html'
 import './components/toast.html'
 import './components/toggle.html'
 import './components/toolbar.html'
-import './components/tooltip.html'
+import './components/tooltip/tooltip.html'
 import './components/video.html'
 import './components/volume.html'
 import './components/website/contents/article.html'
@@ -101,7 +107,7 @@ const contentMap = {
   gutter: './components/gutter/gutter.html',
   icon: './components/icon.html',
   dialog: './components/dialog.html',
-  dropdown: './components/dropdown.html',
+  dropdown: './components/dropdown/dropdown.html',
   button: './components/button/button.html',
   cards: './components/cards.html',
   cardBlogs: './components/card-blogs.html',
@@ -128,16 +134,16 @@ const contentMap = {
   textField: './components/text-field.html',
   subNav: './components/sub-nav.html',
   table: './components/table/table.html',
-  popover: './components/popover.html',
+  popover: './components/popover/popover.html',
   progress: './components/progress/progress.html',
   toast: './components/toast.html',
   toggle: './components/toggle.html',
   timeline: './components/timeline.html',
   volume: './components/volume.html',
   wizards: './components/wizards.html',
-  calendar: './components/calendar.html',
-  datepicker: './components/datepicker.html',
-  tooltip: './components/tooltip.html',
+  calendar: './components/calendar/calendar.html',
+  datepicker: './components/datepicker/datepicker.html',
+  tooltip: './components/tooltip/tooltip.html',
   rangeSlider: './components/range-slider.html',
   tagBox: './components/tag-box.html',
   video: './components/video.html',
@@ -148,7 +154,7 @@ const contentMap = {
   multiLevelDropdown: './components/multi-level-dropdown.html',
   contextMenu: './components/context-menu.html',
   testimonials: './components/testimonials.html',
-  imageViewer: './components/zoom-image-view.html',
+  imageViewer: './components/zoom-image-view/zoom-image-view.html',
   newsAndBlogs: './components/website/news-and-blogs.html',
   article: './components/website/post-detail.html',
   services: './components/website/services.html',

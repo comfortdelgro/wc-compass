@@ -60,8 +60,8 @@
 
     .cdg-list-item-title {
       font-weight: 700;
-      font-size: 14px;
-      line-height: 21px;
+      font-size: var(--heading5);
+      line-height: var(--line-height-heading5);
     }
 
     .cdg-list-item-description {

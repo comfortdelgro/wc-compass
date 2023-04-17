@@ -15,7 +15,8 @@ body {
 
 body cdg-nav-rail .workbench-title,
 body .cdg-nav-rail .workbench-title {
-  font-size: 20px;
+  font-size: var(--heading4);
+  line-height: var(--line-height-heading4);
 }
 
 .sidebar a {
