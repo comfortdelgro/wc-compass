@@ -53,7 +53,9 @@
   height: 44px;
   box-sizing: border-box;
   border-radius: 4px;
+  cursor: pointer;
   background-color: var(--background);
+
   &:focus {
     outline: 2px solid var(--accent);
   }
@@ -397,9 +399,9 @@
     margin: 4px;
     width: 32px;
     height: 16px;
-    top: 50%;
-    transform: translateY(-50%);
     appearance: none;
+    flex-shrink: 0;
+    cursor: pointer;
   }
 
   span {
@@ -412,6 +414,7 @@
     position: absolute;
     cursor: none;
     top: 50%;
+    box-sizing: border-box;
     transform: translateY(-50%);
     @extend %quickSmoothTransition;
   }
@@ -440,6 +443,7 @@
     input[type='checkbox'] {
       width: 40px;
       height: 24px;
+      flex-shrink: 0;
     }
     &::before {
       width: 40px;
