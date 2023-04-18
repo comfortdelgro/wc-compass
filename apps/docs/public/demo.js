@@ -16,6 +16,7 @@ export * from './components/forms/index'
 export * from './components/gutter/index'
 export * from './components/list-item/index'
 export * from './components/listview/index'
+export * from './components/loading-service/index'
 export * from './components/popover/index'
 export * from './components/progress/index'
 export * from './components/table/index'
@@ -125,6 +126,7 @@ const contentMap = {
   layouts: './components/layouts.html',
   listItem: './components/list-item/list-item.html',
   listView: './components/listview/list-view.html',
+  loadingService: './components/loading-service/loading-service.html',
   loading: './components/loading.html',
   modal: './components/modal.html',
   navRail: './components/nav-rail.html',
@@ -456,6 +458,10 @@ const documentContent = [
       {
         name: 'Image Viewer',
         slug: 'imageViewer',
+      },
+      {
+        name: 'Loading',
+        slug: 'loadingService',
       },
     ],
   },
