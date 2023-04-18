@@ -1,3 +1,5 @@
+import './accordion.html'
+
 import {CdgAccordionDefaultSection} from './default/default.section'
 import {CdgAccordionExpandedSection} from './expanded/expanded.section'
 import {CdgAccordionPropertiesSection} from './properties/properties.section'

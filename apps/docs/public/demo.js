@@ -5,6 +5,7 @@ export * from './components/calendar/index'
 export * from './components/carousel/index'
 export * from './components/datepicker/index'
 export * from './components/dropdown/index'
+export * from './components/forms/index'
 export * from './components/gutter/index'
 export * from './components/list-item/index'
 export * from './components/listview/index'
@@ -43,6 +44,7 @@ import './components/gutter/gutter.html'
 import './components/icon.html'
 import './components/inline-loading.html'
 import './components/layouts.html'
+import './components/lazy-load-image.html'
 import './components/listview/list-view.html'
 import './components/loading.html'
 import './components/modal.html'
@@ -86,7 +88,6 @@ import './pages/home.html'
 import './pages/layouts-and-controls.html'
 import './pages/theming.html'
 import './pages/z-index.html'
-import './components/lazy-load-image.html'
 
 customElements.define('cdg-sample-section', SampleSection)
 
@@ -111,6 +112,7 @@ const contentMap = {
   icon: './components/icon.html',
   dialog: './components/dialog.html',
   dropdown: './components/dropdown/dropdown.html',
+  forms: './components/forms/forms.html',
   button: './components/button/button.html',
   cards: './components/cards/cards.html',
   cardBlogs: './components/card-blogs.html',
@@ -162,7 +164,7 @@ const contentMap = {
   article: './components/website/post-detail.html',
   services: './components/website/services.html',
   chart: './components/chart.html',
-  lazyLoadImage: './components/lazy-load-image.html'
+  lazyLoadImage: './components/lazy-load-image.html',
 }
 
 const documentContent = [
@@ -219,6 +221,10 @@ const documentContent = [
         slug: 'dashboardSideCard',
       },
       {
+        name: 'Forms',
+        slug: 'forms',
+      },
+      {
         name: 'Gutter',
         slug: 'gutter',
       },
@@ -229,14 +235,6 @@ const documentContent = [
       {
         name: 'Layouts',
         slug: 'layouts',
-      },
-      {
-        name: 'List Item',
-        slug: 'listItem',
-      },
-      {
-        name: 'List View',
-        slug: 'listView',
       },
       {
         name: 'Sub Header',
@@ -367,6 +365,14 @@ const documentContent = [
       {
         name: 'Lazy Load Image',
         slug: 'lazyLoadImage',
+      },
+      {
+        name: 'List Item',
+        slug: 'listItem',
+      },
+      {
+        name: 'List View',
+        slug: 'listView',
       },
       {
         name: 'Pagination',

@@ -58,7 +58,7 @@
 
 %heading5 {
   font-size: var(--heading5);
-  line-height: var(--line-height-heading6);
+  line-height: var(--line-height-heading5);
   @extend %semibold;
 }
 
@@ -90,4 +90,8 @@
 %label3 {
   font-size: var(--label3);
   line-height: var(--line-height-label3);
+}
+
+%formField {
+  width: 240px;
 }

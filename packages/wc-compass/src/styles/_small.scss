@@ -245,3 +245,12 @@
     line-height: 28px;
   }
 }
+
+@container CdgForm (max-width: 768px) {
+  .cdg-form-row {
+    flex-direction: column;
+  }
+}
+
+@container CdgForm (max-width: 479px) {
+}
