@@ -25,6 +25,8 @@ export * from './components/lazy-load-image/index'
 export * from './components/list-item/index'
 export * from './components/listview/index'
 export * from './components/loading-service/index'
+export * from './components/loading/index'
+export * from './components/modal/index'
 export * from './components/popover/index'
 export * from './components/progress/index'
 export * from './components/table/index'
@@ -65,8 +67,8 @@ import './components/inline-loading/inline-loading.html'
 import './components/layouts.html'
 import './components/lazy-load-image/lazy-load-image.html'
 import './components/listview/list-view.html'
-import './components/loading.html'
-import './components/modal.html'
+import './components/loading/loading.html'
+import './components/modal/modal.html'
 import './components/multi-level-dropdown.html'
 import './components/nav-rail.html'
 import './components/navbar.html'
@@ -136,8 +138,8 @@ const contentMap = {
   listItem: './components/list-item/list-item.html',
   listView: './components/listview/list-view.html',
   loadingService: './components/loading-service/loading-service.html',
-  loading: './components/loading.html',
-  modal: './components/modal.html',
+  loading: './components/loading/loading.html',
+  modal: './components/modal/modal.html',
   navRail: './components/nav-rail.html',
   navbar: './components/navbar.html',
   pageHeader: './components/page-header.html',
