@@ -14,6 +14,8 @@ export * from './components/dashboard-side-card/index'
 export * from './components/datepicker/index'
 export * from './components/dialog/index'
 export * from './components/dropdown/index'
+export * from './components/file-upload/index'
+export * from './components/file/index'
 export * from './components/forms/index'
 export * from './components/gutter/index'
 export * from './components/list-item/index'
@@ -22,10 +24,14 @@ export * from './components/loading-service/index'
 export * from './components/popover/index'
 export * from './components/progress/index'
 export * from './components/table/index'
+export * from './components/toggle/index'
+export * from './components/toolbar/index'
 export * from './components/tooltip/index'
+export * from './components/video/index'
+export * from './components/volume/index'
+export * from './components/wizards/index'
 export * from './components/zoom-image-view/index'
-export * from './components/file-upload/index'
-export * from './components/file/index'
+export * from './services/index'
 
 import {SampleSection} from './sample-section'
 
@@ -81,17 +87,11 @@ import './components/template/dashboard.html'
 import './components/testimonials.html'
 import './components/text-field.html'
 import './components/timeline.html'
-import './components/toast.html'
-import './components/toggle.html'
-import './components/toolbar.html'
 import './components/tooltip/tooltip.html'
-import './components/video.html'
-import './components/volume.html'
 import './components/website/contents/article.html'
 import './components/website/contents/news-blogs.html'
 import './components/website/news-and-blogs.html'
 import './components/website/post-detail.html'
-import './components/wizards.html'
 import './pages/customization.html'
 import './pages/home.html'
 import './pages/layouts-and-controls.html'
@@ -144,7 +144,7 @@ const contentMap = {
   rating: './components/rating.html',
   sidebar: './components/sidebar.html',
   status: './components/status.html',
-  toolbar: './components/toolbar.html',
+  toolbar: './components/toolbar/toolbar.html',
   subHeader: './components/sub-header.html',
   tabs: './components/tabs.html',
   textField: './components/text-field.html',
@@ -152,17 +152,17 @@ const contentMap = {
   table: './components/table/table.html',
   popover: './components/popover/popover.html',
   progress: './components/progress/progress.html',
-  toast: './components/toast.html',
-  toggle: './components/toggle.html',
+  toast: './services/toast/toast.html',
+  toggle: './components/toggle/toggle.html',
   timeline: './components/timeline.html',
-  volume: './components/volume.html',
-  wizards: './components/wizards.html',
+  volume: './components/volume/volume.html',
+  wizards: './components/wizards/wizards.html',
   calendar: './components/calendar/calendar.html',
   datepicker: './components/datepicker/datepicker.html',
   tooltip: './components/tooltip/tooltip.html',
   rangeSlider: './components/range-slider.html',
   tagBox: './components/tag-box.html',
-  video: './components/video.html',
+  video: './components/video/video.html',
   dashboardTemplate: './components/template/dashboard.html',
   richTextEditor: './components/rich-text-editor.html',
   selectingThemeModal: './components/template/selecting-theme-modal.html',
