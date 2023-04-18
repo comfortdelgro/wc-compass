@@ -1,0 +1,26 @@
+<cdg-sample-section name="Local Loading">
+  <p>
+    By clicking Show local button, the loading indicator will be shown on
+    <code>.page-container</code> element and will be disapeared in the next 3
+    seconds
+  </p>
+  <div class="sample-section">
+    <button class="cdg-button" id="local-button">Show Local</button>
+  </div>
+
+  <pre>
+      <code class="language-html">&lt;button class=&quot;cdg-button&quot; id=&quot;local-button&quot;&gt;Show Local&lt;/button&gt;
+&lt;script&gt;
+    function showLocal() {
+        const host = document.querySelector(&apos;.page-container&apos;)
+        const loadingId = cdgLoadingService.show(&apos;local&apos;, host)
+        setTimeout(() =&gt; {
+            cdgLoadingService.hide(loadingId)
+        }, 3000)
+    }
+
+    const button = this.querySelector(&apos;#local-button&apos;)
+    button.addEventListener(&apos;click&apos;, this.showLocal.bind(this))
+&lt;/script&gt;</code>
+    </pre>
+</cdg-sample-section>
