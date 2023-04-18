@@ -333,7 +333,7 @@ input.cdg-input {
   align-items: center;
   position: relative;
   border-radius: 4px;
-
+  cursor: pointer;
   input[type='checkbox'] {
     opacity: 0;
     position: relative;
@@ -344,6 +344,7 @@ input.cdg-input {
     top: 50%;
     transform: translateY(-50%);
     appearance: none;
+    cursor: pointer;
   }
 
   span {
@@ -354,7 +355,7 @@ input.cdg-input {
   &::after {
     content: '';
     position: absolute;
-    cursor: none;
+    cursor: pointer;
     top: 50%;
     transform: translateY(-50%);
     @extend %quickSmoothTransition;
@@ -413,10 +414,16 @@ input.cdg-input {
   }
 
   &:has(input[type='checkbox']:disabled) {
+    cursor: not-allowed;
     color: var(--disabled-color);
     &::before {
       border-color: var(--disabled-background);
       background-color: var(--disabled-background);
+      cursor: not-allowed;
+    }
+    &::after,
+    input[type='checkbox'] {
+      cursor: not-allowed;
     }
   }
 
@@ -424,6 +431,11 @@ input.cdg-input {
     &::before {
       border-color: var(--status-success-background);
       background-color: var(--status-success-background);
+      cursor: not-allowed;
+    }
+    &::after,
+    input[type='checkbox'] {
+      cursor: not-allowed;
     }
   }
 }
