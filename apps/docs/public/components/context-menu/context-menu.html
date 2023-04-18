@@ -254,12 +254,6 @@
   </pre>
 </cdg-sample-section>
 
-<section class="guideline-section">
-  <h3>Props & Methods</h3>
-
-  <cdg-table id="propertiesTable"></cdg-table>
-</section>
-
 <script>
   const contextMenus = document.querySelectorAll('cdg-context-menu')
   for (let index = 0; index < contextMenus.length; index++) {
@@ -271,16 +265,6 @@
       console.log(`Context menu "${contextMenu.getAttribute('name')}" closed`)
     })
   }
-
-  const table = document.querySelector('#propertiesTable')
-  table.data = [
-    {
-      name: 'name',
-      type: '<code>string</code>',
-      default: '',
-      description: `The name of the context-menu.
-      <br>
-      <strong>Note</strong>: The names of the context-menu must be different`,
-    },
-  ]
 </script>
+
+<cdg-context-menu-properties-section></cdg-context-menu-properties-section>

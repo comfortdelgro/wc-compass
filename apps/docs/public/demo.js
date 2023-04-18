@@ -1,8 +1,15 @@
 export * from './components/accordion/index'
+export * from './components/alert-badges/index'
+export * from './components/alert/index'
 export * from './components/avatar/index'
 export * from './components/button/index'
 export * from './components/calendar/index'
+export * from './components/cards/index'
 export * from './components/carousel/index'
+export * from './components/chart/index'
+export * from './components/checkboxes/index'
+export * from './components/context-menu/index'
+export * from './components/dashboard-side-card/index'
 export * from './components/datepicker/index'
 export * from './components/dropdown/index'
 export * from './components/forms/index'
@@ -15,9 +22,6 @@ export * from './components/progress/index'
 export * from './components/table/index'
 export * from './components/tooltip/index'
 export * from './components/zoom-image-view/index'
-export * from './components/alert-badges/index'
-export * from './components/alert/index'
-export * from './components/cards/index'
 
 import {SampleSection} from './sample-section'
 
@@ -31,10 +35,10 @@ import './components/calendar/calendar.html'
 import './components/card-blogs.html'
 import './components/cards/cards.html'
 import './components/carousel/carousel.html'
-import './components/chart.html'
-import './components/checkboxes.html'
-import './components/context-menu.html'
-import './components/dashboard-side-card.html'
+import './components/chart/chart.html'
+import './components/checkboxes/checkboxes.html'
+import './components/context-menu/context-menu.html'
+import './components/dashboard-side-card/dashboard-side-card.html'
 import './components/datepicker/datepicker.html'
 import './components/dialog.html'
 import './components/dropdown/dropdown.html'
@@ -103,8 +107,8 @@ const contentMap = {
   alertBadges: './components/alert-badges/alert-badges.html',
   avatar: './components/avatar/avatar.html',
   breadcrumbs: './components/breadcrumbs.html',
-  checkboxes: './components/checkboxes.html',
-  dashboardSideCard: './components/dashboard-side-card.html',
+  checkboxes: './components/checkboxes/checkboxes.html',
+  dashboardSideCard: './components/dashboard-side-card/dashboard-side-card.html',
   file: './components/file.html',
   fileUpload: './components/file-upload.html',
   footer: './components/footer.html',
@@ -159,13 +163,13 @@ const contentMap = {
   selectingThemeModal: './components/template/selecting-theme-modal.html',
   servicesMenu: './components/template/services-menu.html',
   multiLevelDropdown: './components/multi-level-dropdown.html',
-  contextMenu: './components/context-menu.html',
+  contextMenu: './components/context-menu/context-menu.html',
   testimonials: './components/testimonials.html',
   imageViewer: './components/zoom-image-view/zoom-image-view.html',
   newsAndBlogs: './components/website/news-and-blogs.html',
   article: './components/website/post-detail.html',
   services: './components/website/services.html',
-  chart: './components/chart.html',
+  chart: './components/chart/chart.html',
   lazyLoadImage: './components/lazy-load-image.html',
 }
 
@@ -616,10 +620,10 @@ function handlePageChange(url) {
   activeMenu(hash)
   subNavParent.classList.remove('stick')
   if (hash === 'home') {
-    document.querySelector('cdg-sub-nav').classList.add('hide')
+    document.querySelector('.cdg-layout.sub-nav-wrapper').classList.add('hide')
     pageHeader.classList.add('hide')
   } else {
-    document.querySelector('cdg-sub-nav').classList.remove('hide')
+    document.querySelector('.cdg-layout.sub-nav-wrapper').classList.remove('hide')
     pageHeader.classList.remove('hide')
     const menu = getMenuInfo(hash)
     pageTitle.textContent = menu.name
