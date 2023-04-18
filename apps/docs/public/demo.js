@@ -27,6 +27,7 @@ export * from './components/video/index'
 export * from './components/volume/index'
 export * from './components/wizards/index'
 export * from './components/zoom-image-view/index'
+export * from './services/index'
 
 import {SampleSection} from './sample-section'
 
@@ -82,7 +83,6 @@ import './components/template/dashboard.html'
 import './components/testimonials.html'
 import './components/text-field.html'
 import './components/timeline.html'
-import './components/toast.html'
 import './components/tooltip/tooltip.html'
 import './components/website/contents/article.html'
 import './components/website/contents/news-blogs.html'
@@ -148,7 +148,7 @@ const contentMap = {
   table: './components/table/table.html',
   popover: './components/popover/popover.html',
   progress: './components/progress/progress.html',
-  toast: './components/toast.html',
+  toast: './services/toast/toast.html',
   toggle: './components/toggle/toggle.html',
   timeline: './components/timeline.html',
   volume: './components/volume/volume.html',
