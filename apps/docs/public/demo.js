@@ -21,6 +21,7 @@ export * from './components/popover/index'
 export * from './components/progress/index'
 export * from './components/table/index'
 export * from './components/tooltip/index'
+export * from './components/video/index'
 export * from './components/volume/index'
 export * from './components/wizards/index'
 export * from './components/zoom-image-view/index'
@@ -83,7 +84,6 @@ import './components/toast.html'
 import './components/toggle.html'
 import './components/toolbar.html'
 import './components/tooltip/tooltip.html'
-import './components/video.html'
 import './components/website/contents/article.html'
 import './components/website/contents/news-blogs.html'
 import './components/website/news-and-blogs.html'
@@ -158,7 +158,7 @@ const contentMap = {
   tooltip: './components/tooltip/tooltip.html',
   rangeSlider: './components/range-slider.html',
   tagBox: './components/tag-box.html',
-  video: './components/video.html',
+  video: './components/video/video.html',
   dashboardTemplate: './components/template/dashboard.html',
   richTextEditor: './components/rich-text-editor.html',
   selectingThemeModal: './components/template/selecting-theme-modal.html',
