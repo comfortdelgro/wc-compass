@@ -14,8 +14,14 @@ export * from './components/dashboard-side-card/index'
 export * from './components/datepicker/index'
 export * from './components/dialog/index'
 export * from './components/dropdown/index'
+export * from './components/file-upload/index'
+export * from './components/file/index'
+export * from './components/footer/index'
 export * from './components/forms/index'
 export * from './components/gutter/index'
+export * from './components/icon/index'
+export * from './components/inline-loading/index'
+export * from './components/lazy-load-image/index'
 export * from './components/list-item/index'
 export * from './components/listview/index'
 export * from './components/loading-service/index'
@@ -24,8 +30,6 @@ export * from './components/progress/index'
 export * from './components/table/index'
 export * from './components/tooltip/index'
 export * from './components/zoom-image-view/index'
-export * from './components/file-upload/index'
-export * from './components/file/index'
 
 import {SampleSection} from './sample-section'
 
@@ -48,12 +52,12 @@ import './components/dialog/dialog.html'
 import './components/dropdown/dropdown.html'
 import './components/file-upload/file-upload.html'
 import './components/file/file.html'
-import './components/footer.html'
+import './components/footer/footer.html'
 import './components/gutter/gutter.html'
-import './components/icon.html'
-import './components/inline-loading.html'
+import './components/icon/icon.html'
+import './components/inline-loading/inline-loading.html'
 import './components/layouts.html'
-import './components/lazy-load-image.html'
+import './components/lazy-load-image/lazy-load-image.html'
 import './components/listview/list-view.html'
 import './components/loading.html'
 import './components/modal.html'
@@ -116,10 +120,10 @@ const contentMap = {
     './components/dashboard-side-card/dashboard-side-card.html',
   file: './components/file/file.html',
   fileUpload: './components/file-upload/file-upload.html',
-  footer: './components/footer.html',
+  footer: './components/footer/footer.html',
   about: './components/template/about.html',
   gutter: './components/gutter/gutter.html',
-  icon: './components/icon.html',
+  icon: './components/icon/icon.html',
   dialog: './components/dialog/dialog.html',
   dropdown: './components/dropdown/dropdown.html',
   forms: './components/forms/forms.html',
@@ -127,7 +131,7 @@ const contentMap = {
   cards: './components/cards/cards.html',
   cardBlogs: './components/card-blogs/card-blogs.html',
   carousel: './components/carousel/carousel.html',
-  inlineLoading: './components/inline-loading.html',
+  inlineLoading: './components/inline-loading/inline-loading.html',
   layouts: './components/layouts.html',
   listItem: './components/list-item/list-item.html',
   listView: './components/listview/list-view.html',
@@ -175,7 +179,7 @@ const contentMap = {
   article: './components/website/post-detail.html',
   services: './components/website/services.html',
   chart: './components/chart/chart.html',
-  lazyLoadImage: './components/lazy-load-image.html',
+  lazyLoadImage: './components/lazy-load-image/lazy-load-image.html',
 }
 
 const documentContent = [
