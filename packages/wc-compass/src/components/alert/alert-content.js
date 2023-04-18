@@ -1,11 +1,9 @@
 export class CdgAlertContent extends HTMLElement {
-  alignment = 'start';
-
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-alert-content');
+    this.classList.add('cdg-alert-content')
   }
 }
