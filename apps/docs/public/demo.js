@@ -20,6 +20,7 @@ export * from './components/loading-service/index'
 export * from './components/popover/index'
 export * from './components/progress/index'
 export * from './components/table/index'
+export * from './components/toolbar/index'
 export * from './components/tooltip/index'
 export * from './components/video/index'
 export * from './components/volume/index'
@@ -82,7 +83,6 @@ import './components/text-field.html'
 import './components/timeline.html'
 import './components/toast.html'
 import './components/toggle.html'
-import './components/toolbar.html'
 import './components/tooltip/tooltip.html'
 import './components/website/contents/article.html'
 import './components/website/contents/news-blogs.html'
@@ -140,7 +140,7 @@ const contentMap = {
   rating: './components/rating.html',
   sidebar: './components/sidebar.html',
   status: './components/status.html',
-  toolbar: './components/toolbar.html',
+  toolbar: './components/toolbar/toolbar.html',
   subHeader: './components/sub-header.html',
   tabs: './components/tabs.html',
   textField: './components/text-field.html',
