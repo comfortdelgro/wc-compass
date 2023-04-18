@@ -54,7 +54,7 @@ body .cdg-nav-rail .workbench-title {
   flex: 1;
 }
 
-.cdg-sub-nav.hide {
+.cdg-layout.sub-nav-wrapper.hide {
   display: none;
 }
 
