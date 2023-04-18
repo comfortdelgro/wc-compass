@@ -252,6 +252,20 @@
       }
     }
   }
+
+  cdg-timeline,
+  .cdg-timeline {
+    &[zigzag] {
+      cdg-timeline-group,
+      .cdg-timeline-group {
+        margin-left: unset;
+        &:nth-child(2n + 1) {
+          margin-left: 0;
+          margin-right: unset;
+        }
+      }
+    }
+  }
 }
 
 @container CardGrid (max-width: 768px) {
