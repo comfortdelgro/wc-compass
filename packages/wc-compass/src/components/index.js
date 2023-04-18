@@ -18,6 +18,7 @@ import {CdgFloatingContent} from './floating-content/floating-content'
 import {CdgGutter} from './gutter/gutter'
 import {CdgIcon} from './icon/icon'
 import {CdgInlineLoading} from './inline-loading/inline-loading'
+import {CdgLazyImage} from './lazy-image/lazy-image'
 import {CdgListItem} from './list-view/list-item'
 import {CdgListview} from './list-view/list-view'
 import {CdgLoading} from './loading/loading'
@@ -91,6 +92,7 @@ customElements.define('cdg-context-menu', CdgContextMenu)
 customElements.define('cdg-chart', CdgChart)
 customElements.define('cdg-gutter', CdgGutter)
 customElements.define('cdg-select-color', CdgSelectColor)
+customElements.define('cdg-lazy-img', CdgLazyImage)
 
 export const CONTROL_COMPONENTS = [
   CdgAccordion,
@@ -131,4 +133,5 @@ export const CONTROL_COMPONENTS = [
   CdgChart,
   CdgGutter,
   CdgSelectColor,
+  CdgLazyImage,
 ]

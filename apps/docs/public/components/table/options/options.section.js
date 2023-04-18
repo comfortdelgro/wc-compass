@@ -39,6 +39,7 @@ export class CdgTableOptionsSection extends CdgBaseComponent {
           name: 'ID',
           width: '80px',
           fieldName: 'id',
+          align: 'center',
         },
         {
           name: 'Name',

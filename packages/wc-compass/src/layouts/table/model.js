@@ -9,7 +9,7 @@ export class TableSelectionRow {
   }
 }
 
-export class TableSelectionChangeEvent {
+export class TableSelectionEvent {
   isCheckAll = false
   hasCheckedRow = false
   selected = []
@@ -28,4 +28,18 @@ export class TableSortEvent {
     this.fieldName = fieldName
     this.sortDirection = sortDirection
   }
+}
+
+export class TableOptions {
+  columns = []
+  onRowClick
+}
+
+export class TableColumnOption {
+  name = ''
+  width = 'auto'
+  align = ''
+  fieldName = ''
+  scrollable = false
+  sortDirection = null
 }

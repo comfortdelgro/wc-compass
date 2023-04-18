@@ -21,8 +21,8 @@ cdg-nav-rail,
   }
 
   .workbench-title {
-    font-size: 24px;
-    line-height: 60px;
+    font-size: var(--heading3);
+    line-height: var(--line-height-heading3);
     font-weight: 400;
   }
 
@@ -32,15 +32,13 @@ cdg-nav-rail,
   }
 
   .module-name {
-    font-size: 14px;
-    line-height: 21px;
+    @extend %body3;
     font-weight: 600;
   }
 
   .sever-time {
     color: var(--grey70);
-    font-size: 12px;
-    line-height: 18px;
+    @extend %label2;
   }
 
   .cdg-button.module-selection {
@@ -162,8 +160,7 @@ cdg-nav-rail,
   align-items: center;
   gap: 8px;
   padding: 8px;
-  font-size: 14px;
-  line-height: 21px;
+  @extend %body3;
   font-weight: 600;
   color: var(--grey80);
   cursor: pointer;

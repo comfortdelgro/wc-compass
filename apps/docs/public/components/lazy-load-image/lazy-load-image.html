@@ -1,0 +1,100 @@
+<p>
+  The lazy load image
+  <code>&lt;cdg-lazy-img&gt; &lt;/cdg-lazy-img&gt;</code> is an extension of the
+  HTML <code>&lt;img /&gt;</code> element. It includes a variety of built-in
+  performance optimizations to help you achieve good Core Web Vitals
+</p>
+
+<p>Some of the optimizations built into the Image component include:</p>
+<ul>
+  <li>Visual Stability: Prevent Cumulative Layout Shift automatically</li>
+  <li>
+    Faster Page Loads: Images are only loaded when they enter the viewport.
+    Support old browsers
+  </li>
+  <li>
+    Fallback Source: Images that fail to load now will have a fallback option
+  </li>
+</ul>
+
+<h3 class="sample-section-title">Image Sizing</h3>
+
+<p>
+  To prevent <i>layout shift</i>, where the image pushes other elements around
+  on the page as it loads in,
+  <a
+    href="https://web.dev/optimize-cls/#images-without-dimensions"
+    target="”_blank”"
+    >you must provide <b>width</b> and <b>height</b></a
+  >. This allows the browser to reserve precisely enough space for the image
+  before it loads.
+</p>
+
+<p>
+  However, if you do not want to set a fixed size to the image, you can just use
+  the
+  <code>&lt;cdg-lazy-img&gt; &lt;/cdg-lazy-img&gt;</code> as a normal
+  <code>&lt;img /&gt;</code> element, no fixed <b>width</b> and
+  <b>height</b> are provided, your image is still able to lazy load itself.<b>
+    But be warned, your Core Web Vitals score will be negatively affected
+    because of layout shifting</b
+  >
+</p>
+
+<cdg-lazy-load-image-properties-section></cdg-lazy-load-image-properties-section>
+
+<h3>Example</h3>
+<p>
+  Below is an example of lazy loading image, it is intended to be put outside of
+  the viewport. You can open the developer tool, go to network tab, choose Img
+  section, disable cache and scroll down to see how the image will be loaded
+  lazily
+</p>
+
+<cdg-sample-section name="Basic" style="margin-top: 100vh">
+  <div class="sample-section">
+    <cdg-lazy-img
+      src="https://play-lh.googleusercontent.com/EXMjst8LO8GpzaPH-zoP0mJFpTBwqVTPcRbIuPaqDCeSneYu_Fy40yda0JdRzVuEuVg"
+      alt="image"
+      style="width: 200px; height: 200px"
+    ></cdg-lazy-img>
+  </div>
+  <pre>
+    <code class="language-html">&lt;cdg-lazy-img
+  src="https://play-lh.googleusercontent.com/EXMjst8LO8GpzaPH-zoP0mJFpTBwqVTPcRbIuPaqDCeSneYu_Fy40yda0JdRzVuEuVg"
+  alt="image"
+  style="width: 200px; height: 200px"
+&gt;&lt;/cdg-lazy-img&gt;
+    </code>
+  </pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Fallback">
+  <div class="sample-section">
+    <!-- default -->
+    <cdg-lazy-img src="non-exist-src.svg" alt="image"></cdg-lazy-img>
+    <!-- customized -->
+    <cdg-lazy-img
+      src="non-exist-src.svg"
+      fallbackSrc="https://raw.githubusercontent.com/koehlersimon/fallback/master/Resources/Public/Images/placeholder.jpg"
+      alt="image"
+      style="width: 200px; height: 200px"
+    ></cdg-lazy-img>
+  </div>
+  <pre>
+    <code class="language-html">&lt;!-- default --&gt;
+&lt;cdg-lazy-img
+  src="non-exist-src.svg"
+  alt="image"
+  style="width: 200px; height: 200px"
+&gt;&lt;/cdg-lazy-img&gt;
+&lt;!-- customized --&gt;
+&lt;cdg-lazy-img
+  src="non-exist-src.svg"
+  fallbackSrc="https://raw.githubusercontent.com/koehlersimon/fallback/master/Resources/Public/Images/placeholder.jpg"
+  alt="image"
+  style="width: 200px; height: 200px"
+&gt;&lt;/cdg-lazy-img&gt;
+    </code>
+  </pre>
+</cdg-sample-section>

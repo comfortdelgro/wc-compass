@@ -10,16 +10,12 @@
   background-color: var(--grey20);
   .cdg-page-cover-title {
     margin: 0;
-    font-weight: 700;
-    font-size: 56px;
-    line-height: 84px;
+    @extend %display1;
   }
 }
 
 .cdg-blog-slide-title {
-  font-weight: 700;
-  font-size: 40px;
-  line-height: 60px;
+  @extend %display3;
   margin: 0;
 }
 
@@ -97,8 +93,8 @@
 }
 
 .cdg-blog-post {
-  font-size: 20px;
-  line-height: 30px;
+  font-size: var(--heading4);
+  line-height: var(--line-height-heading4);
   padding-bottom: 32px;
   gap: 32px;
   display: flex;
@@ -106,15 +102,11 @@
 }
 
 .cdg-post-title {
-  font-weight: 700;
-  font-size: 56px;
-  line-height: 84px;
+  @extend %display1;
 }
 
 .cdg-post-section-title {
-  font-weight: 700;
-  font-size: 28px;
-  line-height: 42px;
+  @extend %heading2;
   margin-bottom: 16px;
 }
 

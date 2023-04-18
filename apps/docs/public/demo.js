@@ -1,49 +1,81 @@
 export * from './components/accordion/index'
+export * from './components/alert-badges/index'
+export * from './components/alert/index'
 export * from './components/avatar/index'
 export * from './components/button/index'
+export * from './components/calendar/index'
+export * from './components/card-blogs/index'
+export * from './components/cards/index'
 export * from './components/carousel/index'
+export * from './components/chart/index'
+export * from './components/checkboxes/index'
+export * from './components/context-menu/index'
+export * from './components/dashboard-side-card/index'
+export * from './components/datepicker/index'
+export * from './components/dialog/index'
+export * from './components/dropdown/index'
+export * from './components/file-upload/index'
+export * from './components/file/index'
+export * from './components/footer/index'
+export * from './components/forms/index'
 export * from './components/gutter/index'
+export * from './components/icon/index'
+export * from './components/inline-loading/index'
+export * from './components/lazy-load-image/index'
 export * from './components/list-item/index'
 export * from './components/listview/index'
+export * from './components/loading-service/index'
+export * from './components/loading/index'
+export * from './components/modal/index'
+export * from './components/popover/index'
 export * from './components/progress/index'
 export * from './components/table/index'
+export * from './components/toggle/index'
+export * from './components/toolbar/index'
+export * from './components/tooltip/index'
+export * from './components/video/index'
+export * from './components/volume/index'
+export * from './components/wizards/index'
+export * from './components/zoom-image-view/index'
+export * from './services/index'
 
 import {SampleSection} from './sample-section'
 
 import './components/accordion/accordion.html'
-import './components/alert-badges.html'
-import './components/alert.html'
+import './components/alert-badges/alert-badges.html'
+import './components/alert/alert.html'
 import './components/avatar/avatar.html'
 import './components/breadcrumbs.html'
 import './components/button/button.html'
-import './components/calendar.html'
-import './components/card-blogs.html'
-import './components/cards.html'
+import './components/calendar/calendar.html'
+import './components/card-blogs/card-blogs.html'
+import './components/cards/cards.html'
 import './components/carousel/carousel.html'
-import './components/chart.html'
-import './components/checkboxes.html'
-import './components/context-menu.html'
-import './components/dashboard-side-card.html'
-import './components/datepicker.html'
-import './components/dialog.html'
-import './components/dropdown.html'
-import './components/file-upload.html'
-import './components/file.html'
-import './components/footer.html'
+import './components/chart/chart.html'
+import './components/checkboxes/checkboxes.html'
+import './components/context-menu/context-menu.html'
+import './components/dashboard-side-card/dashboard-side-card.html'
+import './components/datepicker/datepicker.html'
+import './components/dialog/dialog.html'
+import './components/dropdown/dropdown.html'
+import './components/file-upload/file-upload.html'
+import './components/file/file.html'
+import './components/footer/footer.html'
 import './components/gutter/gutter.html'
-import './components/icon.html'
-import './components/inline-loading.html'
+import './components/icon/icon.html'
+import './components/inline-loading/inline-loading.html'
 import './components/layouts.html'
+import './components/lazy-load-image/lazy-load-image.html'
 import './components/listview/list-view.html'
-import './components/loading.html'
-import './components/modal.html'
+import './components/loading/loading.html'
+import './components/modal/modal.html'
 import './components/multi-level-dropdown.html'
 import './components/nav-rail.html'
 import './components/navbar.html'
 import './components/page-header.html'
 import './components/pagination.html'
 import './components/pill-badges.html'
-import './components/popover.html'
+import './components/popover/popover.html'
 import './components/progress/progress.html'
 import './components/quantity-toggle.html'
 import './components/radios.html'
@@ -61,17 +93,11 @@ import './components/template/dashboard.html'
 import './components/testimonials.html'
 import './components/text-field.html'
 import './components/timeline.html'
-import './components/toast.html'
-import './components/toggle.html'
-import './components/toolbar.html'
-import './components/tooltip.html'
-import './components/video.html'
-import './components/volume.html'
+import './components/tooltip/tooltip.html'
 import './components/website/contents/article.html'
 import './components/website/contents/news-blogs.html'
 import './components/website/news-and-blogs.html'
 import './components/website/post-detail.html'
-import './components/wizards.html'
 import './pages/customization.html'
 import './pages/home.html'
 import './pages/layouts-and-controls.html'
@@ -87,30 +113,33 @@ const contentMap = {
   theming: './pages/theming.html',
   layoutsAndControls: './pages/layouts-and-controls.html',
   accordion: './components/accordion/accordion.html',
-  alert: './components/alert.html',
-  alertBadges: './components/alert-badges.html',
+  alert: './components/alert/alert.html',
+  alertBadges: './components/alert-badges/alert-badges.html',
   avatar: './components/avatar/avatar.html',
   breadcrumbs: './components/breadcrumbs.html',
-  checkboxes: './components/checkboxes.html',
-  dashboardSideCard: './components/dashboard-side-card.html',
-  file: './components/file.html',
-  fileUpload: './components/file-upload.html',
-  footer: './components/footer.html',
+  checkboxes: './components/checkboxes/checkboxes.html',
+  dashboardSideCard:
+    './components/dashboard-side-card/dashboard-side-card.html',
+  file: './components/file/file.html',
+  fileUpload: './components/file-upload/file-upload.html',
+  footer: './components/footer/footer.html',
   about: './components/template/about.html',
   gutter: './components/gutter/gutter.html',
-  icon: './components/icon.html',
-  dialog: './components/dialog.html',
-  dropdown: './components/dropdown.html',
+  icon: './components/icon/icon.html',
+  dialog: './components/dialog/dialog.html',
+  dropdown: './components/dropdown/dropdown.html',
+  forms: './components/forms/forms.html',
   button: './components/button/button.html',
-  cards: './components/cards.html',
-  cardBlogs: './components/card-blogs.html',
+  cards: './components/cards/cards.html',
+  cardBlogs: './components/card-blogs/card-blogs.html',
   carousel: './components/carousel/carousel.html',
-  inlineLoading: './components/inline-loading.html',
+  inlineLoading: './components/inline-loading/inline-loading.html',
   layouts: './components/layouts.html',
   listItem: './components/list-item/list-item.html',
   listView: './components/listview/list-view.html',
-  loading: './components/loading.html',
-  modal: './components/modal.html',
+  loadingService: './components/loading-service/loading-service.html',
+  loading: './components/loading/loading.html',
+  modal: './components/modal/modal.html',
   navRail: './components/nav-rail.html',
   navbar: './components/navbar.html',
   pageHeader: './components/page-header.html',
@@ -121,37 +150,38 @@ const contentMap = {
   rating: './components/rating.html',
   sidebar: './components/sidebar.html',
   status: './components/status.html',
-  toolbar: './components/toolbar.html',
+  toolbar: './components/toolbar/toolbar.html',
   subHeader: './components/sub-header.html',
   tabs: './components/tabs.html',
   textField: './components/text-field.html',
   subNav: './components/sub-nav.html',
   table: './components/table/table.html',
-  popover: './components/popover.html',
+  popover: './components/popover/popover.html',
   progress: './components/progress/progress.html',
-  toast: './components/toast.html',
-  toggle: './components/toggle.html',
+  toast: './services/toast/toast.html',
+  toggle: './components/toggle/toggle.html',
   timeline: './components/timeline.html',
-  volume: './components/volume.html',
-  wizards: './components/wizards.html',
-  calendar: './components/calendar.html',
-  datepicker: './components/datepicker.html',
-  tooltip: './components/tooltip.html',
+  volume: './components/volume/volume.html',
+  wizards: './components/wizards/wizards.html',
+  calendar: './components/calendar/calendar.html',
+  datepicker: './components/datepicker/datepicker.html',
+  tooltip: './components/tooltip/tooltip.html',
   rangeSlider: './components/range-slider.html',
   tagBox: './components/tag-box.html',
-  video: './components/video.html',
+  video: './components/video/video.html',
   dashboardTemplate: './components/template/dashboard.html',
   richTextEditor: './components/rich-text-editor.html',
   selectingThemeModal: './components/template/selecting-theme-modal.html',
   servicesMenu: './components/template/services-menu.html',
   multiLevelDropdown: './components/multi-level-dropdown.html',
-  contextMenu: './components/context-menu.html',
+  contextMenu: './components/context-menu/context-menu.html',
   testimonials: './components/testimonials.html',
-  imageViewer: './components/zoom-image-view.html',
+  imageViewer: './components/zoom-image-view/zoom-image-view.html',
   newsAndBlogs: './components/website/news-and-blogs.html',
   article: './components/website/post-detail.html',
   services: './components/website/services.html',
-  chart: './components/chart.html',
+  chart: './components/chart/chart.html',
+  lazyLoadImage: './components/lazy-load-image/lazy-load-image.html',
 }
 
 const documentContent = [
@@ -208,6 +238,10 @@ const documentContent = [
         slug: 'dashboardSideCard',
       },
       {
+        name: 'Forms',
+        slug: 'forms',
+      },
+      {
         name: 'Gutter',
         slug: 'gutter',
       },
@@ -218,14 +252,6 @@ const documentContent = [
       {
         name: 'Layouts',
         slug: 'layouts',
-      },
-      {
-        name: 'List Item',
-        slug: 'listItem',
-      },
-      {
-        name: 'List View',
-        slug: 'listView',
       },
       {
         name: 'Sub Header',
@@ -354,6 +380,18 @@ const documentContent = [
         slug: 'loading',
       },
       {
+        name: 'Lazy Load Image',
+        slug: 'lazyLoadImage',
+      },
+      {
+        name: 'List Item',
+        slug: 'listItem',
+      },
+      {
+        name: 'List View',
+        slug: 'listView',
+      },
+      {
         name: 'Pagination',
         slug: 'pagination',
       },
@@ -431,6 +469,10 @@ const documentContent = [
       {
         name: 'Image Viewer',
         slug: 'imageViewer',
+      },
+      {
+        name: 'Loading',
+        slug: 'loadingService',
       },
     ],
   },
@@ -589,10 +631,12 @@ function handlePageChange(url) {
   activeMenu(hash)
   subNavParent.classList.remove('stick')
   if (hash === 'home') {
-    document.querySelector('cdg-sub-nav').classList.add('hide')
+    document.querySelector('.cdg-layout.sub-nav-wrapper').classList.add('hide')
     pageHeader.classList.add('hide')
   } else {
-    document.querySelector('cdg-sub-nav').classList.remove('hide')
+    document
+      .querySelector('.cdg-layout.sub-nav-wrapper')
+      .classList.remove('hide')
     pageHeader.classList.remove('hide')
     const menu = getMenuInfo(hash)
     pageTitle.textContent = menu.name

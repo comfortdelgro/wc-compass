@@ -43,9 +43,7 @@
   display: flex;
   justify-content: space-between;
   .header-title {
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 30px;
+    @extend %heading4;
   }
   .header-close-button {
     padding: 0;

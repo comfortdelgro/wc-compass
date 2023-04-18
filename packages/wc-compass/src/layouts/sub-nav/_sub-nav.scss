@@ -35,8 +35,7 @@ cdg-sub-nav-group,
 .cdg-sub-nav-item,
 cdg-sub-nav-group,
 .cdg-sub-nav-group {
-  font-size: 14px;
-  line-height: 21px;
+  @extend %body3;
 }
 
 .cdg-sub-nav-header {
@@ -44,9 +43,7 @@ cdg-sub-nav-group,
   align-items: center;
   gap: 12px;
   padding: 16px;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 30px;
+  @extend %heading4;
   .cdg-icon {
     color: var(--info);
   }

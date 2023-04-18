@@ -32,14 +32,13 @@
 }
 .month-selector-clear {
   font-weight: 600;
-  font-size: 12px;
-  line-height: 18px;
   border-radius: 4px;
   padding: 4px 10px;
   border: none;
   background-color: transparent;
   cursor: pointer;
   color: var(--primary-color);
+  @extend %body3;
 }
 .month-selector-right {
   display: flex;
@@ -47,15 +46,13 @@
   gap: 16px;
   .month-selector-detail {
     font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
     color: var(--primary-color);
+    @extend %body3;
   }
   .month-selector-today {
     padding: 4px 10px;
     font-weight: 600;
-    font-size: 12px;
-    line-height: 18px;
+    @extend %label2;
   }
 }
 
@@ -128,8 +125,7 @@
   justify-content: center;
   .title {
     font-weight: 600;
-    font-size: 14px;
-    line-height: 21px;
+    @extend %label2;
     color: var(--accent);
     border: none;
     background-color: unset;
@@ -151,8 +147,7 @@
 .day-of-week {
   color: var(--color-week-day);
   font-weight: 600;
-  font-size: 12px;
-  line-height: 18px;
+  @extend %label2;
   background-color: var(--background);
   padding: 10px 0;
   & > * {
@@ -177,8 +172,7 @@
     width: 100%;
     height: 100%;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
+    @extend %body3;
     &:disabled {
       cursor: not-allowed;
     }

@@ -5,8 +5,7 @@
   .cdg-button {
     border-radius: 50%;
     padding: 8px 1rem;
-    font-size: 14px;
-    line-height: 20px;
+    @extend %body3;
     text-align: center;
     width: 2rem;
     height: 2rem;

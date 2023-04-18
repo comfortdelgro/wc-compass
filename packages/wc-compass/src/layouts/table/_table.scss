@@ -7,6 +7,10 @@
   table-layout: fixed;
   border: 1px solid var(--border-color);
 
+  &.auto-layout {
+    table-layout: auto;
+  }
+
   .cdg-table-cell.cdg-table-cell-checkbox {
     display: none;
   }
@@ -132,8 +136,7 @@
   flex: 1;
   color: var(--grey100);
   font-weight: 600;
-  font-size: 14px;
-  line-height: 18px;
+  @extend %body3;
   &.has-sorting {
     padding-right: 24px;
   }
@@ -201,6 +204,24 @@
   }
 }
 
+.cdg-table-cell,
+.cdg-table-head-cell {
+  &[align='center'],
+  &.text-center {
+    text-align: center;
+  }
+
+  &[align='left'],
+  &.text-left {
+    text-align: left;
+  }
+
+  &[align='right'],
+  &.text-right {
+    text-align: right;
+  }
+}
+
 /* td */
 .cdg-table-cell {
   padding: 8px;
@@ -209,15 +230,6 @@
   vertical-align: inherit;
   font-size: var(--spacing-3_5);
   padding: var(--spacing-3_5) var(--spacing-3);
-  &.text-center {
-    text-align: center;
-  }
-  &.text-left {
-    text-align: left;
-  }
-  &.text-right {
-    text-align: right;
-  }
 }
 
 .cdg-table-cell-checkbox,

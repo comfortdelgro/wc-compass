@@ -1,46 +1,293 @@
-<h3>Table with custom size and title</h3>
-<div class="sample-section column">
-  <cdg-toolbar>
-    <div class="cdg-left-group">
-      <button class="cdg-button secondary" id="selectButton">Select</button>
-      <span id="selectedText"></span>
-      <div class="cdg-input-row cdg-hide-on-selected">
-        <label class="cdg-input-group" style="width: 230px">
-          <div class="cdg-input-with-icon">
-            <input
-              class="cdg-input"
-              placeholder="Type a name..."
-              id="searchKeyword"
-            />
-            <cdg-icon name="search" size="16"></cdg-icon>
-          </div>
-        </label>
+<cdg-sample-section name="With logic">
+  <div class="sample-section column">
+    <cdg-toolbar>
+      <div class="cdg-left-group">
+        <button class="cdg-button secondary" id="selectButton">Select</button>
+        <span id="selectedText"></span>
+        <div class="cdg-form-row cdg-hide-on-selected">
+          <label class="cdg-input-group" style="width: 230px">
+            <div class="cdg-input-with-icon">
+              <input
+                class="cdg-input"
+                placeholder="Type a name..."
+                id="searchKeyword"
+              />
+              <cdg-icon name="search" size="16"></cdg-icon>
+            </div>
+          </label>
+        </div>
       </div>
-    </div>
-    <div class="cdg-right-group cdg-show-on-selected">
-      <button class="cdg-button ghost">
-        <cdg-icon name="outlineTrash"></cdg-icon>
-      </button>
-      <button class="cdg-button ghost">
-        <cdg-icon name="copy"></cdg-icon>
-      </button>
-    </div>
-  </cdg-toolbar>
-  <cdg-table id="sampleTable"></cdg-table>
+      <div class="cdg-right-group cdg-show-on-selected">
+        <button class="cdg-button ghost">
+          <cdg-icon name="outlineTrash"></cdg-icon>
+        </button>
+        <button class="cdg-button ghost">
+          <cdg-icon name="copy"></cdg-icon>
+        </button>
+      </div>
+    </cdg-toolbar>
 
-  <div class="cdg-table-footer">
-    <div class="cdg-separator"></div>
-    <div class="cdg-right-group">
-      <div class="pagingation-label">
-        Showing <span id="startItem">1</span> - <span id="toItem">10</span> out
-        of <span id="totalItem">1000</span>
+    <cdg-table id="sampleTable"></cdg-table>
+
+    <div class="cdg-table-footer">
+      <div class="cdg-separator"></div>
+      <div class="cdg-right-group">
+        <div class="pagingation-label">
+          Showing <span id="startItem">1</span> -
+          <span id="toItem">10</span> out of <span id="totalItem">1000</span>
+        </div>
+        <cdg-pagination
+          current-page="1"
+          total="1000"
+          page-size="10"
+          display-button-count="3"
+        ></cdg-pagination>
       </div>
-      <cdg-pagination
-        current-page="1"
-        total="1000"
-        page-size="10"
-        display-button-count="3"
-      ></cdg-pagination>
     </div>
   </div>
-</div>
+
+  <style>
+    #selectButton {
+      width: 90px;
+    }
+  </style>
+
+  <pre>
+    <code class="language-html">
+&lt;cdg-toolbar&gt;
+  &lt;div class=&quot;cdg-left-group&quot;&gt;
+    &lt;button class=&quot;cdg-button secondary&quot; id=&quot;selectButton&quot;&gt;Select&lt;/button&gt;
+    &lt;span id=&quot;selectedText&quot;&gt;&lt;/span&gt;
+    &lt;div class=&quot;cdg-form-row cdg-hide-on-selected&quot;&gt;
+      &lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 230px&quot;&gt;
+        &lt;div class=&quot;cdg-input-with-icon&quot;&gt;
+          &lt;input
+            class=&quot;cdg-input&quot;
+            placeholder=&quot;Type a name...&quot;
+            id=&quot;searchKeyword&quot;
+          /&gt;
+          &lt;cdg-icon name=&quot;search&quot; size=&quot;16&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;/div&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cdg-right-group cdg-show-on-selected&quot;&gt;
+    &lt;button class=&quot;cdg-button ghost&quot;&gt;
+      &lt;cdg-icon name=&quot;outlineTrash&quot;&gt;&lt;/cdg-icon&gt;
+    &lt;/button&gt;
+    &lt;button class=&quot;cdg-button ghost&quot;&gt;
+      &lt;cdg-icon name=&quot;copy&quot;&gt;&lt;/cdg-icon&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/cdg-toolbar&gt;
+
+&lt;cdg-table id=&quot;sampleTable&quot;&gt;&lt;/cdg-table&gt;
+
+&lt;div class=&quot;cdg-table-footer&quot;&gt;
+  &lt;div class=&quot;cdg-separator&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;cdg-right-group&quot;&gt;
+    &lt;div class=&quot;pagingation-label&quot;&gt;
+      Showing &lt;span id=&quot;startItem&quot;&gt;1&lt;/span&gt; -
+      &lt;span id=&quot;toItem&quot;&gt;10&lt;/span&gt; out of &lt;span id=&quot;totalItem&quot;&gt;1000&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;cdg-pagination
+      current-page=&quot;1&quot;
+      total=&quot;1000&quot;
+      page-size=&quot;10&quot;
+      display-button-count=&quot;3&quot;
+    &gt;&lt;/cdg-pagination&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+import {CdgBaseComponent} from &apos;../../../shared/base-component&apos;
+import {dummyData} from &apos;../table-data&apos;
+import template from &apos;./options.section.html&apos;
+
+export class CdgTableOptionsSection extends CdgBaseComponent {
+  checkable = false
+
+  table
+  toolbar
+  pagination
+  selectButton
+  searchField
+  startItem
+  toItem
+  totalItem
+  filteredData = []
+
+  currentPage = 1
+  pageSize = 10
+
+  timer
+
+  constructor() {
+    super()
+    this.template = template
+  }
+
+  onInit() {
+    this.fillInData()
+    this.listenEvents()
+  }
+
+  fillInData() {
+    this.table = this.querySelector(&apos;#sampleTable&apos;)
+    this.table.checkable = false
+    this.table.options = {
+      columns: [
+        {
+          name: &apos;ID&apos;,
+          width: &apos;80px&apos;,
+          fieldName: &apos;id&apos;,
+        },
+        {
+          name: &apos;Name&apos;,
+          width: &apos;auto&apos;,
+          fieldName: &apos;name&apos;,
+          sortable: true,
+        },
+        {
+          name: &apos;Age&apos;,
+          width: &apos;80px&apos;,
+          fieldName: &apos;age&apos;,
+          sortable: true,
+        },
+        {
+          name: &apos;Sex&apos;,
+          width: &apos;140px&apos;,
+          fieldName: &apos;gender&apos;,
+        },
+      ],
+      onRowClick: this.onRowClick.bind(this),
+    }
+    this.filteredData = dummyData
+    this.table.data = this.filteredData.slice(0, this.pageSize)
+    this.table.addEventListener(
+      &apos;selectionChange&apos;,
+      this.handleSelectionChange.bind(this),
+    )
+    this.table.addEventListener(&apos;sort&apos;, this.handleSort.bind(this))
+  }
+
+  listenEvents() {
+    this.selectedText = this.querySelector(&apos;#selectedText&apos;)
+    this.toolbar = this.querySelector(&apos;.cdg-toolbar&apos;)
+    this.selectButton = this.querySelector(&apos;#selectButton&apos;)
+    this.selectButton.addEventListener(&apos;click&apos;, this.toggleCheckable.bind(this))
+
+    this.pagination = this.querySelector(&apos;cdg-pagination&apos;)
+    this.pagination.addEventListener(&apos;navigate&apos;, this.handleNavigate.bind(this))
+
+    this.searchField = this.querySelector(&apos;#searchKeyword&apos;)
+    this.searchField.addEventListener(&apos;input&apos;, this.handleSearch.bind(this))
+
+    this.startItem = this.querySelector(&apos;#startItem&apos;)
+    this.toItem = this.querySelector(&apos;#toItem&apos;)
+    this.totalItem = this.querySelector(&apos;#totalItem&apos;)
+
+    this.updatePagingData()
+  }
+
+  toggleCheckable() {
+    this.checkable = !this.checkable
+    this.table.checkable = this.checkable
+    this.selectButton.textContent = this.checkable ? &apos;Cancel&apos; : &apos;Select&apos;
+  }
+
+  exitSelect() {
+    this.checkable = false
+    this.table.checkable = this.checkable
+    this.selectButton.textContent = &apos;Select&apos;
+  }
+
+  updateSortDirection(sortEvent) {
+    this.table.options.columns.forEach((column) =&gt; {
+      if (column.fieldName === sortEvent.fieldName) {
+        column.sortDirection = sortEvent.sortDirection
+      } else {
+        column.sortDirection = null
+      }
+    })
+  }
+
+  handleSort(event) {
+    this.updateSortDirection(event.detail)
+
+    const fieldName = event.detail.fieldName
+    this.filteredData = this.filteredData.sort((a, b) =&gt; {
+      if (event.detail.sortDirection === 1) {
+        return a[fieldName] &gt; b[fieldName]
+          ? 1
+          : a[fieldName] === b[fieldName]
+          ? 0
+          : -1
+      } else {
+        return a[fieldName] &lt; b[fieldName]
+          ? 1
+          : a[fieldName] === b[fieldName]
+          ? 0
+          : -1
+      }
+    })
+
+    this.currentPage = 1
+    this.pagination.setAttribute(&apos;current-page&apos;, this.currentPage)
+    this.table.data = this.filteredData.slice(0, this.pageSize)
+    this.updatePagingData()
+  }
+
+  handleSelectionChange(event) {
+    if (event.detail.hasCheckedRow) {
+      this.toolbar.classList.add(&apos;selected&apos;)
+      this.selectedText.textContent = &apos;Selected &apos; + event.detail.selected.length
+    } else {
+      this.toolbar.classList.remove(&apos;selected&apos;)
+      this.selectedText.textContent = &apos;&apos;
+    }
+  }
+
+  handleNavigate(event) {
+    this.exitSelect()
+    this.currentPage = event.detail
+    this.table.data = this.filteredData.slice(
+      this.currentPage * this.pageSize - this.pageSize,
+      this.currentPage * this.pageSize,
+    )
+    this.updatePagingData()
+  }
+
+  handleSearch(event) {
+    if (this.timer) {
+      clearTimeout(this.timer)
+    }
+    this.timer = setTimeout(() =&gt; {
+      const keyword = event.target.value.toLowerCase().trim()
+      this.filteredData = dummyData.filter((item) =&gt; {
+        return item.name.toLowerCase().includes(keyword)
+      })
+      this.currentPage = 1
+      this.pagination.setAttribute(&apos;current-page&apos;, this.currentPage)
+      this.table.data = this.filteredData.slice(0, this.pageSize)
+      this.updatePagingData()
+    }, 500)
+  }
+
+  onRowClick(event, data) {
+    cdgToastService.toast(&apos;Clicked on: &apos; + data.name)
+  }
+
+  updatePagingData() {
+    this.startItem.textContent =
+      this.currentPage * this.pageSize - this.pageSize
+    this.toItem.textContent = this.currentPage * this.pageSize
+    this.totalItem.textContent = this.filteredData.length
+    this.pagination.setAttribute(&apos;total&apos;, this.filteredData.length)
+  }
+}
+
+&lt;/script&gt;
+    </code>
+</pre>
+</cdg-sample-section>

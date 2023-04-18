@@ -1,5 +1,10 @@
 const ANIMATION_TIME = 300
 
+export class ToastIcon {
+  name = 'info'
+  color = '#009eda'
+}
+
 export class ToastConfig {
   autoHideAfter = 3000
 }
@@ -44,7 +49,7 @@ export class ToastService {
     this.container.prepend(toast)
   }
 
-  toast(message, icon = {name: 'info', color: '#009eda'}, config) {
+  toast(message, icon = new ToastIcon(), config) {
     const toast = document.createElement('cdg-toast')
     const header = document.createElement('cdg-toast-header')
     const messageElement = document.createElement('cdg-toast-message')
