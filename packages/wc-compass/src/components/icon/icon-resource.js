@@ -57,6 +57,7 @@ import docPdf from '../../images/document/doc-pdf.svg'
 import docSheet from '../../images/document/doc-sheet.svg'
 import docWord from '../../images/document/doc-word.svg'
 import dots from '../../images/dots.svg'
+import download from '../../images/download.svg'
 import emoFrown from '../../images/emoji/emo-frown.svg'
 import emoHeart from '../../images/emoji/emo-heart.svg'
 import emoLaugh from '../../images/emoji/emo-laugh.svg'
@@ -197,6 +198,7 @@ export const ICONS_IMAGES = [
   arrowUpRightFromSquareDuotone,
   bid,
   browser,
+  download,
   callCenter,
   cancelled,
   caretRight,

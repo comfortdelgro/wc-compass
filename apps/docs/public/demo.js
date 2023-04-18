@@ -4,6 +4,7 @@ export * from './components/alert/index'
 export * from './components/avatar/index'
 export * from './components/button/index'
 export * from './components/calendar/index'
+export * from './components/card-blogs/index'
 export * from './components/cards/index'
 export * from './components/carousel/index'
 export * from './components/chart/index'
@@ -11,6 +12,7 @@ export * from './components/checkboxes/index'
 export * from './components/context-menu/index'
 export * from './components/dashboard-side-card/index'
 export * from './components/datepicker/index'
+export * from './components/dialog/index'
 export * from './components/dropdown/index'
 export * from './components/forms/index'
 export * from './components/gutter/index'
@@ -22,6 +24,8 @@ export * from './components/progress/index'
 export * from './components/table/index'
 export * from './components/tooltip/index'
 export * from './components/zoom-image-view/index'
+export * from './components/file-upload/index'
+export * from './components/file/index'
 
 import {SampleSection} from './sample-section'
 
@@ -32,7 +36,7 @@ import './components/avatar/avatar.html'
 import './components/breadcrumbs.html'
 import './components/button/button.html'
 import './components/calendar/calendar.html'
-import './components/card-blogs.html'
+import './components/card-blogs/card-blogs.html'
 import './components/cards/cards.html'
 import './components/carousel/carousel.html'
 import './components/chart/chart.html'
@@ -40,10 +44,10 @@ import './components/checkboxes/checkboxes.html'
 import './components/context-menu/context-menu.html'
 import './components/dashboard-side-card/dashboard-side-card.html'
 import './components/datepicker/datepicker.html'
-import './components/dialog.html'
+import './components/dialog/dialog.html'
 import './components/dropdown/dropdown.html'
-import './components/file-upload.html'
-import './components/file.html'
+import './components/file-upload/file-upload.html'
+import './components/file/file.html'
 import './components/footer.html'
 import './components/gutter/gutter.html'
 import './components/icon.html'
@@ -108,19 +112,20 @@ const contentMap = {
   avatar: './components/avatar/avatar.html',
   breadcrumbs: './components/breadcrumbs.html',
   checkboxes: './components/checkboxes/checkboxes.html',
-  dashboardSideCard: './components/dashboard-side-card/dashboard-side-card.html',
-  file: './components/file.html',
-  fileUpload: './components/file-upload.html',
+  dashboardSideCard:
+    './components/dashboard-side-card/dashboard-side-card.html',
+  file: './components/file/file.html',
+  fileUpload: './components/file-upload/file-upload.html',
   footer: './components/footer.html',
   about: './components/template/about.html',
   gutter: './components/gutter/gutter.html',
   icon: './components/icon.html',
-  dialog: './components/dialog.html',
+  dialog: './components/dialog/dialog.html',
   dropdown: './components/dropdown/dropdown.html',
   forms: './components/forms/forms.html',
   button: './components/button/button.html',
   cards: './components/cards/cards.html',
-  cardBlogs: './components/card-blogs.html',
+  cardBlogs: './components/card-blogs/card-blogs.html',
   carousel: './components/carousel/carousel.html',
   inlineLoading: './components/inline-loading.html',
   layouts: './components/layouts.html',
@@ -623,7 +628,9 @@ function handlePageChange(url) {
     document.querySelector('.cdg-layout.sub-nav-wrapper').classList.add('hide')
     pageHeader.classList.add('hide')
   } else {
-    document.querySelector('.cdg-layout.sub-nav-wrapper').classList.remove('hide')
+    document
+      .querySelector('.cdg-layout.sub-nav-wrapper')
+      .classList.remove('hide')
     pageHeader.classList.remove('hide')
     const menu = getMenuInfo(hash)
     pageTitle.textContent = menu.name
