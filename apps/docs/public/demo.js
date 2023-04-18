@@ -21,6 +21,7 @@ export * from './components/popover/index'
 export * from './components/progress/index'
 export * from './components/table/index'
 export * from './components/tooltip/index'
+export * from './components/volume/index'
 export * from './components/wizards/index'
 export * from './components/zoom-image-view/index'
 
@@ -83,7 +84,6 @@ import './components/toggle.html'
 import './components/toolbar.html'
 import './components/tooltip/tooltip.html'
 import './components/video.html'
-import './components/volume.html'
 import './components/website/contents/article.html'
 import './components/website/contents/news-blogs.html'
 import './components/website/news-and-blogs.html'
@@ -151,7 +151,7 @@ const contentMap = {
   toast: './components/toast.html',
   toggle: './components/toggle.html',
   timeline: './components/timeline.html',
-  volume: './components/volume.html',
+  volume: './components/volume/volume.html',
   wizards: './components/wizards/wizards.html',
   calendar: './components/calendar/calendar.html',
   datepicker: './components/datepicker/datepicker.html',
