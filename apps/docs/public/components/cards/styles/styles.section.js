@@ -4,7 +4,7 @@ export class CdgCardStylesSection extends CdgBaseComponent {
   constructor() {
     super()
     this.htmlContent = `<section class="guideline-section">
-    <h3 class="sample-section-title">CSS class name</h3>
+    <h3 class="sample-section-title">CSS class name <code>cdg-card</code></h3>
     <cdg-table id="styleTable"></cdg-table>
   </section>
     `
@@ -36,6 +36,15 @@ export class CdgCardStylesSection extends CdgBaseComponent {
       {
         name: '<code>raised</code>',
         description: 'Add box-shadow to card.',
+      },
+      {
+        name: '<code>cdg-card-float-content</code>',
+        description:
+          'Add to content of <code>cdg-card-float-content</code> to make content overlap <code>cdg-card-cover</code>.',
+      },
+      {
+        name: '<code>article-card</code>',
+        description: 'Horizontal layout for blogs.',
       },
     ]
   }
