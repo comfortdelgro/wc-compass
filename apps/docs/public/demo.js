@@ -21,6 +21,7 @@ export * from './components/popover/index'
 export * from './components/progress/index'
 export * from './components/table/index'
 export * from './components/tooltip/index'
+export * from './components/wizards/index'
 export * from './components/zoom-image-view/index'
 
 import {SampleSection} from './sample-section'
@@ -87,7 +88,6 @@ import './components/website/contents/article.html'
 import './components/website/contents/news-blogs.html'
 import './components/website/news-and-blogs.html'
 import './components/website/post-detail.html'
-import './components/wizards.html'
 import './pages/customization.html'
 import './pages/home.html'
 import './pages/layouts-and-controls.html'
@@ -108,7 +108,8 @@ const contentMap = {
   avatar: './components/avatar/avatar.html',
   breadcrumbs: './components/breadcrumbs.html',
   checkboxes: './components/checkboxes/checkboxes.html',
-  dashboardSideCard: './components/dashboard-side-card/dashboard-side-card.html',
+  dashboardSideCard:
+    './components/dashboard-side-card/dashboard-side-card.html',
   file: './components/file.html',
   fileUpload: './components/file-upload.html',
   footer: './components/footer.html',
@@ -151,7 +152,7 @@ const contentMap = {
   toggle: './components/toggle.html',
   timeline: './components/timeline.html',
   volume: './components/volume.html',
-  wizards: './components/wizards.html',
+  wizards: './components/wizards/wizards.html',
   calendar: './components/calendar/calendar.html',
   datepicker: './components/datepicker/datepicker.html',
   tooltip: './components/tooltip/tooltip.html',
@@ -623,7 +624,9 @@ function handlePageChange(url) {
     document.querySelector('.cdg-layout.sub-nav-wrapper').classList.add('hide')
     pageHeader.classList.add('hide')
   } else {
-    document.querySelector('.cdg-layout.sub-nav-wrapper').classList.remove('hide')
+    document
+      .querySelector('.cdg-layout.sub-nav-wrapper')
+      .classList.remove('hide')
     pageHeader.classList.remove('hide')
     const menu = getMenuInfo(hash)
     pageTitle.textContent = menu.name
