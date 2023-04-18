@@ -70,6 +70,19 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.html$/,
+        include: [path.resolve(__dirname, './public/services')],
+        use: [
+          {
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'services/',
+            },
+            loader: 'file-loader',
+          },
+        ],
+      },
     ],
   },
   resolve: {
