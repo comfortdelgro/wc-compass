@@ -20,6 +20,7 @@ export * from './components/loading-service/index'
 export * from './components/popover/index'
 export * from './components/progress/index'
 export * from './components/table/index'
+export * from './components/toggle/index'
 export * from './components/toolbar/index'
 export * from './components/tooltip/index'
 export * from './components/video/index'
@@ -82,7 +83,6 @@ import './components/testimonials.html'
 import './components/text-field.html'
 import './components/timeline.html'
 import './components/toast.html'
-import './components/toggle.html'
 import './components/tooltip/tooltip.html'
 import './components/website/contents/article.html'
 import './components/website/contents/news-blogs.html'
@@ -149,7 +149,7 @@ const contentMap = {
   popover: './components/popover/popover.html',
   progress: './components/progress/progress.html',
   toast: './components/toast.html',
-  toggle: './components/toggle.html',
+  toggle: './components/toggle/toggle.html',
   timeline: './components/timeline.html',
   volume: './components/volume/volume.html',
   wizards: './components/wizards/wizards.html',
