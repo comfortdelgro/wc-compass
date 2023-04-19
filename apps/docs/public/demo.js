@@ -73,7 +73,7 @@ window.showSubNav = () => {
 
 function isParentContains(menu, child) {
   if (menu.children.length) {
-    return menu.children.find((item) => item.slug === child)
+    return menu.children.some((item) => item.slug === child)
   }
   return false
 }
@@ -102,36 +102,25 @@ function activeMenu(hash) {
   setTimeout(() => {
     // Handle main nav active states
     if (activeParent) {
-      activeParent.forEach((element) => {
-        element.classList.remove('active')
-      })
+      activeParent.classList.remove('active')
     }
 
     const parent = findParentMenu(hash)
     if (parent) {
-      activeParent = document.querySelectorAll('#' + parent.id)
-
-      activeParent.forEach((element) => {
-        element.classList.add('active')
-      })
+      activeParent = document.querySelector('#' + parent.id)
+      activeParent.classList.add('active')
 
       subpage.textContent = parent.name
 
       showSubMenu(parent)
-    } else {
-      console.log(hash)
     }
 
     if (activatedMenu) {
-      activatedMenu.forEach((element) => {
-        element.classList.remove('active')
-      })
+      activatedMenu.classList.remove('active')
     }
 
-    activatedMenu = document.querySelectorAll('[href="#' + hash + '"]')
-    activatedMenu.forEach((element) => {
-      element.classList.add('active')
-    })
+    activatedMenu = document.querySelector('[href="#' + hash + '"]')
+    activatedMenu.classList.add('active')
 
     // Close menu
     document.querySelector('cdg-nav-rail').open = false
@@ -218,7 +207,6 @@ function createNavMenu(item) {
 
   const menuIcon = document.createElement('cdg-icon')
   menuIcon.setAttribute('name', item.icon)
-  // menuIcon.setAttribute('source', 'host');
 
   const menuText = document.createElement('span')
   menuText.textContent = item.name
@@ -230,7 +218,9 @@ function createNavMenu(item) {
 }
 
 document.onreadystatechange = () => {
-  handlePageChange(window.location.href)
+  if (document.readyState === 'complete') {
+    handlePageChange(window.location.href)
+  }
 }
 
 const navRail = document.querySelector('.cdg-nav-rail-body')
