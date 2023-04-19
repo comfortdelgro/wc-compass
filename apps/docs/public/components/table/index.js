@@ -1,3 +1,5 @@
+import './table.html'
+
 import {CdgTableEventsSection} from './events/events.section'
 import {CdgTableLayoutSection} from './layouts/layout.section'
 import {CdgTableOptionsSection} from './options/options.section'

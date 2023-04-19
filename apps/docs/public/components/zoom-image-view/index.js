@@ -1,3 +1,5 @@
+import './zoom-image-view.html'
+
 import {CdgImageViewerPropertiesSection} from './properties/properties.section'
 
 customElements.define(

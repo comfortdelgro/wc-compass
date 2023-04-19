@@ -1,3 +1,5 @@
+import './carousel.html'
+
 import {CdgCarouselAnyContentSection} from './any-content/any-content.section'
 import {CdgCarouselCardsCentralSection} from './cards-central/cards-central.section'
 import {CdgCarouselCardsSection} from './cards/cards.section'

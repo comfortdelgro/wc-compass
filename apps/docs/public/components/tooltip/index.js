@@ -1,3 +1,5 @@
+import './tooltip.html'
+
 import {CdgTooltipPropertiesSection} from './properties/properties.section'
 
 customElements.define(

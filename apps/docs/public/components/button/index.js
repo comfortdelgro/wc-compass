@@ -1,3 +1,5 @@
+import './button.html'
+
 import {CdgButtonDefaultSection} from './default/default.section'
 import {CdgButtonLargeSection} from './large/large.section'
 import {CdgButtonPropertiesSection} from './properties/properties.section'

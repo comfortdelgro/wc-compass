@@ -1,3 +1,5 @@
+import './alert-badges.html'
+
 import {CdgAlertBadgesPropertiesSection} from './properties/properties.section'
 
 customElements.define(

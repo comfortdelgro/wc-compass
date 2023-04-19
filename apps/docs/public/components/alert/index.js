@@ -1,3 +1,5 @@
+import './alert.html'
+
 import {CdgAlertPropertiesSection} from './properties/properties.section'
 
 customElements.define(

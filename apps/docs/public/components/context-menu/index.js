@@ -1,3 +1,5 @@
+import './context-menu.html'
+
 import {CdgContextMenuPropertiesSection} from './properties/properties.section'
 
 customElements.define(

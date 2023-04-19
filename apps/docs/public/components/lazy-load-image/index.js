@@ -1,3 +1,5 @@
+import './lazy-load-image.html'
+
 import {CdgLazyLoadImagePropertiesSection} from './properties/properties.section'
 
 customElements.define(

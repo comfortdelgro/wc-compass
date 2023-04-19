@@ -1,3 +1,5 @@
+import './list-view.html'
+
 import {CdgListviewDefaultSection} from './default/listview-default.section'
 import {CdgListviewDraggableSection} from './draggable/draggable.section'
 import {CdgListviewPropertiesSection} from './properties/properties.section'

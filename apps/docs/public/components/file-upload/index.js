@@ -1,3 +1,5 @@
+import './file-upload.html'
+
 import {CdgFileUploadPropertiesSection} from './properties/properties.section'
 
 customElements.define(

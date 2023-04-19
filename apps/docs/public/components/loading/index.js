@@ -1,3 +1,5 @@
+import './loading.html'
+
 import {CdgLoadingPropertiesSection} from './properties/properties.section'
 
 customElements.define(

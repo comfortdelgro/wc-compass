@@ -1,82 +1,14 @@
-export * from './components/accordion/index'
-export * from './components/alert-badges/index'
-export * from './components/alert/index'
-export * from './components/avatar/index'
-export * from './components/button/index'
-export * from './components/calendar/index'
-export * from './components/card-blogs/index'
-export * from './components/cards/index'
-export * from './components/carousel/index'
-export * from './components/chart/index'
-export * from './components/checkboxes/index'
-export * from './components/context-menu/index'
-export * from './components/dashboard-side-card/index'
-export * from './components/datepicker/index'
-export * from './components/dialog/index'
-export * from './components/dropdown/index'
-export * from './components/file-upload/index'
-export * from './components/file/index'
-export * from './components/footer/index'
-export * from './components/forms/index'
-export * from './components/gutter/index'
-export * from './components/icon/index'
-export * from './components/inline-loading/index'
-export * from './components/lazy-load-image/index'
-export * from './components/list-item/index'
-export * from './components/listview/index'
-export * from './components/loading-service/index'
-export * from './components/loading/index'
-export * from './components/modal/index'
-export * from './components/popover/index'
-export * from './components/progress/index'
-export * from './components/table/index'
-export * from './components/toggle/index'
-export * from './components/toolbar/index'
-export * from './components/tooltip/index'
-export * from './components/video/index'
-export * from './components/volume/index'
-export * from './components/wizards/index'
-export * from './components/zoom-image-view/index'
+export * from './components/index'
 export * from './services/index'
 
-import {SampleSection} from './sample-section'
-
-import './components/accordion/accordion.html'
-import './components/alert-badges/alert-badges.html'
-import './components/alert/alert.html'
-import './components/avatar/avatar.html'
+import {CONTENT_MAP, DOCUMENT_CONTENT} from '../pages/constants'
 import './components/breadcrumbs.html'
-import './components/button/button.html'
-import './components/calendar/calendar.html'
-import './components/card-blogs/card-blogs.html'
-import './components/cards/cards.html'
-import './components/carousel/carousel.html'
-import './components/chart/chart.html'
-import './components/checkboxes/checkboxes.html'
-import './components/context-menu/context-menu.html'
-import './components/dashboard-side-card/dashboard-side-card.html'
-import './components/datepicker/datepicker.html'
-import './components/dialog/dialog.html'
-import './components/dropdown/dropdown.html'
-import './components/file-upload/file-upload.html'
-import './components/file/file.html'
-import './components/footer/footer.html'
-import './components/gutter/gutter.html'
-import './components/icon/icon.html'
-import './components/inline-loading/inline-loading.html'
 import './components/layouts.html'
-import './components/lazy-load-image/lazy-load-image.html'
-import './components/listview/list-view.html'
-import './components/loading/loading.html'
-import './components/modal/modal.html'
-import './components/multi-level-dropdown.html'
 import './components/nav-rail.html'
 import './components/navbar.html'
 import './components/page-header.html'
 import './components/pagination.html'
 import './components/pill-badges.html'
-import './components/popover/popover.html'
-import './components/progress/progress.html'
 import './components/quantity-toggle.html'
 import './components/radios.html'
 import './components/range-slider.html'
@@ -85,7 +17,6 @@ import './components/sidebar.html'
 import './components/status.html'
 import './components/sub-header.html'
 import './components/sub-nav.html'
-import './components/table/table.html'
 import './components/tabs.html'
 import './components/tag-box.html'
 import './components/template/about.html'
@@ -93,7 +24,6 @@ import './components/template/dashboard.html'
 import './components/testimonials.html'
 import './components/text-field.html'
 import './components/timeline.html'
-import './components/tooltip/tooltip.html'
 import './components/website/contents/article.html'
 import './components/website/contents/news-blogs.html'
 import './components/website/news-and-blogs.html'
@@ -103,420 +33,22 @@ import './pages/home.html'
 import './pages/layouts-and-controls.html'
 import './pages/theming.html'
 import './pages/z-index.html'
+import {SampleSection} from './sample-section'
 
 customElements.define('cdg-sample-section', SampleSection)
 
-const contentMap = {
-  home: './pages/home.html',
-  customization: './pages/customization.html',
-  zIndex: './pages/z-index.html',
-  theming: './pages/theming.html',
-  layoutsAndControls: './pages/layouts-and-controls.html',
-  accordion: './components/accordion/accordion.html',
-  alert: './components/alert/alert.html',
-  alertBadges: './components/alert-badges/alert-badges.html',
-  avatar: './components/avatar/avatar.html',
-  breadcrumbs: './components/breadcrumbs.html',
-  checkboxes: './components/checkboxes/checkboxes.html',
-  dashboardSideCard:
-    './components/dashboard-side-card/dashboard-side-card.html',
-  file: './components/file/file.html',
-  fileUpload: './components/file-upload/file-upload.html',
-  footer: './components/footer/footer.html',
-  about: './components/template/about.html',
-  gutter: './components/gutter/gutter.html',
-  icon: './components/icon/icon.html',
-  dialog: './components/dialog/dialog.html',
-  dropdown: './components/dropdown/dropdown.html',
-  forms: './components/forms/forms.html',
-  button: './components/button/button.html',
-  cards: './components/cards/cards.html',
-  cardBlogs: './components/card-blogs/card-blogs.html',
-  carousel: './components/carousel/carousel.html',
-  inlineLoading: './components/inline-loading/inline-loading.html',
-  layouts: './components/layouts.html',
-  listItem: './components/list-item/list-item.html',
-  listView: './components/listview/list-view.html',
-  loadingService: './components/loading-service/loading-service.html',
-  loading: './components/loading/loading.html',
-  modal: './components/modal/modal.html',
-  navRail: './components/nav-rail.html',
-  navbar: './components/navbar.html',
-  pageHeader: './components/page-header.html',
-  pagination: './components/pagination.html',
-  pillBadges: './components/pill-badges.html',
-  quantityToggle: './components/quantity-toggle.html',
-  radios: './components/radios.html',
-  rating: './components/rating.html',
-  sidebar: './components/sidebar.html',
-  status: './components/status.html',
-  toolbar: './components/toolbar/toolbar.html',
-  subHeader: './components/sub-header.html',
-  tabs: './components/tabs.html',
-  textField: './components/text-field.html',
-  subNav: './components/sub-nav.html',
-  table: './components/table/table.html',
-  popover: './components/popover/popover.html',
-  progress: './components/progress/progress.html',
-  toast: './services/toast/toast.html',
-  toggle: './components/toggle/toggle.html',
-  timeline: './components/timeline.html',
-  volume: './components/volume/volume.html',
-  wizards: './components/wizards/wizards.html',
-  calendar: './components/calendar/calendar.html',
-  datepicker: './components/datepicker/datepicker.html',
-  tooltip: './components/tooltip/tooltip.html',
-  rangeSlider: './components/range-slider.html',
-  tagBox: './components/tag-box.html',
-  video: './components/video/video.html',
-  dashboardTemplate: './components/template/dashboard.html',
-  richTextEditor: './components/rich-text-editor.html',
-  selectingThemeModal: './components/template/selecting-theme-modal.html',
-  servicesMenu: './components/template/services-menu.html',
-  multiLevelDropdown: './components/multi-level-dropdown.html',
-  contextMenu: './components/context-menu/context-menu.html',
-  testimonials: './components/testimonials.html',
-  imageViewer: './components/zoom-image-view/zoom-image-view.html',
-  newsAndBlogs: './components/website/news-and-blogs.html',
-  article: './components/website/post-detail.html',
-  services: './components/website/services.html',
-  chart: './components/chart/chart.html',
-  lazyLoadImage: './components/lazy-load-image/lazy-load-image.html',
-}
+let activatedMenu = null
+let activeParent = null
 
-const documentContent = [
-  {
-    name: 'Getting started',
-    id: 'getingStarted',
-    icon: 'signature',
-    children: [
-      {
-        name: 'Theming',
-        slug: 'theming',
-      },
-      {
-        name: 'Layouts and Controls',
-        slug: 'layoutsAndControls',
-      },
-      {
-        name: 'zIndex',
-        slug: 'zIndex',
-      },
-      {
-        name: 'Customization',
-        slug: 'customization',
-      },
-    ],
-  },
-  {
-    name: 'Layouts',
-    id: 'layouts',
-    icon: 'grid',
-    children: [
-      {
-        name: 'Accordion',
-        slug: 'accordion',
-      },
-      {
-        name: 'Breadcrumbs',
-        slug: 'breadcrumbs',
-      },
-      {
-        name: 'Cards',
-        slug: 'cards',
-      },
-      {
-        name: 'Carousel',
-        slug: 'carousel',
-      },
-      {
-        name: 'Context Menu',
-        slug: 'contextMenu',
-      },
-      {
-        name: 'Dashboard Side Card',
-        slug: 'dashboardSideCard',
-      },
-      {
-        name: 'Forms',
-        slug: 'forms',
-      },
-      {
-        name: 'Gutter',
-        slug: 'gutter',
-      },
-      {
-        name: 'Page Header',
-        slug: 'pageHeader',
-      },
-      {
-        name: 'Layouts',
-        slug: 'layouts',
-      },
-      {
-        name: 'Sub Header',
-        slug: 'subHeader',
-      },
-      {
-        name: 'Multi Level Dropdown',
-        slug: 'multiLevelDropdown',
-      },
-      {
-        name: 'Nav Rail',
-        slug: 'navRail',
-      },
-      {
-        name: 'Navbar',
-        slug: 'navbar',
-      },
-      {
-        name: 'Sub Nav',
-        slug: 'subNav',
-      },
-      {
-        name: 'Table',
-        slug: 'table',
-      },
-      {
-        name: 'Timeline',
-        slug: 'timeline',
-      },
-      {
-        name: 'Toolbar',
-        slug: 'toolbar',
-      },
-      {
-        name: 'Footer',
-        slug: 'footer',
-      },
-    ],
-  },
-  {
-    name: 'Form Controls',
-    id: 'formControls',
-    icon: 'clipBoard',
-    children: [
-      {
-        name: 'Calendar',
-        slug: 'calendar',
-      },
-      {
-        name: 'Checkboxes',
-        slug: 'checkboxes',
-      },
-      {
-        name: 'Datepicker',
-        slug: 'datepicker',
-      },
-      {
-        name: 'Dropdown',
-        slug: 'dropdown',
-      },
-      {
-        name: 'File',
-        slug: 'file',
-      },
-      {
-        name: 'File Upload',
-        slug: 'fileUpload',
-      },
-      {
-        name: 'Text Field',
-        slug: 'textField',
-      },
-      {
-        name: 'Quantity Toggle',
-        slug: 'quantityToggle',
-      },
-      {
-        name: 'Radios',
-        slug: 'radios',
-      },
-      {
-        name: 'RangeSlider',
-        slug: 'rangeSlider',
-      },
-      {
-        name: 'Rich Text Editor',
-        slug: 'richTextEditor',
-      },
-      {
-        name: 'Toggle',
-        slug: 'toggle',
-      },
-    ],
-  },
-  {
-    name: 'UI Controls',
-    id: 'ui-controls',
-    icon: 'shapes',
-    children: [
-      {
-        name: 'Avatar',
-        slug: 'avatar',
-      },
-      {
-        name: 'Alert',
-        slug: 'alert',
-      },
-      {
-        name: 'Alert Badges',
-        slug: 'alertBadges',
-      },
-      {
-        name: 'Button',
-        slug: 'button',
-      },
-      {
-        name: 'Icon',
-        slug: 'icon',
-      },
-      {
-        name: 'Inline Loading',
-        slug: 'inlineLoading',
-      },
-      {
-        name: 'Loading',
-        slug: 'loading',
-      },
-      {
-        name: 'Lazy Load Image',
-        slug: 'lazyLoadImage',
-      },
-      {
-        name: 'List Item',
-        slug: 'listItem',
-      },
-      {
-        name: 'List View',
-        slug: 'listView',
-      },
-      {
-        name: 'Pagination',
-        slug: 'pagination',
-      },
-      {
-        name: 'Pill Badges',
-        slug: 'pillBadges',
-      },
-      {
-        name: 'Rating',
-        slug: 'rating',
-      },
-      {
-        name: 'Status',
-        slug: 'status',
-      },
-      {
-        name: 'Tabs',
-        slug: 'tabs',
-      },
-      {
-        name: 'Tooltip',
-        slug: 'tooltip',
-      },
-      {
-        name: 'Tag Box',
-        slug: 'tagBox',
-      },
-      {
-        name: 'Popover',
-        slug: 'popover',
-      },
-      {
-        name: 'Progress',
-        slug: 'progress',
-      },
-      {
-        name: 'Video',
-        slug: 'video',
-      },
-      {
-        name: 'Volume',
-        slug: 'volume',
-      },
-      {
-        name: 'Wizards',
-        slug: 'wizards',
-      },
-    ],
-  },
-  {
-    name: 'Services',
-    id: 'services',
-    icon: 'job',
-    children: [
-      {
-        name: 'Dialog',
-        slug: 'dialog',
-      },
-      {
-        name: 'Modal',
-        slug: 'modal',
-      },
-      {
-        name: 'Sidebar',
-        slug: 'sidebar',
-      },
-      {
-        name: 'Toast',
-        slug: 'toast',
-      },
-      {
-        name: 'Chart',
-        slug: 'chart',
-      },
-      {
-        name: 'Image Viewer',
-        slug: 'imageViewer',
-      },
-      {
-        name: 'Loading',
-        slug: 'loadingService',
-      },
-    ],
-  },
-  {
-    name: 'Templates',
-    id: 'templates',
-    icon: 'grids',
-    children: [
-      {
-        name: 'About',
-        slug: 'about',
-      },
-      {
-        name: 'Article',
-        slug: 'article',
-      },
-      {
-        name: 'Card for Blogs',
-        slug: 'cardBlogs',
-      },
-      {
-        name: 'News And Blogs',
-        slug: 'newsAndBlogs',
-      },
-      {
-        name: 'Selecting Theme Modal',
-        slug: 'selectingThemeModal',
-      },
-      {
-        name: 'Services Menu',
-        slug: 'servicesMenu',
-      },
-      {
-        name: 'Testimonials',
-        slug: 'testimonials',
-      },
-      {
-        name: 'Services',
-        slug: 'services',
-      },
-      {name: 'Dashboard', slug: 'dashboardTemplate'},
-    ],
-  },
-]
+const content = document.querySelector('#component-content')
+const scriptElement = document.querySelector('#sample-script')
+const subTitle = document.querySelector('.cdg-sub-nav-title')
+const subNavParent = document.querySelector('cdg-sub-nav')
+const subNav = document.querySelector('.cdg-sub-nav-group-content')
+const pageHeader = document.querySelector('.cdg-page-header')
+const pageTitle = document.querySelector('.cdg-page-title')
+const subpage = document.querySelector('.sub-page-breadcrumb')
+const currentPage = document.querySelector('.current-page-breadcrumb')
 
 function downloadHTMLContent(url) {
   return new Promise((resolve, reject) => {
@@ -535,19 +67,6 @@ function downloadHTMLContent(url) {
   })
 }
 
-const content = document.querySelector('#component-content')
-const scriptElement = document.querySelector('#sample-script')
-const subTitle = document.querySelector('.cdg-sub-nav-title')
-const subNavParent = document.querySelector('cdg-sub-nav')
-const subNav = document.querySelector('.cdg-sub-nav-group-content')
-const pageHeader = document.querySelector('.cdg-page-header')
-const pageTitle = document.querySelector('.cdg-page-title')
-const subpage = document.querySelector('.sub-page-breadcrumb')
-const currentPage = document.querySelector('.current-page-breadcrumb')
-
-let activatedMenu = null
-let activeParent = null
-
 window.showSubNav = () => {
   subNavParent.classList.add('stick')
 }
@@ -560,7 +79,7 @@ function isParentContains(menu, child) {
 }
 
 function findParentMenu(hash) {
-  return documentContent.find((item) => isParentContains(item, hash))
+  return DOCUMENT_CONTENT.find((item) => isParentContains(item, hash))
 }
 
 function findChildren(menu, child) {
@@ -571,8 +90,8 @@ function findChildren(menu, child) {
 }
 
 function getMenuInfo(hash) {
-  for (let index in documentContent) {
-    const child = findChildren(documentContent[index], hash)
+  for (let index in DOCUMENT_CONTENT) {
+    const child = findChildren(DOCUMENT_CONTENT[index], hash)
     if (child) {
       return child
     }
@@ -643,7 +162,7 @@ function handlePageChange(url) {
     currentPage.textContent = menu.name
   }
 
-  downloadHTMLContent(contentMap[hash]).then((data) => {
+  downloadHTMLContent(CONTENT_MAP[hash]).then((data) => {
     content.innerHTML = data
 
     // Make demo script works
@@ -715,6 +234,6 @@ document.onreadystatechange = () => {
 }
 
 const navRail = document.querySelector('.cdg-nav-rail-body')
-documentContent.forEach((item) => {
+DOCUMENT_CONTENT.forEach((item) => {
   navRail.appendChild(createNavMenu(item))
 })

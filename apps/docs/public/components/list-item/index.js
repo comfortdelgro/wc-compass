@@ -1,3 +1,5 @@
+import './list-item.html'
+
 import {CdgListItemFullContentSection} from './full-content/full-content.section'
 import {CdgListItemNoDescriptionSection} from './no-description/no-description.section'
 import {CdgListItemNoIconSection} from './no-icon/no-icon.section'
