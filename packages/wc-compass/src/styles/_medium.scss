@@ -154,6 +154,14 @@
       grid-template-columns: repeat(3, 1fr);
     }
   }
+
+  .cdg-carousel[cards] {
+    .cdg-carousel-scroller {
+      .cdg-card-header {
+        padding: 1rem 1rem 0.75rem 1rem;
+      }
+    }
+  }
 }
 
 @container CardGrid (max-width: 1199px) {

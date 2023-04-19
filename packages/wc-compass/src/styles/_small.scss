@@ -130,6 +130,7 @@
 
   .cdg-promotion-actions {
     margin-top: 12px;
+    gap: 12px;
   }
 
   .cdg-carousel-controllers {
@@ -228,6 +229,39 @@
     grid-template-columns: repeat(1, 1fr);
     &.columns-4 {
       grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  .cdg-carousel[cards] .cdg-slide {
+    padding: 0 24px;
+  }
+
+  cdg-card,
+  .cdg-card {
+    &:has(.cdg-card-float-content) {
+      cdg-card-body,
+      .cdg-card-body {
+        padding: 0 12px;
+      }
+
+      cdg-card-actions,
+      .cdg-card-actions {
+        padding: 0 20px;
+      }
+    }
+  }
+
+  cdg-timeline,
+  .cdg-timeline {
+    &[zigzag] {
+      cdg-timeline-group,
+      .cdg-timeline-group {
+        margin-left: unset;
+        &:nth-child(2n + 1) {
+          margin-left: 0;
+          margin-right: unset;
+        }
+      }
     }
   }
 }
