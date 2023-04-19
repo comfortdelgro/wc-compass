@@ -143,10 +143,28 @@
     }
   }
 
+  cdg-card-header,
+  .cdg-card-header {
+    padding: 8px 0;
+  }
+
   .cdg-card-grid {
     gap: 16px;
     &.columns-4 {
       grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  cdg-carousel[cards] {
+    cdg-carousel-scroller,
+    .cdg-carousel-scroller {
+      cdg-slide,
+      .cdg-slide {
+        cdg-card-header,
+        .cdg-card-header {
+          padding: 1rem 1rem 0.5rem 1rem;
+        }
+      }
     }
   }
 }
