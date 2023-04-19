@@ -155,15 +155,10 @@
     }
   }
 
-  cdg-carousel[cards] {
-    cdg-carousel-scroller,
+  .cdg-carousel[cards] {
     .cdg-carousel-scroller {
-      cdg-slide,
-      .cdg-slide {
-        cdg-card-header,
-        .cdg-card-header {
-          padding: 1rem 1rem 0.5rem 1rem;
-        }
+      .cdg-card-header {
+        padding: 1rem 1rem 0.75rem 1rem;
       }
     }
   }
