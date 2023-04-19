@@ -12,6 +12,7 @@ import {CdgDatePicker} from './datepicker/datepicker'
 import {CdgDropdown} from './dropdown/dropdown'
 import {CdgDropdownOption} from './dropdown/dropdown-option'
 import {CdgDropdownSelect} from './dropdown/dropdown-select'
+import {CdgFadeIn} from './fade-in/fade-in'
 import {CdgFile} from './file/file'
 import {CdgFileUpload} from './file/file-upload'
 import {CdgFloatingContent} from './floating-content/floating-content'
@@ -93,6 +94,7 @@ customElements.define('cdg-chart', CdgChart)
 customElements.define('cdg-gutter', CdgGutter)
 customElements.define('cdg-select-color', CdgSelectColor)
 customElements.define('cdg-lazy-img', CdgLazyImage)
+customElements.define('cdg-fade-in', CdgFadeIn)
 
 export const CONTROL_COMPONENTS = [
   CdgAccordion,
@@ -134,4 +136,5 @@ export const CONTROL_COMPONENTS = [
   CdgGutter,
   CdgSelectColor,
   CdgLazyImage,
+  CdgFadeIn,
 ]

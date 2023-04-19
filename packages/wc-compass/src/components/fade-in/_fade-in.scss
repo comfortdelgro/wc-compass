@@ -1,0 +1,14 @@
+.cdg-fade-in {
+  display: block;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cdg-slide-in {
+  transform: translateX(40px);
+}
+
+.cdg-fade-in-visible {
+  opacity: 1;
+  transform: translateX(0) !important;
+}

@@ -1,7 +1,10 @@
 export * from './components/accordion/index'
+export * from './components/alert-badges/index'
+export * from './components/alert/index'
 export * from './components/avatar/index'
 export * from './components/button/index'
 export * from './components/calendar/index'
+export * from './components/cards/index'
 export * from './components/carousel/index'
 export * from './components/datepicker/index'
 export * from './components/dropdown/index'
@@ -14,9 +17,6 @@ export * from './components/progress/index'
 export * from './components/table/index'
 export * from './components/tooltip/index'
 export * from './components/zoom-image-view/index'
-export * from './components/alert-badges/index'
-export * from './components/alert/index'
-export * from './components/cards/index'
 
 import {SampleSection} from './sample-section'
 
@@ -37,6 +37,7 @@ import './components/dashboard-side-card.html'
 import './components/datepicker/datepicker.html'
 import './components/dialog.html'
 import './components/dropdown/dropdown.html'
+import './components/fade-in.html'
 import './components/file-upload.html'
 import './components/file.html'
 import './components/footer.html'
@@ -165,6 +166,7 @@ const contentMap = {
   services: './components/website/services.html',
   chart: './components/chart.html',
   lazyLoadImage: './components/lazy-load-image.html',
+  fadeIn: './components/fade-in.html',
 }
 
 const documentContent = [
@@ -349,6 +351,10 @@ const documentContent = [
       {
         name: 'Button',
         slug: 'button',
+      },
+      {
+        name: 'Fade In',
+        slug: 'fadeIn',
       },
       {
         name: 'Icon',

@@ -1,0 +1,149 @@
+<p>Use for fade in animation. Support components and classnames</p>
+<ul>
+  <li>
+    If using component, by default it will trigger the animation when it
+    intersects the viewport
+  </li>
+  <li>
+    If using classname, you can choose whenever you want to trigger the
+    animation
+  </li>
+</ul>
+
+<cdg-sample-section name="Default">
+  <div class="sample-section">
+    <cdg-fade-in>
+      <cdg-card class="raised">
+        <cdg-card-header title="Card title"></cdg-card-header>
+        <cdg-card-body
+          >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt velit
+          magnam quod, sapiente qui quaerat, nisi illo mollitia totam ratione
+          vel quasi eaque, nihil enim odit fugit officia? Dolor,
+          molestiae.</cdg-card-body
+        >
+      </cdg-card>
+    </cdg-fade-in>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;cdg-fade-in&gt;
+  &lt;cdg-card class="raised"&gt;
+    &lt;cdg-card-header title="Card title"&gt;&lt;/cdg-card-header&gt;
+      &lt;cdg-card-body&gt;
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt velit
+        magnam quod, sapiente qui quaerat, nisi illo mollitia totam ratione
+        vel quasi eaque, nihil enim odit fugit officia? Dolor,
+        molestiae.
+      &lt;/cdg-card-body&gt;
+    &lt;/cdg-card&gt;
+&lt;/cdg-fade-in&gt;</code>
+</pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Slide in effect">
+  <div class="sample-section">
+    <cdg-fade-in transition="slide-in">
+      <cdg-card class="raised">
+        <cdg-card-header title="Card title"></cdg-card-header>
+        <cdg-card-body
+          >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt velit
+          magnam quod, sapiente qui quaerat, nisi illo mollitia totam ratione
+          vel quasi eaque, nihil enim odit fugit officia? Dolor,
+          molestiae.</cdg-card-body
+        >
+      </cdg-card>
+    </cdg-fade-in>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;cdg-fade-in transition="slide-in"&gt;
+  &lt;cdg-card class="raised"&gt;
+    &lt;cdg-card-header title="Card title"&gt;&lt;/cdg-card-header&gt;
+      &lt;cdg-card-body&gt;
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt velit
+        magnam quod, sapiente qui quaerat, nisi illo mollitia totam ratione
+        vel quasi eaque, nihil enim odit fugit officia? Dolor,
+        molestiae.
+      &lt;/cdg-card-body&gt;
+    &lt;/cdg-card&gt;
+&lt;/cdg-fade-in&gt;</code>
+</pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Delay (in Ms)">
+  <div class="sample-section">
+    <cdg-fade-in delay="2000">
+      <cdg-card class="raised">
+        <cdg-card-header title="Card title"></cdg-card-header>
+        <cdg-card-body
+          >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt velit
+          magnam quod, sapiente qui quaerat, nisi illo mollitia totam ratione
+          vel quasi eaque, nihil enim odit fugit officia? Dolor,
+          molestiae.</cdg-card-body
+        >
+      </cdg-card>
+    </cdg-fade-in>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;cdg-fade-in delay="2000" &gt;
+  &lt;cdg-card class="raised"&gt;
+    &lt;cdg-card-header title="Card title"&gt;&lt;/cdg-card-header&gt;
+      &lt;cdg-card-body&gt;
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt velit
+        magnam quod, sapiente qui quaerat, nisi illo mollitia totam ratione
+        vel quasi eaque, nihil enim odit fugit officia? Dolor,
+        molestiae.
+      &lt;/cdg-card-body&gt;
+    &lt;/cdg-card&gt;
+&lt;/cdg-fade-in&gt;</code>
+</pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Classname">
+  <div class="sample-section">
+    <!--Using id for selector later -->
+    <cdg-card id="card-fade-in" class="raised cdg-fade-in cdg-slide-in">
+      <cdg-card-header title="Card title"></cdg-card-header>
+      <cdg-card-body
+        >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt velit
+        magnam quod, sapiente qui quaerat, nisi illo mollitia totam ratione vel
+        quasi eaque, nihil enim odit fugit officia? Dolor,
+        molestiae.</cdg-card-body
+      >
+    </cdg-card>
+  </div>
+
+  <pre>
+    <code class="language-html">
+&lt;!--Using id for selector later --&gt;
+&lt;cdg-card id="card-fade-in" class="raised cdg-fade-in cdg-slide-in"&gt;
+  &lt;cdg-card-header title="Card title"&gt;&lt;/cdg-card-header&gt;
+  &lt;cdg-card-body&gt;
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt velit
+    magnam quod, sapiente qui quaerat, nisi illo mollitia totam ratione vel
+    quasi eaque, nihil enim odit fugit officia? Dolor,
+    molestiae.
+  &lt;/cdg-card-body&gt;
+&lt;/cdg-card&gt;
+&lt;script&gt;
+  const fadeInButton = document.querySelector('#button-fade-in')
+  const fadeInCard = document.querySelector('#card-fade-in')
+  &lt;!--Add the trigger classname whenever you want it to do the animation --&gt;
+  fadeInButton.addEventListener('click', () =&gt; {
+    fadeInCard.classList.add('cdg-fade-in-visible')
+  })
+&lt;/script&gt;
+    </code>
+</pre>
+</cdg-sample-section>
+<cdg-button id="button-fade-in">Click me</cdg-button>
+
+<script>
+  const fadeInButton = document.querySelector('#button-fade-in')
+  const fadeInCard = document.querySelector('#card-fade-in')
+  //
+  fadeInButton.addEventListener('click', () => {
+    fadeInCard.classList.add('cdg-fade-in-visible')
+  })
+</script>
