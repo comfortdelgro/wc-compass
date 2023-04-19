@@ -1,3 +1,5 @@
+import './calendar.html'
+
 import {CdgCalendarPropertiesSection} from './properties/properties.section'
 
 customElements.define(

@@ -1,3 +1,5 @@
+import './gutter.html'
+
 import {CdgGutterPropertiesSection} from './properties/properties.section'
 
 customElements.define(

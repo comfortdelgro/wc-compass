@@ -1,3 +1,5 @@
+import './datepicker.html'
+
 import {CdgDatePickerPropertiesSection} from './properties/properties.section'
 
 customElements.define(

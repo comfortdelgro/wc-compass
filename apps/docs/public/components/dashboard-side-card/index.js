@@ -1,3 +1,5 @@
+import './dashboard-side-card.html'
+
 import {CdgDashboardSideCardPropertiesSection} from './properties/properties.section'
 import {CdgDashboardSideCardStylesSection} from './styles/styles.section'
 

@@ -1,3 +1,5 @@
+import './dropdown.html'
+
 import {CdgDropdownColorPropertiesSection} from './properties/color-properties.section'
 import {CdgDropdownPropertiesSection} from './properties/dropdown-properties.section'
 import {CdgDropdownOptPropertiesSection} from './properties/opt-properties.section'

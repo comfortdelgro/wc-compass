@@ -1,3 +1,5 @@
+import './file.html'
+
 import {CdgFilePropertiesSection} from './properties/properties.section'
 import {CdgFileStylesSection} from './styles/styles.section'
 
