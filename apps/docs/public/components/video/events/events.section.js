@@ -1,18 +1,9 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgTableComponentSection} from '../../../shared/table-component'
 
-export class CdgVideoEventsSection extends CdgBaseComponent {
+export class CdgVideoEventsSection extends CdgTableComponentSection {
   constructor() {
-    super()
-    this.htmlContent = `<section class="guideline-section">
-    <h3 class="sample-section-title">Events</h3>
-    <cdg-table id="eventsTable"></cdg-table>
-  </section>
-    `
-  }
-
-  onInit() {
-    const table = document.querySelector('#eventsTable')
-    table.data = [
+    super('Events')
+    this.data = [
       {
         name: '<code>navigate</code>',
         output: '<code>CustomEvent</code>',

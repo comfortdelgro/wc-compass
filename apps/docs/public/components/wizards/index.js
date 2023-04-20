@@ -1,9 +1,11 @@
 import {CdgWizardsPropertiesSection} from './properties/properties.section'
-import './wizards.html'
+import {CdgWizardsDemo} from './wizards'
+
+customElements.define('cdg-wizards-demo', CdgWizardsDemo)
 
 customElements.define(
   'cdg-wizards-properties-section',
   CdgWizardsPropertiesSection,
 )
 
-export {CdgWizardsPropertiesSection}
+export {CdgWizardsDemo, CdgWizardsPropertiesSection}

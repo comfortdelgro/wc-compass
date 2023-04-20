@@ -2,7 +2,7 @@ import {CdgTableComponentSection} from '../../../shared/table-component'
 
 export class CdgImageViewerPropertiesSection extends CdgTableComponentSection {
   constructor() {
-    super()
+    super('Props')
     this.data = [
       {
         name: 'multiple',

@@ -11,7 +11,12 @@ export class CdgTableComponentSection extends CdgBaseComponent {
   }
 
   onInit() {
-    const table = document.querySelector('#dataTable')
-    table.data = this.data
+    const table = this.querySelector('#dataTable')
+    if (this.tableOptions) {
+      table.options = this.tableOptions
+    }
+    if (this.data) {
+      table.data = this.data
+    }
   }
 }

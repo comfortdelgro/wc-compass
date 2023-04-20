@@ -1,19 +1,9 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgTableComponentSection} from '../../../shared/table-component'
 
-export class CdgCardBlogStylesSection extends CdgBaseComponent {
+export class CdgCardBlogStylesSection extends CdgTableComponentSection {
   constructor() {
-    super()
-    this.htmlContent = `<section class="guideline-section">
-    <h3 class="sample-section-title">CSS class name</h3>
-    <cdg-table id="styleTable"></cdg-table>
-  </section>
-    `
-  }
-
-  onInit() {
-    const table = document.querySelector('#styleTable')
-
-    table.options = {
+    super('CSS Class Name')
+    this.tableOptions = {
       columns: [
         {
           name: 'Class Name',
@@ -28,7 +18,7 @@ export class CdgCardBlogStylesSection extends CdgBaseComponent {
       ],
     }
 
-    table.data = [
+    this.data = [
       {
         name: '<code>cdg-card-grid</code>',
         description: 'Add to container of cards.',

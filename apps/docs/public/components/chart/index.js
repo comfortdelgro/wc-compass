@@ -1,10 +1,6 @@
-import './chart.html'
-
+import {CdgChartDemo} from './chart'
 import {CdgChartPropertiesSection} from './properties/properties.section'
 
-customElements.define(
-  'cdg-chart-properties-section',
-  CdgChartPropertiesSection,
-)
+customElements.define('cdg-chart-demo', CdgChartDemo)
 
-export {CdgChartPropertiesSection}
+export {CdgChartDemo, CdgChartPropertiesSection}

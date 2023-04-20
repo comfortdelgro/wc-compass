@@ -44,10 +44,6 @@ export const DOCUMENT_CONTENT = [
         slug: 'carousel',
       },
       {
-        name: 'Context Menu',
-        slug: 'contextMenu',
-      },
-      {
         name: 'Dashboard Side Card',
         slug: 'dashboardSideCard',
       },
@@ -180,6 +176,10 @@ export const DOCUMENT_CONTENT = [
       {
         name: 'Button',
         slug: 'button',
+      },
+      {
+        name: 'Context Menu',
+        slug: 'contextMenu',
       },
       {
         name: 'Icon',

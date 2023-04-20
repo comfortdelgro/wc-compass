@@ -1,24 +1,14 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgTableComponentSection} from '../../../shared/table-component'
 
-export class CdgCardHeaderPropertiesSection extends CdgBaseComponent {
+export class CdgCardHeaderPropertiesSection extends CdgTableComponentSection {
   constructor() {
-    super()
-    this.htmlContent = `<section class="guideline-section">
-    <h3 class="sample-section-title">Props & Methods <code>cdg-card-header</code></h3>
-  
-    <cdg-table id="cardHeaderPropertiesTable"></cdg-table>
-  </section>
-    `
-  }
-
-  onInit() {
-    const table = document.querySelector('#cardHeaderPropertiesTable')
-    table.data = [
+    super('Props: cdg-card-header')
+    this.data = [
       {
         name: 'title',
         type: '<code>string</code>',
         default: '',
-        description: "The title of card.",
+        description: 'The title of card.',
       },
     ]
   }

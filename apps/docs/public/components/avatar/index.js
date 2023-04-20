@@ -1,5 +1,3 @@
-import './avatar.html'
-
 import {CdgAvatarDemo} from './avatar'
 import {CdgAvatarPropertiesSection} from './properties/properties.section'
 

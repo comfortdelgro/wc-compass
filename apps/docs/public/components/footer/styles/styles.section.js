@@ -1,19 +1,10 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgTableComponentSection} from '../../../shared/table-component'
 
-export class CdgFooterStylesSection extends CdgBaseComponent {
+export class CdgFooterStylesSection extends CdgTableComponentSection {
   constructor() {
-    super()
-    this.htmlContent = `<section class="guideline-section">
-    <h3 class="sample-section-title">CSS class name</h3>
-    <cdg-table id="styleTable"></cdg-table>
-  </section>
-    `
-  }
+    super('CSS Class Name')
 
-  onInit() {
-    const table = document.querySelector('#styleTable')
-
-    table.options = {
+    this.tableOptions = {
       columns: [
         {
           name: 'Class Name',
@@ -28,7 +19,7 @@ export class CdgFooterStylesSection extends CdgBaseComponent {
       ],
     }
 
-    table.data = [
+    this.data = [
       {
         name: '<code>cdg-footer-section</code>',
         description: 'Add style for tag <code>footer</code>.',
@@ -51,7 +42,8 @@ export class CdgFooterStylesSection extends CdgBaseComponent {
       },
       {
         name: '<code>cdg-footer-connect</code>',
-        description: 'Style for row has infomations(address, social media,...).',
+        description:
+          'Style for row has infomations(address, social media,...).',
       },
       {
         name: '<code>cdg-footer</code>',

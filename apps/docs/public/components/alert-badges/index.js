@@ -1,5 +1,3 @@
-import './alert-badges.html'
-
 import {CdgAlertBadgesDemo} from './alert-badges'
 import {CdgAlertBadgesPropertiesSection} from './properties/properties.section'
 

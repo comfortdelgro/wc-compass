@@ -1,5 +1,3 @@
-import './alert.html'
-
 import {CdgAlertDemo} from './alert'
 import {CdgAlertPropertiesSection} from './properties/properties.section'
 

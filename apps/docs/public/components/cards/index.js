@@ -1,10 +1,10 @@
-import './cards.html'
-
+import {CdgCardsDemo} from './cards'
 import {CdgCardCoverPropertiesSection} from './cover/cover.section'
 import {CdgCardHeaderPropertiesSection} from './header/header.section'
 import {CdgCardsPropertiesSection} from './properties/properties.section'
 import {CdgCardStylesSection} from './styles/styles.section'
 
+customElements.define('cdg-cards-demo', CdgCardsDemo)
 customElements.define('cdg-cards-properties-section', CdgCardsPropertiesSection)
 customElements.define(
   'cdg-card-styles-properties-section',
@@ -20,6 +20,7 @@ customElements.define(
 )
 
 export {
+  CdgCardsDemo,
   CdgCardsPropertiesSection,
   CdgCardHeaderPropertiesSection,
   CdgCardCoverPropertiesSection,

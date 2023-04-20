@@ -1,6 +1,7 @@
 import {CdgToggleStylesSection} from './styles/styles.section'
-import './toggle.html'
+import {CdgToggleDemo} from './toggle'
 
+customElements.define('cdg-toggle-demo', CdgToggleDemo)
 customElements.define('cdg-toggle-styles-section', CdgToggleStylesSection)
 
-export {CdgToggleStylesSection}
+export {CdgToggleDemo, CdgToggleStylesSection}

@@ -1,9 +1,11 @@
 import {CdgToolbarPropertiesSection} from './properties/properties.section'
-import './toolbar.html'
+import {CdgToolbarDemo} from './toolbar'
+
+customElements.define('cdg-toolbar-demo', CdgToolbarDemo)
 
 customElements.define(
   'cdg-toolbar-properties-section',
   CdgToolbarPropertiesSection,
 )
 
-export {CdgToolbarPropertiesSection}
+export {CdgToolbarDemo, CdgToolbarPropertiesSection}
