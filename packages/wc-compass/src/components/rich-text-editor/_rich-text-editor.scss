@@ -82,6 +82,8 @@ cdg-rich-text-editor,
     .toolbar-selector {
       display: flex;
       align-items: center;
+      width: auto;
+
       button.cdg-dropdown-button {
         padding: 0;
         background-color: #f3f2f1;

@@ -66,7 +66,7 @@ export const CONTENT_MAP = {
   video: 'cdg-video-demo',
   volume: 'cdg-volume-demo',
   dashboardTemplate: './components/template/dashboard.html',
-  richTextEditor: './components/rich-text-editor.html',
+  richTextEditor: 'cdg-rich-text-demo',
   selectingThemeModal: './components/template/selecting-theme-modal.html',
   servicesMenu: './components/template/services-menu.html',
   testimonials: './components/testimonials.html',
