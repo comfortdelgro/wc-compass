@@ -135,6 +135,26 @@ export class CdgZoomImageView extends HTMLElement {
       '.cdg-zoom-image-view-thumbnail',
     )
 
+    var scale = 1,
+      pointX = 0,
+      pointY = 0
+    modal.addEventListener('wheel', (event) => {
+      event.preventDefault()
+      event.stopPropagation()
+      console.log(event, event.clientX, event.clientY);
+      const xs = (event.clientX - pointX) / scale,
+        ys = (event.clientY - pointY) / scale,
+        delta = event.wheelDelta ? event.wheelDelta : -event.deltaY
+      delta > 0 ? (scale *= 1.2) : (scale /= 1.2)
+      pointX = event.clientX - xs * scale
+      pointY = event.clientY - ys * scale
+      this.zoomValue = this.zoomValue + 0.5
+      this.pointer.update({x: pointX, y: pointY})
+      this.currentPosition = {x: pointX, y: pointY}
+      this.scale = scale
+      this.imgContentEl.style.transform = `translate(${pointX}px, ${pointY}px) scale(${this.scale})`
+    })
+
     if (this.carouselEl) {
       this.carouselEl.addEventListener(
         'onCurrentChange',
