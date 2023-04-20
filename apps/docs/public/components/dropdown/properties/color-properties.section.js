@@ -1,19 +1,9 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgTableComponentSection} from '../../../shared/table-component'
 
-export class CdgDropdownColorPropertiesSection extends CdgBaseComponent {
+export class CdgDropdownColorPropertiesSection extends CdgTableComponentSection {
   constructor() {
-    super()
-    this.htmlContent = `<section class="guideline-section">
-    <h3 class="sample-section-title">Props & Methods for <code>cdg-dropdown</code></h3>
-  
-    <cdg-table id="selectColorPropertiesTable"></cdg-table>
-  </section>
-    `
-  }
-
-  onInit() {
-    const table = document.querySelector('#selectColorPropertiesTable')
-    table.data = [
+    super('Props & Methods')
+    this.data = [
       {
         name: 'colors',
         type: '<code>string</code>',

@@ -1,5 +1,6 @@
 import './alert-badges.html'
 
+import {CdgAlertBadgesDemo} from './alert-badges'
 import {CdgAlertBadgesPropertiesSection} from './properties/properties.section'
 
 customElements.define(
@@ -7,4 +8,6 @@ customElements.define(
   CdgAlertBadgesPropertiesSection,
 )
 
-export {CdgAlertBadgesPropertiesSection}
+customElements.define('cdg-alert-badges-demo', CdgAlertBadgesDemo)
+
+export {CdgAlertBadgesPropertiesSection, CdgAlertBadgesDemo}

@@ -1,8 +1,8 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgTableComponentSection} from '../../../shared/table-component'
 
-export class CdgCalendarPropertiesSection extends CdgBaseComponent {
+export class CdgCalendarPropertiesSection extends CdgTableComponentSection {
   constructor() {
-    super()
+    super('Props & Methods')
     this.htmlContent = `<section class="guideline-section">
     <h3 class="sample-section-title">Props & Methods</h3>
   
