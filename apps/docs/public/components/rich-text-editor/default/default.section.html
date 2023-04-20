@@ -1,0 +1,416 @@
+<cdg-sample-section name="Default">
+  <div class="sample-section column">
+    <cdg-rich-text-editor id="rte-example-1" resizable>
+      <cdg-rte-toolbar>
+        <div class="cdg-rte-buttons-group">
+          <button
+            class="cdg-rte-buttons"
+            name="undo"
+            operation="undo"
+            title="Undo"
+          >
+            <cdg-icon name="undo"></cdg-icon>
+          </button>
+          <button
+            class="cdg-rte-buttons"
+            name="redo"
+            operation="redo"
+            title="Redo"
+          >
+            <cdg-icon name="redo"></cdg-icon>
+          </button>
+        </div>
+        <div class="cdg-rte-buttons-group">
+          <button
+            class="cdg-rte-buttons"
+            name="bold"
+            operation="toggleBold"
+            title="Bold"
+          >
+            <cdg-icon name="bold"></cdg-icon>
+          </button>
+          <button
+            class="cdg-rte-buttons"
+            name="italic"
+            operation="toggleItalic"
+            title="Italic"
+          >
+            <cdg-icon name="italic"></cdg-icon>
+          </button>
+          <button
+            class="cdg-rte-buttons"
+            name="strike"
+            operation="toggleStrike"
+            title="Strike through"
+          >
+            <cdg-icon name="strikeThrough"></cdg-icon>
+          </button>
+          <button
+            class="cdg-rte-buttons"
+            name="underline"
+            operation="toggleUnderline"
+            title="Underline"
+          >
+            <cdg-icon name="underline"></cdg-icon>
+          </button>
+        </div>
+
+        <div class="cdg-rte-buttons-group">
+          <cdg-dropdown id="heading-selector" class="toolbar-selector">
+            <cdg-dropdown-option value="0" selected="true" title="Text size">
+              Normal Text
+            </cdg-dropdown-option>
+            <cdg-dropdown-option value="1">
+              <h1 style="margin: 0">Heading 1</h1>
+            </cdg-dropdown-option>
+            <cdg-dropdown-option value="2">
+              <h2 style="margin: 0">Heading 2</h2>
+            </cdg-dropdown-option>
+            <cdg-dropdown-option value="3">
+              <h3 style="margin: 0">Heading 3</h3>
+            </cdg-dropdown-option>
+            <cdg-dropdown-option value="4">
+              <h4 style="margin: 0">Heading 4</h4>
+            </cdg-dropdown-option>
+            <cdg-dropdown-option value="5">
+              <h5 style="margin: 0">Heading 5</h5>
+            </cdg-dropdown-option>
+            <cdg-dropdown-option value="6">
+              <h6 style="margin: 0">Heading 6</h6>
+            </cdg-dropdown-option>
+          </cdg-dropdown>
+        </div>
+
+        <div class="cdg-rte-buttons-group">
+          <cdg-select-color
+            id="color-selector"
+            colors="#212529,#845EF7,#339AF0,#22B8CF,#51CF66,#FCC419,#FF6B6B,#F06595,#CED4DA,#5F3DC4,#1864AB,#0B7285,#2B8A3E,#E67700,#C92A2A,#C2255C"
+          ></cdg-select-color>
+        </div>
+
+        <div class="cdg-rte-buttons-group">
+          <cdg-dropdown id="text-alignment-selector" class="toolbar-selector">
+            <cdg-dropdown-option value="left" selected="true">
+              <div class="cdg-dropdown-option-content">
+                <cdg-icon
+                  name="textAlignLeft"
+                  displaySelect
+                  size="14"
+                ></cdg-icon>
+                <span>left</span>
+              </div>
+            </cdg-dropdown-option>
+            <cdg-dropdown-option value="right">
+              <div class="cdg-dropdown-option-content">
+                <cdg-icon
+                  name="textAlignRight"
+                  displaySelect
+                  size="14"
+                ></cdg-icon>
+                <span>right</span>
+              </div>
+            </cdg-dropdown-option>
+            <cdg-dropdown-option value="center">
+              <div class="cdg-dropdown-option-content">
+                <cdg-icon
+                  name="textAlignCenter"
+                  displaySelect
+                  size="14"
+                ></cdg-icon>
+                <span>center</span>
+              </div>
+            </cdg-dropdown-option>
+            <cdg-dropdown-option value="justify">
+              <div class="cdg-dropdown-option-content">
+                <cdg-icon
+                  name="textAlignJustify"
+                  displaySelect
+                  size="14"
+                ></cdg-icon>
+                <span>justify</span>
+              </div>
+            </cdg-dropdown-option>
+          </cdg-dropdown>
+        </div>
+
+        <div class="cdg-rte-buttons-group">
+          <button
+            class="cdg-rte-buttons"
+            name="bulletList"
+            operation="toggleBulletList"
+          >
+            <cdg-icon name="listUlRound"></cdg-icon>
+          </button>
+          <button
+            class="cdg-rte-buttons"
+            name="orderedList"
+            operation="toggleOrderedList"
+          >
+            <cdg-icon name="listOl"></cdg-icon>
+          </button>
+        </div>
+        <div class="cdg-rte-buttons-group">
+          <button class="cdg-rte-buttons" name="link" operation="setLink">
+            <cdg-icon name="link"></cdg-icon>
+          </button>
+          <button class="cdg-rte-buttons" name="image" operation="setImage">
+            <cdg-icon name="imageOutline"></cdg-icon>
+          </button>
+          <button
+            class="cdg-rte-buttons"
+            name="blockquote"
+            operation="toggleBlockquote"
+          >
+            <cdg-icon name="quoteLeft"></cdg-icon>
+          </button>
+        </div>
+      </cdg-rte-toolbar>
+      <div class="cdg-rte-content">
+        <h2>What is Lorem Ipsum?</h2>
+        <p>
+          <strong>Lorem Ipsum</strong>
+          <span>
+            is simply dummy text of the printing and typesetting industry. Lorem
+            Ipsum has been the industry's standard dummy text ever since the
+            1500s, when an unknown printer took a galley of type and scrambled
+            it to make a type specimen book. It has survived not only five
+            centuries, but also the leap into electronic typesetting, remaining
+            essentially unchanged. It was popularised in the 1960s with the
+            release of Letraset sheets containing Lorem Ipsum passages, and more
+            recently with desktop publishing software like Aldus PageMaker
+            including versions of Lorem Ipsum.</span
+          >
+        </p>
+        <img
+          src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(16).webp"
+          contenteditable="false"
+          draggable="true"
+          class=""
+        />
+        <h2>Why do we use it?</h2>
+        <p style="text-align: justify">
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </p>
+      </div>
+    </cdg-rich-text-editor>
+  </div>
+
+  <pre>
+  <code class="language-html">&lt;cdg-rich-text-editor id=&quot;rte-example-1&quot; resizable&gt;
+  &lt;cdg-rte-toolbar&gt;
+    &lt;div class=&quot;cdg-rte-buttons-group&quot;&gt;
+      &lt;button
+        class=&quot;cdg-rte-buttons&quot;
+        name=&quot;undo&quot;
+        operation=&quot;undo&quot;
+        title=&quot;Undo&quot;
+      &gt;
+        &lt;cdg-icon name=&quot;undo&quot;&gt;&lt;/cdg-icon&gt;
+      &lt;/button&gt;
+      &lt;button
+        class=&quot;cdg-rte-buttons&quot;
+        name=&quot;redo&quot;
+        operation=&quot;redo&quot;
+        title=&quot;Redo&quot;
+      &gt;
+        &lt;cdg-icon name=&quot;redo&quot;&gt;&lt;/cdg-icon&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cdg-rte-buttons-group&quot;&gt;
+      &lt;button
+        class=&quot;cdg-rte-buttons&quot;
+        name=&quot;bold&quot;
+        operation=&quot;toggleBold&quot;
+        title=&quot;Bold&quot;
+      &gt;
+        &lt;cdg-icon name=&quot;bold&quot;&gt;&lt;/cdg-icon&gt;
+      &lt;/button&gt;
+      &lt;button
+        class=&quot;cdg-rte-buttons&quot;
+        name=&quot;italic&quot;
+        operation=&quot;toggleItalic&quot;
+        title=&quot;Italic&quot;
+      &gt;
+        &lt;cdg-icon name=&quot;italic&quot;&gt;&lt;/cdg-icon&gt;
+      &lt;/button&gt;
+      &lt;button
+        class=&quot;cdg-rte-buttons&quot;
+        name=&quot;strike&quot;
+        operation=&quot;toggleStrike&quot;
+        title=&quot;Strike through&quot;
+      &gt;
+        &lt;cdg-icon name=&quot;strikeThrough&quot;&gt;&lt;/cdg-icon&gt;
+      &lt;/button&gt;
+      &lt;button
+        class=&quot;cdg-rte-buttons&quot;
+        name=&quot;underline&quot;
+        operation=&quot;toggleUnderline&quot;
+        title=&quot;Underline&quot;
+      &gt;
+        &lt;cdg-icon name=&quot;underline&quot;&gt;&lt;/cdg-icon&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;cdg-rte-buttons-group&quot;&gt;
+      &lt;cdg-dropdown id=&quot;heading-selector&quot; class=&quot;toolbar-selector&quot;&gt;
+        &lt;cdg-dropdown-option value=&quot;0&quot; selected=&quot;true&quot; title=&quot;Text size&quot;&gt;
+          Normal Text
+        &lt;/cdg-dropdown-option&gt;
+        &lt;cdg-dropdown-option value=&quot;1&quot;&gt;
+          &lt;h1 style=&quot;margin: 0&quot;&gt;Heading 1&lt;/h1&gt;
+        &lt;/cdg-dropdown-option&gt;
+        &lt;cdg-dropdown-option value=&quot;2&quot;&gt;
+          &lt;h2 style=&quot;margin: 0&quot;&gt;Heading 2&lt;/h2&gt;
+        &lt;/cdg-dropdown-option&gt;
+        &lt;cdg-dropdown-option value=&quot;3&quot;&gt;
+          &lt;h3 style=&quot;margin: 0&quot;&gt;Heading 3&lt;/h3&gt;
+        &lt;/cdg-dropdown-option&gt;
+        &lt;cdg-dropdown-option value=&quot;4&quot;&gt;
+          &lt;h4 style=&quot;margin: 0&quot;&gt;Heading 4&lt;/h4&gt;
+        &lt;/cdg-dropdown-option&gt;
+        &lt;cdg-dropdown-option value=&quot;5&quot;&gt;
+          &lt;h5 style=&quot;margin: 0&quot;&gt;Heading 5&lt;/h5&gt;
+        &lt;/cdg-dropdown-option&gt;
+        &lt;cdg-dropdown-option value=&quot;6&quot;&gt;
+          &lt;h6 style=&quot;margin: 0&quot;&gt;Heading 6&lt;/h6&gt;
+        &lt;/cdg-dropdown-option&gt;
+      &lt;/cdg-dropdown&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;cdg-rte-buttons-group&quot;&gt;
+      &lt;cdg-select-color
+        id=&quot;color-selector&quot;
+        colors=&quot;#212529,#845EF7,#339AF0,#22B8CF,#51CF66,#FCC419,#FF6B6B,#F06595,#CED4DA,#5F3DC4,#1864AB,#0B7285,#2B8A3E,#E67700,#C92A2A,#C2255C&quot;
+      &gt;&lt;/cdg-select-color&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;cdg-rte-buttons-group&quot;&gt;
+      &lt;cdg-dropdown id=&quot;text-alignment-selector&quot; class=&quot;toolbar-selector&quot;&gt;
+        &lt;cdg-dropdown-option value=&quot;left&quot; selected=&quot;true&quot;&gt;
+          &lt;div class=&quot;cdg-dropdown-option-content&quot;&gt;
+            &lt;cdg-icon
+              name=&quot;textAlignLeft&quot;
+              displaySelect
+              size=&quot;14&quot;
+            &gt;&lt;/cdg-icon&gt;
+            &lt;span&gt;left&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/cdg-dropdown-option&gt;
+        &lt;cdg-dropdown-option value=&quot;right&quot;&gt;
+          &lt;div class=&quot;cdg-dropdown-option-content&quot;&gt;
+            &lt;cdg-icon
+              name=&quot;textAlignRight&quot;
+              displaySelect
+              size=&quot;14&quot;
+            &gt;&lt;/cdg-icon&gt;
+            &lt;span&gt;right&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/cdg-dropdown-option&gt;
+        &lt;cdg-dropdown-option value=&quot;center&quot;&gt;
+          &lt;div class=&quot;cdg-dropdown-option-content&quot;&gt;
+            &lt;cdg-icon
+              name=&quot;textAlignCenter&quot;
+              displaySelect
+              size=&quot;14&quot;
+            &gt;&lt;/cdg-icon&gt;
+            &lt;span&gt;center&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/cdg-dropdown-option&gt;
+        &lt;cdg-dropdown-option value=&quot;justify&quot;&gt;
+          &lt;div class=&quot;cdg-dropdown-option-content&quot;&gt;
+            &lt;cdg-icon
+              name=&quot;textAlignJustify&quot;
+              displaySelect
+              size=&quot;14&quot;
+            &gt;&lt;/cdg-icon&gt;
+            &lt;span&gt;justify&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/cdg-dropdown-option&gt;
+      &lt;/cdg-dropdown&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;cdg-rte-buttons-group&quot;&gt;
+      &lt;button
+        class=&quot;cdg-rte-buttons&quot;
+        name=&quot;bulletList&quot;
+        operation=&quot;toggleBulletList&quot;
+      &gt;
+        &lt;cdg-icon name=&quot;listUlRound&quot;&gt;&lt;/cdg-icon&gt;
+      &lt;/button&gt;
+      &lt;button
+        class=&quot;cdg-rte-buttons&quot;
+        name=&quot;orderedList&quot;
+        operation=&quot;toggleOrderedList&quot;
+      &gt;
+        &lt;cdg-icon name=&quot;listOl&quot;&gt;&lt;/cdg-icon&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cdg-rte-buttons-group&quot;&gt;
+      &lt;button class=&quot;cdg-rte-buttons&quot; name=&quot;link&quot; operation=&quot;setLink&quot;&gt;
+        &lt;cdg-icon name=&quot;link&quot;&gt;&lt;/cdg-icon&gt;
+      &lt;/button&gt;
+      &lt;button class=&quot;cdg-rte-buttons&quot; name=&quot;image&quot; operation=&quot;setImage&quot;&gt;
+        &lt;cdg-icon name=&quot;imageOutline&quot;&gt;&lt;/cdg-icon&gt;
+      &lt;/button&gt;
+      &lt;button
+        class=&quot;cdg-rte-buttons&quot;
+        name=&quot;blockquote&quot;
+        operation=&quot;toggleBlockquote&quot;
+      &gt;
+        &lt;cdg-icon name=&quot;quoteLeft&quot;&gt;&lt;/cdg-icon&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/cdg-rte-toolbar&gt;
+  &lt;div class=&quot;cdg-rte-content&quot;&gt;
+    &lt;h2&gt;What is Lorem Ipsum?&lt;/h2&gt;
+    &lt;p&gt;
+      &lt;strong&gt;Lorem Ipsum&lt;/strong&gt;
+      &lt;span&gt;
+        is simply dummy text of the printing and typesetting industry. Lorem
+        Ipsum has been the industry's standard dummy text ever since the
+        1500s, when an unknown printer took a galley of type and scrambled
+        it to make a type specimen book. It has survived not only five
+        centuries, but also the leap into electronic typesetting, remaining
+        essentially unchanged. It was popularised in the 1960s with the
+        release of Letraset sheets containing Lorem Ipsum passages, and more
+        recently with desktop publishing software like Aldus PageMaker
+        including versions of Lorem Ipsum.&lt;/span
+      &gt;
+    &lt;/p&gt;
+    &lt;img
+      src=&quot;https://mdbcdn.b-cdn.net/img/Photos/Slides/img (16).webp&quot;
+      contenteditable=&quot;false&quot;
+      draggable=&quot;true&quot;
+      class=&quot;&quot;
+    /&gt;
+    &lt;h2&gt;Why do we use it?&lt;/h2&gt;
+    &lt;p style=&quot;text-align: justify&quot;&gt;
+      It is a long established fact that a reader will be distracted by the
+      readable content of a page when looking at its layout. The point of
+      using Lorem Ipsum is that it has a more-or-less normal distribution of
+      letters, as opposed to using 'Content here, content here', making it
+      look like readable English. Many desktop publishing packages and web
+      page editors now use Lorem Ipsum as their default model text, and a
+      search for 'lorem ipsum' will uncover many web sites still in their
+      infancy. Various versions have evolved over the years, sometimes by
+      accident, sometimes on purpose (injected humour and the like).
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/cdg-rich-text-editor&gt;
+
+&lt;script&gt;
+const example1 = document.querySelector('#rte-example-1')
+example1.addEventListener('onRichTextEditorUpdate', (event) =&gt; {
+  console.log(event.detail)
+})
+&lt;/script&gt;</code>
+</pre>
+</cdg-sample-section>
