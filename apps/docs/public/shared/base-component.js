@@ -11,11 +11,13 @@ export class CdgBaseComponent extends HTMLElement {
         this.innerHTML = response
         this.onInit()
         this.complieSampleCode()
+        this.onAfterViewInit()
       })
     } else if (this.htmlContent) {
       this.innerHTML = this.htmlContent
       this.onInit()
       this.complieSampleCode()
+      this.onAfterViewInit()
     }
   }
 
@@ -24,6 +26,12 @@ export class CdgBaseComponent extends HTMLElement {
   complieSampleCode() {
     if (hljs) {
       hljs.highlightAll()
+    }
+  }
+
+  onAfterViewInit() {
+    if (this.parentElement && this.parentElement.registerPageIndex) {
+      this.parentElement.registerPageIndex()
     }
   }
 }

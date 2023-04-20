@@ -50,6 +50,13 @@ const pageTitle = document.querySelector('.cdg-page-title')
 const subpage = document.querySelector('.sub-page-breadcrumb')
 const currentPage = document.querySelector('.current-page-breadcrumb')
 
+const NO_TABLE_OF_CONTENT = [
+  'theming',
+  'layoutsAndControls',
+  'zIndex',
+  'customization',
+]
+
 function downloadHTMLContent(url) {
   return new Promise((resolve, reject) => {
     fetch(url, {cache: 'no-cache'})
@@ -142,13 +149,21 @@ function handlePageChange(url) {
   if (!pageHeader) {
     return
   }
-  // Remove old script
+  // Remove old things
+  content.textContent = ''
   scriptElement.textContent = ''
 
   const lastPrams = url.split('#')[1] || 'home'
   const hash = lastPrams.split('?')[0]
   activeMenu(hash)
   subNavParent.classList.remove('stick')
+
+  if (NO_TABLE_OF_CONTENT.includes(hash)) {
+    document.querySelector('.table-of-content').classList.add('hide')
+  } else {
+    document.querySelector('.table-of-content').classList.remove('hide')
+  }
+
   if (hash === 'home') {
     document.querySelector('.cdg-layout.sub-nav-wrapper').classList.add('hide')
     pageHeader.classList.add('hide')
@@ -162,22 +177,33 @@ function handlePageChange(url) {
     currentPage.textContent = menu.name
   }
 
-  downloadHTMLContent(CONTENT_MAP[hash]).then((data) => {
-    content.innerHTML = data
+  const contentMapped = CONTENT_MAP[hash]
+  const splited = contentMapped.split('.')
+  if (splited.length > 1) {
+    downloadHTMLContent(CONTENT_MAP[hash]).then((data) => {
+      content.innerHTML = data
 
-    // Make demo script works
-    const scriptElement = content.querySelector('script')
-    if (scriptElement) {
-      eval(scriptElement.innerHTML)
-    }
-
-    // Wait for content render
-    setTimeout(() => {
-      if (hljs) {
-        hljs.highlightAll()
+      // Make demo script works
+      const scriptElement = content.querySelector('script')
+      if (scriptElement) {
+        eval(scriptElement.innerHTML)
       }
-    }, 10)
-  })
+
+      // Wait for content render
+      setTimeout(() => {
+        if (hljs) {
+          hljs.highlightAll()
+        }
+      }, 10)
+
+      setTimeout(() => {
+        document.querySelector('cdg-page-indexes').registerTableContent(content)
+      }, 50)
+    })
+  } else {
+    const contentElement = document.createElement(contentMapped)
+    content.appendChild(contentElement)
+  }
 }
 
 window.addEventListener('hashchange', function (event) {

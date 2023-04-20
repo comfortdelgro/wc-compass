@@ -88,7 +88,19 @@
               <cdg-page-title></cdg-page-title>
             </cdg-page-header-row>
           </cdg-page-header>
-          <div id="component-content" class="doc-container"></div>
+          <div
+            id="component-content"
+            class="doc-container"
+            pageIndexGroup
+          ></div>
+        </div>
+        <div class="table-of-content">
+          <h4 class="">In this page</h4>
+          <cdg-page-indexes
+            scroll-content=".page-container"
+            offset="60"
+          ></cdg-page-indexes>
+          <cdg-gutter use-collapse place="left"></cdg-gutter>
         </div>
       </div>
       <div id="sample-script"></div>

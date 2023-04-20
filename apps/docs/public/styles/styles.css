@@ -268,6 +268,27 @@ pre code.hljs {
   margin-bottom: 12px;
 }
 
+.table-of-content {
+  width: 200px;
+  min-width: 10px;
+  border-left: 1px solid var(--border-color);
+}
+
+.table-of-content.hide {
+  display: none;
+}
+
+.table-of-content h4 {
+  padding: 16px;
+  margin: 0;
+}
+
+@media screen and (max-width: 979px) {
+  .table-of-content {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .page-container {
     background-color: var(--background);

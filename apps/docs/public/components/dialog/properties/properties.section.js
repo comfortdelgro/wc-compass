@@ -1,19 +1,9 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgTableComponentSection} from '../../../shared/table-component'
 
-export class CdgDialogPropertiesSection extends CdgBaseComponent {
+export class CdgDialogPropertiesSection extends CdgTableComponentSection {
   constructor() {
-    super()
-    this.htmlContent = `<section class="guideline-section">
-    <h3 class="sample-section-title">Methods for <code>cdgDialogService</code></h3>
-  
-    <cdg-table id="propertiesTable"></cdg-table>
-  </section>
-    `
-  }
-
-  onInit() {
-    const table = document.querySelector('#propertiesTable')
-    table.data = [
+    super('Props & Methods')
+    this.data = [
       {
         'Function Name': '<code>alert</code>',
         type: '<code>function</code>',
@@ -86,4 +76,5 @@ export class CdgDialogPropertiesSection extends CdgBaseComponent {
       },
     ]
   }
+
 }
