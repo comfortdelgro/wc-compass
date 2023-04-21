@@ -94,32 +94,4 @@
 </pre>
 </cdg-sample-section>
 
-<script>
-  const fileList = document.querySelector('#fileList')
-  const fileUpload = document.querySelector('#fileUpload')
-
-  function createFile(file, index) {
-    const fileElement = document.createElement('cdg-file-upload')
-    fileElement.setAttribute('state', 'uploading')
-    fileElement.setAttribute('fileName', file.name)
-    setTimeout(() => {
-      fileElement.setAttribute('state', 'success')
-      cdgToastService.toast('Uploaded file: "' + file.name + '"')
-    }, index * 2000)
-
-    return fileElement
-  }
-
-  fileUpload.addEventListener('selectFiles', (event) => {
-    const files = event.detail
-    let i = 1
-    if (files.length) {
-      for (let file of files) {
-        fileList.prepend(createFile(file, i))
-        i++
-      }
-    }
-  })
-</script>
-
 <cdg-file-upload-properties-section></cdg-file-upload-properties-section>

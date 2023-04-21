@@ -20,6 +20,14 @@ export const DOCUMENT_CONTENT = [
         name: 'Customization',
         slug: 'customization',
       },
+      {
+        name: 'Colors',
+        slug: 'colors',
+      },
+      {
+        name: 'Typography',
+        slug: 'typography',
+      },
     ],
   },
   {

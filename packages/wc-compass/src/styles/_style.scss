@@ -193,3 +193,31 @@ a {
   color: var(--info);
   text-decoration: none;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+h1 {
+  @extend %heading1;
+}
+
+h2 {
+  @extend %heading2;
+}
+
+h3 {
+  @extend %heading3;
+}
+
+h4 {
+  @extend %heading4;
+}
+
+h5 {
+  @extend %heading5;
+}

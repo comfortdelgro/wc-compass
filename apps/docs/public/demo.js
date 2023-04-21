@@ -1,38 +1,14 @@
 export * from './components/index'
+export * from './pages/index'
 export * from './services/index'
 
 import {CONTENT_MAP, DOCUMENT_CONTENT} from '../pages/constants'
-import './components/breadcrumbs.html'
-import './components/layouts.html'
-import './components/nav-rail.html'
-import './components/navbar.html'
-import './components/page-header.html'
-import './components/pagination.html'
-import './components/pill-badges.html'
-import './components/quantity-toggle.html'
-import './components/radios.html'
-import './components/range-slider.html'
-import './components/rating.html'
-import './components/sidebar.html'
-import './components/status.html'
-import './components/sub-header.html'
-import './components/sub-nav.html'
-import './components/tabs.html'
-import './components/tag-box.html'
 import './components/template/about.html'
 import './components/template/dashboard.html'
-import './components/testimonials.html'
-import './components/text-field.html'
-import './components/timeline.html'
 import './components/website/contents/article.html'
 import './components/website/contents/news-blogs.html'
 import './components/website/news-and-blogs.html'
 import './components/website/post-detail.html'
-import './pages/customization.html'
-import './pages/home.html'
-import './pages/layouts-and-controls.html'
-import './pages/theming.html'
-import './pages/z-index.html'
 import {SampleSection} from './sample-section'
 
 customElements.define('cdg-sample-section', SampleSection)
@@ -55,6 +31,7 @@ const NO_TABLE_OF_CONTENT = [
   'layoutsAndControls',
   'zIndex',
   'customization',
+  'layouts',
 ]
 
 function downloadHTMLContent(url) {

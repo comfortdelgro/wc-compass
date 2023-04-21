@@ -93,10 +93,6 @@ cdg-nav-rail .cdg-nav-rail-inner,
   color: var(--grey80);
 }
 
-.doc-container h3:not(:first-child) {
-  margin-top: 20px;
-}
-
 .component-item {
   display: block;
   padding: 10px 20px;
