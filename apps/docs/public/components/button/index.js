@@ -2,7 +2,7 @@ import './button.html'
 
 import {CdgButtonDemo} from './button'
 import {CdgButtonDefaultSection} from './default/default.section'
-import {CdgButtonLargeSection} from './large/large.section'
+import {CdgButtonLargeSection} from './large/button-large.section'
 import {CdgButtonPropertiesSection} from './properties/properties.section'
 import {CdgButtonSmallSection} from './small/small.section'
 import {CdgButtonStylesSection} from './styles/styles.section'

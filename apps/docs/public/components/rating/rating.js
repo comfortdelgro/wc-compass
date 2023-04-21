@@ -6,4 +6,13 @@ export class CdgRatingDemo extends CdgDocumentComponent {
     super()
     this.template = template
   }
+
+  onInit() {
+    const ratings = this.querySelectorAll('cdg-rating')
+    ratings.forEach((element) => {
+      element.addEventListener('rate', (event) => {
+        cdgToastService.toast('Selected ' + event.detail)
+      })
+    })
+  }
 }

@@ -68,6 +68,7 @@ cdg-sub-nav-group,
   flex-direction: column;
   padding: 0 8px;
   gap: 4px;
+  overflow-y: hidden;
   @extend %smoothTransition;
 }
 

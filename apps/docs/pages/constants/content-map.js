@@ -58,7 +58,7 @@ export const CONTENT_MAP = {
   tabs: 'cdg-tabs-demo',
   tagBox: 'cdg-tag-box-demo',
   testimonials: 'cdg-testimonials-demo',
-  textField: 'CdgTextFieldDemo',
+  textField: 'cdg-text-field-demo',
   timeline: 'cdg-timeline-demo',
   table: 'cdg-table-demo',
   popover: 'cdg-popover-demo',
