@@ -30,6 +30,7 @@
   --color-week-day: #ffffff;
   --hover-background: #191c21;
   --primary-color: #ffffff;
+  --primary-background: #0f0f0f;
   --table-head-background: #444343;
   --darker-background: #1c1e1e;
   --card-title-background: #090909;
@@ -71,15 +72,20 @@
   --grey70: #a19f9d;
   --grey80: #605e5c;
   --grey90: #3b3a39;
-  --grey100: #333333;
+  --grey100: #323130;
   --grey110: #201f1e;
   --grey120: #666666;
   --grey-shades-80: #3e3e3e;
   --blue10: #e6ecf7;
   --blue20: #ccd9ef;
+  --blue40: #99b3df;
   --blue60: #678ecf;
   --blue80: #3468bf;
+  --blue100: #0142af;
+  --blue120: #012158;
+  --blue140: #001232;
   --date-picker-icon: #8a8886;
+  --input-border: #8a8886;
   --placeholder: #b4b4b4;
   --dropdown-menu-text: #b4b4b4;
   --danger-hover-background: #efd9db;
@@ -87,22 +93,24 @@
   --color-week-day: #012158;
   --hover-background: #e6ecf7;
   --primary-color: #323130;
-  --table-head-background: #f5f5f6;
+  --primary-background: #f5f5f6;
+  --secondary-background: #f0f0f0;
   --darker-background: #eaebeb;
+  --table-head-background: #f5f5f6;
   --card-title-background: #f5f5f6;
   --modal-action-background: #f5f5f6;
   --tag-box-background: #f5f5f6;
   --disabled-color: #d2d0ce;
   --disabled-background: #edebe9;
   --info-background: #ccecf8;
-  --secondary-background: #f0f0f0;
   --border-color: #edebe9;
   --border-color-dropdown: #e6e6e6;
   --status-info-background: #ccecf8;
   --status-success-background: #d1e8cf;
   --status-error-background: #efd9db;
   --status-warning-background: #f8db96;
-  --modal-overlay: rgba(0, 0, 0, 0.4);
+  --severe-warning-background: #f0cbbe;
+  --modal-overlay: rgba(255, 255, 255, 0.4);
   --shadow-01: 0px 0.3px 0.9px rgba(0, 0, 0, 0.1);
   --shadow-02: 0px 1.6px 3.6px rgba(0, 0, 0, 0.13);
   --shadow-03: 0px 0.6px 1.8px rgba(0, 0, 0, 0.1),
@@ -187,6 +195,10 @@ body {
   &.theme-dark {
     @include darkColors;
   }
+}
+
+.dark {
+  @include darkColors;
 }
 
 a {

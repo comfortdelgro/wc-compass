@@ -9,6 +9,14 @@ export const DOCUMENT_CONTENT = [
         slug: 'theming',
       },
       {
+        name: 'Colors',
+        slug: 'colors',
+      },
+      {
+        name: 'Typography',
+        slug: 'typography',
+      },
+      {
         name: 'Layouts and Controls',
         slug: 'layoutsAndControls',
       },
@@ -19,14 +27,6 @@ export const DOCUMENT_CONTENT = [
       {
         name: 'Customization',
         slug: 'customization',
-      },
-      {
-        name: 'Colors',
-        slug: 'colors',
-      },
-      {
-        name: 'Typography',
-        slug: 'typography',
       },
     ],
   },

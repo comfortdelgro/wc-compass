@@ -32,6 +32,10 @@ const NO_TABLE_OF_CONTENT = [
   'zIndex',
   'customization',
   'layouts',
+  'article',
+  'newsAndBlogs',
+  'services',
+  'dashboardTemplate',
 ]
 
 function downloadHTMLContent(url) {
