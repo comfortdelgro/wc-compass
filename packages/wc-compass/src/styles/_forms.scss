@@ -53,11 +53,11 @@
   height: 44px;
   box-sizing: border-box;
   border-radius: 4px;
-  cursor: pointer;
   background-color: var(--background);
 
   &:focus {
     outline: 2px solid var(--accent);
+    outline-offset: -2px;
   }
 
   &::placeholder {

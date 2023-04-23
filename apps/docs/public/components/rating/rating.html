@@ -1,0 +1,59 @@
+<cdg-sample-section name="Default">
+  <div class="sample-section">
+    <div class="cdg-input-group">
+      <cdg-rating></cdg-rating>
+      <label class="cdg-rating-label">
+        <span>Not satisfied</span>
+        <span>Satisfied</span>
+      </label>
+    </div>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;div class=&quot;cdg-input-group&quot;&gt;
+    &lt;cdg-rating id=&quot;rating-id&quot;&gt;&lt;/cdg-rating&gt;
+    &lt;label class=&quot;cdg-rating-label&quot;&gt;
+        &lt;span&gt;Not satisfied&lt;/span&gt;
+        &lt;span&gt;Satisfied&lt;/span&gt;
+    &lt;/label&gt;
+&lt;/div&gt;
+&lt;script&gt;
+const rating = document.querySelector(&apos;#rating-id&apos;);
+rating.addEventListener(&apos;rate&apos;, (event) =&gt; {
+      cdgToastService.toast(&apos;Selected &apos; + event.detail);
+});
+&lt;/script&gt;</code>
+</pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Use Icon">
+  <div class="sample-section">
+    <div class="cdg-input-group">
+      <cdg-rating use-icon></cdg-rating>
+      <label class="cdg-rating-label">
+        <span>Not satisfied</span>
+        <span>Satisfied</span>
+      </label>
+    </div>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;div class=&quot;cdg-input-group&quot;&gt;
+    &lt;cdg-rating use-icon id=&quot;rating-id&quot;&gt;&lt;/cdg-rating&gt;
+    &lt;label class=&quot;cdg-rating-label&quot;&gt;
+        &lt;span&gt;Not satisfied&lt;/span&gt;
+        &lt;span&gt;Satisfied&lt;/span&gt;
+    &lt;/label&gt;
+&lt;/div&gt;
+&lt;script&gt;
+const rating = document.querySelector(&apos;#rating-id&apos;);
+rating.addEventListener(&apos;rate&apos;, (event) =&gt; {
+      cdgToastService.toast(&apos;Selected &apos; + event.detail);
+});
+&lt;/script&gt;</code>
+</pre>
+</cdg-sample-section>
+
+<cdg-rating-properties-section></cdg-rating-properties-section>
+
+<cdg-rating-events-section></cdg-rating-events-section>

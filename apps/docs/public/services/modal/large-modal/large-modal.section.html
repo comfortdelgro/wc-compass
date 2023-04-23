@@ -1,0 +1,113 @@
+<cdg-sample-section name="Large">
+  <label class="cdg-input-group" style="width: 300px; margin-bottom: 24px">
+    <span class="cdg-input-label">Dialog size</span>
+    <cdg-dropdown id="sizing" placeholder="Select an item">
+      <cdg-dropdown-option value="small"> Small </cdg-dropdown-option>
+      <cdg-dropdown-option value="medium"> Medium </cdg-dropdown-option>
+      <cdg-dropdown-option value="large" selected="true">
+        Large
+      </cdg-dropdown-option>
+      <cdg-dropdown-option value="auto"> Auto </cdg-dropdown-option>
+    </cdg-dropdown>
+  </label>
+
+  <div class="sample-section">
+    <button class="cdg-button" id="largeModalButton">Show Large Modal</button>
+    <template for="largeModal">
+      <cdg-modal size="large">
+        <cdg-modal-header
+          title="I'm a large modal"
+          useCloseButton="true"
+        ></cdg-modal-header>
+        <cdg-modal-body>
+          <h2>Sample of dialog content</h2>
+          <p>
+            This is place holder text. The basic dialog for modals should
+            contain only valuable and relevant information. Simplify dialogs by
+            removing unnecessary elements or content that does not support user
+            tasks. If you find that the number of required elements for your
+            design are making the dialog excessively large, then try a different
+            design solution.
+          </p>
+
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(16).webp"
+            alt="sample image"
+            style="width: 100%"
+          />
+
+          <p>
+            This is place holder text. The basic dialog for modals should
+            contain only valuable and relevant information. Simplify dialogs by
+            removing unnecessary elements or content that does not support user
+            tasks. If you find that the number of required elements for your
+            design are making the dialog excessively large, then try a different
+            design solution.
+          </p>
+
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(17).webp"
+            alt="sample image"
+            style="width: 100%"
+          />
+          <p>
+            This is place holder text. The basic dialog for modals should
+            contain only valuable and relevant information. Simplify dialogs by
+            removing unnecessary elements or content that does not support user
+            tasks. If you find that the number of required elements for your
+            design are making the dialog excessively large, then try a different
+            design solution.
+          </p>
+        </cdg-modal-body>
+        <cdg-modal-actions class="multiple">
+          <a href="http://google.com" target="_blank" class="cdg-button link">
+            Details
+          </a>
+          <div class="cdg-separator"></div>
+          <button class="cdg-button" id="okButton" autofocus>Approve</button>
+          <button class="cdg-button secondary" id="cancelButton">Cancel</button>
+        </cdg-modal-actions>
+      </cdg-modal>
+    </template>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;button class=&quot;cdg-button&quot; id=&quot;defaultModal&quot;&gt;Show Modal&lt;/button&gt;
+&lt;template for=&quot;defaultModal&quot;&gt;
+    &lt;cdg-modal size=&quot;small | medium | large | auto&quot;&gt;
+        &lt;cdg-modal-header title=&quot;Title&quot; useCloseButton=&quot;true&quot;&gt;&lt;/cdg-modal-header&gt;
+        &lt;cdg-modal-body&gt;
+            // Any content is here
+        &lt;/cdg-modal-body&gt;
+        &lt;cdg-modal-actions&gt;
+            &lt;div class=&quot;cdg-separator&quot;&gt;&lt;/div&gt;
+            &lt;button class=&quot;cdg-button secondary&quot; id=&quot;cancelButton&quot;&gt;Cancel&lt;/button&gt;
+            &lt;button class=&quot;cdg-button&quot; id=&quot;okButton&quot; autofocus&gt;Approve&lt;/button&gt;
+        &lt;/cdg-modal-actions&gt;
+    &lt;/cdg-modal&gt;
+&lt;/template&gt;
+&lt;script&gt;
+...
+// To show nested dialog
+largeOkButton.addEventListener(&apos;click&apos;, () =&gt; {
+    const confirm = cdgDialogService.confirm({
+      dialogTitle: &apos;Do you really want to approve it?&apos;,
+      message: &apos;You can not rollback this action anymore.&apos;,
+      executeLabel: &apos;Yeah, do it!&apos;,
+    });
+
+    confirm.addEventListener(&apos;close&apos;, (event) =&gt; {
+      cdgToastService.toast(
+        &apos;User says: &apos; + (event.detail ? &apos;Yeah, do it!&apos; : &apos;Cancel&apos;)
+      );
+      if (event.detail) {
+        // Going to close both
+        largeModal.close();
+      }
+    });
+  });
+...
+&lt;/script&gt;
+</code>
+</pre>
+</cdg-sample-section>

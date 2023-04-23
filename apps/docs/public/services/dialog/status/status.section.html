@@ -1,0 +1,37 @@
+<cdg-sample-section name="Success & Error">
+  <div
+    class="sample-section"
+    style="flex-direction: row; align-items: flex-start"
+  >
+    <button class="cdg-button" id="showSuccessButton">Show Success</button>
+    <button class="cdg-button" id="showErrorButton">Show Error</button>
+  </div>
+
+  <pre>
+      <code class="language-html">
+  &lt;button
+    class=&quot;cdg-button&quot;
+    onclick=&quot;showStatusDialog(&apos;Successfully Completed&apos;, &apos;Lorem ipsum dolor sit amet, consectetur&apos;, &apos;success&apos;)&quot;
+  &gt;
+    Show Success
+  &lt;/button&gt;
+  &lt;button
+    class=&quot;cdg-button&quot;
+    onclick=&quot;showStatusDialog(&apos;Sorry something went wrong&apos;, &apos;Lorem ipsum dolor sit amet, consectetur&apos;, &apos;error&apos;)&quot;
+  &gt;
+    Show Error
+  &lt;/button&gt;
+  
+  &lt;script&gt;
+    const showStatusDialog = (title, message, status) =&gt; {
+      const dialog = cdgDialogService.showStatus({
+        status,
+        title,
+        message,
+        executeLabel: &apos;Okay&apos;,
+      });
+    };
+  &lt;/script&gt;
+      </code>
+  </pre>
+</cdg-sample-section>

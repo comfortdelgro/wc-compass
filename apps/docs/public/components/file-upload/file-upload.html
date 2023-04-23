@@ -1,0 +1,97 @@
+<cdg-sample-section name="Uploading">
+  <div class="sample-section" style="flex-direction: column">
+    <div class="cdg-file-list">
+      <cdg-file-upload
+        state="uploading"
+        fileName="sampe-file-name.pdf"
+      ></cdg-file-upload>
+      <cdg-file-upload
+        state="success"
+        fileName="sampe-file-name.pdf"
+      ></cdg-file-upload>
+      <cdg-file-upload
+        state="error"
+        fileName="sampe-file-name.pdf"
+      ></cdg-file-upload>
+      <cdg-file-upload
+        state="close"
+        fileName="sampe-file-name.pdf"
+      ></cdg-file-upload>
+      <cdg-file-upload
+        state="downloadable"
+        fileName="sampe-file-name.pdf"
+      ></cdg-file-upload>
+    </div>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;div class=&quot;cdg-file-list&quot;&gt;
+    &lt;cdg-file-upload
+        state=&quot;uploading&quot;
+        fileName=&quot;sampe-file-name.pdf&quot;
+    &gt;&lt;/cdg-file-upload&gt;
+    &lt;cdg-file-upload
+        state=&quot;success&quot;
+        fileName=&quot;sampe-file-name.pdf&quot;
+    &gt;&lt;/cdg-file-upload&gt;
+    &lt;cdg-file-upload
+        state=&quot;error&quot;
+        fileName=&quot;sampe-file-name.pdf&quot;
+    &gt;&lt;/cdg-file-upload&gt;
+    &lt;cdg-file-upload
+      state=&quot;close&quot;
+      fileName=&quot;sampe-file-name.pdf&quot;
+    &gt;&lt;/cdg-file-upload&gt;
+    &lt;cdg-file-upload
+      state=&quot;downloadable&quot;
+      fileName=&quot;sampe-file-name.pdf&quot;
+    &gt;&lt;/cdg-file-upload&gt;
+&lt;/div&gt;</code>
+</pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Integration">
+  <div class="sample-section" style="flex-direction: column">
+    <cdg-file allow-drop vertical style="width: 100%" id="fileUpload">
+      <div class="cdg-button upload-button">Browse files</div>
+      <input type="file" class="cdg-file-input" multiple />
+    </cdg-file>
+    <div class="cdg-file-list" id="fileList"></div>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;cdg-file allow-drop vertical id=&quot;fileUpload&quot;&gt;
+    &lt;div class=&quot;cdg-button upload-button&quot;&gt;Browse files&lt;/div&gt;
+    &lt;input type=&quot;file&quot; class=&quot;cdg-file-input&quot; multiple /&gt;
+&lt;/cdg-file&gt;
+&lt;div class=&quot;cdg-file-list&quot; id=&quot;fileList&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+    const fileList = document.querySelector(&apos;#fileList&apos;);
+    const fileUpload = document.querySelector(&apos;#fileUpload&apos;);
+
+    function createFile(file, index) {
+    const fileElement = document.createElement(&apos;cdg-file-upload&apos;);
+    fileElement.setAttribute(&apos;state&apos;, &apos;uploading&apos;);
+    fileElement.setAttribute(&apos;fileName&apos;, file.name);
+    setTimeout(() =&gt; {
+        fileElement.setAttribute(&apos;state&apos;, &apos;success&apos;);
+    }, index * 2000);
+
+    return fileElement;
+    }
+
+    fileUpload.addEventListener(&apos;selectFiles&apos;, (event) =&gt; {
+    const files = event.detail;
+    let i = 1;
+    if (files.length) {
+        for (let file of files) {
+        fileList.prepend(createFile(file, i));
+        i++;
+        }
+    }
+    });
+&lt;/script&gt;</code>
+</pre>
+</cdg-sample-section>
+
+<cdg-file-upload-properties-section></cdg-file-upload-properties-section>

@@ -9,6 +9,7 @@ export class SampleSection extends HTMLElement {
   sample
   constructor() {
     super()
+    this.setAttribute('pageIndexItem', this.getAttribute('name'))
     this.classList.add('cdg-sample-section')
 
     const header = document.createElement('div')

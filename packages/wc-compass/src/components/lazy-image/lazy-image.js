@@ -17,8 +17,20 @@ imageTemplate.innerHTML = `
       height: 100%;
       object-fit: cover;
     }
+
+    img:before {
+      content: ' ';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgb(230, 230, 230);
+      border-radius: 5px;
+    }
   </style>
-  <img src=${placeholderSrc}/>
+  <img src=""/>
 `
 
 export class CdgLazyImage extends HTMLElement {

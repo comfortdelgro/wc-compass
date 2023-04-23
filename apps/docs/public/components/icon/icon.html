@@ -1,0 +1,98 @@
+<p>
+  Our icons are using svg files for better quality and easy to override the
+  color.<br />
+  If we build the whole images into the bundle file, our resource will be
+  extremely large and the page load speed will be slow down. So that we would
+  like to seprate them into a folder.<br />
+  Once you've declare an icon with a name, icon component will call the api to
+  fetch the svg file and attach them into the DOM.
+</p>
+
+<cdg-sample-section name="Sizing">
+  <div class="sample-section sample-avatar-section">
+    <cdg-icon name="user" size="48"></cdg-icon>
+    <cdg-icon name="user" size="40"></cdg-icon>
+    <cdg-icon name="user" size="32"></cdg-icon>
+    <cdg-icon name="user"></cdg-icon>
+    <cdg-icon name="user" size="16"></cdg-icon>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;cdg-icon name=&quot;user&quot; size=&quot;48&quot;&gt;&lt;/cdg-icon&gt;
+&lt;cdg-icon name=&quot;user&quot; size=&quot;40&quot;&gt;&lt;/cdg-icon&gt;
+&lt;cdg-icon name=&quot;user&quot; size=&quot;32&quot;&gt;&lt;/cdg-icon&gt;
+&lt;cdg-icon name=&quot;user&quot; size=&quot;24&quot;&gt;&lt;/cdg-icon&gt;
+&lt;cdg-icon name=&quot;user&quot; size=&quot;16&quot;&gt;&lt;/cdg-icon&gt;</code>
+</pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Color">
+  <p>
+    Based on current text color, just give the paragraph a color, the icon will
+    follow that color
+  </p>
+  <div class="sample-section sample-avatar-section column">
+    <cdg-icon name="user" style="color: var(--accent)"></cdg-icon>
+    <cdg-icon name="user" style="color: var(--success)"></cdg-icon>
+    <cdg-icon name="user" style="color: var(--warning)"></cdg-icon>
+    <style>
+      .sample-pharagraph {
+        color: var(--danger);
+      }
+    </style>
+    <p class="sample-pharagraph">
+      This pharagraph have danger color
+      <cdg-icon name="user"></cdg-icon>
+    </p>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;cdg-icon name=&quot;user&quot; style=&quot;color: var(--accent)&quot;&gt;&lt;/cdg-icon&gt;
+
+&lt;cdg-icon name=&quot;user&quot; style=&quot;color: var(--success)&quot;&gt;&lt;/cdg-icon&gt;
+
+&lt;cdg-icon name=&quot;user&quot; style=&quot;color: var(--warning)&quot;&gt;&lt;/cdg-icon&gt;
+
+&lt;style&gt;
+.sample-pharagraph {
+  color: var(--danger);
+}
+&lt;/style&gt;
+&lt;p class=&quot;sample-pharagraph&quot;&gt;
+    This pharagraph have danger color
+    &lt;cdg-icon name=&quot;user&quot;&gt;&lt;/cdg-icon&gt;
+&lt;/p&gt;</code>
+</pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Zig Logo">
+  <div class="sample-section sample-avatar-section">
+    <cdg-zig-logo>
+      <cdg-icon name="zigLogo"></cdg-icon>
+    </cdg-zig-logo>
+    <cdg-zig-logo size="52">
+      <cdg-icon name="zigLogo"></cdg-icon>
+    </cdg-zig-logo>
+  </div>
+
+  <pre>
+  <code class="language-html">&lt;cdg-icon name=&quot;zigLogo&quot; size=&quot;24&quot;&gt;&lt;/cdg-icon&gt;</code>
+</pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Icon Name" id="iconNames">
+  <div class="sample-section column">
+    <div class="grid-sample-section" id="icon-grid">
+      <div class="icon-sample">
+        <cdg-icon name="addUser"></cdg-icon>
+        <span class="icon-name">addUser</span>
+      </div>
+    </div>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;cdg-icon name=&quot;{Place icon name here}&quot; size=&quot;24&quot;&gt;&lt;/cdg-icon&gt;</code>
+</pre>
+</cdg-sample-section>
+
+<cdg-icon-properties-section></cdg-icon-properties-section>

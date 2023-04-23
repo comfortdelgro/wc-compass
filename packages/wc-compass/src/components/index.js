@@ -23,6 +23,7 @@ import {CdgListItem} from './list-view/list-item'
 import {CdgListview} from './list-view/list-view'
 import {CdgLoading} from './loading/loading'
 import {CdgMultiLevelDropdown} from './multi-level-dropdown/multi-level-dropdown'
+import {CdgPageIndexes} from './page-indexes/page-indexes'
 import {CdgLinkPagination} from './pagination/link-pagination'
 import {CdgPagination} from './pagination/pagination'
 import {CdgPillBadge} from './pill-badge/pill-badge'
@@ -93,6 +94,7 @@ customElements.define('cdg-chart', CdgChart)
 customElements.define('cdg-gutter', CdgGutter)
 customElements.define('cdg-select-color', CdgSelectColor)
 customElements.define('cdg-lazy-img', CdgLazyImage)
+customElements.define('cdg-page-indexes', CdgPageIndexes)
 
 export const CONTROL_COMPONENTS = [
   CdgAccordion,
@@ -134,4 +136,5 @@ export const CONTROL_COMPONENTS = [
   CdgGutter,
   CdgSelectColor,
   CdgLazyImage,
+  CdgPageIndexes,
 ]
