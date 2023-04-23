@@ -120,6 +120,7 @@ export class CdgGutter extends HTMLElement {
         : this.pointer.distance.x)
     width = width < 0 ? 0 : width
     this.parentElement.style.width = width + 'px'
+    window.dispatchEvent(new Event('resize'))
   }
 
   handlePointerUp() {
