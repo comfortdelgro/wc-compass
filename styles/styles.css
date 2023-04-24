@@ -54,7 +54,7 @@ body .cdg-nav-rail .workbench-title {
   flex: 1;
 }
 
-.cdg-sub-nav.hide {
+.cdg-layout.sub-nav-wrapper.hide {
   display: none;
 }
 
@@ -91,10 +91,6 @@ cdg-nav-rail .cdg-nav-rail-inner,
 .doc-container .sample-section-title {
   margin: 0;
   color: var(--grey80);
-}
-
-.doc-container h3:not(:first-child) {
-  margin-top: 20px;
 }
 
 .component-item {
@@ -266,6 +262,27 @@ pre code.hljs {
 
 .guideline-section .sample-section-title {
   margin-bottom: 12px;
+}
+
+.table-of-content {
+  width: 200px;
+  min-width: 10px;
+  border-left: 1px solid var(--border-color);
+}
+
+.table-of-content.hide {
+  display: none;
+}
+
+.table-of-content h4 {
+  padding: 16px;
+  margin: 0;
+}
+
+@media screen and (max-width: 979px) {
+  .table-of-content {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 767px) {

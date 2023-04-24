@@ -1,19 +1,9 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgTableComponentSection} from '../../../shared/table-component'
 
-export class CdgGutterPropertiesSection extends CdgBaseComponent {
+export class CdgGutterPropertiesSection extends CdgTableComponentSection {
   constructor() {
-    super()
-    this.htmlContent = `<section class="guideline-section">
-    <h3 class="sample-section-title">Props & Methods</h3>
-  
-    <cdg-table id="propertiesTable"></cdg-table>
-  </section>
-    `
-  }
-
-  onInit() {
-    const table = document.querySelector('#propertiesTable')
-    table.data = [
+    super('Props & Methods')
+    this.data = [
       {
         name: '<code>place</code>',
         type: '<code>left</code> | <code>right</code>',

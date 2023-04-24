@@ -1,0 +1,29 @@
+<cdg-sample-section name="Warning">
+  <div
+    class="sample-section"
+    style="flex-direction: column; align-items: flex-start"
+  >
+    <button class="cdg-button" id="showWarningButton">Show Warning</button>
+  </div>
+
+  <pre>
+      <code class="language-html">&lt;button class=&quot;cdg-button&quot; onclick=&quot;showWarning()&quot;&gt;Show Warning&lt;/button&gt;
+  &lt;div id=&quot;output1&quot;&gt;&lt;/div&gt;
+  
+  &lt;script&gt;
+      function showWarning() {
+          const dialog = cdgDialogService.warning({
+              dialogTitle: 'Are you sure you want to delete this deal?',
+              message: 'Only admin users can restore deleted deals.',
+              executeLabel: 'Delete',
+          });
+  
+          dialog.addEventListener('close', (event) =&gt; {
+            cdgToastService.toast(
+              &apos;User says: &apos; + (event.detail ? &apos;Yes, delete it!&apos; : &apos;Cancel&apos;)
+            );
+          });
+      };
+  &lt;/script&gt;</code>
+  </pre>
+</cdg-sample-section>

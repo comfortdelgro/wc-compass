@@ -1,3 +1,4 @@
+import {CdgAvatarDemo} from './avatar'
 import {CdgAvatarPropertiesSection} from './properties/properties.section'
 
 customElements.define(
@@ -5,4 +6,6 @@ customElements.define(
   CdgAvatarPropertiesSection,
 )
 
-export {CdgAvatarPropertiesSection}
+customElements.define('cdg-avatar-demo', CdgAvatarDemo)
+
+export {CdgAvatarPropertiesSection, CdgAvatarDemo}

@@ -7,15 +7,19 @@ export class CdgBaseComponent extends HTMLElement {
 
   connectedCallback() {
     if (this.template) {
+      const loadingId = cdgLoadingService.show('global')
       downloadHTMLContent(this.template).then((response) => {
         this.innerHTML = response
         this.onInit()
         this.complieSampleCode()
+        this.onAfterViewInit()
+        cdgLoadingService.hide(loadingId)
       })
     } else if (this.htmlContent) {
       this.innerHTML = this.htmlContent
       this.onInit()
       this.complieSampleCode()
+      this.onAfterViewInit()
     }
   }
 
@@ -24,6 +28,12 @@ export class CdgBaseComponent extends HTMLElement {
   complieSampleCode() {
     if (hljs) {
       hljs.highlightAll()
+    }
+  }
+
+  onAfterViewInit() {
+    if (this.parentElement && this.parentElement.registerPageIndex) {
+      this.parentElement.registerPageIndex()
     }
   }
 }

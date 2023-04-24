@@ -1,0 +1,25 @@
+<cdg-sample-section name="Global Loading">
+  <p>
+    By clicking Show Global button, the loading indicator will be shown on
+    <code>body</code> element, it will covers everything and will be disapeared
+    in the next 3 seconds
+  </p>
+  <div class="sample-section">
+    <button class="cdg-button" id="global-button">Show Global</button>
+  </div>
+
+  <pre>
+      <code class="language-html">&lt;button class=&quot;cdg-button&quot; id=&quot;global-button&quot;&gt;Show Global&lt;/button&gt;
+&lt;script&gt;
+  function showLocal() {
+    const loadingId = cdgLoadingService.show(&apos;global&apos;)
+    setTimeout(() =&gt; {
+      cdgLoadingService.hide(loadingId)
+    }, 3000)
+  }
+
+  const button = this.querySelector(&apos;#global-button&apos;)
+  button.addEventListener(&apos;click&apos;, showLocal)
+&lt;/script&gt;</code>
+    </pre>
+</cdg-sample-section>

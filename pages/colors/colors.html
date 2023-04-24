@@ -1,0 +1,48 @@
+<style>
+  h4 {
+    margin-top: 32px;
+  }
+
+  .color-palettes {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .sample-color {
+    height: 160px;
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease-in-out;
+    cursor: copy;
+  }
+
+  .sample-color:hover {
+    transform: scale(1.04);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .color-name {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .color-name small {
+    white-space: nowrap;
+  }
+
+  .sample-color-code {
+    font-size: 12px;
+  }
+</style>
+
+<cdg-primary-colors-section></cdg-primary-colors-section>
+
+<cdg-secondary-colors-section></cdg-secondary-colors-section>
+
+<cdg-shade-tints-section></cdg-shade-tints-section>

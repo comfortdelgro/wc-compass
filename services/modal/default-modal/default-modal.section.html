@@ -1,0 +1,74 @@
+<cdg-sample-section name="Default">
+  <div class="sample-section">
+    <button class="cdg-button" id="defaultModalButton">Show Modal</button>
+    <template for="defaultModal">
+      <cdg-modal>
+        <cdg-modal-header
+          title="Title"
+          use-close-cutton="true"
+        ></cdg-modal-header>
+        <cdg-modal-body>
+          This is place holder text. The basic dialog for modals should contain
+          only valuable and relevant information. Simplify dialogs by removing
+          unnecessary elements or content that does not support user tasks. If
+          you find that the number of required elements for your design are
+          making the dialog excessively large, then try a different design
+          solution.
+        </cdg-modal-body>
+        <cdg-modal-actions>
+          <div class="cdg-separator"></div>
+          <button class="cdg-button secondary" id="cancelButton">Cancel</button>
+          <button class="cdg-button" id="okButton" autofocus>Approve</button>
+        </cdg-modal-actions>
+      </cdg-modal>
+    </template>
+  </div>
+
+  <pre>
+      <code class="language-html">&lt;button class=&quot;cdg-button&quot; id=&quot;defaultModal&quot;&gt;Show Modal&lt;/button&gt;
+      &lt;template for=&quot;defaultModal&quot;&gt;
+          &lt;cdg-modal&gt;
+              &lt;cdg-modal-header title=&quot;Title&quot; useCloseButton=&quot;true&quot;&gt;&lt;/cdg-modal-header&gt;
+              &lt;cdg-modal-body&gt;
+                  This is place holder text. The basic dialog for modals should contain
+                  only valuable and relevant information. Simplify dialogs by removing
+                  unnecessary elements or content that does not support user tasks. If you
+                  find that the number of required elements for your design are making the
+                  dialog excessively large, then try a different design solution.
+              &lt;/cdg-modal-body&gt;
+              &lt;cdg-modal-actions&gt;
+                  &lt;div class=&quot;cdg-separator&quot;&gt;&lt;/div&gt;
+                  &lt;button class=&quot;cdg-button secondary&quot; id=&quot;cancelButton&quot;&gt;Cancel&lt;/button&gt;
+                  &lt;button class=&quot;cdg-button&quot; id=&quot;okButton&quot; autofocus&gt;Approve&lt;/button&gt;
+              &lt;/cdg-modal-actions&gt;
+          &lt;/cdg-modal&gt;
+      &lt;/template&gt;
+  &lt;script&gt;
+    const button = document.querySelector('#defaultModal');
+    const modal = document
+      .querySelector('[for=&quot;defaultModal&quot;]')
+      .content.firstElementChild.cloneNode(true);
+    const cancelButton = modal.querySelector('#cancelButton');
+    const okButton = modal.querySelector('#okButton');
+  
+    modal.addEventListener('close', () =&gt; {
+      cdgToastService.toast(&apos;Dialog is closed!&apos;);
+    });
+  
+    okButton.addEventListener('click', () =&gt; {
+      modal.close();
+      cdgToastService.toast(&quot;You&apos;ve approved it!&quot;);
+    });
+  
+    cancelButton.addEventListener('click', () =&gt; {
+      modal.close();
+      cdgToastService.toast(&quot;You&apos;ve cancelled it!&quot;);
+    });
+  
+    button.addEventListener('click', () =&gt; {
+      cdgDialogService.show('sampleDefaultModal', modal);
+    });
+  &lt;/script&gt;
+      </code>
+  </pre>
+</cdg-sample-section>

@@ -224,20 +224,3 @@
 <cdg-dropdown-opt-properties-section></cdg-dropdown-opt-properties-section>
 
 <cdg-dropdown-color-properties-section></cdg-dropdown-color-properties-section>
-
-<script>
-  const radios = document.querySelectorAll('input[name="sample2"]')
-  const dropdown = document.querySelector('cdg-dropdown#disabledDropdown')
-  if (radios.length > 0) {
-    radios.forEach((radio) => {
-      radio.addEventListener('change', function change(params) {
-        const value = params.target.value
-        if (value === '0') {
-          dropdown.setAttribute('disabled', 'true')
-        } else {
-          dropdown.removeAttribute('disabled')
-        }
-      })
-    })
-  }
-</script>
