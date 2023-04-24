@@ -1,5 +1,17 @@
 # @comfortdelgro/wc-compass
 
+## 0.2.0
+
+### Minor Changes
+
+- a42748c: Update main document page
+
+### Patch Changes
+
+- bf8e292: fix for module import issue
+- 7c2b5cf: Fix for page build error
+- 27ce7e5: Update color and tab document
+
 ## 0.1.3
 
 ### Patch Changes
