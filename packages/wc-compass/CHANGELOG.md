@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.1.4
+
+### Patch Changes
+
+- 27ce7e5: Update color and tab document
+
 ## 0.1.3
 
 ### Patch Changes
