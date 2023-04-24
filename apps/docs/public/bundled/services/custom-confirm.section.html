@@ -1,0 +1,68 @@
+<cdg-sample-section name="Confirm & Custom">
+  <div
+    class="sample-section"
+    style="flex-direction: column; align-items: flex-start"
+  >
+    <template id="customConfirmDialog">
+      <div class="cdg-dialog-content">
+        <h4 class="cdg-dialog-title">Enter your comments</h4>
+        <p class="cdg-dialog-message">
+          This comment will be sent to us automatically
+        </p>
+        <label class="cdg-input-group">
+          <span class="cdg-input-label">Comment field</span>
+          <textarea
+            id="sampleTextarea"
+            class="cdg-textarea"
+            placeholder="Enter your message here"
+            autofocus
+          ></textarea>
+        </label>
+      </div>
+    </template>
+    <button class="cdg-button" id="showConfirmButton">
+      Show Confirm
+    </button>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;template id=&quot;customConfirmDialog&quot;&gt;
+    &lt;div class=&quot;cdg-dialog-content&quot;&gt;
+        &lt;h4 class=&quot;cdg-dialog-title&quot;&gt;Enter your comments&lt;/h4&gt;
+        &lt;p class=&quot;cdg-dialog-message&quot;&gt;
+        This comment will be sent to us automatically
+        &lt;/p&gt;
+        &lt;label class=&quot;cdg-input-group&quot;&gt;
+        &lt;span class=&quot;cdg-input-label&quot;&gt;Comment field&lt;/span&gt;
+        &lt;textarea
+            id=&quot;sampleTextarea&quot;
+            class=&quot;cdg-textarea&quot;
+            placeholder=&quot;Enter your message here&quot;
+        &gt;&lt;/textarea&gt;
+        &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;/template&gt;
+    &lt;button class=&quot;cdg-button&quot; onclick=&quot;showConfirmCustom()&quot;&gt;Show Confirm&lt;/button&gt;
+
+&lt;script&gt;
+    function showConfirmCustom() {
+        const content = document
+            .querySelector('#customConfirmDialog')
+            .content.firstElementChild.cloneNode(true);
+
+        const textarea = content.querySelector('#sampleTextarea');
+
+        const dialog = cdgDialogService.confirmCustom({
+            content,
+            executeLabel: 'Submit',
+        });
+
+        dialog.addEventListener('close', (event) =&gt; {
+          cdgToastService.toast(
+            event.detail ? &apos;Submit with message &quot;&apos; + textarea.value + &apos;&quot;&apos; : &apos;Cancel&apos;
+          );
+        });
+    };
+&lt;/script&gt;</code>
+</pre>
+</cdg-sample-section>

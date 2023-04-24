@@ -1,0 +1,30 @@
+<cdg-sample-section name="Alert">
+  <div class="sample-section">
+    <button class="cdg-button" id="showAlertButton">Show Alert</button>
+    <button class="cdg-button" id="showAlertWithTitleButton">
+      Show Alert With Title
+    </button>
+  </div>
+
+  <pre>
+      <code class="language-html">&lt;button class=&quot;cdg-button&quot; onclick=&quot;showAlert()&quot;&gt;Show Alert&lt;/button&gt;
+  &lt;button class=&quot;cdg-button&quot; onclick=&quot;showAlertWithTitle()&quot;&gt;
+      Show Alert With Title
+  &lt;/button&gt;
+  
+  &lt;script&gt;
+      function showAlert() {
+          cdgDialogService.alert({
+              message: 'This is a message that let you know everything is ok!',
+          });
+      };
+  
+      function showAlertWithTitle() {
+          cdgDialogService.alert({
+              dialogTitle: 'Title of this alert',
+              message: 'This is a message that let you know everything is ok!',
+          });
+      };
+  &lt;/script&gt;</code>
+  </pre>
+</cdg-sample-section>

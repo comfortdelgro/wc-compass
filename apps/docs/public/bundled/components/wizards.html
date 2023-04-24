@@ -2,6 +2,7 @@
   Wizards displays progress through a sequence by breaking it up into multiple
   steps.
 </p>
+
 <cdg-sample-section name="Default">
   <div class="sample-section" style="display: block">
     <cdg-wizards
@@ -27,10 +28,4 @@
 </pre>
 </cdg-sample-section>
 
-<script>
-  // Add these if you want to active the step that user click on
-  const wizards = document.querySelector('cdg-wizards')
-  wizards.addEventListener('switchStep', (event) => {
-    wizards.current = event.detail.index
-  })
-</script>
+<cdg-wizards-properties-section></cdg-wizards-properties-section>

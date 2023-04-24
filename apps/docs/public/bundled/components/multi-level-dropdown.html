@@ -9,6 +9,8 @@
   </label>
 </div>
 
+<cdg-multi-level-dropdown-properties-section></cdg-multi-level-dropdown-properties-section>
+
 <cdg-sample-section name="Default">
   <div class="sample-section">
     <cdg-dropdown-menu event="click">
@@ -200,33 +202,3 @@
       </code>
   </pre>
 </cdg-sample-section>
-
-<section class="guideline-section">
-  <h3>Props & Methods</h3>
-
-  <cdg-table id="propertiesTable"></cdg-table>
-</section>
-
-<script>
-  const radios = document.querySelectorAll('input[name="sample2"]')
-  const dropdownMenu = document.querySelector('cdg-dropdown-menu')
-  if (radios.length > 0) {
-    radios.forEach((radio) => {
-      radio.addEventListener('change', function change(params) {
-        const value = params.target.value
-        console.log(value)
-        dropdownMenu.setAttribute('event', value)
-      })
-    })
-  }
-
-  const table = document.querySelector('#propertiesTable')
-  table.data = [
-    {
-      name: 'event',
-      type: '<code>"click"</code><code>"hover"</code>',
-      default: '<code>click</code>',
-      description: 'The first selected date of a range of dates',
-    },
-  ]
-</script>
