@@ -1,0 +1,76 @@
+<cdg-sample-section name="Default">
+  <div class="sample-section">
+    <button class="cdg-button" id="showDefaultSidebarButton">
+      Show Sidebar
+    </button>
+    <template id="defaultSidebar">
+      <cdg-sidebar>
+        <cdg-sidebar-header
+          title="Title"
+          useCloseButton="true"
+        ></cdg-sidebar-header>
+        <cdg-sidebar-body>
+          This is place holder text. The basic dialog for modals should contain
+          only valuable and relevant information. Simplify dialogs by removing
+          unnecessary elements or content that does not support user tasks. If
+          you find that the number of required elements for your design are
+          making the dialog excessively large, then try a different design
+          solution.
+        </cdg-sidebar-body>
+        <cdg-sidebar-actions>
+          <button class="cdg-button danger" id="cancelButton">Cancel</button>
+          <button class="cdg-button" id="okButton" autofocus>Approve</button>
+        </cdg-sidebar-actions>
+      </cdg-sidebar>
+    </template>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;button class=&quot;cdg-button&quot; onclick=&quot;showDefaultSidebar()&quot;&gt;
+    Show Sidebar
+&lt;/button&gt;
+&lt;template id=&quot;defaultSidebar&quot;&gt;
+  &lt;cdg-sidebar&gt;
+    &lt;cdg-sidebar-header
+      title=&quot;Title&quot;
+      useCloseButton=&quot;true&quot;
+    &gt;&lt;/cdg-sidebar-header&gt;
+    &lt;cdg-sidebar-body&gt;
+      This is place holder text. The basic dialog for modals should contain
+      only valuable and relevant information. Simplify dialogs by removing
+      unnecessary elements or content that does not support user tasks. If you
+      find that the number of required elements for your design are making the
+      dialog excessively large, then try a different design solution.
+    &lt;/cdg-sidebar-body&gt;
+    &lt;cdg-sidebar-actions&gt;
+      &lt;button class=&quot;cdg-button danger&quot; id=&quot;cancelButton&quot;&gt;Cancel&lt;/button&gt;
+      &lt;button class=&quot;cdg-button&quot; id=&quot;okButton&quot; autofocus&gt;Approve&lt;/button&gt;
+    &lt;/cdg-sidebar-actions&gt;
+  &lt;/cdg-sidebar&gt;
+&lt;/template&gt;
+&lt;script&gt;
+function showDefaultSidebar() {
+    const content = document
+      .querySelector(&apos;#defaultSidebar&apos;)
+      .content.firstElementChild.cloneNode(true);
+    const cancelButton = content.querySelector(&apos;#cancelButton&apos;);
+    const okButton = content.querySelector(&apos;#okButton&apos;);
+
+    const sidebarElement = cdgDialogService.showSidebar(
+      &apos;sidebar&apos; + new Date().getTime(),
+      content
+    );
+
+    okButton.addEventListener(&apos;click&apos;, () =&gt; {
+      content.close();
+      cdgToastService.toast(&quot;You&apos;ve approved it!&quot;);
+    });
+
+    cancelButton.addEventListener(&apos;click&apos;, () =&gt; {
+      content.close();
+      cdgToastService.toast(&quot;You&apos;ve cancelled it!&quot;);
+    });
+  };
+&lt;/script&gt;</code>
+</pre>
+</cdg-sample-section>

@@ -1,0 +1,28 @@
+<cdg-sample-section name="Confirm">
+  <div
+    class="sample-section"
+    style="flex-direction: column; align-items: flex-start"
+  >
+    <button class="cdg-button" id="showConfirmButton">Show Confirm</button>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;button class=&quot;cdg-button&quot; onclick=&quot;showConfirm()&quot;&gt;Show Confirm&lt;/button&gt;
+
+&lt;script&gt;
+    function showConfirm() {
+        const dialog = cdgDialogService.confirm({
+            dialogTitle: 'Is this helpful?',
+            message: 'This confirm dialog can help you to ask user.',
+            executeLabel: 'Execute',
+        });
+
+        dialog.addEventListener('close', (event) =&gt; {
+          cdgToastService.toast(
+            &apos;User says: &apos; + (event.detail ? &apos;Yes, delete it!&apos; : &apos;Cancel&apos;)
+          );
+        });
+    };
+&lt;/script&gt;</code>
+</pre>
+</cdg-sample-section>

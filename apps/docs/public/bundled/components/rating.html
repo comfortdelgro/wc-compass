@@ -54,11 +54,6 @@ rating.addEventListener(&apos;rate&apos;, (event) =&gt; {
 </pre>
 </cdg-sample-section>
 
-<script>
-  const ratings = document.querySelectorAll('cdg-rating')
-  ratings.forEach((element) => {
-    element.addEventListener('rate', (event) => {
-      cdgToastService.toast('Selected ' + event.detail)
-    })
-  })
-</script>
+<cdg-rating-properties-section></cdg-rating-properties-section>
+
+<cdg-rating-events-section></cdg-rating-events-section>
