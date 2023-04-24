@@ -3,11 +3,11 @@
   gap: 1rem;
   a.cdg-button,
   .cdg-button {
-    border-radius: 50%;
-    padding: 8px 1rem;
+    border-radius: 20px;
+    padding: 8px;
     @extend %body3;
     text-align: center;
-    width: 2rem;
+    min-width: 2rem;
     height: 2rem;
     display: inline-flex;
     box-sizing: border-box;
