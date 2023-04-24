@@ -1,5 +1,12 @@
 # @comfortdelgro/wc-compass
 
+## 0.1.4
+
+### Patch Changes
+
+- bf8e292: fix for module import issue
+- 27ce7e5: Update color and tab document
+
 ## 0.1.3
 
 ### Patch Changes
