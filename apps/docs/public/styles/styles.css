@@ -269,6 +269,10 @@ pre code.hljs {
 }
 
 @media screen and (max-width: 767px) {
+  .sub-nav-wrapper.cdg-contains-gutter {
+    width: auto;
+  }
+
   .page-container {
     background-color: var(--background);
   }

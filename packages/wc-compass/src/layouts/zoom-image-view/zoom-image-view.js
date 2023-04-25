@@ -61,6 +61,18 @@ export class CdgZoomImageView extends HTMLElement {
   zoomValue = 1
   ratioPointer = DEFAULT_POINT
 
+  isPinching = false
+  currentEventId
+  scale = 1
+  prevScale = 1
+  startX = 0
+  startY = 0
+  prevTranslateX = 0
+  prevTranslateY = 0
+  translateX = 0
+  translateY = 0
+  distance = null
+
   get multiple() {
     return this.hasAttribute('multiple')
   }
@@ -135,25 +147,25 @@ export class CdgZoomImageView extends HTMLElement {
       '.cdg-zoom-image-view-thumbnail',
     )
 
-    var scale = 1,
-      pointX = 0,
-      pointY = 0
-    modal.addEventListener('wheel', (event) => {
-      event.preventDefault()
-      event.stopPropagation()
-      console.log(event, event.clientX, event.clientY);
-      const xs = (event.clientX - pointX) / scale,
-        ys = (event.clientY - pointY) / scale,
-        delta = event.wheelDelta ? event.wheelDelta : -event.deltaY
-      delta > 0 ? (scale *= 1.2) : (scale /= 1.2)
-      pointX = event.clientX - xs * scale
-      pointY = event.clientY - ys * scale
-      this.zoomValue = this.zoomValue + 0.5
-      this.pointer.update({x: pointX, y: pointY})
-      this.currentPosition = {x: pointX, y: pointY}
-      this.scale = scale
-      this.imgContentEl.style.transform = `translate(${pointX}px, ${pointY}px) scale(${this.scale})`
-    })
+    // var scale = 1,
+    //   pointX = 0,
+    //   pointY = 0
+    // modal.addEventListener('wheel', (event) => {
+    //   event.preventDefault()
+    //   event.stopPropagation()
+    //   console.log(event, event.clientX, event.clientY);
+    //   const xs = (event.clientX - pointX) / scale,
+    //     ys = (event.clientY - pointY) / scale,
+    //     delta = event.wheelDelta ? event.wheelDelta : -event.deltaY
+    //   delta > 0 ? (scale *= 1.2) : (scale /= 1.2)
+    //   pointX = event.clientX - xs * scale
+    //   pointY = event.clientY - ys * scale
+    //   this.zoomValue = this.zoomValue + 0.5
+    //   this.pointer.update({x: pointX, y: pointY})
+    //   this.currentPosition = {x: pointX, y: pointY}
+    //   this.zoomValue = scale
+    //   this.imgContentEl.style.transform = `translate(${pointX}px, ${pointY}px) scale(${this.zoomValue})`
+    // })
 
     if (this.carouselEl) {
       this.carouselEl.addEventListener(
@@ -174,6 +186,69 @@ export class CdgZoomImageView extends HTMLElement {
 
     buttonZoomIn.addEventListener('click', this.handleZoomInClick.bind(this))
     buttonZoomOut.addEventListener('click', this.handleZoomOutClick.bind(this))
+
+    this.imgContentEl.addEventListener('touchstart', (event) => {
+      if (event.touches.length === 2) {
+        this.imgContentEl.style.transition = 'unset'
+        event.preventDefault()
+        event.stopPropagation()
+        this.isPinching = true
+        // Calculate the initial distance between the two touches
+        const touch1 = event.touches[0]
+        const touch2 = event.touches[1]
+        this.distance = Math.hypot(
+          touch2.pageX - touch1.pageX,
+          touch2.pageY - touch1.pageY,
+        )
+        this.prevScale = this.zoomValue
+        this.startX = (touch1.pageX + touch2.pageX) / 2
+        this.startY = (touch1.pageY + touch2.pageY) / 2
+      }
+    })
+
+    this.imgContentEl.addEventListener('touchmove', (event) => {
+      if (event.touches.length === 2) {
+        event.preventDefault()
+        event.stopPropagation()
+        // Calculate the new distance between the two touches
+        const touch1 = event.touches[0]
+        const touch2 = event.touches[1]
+        const newDistance = Math.hypot(
+          touch2.pageX - touch1.pageX,
+          touch2.pageY - touch1.pageY,
+        )
+        // Calculate the scale based on the ratio of new distance to initial distance
+        this.zoomValue = this.prevScale * (newDistance / this.distance)
+        // Calculate the new position based on the difference in touch positions
+        const diffX = (touch1.pageX + touch2.pageX) / 2 - this.startX
+        const diffY = (touch1.pageY + touch2.pageY) / 2 - this.startY
+        this.translateX = this.prevTranslateX + diffX / this.zoomValue
+        this.translateY = this.prevTranslateY + diffY / this.zoomValue
+        // Apply the new transform
+        this.pointer.update({x: this.translateX, y: this.translateY})
+        this.currentPosition = {x: this.translateX, y: this.translateY}
+        this.imgContentEl.style.transform = `translate(${this.translateX}px, ${this.translateY}px) scale(${this.zoomValue})`
+      }
+    })
+
+    this.imgContentEl.addEventListener('touchend', (event) => {
+      if (this.isPinching) {
+        // stop event from bubbling up
+        event.stopPropagation()
+        // Reset the variables
+        this.isPinching = false
+        this.prevScale = this.zoomValue
+        this.startX = 0
+        this.startY = 0
+        if (event.touches.length) {
+          this.prevTranslateX = this.translateX
+          this.prevTranslateY = this.translateY
+        }
+        this.translateX = 0
+        this.translateY = 0
+        this.handlePointerUp()
+      }
+    })
 
     this.imgContentEl.addEventListener(
       'pointerdown',
@@ -301,7 +376,10 @@ export class CdgZoomImageView extends HTMLElement {
   handlePointerDown(event) {
     event.preventDefault()
     event.stopPropagation()
-    if (this.zoomValue === 1) {
+    if (this.currentEventId && this.currentEventId !== event.pointerId) {
+      this.isPinching = true
+    }
+    if (this.zoomValue === 1 || this.isPinching) {
       return
     }
     this.imgContentEl.style.transition = 'unset'
@@ -309,6 +387,8 @@ export class CdgZoomImageView extends HTMLElement {
     this.overPointerBottom = false
     this.overPointerLeft = false
     this.overPointerRight = false
+    event.stopPropagation()
+    this.currentEventId = event.pointerId
     this.setPointerCapture(event.pointerId)
 
     this.pointer = new Pointer()
@@ -332,6 +412,9 @@ export class CdgZoomImageView extends HTMLElement {
 
   handlePointerMove(event) {
     event.preventDefault()
+    if (this.isPinching) {
+      return
+    }
     this.pointer.update({x: event.pageX, y: event.pageY})
     const bound = this.imgContentEl.getBoundingClientRect()
     const boundTransformView = this.transformViewEl.getBoundingClientRect()
@@ -364,6 +447,7 @@ export class CdgZoomImageView extends HTMLElement {
   }
 
   handlePointerUp() {
+    this.currentEventId = null
     this.removeEventListener('pointermove', this.handlePointerMoveFn)
     this.handlePointerMoveFn = null
     this.imgContentEl.style.transition = 'all 0.3s linear'
