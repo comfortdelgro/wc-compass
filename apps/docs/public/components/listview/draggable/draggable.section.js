@@ -24,5 +24,15 @@ export class CdgListviewDraggableSection extends CdgBaseComponent {
         listView.removeAttribute('allow-drag')
       }
     })
+
+    const bindingListViews = this.querySelectorAll('[name="dragsample1"]')
+    bindingListViews.forEach(list => {
+      list.addEventListener('onAddItem', (event) => {
+        console.log(`${list.id} fired onAddItem event: `, event.detail);
+      })
+      list.addEventListener('onRemoveItem', (event) => {
+        console.log(`${list.id} fired onRemoveItem event: `, event.detail);
+      })
+    })
   }
 }
