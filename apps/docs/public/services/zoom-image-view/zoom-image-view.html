@@ -2,6 +2,21 @@
   User can click on image to enlarge the image. User can also click zoom in,
   zoom out then drag the image to see the detail of images.
 </p>
+
+<div class="sample-section column">
+  <cdg-toolbar>
+    <div class="cdg-left-group">
+      <button class="cdg-button" id="zoomIn">Zoom In</button>
+      <button class="cdg-button" id="zoomOut">Zoom Out</button>
+    </div>
+  </cdg-toolbar>
+  <cdg-image-viewer
+    id="inlineImageViewer"
+    src="https://picsum.photos/id/211/2000/1400"
+    style="aspect-ratio: 1.7"
+  ></cdg-image-viewer>
+</div>
+
 <cdg-sample-section name="Single image">
   <div class="sample-section custom-slide">
     <cdg-zoom-image-view>

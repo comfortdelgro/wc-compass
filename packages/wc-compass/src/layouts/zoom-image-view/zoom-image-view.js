@@ -279,10 +279,11 @@ export class CdgZoomImageView extends HTMLElement {
   }
 
   handlePointerDown(event) {
-    event.preventDefault()
-    event.stopPropagation()
     if (this.zoomValue === 1) {
       return
+    } else {
+      event.preventDefault()
+      event.stopPropagation()
     }
     this.imgContentEl.style.transition = 'unset'
     this.overPointerTop = false

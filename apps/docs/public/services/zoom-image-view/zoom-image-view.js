@@ -6,4 +6,18 @@ export class CdgZoomImageViewDemo extends CdgDocumentComponent {
     super()
     this.template = template
   }
+
+  onInit() {
+    const zoomInButton = this.querySelector('#zoomIn')
+    const zoomOutButton = this.querySelector('#zoomOut')
+    const imageViewer = this.querySelector('#inlineImageViewer')
+
+    zoomInButton.addEventListener('click', () => {
+      imageViewer.zoomIn()
+    })
+
+    zoomOutButton.addEventListener('click', () => {
+      imageViewer.zoomOut()
+    })
+  }
 }
