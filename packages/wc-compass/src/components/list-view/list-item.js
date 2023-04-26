@@ -170,6 +170,22 @@ export class CdgListItem extends HTMLElement {
     this.clonedElement.style.left =
       this.startBound.left + this.pointer.distance.x + 'px'
 
+    const parentBound = this.parentElement.getBoundingClientRect()
+
+    if (
+      this.pointer.currentPoint.x < parentBound.left ||
+      this.pointer.currentPoint.x > parentBound.right ||
+      this.pointer.currentPoint.y < parentBound.top ||
+      this.pointer.currentPoint.y > parentBound.bottom
+    ) {
+      this.dispatchEvent(
+        new CustomEvent('dragoverParent', {
+          detail: this.pointer.currentPoint,
+        }),
+      )
+      return
+    }
+
     // Dragging item will be hidden so we need to plus 1
     // The dragging item will place to next item when we move it over half of next item
     const sub = this.pointer.distance.y > 0 ? 1.5 : 0.5
