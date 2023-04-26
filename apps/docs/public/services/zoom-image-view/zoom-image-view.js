@@ -11,6 +11,7 @@ export class CdgZoomImageViewDemo extends CdgDocumentComponent {
     const zoomInButton = this.querySelector('#zoomIn')
     const zoomOutButton = this.querySelector('#zoomOut')
     const imageViewer = this.querySelector('#inlineImageViewer')
+    const thumbnail = this.querySelector('#sample-thumbnail')
 
     zoomInButton.addEventListener('click', () => {
       imageViewer.zoomIn()
@@ -18,6 +19,19 @@ export class CdgZoomImageViewDemo extends CdgDocumentComponent {
 
     zoomOutButton.addEventListener('click', () => {
       imageViewer.zoomOut()
+    })
+
+    thumbnail.addEventListener('click', (event) => {
+      const imageViewerWrapper = document.createElement(
+        'cdg-group-image-viewer',
+      )
+
+      const fixedImageViewer = document.createElement('cdg-image-viewer')
+
+      imageViewerWrapper.appendChild(fixedImageViewer)
+      document.body.appendChild(imageViewerWrapper)
+
+      fixedImageViewer.setImage(thumbnail)
     })
   }
 }

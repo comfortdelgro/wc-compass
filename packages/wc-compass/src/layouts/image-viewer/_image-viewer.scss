@@ -4,7 +4,7 @@
   overflow: hidden;
   align-items: center;
   justify-content: center;
-  background-color: var(--grey40);
+  background-color: #000000;
   img {
     position: relative;
     transform-origin: center;
@@ -12,5 +12,40 @@
     -webkit-user-drag: none;
     user-select: none;
     -webkit-user-select: none;
+  }
+}
+
+.cdg-group-image-viewer {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  z-index: 50;
+  .cdg-image-viewer {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.cdg-image-viewer-controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  .cdg-button.ghost {
+    color: #ffffff;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-color: transparent;
+    }
   }
 }

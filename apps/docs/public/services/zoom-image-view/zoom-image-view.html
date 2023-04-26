@@ -3,6 +3,15 @@
   zoom out then drag the image to see the detail of images.
 </p>
 
+<style>
+  .sample-thumbnail {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+  }
+</style>
+
 <div class="sample-section column">
   <cdg-toolbar>
     <div class="cdg-left-group">
@@ -10,6 +19,14 @@
       <button class="cdg-button" id="zoomOut">Zoom Out</button>
     </div>
   </cdg-toolbar>
+  <div class="sample-thumbnails">
+    <img
+      id="sample-thumbnail"
+      class="sample-thumbnail"
+      src="https://picsum.photos/id/213/250/175"
+      largeSrc="https://picsum.photos/id/213/2000/1400"
+    />
+  </div>
   <cdg-image-viewer
     id="inlineImageViewer"
     src="https://picsum.photos/id/211/2000/1400"

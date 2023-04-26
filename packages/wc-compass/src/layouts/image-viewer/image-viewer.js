@@ -1,9 +1,9 @@
 import {Pointer, Position} from '../../shared/pointer'
 
-const ORIENTATION_LANDSCAPE = 'landscape'
-const ORIENTATION_PORTRAIT = 'portrait'
 const ANIMATION_TIME = 200
 const ZOOM_STEP = 0.5
+const FORCE_CLOSE_DISTANCE = 100
+const TRANSPARENT_DISTANCE = 400
 
 export class CdgImageViewer extends HTMLElement {
   static get observedAttributes() {
@@ -32,6 +32,10 @@ export class CdgImageViewer extends HTMLElement {
   capturedPosition = new Position()
   currentPosition = new Position()
   pointer = new Pointer()
+  recentralizeTimer
+  thumbnail
+  transformAnimationTimer
+  loading = false
 
   constructor() {
     super()
@@ -39,6 +43,8 @@ export class CdgImageViewer extends HTMLElement {
 
   connectedCallback() {
     this.classList.add('cdg-image-viewer')
+    this.addEventListener('dblclick', this.handleDoubleClick.bind(this))
+    this.addEventListener('pointerdown', this.handlePointerDown.bind(this))
   }
 
   attributeChangedCallback(attr) {
@@ -60,22 +66,81 @@ export class CdgImageViewer extends HTMLElement {
     if (!this.src) {
       return
     }
-    if (this.img) {
-      this.textContent = ''
-      this.removeEventListener('load', this.handleImageLoad.bind(this))
+    if (!this.img) {
+      this.img = document.createElement('img')
+      this.img.addEventListener('load', this.handleImageLoad.bind(this))
+      this.appendChild(this.img)
     }
-    this.img = document.createElement('img')
     this.img.setAttribute('src', this.src)
-    this.img.addEventListener('load', this.handleImageLoad.bind(this))
-
-    this.appendChild(this.img)
   }
 
   handleImageLoad() {
     this.updateImageSize()
     this.updateZoom()
-    this.addEventListener('dblclick', this.handleDoubleClick.bind(this))
-    this.addEventListener('pointerdown', this.handlePointerDown.bind(this))
+    if (this.isClosableMode()) {
+      if (this.src === this.thumbnail.getAttribute('src')) {
+        this.handleThumbnailLoad()
+      } else if (this.src === this.thumbnail.getAttribute('largeSrc')) {
+        this.handleEnlargeImageLoad()
+      }
+    }
+  }
+
+  removeClonedThumbnail() {
+    this.img.style.transition = 'none'
+    this.img.style.opacity = '1'
+    document.body.removeChild(this.clonedThumbnail)
+  }
+
+  handleEnlargeImageLoad() {
+    this.loading = false
+    if (!this.transformAnimationTimer) {
+      this.removeClonedThumbnail()
+    }
+  }
+
+  handleThumbnailLoad() {
+    const imgBound = this.img.getBoundingClientRect()
+    this.clonedThumbnail.style.width = imgBound.width + 'px'
+    this.clonedThumbnail.style.height = imgBound.height + 'px'
+    this.clonedThumbnail.style.top = imgBound.top + 'px'
+    this.clonedThumbnail.style.left = imgBound.left + 'px'
+    this.clonedThumbnail.style.zIndex = 60
+    this.loading = true
+
+    this.src = this.thumbnail.getAttribute('largeSrc')
+
+    this.transformAnimationTimer = setTimeout(() => {
+      this.transformAnimationTimer = null
+      if (!this.loading) {
+        this.removeClonedThumbnail()
+      }
+    }, ANIMATION_TIME)
+  }
+
+  /**
+   * To animate image from thumbnail to large image
+   * @param {HTMLImageElement} element thumbnail image that need to transform
+   */
+  setImage(element) {
+    this.thumbnail = element
+
+    this.clonedThumbnail = this.thumbnail.cloneNode(true)
+    // Remove event listener from original element
+    this.clonedThumbnail.addEventListener('click', (event) => {
+      event.preventDefault()
+      event.stopPropagation()
+    })
+    const bounding = this.thumbnail.getBoundingClientRect()
+    this.clonedThumbnail.style.position = 'fixed'
+    this.clonedThumbnail.style.top = bounding.top + 'px'
+    this.clonedThumbnail.style.left = bounding.left + 'px'
+    this.clonedThumbnail.style.transition = `all ${ANIMATION_TIME}ms ease-in-out`
+
+    this.src = this.thumbnail.getAttribute('src')
+    this.img.style.opacity = '0'
+
+    document.body.appendChild(this.clonedThumbnail)
   }
 
   updateImageSize() {
@@ -100,29 +165,6 @@ export class CdgImageViewer extends HTMLElement {
    */
   handleDoubleClick() {
     this.zoom = this.zoom < 2 ? 2 : 1
-    setTimeout(() => {
-      this.recentralize()
-    }, ANIMATION_TIME + 10)
-  }
-
-  updateZoom() {
-    if (this.img) {
-      this.img.style.transition = `all ${ANIMATION_TIME}ms ease-in-out`
-      this.img.style.transform = `scale(${this.zoom}) translate3d(${
-        this.capturedPosition.x / this.zoom
-      }px, ${this.capturedPosition.y / this.zoom}px, 0px)`
-    }
-  }
-
-  updateView() {
-    if (this.img) {
-      this.img.style.transition = `none`
-      const x = this.capturedPosition.x + this.pointer.distance.x
-      const y = this.capturedPosition.y + this.pointer.distance.y
-      this.img.style.transform = `scale(${this.zoom}) translate3d(${
-        x / this.zoom
-      }px, ${y / this.zoom}px, 0px)`
-    }
   }
 
   zoomIn() {
@@ -165,6 +207,14 @@ export class CdgImageViewer extends HTMLElement {
   handlePointerMove(event) {
     this.pointer.update({x: event.pageX, y: event.pageY})
     this.updateView()
+    const viewerBounding = this.getBoundingClientRect()
+    const imageBounding = this.img.getBoundingClientRect()
+    if (this.isClosableMode() && imageBounding.top > viewerBounding.top) {
+      let opacity = 1 - this.pointer.distance.y / TRANSPARENT_DISTANCE
+      opacity = opacity < 0 ? 0 : opacity
+      opacity = opacity > 1 ? 1 : opacity
+      this.style.backgroundColor = `rgba(0,0,0,${opacity})`
+    }
   }
 
   handlePointerUp() {
@@ -173,10 +223,15 @@ export class CdgImageViewer extends HTMLElement {
     if (!this.pointer.distance.x || !this.pointer.distance.y) {
       return
     }
+
+    if (this.isClosableMode()) {
+      this.style.backgroundColor = `rgba(0,0,0,1)`
+    }
     const x = this.capturedPosition.x + this.pointer.distance.x
     const y = this.capturedPosition.y + this.pointer.distance.y
     this.capturedPosition = new Position(x, y)
     this.recentralize()
+    this.updateZoom()
   }
 
   recentralize() {
@@ -201,8 +256,10 @@ export class CdgImageViewer extends HTMLElement {
     // For vertical
     if (imageBounding.height < viewerBounding.height) {
       y = 0
+      this.checkForForceClose()
     } else if (imageBounding.top > viewerBounding.top) {
       y = (imageBounding.height - viewerBounding.height) / 2
+      this.checkForForceClose()
     } else if (
       imageBounding.top + imageBounding.height <
       viewerBounding.top + viewerBounding.height
@@ -211,7 +268,89 @@ export class CdgImageViewer extends HTMLElement {
     }
 
     this.capturedPosition = new Position(x, y)
+  }
 
-    this.updateZoom()
+  updateZoom() {
+    if (this.img) {
+      this.img.style.transition = `all ${ANIMATION_TIME}ms ease-in-out`
+      this.img.style.transform = `scale(${this.zoom}) translate3d(${
+        this.capturedPosition.x / this.zoom
+      }px, ${this.capturedPosition.y / this.zoom}px, 0px)`
+
+      if (this.recentralizeTimer) {
+        clearTimeout(this.recentralizeTimer)
+      }
+
+      this.recentralizeTimer = setTimeout(() => {
+        this.recentralize()
+        this.updateImagePosition()
+      }, ANIMATION_TIME + 10)
+    }
+  }
+
+  updateImagePosition() {
+    if (this.img) {
+      this.img.style.transition = `all ${ANIMATION_TIME}ms ease-in-out`
+      this.img.style.transform = `scale(${this.zoom}) translate3d(${
+        this.capturedPosition.x / this.zoom
+      }px, ${this.capturedPosition.y / this.zoom}px, 0px)`
+    }
+  }
+
+  updateView() {
+    if (this.img) {
+      this.img.style.transition = `none`
+      const x = this.capturedPosition.x + this.pointer.distance.x
+      const y = this.capturedPosition.y + this.pointer.distance.y
+      this.img.style.transform = `scale(${this.zoom}) translate3d(${
+        x / this.zoom
+      }px, ${y / this.zoom}px, 0px)`
+    }
+  }
+
+  isClosableMode() {
+    return !!this.thumbnail
+  }
+
+  checkForForceClose() {
+    // For swiping down to close
+    if (this.pointer.down && this.pointer.distance.y > FORCE_CLOSE_DISTANCE) {
+      this.close()
+    }
+  }
+
+  close() {
+    if (!this.thumbnail) {
+      return
+    }
+    const cloneThumbnail = this.thumbnail.cloneNode(true)
+
+    cloneThumbnail.addEventListener('click', (event) => {
+      event.preventDefault()
+      event.stopPropagation()
+    })
+
+    const imageBounding = this.img.getBoundingClientRect()
+    cloneThumbnail.style.position = 'fixed'
+    cloneThumbnail.style.width = imageBounding.width + 'px'
+    cloneThumbnail.style.height = imageBounding.height + 'px'
+    cloneThumbnail.style.top = imageBounding.top + 'px'
+    cloneThumbnail.style.left = imageBounding.left + 'px'
+    cloneThumbnail.style.transition = `all ${ANIMATION_TIME}ms ease-in-out`
+
+    const bounding = this.thumbnail.getBoundingClientRect()
+    this.style.opacity = '0'
+    document.body.appendChild(cloneThumbnail)
+    setTimeout(() => {
+      cloneThumbnail.style.top = bounding.top + 'px'
+      cloneThumbnail.style.left = bounding.left + 'px'
+      cloneThumbnail.style.width = bounding.width + 'px'
+      cloneThumbnail.style.height = bounding.height + 'px'
+    })
+
+    setTimeout(() => {
+      this.dispatchEvent(new CustomEvent('swipeClose'))
+      document.body.removeChild(cloneThumbnail)
+    }, ANIMATION_TIME)
   }
 }
