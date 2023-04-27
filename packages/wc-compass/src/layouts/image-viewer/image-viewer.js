@@ -70,9 +70,20 @@ export class CdgImageViewer extends HTMLElement {
     if (!this.img) {
       this.img = document.createElement('img')
       this.img.addEventListener('load', this.handleImageLoad.bind(this))
+      this.img.addEventListener('error', this.handleImageError.bind(this))
       this.appendChild(this.img)
     }
     this.img.setAttribute('src', this.src)
+  }
+
+  handleImageError() {
+    if (this.isClosableMode() && this.useAnimation) {
+      if (this.src === this.thumbnail.getAttribute('src')) {
+        this.handleThumbnailLoad()
+      } else if (this.src === this.thumbnail.getAttribute('largeSrc')) {
+        this.handleEnlargeImageLoad()
+      }
+    }
   }
 
   handleImageLoad() {

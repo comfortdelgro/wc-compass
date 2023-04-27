@@ -5,10 +5,14 @@ export class CdgImageViewerPropertiesSection extends CdgTableComponentSection {
     super('Props')
     this.data = [
       {
-        name: 'multiple',
-        type: '<code>boolean</code>',
-        default: 'false',
-        description: 'Set the image viewer with multiple images.',
+        name: '<code>src</code>',
+        type: '<code>url</code>',
+        description: 'Image link',
+      },
+      {
+        name: '<code>largeSrc</code>',
+        type: '<code>url</code>',
+        description: 'Link of larger image',
       },
     ]
   }
