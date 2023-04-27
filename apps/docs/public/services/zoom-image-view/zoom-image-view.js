@@ -2,6 +2,8 @@ import {CdgDocumentComponent} from '../../shared/document-component'
 import template from './zoom-image-view.html'
 
 export class CdgZoomImageViewDemo extends CdgDocumentComponent {
+  viewerGroup
+  viewer
   constructor() {
     super()
     this.template = template
@@ -21,17 +23,37 @@ export class CdgZoomImageViewDemo extends CdgDocumentComponent {
       imageViewer.zoomOut()
     })
 
-    thumbnail.addEventListener('click', (event) => {
-      const imageViewerWrapper = document.createElement(
-        'cdg-group-image-viewer',
-      )
+    thumbnail.addEventListener('click', this.showViewer.bind(this, null))
 
-      const fixedImageViewer = document.createElement('cdg-image-viewer')
+    this.viewerGroup = document.createElement('cdg-group-image-viewer')
 
-      imageViewerWrapper.appendChild(fixedImageViewer)
-      document.body.appendChild(imageViewerWrapper)
+    this.viewer = document.createElement('cdg-image-viewer')
 
-      fixedImageViewer.setImage(thumbnail)
-    })
+    this.viewerGroup.appendChild(this.viewer)
+
+    this.initGrid()
+  }
+
+  initGrid() {
+    const urls = []
+    const thumbnailGrid = this.querySelector('#sample-thumbnail-grid')
+    const thumbs = thumbnailGrid.querySelectorAll('.sample-thumbnail')
+    if (thumbs && thumbs.length) {
+      thumbs.forEach((thumb) => {
+        thumb.addEventListener('click', this.showViewer.bind(this, thumbs))
+        urls.push({
+          src: thumb.getAttribute('src'),
+          largeSrc: thumb.getAttribute('largeSrc'),
+        })
+      })
+    }
+  }
+
+  showViewer(images, event) {
+    if (images) {
+      cdgImageViewerService.showGroup(event.target, images)
+    } else {
+      cdgImageViewerService.showImage(event.target)
+    }
   }
 }

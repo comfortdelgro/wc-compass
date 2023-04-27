@@ -36,6 +36,7 @@ export class CdgImageViewer extends HTMLElement {
   thumbnail
   transformAnimationTimer
   loading = false
+  useAnimation = true
 
   constructor() {
     super()
@@ -77,19 +78,24 @@ export class CdgImageViewer extends HTMLElement {
   handleImageLoad() {
     this.updateImageSize()
     this.updateZoom()
-    if (this.isClosableMode()) {
+    if (this.isClosableMode() && this.useAnimation) {
       if (this.src === this.thumbnail.getAttribute('src')) {
         this.handleThumbnailLoad()
       } else if (this.src === this.thumbnail.getAttribute('largeSrc')) {
         this.handleEnlargeImageLoad()
       }
+    } else {
+      this.useAnimation = true
     }
   }
 
   removeClonedThumbnail() {
-    this.img.style.transition = 'none'
-    this.img.style.opacity = '1'
-    document.body.removeChild(this.clonedThumbnail)
+    if (this.clonedThumbnail) {
+      this.img.style.transition = 'none'
+      this.img.style.opacity = '1'
+      document.body.removeChild(this.clonedThumbnail)
+      this.clonedThumbnail = null
+    }
   }
 
   handleEnlargeImageLoad() {
@@ -97,6 +103,7 @@ export class CdgImageViewer extends HTMLElement {
     if (!this.transformAnimationTimer) {
       this.removeClonedThumbnail()
     }
+    this.dispatchEvent(new CustomEvent('enlarged', {detail: true}))
   }
 
   handleThumbnailLoad() {
@@ -105,9 +112,9 @@ export class CdgImageViewer extends HTMLElement {
     this.clonedThumbnail.style.height = imgBound.height + 'px'
     this.clonedThumbnail.style.top = imgBound.top + 'px'
     this.clonedThumbnail.style.left = imgBound.left + 'px'
-    this.clonedThumbnail.style.zIndex = 60
+    this.clonedThumbnail.style.zIndex = 50
     this.loading = true
-
+    this.dispatchEvent(new CustomEvent('enlarged', {detail: false}))
     this.src = this.thumbnail.getAttribute('largeSrc')
 
     this.transformAnimationTimer = setTimeout(() => {
@@ -118,6 +125,15 @@ export class CdgImageViewer extends HTMLElement {
     }, ANIMATION_TIME)
   }
 
+  setImageUrl(src, thumbnail) {
+    this.useAnimation = false
+    this.src = src
+
+    if (thumbnail) {
+      this.thumbnail = thumbnail
+    }
+  }
+
   /**
    * To animate image from thumbnail to large image
    * @param {HTMLImageElement} element thumbnail image that need to transform
@@ -125,16 +141,15 @@ export class CdgImageViewer extends HTMLElement {
   setImage(element) {
     this.thumbnail = element
 
-    this.clonedThumbnail = this.thumbnail.cloneNode(true)
-    // Remove event listener from original element
-    this.clonedThumbnail.addEventListener('click', (event) => {
-      event.preventDefault()
-      event.stopPropagation()
-    })
+    this.clonedThumbnail = document.createElement('img')
+    this.clonedThumbnail.setAttribute('src', this.thumbnail.getAttribute('src'))
+
     const bounding = this.thumbnail.getBoundingClientRect()
     this.clonedThumbnail.style.position = 'fixed'
     this.clonedThumbnail.style.top = bounding.top + 'px'
     this.clonedThumbnail.style.left = bounding.left + 'px'
+    this.clonedThumbnail.style.width = bounding.width + 'px'
+    this.clonedThumbnail.style.height = bounding.height + 'px'
     this.clonedThumbnail.style.transition = `all ${ANIMATION_TIME}ms ease-in-out`
 
     this.src = this.thumbnail.getAttribute('src')
@@ -323,12 +338,8 @@ export class CdgImageViewer extends HTMLElement {
     if (!this.thumbnail) {
       return
     }
-    const cloneThumbnail = this.thumbnail.cloneNode(true)
-
-    cloneThumbnail.addEventListener('click', (event) => {
-      event.preventDefault()
-      event.stopPropagation()
-    })
+    const cloneThumbnail = document.createElement('img')
+    cloneThumbnail.setAttribute('src', this.thumbnail.getAttribute('src'))
 
     const imageBounding = this.img.getBoundingClientRect()
     cloneThumbnail.style.position = 'fixed'
