@@ -12,6 +12,9 @@ import {CdgSlide} from './carousel/slide'
 import {CdgDashboardSideCard} from './dashboard-side-card/dashboard-side-card'
 import {CdgCardActivity} from './dashboard-side-card/side-card-activity'
 import {CdgGroupAvatar} from './group-avatar/group-avatar'
+import {CdgGroupImageViewer} from './image-viewer/group-image-viewer'
+import {CdgImageViewer} from './image-viewer/image-viewer'
+import {CdgThumbnailBar} from './image-viewer/thumbnail-bar'
 import {CdgDialogActions} from './modal/dialog-actions'
 import {CdgDialogAlert} from './modal/dialog-alert'
 import {CdgDialogConfirm} from './modal/dialog-confirm'
@@ -124,6 +127,9 @@ customElements.define('cdg-sidebar-actions', CdgSidebarActions)
 customElements.define('cdg-testimonial', CdgTestimonial)
 customElements.define('cdg-testimonial-box', CdgTestimonialItem)
 customElements.define('cdg-zoom-image-view', CdgZoomImageView)
+customElements.define('cdg-image-viewer', CdgImageViewer)
+customElements.define('cdg-group-image-viewer', CdgGroupImageViewer)
+customElements.define('cdg-thumbnail-bar', CdgThumbnailBar)
 
 export const LAYOUT_COMPONENTS = [
   CdgGroupAvatar,
@@ -188,4 +194,7 @@ export const LAYOUT_COMPONENTS = [
   CdgTestimonial,
   CdgTestimonialItem,
   CdgZoomImageView,
+  CdgImageViewer,
+  CdgGroupImageViewer,
+  CdgThumbnailBar,
 ]
