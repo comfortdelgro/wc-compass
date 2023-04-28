@@ -56,5 +56,6 @@ export class ListViewService {
         },
       }),
     )
+    this.resetData()
   }
 }
