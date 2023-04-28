@@ -8,6 +8,7 @@ import {CdgLoadingService} from './shared/loading-service'
 import {ToastService} from './shared/toast-service'
 import './styles/index.scss'
 
+import {ListViewService} from './shared/list-view.service'
 import {
   downloadSVGContent,
   isElement,
@@ -22,6 +23,8 @@ window.cdgToastService = new ToastService()
 window.cdgLoadingService = new CdgLoadingService()
 
 window.cdgImageViewerService = new CdgImageViewerService()
+
+window.cdgListViewService = new ListViewService()
 
 export {
   CdgIconSize,

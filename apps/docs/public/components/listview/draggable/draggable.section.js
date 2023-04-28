@@ -25,7 +25,7 @@ export class CdgListviewDraggableSection extends CdgBaseComponent {
       }
     })
 
-    const bindingListViews = this.querySelectorAll('[name="dragsample1"]')
+    const bindingListViews = this.querySelectorAll('[draggableName="dragsample1"]')
     bindingListViews.forEach(list => {
       list.addEventListener('onAddItem', (event) => {
         console.log(`${list.id} fired onAddItem event: `, event.detail);
