@@ -194,6 +194,10 @@ export const DOCUMENT_CONTENT = [
         slug: 'icon',
       },
       {
+        name: 'Image Viewer',
+        slug: 'imageViewer',
+      },
+      {
         name: 'Inline Loading',
         slug: 'inlineLoading',
       },
@@ -289,8 +293,8 @@ export const DOCUMENT_CONTENT = [
         slug: 'chart',
       },
       {
-        name: 'Image Viewer',
-        slug: 'imageViewer',
+        name: 'Image Service',
+        slug: 'imageViewerService',
       },
       {
         name: 'Loading',
