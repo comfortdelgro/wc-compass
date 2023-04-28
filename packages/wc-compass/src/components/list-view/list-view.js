@@ -21,23 +21,87 @@ export class CdgListview extends HTMLElement {
   dragoverElement
   isBindingList = false
   siblingsListElement = []
+  cdgListViewService = window.cdgListViewService
 
   constructor() {
     super()
-    if (this.hasAttribute('relatedListName')) {
-      const listViewElements = document.querySelectorAll(
-        `cdg-list-view[relatedListName="${this.getAttribute(
-          'relatedListName',
-        )}"]`,
-      )
-      if (listViewElements && listViewElements.length > 1) {
-        listViewElements.forEach((list) => {
-          if (list !== this) {
-            this.siblingsListElement.push(list)
-          }
-        })
-        this.isBindingList = true
+    this.isBindingList = this.hasAttribute('draggableName')
+
+    if (this.isBindingList) {
+      this.bindEventsForBindingList()
+    }
+  }
+
+  bindEventsForBindingList() {
+    this.addEventListener(
+      'onListItemPositionChange',
+      this.handleChangeDragPosition.bind(this),
+    )
+    this.addEventListener(
+      'onOriginListViewDragEnd',
+      this.handleOriginDragEnd.bind(this),
+    )
+    this.addEventListener(
+      'mouseenter',
+      this.handleMouseEnterForBindingList.bind(this),
+    )
+  }
+
+  handleChangeDragPosition() {
+    const listItems = this.querySelectorAll('cdg-list-item')
+    const listItemsLength = listItems.length
+    if (listItemsLength) {
+      for (let index = 0; index < listItemsLength; index++) {
+        const listItem = listItems.item(index)
+        const isAddedPlaceholder = this.addPlaceholderToSiblingsList(
+          listItem,
+          index,
+          listItemsLength,
+        )
+        if (isAddedPlaceholder) {
+          return
+        }
       }
+    } else {
+      this.appendChild(this.placeholder)
+    }
+  }
+
+  handleOriginDragEnd(event) {
+    this.insertBefore(
+      cdgListViewService.dataTransfer.target,
+      cdgListViewService.dataTransfer.placeholder,
+    )
+    this.removeChild(cdgListViewService.dataTransfer.placeholder)
+    this.playEndAnimation(event.detail, cdgListViewService.dataTransfer.target)
+  }
+
+  handleMouseEnterForBindingList() {
+    if (cdgListViewService.dataTransfer) {
+      cdgListViewService.notifyGotDataTransfer(this)
+    }
+  }
+
+  isInBounding({x, y}, {top, bottom, left, right}) {
+    return x >= left && x <= right && y >= top && y <= bottom
+  }
+
+  addPlaceholderToSiblingsList(listItem, index, listItemsLength) {
+    const listItemBound = listItem.getBoundingClientRect()
+    if (
+      this.isInBounding(cdgListViewService.dataTransfer.position, listItemBound)
+    ) {
+      const isOverHalfOfLastItem =
+        index === listItemsLength - 1 &&
+        cdgListViewService.dataTransfer.position.y >
+          listItemBound.top + listItemBound.height / 2
+
+      if (isOverHalfOfLastItem) {
+        this.appendChild(cdgListViewService.dataTransfer.placeholder)
+      } else {
+        this.insertBefore(cdgListViewService.dataTransfer.placeholder, listItem)
+      }
+      return true
     }
   }
 
@@ -91,49 +155,12 @@ export class CdgListview extends HTMLElement {
   }
 
   handleDragOverParent(event) {
-    this.siblingsListElement.forEach((list) => {
-      const listBound = list.getBoundingClientRect()
-      if (this.isInBounding(event.detail, listBound)) {
-        const listItems = list.querySelectorAll('cdg-list-item')
-        const listItemsLength = listItems.length
-        if (listItemsLength) {
-          for (let index = 0; index < listItemsLength; index++) {
-            const listItem = listItems.item(index)
-            const isAddedPlaceholder = this.addPlaceholderToSiblingsList(
-              list,
-              listItem,
-              index,
-              event,
-              listItemsLength,
-            )
-            if (isAddedPlaceholder) {
-              return
-            }
-          }
-        } else {
-          list.appendChild(this.placeholder)
-        }
-      }
+    cdgListViewService.setNewDataTransfer({
+      ...event.detail,
+      origin: this,
+      placeholder: this.placeholder,
+      removeIndex: this.dragIndex,
     })
-  }
-
-  addPlaceholderToSiblingsList(list, listItem, index, event, listItemsLength) {
-    const listItemBound = listItem.getBoundingClientRect()
-    if (this.isInBounding(event.detail, listItemBound)) {
-      if (
-        index === listItemsLength - 1 &&
-        event.detail.y > listItemBound.top + listItemBound.height / 2
-      ) {
-        list.appendChild(this.placeholder)
-      } else {
-        list.insertBefore(this.placeholder, listItem)
-      }
-      return true
-    }
-  }
-
-  isInBounding({x, y}, {top, bottom, left, right}) {
-    return x >= left && x <= right && y >= top && y <= bottom
   }
 
   handleDragStart(event) {
@@ -161,19 +188,10 @@ export class CdgListview extends HTMLElement {
       this.insertBefore(this.draggingItem, this.placeholder)
       this.removeChild(this.placeholder)
     } else {
-      if (
-        this.isBindingList &&
-        this.siblingsListElement &&
-        this.siblingsListElement.length
-      ) {
-        const isMoveToOtherList = this.siblingsListElement.some(
-          this.findPlaceholderToReplace.bind(this),
-        )
-
-        if (isMoveToOtherList) {
-          this.playEndAnimation(event.detail)
-          return
-        }
+      if (this.isBindingList) {
+        this.cdgListViewService.notifyOriginDragEnd(event.detail)
+        cdgListViewService.resetData()
+        return
       }
     }
 
@@ -189,40 +207,7 @@ export class CdgListview extends HTMLElement {
       }),
     )
 
-    this.playEndAnimation(event.detail)
-  }
-
-  findPlaceholderToReplace(list) {
-    if (list.contains(this.placeholder)) {
-      const elementIndex = Array.prototype.indexOf.call(
-        list.children,
-        this.placeholder,
-      )
-
-      this.removeListItemEvents(this.draggingItem)
-      list.insertBefore(this.draggingItem, this.placeholder)
-      list.removeChild(this.placeholder)
-      list.bindEventForListItemByIndex(elementIndex)
-
-      this.dispatchEvent(
-        new CustomEvent('onRemoveItem', {
-          detail: {
-            dragElement: this.draggingItem,
-            elementIndex: this.dragIndex,
-          },
-        }),
-      )
-      list.dispatchEvent(
-        new CustomEvent('onAddItem', {
-          detail: {
-            dragElement: this.draggingItem,
-            elementIndex,
-          },
-        }),
-      )
-      return true
-    }
-    return false
+    this.playEndAnimation(event.detail, this.draggingItem)
   }
 
   removeListItemEvents(item) {
@@ -234,21 +219,21 @@ export class CdgListview extends HTMLElement {
     }
   }
 
-  playEndAnimation(detail) {
+  playEndAnimation(detail, draggingItem) {
     const animationTime = 300
     const element = detail.element
     if (!element) {
       return
     }
     element.style.transition = `all ${animationTime}ms ease-in-out`
-    this.draggingItem.classList.add('moving')
-    const bound = this.draggingItem.getBoundingClientRect()
+    draggingItem.classList.add('moving')
+    const bound = draggingItem.getBoundingClientRect()
     element.style.top = bound.top + 'px'
     element.style.left = bound.left + 'px'
 
     setTimeout(() => {
       if (element && document.body.contains(element)) {
-        this.draggingItem.classList.remove('moving')
+        draggingItem.classList.remove('moving')
         document.body.removeChild(element)
         detail.onAnimationDone && detail.onAnimationDone()
       }
