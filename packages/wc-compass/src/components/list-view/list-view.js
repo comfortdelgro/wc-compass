@@ -69,16 +69,19 @@ export class CdgListview extends HTMLElement {
 
   handleOriginDragEnd(event) {
     this.insertBefore(
-      cdgListViewService.dataTransfer.target,
-      cdgListViewService.dataTransfer.placeholder,
+      this.cdgListViewService.dataTransfer.target,
+      this.cdgListViewService.dataTransfer.placeholder,
     )
-    this.removeChild(cdgListViewService.dataTransfer.placeholder)
-    this.playEndAnimation(event.detail, cdgListViewService.dataTransfer.target)
+    this.removeChild(this.cdgListViewService.dataTransfer.placeholder)
+    this.playEndAnimation(
+      event.detail,
+      this.cdgListViewService.dataTransfer.target,
+    )
   }
 
   handleMouseEnterForBindingList() {
-    if (cdgListViewService.dataTransfer) {
-      cdgListViewService.notifyGotDataTransfer(this)
+    if (this.cdgListViewService.dataTransfer) {
+      this.cdgListViewService.notifyGotDataTransfer(this)
     }
   }
 
@@ -89,17 +92,23 @@ export class CdgListview extends HTMLElement {
   addPlaceholderToSiblingsList(listItem, index, listItemsLength) {
     const listItemBound = listItem.getBoundingClientRect()
     if (
-      this.isInBounding(cdgListViewService.dataTransfer.position, listItemBound)
+      this.isInBounding(
+        this.cdgListViewService.dataTransfer.position,
+        listItemBound,
+      )
     ) {
       const isOverHalfOfLastItem =
         index === listItemsLength - 1 &&
-        cdgListViewService.dataTransfer.position.y >
+        this.cdgListViewService.dataTransfer.position.y >
           listItemBound.top + listItemBound.height / 2
 
       if (isOverHalfOfLastItem) {
-        this.appendChild(cdgListViewService.dataTransfer.placeholder)
+        this.appendChild(this.cdgListViewService.dataTransfer.placeholder)
       } else {
-        this.insertBefore(cdgListViewService.dataTransfer.placeholder, listItem)
+        this.insertBefore(
+          this.cdgListViewService.dataTransfer.placeholder,
+          listItem,
+        )
       }
       return true
     }
@@ -155,7 +164,7 @@ export class CdgListview extends HTMLElement {
   }
 
   handleDragOverParent(event) {
-    cdgListViewService.setNewDataTransfer({
+    this.cdgListViewService.setNewDataTransfer({
       ...event.detail,
       origin: this,
       placeholder: this.placeholder,
@@ -190,7 +199,6 @@ export class CdgListview extends HTMLElement {
     } else {
       if (this.isBindingList) {
         this.cdgListViewService.notifyOriginDragEnd(event.detail)
-        cdgListViewService.resetData()
         return
       }
     }
