@@ -162,6 +162,10 @@ export const DOCUMENT_CONTENT = [
         name: 'Toggle',
         slug: 'toggle',
       },
+      {
+        name: 'Tag Box',
+        slug: 'tagBox',
+      },
     ],
   },
   {
@@ -194,6 +198,10 @@ export const DOCUMENT_CONTENT = [
         slug: 'icon',
       },
       {
+        name: 'Image - Lazyload',
+        slug: 'lazyLoadImage',
+      },
+      {
         name: 'Image Viewer',
         slug: 'imageViewer',
       },
@@ -204,10 +212,6 @@ export const DOCUMENT_CONTENT = [
       {
         name: 'Loading',
         slug: 'loading',
-      },
-      {
-        name: 'Lazy Load Image',
-        slug: 'lazyLoadImage',
       },
       {
         name: 'List Item',
@@ -240,10 +244,6 @@ export const DOCUMENT_CONTENT = [
       {
         name: 'Tooltip',
         slug: 'tooltip',
-      },
-      {
-        name: 'Tag Box',
-        slug: 'tagBox',
       },
       {
         name: 'Popover',

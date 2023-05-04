@@ -23,6 +23,7 @@ export class CdgNavRail extends HTMLElement {
 
   connectedCallback() {
     this.classList.add('cdg-nav-rail')
+    this.tabIndex = 0
     this.container = document.createElement('div')
     this.container.classList.add('cdg-nav-rail-inner')
     this.container.innerHTML = this.innerHTML
@@ -31,20 +32,25 @@ export class CdgNavRail extends HTMLElement {
     this.textContent = ''
     this.appendChild(this.container)
 
-    this.addEventListener('blur', this.handleBlur.bind(this))
+    this.addEventListener('focus', this.handleFocus.bind(this))
     this.addEventListener('mouseenter', this.handleMouseEnter.bind(this))
     this.addEventListener('mouseleave', this.handleMouseLeave.bind(this))
   }
 
   attributeChangedCallback(attr) {
     if (attr === 'open') {
-      // console.log('open nav rail', this.open)
+      //
     }
+  }
+
+  handleFocus() {
+    this.addEventListener('blur', this.handleBlur.bind(this))
   }
 
   handleBlur() {
     requestAnimationFrame(() => {
       if (!this.contains(document.activeElement)) {
+        this.removeEventListener('blur', this.handleBlur.bind(this))
         this.open = false
       }
     })

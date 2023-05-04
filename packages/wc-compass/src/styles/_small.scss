@@ -6,8 +6,7 @@
     .cdg-nav-rail-inner {
       width: 0;
     }
-    &[open='true']:hover,
-    &[open='true'] {
+    &[open] {
       .cdg-nav-rail-inner {
         width: 270px;
       }

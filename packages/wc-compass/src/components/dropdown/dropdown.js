@@ -135,6 +135,7 @@ export class CdgDropdown extends HTMLElement {
         this.getAttribute('header-title'),
       )
     }
+    this.contentElement.rootElement = this
     this.appendChild(this.contentElement)
     this.dropdownOptionElements = this.contentElement.querySelectorAll(
       'cdg-dropdown-option',
@@ -273,6 +274,9 @@ export class CdgDropdown extends HTMLElement {
           detail: returnData,
         }),
       )
+      if (this.contentElement.handleWindowResizeFn) {
+        this.contentElement.handleWindowResizeFn()
+      }
     }
   }
 

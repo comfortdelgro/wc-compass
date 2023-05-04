@@ -33,3 +33,9 @@ body > .cdg-loading-wrapper {
     display: flex;
   }
 }
+
+.cdg-lazy-img {
+  &[use-viewer] {
+    cursor: zoom-in;
+  }
+}

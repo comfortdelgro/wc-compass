@@ -252,7 +252,7 @@ pre code.hljs {
   min-width: 10px;
 }
 
-.sub-nav-wrapper.cdg-contains-gutter {
+.sub-nav-wrapper {
   width: 200px;
 }
 
@@ -308,7 +308,7 @@ pre code.hljs {
     position: relative;
   }
 
-  .cdg-sub-nav {
+  .sub-nav-wrapper {
     position: fixed;
     top: 46px;
     left: 0;
@@ -318,13 +318,7 @@ pre code.hljs {
     z-index: -1;
   }
 
-  .cdg-sub-nav.stick {
-    position: fixed;
-    top: 46px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: auto;
+  .sub-nav-wrapper.stick {
     z-index: 11;
   }
 }

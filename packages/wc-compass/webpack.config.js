@@ -80,6 +80,19 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.html$/,
+        include: [path.resolve(__dirname, '../../apps/docs/public/portal')],
+        use: [
+          {
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'portal/',
+            },
+            loader: 'file-loader',
+          },
+        ],
+      },
     ],
   },
   resolve: {
