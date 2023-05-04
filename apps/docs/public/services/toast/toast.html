@@ -2,8 +2,8 @@
   Toasts display brief, temporary notifications. They're meant to be noticed
   without disrupting a user's experience or requiring an action to be taken.
   <br />
-  <code>cdgToastService</code> is our service that helps you quickly show any toast
-  on screen.
+  <code>cdgToastService</code> is our service that helps you quickly show any
+  toast on screen.
 </p>
 
 <label
@@ -24,7 +24,7 @@
 
 <cdg-sample-section name="Default">
   <div class="sample-section">
-    <button class="cdg-button" onclick="showToast()">Submit</button>
+    <button class="cdg-button" id="showToastButton">Submit</button>
   </div>
 
   <pre>
@@ -42,7 +42,7 @@
 
 <cdg-sample-section name="Simple">
   <div class="sample-section">
-    <button class="cdg-button" onclick="showSimple()">Submit</button>
+    <button class="cdg-button" id="showSimpleButton">Submit</button>
     <template id="simpleToast">
       <cdg-toast>
         <cdg-toast-header>
@@ -106,7 +106,7 @@
 
 <cdg-sample-section name="Undo link button">
   <div class="sample-section">
-    <button class="cdg-button danger" onclick="showUndo()">Delete</button>
+    <button class="cdg-button danger" id="showUndoButton">Delete</button>
     <template id="undoToast">
       <cdg-toast>
         <cdg-toast-header>
@@ -148,7 +148,7 @@
 
 <cdg-sample-section name="With actions">
   <div class="sample-section">
-    <button class="cdg-button" onclick="showToastActions()">Submit</button>
+    <button class="cdg-button" id="showToastActionsButton">Submit</button>
     <template id="toastActions">
       <cdg-toast>
         <cdg-toast-header>
@@ -190,7 +190,7 @@
 
 <cdg-sample-section name="With Header">
   <div class="sample-section">
-    <button class="cdg-button" onclick="showToastHeader()">Submit</button>
+    <button class="cdg-button" id="showToastHeaderButton">Submit</button>
     <template id="toastHeader">
       <cdg-toast>
         <cdg-toast-header>
@@ -255,8 +255,8 @@
 
 <cdg-sample-section name="Quick toast">
   <div class="sample-section">
-    <button class="cdg-button" onclick="quickToast()">Quick Toast</button>
-    <button class="cdg-button" onclick="quickToastIcon()">
+    <button class="cdg-button" id="quickToastButton">Quick Toast</button>
+    <button class="cdg-button" id="quickToastIconButton">
       Quick Toast + Icon
     </button>
     <button
@@ -295,112 +295,3 @@
 </cdg-sample-section>
 
 <cdg-toast-properties-section></cdg-toast-properties-section>
-
-<script>
-  let color = ''
-  const colorConfig = document.querySelector('#colorConfig')
-  colorConfig.addEventListener('onchangevalue', (event) => {
-    color = event.detail
-  })
-
-  window.showToast = function () {
-    const toast = document.createElement('cdg-toast')
-    toast.setAttribute('color', color)
-
-    const id = 'default' + new Date().getTime()
-    toast.textContent = 'Sample ' + id
-    cdgToastService.show(id, toast)
-  }
-
-  window.showSimple = function () {
-    const toast = document
-      .querySelector('#simpleToast')
-      .content.firstElementChild.cloneNode(true)
-    toast.setAttribute('color', color)
-
-    const closeButton = toast.querySelector('#toast-close-button')
-    const id = 'simple' + new Date().getTime()
-    closeButton.addEventListener('click', () => {
-      cdgToastService.close(id)
-    })
-    cdgToastService.show(id, toast, {
-      autoHideAfter: 0,
-    })
-  }
-
-  window.showUndo = function () {
-    const toast = document
-      .querySelector('#undoToast')
-      .content.firstElementChild.cloneNode(true)
-    toast.setAttribute('color', color)
-
-    const undoButton = toast.querySelector('#undo-button')
-    const closeButton = toast.querySelector('#toast-close-button')
-    const id = 'undo' + new Date().getTime()
-    undoButton.addEventListener('click', () => {
-      cdgToastService.close(id)
-      cdgToastService.toast('User has selected Undo')
-    })
-    closeButton.addEventListener('click', () => {
-      cdgToastService.close(id)
-    })
-    cdgToastService.show(id, toast, {
-      autoHideAfter: 0,
-    })
-  }
-
-  window.showToastActions = function () {
-    const toast = document
-      .querySelector('#toastActions')
-      .content.firstElementChild.cloneNode(true)
-    toast.setAttribute('color', color)
-
-    const closeButton = toast.querySelector('#toast-close-button')
-    const dismissButton = toast.querySelector('#dismiss-button')
-    const id = 'actions' + new Date().getTime()
-    closeButton.addEventListener('click', () => {
-      cdgToastService.close(id)
-    })
-    dismissButton.addEventListener('click', () => {
-      cdgToastService.close(id)
-    })
-    cdgToastService.show(id, toast, {
-      autoHideAfter: 5000,
-    })
-  }
-
-  window.showToastHeader = function () {
-    const toast = document
-      .querySelector('#toastHeader')
-      .content.firstElementChild.cloneNode(true)
-    toast.setAttribute('color', color)
-
-    const executeButton = toast.querySelector('#toast-execute-button')
-    const closeButton = toast.querySelector('#toast-close-button')
-    const dismissButton = toast.querySelector('#dismiss-button')
-    const id = 'header' + new Date().getTime()
-    executeButton.addEventListener('click', () => {
-      cdgToastService.close(id)
-    })
-    closeButton.addEventListener('click', () => {
-      cdgToastService.close(id)
-    })
-    dismissButton.addEventListener('click', () => {
-      cdgToastService.close(id)
-    })
-    cdgToastService.show(id, toast, {
-      autoHideAfter: 0,
-    })
-  }
-
-  window.quickToast = () => {
-    cdgToastService.toast('This is a quick toast')
-  }
-
-  window.quickToastIcon = () => {
-    cdgToastService.toast('This is a quick toast with custom icon', {
-      name: 'shapes',
-      color: '#0142af',
-    })
-  }
-</script>

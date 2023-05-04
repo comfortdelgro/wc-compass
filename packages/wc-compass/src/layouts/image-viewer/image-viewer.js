@@ -126,10 +126,19 @@ export class CdgImageViewer extends HTMLElement {
     this.clonedThumbnail.style.zIndex = 50
     this.loading = true
     this.dispatchEvent(new CustomEvent('enlarged', {detail: false}))
-    this.src = this.thumbnail.getAttribute('largeSrc')
+    const src = this.thumbnail.getAttribute('largeSrc')
+    if (src) {
+      this.src = src
+    } else {
+      this.loading = false
+    }
 
     this.transformAnimationTimer = setTimeout(() => {
       this.transformAnimationTimer = null
+      // If no enlarge image src, we're going to display controls
+      if (!src) {
+        this.handleEnlargeImageLoad()
+      }
       if (!this.loading) {
         this.removeClonedThumbnail()
       }

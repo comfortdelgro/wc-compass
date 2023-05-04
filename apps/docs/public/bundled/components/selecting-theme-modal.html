@@ -240,23 +240,6 @@
 </pre>
 </cdg-sample-section>
 
-<script>
-  const btnSelectTheme = document.querySelector('#btnSelectTheme')
-  const themeModal = document
-    .querySelector('#selectThemeModal')
-    .content.firstElementChild.cloneNode(true)
-
-  const startButton = themeModal.querySelector('#startButton')
-
-  startButton.addEventListener('click', () => {
-    themeModal.close()
-  })
-
-  btnSelectTheme.addEventListener('click', () => {
-    cdgDialogService.show('selectThemeModal', themeModal)
-  })
-</script>
-
 <style>
   .cdg-selecting-theme {
     width: 800px;

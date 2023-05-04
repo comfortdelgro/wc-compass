@@ -2,67 +2,126 @@
   User can click on image to enlarge the image. User can also click zoom in,
   zoom out then drag the image to see the detail of images.
 </p>
+
+<style>
+  .sample-thumbnail {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .sample-thumbnails-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .sample-thumbnails-grid .sample-thumbnail {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
 <cdg-sample-section name="Single image">
-  <div class="sample-section custom-slide">
-    <cdg-zoom-image-view>
+  <div class="sample-section column">
+    <div class="sample-thumbnails">
       <img
-        src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp"
-        alt="https://mdbcdn.b-cdn.net/img/new/slides/043.webp"
-        zoomImageViewItem
-        style="width: 100px; height: 100px; object-fit: cover"
+        id="sample-thumbnail"
+        class="sample-thumbnail"
+        src="https://picsum.photos/id/42/250/175"
+        largeSrc="https://picsum.photos/id/42/2000/1400"
       />
-    </cdg-zoom-image-view>
+    </div>
   </div>
 
   <pre>
-  <code class="language-html">
-    &lt;cdg-zoom-image-view&gt;
-      &lt;img
-        src=&quot;https://mdbcdn.b-cdn.net/img/new/slides/043.webp&quot;
-        alt=&quot;https://mdbcdn.b-cdn.net/img/new/slides/043.webp&quot;
-        zoomImageViewItem
-        style=&quot;width: 100px; height: 100px; object-fit: cover&quot;
-      /&gt;
-    &lt;/cdg-zoom-image-view&gt;
-  </code>
+  <code class="language-html">&lt;img
+    id=&quot;sample-thumbnail&quot;
+    class=&quot;sample-thumbnail&quot;
+    src=&quot;https://picsum.photos/id/42/250/175&quot;
+    largeSrc=&quot;https://picsum.photos/id/42/2000/1400&quot;
+/&gt;
+
+&lt;script&gt;
+const thumbnail = this.querySelector(&apos;#sample-thumbnail&apos;)
+
+thumbnail.addEventListener(&apos;click&apos;, (event) =&gt; {
+  cdgImageViewerService.showImage(event.target)
+})
+&lt;/script&gt;</code>
 </pre>
 </cdg-sample-section>
+
 <cdg-sample-section name="Multiple images">
   <div class="sample-section custom-slide">
-    <cdg-zoom-image-view multiple>
-      <img
-        src="https://mdbcdn.b-cdn.net/img/new/slides/045.webp"
-        alt="https://mdbcdn.b-cdn.net/img/new/slides/045.webp"
-        zoomImageViewItem
-        style="width: 100px; height: 100px; object-fit: cover"
-      />
-      <img
-        src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp"
-        alt="https://mdbcdn.b-cdn.net/img/new/slides/042.webp"
-        zoomImageViewItem
-        style="width: 100px; height: 100px; object-fit: cover"
-      />
-    </cdg-zoom-image-view>
+    <div class="sample-thumbnails-grid" id="sample-thumbnail-grid">
+      <cdg-lazy-img
+        class="sample-thumbnail"
+        src="https://picsum.photos/id/43/250/175"
+        largeSrc="https://picsum.photos/id/43/2000/1400"
+      ></cdg-lazy-img>
+      <cdg-lazy-img
+        class="sample-thumbnail"
+        src="https://picsum.photos/id/44/250/175"
+        largeSrc="https://picsum.photos/id/44/2000/1400"
+      ></cdg-lazy-img>
+      <cdg-lazy-img
+        class="sample-thumbnail"
+        src="https://picsum.photos/id/45/250/175"
+        largeSrc="https://picsum.photos/id/45/2000/1400"
+      ></cdg-lazy-img>
+      <cdg-lazy-img
+        class="sample-thumbnail"
+        src="https://picsum.photos/id/46/250/175"
+        largeSrc="https://picsum.photos/id/46/2000/1400"
+      ></cdg-lazy-img>
+    </div>
   </div>
 
   <pre>
-  <code class="language-html">
-  &lt;cdg-zoom-image-view multiple&gt;
-    &lt;img
-      src=&quot;https://mdbcdn.b-cdn.net/img/new/slides/045.webp&quot;
-      alt=&quot;https://mdbcdn.b-cdn.net/img/new/slides/045.webp&quot;
-      zoomImageViewItem
-      style=&quot;width: 100px; height: 100px; object-fit: cover&quot;
-    /&gt;
-    &lt;img
-      src=&quot;https://mdbcdn.b-cdn.net/img/new/slides/042.webp&quot;
-      alt=&quot;https://mdbcdn.b-cdn.net/img/new/slides/042.webp&quot;
-      zoomImageViewItem
-      style=&quot;width: 100px; height: 100px; object-fit: cover&quot;
-    /&gt;
-  &lt;/cdg-zoom-image-view&gt;
+  <code class="language-html">&lt;div class=&quot;sample-thumbnails-grid&quot; id=&quot;sample-thumbnail-grid&quot;&gt;
+  &lt;cdg-lazy-img
+    class=&quot;sample-thumbnail&quot;
+    src=&quot;https://picsum.photos/id/43/250/175&quot;
+    largeSrc=&quot;https://picsum.photos/id/43/2000/1400&quot;
+  &gt;&lt;/cdg-lazy-img&gt;
+  &lt;cdg-lazy-img
+    class=&quot;sample-thumbnail&quot;
+    src=&quot;https://picsum.photos/id/44/250/175&quot;
+    largeSrc=&quot;https://picsum.photos/id/44/2000/1400&quot;
+  &gt;&lt;/cdg-lazy-img&gt;
+  &lt;cdg-lazy-img
+    class=&quot;sample-thumbnail&quot;
+    src=&quot;https://picsum.photos/id/45/250/175&quot;
+    largeSrc=&quot;https://picsum.photos/id/45/2000/1400&quot;
+  &gt;&lt;/cdg-lazy-img&gt;
+  &lt;cdg-lazy-img
+    class=&quot;sample-thumbnail&quot;
+    src=&quot;https://picsum.photos/id/46/250/175&quot;
+    largeSrc=&quot;https://picsum.photos/id/46/2000/1400&quot;
+  &gt;&lt;/cdg-lazy-img&gt;
+&lt;/div&gt;
+&lt;script&gt;
+function showViewer(images, event) {
+  cdgImageViewerService.showGroup(event.target, images)
+}
+const thumbnailGrid = this.querySelector(&apos;#sample-thumbnail-grid&apos;)
+const thumbs = thumbnailGrid.querySelectorAll(&apos;.sample-thumbnail&apos;)
+
+if (thumbs &amp;&amp; thumbs.length) {
+  thumbs.forEach((thumb) =&gt; {
+    thumb.addEventListener(&apos;click&apos;, (event) =&gt; {
+      showViewer(thumbs, event);
+    })
+  })
+}
+&lt;/script&gt;
   </code>
 </pre>
 </cdg-sample-section>
 
 <cdg-image-viewer-properties-section></cdg-image-viewer-properties-section>
+
+<cdg-image-viewer-methods-section></cdg-image-viewer-methods-section>

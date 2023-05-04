@@ -18,10 +18,9 @@
         document.body.classList.toggle('theme-dark')
       }
 
-      function toggleMenu() {
+      function showMenu() {
         const nav = document.querySelector('cdg-nav-rail')
         nav.open = true
-        nav.focus()
       }
     </script>
   </head>
@@ -47,7 +46,7 @@
     </cdg-nav-rail>
     <div class="page-content">
       <cdg-portal-navbar class="primary">
-        <button class="cdg-button icon" size="small" onclick="toggleMenu()">
+        <button class="cdg-button icon" size="small" onclick="showMenu()">
           <cdg-icon name="menu" size="16"></cdg-icon>
         </button>
         <div class="portal-title">Compass Design</div>

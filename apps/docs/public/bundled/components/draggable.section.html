@@ -128,3 +128,136 @@
 &lt;/script&gt;</code>
 </pre>
 </cdg-sample-section>
+
+<cdg-sample-section name="Drag & drop multiple lists">
+  <div class="sample-section">
+    <div
+      style="
+        width: 100%;
+        background: var(--grey20);
+        display: flex;
+        gap: 30px;
+        margin-bottom: 24px;
+        padding: 10px;
+      "
+    >
+      <cdg-list-view
+        allow-drag
+        id="dragsample1"
+        style="flex: 1; min-height: 66px"
+        draggableName="dragsample1"
+      >
+        <cdg-list-item>
+          <div class="cdg-list-item-info">
+            <div class="cdg-list-item-title">Col 1-1</div>
+          </div>
+        </cdg-list-item>
+        <cdg-list-item>
+          <div class="cdg-list-item-info">
+            <div class="cdg-list-item-title">Col 1-2</div>
+          </div>
+        </cdg-list-item>
+        <cdg-list-item>
+          <div class="cdg-list-item-info">
+            <div class="cdg-list-item-title">Col 1-3</div>
+          </div>
+        </cdg-list-item>
+      </cdg-list-view>
+
+      <cdg-list-view
+        allow-drag
+        id="dragsample2"
+        style="flex: 1; min-height: 66px"
+        draggableName="dragsample1"
+      >
+        <cdg-list-item>
+          <div class="cdg-list-item-info">
+            <div class="cdg-list-item-title">Col 2-1</div>
+          </div>
+        </cdg-list-item>
+        <cdg-list-item>
+          <div class="cdg-list-item-info">
+            <div class="cdg-list-item-title">Col 2-2</div>
+          </div>
+        </cdg-list-item>
+        <cdg-list-item>
+          <div class="cdg-list-item-info">
+            <div class="cdg-list-item-title">Col 2-3</div>
+          </div>
+        </cdg-list-item>
+      </cdg-list-view>
+    </div>
+  </div>
+
+  <pre>
+    <code class="language-html">
+    &lt;div
+      class=&quot;sample-section&quot;
+      style=&quot;
+        background: var(--grey20);
+        display: flex;
+        gap: 30px;
+        align-items: flex-start;
+      &quot;
+    &gt;
+      &lt;cdg-list-view
+        allow-drag
+        id=&quot;dragsample1&quot;
+        style=&quot;flex: 1; border: 1px solid; min-height: 66px&quot;
+        draggableName=&quot;dragsample1&quot;
+      &gt;
+        &lt;cdg-list-item&gt;
+          &lt;div class=&quot;cdg-list-item-info&quot;&gt;
+            &lt;div class=&quot;cdg-list-item-title&quot;&gt;Col 1-1&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/cdg-list-item&gt;
+        &lt;cdg-list-item&gt;
+          &lt;div class=&quot;cdg-list-item-info&quot;&gt;
+            &lt;div class=&quot;cdg-list-item-title&quot;&gt;Col 1-2&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/cdg-list-item&gt;
+        &lt;cdg-list-item&gt;
+          &lt;div class=&quot;cdg-list-item-info&quot;&gt;
+            &lt;div class=&quot;cdg-list-item-title&quot;&gt;Col 1-3&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/cdg-list-item&gt;
+      &lt;/cdg-list-view&gt;
+    
+      &lt;cdg-list-view
+        allow-drag
+        id=&quot;dragsample2&quot;
+        style=&quot;flex: 1; border: 1px solid; min-height: 66px&quot;
+        draggableName=&quot;dragsample1&quot;
+      &gt;
+        &lt;cdg-list-item&gt;
+          &lt;div class=&quot;cdg-list-item-info&quot;&gt;
+            &lt;div class=&quot;cdg-list-item-title&quot;&gt;Col 2-1&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/cdg-list-item&gt;
+        &lt;cdg-list-item&gt;
+          &lt;div class=&quot;cdg-list-item-info&quot;&gt;
+            &lt;div class=&quot;cdg-list-item-title&quot;&gt;Col 2-2&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/cdg-list-item&gt;
+        &lt;cdg-list-item&gt;
+          &lt;div class=&quot;cdg-list-item-info&quot;&gt;
+            &lt;div class=&quot;cdg-list-item-title&quot;&gt;Col 2-3&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/cdg-list-item&gt;
+      &lt;/cdg-list-view&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+    const bindingListViews = this.querySelectorAll('[name="dragsample1"]')
+    bindingListViews.forEach(list => {
+      list.addEventListener('onAddItem', (event) => {
+        console.log(`${list.id} fired onAddItem event: `, event.detail);
+      })
+      list.addEventListener('onRemoveItem', (event) => {
+        console.log(`${list.id} fired onRemoveItem event: `, event.detail);
+      })
+    })
+    &lt;/script&gt;
+    </code>
+  </pre>
+</cdg-sample-section>
