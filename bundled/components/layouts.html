@@ -61,22 +61,22 @@
   </label>
   <div class="cdg-input-group">
     <label class="cdg-checkbox">
-      <input type="checkbox" onchange="toggleStretch(event)" />
+      <input type="checkbox" id="stretchCheckbox" />
       <span>Stretch</span>
     </label>
   </div>
   <div class="cdg-input-group row">
     <span>Fill parent:</span>
     <label class="cdg-checkbox">
-      <input type="checkbox" onchange="fillParent(event, 0)" />
+      <input type="checkbox" id="fillParentCheckbox0" />
       <span>Child 1</span>
     </label>
     <label class="cdg-checkbox">
-      <input type="checkbox" onchange="fillParent(event, 1)" />
+      <input type="checkbox" id="fillParentCheckbox1" />
       <span>Child 2</span>
     </label>
     <label class="cdg-checkbox">
-      <input type="checkbox" onchange="fillParent(event, 2)" />
+      <input type="checkbox" id="fillParentCheckbox2" />
       <span>Child 3</span>
     </label>
   </div>
@@ -90,50 +90,3 @@
 </div>
 
 <pre><code class="sample-code language-html"></code></pre>
-
-<script>
-  let alignment = ''
-  let stretch = false
-
-  const sampleParent = document.querySelector('.sample-parent > .cdg-layout')
-  const children = document.querySelectorAll(
-    '.sample-parent > .cdg-layout > div',
-  )
-  const alignmentDropdown = document.querySelector('#alignmentDropdown')
-  const sampleCode = document.querySelector('.sample-code')
-
-  function rebuildTemplate() {
-    sampleCode.textContent = sampleParent.parentElement.innerHTML
-    hljs.highlightElement(sampleCode)
-  }
-
-  alignmentDropdown.addEventListener('onchangevalue', (event) => {
-    if (alignment) {
-      sampleParent.classList.remove(alignment)
-    }
-    alignment = event.detail
-    sampleParent.classList.add(alignment)
-    rebuildTemplate()
-  })
-
-  window.fillParent = (event, child) => {
-    if (event.target.checked) {
-      children[child].classList.add('cdg-flex')
-    } else {
-      children[child].removeAttribute('class')
-    }
-    rebuildTemplate()
-  }
-
-  window.toggleStretch = (event) => {
-    stretch = event.target.checked
-    if (event.target.checked) {
-      sampleParent.classList.add('stretch')
-    } else {
-      sampleParent.classList.remove('stretch')
-    }
-    rebuildTemplate()
-  }
-
-  rebuildTemplate()
-</script>
