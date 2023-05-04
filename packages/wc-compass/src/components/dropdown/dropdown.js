@@ -135,6 +135,7 @@ export class CdgDropdown extends HTMLElement {
         this.getAttribute('header-title'),
       )
     }
+    this.contentElement.rootElement = this
     this.appendChild(this.contentElement)
     this.dropdownOptionElements = this.contentElement.querySelectorAll(
       'cdg-dropdown-option',
@@ -273,6 +274,9 @@ export class CdgDropdown extends HTMLElement {
           detail: returnData,
         }),
       )
+      if (this.contentElement.handleWindowResizeFn) {
+        this.contentElement.handleWindowResizeFn()
+      }
     }
   }
 
@@ -357,7 +361,7 @@ export class CdgDropdown extends HTMLElement {
   handleCloseContent() {
     this.isOpen = false
     this.classList.remove('opening')
-    this.contentElement.removeAttribute('opening')
+    // this.contentElement.removeAttribute('opening')
   }
 
   handleToggle() {
@@ -369,7 +373,7 @@ export class CdgDropdown extends HTMLElement {
     } else {
       this.removeEventListener('keydown', this.handleKeydown, true)
       this.classList.remove('opening')
-      this.contentElement.removeAttribute('opening')
+      // this.contentElement.removeAttribute('opening')
     }
     this.dispatchEvent(new CustomEvent('onToggle', {detail: this.isOpen}))
   }
