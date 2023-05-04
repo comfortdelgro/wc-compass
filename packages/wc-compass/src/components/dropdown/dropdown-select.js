@@ -51,8 +51,17 @@ export class CdgDropdownSelect extends HTMLElement {
     if (this.rootElement && this.floatingElement) {
       const rootBound = this.rootElement.getBoundingClientRect()
       this.floatingElement.style.minWidth = `${this.rootElement.clientWidth}px`
-      this.floatingElement.style.top = `${rootBound.top + rootBound.height}px`
       this.floatingElement.style.left = `${rootBound.left}px`
+      if (this.clientHeight + rootBound.bottom > window.innerHeight) {
+        // Wait for open to change top position
+        setTimeout(() => {
+          this.floatingElement.style.top = `${
+            rootBound.top - this.clientHeight
+          }px`
+        })
+      } else {
+        this.floatingElement.style.top = `${rootBound.top + rootBound.height}px`
+      }
     }
   }
 
