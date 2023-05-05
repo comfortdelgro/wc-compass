@@ -155,6 +155,10 @@ export class CdgDemoContainer extends CdgBaseComponent {
     menu.classList.add('cdg-sub-nav-item')
     menu.textContent = item.name
     menu.setAttribute('href', '#' + item.slug)
+    
+    menu.addEventListener('click', () => {
+      this.subNavParent.classList.remove('stick')
+    })
 
     return menu
   }
