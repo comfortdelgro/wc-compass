@@ -1,6 +1,7 @@
 import {CONTENT_MAP} from '../../constants/content-map'
 import {DOCUMENT_CONTENT} from '../../constants/document-content'
 import {CdgBaseComponent} from '../../shared/base-component'
+import {findParentMenu} from '../../shared/menu'
 import template from './container.html'
 
 const NO_TABLE_OF_CONTENT = [
@@ -68,6 +69,9 @@ export class CdgDemoContainer extends CdgBaseComponent {
       const menu = this.getMenuInfo(hash)
       this.pageTitle.textContent = menu.name
       this.currentPage.textContent = menu.name
+
+      const parent = findParentMenu(hash)
+      this.subpage.textContent = parent.name
     }
 
     const contentMapped = CONTENT_MAP[hash]
