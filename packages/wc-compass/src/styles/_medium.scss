@@ -143,11 +143,6 @@
     }
   }
 
-  cdg-card-header,
-  .cdg-card-header {
-    padding: 8px 0;
-  }
-
   .cdg-card-grid {
     gap: 16px;
     &.columns-4 {
@@ -161,6 +156,11 @@
         padding: 1rem 1rem 0.75rem 1rem;
       }
     }
+  }
+
+  cdg-page-header-row,
+  .cdg-page-header-row {
+    flex-wrap: wrap;
   }
 }
 

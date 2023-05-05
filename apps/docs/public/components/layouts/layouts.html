@@ -21,6 +21,21 @@
   .cdg-toolbar {
     margin-bottom: 20px;
   }
+
+  .cdg-checkboxes {
+    display: flex;
+    gap: 4px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .cdg-toolbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .cdg-toolbar .cdg-input-group.row {
+      flex-direction: column;
+    }
+  }
 </style>
 
 <h3>Alignment</h3>
@@ -67,18 +82,20 @@
   </div>
   <div class="cdg-input-group row">
     <span>Fill parent:</span>
-    <label class="cdg-checkbox">
-      <input type="checkbox" id="fillParentCheckbox0" />
-      <span>Child 1</span>
-    </label>
-    <label class="cdg-checkbox">
-      <input type="checkbox" id="fillParentCheckbox1" />
-      <span>Child 2</span>
-    </label>
-    <label class="cdg-checkbox">
-      <input type="checkbox" id="fillParentCheckbox2" />
-      <span>Child 3</span>
-    </label>
+    <div class="cdg-checkboxes">
+      <label class="cdg-checkbox">
+        <input type="checkbox" id="fillParentCheckbox0" />
+        <span>Child 1</span>
+      </label>
+      <label class="cdg-checkbox">
+        <input type="checkbox" id="fillParentCheckbox1" />
+        <span>Child 2</span>
+      </label>
+      <label class="cdg-checkbox">
+        <input type="checkbox" id="fillParentCheckbox2" />
+        <span>Child 3</span>
+      </label>
+    </div>
   </div>
 </cdg-toolbar>
 <div class="sample-section sample-parent">
