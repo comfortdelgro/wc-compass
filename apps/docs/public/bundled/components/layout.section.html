@@ -1,3 +1,15 @@
+<style>
+  @media screen and (max-width: 1199px) {
+    .cdg-sample-table-layout-toolbar {
+      flex-wrap: wrap;
+    }
+    .cdg-sample-table-layout-toolbar .cdg-left-group {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>
+
 <cdg-sample-section name="Table Layout">
   <p>
     If you want to control everything inside the table, go ahead to implement
@@ -5,7 +17,7 @@
     For more convinient, we also have auto layout table with input data JSON.
   </p>
   <div class="sample-section column">
-    <cdg-toolbar>
+    <cdg-toolbar class="cdg-sample-table-layout-toolbar">
       <div class="cdg-left-group">
         <label class="cdg-input-group" style="width: 160px">
           <cdg-dropdown placeholder="Sample select">
@@ -44,7 +56,7 @@
       <cdg-table-head class="cdg-table-head">
         <cdg-table-row class="cdg-table-head-row">
           <cdg-table-head-cell name="id" width="60px"> ID </cdg-table-head-cell>
-          <cdg-table-head-cell sortable name="name">
+          <cdg-table-head-cell sortable name="name" width="150px">
             <a href="#table" class="cdg-table-head-cell-content">
               <label class="cdg-table-head-cell-text has-sorting">Name</label>
               <div class="cdg-table-head-cell-sorting">
