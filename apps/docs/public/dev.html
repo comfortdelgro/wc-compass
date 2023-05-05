@@ -26,25 +26,7 @@
     </script>
   </head>
   <body class="cdg-layout">
-    <cdg-nav-rail class="auto-collapse">
-      <div class="cdg-nav-rail-header">
-        <div class="cdg-nav-row">
-          <cdg-icon
-            class="workbench-logo"
-            name="compassLogo"
-            size="50"
-          ></cdg-icon>
-          <span class="workbench-title">Compass.Design</span>
-        </div>
-        <cdg-divider></cdg-divider>
-      </div>
-      <div class="cdg-nav-rail-body">
-        <a href="#home" class="cdg-nav-item">
-          <cdg-icon name="home"></cdg-icon>
-          <span>Home</span>
-        </a>
-      </div>
-    </cdg-nav-rail>
+    <cdg-demo-sidebar></cdg-demo-sidebar>
     <div class="page-content cdg-layout as-column cdg-flex">
       <cdg-portal-navbar class="primary">
         <button class="cdg-button icon" size="small" onclick="showMenu()">
@@ -59,15 +41,6 @@
         </div>
       </cdg-portal-navbar>
       <div class="page-body">
-        <div class="cdg-layout sub-nav-wrapper">
-          <cdg-sub-nav class="stick">
-            <div class="cdg-sub-nav-header">
-              <span class="cdg-sub-nav-title"></span>
-            </div>
-            <div class="cdg-sub-nav-group-content"></div>
-          </cdg-sub-nav>
-          <cdg-gutter use-collapse></cdg-gutter>
-        </div>
         <cdg-demo-container></cdg-demo-container>
         <div class="table-of-content">
           <h4 class="">In this page</h4>

@@ -250,9 +250,6 @@ pre code.hljs {
 
 .sub-nav-wrapper {
   min-width: 10px;
-}
-
-.sub-nav-wrapper {
   width: 200px;
 }
 
@@ -309,16 +306,6 @@ pre code.hljs {
   }
 
   .sub-nav-wrapper {
-    position: fixed;
-    top: 46px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: auto;
-    z-index: -1;
-  }
-
-  .sub-nav-wrapper.stick {
-    z-index: 11;
+    display: none;
   }
 }

@@ -1,10 +1,10 @@
 @media screen and (max-width: 767px) {
-  cdg-nav-rail.auto-collapse,
   .cdg-nav-rail.auto-collapse {
     width: 0;
     &:hover .cdg-nav-rail-inner,
     .cdg-nav-rail-inner {
       width: 0;
+      border: none;
     }
     &[open] {
       .cdg-nav-rail-inner {

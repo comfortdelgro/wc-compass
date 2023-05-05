@@ -11,7 +11,7 @@ cdg-nav-rail,
   .cdg-nav-rail-inner {
     display: flex;
     flex-direction: column;
-    background: var(--background);
+    background: var(--darker-background);
     box-sizing: border-box;
     padding: 16px 0;
     width: 270px;
@@ -99,6 +99,18 @@ cdg-nav-rail,
         max-width: 9999px;
         display: inline-flex;
       }
+
+      .cdg-nav-item {
+        &.expanded {
+          .cdg-sub-nav-group-content {
+            display: flex;
+          }
+
+          .item-arrow {
+            transform: rotate(90deg);
+          }
+        }
+      }
     }
   }
 }
@@ -155,16 +167,54 @@ cdg-nav-rail,
   gap: 12px;
 }
 
+.cdg-button.cdg-nav-item,
 .cdg-nav-item {
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 8px;
+  border-radius: 0;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
   @extend %body3;
   font-weight: 600;
   color: var(--grey80);
-  cursor: pointer;
   border-left: 3px solid transparent;
+  cursor: pointer;
+
+  .menu-inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    border-left: 3px solid transparent;
+  }
+
+  .cdg-sub-nav-group-content {
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--background);
+    border-radius: 8px;
+    margin-top: 8px;
+    display: none;
+    .cdg-sub-nav-item {
+      &.active,
+      &:hover {
+        background-color: var(--hover-background);
+      }
+    }
+  }
+
+  &:has(.cdg-sub-nav-group-content) {
+    gap: 0;
+    padding: 0;
+    flex-direction: column;
+    border-left: none;
+  }
 
   &:hover {
     color: var(--accent);
@@ -173,12 +223,28 @@ cdg-nav-rail,
   }
 
   &.active {
-    border-left: 3px solid var(--accent);
     color: var(--accent);
+    border-left: 3px solid var(--accent);
+
+    &:has(.cdg-sub-nav-group-content) {
+      border-left: none;
+      .menu-inner {
+        border-left: 3px solid var(--accent);
+      }
+    }
+
     &:hover {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
+
+    // .cdg-sub-nav-group-content {
+    //   display: flex;
+    // }
+
+    // .item-arrow {
+    //   transform: rotate(90deg);
+    // }
   }
 
   span {

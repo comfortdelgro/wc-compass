@@ -82,12 +82,12 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        include: [path.resolve(__dirname, '../../apps/docs/public/portal')],
+        include: [path.resolve(__dirname, '../../apps/docs/public/fragments')],
         use: [
           {
             options: {
               name: '[name].[ext]',
-              outputPath: 'portal/',
+              outputPath: 'fragments/',
             },
             loader: 'file-loader',
           },
