@@ -1,5 +1,14 @@
 # @comfortdelgro/wc-compass
 
+## 0.2.3
+
+### Patch Changes
+
+- 56e57d5: Update documentation project
+- eb98f8f: Add drag & drop list + improve ImageViewer
+- ea1bdf8: Change structure docs folder and fix bug position of dropdown
+- 71b9e8b: Restructure documentation project
+
 ## 0.2.2
 
 ### Patch Changes
