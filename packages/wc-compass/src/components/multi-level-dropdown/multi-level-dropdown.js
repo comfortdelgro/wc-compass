@@ -145,7 +145,32 @@ export class CdgMultiLevelDropdown extends HTMLElement {
       } else {
         this.dropdownMenuElement.classList.remove('menuTop')
       }
+
       this.dropdownMenuElement.classList.toggle('show')
+
+      if (this.dropdownMenuElement.classList.contains('show') && this.isMobile) {
+        setTimeout(() => {
+          const dropdownMenuBound =
+            this.dropdownMenuElement.getBoundingClientRect()
+          let translateX = ''
+          if (dropdownMenuBound.x < 0) {
+            translateX = `translateX(calc(-50% + ${
+              Math.abs(dropdownMenuBound.x) + 1
+            }px))`
+          } else if (dropdownMenuBound.right > window.innerWidth) {
+            translateX = `translateX(calc(-50% - ${
+              dropdownMenuBound.right - window.innerWidth + 1
+            }px))`
+          }
+
+          if (translateX) {
+            if (this.dropdownMenuElement.classList.contains('menuTop')) {
+              translateX = `${translateX} translateY(-100%)`
+            }
+            this.dropdownMenuElement.style.transform = translateX
+          }
+        }, 0)
+      }
     }
   }
 

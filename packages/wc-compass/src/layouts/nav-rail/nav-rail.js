@@ -39,7 +39,9 @@ export class CdgNavRail extends HTMLElement {
 
   attributeChangedCallback(attr) {
     if (attr === 'open') {
-      //
+      if (!this.open) {
+        this.dispatchEvent(new CustomEvent('close'))
+      }
     }
   }
 

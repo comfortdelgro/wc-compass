@@ -64,17 +64,3 @@
 </cdg-sample-section>
 
 <cdg-popover-properties-section></cdg-popover-properties-section>
-
-<script>
-  const directions = document.querySelector('cdg-dropdown[name="directions"]')
-  const cdgPopover = document.querySelector('cdg-popover')
-  if (cdgPopover) {
-    directions.addEventListener('onchangevalue', function (event) {
-      cdgPopover.setAttribute('direction', event.detail)
-    })
-    const buttonPopover = cdgPopover.querySelector('button#buttonPopover')
-    buttonPopover.addEventListener('click', function (event) {
-      cdgPopover.setAttribute('open', 'true')
-    })
-  }
-</script>

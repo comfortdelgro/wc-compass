@@ -1,14 +1,20 @@
 @media screen and (max-width: 767px) {
-  cdg-nav-rail.auto-collapse,
   .cdg-nav-rail.auto-collapse {
     width: 0;
     &:hover .cdg-nav-rail-inner,
     .cdg-nav-rail-inner {
       width: 0;
+      border: none;
     }
     &[open] {
       .cdg-nav-rail-inner {
         width: 270px;
+      }
+    }
+    &.auto-collapse-mobile:not([open]) {
+      width: 72px;
+      .cdg-nav-rail-inner {
+        width: 72px;
       }
     }
   }
@@ -109,6 +115,16 @@
     &.columns-4 {
       grid-template-columns: repeat(2, 1fr);
     }
+  }
+
+  cdg-page-header-row,
+  .cdg-page-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  cdg-page-title,
+  .cdg-page-title {
+    flex-wrap: wrap;
   }
 }
 
