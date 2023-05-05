@@ -97,6 +97,7 @@
       right: auto;
       transform: translateX(-50%);
       &.menuTop {
+        transform: translate(-50%, -100%);
         flex-direction: column-reverse;
         display: flex;
         .cdg-dropdown-item {
