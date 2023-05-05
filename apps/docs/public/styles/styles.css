@@ -305,9 +305,31 @@ pre code.hljs {
   .doc-container .sample-section-title {
     background: transparent;
     position: relative;
+    font-size: var(--heading5);
+    line-height: var(--line-height-heading5);
   }
 
   .sub-nav-wrapper {
     display: none;
+  }
+
+  .portal-title {
+    display: none;
+  }
+
+  cdg-nav-rail-demo
+    .cdg-nav-rail.auto-collapse:not([open]):hover
+    .cdg-nav-rail-inner,
+  cdg-nav-rail-demo .cdg-nav-rail.auto-collapse .cdg-nav-rail-inner,
+  cdg-nav-rail-demo .cdg-nav-rail.auto-collapse {
+    width: 72px;
+  }
+
+  cdg-demo-sidebar .cdg-nav-rail.auto-collapse .cdg-nav-rail-inner {
+    margin-top: 46px;
+  }
+
+  cdg-demo-sidebar .cdg-nav-rail.auto-collapse[open][use-overlay]::before {
+    top: 46px;
   }
 }

@@ -6,15 +6,23 @@ import template from './sidebar.html'
 export class CdgDemoSidebar extends CdgBaseComponent {
   activeParent
   activatedMenu
+
+  navRail
+  navRailBody
   constructor() {
     super()
     this.template = template
   }
 
   onInit() {
-    const navRail = this.querySelector('.cdg-nav-rail-body')
+    this.navRail = this.querySelector('.cdg-nav-rail')
+    this.navRailBody = this.querySelector('.cdg-nav-rail-body')
     DOCUMENT_CONTENT.forEach((item) => {
-      navRail.appendChild(this.createNavMenu(item))
+      this.navRailBody.appendChild(this.createNavMenu(item))
+    })
+
+    this.navRail.addEventListener('close', () => {
+      this.collapseMenu()
     })
 
     window.addEventListener('hashchange', (event) => {
@@ -78,14 +86,6 @@ export class CdgDemoSidebar extends CdgBaseComponent {
 
     if (item.children && item.children.length) {
       menuInner.addEventListener('click', () => {
-        const navRailWrapper = document.querySelector('.cdg-nav-rail')
-        const listener = () => {
-          if (!menu.classList.contains('active')) {
-            menu.classList.remove('expanded')
-          }
-          navRailWrapper.removeEventListener('close', listener)
-        }
-        navRailWrapper.addEventListener('close', listener)
         menu.classList.toggle('expanded')
       })
       menu.appendChild(this.createSubMenuGroup(item))
@@ -94,10 +94,21 @@ export class CdgDemoSidebar extends CdgBaseComponent {
     return menu
   }
 
+  collapseMenu() {
+    const menuList = this.navRailBody.querySelectorAll(
+      '.cdg-nav-item.expanded:not(.active)',
+    )
+
+    if (menuList && menuList.length) {
+      menuList.forEach((menu) => {
+        menu.classList.remove('expanded')
+      })
+    }
+  }
+
   activeMenu() {
     const params = window.location.href.split('#')[1] || 'home'
     const hash = params.split('?')[0]
-    console.log(hash)
     setTimeout(() => {
       // Handle main nav active states
       if (this.activeParent) {
@@ -105,7 +116,6 @@ export class CdgDemoSidebar extends CdgBaseComponent {
       }
 
       const parent = findParentMenu(hash)
-      console.log(parent)
       if (parent) {
         this.activeParent = document.querySelector('#' + parent.id)
         this.activeParent.classList.add('active')
@@ -120,6 +130,8 @@ export class CdgDemoSidebar extends CdgBaseComponent {
 
       // Close menu
       document.querySelector('cdg-nav-rail').open = false
+
+      this.collapseMenu()
     })
   }
 }

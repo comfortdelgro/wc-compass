@@ -43,7 +43,7 @@ export class CdgTableOptionsSection extends CdgBaseComponent {
         },
         {
           name: 'Name',
-          width: '150px',
+          width: 'auto',
           fieldName: 'name',
           sortable: true,
         },
