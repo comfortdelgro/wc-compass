@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.2.4
+
+### Patch Changes
+
+- 4857ed4: Fix for document page menu issue
+
 ## 0.2.3
 
 ### Patch Changes
