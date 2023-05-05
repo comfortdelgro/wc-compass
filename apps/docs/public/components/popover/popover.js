@@ -5,5 +5,21 @@ export class CdgPopoverDemo extends CdgDocumentComponent {
   constructor() {
     super()
     this.template = template
+
+    setTimeout(() => {
+      const directions = document.querySelector(
+        'cdg-dropdown[name="directions"]',
+      )
+      const cdgPopover = document.querySelector('cdg-popover')
+      if (cdgPopover) {
+        directions.addEventListener('onchangevalue', function (event) {
+          cdgPopover.setAttribute('direction', event.detail)
+        })
+        const buttonPopover = cdgPopover.querySelector('button#buttonPopover')
+        buttonPopover.addEventListener('click', function (event) {
+          cdgPopover.setAttribute('open', 'true')
+        })
+      }
+    }, 1000)
   }
 }

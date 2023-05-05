@@ -9,6 +9,9 @@
 .cdg-form-row {
   display: flex;
   gap: 24px;
+  &.row-wrap {
+    flex-wrap: wrap;
+  }
   &.stretch {
     .cdg-input-group {
       flex: 1;
