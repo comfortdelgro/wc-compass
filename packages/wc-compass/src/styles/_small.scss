@@ -11,6 +11,12 @@
         width: 270px;
       }
     }
+    &.auto-collapse-mobile:not([open]) {
+      width: 72px;
+      .cdg-nav-rail-inner {
+        width: 72px;
+      }
+    }
   }
 
   // Small slider

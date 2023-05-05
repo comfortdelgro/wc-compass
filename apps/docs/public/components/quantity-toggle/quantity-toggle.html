@@ -154,23 +154,6 @@ function handleOnchange (event) {
 </pre>
 </cdg-sample-section>
 
-<script>
-  window.handleOnchange = (event) => {
-    cdgToastService.toast('Changed ' + event.target.value)
-  }
-
-  const quantityToggle = document.querySelector('#maxMinSample')
-  quantityToggle.addEventListener('validChange', (event) => {
-    cdgToastService.toast('Error: ' + JSON.stringify(event.detail))
-  })
-
-  const stepValue = document.getElementById('step-value')
-  const quantityToggleStep = document.getElementById('quantity-toggle-step')
-  stepValue.addEventListener('change', (event) => {
-    quantityToggleStep.setAttribute('step', event.target.value)
-  })
-</script>
-
 <cdg-quantity-toggle-properties-section></cdg-quantity-toggle-properties-section>
 
 <cdg-quantity-toggle-events-section></cdg-quantity-toggle-events-section>

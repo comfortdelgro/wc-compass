@@ -54,6 +54,20 @@
   .cdg-card-grid {
     gap: 24px;
   }
+
+  .cdg-portal-navbar-inner {
+    flex-wrap: wrap;
+  }
+
+  .cdg-table-footer {
+    flex-wrap: wrap;
+    gap: 16px;
+
+    .cdg-right-group, .cdg-table-footer-right {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
 }
 
 @media screen and (max-width: 960px) {

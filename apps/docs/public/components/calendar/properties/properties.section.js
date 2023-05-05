@@ -40,6 +40,22 @@ export class CdgCalendarPropertiesSection extends CdgTableComponentSection {
         default: '',
         description: 'Showing 2 months on calendar.',
       },
+      {
+        name: 'ondateclick',
+        type: '<code>function</code>',
+        default: '',
+        description: `Event emitted when the selected date by click.
+          <br>
+          <b>Signature:</b>
+          <br>
+          <code>function(event: { detail: string }) => void</code>`,
+      },
+      {
+        name: 'onClearClick',
+        type: '<code>function</code>',
+        default: '',
+        description: `Event emitted when the selected date by click clear button.`,
+      },
     ]
   }
 }

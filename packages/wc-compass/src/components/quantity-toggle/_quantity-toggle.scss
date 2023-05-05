@@ -53,6 +53,7 @@ cdg-quantity-toggle,
 
     &:focus {
       outline: 2px solid #00a3ff;
+      z-index: 1;
     }
 
     &[type='number'] {
