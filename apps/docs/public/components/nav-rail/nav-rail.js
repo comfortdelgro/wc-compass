@@ -6,4 +6,12 @@ export class CdgNavRailDemo extends CdgDocumentComponent {
     super()
     this.template = template
   }
+
+  onInit() {
+    const sample = this.querySelector('#sample-collapse-menu')
+    const openMenuButton = this.querySelector('#openMenuButton')
+    openMenuButton.addEventListener('click', () => {
+      sample.setAttribute('open', '')
+    })
+  }
 }

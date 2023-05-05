@@ -33,8 +33,15 @@ export class CdgNavRail extends HTMLElement {
     this.appendChild(this.container)
 
     this.addEventListener('focus', this.handleFocus.bind(this))
-    this.addEventListener('mouseenter', this.handleMouseEnter.bind(this))
-    this.addEventListener('mouseleave', this.handleMouseLeave.bind(this))
+    this.container.addEventListener(
+      'mouseover',
+      this.handleMouseEnter.bind(this),
+    )
+    this.container.addEventListener(
+      'mouseleave',
+      this.handleMouseLeave.bind(this),
+    )
+    this.addEventListener('mousedown', this.handleMouseDown.bind(this))
   }
 
   attributeChangedCallback(attr) {
@@ -42,6 +49,12 @@ export class CdgNavRail extends HTMLElement {
       if (!this.open) {
         this.dispatchEvent(new CustomEvent('close'))
       }
+    }
+  }
+
+  handleMouseDown(event) {
+    if (event.target.isEqualNode(this)) {
+      this.open = false
     }
   }
 
@@ -59,15 +72,22 @@ export class CdgNavRail extends HTMLElement {
   }
 
   handleMouseEnter() {
+    if (this.timer || window.innerWidth < 768) {
+      return
+    }
     this.timer = setTimeout(() => {
       this.open = true
+      this.timer = null
     }, 500)
   }
 
   handleMouseLeave() {
     if (this.timer) {
       clearTimeout(this.timer)
+      this.timer = null
     }
-    this.open = false
+    if (window.innerWidth >= 768) {
+      this.open = false
+    }
   }
 }
