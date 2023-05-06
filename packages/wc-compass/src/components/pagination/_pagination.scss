@@ -1,5 +1,6 @@
 .cdg-pagination {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   a.cdg-button,
   .cdg-button {

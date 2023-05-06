@@ -3,6 +3,7 @@ cdg-breadcrumbs,
   @extend %body3;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 16px;
   padding: 12px 0;
 

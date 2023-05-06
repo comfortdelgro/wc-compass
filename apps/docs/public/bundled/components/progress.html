@@ -108,28 +108,3 @@
 </cdg-sample-section>
 
 <cdg-progress-properties-section></cdg-progress-properties-section>
-
-<script>
-  let progress = 0
-  const progressBars = document
-    .querySelector('.sample-percentage')
-    .querySelectorAll('cdg-progress')
-
-  function countUp() {
-    progress += 1
-    progressBars.forEach((element) => {
-      element.percentage = progress
-    })
-
-    if (progress < 100) {
-      setTimeout(() => {
-        countUp()
-      }, 20)
-    } else {
-      progress = 0
-      countUp()
-    }
-  }
-
-  countUp()
-</script>

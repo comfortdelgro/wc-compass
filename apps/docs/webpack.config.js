@@ -83,6 +83,19 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.html$/,
+        include: [path.resolve(__dirname, './public/fragments')],
+        use: [
+          {
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fragments/',
+            },
+            loader: 'file-loader',
+          },
+        ],
+      },
     ],
   },
   resolve: {

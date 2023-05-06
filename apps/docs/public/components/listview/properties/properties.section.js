@@ -10,6 +10,13 @@ export class CdgListviewPropertiesSection extends CdgTableComponentSection {
         default: "<code>''</code>",
         description: 'To allow user to drag items.',
       },
+      {
+        name: '<code>draggableName</code>',
+        type: 'string',
+        default: '',
+        description:
+          'When you need to drag & drop multiple lists, add the same name to those lists',
+      },
     ]
   }
 }

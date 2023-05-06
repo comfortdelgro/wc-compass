@@ -105,13 +105,13 @@ export class CdgListItem extends HTMLElement {
     }, 100)
 
     this.pointer = new Pointer()
-    this.setPointerCapture(event.pointerId)
+    // this.setPointerCapture(event.pointerId)
     this.pointer.start({x: event.pageX, y: event.pageY})
     this.startBound = this.getBoundingClientRect()
 
     this.moveListener = this.handlePointerMove.bind(this)
-    this.addEventListener('pointermove', this.moveListener)
-    this.addEventListener('touchmove', this.handleTouchMove)
+    document.addEventListener('pointermove', this.moveListener)
+    document.addEventListener('touchmove', this.handleTouchMove)
     document.addEventListener('pointerup', this.handlePointerUp.bind(this), {
       once: true,
     })
@@ -170,27 +170,49 @@ export class CdgListItem extends HTMLElement {
     this.clonedElement.style.left =
       this.startBound.left + this.pointer.distance.x + 'px'
 
-    // Dragging item will be hidden so we need to plus 1
-    // The dragging item will place to next item when we move it over half of next item
-    const sub = this.pointer.distance.y > 0 ? 1.5 : 0.5
+    const parentBound = this.parentElement.getBoundingClientRect()
 
-    const moveToIndex = Math.floor(
-      this.pointer.distance.y / this.clonedElement.clientHeight + sub,
-    )
+    if (this.isDragOverParent(this.pointer.currentPoint, parentBound)) {
+      this.dispatchEvent(
+        new CustomEvent('dragoverParent', {
+          detail: {
+            position: this.pointer.currentPoint,
+            target: this,
+          },
+        }),
+      )
+    } else {
+      // Dragging item will be hidden so we need to plus 1
+      // The dragging item will place to next item when we move it over half of next item
+      const sub = this.pointer.distance.y > 0 ? 1.5 : 0.5
 
-    this.classList.add('dragging')
-    this.dispatchEvent(
-      new CustomEvent('dragthrough', {
-        detail: moveToIndex,
-      }),
+      const moveToIndex = Math.floor(
+        this.pointer.distance.y / this.clonedElement.clientHeight + sub,
+      )
+
+      this.classList.add('dragging')
+      this.dispatchEvent(
+        new CustomEvent('dragthrough', {
+          detail: moveToIndex,
+        }),
+      )
+    }
+  }
+
+  isDragOverParent(currentPoint, parentBound) {
+    return (
+      currentPoint.x < parentBound.left ||
+      currentPoint.x > parentBound.right ||
+      currentPoint.y < parentBound.top ||
+      currentPoint.y > parentBound.bottom
     )
   }
 
   handlePointerUp() {
     this.clearTimer()
     this.classList.remove('dragging')
-    this.removeEventListener('touchmove', this.handleTouchMove)
-    this.removeEventListener('pointermove', this.moveListener)
+    document.removeEventListener('touchmove', this.handleTouchMove)
+    document.removeEventListener('pointermove', this.moveListener)
     // Only raise event when user has moved
     if (this.dragging) {
       this.dispatchEvent(

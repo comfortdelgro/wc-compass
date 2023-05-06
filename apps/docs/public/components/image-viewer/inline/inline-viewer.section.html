@@ -1,0 +1,45 @@
+<cdg-sample-section name="Inline Image Viewer">
+  <div class="sample-section column">
+    <cdg-toolbar>
+      <div class="cdg-left-group"></div>
+      <div class="cdg-right-group">
+        <button class="cdg-button" id="zoomIn">Zoom In</button>
+        <button class="cdg-button" id="zoomOut">Zoom Out</button>
+      </div>
+    </cdg-toolbar>
+    <cdg-image-viewer
+      id="inlineImageViewer"
+      src="https://picsum.photos/id/211/2000/1400"
+      style="aspect-ratio: 1.7; width: 100%"
+    ></cdg-image-viewer>
+  </div>
+
+  <pre>
+      <code class="language-html">&lt;cdg-toolbar&gt;
+    &lt;div class=&quot;cdg-left-group&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;cdg-right-group&quot;&gt;
+        &lt;button class=&quot;cdg-button&quot; id=&quot;zoomIn&quot;&gt;Zoom In&lt;/button&gt;
+        &lt;button class=&quot;cdg-button&quot; id=&quot;zoomOut&quot;&gt;Zoom Out&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/cdg-toolbar&gt;
+&lt;cdg-image-viewer
+    id=&quot;inlineImageViewer&quot;
+    src=&quot;https://picsum.photos/id/211/2000/1400&quot;
+    style=&quot;aspect-ratio: 1.7&quot;
+&gt;&lt;/cdg-image-viewer&gt;
+
+&lt;script&gt;
+const imageViewer = document.querySelector(&apos;#inlineImageViewer&apos;)
+const zoomInButton = document.querySelector(&apos;#zoomIn&apos;)
+const zoomOutButton = document.querySelector(&apos;#zoomOut&apos;)
+
+zoomInButton.addEventListener(&apos;click&apos;, () =&gt; {
+    imageViewer.zoomIn()
+})
+
+zoomOutButton.addEventListener(&apos;click&apos;, () =&gt; {
+    imageViewer.zoomOut()
+})
+&lt;/script&gt;</code>
+  </pre>
+</cdg-sample-section>

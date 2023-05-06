@@ -48,20 +48,21 @@
   Below is an example of lazy loading image, it is intended to be put outside of
   the viewport. You can open the developer tool, go to network tab, choose Img
   section, disable cache and scroll down to see how the image will be loaded
-  lazily
+  lazily.
 </p>
+<p>Scroll down to see image lazy load behavior</p>
 
 <cdg-sample-section name="Basic" style="margin-top: 100vh">
   <div class="sample-section">
     <cdg-lazy-img
-      src="https://play-lh.googleusercontent.com/EXMjst8LO8GpzaPH-zoP0mJFpTBwqVTPcRbIuPaqDCeSneYu_Fy40yda0JdRzVuEuVg"
+      src="https://mdbcdn.b-cdn.net/img/new/standard/city/005.webp"
       alt="image"
       style="width: 200px; height: 200px"
     ></cdg-lazy-img>
   </div>
   <pre>
     <code class="language-html">&lt;cdg-lazy-img
-  src="https://play-lh.googleusercontent.com/EXMjst8LO8GpzaPH-zoP0mJFpTBwqVTPcRbIuPaqDCeSneYu_Fy40yda0JdRzVuEuVg"
+  src="https://mdbcdn.b-cdn.net/img/new/standard/city/005.webp"
   alt="image"
   style="width: 200px; height: 200px"
 &gt;&lt;/cdg-lazy-img&gt;
@@ -93,6 +94,28 @@
   src="non-exist-src.svg"
   fallbackSrc="https://raw.githubusercontent.com/koehlersimon/fallback/master/Resources/Public/Images/placeholder.jpg"
   alt="image"
+  style="width: 200px; height: 200px"
+&gt;&lt;/cdg-lazy-img&gt;
+    </code>
+  </pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Use Image Viewer">
+  <div class="sample-section">
+    <cdg-lazy-img
+      src="https://picsum.photos/id/211/286/200"
+      largeSrc="https://picsum.photos/id/211/2000/1400"
+      alt="image"
+      style="width: 200px; height: 200px"
+      use-viewer
+    ></cdg-lazy-img>
+  </div>
+  <pre>
+    <code class="language-html">&lt;cdg-lazy-img
+  src="https://picsum.photos/id/211/286/200"
+  largeSrc="https://picsum.photos/id/211/2000/1400"
+  alt="image"
+  use-viewer
   style="width: 200px; height: 200px"
 &gt;&lt;/cdg-lazy-img&gt;
     </code>

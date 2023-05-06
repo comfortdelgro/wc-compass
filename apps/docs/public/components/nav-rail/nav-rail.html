@@ -4,10 +4,7 @@
 </p>
 
 <cdg-sample-section name="Default">
-  <div
-    class="sample-section"
-    style="background: var(--grey20); padding: 20px; height: 800px"
-  >
+  <div class="sample-section" style="height: 800px">
     <cdg-nav-rail>
       <div class="cdg-nav-rail-header">
         <div class="cdg-nav-row">
@@ -213,12 +210,12 @@
 <cdg-sample-section name="Auto Collapse">
   <p class="section-explaination">
     Move your mouse inside the menu to expand it.
+    <br />
+    Or <br />
+    <button class="cdg-button" id="openMenuButton">Open</button>
   </p>
-  <div
-    class="sample-section"
-    style="background: var(--grey20); padding: 20px; height: 800px"
-  >
-    <cdg-nav-rail class="auto-collapse">
+  <div class="sample-section" style="height: 800px">
+    <cdg-nav-rail id="sample-collapse-menu" class="auto-collapse" use-overlay>
       <div class="cdg-nav-rail-header">
         <div class="cdg-nav-row">
           <cdg-icon class="workbench-logo" name="wLogo" size="50"></cdg-icon>
@@ -275,7 +272,7 @@
   </div>
 
   <pre>
-  <code class="language-html">&lt;cdg-nav-rail class=&quot;auto-collapse&quot;&gt;
+  <code class="language-html">&lt;cdg-nav-rail class=&quot;auto-collapse&quot; use-overlay&gt;
   &lt;div class=&quot;cdg-nav-rail-header&quot;&gt;
     &lt;div class=&quot;cdg-nav-row&quot;&gt;
       &lt;cdg-icon class=&quot;workbench-logo&quot; name=&quot;wLogo&quot; size=&quot;50&quot;&gt;&lt;/cdg-icon&gt;

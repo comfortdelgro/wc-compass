@@ -47,7 +47,7 @@ export class CdgLazyImage extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['src', 'width', 'height', 'fallbackSrc']
+    return ['src', 'width', 'height', 'fallbackSrc', 'use-viewer']
   }
 
   get src() {
@@ -56,6 +56,18 @@ export class CdgLazyImage extends HTMLElement {
 
   set src(src) {
     this.setAttribute('src', src)
+  }
+
+  get useViewer() {
+    return this.hasAttribute('use-viewer')
+  }
+
+  set useViewer(useViewer) {
+    if (useViewer) {
+      this.setAttribute('use-viewer', '')
+    } else {
+      this.removeAttribute('use-viewer')
+    }
   }
 
   get width() {
@@ -72,6 +84,21 @@ export class CdgLazyImage extends HTMLElement {
 
   connectedCallback() {
     this.lazyLoadImage()
+    this.classList.add('cdg-lazy-img')
+  }
+
+  attributeChangedCallback(attr) {
+    switch (attr) {
+      case 'use-viewer':
+        if (this.useViewer) {
+          this.addEventListener('click', this.enlargeImage.bind(this))
+        } else {
+          this.removeEventListener('click', this.enlargeImage.bind(this))
+        }
+        break
+      default:
+        break
+    }
   }
 
   // If image fail to load and there is user fallback src
@@ -124,5 +151,12 @@ export class CdgLazyImage extends HTMLElement {
 
   disconnectedCallback() {
     this.image.removeEventListener('error', this.handleImageError)
+    this.removeEventListener('click', this.enlargeImage.bind(this))
+  }
+
+  enlargeImage() {
+    if (window.cdgImageViewerService) {
+      cdgImageViewerService.showImage(this)
+    }
   }
 }

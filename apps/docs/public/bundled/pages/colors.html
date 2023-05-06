@@ -39,6 +39,20 @@
   .sample-color-code {
     font-size: 12px;
   }
+
+  @media screen and (max-width: 767px) {
+    .color-palettes {
+      flex-wrap: wrap;
+    }
+
+    .color-palettes .sample-color {
+      max-width: 25%;
+    }
+
+    .color-palettes .sample-color .color-name {
+      font-size: 12px;
+    }
+  }
 </style>
 
 <cdg-primary-colors-section></cdg-primary-colors-section>

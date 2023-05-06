@@ -197,6 +197,7 @@ pre code.hljs {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .cdg-sample-section .sample-header .cdg-tabs {
@@ -216,6 +217,7 @@ pre code.hljs {
 .cdg-sample-section pre.active,
 .cdg-sample-section .sample-section.active {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .doc-sample-image {
@@ -250,9 +252,6 @@ pre code.hljs {
 
 .sub-nav-wrapper {
   min-width: 10px;
-}
-
-.sub-nav-wrapper.cdg-contains-gutter {
   width: 200px;
 }
 
@@ -306,25 +305,31 @@ pre code.hljs {
   .doc-container .sample-section-title {
     background: transparent;
     position: relative;
+    font-size: var(--heading5);
+    line-height: var(--line-height-heading5);
   }
 
-  .cdg-sub-nav {
-    position: fixed;
-    top: 46px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: auto;
-    z-index: -1;
+  .sub-nav-wrapper {
+    display: none;
   }
 
-  .cdg-sub-nav.stick {
-    position: fixed;
+  .portal-title {
+    display: none;
+  }
+
+  cdg-nav-rail-demo
+    .cdg-nav-rail.auto-collapse:not([open]):hover
+    .cdg-nav-rail-inner,
+  cdg-nav-rail-demo .cdg-nav-rail.auto-collapse .cdg-nav-rail-inner,
+  cdg-nav-rail-demo .cdg-nav-rail.auto-collapse {
+    width: 72px;
+  }
+
+  cdg-demo-sidebar .cdg-nav-rail.auto-collapse .cdg-nav-rail-inner {
+    margin-top: 46px;
+  }
+
+  cdg-demo-sidebar .cdg-nav-rail.auto-collapse[open][use-overlay]::before {
     top: 46px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: auto;
-    z-index: 11;
   }
 }

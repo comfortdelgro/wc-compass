@@ -18,7 +18,7 @@
         document.body.classList.toggle('theme-dark')
       }
 
-      function toggleMenu() {
+      function showMenu() {
         const nav = document.querySelector('cdg-nav-rail')
         nav.open = true
         nav.focus()
@@ -26,28 +26,10 @@
     </script>
   </head>
   <body class="cdg-layout">
-    <cdg-nav-rail class="auto-collapse">
-      <div class="cdg-nav-rail-header">
-        <div class="cdg-nav-row">
-          <cdg-icon
-            class="workbench-logo"
-            name="compassLogo"
-            size="50"
-          ></cdg-icon>
-          <span class="workbench-title">Compass.Design</span>
-        </div>
-        <cdg-divider></cdg-divider>
-      </div>
-      <div class="cdg-nav-rail-body">
-        <a href="#home" class="cdg-nav-item">
-          <cdg-icon name="home"></cdg-icon>
-          <span>Home</span>
-        </a>
-      </div>
-    </cdg-nav-rail>
+    <cdg-demo-sidebar></cdg-demo-sidebar>
     <div class="page-content cdg-layout as-column cdg-flex">
       <cdg-portal-navbar class="primary">
-        <button class="cdg-button icon" size="small" onclick="toggleMenu()">
+        <button class="cdg-button icon" size="small" onclick="showMenu()">
           <cdg-icon name="menu" size="16"></cdg-icon>
         </button>
         <div class="portal-title">Compass Design</div>
@@ -59,41 +41,7 @@
         </div>
       </cdg-portal-navbar>
       <div class="page-body">
-        <div class="cdg-layout sub-nav-wrapper">
-          <cdg-sub-nav class="stick">
-            <div class="cdg-sub-nav-header">
-              <span class="cdg-sub-nav-title"></span>
-            </div>
-            <div class="cdg-sub-nav-group-content"></div>
-          </cdg-sub-nav>
-          <cdg-gutter use-collapse></cdg-gutter>
-        </div>
-        <div class="page-container">
-          <cdg-page-header>
-            <cdg-page-header-row>
-              <cdg-breadcrumbs>
-                <a href="#home">Home</a>
-                <cdg-icon name="arrowRight"></cdg-icon>
-                <a
-                  class="sub-page-breadcrumb"
-                  href="javascript:void(0)"
-                  onclick="showSubNav()"
-                >
-                </a>
-                <cdg-icon name="arrowRight"></cdg-icon>
-                <a class="current-page-breadcrumb"></a>
-              </cdg-breadcrumbs>
-            </cdg-page-header-row>
-            <cdg-page-header-row>
-              <cdg-page-title></cdg-page-title>
-            </cdg-page-header-row>
-          </cdg-page-header>
-          <div
-            id="component-content"
-            class="doc-container"
-            pageIndexGroup
-          ></div>
-        </div>
+        <cdg-demo-container></cdg-demo-container>
         <div class="table-of-content">
           <h4 class="">In this page</h4>
           <cdg-page-indexes

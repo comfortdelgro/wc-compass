@@ -2,17 +2,17 @@ img {
   background-color: rgb(230, 230, 230);
 }
 
-img:before {
-  content: ' ';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: var(--grey20);
-  border-radius: 5px;
-}
+// img:before {
+//   content: ' ';
+//   display: block;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   height: 100%;
+//   width: 100%;
+//   background-color: var(--grey20);
+//   border-radius: 5px;
+// }
 
 .cdg-loading-wrapper {
   position: absolute;
@@ -31,5 +31,11 @@ body > .cdg-loading-wrapper {
   display: none;
   &.show {
     display: flex;
+  }
+}
+
+.cdg-lazy-img {
+  &[use-viewer] {
+    cursor: zoom-in;
   }
 }

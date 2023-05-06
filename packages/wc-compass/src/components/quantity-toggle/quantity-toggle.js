@@ -8,6 +8,7 @@ export class CdgQuantityToggle extends HTMLElement {
   }
 
   set step(value) {
+    console.log(value);
     this.setAttribute('step', value)
   }
 
