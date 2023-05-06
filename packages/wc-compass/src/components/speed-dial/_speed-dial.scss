@@ -1,0 +1,125 @@
+.speed-dial {
+  width: fit-content;
+  display: flex;
+
+  &.speed-dial--up {
+    flex-direction: column-reverse;
+  }
+
+  &.speed-dial--down {
+    flex-direction: column;
+  }
+
+  &.speed-dial--left {
+    flex-direction: row-reverse;
+  }
+
+  &.speed-dial--right {
+    flex-direction: row;
+  }
+}
+
+.speed-dial__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: var(--blue160);
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  color: var(--text-white);
+  border: none;
+  border-radius: 50%;
+  font-size: var(--heading2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  & > span {
+    transform: rotate(0deg);
+    transition: all 0.3s ease;
+  }
+
+  &.open {
+    background-color: #dc3545;
+
+    & > span {
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.speed-dial__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  &.open {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &.speed-dial__actions--up {
+    flex-direction: column-reverse;
+  }
+
+  &.speed-dial__actions--down {
+    flex-direction: column;
+  }
+
+  &.speed-dial__actions--left {
+    flex-direction: row-reverse;
+  }
+
+  &.speed-dial__actions--right {
+    flex-direction: row;
+  }
+}
+
+.speed-dial__action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: var(--blue160);
+  color: var(--text-white);
+  border: none;
+  border-radius: 50%;
+  font-size: var(--heading3);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+
+  &:hover {
+    background-color: #dc3545;
+  }
+
+  &.speed-dial__action--up {
+    margin-bottom: 10px;
+  }
+
+  &.speed-dial__action--down {
+    margin-top: 10px;
+  }
+
+  &.speed-dial__action--right {
+    margin-left: 10px;
+  }
+
+  &.speed-dial__action--left {
+    margin-right: 10px;
+  }
+}
+
+.speed-dial__action-icon {
+  margin-right: 0px;
+}
+
+.speed-dial__action-name {
+  display: none;
+}

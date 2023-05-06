@@ -75,4 +75,5 @@ export const CONTENT_MAP = {
   servicesMenu: './components/template/services-menu.html',
   newsAndBlogs: './components/website/news-and-blogs.html',
   services: './components/website/services.html',
+  speedDial:'cdg-speed-dial-demo',
 }
