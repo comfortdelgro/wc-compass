@@ -76,4 +76,5 @@ export const CONTENT_MAP = {
   servicesMenu: 'cdg-services-menu-demo',
   newsAndBlogs: 'cdg-news-and-blogs-demo',
   services: 'cdg-services-demo',
+  speedDial:'cdg-speed-dial-demo',
 }

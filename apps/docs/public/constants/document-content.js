@@ -265,6 +265,10 @@ export const DOCUMENT_CONTENT = [
         name: 'Wizards',
         slug: 'wizards',
       },
+      {
+        name: 'SpeedDial',
+        slug: 'speedDial',
+      },
     ],
   },
   {
