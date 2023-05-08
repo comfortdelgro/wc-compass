@@ -11,6 +11,7 @@ import {CdgDotsIndicator} from './carousel/dots-indicator'
 import {CdgSlide} from './carousel/slide'
 import {CdgDashboardSideCard} from './dashboard-side-card/dashboard-side-card'
 import {CdgCardActivity} from './dashboard-side-card/side-card-activity'
+import {CdgGallery} from './gallery/gallery'
 import {CdgGroupAvatar} from './group-avatar/group-avatar'
 import {CdgGroupImageViewer} from './image-viewer/group-image-viewer'
 import {CdgImageViewer} from './image-viewer/image-viewer'
@@ -89,6 +90,7 @@ customElements.define('cdg-wizards', CdgWizards)
 customElements.define('cdg-wizard-step', CdgWizardStep)
 customElements.define('cdg-dashboard-side-card', CdgDashboardSideCard)
 customElements.define('cdg-card-activity', CdgCardActivity)
+customElements.define('cdg-gallery', CdgGallery)
 customElements.define('cdg-group-avatar', CdgGroupAvatar)
 customElements.define('cdg-carousel', CdgCarousel)
 customElements.define('cdg-carousel-scroller', CdgCarouselScroller)
@@ -197,4 +199,5 @@ export const LAYOUT_COMPONENTS = [
   CdgImageViewer,
   CdgGroupImageViewer,
   CdgThumbnailBar,
+  CdgGallery,
 ]

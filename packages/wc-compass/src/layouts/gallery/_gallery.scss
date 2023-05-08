@@ -1,0 +1,51 @@
+.cdg-gallery {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.cdg-gallery-image-wrapper {
+  border-radius: 8px;
+  background-color: var(--grey10);
+  display: grid;
+  overflow: hidden;
+  position: relative;
+  border: none;
+  padding: 0;
+  box-sizing: border-box;
+  appearance: none;
+  &::before {
+    content: '';
+    padding-bottom: 100%;
+    display: block;
+    grid-area: 1 / 1 / 2 / 2;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: #000000;
+    opacity: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    @extend %smoothTransition;
+  }
+
+  &:hover {
+    cursor: zoom-in;
+    &::after {
+      opacity: 0.4;
+      @extend %smoothTransition;
+    }
+  }
+}
+
+.cdg-gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  grid-area: 1 / 1 / 2 / 2;
+}

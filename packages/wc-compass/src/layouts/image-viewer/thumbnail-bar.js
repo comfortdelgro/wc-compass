@@ -19,6 +19,8 @@ export class CdgThumbnailBar extends HTMLElement {
   imageList = []
   thumbs = []
 
+  keyboardListener
+
   constructor() {
     super()
   }
@@ -27,15 +29,25 @@ export class CdgThumbnailBar extends HTMLElement {
     this.classList.add('cdg-thumbnail-bar')
     if (this.imageList.length) {
       this.imageList.forEach((image, index) => {
+        const thumbWrapper = document.createElement('button')
+        thumbWrapper.classList.add('cdg-thumbnail-wrapper')
         const thumb = this.createThumbItem(image.src)
-        thumb.addEventListener('click', this.setActiveItem.bind(this, index))
+        thumbWrapper.appendChild(thumb)
+        thumbWrapper.addEventListener(
+          'click',
+          this.setActiveItem.bind(this, index),
+        )
 
-        this.thumbs.push(thumb)
-        this.appendChild(thumb)
+        this.thumbs.push(thumbWrapper)
+        this.appendChild(thumbWrapper)
       })
     }
 
     this.thumbs[this.currentIndex].classList.add('active')
+    this.thumbs[this.currentIndex].focus()
+
+    this.keyboardListener = this.handleKeyboard.bind(this)
+    window.addEventListener('keydown', this.keyboardListener)
   }
 
   createThumbItem(src) {
@@ -47,9 +59,33 @@ export class CdgThumbnailBar extends HTMLElement {
   }
 
   setActiveItem(index) {
+    if (index === this.currentIndex) {
+      return
+    }
     this.thumbs[this.currentIndex].classList.remove('active')
     this.currentIndex = index
+    this.thumbs[this.currentIndex].focus()
     this.thumbs[this.currentIndex].classList.add('active')
     this.dispatchEvent(new CustomEvent('activeItem', {detail: index}))
+  }
+
+  handleKeyboard(event) {
+    const length = this.imageList.length
+    switch (event.key) {
+      case 'ArrowRight':
+        this.setActiveItem((this.currentIndex + 1) % length)
+        break
+
+      case 'ArrowLeft':
+        this.setActiveItem((length + (this.currentIndex - 1)) % length)
+        break
+
+      default:
+        break
+    }
+  }
+
+  disconnectedCallback() {
+    window.removeEventListener('keydown', this.keyboardListener)
   }
 }
