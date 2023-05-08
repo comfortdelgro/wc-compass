@@ -88,11 +88,17 @@ export class CdgTableBody extends HTMLElement {
     if (this.options && this.options.columns) {
       const columns = this.options.columns
       columns.forEach((column) => {
-        const cell = this.createCell(rowData[column.fieldName])
-        if (column.align) {
-          cell.setAttribute('align', column.align)
+        if (typeof rowData[column.fieldName] === 'object') {
+          const childTable = document.createElement('cdg-table')
+          childTable.data = rowData[column.fieldName]
+          row.appendChild(childTable)
+        } else {
+          const cell = this.createCell(rowData[column.fieldName])
+          if (column.align) {
+            cell.setAttribute('align', column.align)
+          }
+          row.appendChild(cell)
         }
-        row.appendChild(cell)
       })
     } else {
       const item = this.data[0]
