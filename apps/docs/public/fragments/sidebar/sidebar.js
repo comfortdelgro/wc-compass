@@ -88,6 +88,7 @@ export class CdgDemoSidebar extends CdgBaseComponent {
       menuInner.addEventListener('click', () => {
         menu.classList.toggle('expanded')
       })
+      menu.classList.add('has-children')
       menu.appendChild(this.createSubMenuGroup(item))
     }
 

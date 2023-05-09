@@ -62,11 +62,6 @@
     right: 32px;
   }
 
-  cdg-page-header,
-  .cdg-page-header {
-    padding: 16px;
-  }
-
   .cdg-post-actions {
     flex-direction: column;
   }
@@ -165,11 +160,6 @@
 }
 
 @media screen and (max-width: 479px) {
-  cdg-page-header,
-  .cdg-page-header {
-    padding: 16px 12px;
-  }
-
   .cdg-promotion-title {
     font-size: 18px;
     line-height: 22px;
