@@ -177,7 +177,7 @@ pre code.hljs {
   flex: 1;
 }
 
-.cdg-page-header {
+.page-container > .cdg-page-header {
   padding: 20px;
 }
 
