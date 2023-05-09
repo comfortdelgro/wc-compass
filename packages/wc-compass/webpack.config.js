@@ -7,7 +7,7 @@ const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
   entry: {main: './src/index.js', docs: '../../apps/docs/public/demo.js'},
-  mode: 'development',
+  mode: devMode ? 'development' : 'production',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
@@ -21,9 +21,17 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
-        test: /\.(sa|sc|c)ss$/,
+        test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+        ],
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
           'sass-loader',

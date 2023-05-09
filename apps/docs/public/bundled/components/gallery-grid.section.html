@@ -1,0 +1,20 @@
+<cdg-sample-section name="Image grid">
+  <div class="sample-section column">
+    <cdg-gallery></cdg-gallery>
+  </div>
+  <pre>
+    <code class="language-html">&lt;cdg-gallery&gt;&lt;/cdg-gallery&gt;
+&lt;script&gt;
+    const gallery = document.querySelector(&apos;cdg-gallery&apos;)
+    gallery.images = [
+       {
+        alt: &apos;Image 1&apos;,
+        thumbnail: &apos;https://picsum.photos/id/43/250/175&apos;,
+        large: &apos;https://picsum.photos/id/43/2000/1400&apos;,
+      },
+      ...
+    ]
+&lt;/script&gt;
+</code>
+</pre>
+</cdg-sample-section>

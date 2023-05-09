@@ -1,0 +1,46 @@
+<cdg-sample-section name="Simple table with nested data">
+  <div class="sample-section column">
+    <cdg-table id="sampleSimpleTableNested"></cdg-table>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;cdg-table id=&quot;sampleSimpleTableNested&quot;&gt;&lt;/cdg-table&gt;
+  &lt;script&gt;
+      const table = this.querySelector(&amp;apos;#sampleSimpleTableNested&amp;apos;)
+      table.data = [
+        {
+          first: &amp;apos;Row 1&amp;apos;,
+          second: &amp;apos;Second column data&amp;apos;,
+          third: &amp;apos;Third column data with longer text than the others - row 1&amp;apos;,
+          fourth: [
+            {
+              child1: &amp;apos;Child Row 1&amp;apos;,
+              child2: &amp;apos;Child sample data generate&amp;apos;,
+              child3: &amp;apos;Child sample data generate&amp;apos;,
+            },
+            {
+              child1: &amp;apos;Child Row 2&amp;apos;,
+              child2: &amp;apos;Child sample data generate&amp;apos;,
+              child3: &amp;apos;Child sample data generate&amp;apos;,
+            },
+            {
+              child1: &amp;apos;Child Row 3&amp;apos;,
+              child2: &amp;apos;Child sample data generate&amp;apos;,
+              child3: &amp;apos;Child sample data generate&amp;apos;,
+            },
+          ],
+        },
+        {
+          first: &amp;apos;Row 2&amp;apos;,
+          second: &amp;apos;Second column&amp;apos;,
+          third: &amp;apos;Third column data with longer text than the others - row 2&amp;apos;,
+        },
+        {
+          first: &amp;apos;Row 3&amp;apos;,
+          second: &amp;apos;Second of row 3&amp;apos;,
+          third: &amp;apos;Third column data with longer text than the others - row 3&amp;apos;,
+        },
+      ]
+  &lt;/script&gt;</code>
+  </pre>
+</cdg-sample-section>
