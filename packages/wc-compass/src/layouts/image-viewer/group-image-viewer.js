@@ -21,12 +21,16 @@ export class CdgGroupImageViewer extends HTMLElement {
   controls
   imageList
 
+  keyboardListenerf
+  lastFocus
+
   constructor() {
     super()
   }
 
   connectedCallback() {
     this.classList.add('cdg-group-image-viewer')
+    this.lastFocus = document.activeElement
 
     this.controls = document.createElement('div')
     this.controls.classList.add('cdg-image-viewer-controls')
@@ -60,6 +64,9 @@ export class CdgGroupImageViewer extends HTMLElement {
         this.viewer.setImage(this.imageList[0].image)
       }
     }
+
+    this.keyboardListener = this.handleKeyboard.bind(this)
+    window.addEventListener('keydown', this.keyboardListener)
   }
 
   attachCloseButton() {
@@ -110,7 +117,7 @@ export class CdgGroupImageViewer extends HTMLElement {
     thumbnailBar.addEventListener('activeItem', (event) => {
       this.currentIndex = event.detail
       this.viewer.setImageUrl(
-        this.imageList[this.activeIndex].largeSrc,
+        this.imageList[this.activeIndex].src,
         this.imageList[this.activeIndex].image,
       )
     })
@@ -125,8 +132,27 @@ export class CdgGroupImageViewer extends HTMLElement {
   }
 
   close() {
+    if (this.lastFocus) {
+      this.lastFocus.focus()
+    }
+
     if (this && this.parentElement && this.parentElement.hasChildNodes(this)) {
       this.parentElement.removeChild(this)
     }
+  }
+
+  handleKeyboard(event) {
+    switch (event.key) {
+      case 'Escape':
+        this.handleClose()
+        break
+
+      default:
+        break
+    }
+  }
+
+  disconnectedCallback() {
+    window.removeEventListener('keydown', this.keyboardListener)
   }
 }

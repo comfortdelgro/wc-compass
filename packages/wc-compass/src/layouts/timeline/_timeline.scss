@@ -1,4 +1,3 @@
-cdg-timeline-card,
 .cdg-timeline-card {
   border: 1px solid var(--border-color);
   background-color: var(--background);
@@ -10,11 +9,21 @@ cdg-timeline-card,
   gap: 12px;
 }
 
-cdg-timeline-card-header,
 .cdg-timeline-card-header {
   display: flex;
   align-items: center;
   gap: 12px;
+  .cdg-avatar {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.cdg-timeline-title-group {
+  display: flex;
+  flex: 1;
+  gap: 12px;
+  align-items: center;
 }
 
 .cdg-timeline-card-name {
@@ -25,7 +34,6 @@ cdg-timeline-card-header,
   color: var(--grey70);
 }
 
-cdg-timeline-card-time,
 .cdg-timeline-card-time {
   color: var(--grey80);
   display: flex;
@@ -33,12 +41,10 @@ cdg-timeline-card-time,
   gap: 10px;
 }
 
-cdg-timeline-card-body,
 .cdg-timeline-card-body {
   font-weight: 600;
 }
 
-cdg-timeline-group,
 .cdg-timeline-group {
   display: flex;
   flex-direction: column;
@@ -56,7 +62,6 @@ cdg-timeline-group,
     background-color: var(--border-color);
   }
 
-  cdg-timeline-card,
   .cdg-timeline-card {
     margin-left: 50px;
   }
@@ -73,7 +78,6 @@ cdg-timeline-group,
   z-index: 1;
 }
 
-cdg-timeline-header,
 .cdg-timeline-header {
   display: flex;
   align-items: center;
@@ -81,13 +85,11 @@ cdg-timeline-header,
   font-weight: 700;
 }
 
-cdg-timeline,
 .cdg-timeline {
   display: flex;
   flex-direction: column;
   overflow: auto;
 
-  cdg-timeline-group,
   .cdg-timeline-group {
     padding-bottom: 20px;
 
@@ -97,14 +99,11 @@ cdg-timeline,
   }
 
   &[reverse] {
-    cdg-timeline-header,
     .cdg-timeline-header {
       flex-direction: row-reverse;
     }
 
-    cdg-timeline-group,
     .cdg-timeline-group {
-      cdg-timeline-card,
       .cdg-timeline-card {
         margin-left: 0;
         margin-right: 50px;
@@ -118,7 +117,6 @@ cdg-timeline,
   }
 
   &[zigzag] {
-    cdg-timeline-group,
     .cdg-timeline-group {
       margin-left: calc(50% - 12px);
       &:nth-child(2n + 1) {
@@ -128,11 +126,9 @@ cdg-timeline,
           left: auto;
           right: 12px;
         }
-        cdg-timeline-header,
         .cdg-timeline-header {
           flex-direction: row-reverse;
         }
-        cdg-timeline-card,
         .cdg-timeline-card {
           margin-left: 0;
           margin-right: 50px;
@@ -143,14 +139,12 @@ cdg-timeline,
 
   &[horizontal] {
     flex-direction: row;
-    cdg-timeline-header,
     .cdg-timeline-header {
       flex-direction: column-reverse;
       align-items: flex-start;
       gap: 8px;
     }
 
-    cdg-timeline-group,
     .cdg-timeline-group {
       padding-left: 40px;
       padding-bottom: 0;
@@ -168,18 +162,15 @@ cdg-timeline,
       }
     }
 
-    cdg-timeline-card,
     .cdg-timeline-card {
       margin-left: 0;
     }
 
     &[reverse] {
-      cdg-timeline-header,
       .cdg-timeline-header {
         flex-direction: column;
       }
 
-      cdg-timeline-group,
       .cdg-timeline-group {
         justify-content: flex-end;
         &::before {

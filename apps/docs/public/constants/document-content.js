@@ -60,6 +60,10 @@ export const DOCUMENT_CONTENT = [
         slug: 'forms',
       },
       {
+        name: 'Gallery',
+        slug: 'gallery',
+      },
+      {
         name: 'Gutter',
         slug: 'gutter',
       },
@@ -264,6 +268,10 @@ export const DOCUMENT_CONTENT = [
       {
         name: 'Wizards',
         slug: 'wizards',
+      },
+      {
+        name: 'SpeedDial',
+        slug: 'speedDial',
       },
     ],
   },

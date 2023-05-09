@@ -46,6 +46,7 @@ import {CdgTooltip} from './tooltip/tooltip'
 import {CdgVideoPlayer} from './video/video'
 import {CdgVideoControls} from './video/video-controls'
 import {CdgVolume} from './volume/volume'
+import {CdgSpeedDial} from './speed-dial/speed-dial'
 
 customElements.define('cdg-accordion', CdgAccordion)
 customElements.define('cdg-accordion-header', CdgAccordionHeader)
@@ -95,6 +96,7 @@ customElements.define('cdg-gutter', CdgGutter)
 customElements.define('cdg-select-color', CdgSelectColor)
 customElements.define('cdg-lazy-img', CdgLazyImage)
 customElements.define('cdg-page-indexes', CdgPageIndexes)
+customElements.define('cdg-speed-dial', CdgSpeedDial)
 
 export const CONTROL_COMPONENTS = [
   CdgAccordion,
@@ -137,4 +139,5 @@ export const CONTROL_COMPONENTS = [
   CdgSelectColor,
   CdgLazyImage,
   CdgPageIndexes,
+  CdgSpeedDial,
 ]

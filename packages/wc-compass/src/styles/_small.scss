@@ -124,6 +124,44 @@
   .cdg-nav-rail.auto-collapse[open][use-overlay]::before {
     background-color: var(--modal-overlay);
   }
+
+  .cdg-timeline-header {
+    gap: 12px;
+  }
+
+  .cdg-timeline-group .cdg-timeline-card {
+    margin-left: 38px;
+  }
+
+  .cdg-timeline[zigzag]
+    .cdg-timeline-group:nth-child(2n + 1)
+    .cdg-timeline-card,
+  .cdg-timeline[reverse] .cdg-timeline-group .cdg-timeline-card {
+    margin-left: 0;
+    margin-right: 38px;
+  }
+
+  .cdg-timeline-title-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .cdg-timeline-card-action {
+    font-size: var(--label2);
+    line-height: var(--line-height-label2);
+  }
+
+  .cdg-timeline-card {
+    padding: 12px;
+  }
+
+  .cdg-timeline-card-header {
+    .cdg-avatar {
+      width: 32px;
+      height: 32px;
+    }
+  }
 }
 
 @media screen and (max-width: 479px) {

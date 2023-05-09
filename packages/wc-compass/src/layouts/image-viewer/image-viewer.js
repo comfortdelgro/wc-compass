@@ -96,7 +96,11 @@ export class CdgImageViewer extends HTMLElement {
         this.handleEnlargeImageLoad()
       }
     } else {
-      this.useAnimation = true
+      if (this.src === this.thumbnail.getAttribute('src')) {
+        this.src = this.thumbnail.getAttribute('largeSrc')
+      } else {
+        this.useAnimation = true
+      }
     }
   }
 
