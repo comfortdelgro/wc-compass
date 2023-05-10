@@ -4,7 +4,7 @@ const TEMPLATE = `
 <button class="volume-range">
     <div class="volume"></div>
 </button>
-<button class="cdg-button icon ghost">
+<button is="cdg-button" class="icon ghost">
     <cdg-icon name="volumeLoud"></cdg-icon>
 </button>
 `;
