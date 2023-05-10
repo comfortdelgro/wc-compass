@@ -5,7 +5,7 @@
 
 <cdg-sample-section name="Default">
   <div class="sample-section">
-    <button class="cdg-button" onclick="showDefaultSidebar()">
+    <button is="cdg-button" onclick="showDefaultSidebar()">
       Show Sidebar
     </button>
     <template id="defaultSidebar">
@@ -23,8 +23,8 @@
           solution.
         </cdg-sidebar-body>
         <cdg-sidebar-actions>
-          <button class="cdg-button danger" id="cancelButton">Cancel</button>
-          <button class="cdg-button" id="okButton" autofocus>Approve</button>
+          <button is="cdg-button" class="danger" id="cancelButton">Cancel</button>
+          <button is="cdg-button" id="okButton" autofocus>Approve</button>
         </cdg-sidebar-actions>
       </cdg-sidebar>
     </template>
