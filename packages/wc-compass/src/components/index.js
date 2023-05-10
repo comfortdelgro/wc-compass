@@ -32,6 +32,7 @@ import {CdgPopover} from './popover/popover'
 import {CdgPopoverContent} from './popover/popover-content'
 import {CdgProgress} from './progress/progress'
 import {CdgQuantityToggle} from './quantity-toggle/quantity-toggle'
+import {CdgRadio} from './radio/radio'
 import {CdgRangeSlider} from './range-slider/range-slider'
 import {CdgRating} from './rating/rating'
 import {CdgRichTextEditor} from './rich-text-editor/rich-text-editor'
@@ -44,6 +45,7 @@ import {CdgTab} from './tab/tab'
 import {CdgTabs} from './tab/tabs'
 import {CdgTagBoxContainer} from './tag-box/tag-box'
 import {CdgTagBoxItem} from './tag-box/tag-box-item'
+import {CdgToggle} from './toggle/toggle'
 import {CdgTooltip} from './tooltip/tooltip'
 import {CdgVideoPlayer} from './video/video'
 import {CdgVideoControls} from './video/video-controls'
@@ -79,7 +81,9 @@ customElements.define('cdg-calendar', CdgCalendar)
 customElements.define('cdg-datepicker', CdgDatePicker)
 customElements.define('cdg-list-view', CdgListview)
 customElements.define('cdg-list-item', CdgListItem)
+customElements.define('cdg-toggle', CdgToggle, {extends: 'label'})
 customElements.define('cdg-tooltip', CdgTooltip)
+customElements.define('cdg-radio', CdgRadio, {extends: 'label'})
 customElements.define('cdg-range-slider', CdgRangeSlider)
 customElements.define('cdg-quantity-toggle', CdgQuantityToggle)
 customElements.define('cdg-service-card', CDGServiceCard)
@@ -124,8 +128,10 @@ export const CONTROL_COMPONENTS = [
   CdgProgress,
   CdgListview,
   CdgListItem,
+  CdgToggle,
   CdgTooltip,
   CdgDatePicker,
+  CdgRadio,
   CdgRangeSlider,
   CdgQuantityToggle,
   CDGServiceCard,

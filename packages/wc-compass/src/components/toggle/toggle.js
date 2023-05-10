@@ -1,4 +1,4 @@
-export class CdgCheckbox extends HTMLLabelElement {
+export class CdgToggle extends HTMLLabelElement {
   static get observedAttributes() {
     return ['disabled', 'indeterminate', 'checked']
   }
@@ -39,27 +39,27 @@ export class CdgCheckbox extends HTMLLabelElement {
     }
   }
 
-  checkbox
+  toggle
   constructor() {
     super()
-    this.checkbox = this.querySelector('input[type="checkbox"]')
+    this.toggle = this.querySelector('input[type="checkbox"]')
   }
 
   connectedCallback() {
-    this.classList.add('cdg-checkbox')
+    this.classList.add('cdg-toggle')
 
-    this.checkbox.addEventListener('change', () => {
-      this.checked = this.checkbox.checked
+    this.toggle.addEventListener('change', () => {
+      this.checked = this.toggle.checked
       this.indeterminate = false
     })
 
-    this.checkbox.checked = this.checked
-    this.checkbox.indeterminate = this.indeterminate
-    this.checkbox.disabled = this.disabled
+    this.toggle.checked = this.checked
+    this.toggle.indeterminate = this.indeterminate
+    this.toggle.disabled = this.disabled
   }
 
   attributeChangedCallback(attr) {
-    if (!this.checkbox) {
+    if (!this.toggle) {
       console.error(
         'This component should contain an input with checkbox type inside',
       )
@@ -67,15 +67,15 @@ export class CdgCheckbox extends HTMLLabelElement {
     }
     switch (attr) {
       case 'checked':
-        this.checkbox.checked = this.checked
+        this.toggle.checked = this.checked
         break
 
       case 'disabled':
-        this.checkbox.disabled = this.disabled
+        this.toggle.disabled = this.disabled
         break
 
       case 'indeterminate':
-        this.checkbox.indeterminate = this.indeterminate
+        this.toggle.indeterminate = this.indeterminate
         break
 
       default:

@@ -6,60 +6,52 @@
   transition: all 0.2s ease-in-out;
 }
 
-%bold {
-  font-weight: 700;
-}
-
-%semibold {
-  font-weight: 600;
-}
-
 %display1 {
   font-size: var(--display1);
   line-height: var(--line-height-display1);
-  @extend %bold;
+  font-weight: 700;
 }
 
 %display2 {
   font-size: var(--display2);
   line-height: var(--line-height-display2);
-  @extend %bold;
+  font-weight: 700;
 }
 
 %display3 {
   font-size: var(--display3);
   line-height: var(--line-height-display3);
-  @extend %bold;
+  font-weight: 700;
 }
 
 %heading1 {
   font-size: var(--heading1);
   line-height: var(--line-height-heading1);
-  @extend %semibold;
+  font-weight: 600;
 }
 
 %heading2 {
   font-size: var(--heading2);
   line-height: var(--line-height-heading2);
-  @extend %semibold;
+  font-weight: 600;
 }
 
 %heading3 {
   font-size: var(--heading3);
   line-height: var(--line-height-heading3);
-  @extend %semibold;
+  font-weight: 600;
 }
 
 %heading4 {
   font-size: var(--heading4);
   line-height: var(--line-height-heading4);
-  @extend %semibold;
+  font-weight: 600;
 }
 
 %heading5 {
   font-size: var(--heading5);
   line-height: var(--line-height-heading5);
-  @extend %semibold;
+  font-weight: 600;
 }
 
 %body1 {
