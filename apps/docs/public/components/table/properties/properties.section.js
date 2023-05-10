@@ -73,6 +73,12 @@ export class CdgTablePropertiesSection extends CdgTableComponentSection {
         default: '',
         description: 'callback function when user click on a single row.',
       },
+      {
+        name: '<code>options.onRowChange</code>',
+        type: '<code>void</code>',
+        default: '',
+        description: 'callback function after user changes data in a row.',
+      },
     ]
   }
 }

@@ -1,5 +1,6 @@
 import './table.html'
 
+import {CdgTableEditableSection} from './editable/editable.section'
 import {CdgTableEventsSection} from './events/events.section'
 import {CdgTableLayoutSection} from './layouts/layout.section'
 import {CdgTableSimpleSectionNested} from './nested-data/simple.section.nested'
@@ -15,6 +16,7 @@ customElements.define(
   CdgTableSimpleSectionNested,
 )
 customElements.define('cdg-table-layout-section', CdgTableLayoutSection)
+customElements.define('cdg-table-editable-section', CdgTableEditableSection)
 customElements.define('cdg-table-properties-section', CdgTablePropertiesSection)
 customElements.define('cdg-table-events-section', CdgTableEventsSection)
 customElements.define('cdg-table-demo', CdgTableDemo)
@@ -27,4 +29,5 @@ export {
   CdgTablePropertiesSection,
   CdgTableEventsSection,
   CdgTableDemo,
+  CdgTableEditableSection,
 }
