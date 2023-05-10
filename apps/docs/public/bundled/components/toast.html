@@ -21,7 +21,7 @@
 
 <cdg-sample-section name="Default">
   <div class="sample-section">
-    <button class="cdg-button" onclick="showToast()">Submit</button>
+    <button is="cdg-button" onclick="showToast()">Submit</button>
   </div>
 
   <pre>
@@ -39,7 +39,7 @@
 
 <cdg-sample-section name="Simple">
   <div class="sample-section">
-    <button class="cdg-button" onclick="showSimple()">Submit</button>
+    <button is="cdg-button" onclick="showSimple()">Submit</button>
     <template id="simpleToast">
       <cdg-toast>
         <cdg-toast-header>
@@ -48,7 +48,7 @@
           <cdg-toast-time>A few minutes ago</cdg-toast-time>
           <cdg-toast-top-actions>
             <button
-              class="cdg-button ghost icon"
+              is="cdg-button" class="ghost icon"
               id="toast-close-button"
               size="small"
             >
@@ -103,16 +103,16 @@
 
 <cdg-sample-section name="Undo link button">
   <div class="sample-section">
-    <button class="cdg-button danger" onclick="showUndo()">Delete</button>
+    <button is="cdg-button" class="danger" onclick="showUndo()">Delete</button>
     <template id="undoToast">
       <cdg-toast>
         <cdg-toast-header>
           <cdg-icon name="images"></cdg-icon>
           <cdg-toast-message>This is a toast</cdg-toast-message>
           <cdg-toast-top-actions>
-            <button class="cdg-button link" id="undo-button">Undo</button>
+            <button is="cdg-button" class="link" id="undo-button">Undo</button>
             <button
-              class="cdg-button ghost icon"
+              is="cdg-button" class="ghost icon"
               id="toast-close-button"
               size="small"
             >
@@ -145,7 +145,7 @@
 
 <cdg-sample-section name="With actions">
   <div class="sample-section">
-    <button class="cdg-button" onclick="showToastActions()">Submit</button>
+    <button is="cdg-button" onclick="showToastActions()">Submit</button>
     <template id="toastActions">
       <cdg-toast>
         <cdg-toast-header>
@@ -154,10 +154,10 @@
           <cdg-toast-time>A few minutes ago</cdg-toast-time>
         </cdg-toast-header>
         <cdg-toast-actions>
-          <button class="cdg-button" size="small" id="toast-close-button">
+          <button is="cdg-button" size="small" id="toast-close-button">
             Acknowledge
           </button>
-          <button class="cdg-button secondary" size="small" id="dismiss-button">
+          <button is="cdg-button" class="secondary" size="small" id="dismiss-button">
             Dismiss
           </button>
         </cdg-toast-actions>
@@ -187,7 +187,7 @@
 
 <cdg-sample-section name="With Header">
   <div class="sample-section">
-    <button class="cdg-button" onclick="showToastHeader()">Submit</button>
+    <button is="cdg-button" onclick="showToastHeader()">Submit</button>
     <template id="toastHeader">
       <cdg-toast>
         <cdg-toast-header>
@@ -199,7 +199,7 @@
           <cdg-toast-time>A few minutes ago</cdg-toast-time>
           <cdg-toast-top-actions>
             <button
-              class="cdg-button ghost icon"
+              is="cdg-button" class="ghost icon"
               id="toast-close-button"
               size="small"
             >
@@ -209,10 +209,10 @@
         </cdg-toast-header>
         <cdg-toast-message>This is a toast message</cdg-toast-message>
         <cdg-toast-actions>
-          <button class="cdg-button" size="small" id="toast-execute-button">
+          <button is="cdg-button" size="small" id="toast-execute-button">
             Acknowledge
           </button>
-          <button class="cdg-button secondary" size="small" id="dismiss-button">
+          <button is="cdg-button" class="secondary" size="small" id="dismiss-button">
             Dismiss
           </button>
         </cdg-toast-actions>
@@ -252,12 +252,12 @@
 
 <cdg-sample-section name="Quick toast">
   <div class="sample-section">
-    <button class="cdg-button" onclick="quickToast()">Quick Toast</button>
-    <button class="cdg-button" onclick="quickToastIcon()">
+    <button is="cdg-button" onclick="quickToast()">Quick Toast</button>
+    <button is="cdg-button" onclick="quickToastIcon()">
       Quick Toast + Icon
     </button>
     <button
-      class="cdg-button"
+      is="cdg-button"
       onclick="cdgToastService.toast('You can toast a toast with inline function!')"
     >
       Toast

@@ -5,6 +5,7 @@ import {CdgAlertBadge} from './alert-badge/alert-badge'
 import {CdgAlert} from './alert/alert'
 import {CdgAlertContent} from './alert/alert-content'
 import {CdgAvatar} from './avatar/avatar'
+import {CdgButton} from './button/button'
 import {CdgCalendar} from './calendar/calendar'
 import {CdgChart} from './chart/chart'
 import {CdgCheckbox} from './checkbox/checkbox'
@@ -58,6 +59,7 @@ customElements.define('cdg-alert', CdgAlert)
 customElements.define('cdg-alert-badge', CdgAlertBadge)
 customElements.define('cdg-alert-content', CdgAlertContent)
 customElements.define('cdg-avatar', CdgAvatar)
+customElements.define('cdg-button', CdgButton, {extends: 'button'})
 customElements.define('cdg-checkbox', CdgCheckbox, {extends: 'label'})
 customElements.define('cdg-icon', CdgIcon)
 customElements.define('cdg-inline-loading', CdgInlineLoading)
@@ -112,6 +114,7 @@ export const CONTROL_COMPONENTS = [
   CdgAlertContent,
   CdgAlertBadge,
   CdgAvatar,
+  CdgButton,
   CdgCheckbox,
   CdgIcon,
   CdgFile,

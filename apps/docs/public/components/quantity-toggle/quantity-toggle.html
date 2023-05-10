@@ -7,9 +7,9 @@
 <cdg-sample-section name="Default">
   <div class="sample-section">
     <cdg-quantity-toggle onchange="handleOnchange(event)">
-      <button class="cdg-button">-</button>
+      <button is="cdg-button">-</button>
       <input type="number" placeholder="Input quantity" value="0" />
-      <button class="cdg-button">+</button>
+      <button is="cdg-button">+</button>
     </cdg-quantity-toggle>
   </div>
 
@@ -36,9 +36,9 @@ function handleOnchange (event) {
   </style>
   <div class="sample-section">
     <cdg-quantity-toggle max="10" min="1" id="maxMinSample" class="sample-size">
-      <button class="cdg-button">-</button>
+      <button is="cdg-button">-</button>
       <input type="number" placeholder="Input quantity" value="0" />
-      <button class="cdg-button">+</button>
+      <button is="cdg-button">+</button>
     </cdg-quantity-toggle>
   </div>
 
@@ -68,9 +68,9 @@ function handleOnchange (event) {
     <label class="cdg-input-group">
       <span class="cdg-input-label">Quantity</span>
       <cdg-quantity-toggle max="10" min="1">
-        <button class="cdg-button">-</button>
+        <button is="cdg-button">-</button>
         <input type="number" placeholder="Input quantity" value="0" />
-        <button class="cdg-button">+</button>
+        <button is="cdg-button">+</button>
       </cdg-quantity-toggle>
       <span class="cdg-helper-message">
         Quantity number should in range from 1 to 10
@@ -98,9 +98,9 @@ function handleOnchange (event) {
     <label class="cdg-input-group">
       <span class="cdg-input-label">Quantity</span>
       <cdg-quantity-toggle max="10" min="1" disabled>
-        <button class="cdg-button">-</button>
+        <button is="cdg-button">-</button>
         <input type="number" placeholder="Input quantity" value="0" />
-        <button class="cdg-button">+</button>
+        <button is="cdg-button">+</button>
       </cdg-quantity-toggle>
       <span class="cdg-helper-message">
         Quantity number should in range from 1 to 10
@@ -136,9 +136,9 @@ function handleOnchange (event) {
         />
       </div>
       <cdg-quantity-toggle step="2" id="quantity-toggle-step">
-        <button class="cdg-button">-</button>
+        <button is="cdg-button">-</button>
         <input type="number" placeholder="Input quantity" value="0" />
-        <button class="cdg-button">+</button>
+        <button is="cdg-button">+</button>
       </cdg-quantity-toggle>
     </div>
   </div>

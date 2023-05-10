@@ -10,16 +10,16 @@ const CONTROLS_TEMPLATE = `
     <span class="total-time">00:00</span>
 </div>
 <div class="video-navigation">
-    <button class="cdg-button video-button icon backward" size="small">
+    <button is="cdg-button" class="video-button icon backward" size="small">
         <cdg-icon name="backward"></cdg-icon>
     </button>
-    <button class="cdg-button video-button icon play-pause">
+    <button is="cdg-button" class="video-button icon play-pause">
         <cdg-icon name="caretRight"></cdg-icon>
     </button>
-    <button class="cdg-button video-button icon forward" size="small">
+    <button is="cdg-button" class="video-button icon forward" size="small">
         <cdg-icon name="forward"></cdg-icon>
     </button>
-    <button class="cdg-button video-button icon setting" size="small">
+    <button is="cdg-button" class="video-button icon setting" size="small">
         <cdg-icon name="setting"></cdg-icon>
     </button>
 </div>

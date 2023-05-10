@@ -1,4 +1,4 @@
-const CLOSE_ICON = `<button class="cdg-button icon ghost close-button">
+const CLOSE_ICON = `<button is="cdg-button" class="icon ghost close-button">
   <cdg-icon name="close" size="16"></cdg-icon>
 </button>`
 
