@@ -220,6 +220,12 @@
   &.text-right {
     text-align: right;
   }
+  &.editable {
+    cursor: text;
+  }
+  // &.editable-template {
+  //   cursor: pointer;
+  // }
 }
 
 /* td */

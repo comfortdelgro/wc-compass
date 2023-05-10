@@ -56,8 +56,8 @@ export class CdgTableBody extends HTMLElement {
   }
 
   displayData() {
-    this.data.forEach((row) => {
-      this.appendChild(this.createRow(row))
+    this.data.forEach((row, index) => {
+      this.appendChild(this.createRow(row, index))
     })
   }
 
@@ -83,7 +83,7 @@ export class CdgTableBody extends HTMLElement {
     )
   }
 
-  createRow(rowData) {
+  createRow(rowData, rowIndex) {
     const row = document.createElement('cdg-table-row')
     if (this.options && this.options.columns) {
       const columns = this.options.columns
@@ -96,6 +96,24 @@ export class CdgTableBody extends HTMLElement {
           const cell = this.createCell(rowData[column.fieldName])
           if (column.align) {
             cell.setAttribute('align', column.align)
+          }
+          if (column.editable) {
+            cell.setAttribute('data-field', column.fieldName)
+            if (column.colummTemplate) {
+              cell.classList.add('editable-template')
+
+              // cell.addEventListener(
+              //   'click',
+              //   this.appendTemplateToCell.bind(this, column.colummTemplate),
+              // )
+            } else {
+              cell.setAttribute('editable', '')
+              cell.classList.add('editable')
+              cell.addEventListener(
+                'click',
+                this.handleEditableCellClick.bind(this, rowData, rowIndex),
+              )
+            }
           }
           row.appendChild(cell)
         }
@@ -149,5 +167,50 @@ export class CdgTableBody extends HTMLElement {
         ),
       }),
     )
+  }
+
+  handleEditableCellClick(rowData, rowIndex, event) {
+    const cell = event.target.closest('.editable')
+    if (cell) {
+      if (cell.querySelector('input') !== null) {
+        return
+      } else {
+        const input = document.createElement('input')
+        input.classList.add('cdg-input')
+        input.value = cell.textContent
+        input.addEventListener('blur', (event) => {
+          const row = cell.parentNode
+          const cells = Array.from(row.querySelectorAll('.editable'))
+          const newData = {...rowData}
+          cells.forEach((cell) => {
+            const key = cell.getAttribute('data-field')
+            newData[key] = input.value
+          })
+          cell.textContent = input.value
+          if (this.options.onRowChange) {
+            this.options.onRowChange(event, {
+              oldValue: rowData,
+              newValue: newData,
+              rowIndex,
+            })
+          }
+        })
+        cell.textContent = ''
+        cell.appendChild(input)
+        input.focus()
+      }
+    }
+  }
+
+  appendTemplateToCell(template, event) {
+    const cell = event.target.closest('.editable-template')
+    if (cell) {
+      if (cell.querySelector('template') !== null) {
+        return
+      } else {
+        cell.textContent = ''
+        cell.appendChild(template.content.cloneNode(true))
+      }
+    }
   }
 }
