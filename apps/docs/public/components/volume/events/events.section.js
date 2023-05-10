@@ -5,7 +5,7 @@ export class CdgVolumeEventsSection extends CdgBaseComponent {
     super()
     this.htmlContent = `<section class="guideline-section">
     <h3 class="sample-section-title">Events</h3>
-    <cdg-table id="eventsTable"></cdg-table>
+    <table id="eventsTable" is="cdg-table"></table>
   </section>
     `
   }

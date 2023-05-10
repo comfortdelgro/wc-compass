@@ -18,6 +18,12 @@
   &[checkable] {
     .cdg-table-cell.cdg-table-cell-checkbox {
       display: table-cell;
+      padding: 0;
+      width: 56px;
+      .cdg-table-checkbox-contaner {
+        display: flex;
+        justify-content: center;
+      }
     }
   }
 }
@@ -230,19 +236,6 @@
   vertical-align: inherit;
   font-size: var(--spacing-3_5);
   padding: var(--spacing-3_5) var(--spacing-3);
-}
-
-.cdg-table-cell-checkbox,
-.cdg-table-head-cell-checkbox {
-  width: 56px;
-  padding: 0;
-  .cdg-table-checkbox-contaner {
-    display: flex;
-    justify-content: center;
-    label.cdg-checkbox::before {
-      background-color: var(--background);
-    }
-  }
 }
 
 .cdg-table-footer {

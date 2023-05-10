@@ -1,4 +1,4 @@
-export class CdgTableCell extends HTMLElement {
+export class CdgTableCell extends HTMLTableCellElement {
   constructor() {
     super()
   }
