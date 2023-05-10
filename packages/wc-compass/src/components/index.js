@@ -45,6 +45,7 @@ import {CdgTab} from './tab/tab'
 import {CdgTabs} from './tab/tabs'
 import {CdgTagBoxContainer} from './tag-box/tag-box'
 import {CdgTagBoxItem} from './tag-box/tag-box-item'
+import {CdgToggle} from './toggle/toggle'
 import {CdgTooltip} from './tooltip/tooltip'
 import {CdgVideoPlayer} from './video/video'
 import {CdgVideoControls} from './video/video-controls'
@@ -80,6 +81,7 @@ customElements.define('cdg-calendar', CdgCalendar)
 customElements.define('cdg-datepicker', CdgDatePicker)
 customElements.define('cdg-list-view', CdgListview)
 customElements.define('cdg-list-item', CdgListItem)
+customElements.define('cdg-toggle', CdgToggle, {extends: 'label'})
 customElements.define('cdg-tooltip', CdgTooltip)
 customElements.define('cdg-radio', CdgRadio, {extends: 'label'})
 customElements.define('cdg-range-slider', CdgRangeSlider)
@@ -126,6 +128,7 @@ export const CONTROL_COMPONENTS = [
   CdgProgress,
   CdgListview,
   CdgListItem,
+  CdgToggle,
   CdgTooltip,
   CdgDatePicker,
   CdgRadio,
