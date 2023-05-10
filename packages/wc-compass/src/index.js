@@ -1,3 +1,4 @@
+import '@ungap/custom-elements'
 import {CONTROL_COMPONENTS} from './components'
 import {ICONS_IMAGES} from './components/icon/icon-resource'
 import {LAYOUT_COMPONENTS} from './layouts'

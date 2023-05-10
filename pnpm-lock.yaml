@@ -92,6 +92,7 @@ importers:
       '@tiptap/starter-kit': 2.0.0-beta.220
       '@types/react': ^17.0.39
       '@types/react-dom': ^17.0.11
+      '@ungap/custom-elements': ^1.2.0
       autoprefixer: ^10.4.14
       babel-loader: ^9.1.2
       chart.js: 2.9.4
@@ -123,20 +124,21 @@ importers:
       '@tiptap/extension-underline': 2.0.0-beta.220_7w7m52asdh3tod4ocz57yex63q
       '@tiptap/pm': 2.0.0-beta.220_7w7m52asdh3tod4ocz57yex63q
       '@tiptap/starter-kit': 2.0.0-beta.220_@tiptap+pm@2.0.0-beta.220
+      '@ungap/custom-elements': 1.2.0
       chart.js: 2.9.4
       dayjs: 1.11.7
     devDependencies:
       '@babel/core': 7.21.3
       '@types/react': 17.0.53
       '@types/react-dom': 17.0.19
-      autoprefixer: 10.4.14_postcss@8.4.21
+      autoprefixer: 10.4.14
       babel-loader: 9.1.2_h5x7dh6zbbyopr7jvxivhylqpa
       css-loader: 6.7.3_webpack@5.76.2
       eslint: 7.32.0
       file-loader: 6.2.0_webpack@5.76.2
       gh-pages: 5.0.0
       mini-css-extract-plugin: 2.7.3_webpack@5.76.2
-      postcss-loader: 7.0.2_6puvukfnwbwq425eep7g4z27be
+      postcss-loader: 7.0.2_webpack@5.76.2
       react: 18.2.0
       sass: 1.59.3
       sass-loader: 13.2.0_sass@1.59.3+webpack@5.76.2
@@ -1303,6 +1305,10 @@ packages:
       '@types/node': 17.0.45
     dev: true
 
+  /@ungap/custom-elements/1.2.0:
+    resolution: {integrity: sha512-zdSuu79stAwVUtzkQU9B5jhGh2LavtkeX4kxd2jtMJmZt7QqRJ1KJW5bukt/vUOaUs3z674GHd+nqYm0bu0Gyg==}
+    dev: false
+
   /@webassemblyjs/ast/1.11.1:
     resolution: {integrity: sha512-ukBh14qFLjxTQNTXocdyksN5QdM28S1CxHt2rdskFyL+xFV7VremuBLVbmCePj+URalXBENx/9Lm7lnhihtCSw==}
     dependencies:
@@ -1499,10 +1505,8 @@ packages:
       indent-string: 4.0.0
     dev: true
 
-  /ajv-formats/2.1.1_ajv@8.12.0:
+  /ajv-formats/2.1.1:
     resolution: {integrity: sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==}
-    peerDependencies:
-      ajv: ^8.0.0
     peerDependenciesMeta:
       ajv:
         optional: true
@@ -1676,22 +1680,6 @@ packages:
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
-      postcss-value-parser: 4.2.0
-    dev: true
-
-  /autoprefixer/10.4.14_postcss@8.4.21:
-    resolution: {integrity: sha512-FQzyfOsTlwVzjHxKEqRIAdJx9niO6VCBCoEwax/VLSoQF29ggECcPuBqUMZ+u8jCZOPSy8b8/8KnuFbp0SaFZQ==}
-    engines: {node: ^10 || ^12 || >=14}
-    hasBin: true
-    peerDependencies:
-      postcss: ^8.1.0
-    dependencies:
-      browserslist: 4.21.5
-      caniuse-lite: 1.0.30001466
-      fraction.js: 4.2.0
-      normalize-range: 0.1.2
-      picocolors: 1.0.0
-      postcss: 8.4.21
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -4249,20 +4237,6 @@ packages:
       find-up: 4.1.0
     dev: true
 
-  /postcss-loader/7.0.2_6puvukfnwbwq425eep7g4z27be:
-    resolution: {integrity: sha512-fUJzV/QH7NXUAqV8dWJ9Lg4aTkDCezpTS5HgJ2DvqznexTbSTxgi/dTECvTZ15BwKTtk8G/bqI/QTu2HPd3ZCg==}
-    engines: {node: '>= 14.15.0'}
-    peerDependencies:
-      postcss: ^7.0.0 || ^8.0.1
-      webpack: ^5.0.0
-    dependencies:
-      cosmiconfig: 7.1.0
-      klona: 2.0.6
-      postcss: 8.4.21
-      semver: 7.3.8
-      webpack: 5.76.2_webpack-cli@5.0.1
-    dev: true
-
   /postcss-loader/7.0.2_webpack@5.76.2:
     resolution: {integrity: sha512-fUJzV/QH7NXUAqV8dWJ9Lg4aTkDCezpTS5HgJ2DvqznexTbSTxgi/dTECvTZ15BwKTtk8G/bqI/QTu2HPd3ZCg==}
     engines: {node: '>= 14.15.0'}
@@ -4872,7 +4846,7 @@ packages:
     dependencies:
       '@types/json-schema': 7.0.11
       ajv: 8.12.0
-      ajv-formats: 2.1.1_ajv@8.12.0
+      ajv-formats: 2.1.1
       ajv-keywords: 5.1.0_ajv@8.12.0
     dev: true
 
