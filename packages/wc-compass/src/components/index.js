@@ -7,6 +7,7 @@ import {CdgAlertContent} from './alert/alert-content'
 import {CdgAvatar} from './avatar/avatar'
 import {CdgCalendar} from './calendar/calendar'
 import {CdgChart} from './chart/chart'
+import {CdgCheckbox} from './checkbox/checkbox'
 import {CdgContextMenu} from './context-menu/context-menu'
 import {CdgDatePicker} from './datepicker/datepicker'
 import {CdgDropdown} from './dropdown/dropdown'
@@ -31,22 +32,24 @@ import {CdgPopover} from './popover/popover'
 import {CdgPopoverContent} from './popover/popover-content'
 import {CdgProgress} from './progress/progress'
 import {CdgQuantityToggle} from './quantity-toggle/quantity-toggle'
+import {CdgRadio} from './radio/radio'
 import {CdgRangeSlider} from './range-slider/range-slider'
 import {CdgRating} from './rating/rating'
 import {CdgRichTextEditor} from './rich-text-editor/rich-text-editor'
 import {CdgRichTextEditorToolbar} from './rich-text-editor/rte-toolbar'
 import {CdgSelectColor} from './select-color/select-color'
 import {CDGServiceCard} from './service-card/service-card'
+import {CdgSpeedDial} from './speed-dial/speed-dial'
 import {CdgStatus} from './status/status'
 import {CdgTab} from './tab/tab'
 import {CdgTabs} from './tab/tabs'
 import {CdgTagBoxContainer} from './tag-box/tag-box'
 import {CdgTagBoxItem} from './tag-box/tag-box-item'
+import {CdgToggle} from './toggle/toggle'
 import {CdgTooltip} from './tooltip/tooltip'
 import {CdgVideoPlayer} from './video/video'
 import {CdgVideoControls} from './video/video-controls'
 import {CdgVolume} from './volume/volume'
-import {CdgSpeedDial} from './speed-dial/speed-dial'
 
 customElements.define('cdg-accordion', CdgAccordion)
 customElements.define('cdg-accordion-header', CdgAccordionHeader)
@@ -55,6 +58,7 @@ customElements.define('cdg-alert', CdgAlert)
 customElements.define('cdg-alert-badge', CdgAlertBadge)
 customElements.define('cdg-alert-content', CdgAlertContent)
 customElements.define('cdg-avatar', CdgAvatar)
+customElements.define('cdg-checkbox', CdgCheckbox, {extends: 'label'})
 customElements.define('cdg-icon', CdgIcon)
 customElements.define('cdg-inline-loading', CdgInlineLoading)
 customElements.define('cdg-file', CdgFile)
@@ -77,7 +81,9 @@ customElements.define('cdg-calendar', CdgCalendar)
 customElements.define('cdg-datepicker', CdgDatePicker)
 customElements.define('cdg-list-view', CdgListview)
 customElements.define('cdg-list-item', CdgListItem)
+customElements.define('cdg-toggle', CdgToggle, {extends: 'label'})
 customElements.define('cdg-tooltip', CdgTooltip)
+customElements.define('cdg-radio', CdgRadio, {extends: 'label'})
 customElements.define('cdg-range-slider', CdgRangeSlider)
 customElements.define('cdg-quantity-toggle', CdgQuantityToggle)
 customElements.define('cdg-service-card', CDGServiceCard)
@@ -106,6 +112,7 @@ export const CONTROL_COMPONENTS = [
   CdgAlertContent,
   CdgAlertBadge,
   CdgAvatar,
+  CdgCheckbox,
   CdgIcon,
   CdgFile,
   CdgFileUpload,
@@ -121,8 +128,10 @@ export const CONTROL_COMPONENTS = [
   CdgProgress,
   CdgListview,
   CdgListItem,
+  CdgToggle,
   CdgTooltip,
   CdgDatePicker,
+  CdgRadio,
   CdgRangeSlider,
   CdgQuantityToggle,
   CDGServiceCard,
