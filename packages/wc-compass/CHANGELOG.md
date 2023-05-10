@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.2.7
+
+### Patch Changes
+
+- ebe72de: Fix impact of refactoring button
+
 ## 0.2.6
 
 ### Patch Changes
