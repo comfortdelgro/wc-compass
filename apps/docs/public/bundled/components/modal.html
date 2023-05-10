@@ -5,7 +5,7 @@
 
 <cdg-sample-section name="Default">
   <div class="sample-section">
-    <button class="cdg-button" id="defaultModal">Show Modal</button>
+    <button is="cdg-button" id="defaultModal">Show Modal</button>
     <template for="defaultModal">
       <cdg-modal>
         <cdg-modal-header
@@ -22,8 +22,8 @@
         </cdg-modal-body>
         <cdg-modal-actions>
           <div class="cdg-separator"></div>
-          <button class="cdg-button secondary" id="cancelButton">Cancel</button>
-          <button class="cdg-button" id="okButton" autofocus>Approve</button>
+          <button is="cdg-button" class="secondary" id="cancelButton">Cancel</button>
+          <button is="cdg-button" id="okButton" autofocus>Approve</button>
         </cdg-modal-actions>
       </cdg-modal>
     </template>
@@ -92,7 +92,7 @@
   </label>
 
   <div class="sample-section">
-    <button class="cdg-button" id="largeModal">Show Large Modal</button>
+    <button is="cdg-button" id="largeModal">Show Large Modal</button>
     <template for="largeModal">
       <cdg-modal size="large">
         <cdg-modal-header
@@ -140,14 +140,14 @@
           </p>
         </cdg-modal-body>
         <cdg-modal-actions class="multiple">
-          <a href="http://google.com" target="_blank" class="cdg-button link">
+          <a href="http://google.com" target="_blank" is="cdg-button" class="link">
             Details
           </a>
           <div class="cdg-separator"></div>
-          <button class="cdg-button" id="largeOkButton" autofocus>
+          <button is="cdg-button" id="largeOkButton" autofocus>
             Approve
           </button>
-          <button class="cdg-button secondary" id="largeCancelButton">
+          <button is="cdg-button" class="secondary" id="largeCancelButton">
             Cancel
           </button>
         </cdg-modal-actions>
