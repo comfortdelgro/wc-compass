@@ -16,15 +16,15 @@
 <cdg-sample-section name="Default">
   <div class="sample-section">
     <div class="cdg-form-row row-wrap">
-      <label class="cdg-radio">
+      <label is="cdg-radio">
         <input type="radio" name="sample2" />
         <span>I'm the first one</span>
       </label>
-      <label class="cdg-radio">
-        <input type="radio" name="sample2" checked />
+      <label is="cdg-radio" checked>
+        <input type="radio" name="sample2" />
         <span>I'm second</span>
       </label>
-      <label class="cdg-radio">
+      <label is="cdg-radio">
         <input type="radio" name="sample2" />
         <span>I'm the last</span>
       </label>
@@ -50,16 +50,16 @@
 <cdg-sample-section name="Disabled">
   <div class="sample-section">
     <div class="cdg-form-row row-wrap">
-      <label class="cdg-radio">
-        <input type="radio" name="sample3" checked disabled />
+      <label is="cdg-radio" checked disabled>
+        <input type="radio" name="sample3" />
         <span>I'm the first one</span>
       </label>
-      <label class="cdg-radio">
-        <input type="radio" name="sample3" disabled />
+      <label is="cdg-radio" disabled>
+        <input type="radio" name="sample3" />
         <span>I'm two</span>
       </label>
-      <label class="cdg-radio">
-        <input type="radio" name="sample3" disabled />
+      <label is="cdg-radio" disabled>
+        <input type="radio" name="sample3" />
         <span>I'm the last</span>
       </label>
     </div>
@@ -84,8 +84,8 @@
 <cdg-sample-section name="Custom content">
   <div class="sample-section">
     <div class="cdg-form-row row-wrap">
-      <label class="cdg-radio custom-content">
-        <input type="radio" name="sample4" checked />
+      <label is="cdg-radio" class="custom-content" checked>
+        <input type="radio" name="sample4" />
         <div class="radio-content">
           <div class="radio-title">I'm the first one</div>
           <div class="radio-description">
@@ -93,7 +93,7 @@
           </div>
         </div>
       </label>
-      <label class="cdg-radio custom-content">
+      <label is="cdg-radio" class="custom-content">
         <input type="radio" name="sample4" />
         <div class="radio-content">
           <div class="radio-title">I'm the second</div>
@@ -103,7 +103,7 @@
           </div>
         </div>
       </label>
-      <label class="cdg-radio custom-content">
+      <label is="cdg-radio" class="custom-content">
         <input type="radio" name="sample4" />
         <div class="radio-content">
           <div class="radio-title">I'm the last one</div>
