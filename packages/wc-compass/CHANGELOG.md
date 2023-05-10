@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.2.5
+
+### Patch Changes
+
+- 3cda99c: Support Firefox
+
 ## 0.2.4
 
 ### Patch Changes
