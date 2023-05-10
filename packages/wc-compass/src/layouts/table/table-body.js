@@ -1,6 +1,6 @@
 import {TableSelectionEvent, TableSelectionRow} from './model'
 
-export class CdgTableBody extends HTMLElement {
+export class CdgTableBody extends HTMLTableSectionElement {
   get data() {
     return this.dataSource
   }
@@ -74,6 +74,11 @@ export class CdgTableBody extends HTMLElement {
         )
       }
       row.checkboxElement.checked = checked
+      if (checked) {
+        row.checkboxContainer.setAttribute('checked', '')
+      } else {
+        row.checkboxContainer.removeAttribute('checked')
+      }
     })
 
     this.dispatchEvent(
@@ -84,12 +89,12 @@ export class CdgTableBody extends HTMLElement {
   }
 
   createRow(rowData, rowIndex) {
-    const row = document.createElement('cdg-table-row')
+    const row = document.createElement('tr', {is: 'cdg-table-row'})
     if (this.options && this.options.columns) {
       const columns = this.options.columns
       columns.forEach((column) => {
         if (typeof rowData[column.fieldName] === 'object') {
-          const childTable = document.createElement('cdg-table')
+          const childTable = document.createElement('table', {is: 'cdg-table'})
           childTable.data = rowData[column.fieldName]
           row.appendChild(childTable)
         } else {
@@ -129,7 +134,7 @@ export class CdgTableBody extends HTMLElement {
   }
 
   createCell(data) {
-    const cell = document.createElement('cdg-table-cell')
+    const cell = document.createElement('td', {is: 'cdg-table-cell'})
     cell.innerHTML = data
 
     return cell

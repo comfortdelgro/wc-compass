@@ -1,7 +1,7 @@
 import {getClosestElement} from '../../shared/dom'
 import {TableSortEvent} from './model'
 
-export class CdgTableHead extends HTMLElement {
+export class CdgTableHead extends HTMLTableSectionElement {
   get options() {
     return this.configurations
   }
@@ -22,7 +22,7 @@ export class CdgTableHead extends HTMLElement {
   }
 
   attachColumns() {
-    const row = document.createElement('cdg-table-row')
+    const row = document.createElement('tr', {is: 'cdg-table-row'})
     row.classList.add('cdg-table-head-row')
     if (this.options && this.options.columns) {
       this.options.columns.forEach((column) => {
@@ -44,6 +44,7 @@ export class CdgTableHead extends HTMLElement {
     if (this.parentElement.classList.contains('cdg-table')) {
       this.parentElement.registerHeader(this)
     }
+    this.updateCheckboxElement()
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
@@ -54,7 +55,7 @@ export class CdgTableHead extends HTMLElement {
   }
 
   createHeaderCell(data) {
-    const cell = document.createElement('cdg-table-head-cell')
+    const cell = document.createElement('th', {is: 'cdg-table-head-cell'})
 
     if (data.width) {
       cell.setAttribute('width', data.width)
@@ -62,6 +63,14 @@ export class CdgTableHead extends HTMLElement {
 
     if (data.align) {
       cell.setAttribute('align', data.align)
+    }
+
+    if (data.colspan) {
+      cell.setAttribute('colspan', data.colspan)
+    }
+
+    if (data.rowspan) {
+      cell.setAttribute('rowspan', data.rowspan)
     }
 
     if (data.sortable) {
@@ -129,10 +138,13 @@ export class CdgTableHead extends HTMLElement {
   }
 
   updateCheckboxElement() {
-    if (!this.checkboxElement) {
-      this.checkboxElement = this.querySelector(
-        'input[type="checkbox"].cdg-cell-checkbox',
-      )
+    if (!this.labelCheckbox) {
+      this.labelCheckbox = this.querySelector('label[is="cdg-checkbox"]')
+      if (this.labelCheckbox) {
+        this.checkboxElement = this.labelCheckbox.querySelector(
+          'input[type="checkbox"]',
+        )
+      }
     }
   }
 
@@ -140,17 +152,25 @@ export class CdgTableHead extends HTMLElement {
     this.updateCheckboxElement()
     this.checkboxElement.indeterminate = false
     this.checkboxElement.checked = checked
+    this.labelCheckbox.removeAttribute('indeterminate')
+    this.labelCheckbox.setAttribute('checked', '')
   }
 
   handleRowCheck(detail) {
     this.updateCheckboxElement()
     if (detail.isCheckAll) {
+      this.labelCheckbox.removeAttribute('indeterminate')
+      this.labelCheckbox.setAttribute('checked', '')
       this.checkboxElement.indeterminate = false
       this.checkboxElement.checked = true
     } else if (detail.hasCheckedRow) {
+      this.labelCheckbox.setAttribute('indeterminate', '')
+      this.labelCheckbox.removeAttribute('checked')
       this.checkboxElement.checked = false
       this.checkboxElement.indeterminate = true
     } else {
+      this.labelCheckbox.removeAttribute('indeterminate')
+      this.labelCheckbox.removeAttribute('checked')
       this.checkboxElement.indeterminate = false
       this.checkboxElement.checked = false
     }
