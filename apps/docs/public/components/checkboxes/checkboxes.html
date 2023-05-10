@@ -59,39 +59,47 @@
   </div>
 
   <pre>
-    <code class="language-html">&lt;label class=&quot;cdg-checkbox&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; checked /&gt;
-&lt;/label&gt;
-&lt;label class=&quot;cdg-checkbox rounded&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; checked /&gt;
-&lt;/label&gt;
+    <code class="language-html">&lt;div class=&quot;cdg-form-row&quot;&gt;
+  &lt;label is=&quot;cdg-checkbox&quot; checked&gt;
+    &lt;input type=&quot;checkbox&quot; /&gt;
+  &lt;/label&gt;
+  &lt;label class=&quot;rounded&quot; is=&quot;cdg-checkbox&quot; checked&gt;
+    &lt;input type=&quot;checkbox&quot; /&gt;
+  &lt;/label&gt;
+&lt;/div&gt;
 
-&lt;label class=&quot;cdg-checkbox&quot;&gt;
+&lt;div class=&quot;cdg-form-row&quot;&gt;
+  &lt;label is=&quot;cdg-checkbox&quot;&gt;
     &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Check me!&lt;/span&gt;
-&lt;/label&gt;
-&lt;label class=&quot;cdg-checkbox rounded&quot;&gt;
+  &lt;/label&gt;
+  &lt;label class=&quot;rounded&quot; is=&quot;cdg-checkbox&quot;&gt;
     &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Check me!&lt;/span&gt;
-&lt;/label&gt;
+  &lt;/label&gt;
+&lt;/div&gt;
 
-&lt;label class=&quot;cdg-checkbox&quot;&gt;
+&lt;div class=&quot;cdg-form-row&quot;&gt;
+  &lt;label is=&quot;cdg-checkbox&quot;&gt;
     &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Required&lt;i class=&quot;required-mark&quot;&gt;*&lt;/i&gt;&lt;/span&gt;
-&lt;/label&gt;
-&lt;label class=&quot;cdg-checkbox rounded&quot;&gt;
+  &lt;/label&gt;
+  &lt;label class=&quot;rounded&quot; is=&quot;cdg-checkbox&quot;&gt;
     &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Required&lt;i class=&quot;required-mark&quot;&gt;*&lt;/i&gt;&lt;/span&gt;
-&lt;/label&gt;
+  &lt;/label&gt;
+&lt;/div&gt;
 
-&lt;label class=&quot;cdg-checkbox&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; id=&quot;indeterminate&quot; /&gt;
+&lt;div class=&quot;cdg-form-row&quot;&gt;
+  &lt;label is=&quot;cdg-checkbox&quot; indeterminate&gt;
+    &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Indeterminate&lt;/span&gt;
-&lt;/label&gt;
-&lt;label class=&quot;cdg-checkbox rounded&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; id=&quot;indeterminate&quot; /&gt;
+  &lt;/label&gt;
+  &lt;label class=&quot;rounded&quot; is=&quot;cdg-checkbox&quot; indeterminate&gt;
+    &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Indeterminate&lt;/span&gt;
-&lt;/label&gt;</code>
+  &lt;/label&gt;
+&lt;/div&gt;</code>
 </pre>
 </cdg-sample-section>
 
@@ -132,32 +140,38 @@
   </div>
 
   <pre>
-    <code class="language-html">&lt;label class=&quot;cdg-checkbox&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; disabled /&gt;
+    <code class="language-html">&lt;div class=&quot;cdg-form-row&quot;&gt;
+  &lt;label is=&quot;cdg-checkbox&quot; disabled&gt;
+    &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Disabled&lt;/span&gt;
-&lt;/label&gt;
-&lt;label class=&quot;cdg-checkbox rounded&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; disabled /&gt;
+  &lt;/label&gt;
+  &lt;label class=&quot;rounded&quot; is=&quot;cdg-checkbox&quot; disabled&gt;
+    &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Disabled&lt;/span&gt;
-&lt;/label&gt;
+  &lt;/label&gt;
+&lt;/div&gt;
 
-&lt;label class=&quot;cdg-checkbox&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; checked disabled /&gt;
+&lt;div class=&quot;cdg-form-row&quot;&gt;
+  &lt;label is=&quot;cdg-checkbox&quot; checked disabled&gt;
+    &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Disabled checked&lt;/span&gt;
-&lt;/label&gt;
-&lt;label class=&quot;cdg-checkbox rounded&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; checked disabled /&gt;
+  &lt;/label&gt;
+  &lt;label class=&quot;rounded&quot; is=&quot;cdg-checkbox&quot; checked disabled&gt;
+    &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Disabled checked&lt;/span&gt;
-&lt;/label&gt;
+  &lt;/label&gt;
+&lt;/div&gt;
 
-&lt;label class=&quot;cdg-checkbox&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; id=&quot;disabledIndeterminate&quot; disabled /&gt;
+&lt;div class=&quot;cdg-form-row&quot;&gt;
+  &lt;label is=&quot;cdg-checkbox&quot; indeterminate disabled&gt;
+    &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Disabled indeterminate&lt;/span&gt;
-&lt;/label&gt;
-&lt;label class=&quot;cdg-checkbox rounded&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; id=&quot;disabledIndeterminate&quot; disabled /&gt;
+  &lt;/label&gt;
+  &lt;label class=&quot;rounded&quot; is=&quot;cdg-checkbox&quot; indeterminate disabled&gt;
+    &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Disabled indeterminate&lt;/span&gt;
-&lt;/label&gt;</code>
+  &lt;/label&gt;
+&lt;/div&gt;</code>
 </pre>
 </cdg-sample-section>
 
