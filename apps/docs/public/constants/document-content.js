@@ -60,6 +60,10 @@ export const DOCUMENT_CONTENT = [
         slug: 'forms',
       },
       {
+        name: 'Gallery',
+        slug: 'gallery',
+      },
+      {
         name: 'Gutter',
         slug: 'gutter',
       },

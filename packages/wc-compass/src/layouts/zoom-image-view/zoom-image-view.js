@@ -23,10 +23,10 @@ function createModalTemplate(imgSrcs, multiple, activeIndex) {
   template.innerHTML = `
   <cdg-modal size="auto" class="cdg-zoom-image-view-modal">
     <cdg-modal-header useCloseButton="true">
-      <button class="cdg-button icon ghost" id="cdg-zoom-image-view-zoom-in">
+      <button is="cdg-button" class="icon ghost" id="cdg-zoom-image-view-zoom-in">
         <cdg-icon name="zoomPlus" size="14"></cdg-icon>
       </button>
-      <button class="cdg-button icon ghost" id="cdg-zoom-image-view-zoom-out">
+      <button is="cdg-button" class="icon ghost" id="cdg-zoom-image-view-zoom-out">
         <cdg-icon name="zoomMinus" size="14"></cdg-icon>
       </button>
     </cdg-modal-header>

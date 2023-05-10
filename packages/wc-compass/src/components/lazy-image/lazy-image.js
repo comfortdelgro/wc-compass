@@ -29,6 +29,13 @@ imageTemplate.innerHTML = `
       background-color: rgb(230, 230, 230);
       border-radius: 5px;
     }
+
+    img.in-grid {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      grid-area: 1 / 1 / 2 / 2;
+    }
   </style>
   <img src=""/>
 `
@@ -78,6 +85,10 @@ export class CdgLazyImage extends HTMLElement {
     return this.getAttribute('height')
   }
 
+  get isInGrid() {
+    return this.hasAttribute('in-grid')
+  }
+
   get fallbackSrc() {
     return this.getAttribute('fallbackSrc')
   }
@@ -85,6 +96,9 @@ export class CdgLazyImage extends HTMLElement {
   connectedCallback() {
     this.lazyLoadImage()
     this.classList.add('cdg-lazy-img')
+    if (this.isInGrid) {
+      this.image.classList.add('in-grid')
+    }
   }
 
   attributeChangedCallback(attr) {

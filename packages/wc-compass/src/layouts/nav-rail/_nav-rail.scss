@@ -160,7 +160,6 @@
 .cdg-nav-rail-header {
   display: flex;
   flex-direction: column;
-  gap: 36px;
   .workbench-logo {
     padding: 10px 0;
   }
@@ -224,7 +223,7 @@
     }
   }
 
-  &:has(.cdg-sub-nav-group-content) {
+  &.has-children {
     gap: 0;
     padding: 0;
     flex-direction: column;
@@ -241,7 +240,7 @@
     color: var(--accent);
     border-left: 3px solid var(--accent);
 
-    &:has(.cdg-sub-nav-group-content) {
+    &.has-children {
       border-left: none;
       .menu-inner {
         border-left: 3px solid var(--accent);

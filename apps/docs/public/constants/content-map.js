@@ -28,6 +28,7 @@ export const CONTENT_MAP = {
   file: 'cdg-file-demo',
   fileUpload: 'cdg-file-upload-demo',
   footer: 'cdg-footer-demo',
+  gallery: 'cdg-gallery-demo',
   gutter: 'cdg-gutter-demo',
   icon: 'cdg-icon-demo',
   imageViewer: 'cdg-image-viewer-demo',
@@ -76,5 +77,5 @@ export const CONTENT_MAP = {
   servicesMenu: 'cdg-services-menu-demo',
   newsAndBlogs: 'cdg-news-and-blogs-demo',
   services: 'cdg-services-demo',
-  speedDial:'cdg-speed-dial-demo',
+  speedDial: 'cdg-speed-dial-demo',
 }

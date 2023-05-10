@@ -3,7 +3,7 @@
 <cdg-sample-section name="Default dashboard">
   <div class="sample-section column">
     <div>
-      <button class="cdg-button" id="btnSelectTheme">Select Theme</button>
+      <button is="cdg-button" id="btnSelectTheme">Select Theme</button>
     </div>
     <template id="selectThemeModal">
       <cdg-modal class="cdg-selecting-theme">
@@ -27,17 +27,7 @@
                   src="./assets/images/selected-candidate.svg"
                   alt="svg-image"
                 />
-                <span class="cdg-radio">
-                  <input type="radio" checked name="theme" />
-                  <span>Option</span>
-                </span>
-              </label>
-              <label class="cdg-theme-option">
-                <img
-                  src="./assets/images/selected-candidate.svg"
-                  alt="svg-image"
-                />
-                <span class="cdg-radio">
+                <span is="cdg-radio" checked>
                   <input type="radio" name="theme" />
                   <span>Option</span>
                 </span>
@@ -47,7 +37,17 @@
                   src="./assets/images/selected-candidate.svg"
                   alt="svg-image"
                 />
-                <span class="cdg-radio">
+                <span is="cdg-radio">
+                  <input type="radio" name="theme" />
+                  <span>Option</span>
+                </span>
+              </label>
+              <label class="cdg-theme-option">
+                <img
+                  src="./assets/images/selected-candidate.svg"
+                  alt="svg-image"
+                />
+                <span is="cdg-radio">
                   <input type="radio" name="theme" />
                   <span>Option</span>
                 </span>
@@ -55,7 +55,7 @@
             </div>
           </div>
           <label class="cdg-checkbox-remember">
-            <span class="cdg-checkbox">
+            <span is="cdg-checkbox">
               <input type="checkbox" />
               <span class="checkbox-label">Don’t ask me again</span>
             </span>
@@ -63,7 +63,7 @@
         </cdg-modal-body>
         <cdg-modal-actions class="cdg-selecting-theme-footer">
           <div class="cdg-separator"></div>
-          <button class="cdg-button" id="startButton" autofocus>
+          <button is="cdg-button" id="startButton" autofocus>
             Get Started
           </button>
         </cdg-modal-actions>

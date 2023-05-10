@@ -7,6 +7,11 @@ cdg-carousel,
   // To let both of drag event and pointer event work
   touch-action: manipulation;
 
+  cdg-lazy-img,
+  img {
+    pointer-events: none;
+  }
+
   &[mobileMode] {
     .cdg-promotion-title {
       font-size: 18px;

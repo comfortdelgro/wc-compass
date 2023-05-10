@@ -78,9 +78,12 @@ export class CdgImageViewer extends HTMLElement {
 
   handleImageError() {
     if (this.isClosableMode() && this.useAnimation) {
-      if (this.src === this.thumbnail.getAttribute('src')) {
+      if (this.thumbnail && this.src === this.thumbnail.getAttribute('src')) {
         this.handleThumbnailLoad()
-      } else if (this.src === this.thumbnail.getAttribute('largeSrc')) {
+      } else if (
+        this.thumbnail &&
+        this.src === this.thumbnail.getAttribute('largeSrc')
+      ) {
         this.handleEnlargeImageLoad()
       }
     }
@@ -90,13 +93,17 @@ export class CdgImageViewer extends HTMLElement {
     this.updateImageSize()
     this.updateZoom()
     if (this.isClosableMode() && this.useAnimation) {
-      if (this.src === this.thumbnail.getAttribute('src')) {
+      if (this.thumbnail && this.src === this.thumbnail.getAttribute('src')) {
         this.handleThumbnailLoad()
       } else if (this.src === this.thumbnail.getAttribute('largeSrc')) {
         this.handleEnlargeImageLoad()
       }
     } else {
-      this.useAnimation = true
+      if (this.thumbnail && this.src === this.thumbnail.getAttribute('src')) {
+        this.src = this.thumbnail.getAttribute('largeSrc')
+      } else {
+        this.useAnimation = true
+      }
     }
   }
 

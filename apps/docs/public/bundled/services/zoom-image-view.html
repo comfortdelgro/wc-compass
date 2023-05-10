@@ -5,8 +5,6 @@
 
 <style>
   .sample-thumbnail {
-    width: 150px;
-    height: 150px;
     object-fit: cover;
     object-position: center;
   }
@@ -15,12 +13,25 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    width: 100%;
   }
 
   .sample-thumbnails-grid .sample-thumbnail {
-    aspect-ratio: 1 / 1;
-    width: 100%;
-    height: 100%;
+    background-color: var(--grey10);
+    display: grid;
+    overflow: hidden;
+    position: relative;
+    border: none;
+    padding: 0;
+    box-sizing: border-box;
+    appearance: none;
+  }
+
+  .sample-thumbnails-grid .sample-thumbnail::before {
+    content: '';
+    padding-bottom: 100%;
+    display: block;
+    grid-area: 1 / 1 / 2 / 2;
   }
 </style>
 
@@ -61,21 +72,25 @@ thumbnail.addEventListener(&apos;click&apos;, (event) =&gt; {
         class="sample-thumbnail"
         src="https://picsum.photos/id/43/250/175"
         largeSrc="https://picsum.photos/id/43/2000/1400"
+        in-grid
       ></cdg-lazy-img>
       <cdg-lazy-img
         class="sample-thumbnail"
         src="https://picsum.photos/id/44/250/175"
         largeSrc="https://picsum.photos/id/44/2000/1400"
+        in-grid
       ></cdg-lazy-img>
       <cdg-lazy-img
         class="sample-thumbnail"
         src="https://picsum.photos/id/45/250/175"
         largeSrc="https://picsum.photos/id/45/2000/1400"
+        in-grid
       ></cdg-lazy-img>
       <cdg-lazy-img
         class="sample-thumbnail"
         src="https://picsum.photos/id/46/250/175"
         largeSrc="https://picsum.photos/id/46/2000/1400"
+        in-grid
       ></cdg-lazy-img>
     </div>
   </div>

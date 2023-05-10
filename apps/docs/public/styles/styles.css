@@ -177,7 +177,7 @@ pre code.hljs {
   flex: 1;
 }
 
-.cdg-page-header {
+.page-container > .cdg-page-header {
   padding: 20px;
 }
 
@@ -276,6 +276,12 @@ pre code.hljs {
 .table-of-content h4 {
   padding: 16px;
   margin: 0;
+}
+
+cdg-home-demo {
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 979px) {

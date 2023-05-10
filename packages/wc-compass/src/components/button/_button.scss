@@ -1,4 +1,3 @@
-cdg-button,
 .cdg-button {
   display: inline-flex;
   align-items: center;
@@ -16,8 +15,11 @@ cdg-button,
   @extend %smoothTransition;
   @extend %body3;
 
-  &:has(.cdg-icon),
-  &:has(cdg-icon) {
+  &.has-icon {
+    justify-content: space-between;
+  }
+
+  &:has(.cdg-icon) {
     justify-content: space-between;
   }
 
@@ -36,14 +38,12 @@ cdg-button,
 
   &.icon {
     padding: 9px;
-    cdg-icon,
     .cdg-icon {
       width: 24px;
       height: 24px;
     }
   }
 
-  cdg-icon,
   .cdg-icon {
     width: 16px;
     height: 16px;
@@ -111,7 +111,6 @@ cdg-button,
       }
     }
 
-    cdg-icon,
     .cdg-icon {
       width: 24px;
       height: 24px;
@@ -128,14 +127,12 @@ cdg-button,
 
     &.icon {
       padding: 6px 7px;
-      cdg-icon,
       .cdg-icon {
         width: 16px;
         height: 16px;
       }
     }
 
-    cdg-icon,
     .cdg-icon {
       width: 14px;
       height: 14px;

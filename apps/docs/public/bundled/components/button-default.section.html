@@ -3,25 +3,28 @@
     <cdg-toolbar>
       <div class="cdg-left-group">
         <button
-          class="cdg-button"
+          is="cdg-button"
           onclick="cdgToastService.toast('Primary click')"
         >
           Primary
         </button>
         <button
-          class="cdg-button secondary"
+          is="cdg-button"
+          class="secondary"
           onclick="cdgToastService.toast('Secondary click')"
         >
           Secondary
         </button>
         <button
-          class="cdg-button danger"
+          is="cdg-button"
+          class="danger"
           onclick="cdgToastService.toast('Danger click')"
         >
           Danger
         </button>
         <button
-          class="cdg-button ghost"
+          is="cdg-button"
+          class="ghost"
           onclick="cdgToastService.toast('Ghost click')"
         >
           Ghost
@@ -31,35 +34,38 @@
 
     <cdg-toolbar>
       <div class="cdg-left-group">
-        <button class="cdg-button" disabled>Primary</button>
-        <button class="cdg-button secondary" disabled>Secondary</button>
-        <button class="cdg-button danger" disabled>Danger</button>
-        <button class="cdg-button ghost" disabled>Ghost</button>
+        <button is="cdg-button" disabled>Primary</button>
+        <button is="cdg-button" class="secondary" disabled>Secondary</button>
+        <button is="cdg-button" class="danger" disabled>Danger</button>
+        <button is="cdg-button" class="ghost" disabled>Ghost</button>
       </div>
     </cdg-toolbar>
 
     <cdg-toolbar>
       <div class="cdg-left-group">
         <button
-          class="cdg-button"
+          is="cdg-button"
           onclick="cdgToastService.toast('Primary click')"
         >
           <cdg-inline-loading></cdg-inline-loading>
         </button>
         <button
-          class="cdg-button secondary"
+          is="cdg-button"
+          class="secondary"
           onclick="cdgToastService.toast('Secondary click')"
         >
           <cdg-inline-loading></cdg-inline-loading>
         </button>
         <button
-          class="cdg-button danger"
+          is="cdg-button"
+          class="danger"
           onclick="cdgToastService.toast('Danger click')"
         >
           <cdg-inline-loading></cdg-inline-loading>
         </button>
         <button
-          class="cdg-button ghost"
+          is="cdg-button"
+          class="ghost"
           onclick="cdgToastService.toast('Ghost click')"
         >
           <cdg-inline-loading></cdg-inline-loading>
@@ -69,16 +75,16 @@
 
     <cdg-toolbar>
       <div class="cdg-left-group">
-        <button class="cdg-button" disabled>
+        <button is="cdg-button" disabled>
           <cdg-inline-loading></cdg-inline-loading>
         </button>
-        <button class="cdg-button secondary" disabled>
+        <button is="cdg-button" class="secondary" disabled>
           <cdg-inline-loading></cdg-inline-loading>
         </button>
-        <button class="cdg-button danger" disabled>
+        <button is="cdg-button" class="danger" disabled>
           <cdg-inline-loading></cdg-inline-loading>
         </button>
-        <button class="cdg-button ghost" disabled>
+        <button is="cdg-button" class="ghost" disabled>
           <cdg-inline-loading></cdg-inline-loading>
         </button>
       </div>
@@ -87,28 +93,31 @@
     <cdg-toolbar>
       <div class="cdg-left-group">
         <button
-          class="cdg-button"
+          is="cdg-button"
           onclick="cdgToastService.toast('Primary click')"
         >
           <cdg-icon name="callCenter"></cdg-icon>
           Primary
         </button>
         <button
-          class="cdg-button secondary"
+          is="cdg-button"
+          class="secondary"
           onclick="cdgToastService.toast('Secondary click')"
         >
           <cdg-icon name="callCenter"></cdg-icon>
           Secondary
         </button>
         <button
-          class="cdg-button danger"
+          is="cdg-button"
+          class="danger"
           onclick="cdgToastService.toast('Danger click')"
         >
           <cdg-icon name="callCenter"></cdg-icon>
           Danger
         </button>
         <button
-          class="cdg-button ghost"
+          is="cdg-button"
+          class="ghost"
           onclick="cdgToastService.toast('Ghost click')"
         >
           <cdg-icon name="callCenter"></cdg-icon>
@@ -119,19 +128,19 @@
 
     <cdg-toolbar>
       <div class="cdg-left-group">
-        <button class="cdg-button" disabled>
+        <button is="cdg-button" disabled>
           <cdg-icon name="callCenter"></cdg-icon>
           Primary
         </button>
-        <button class="cdg-button secondary" disabled>
+        <button is="cdg-button" class="secondary" disabled>
           <cdg-icon name="callCenter"></cdg-icon>
           Secondary
         </button>
-        <button class="cdg-button danger" disabled>
+        <button is="cdg-button" class="danger" disabled>
           <cdg-icon name="callCenter"></cdg-icon>
           Danger
         </button>
-        <button class="cdg-button ghost" disabled>
+        <button is="cdg-button" class="ghost" disabled>
           <cdg-icon name="callCenter"></cdg-icon>
           Ghost
         </button>
@@ -141,14 +150,15 @@
     <cdg-toolbar>
       <div class="cdg-left-group">
         <button
-          class="cdg-button"
+          is="cdg-button"
           onclick="cdgToastService.toast('Primary click')"
         >
           Primary
           <cdg-icon name="callCenter"></cdg-icon>
         </button>
         <button
-          class="cdg-button secondary"
+          is="cdg-button"
+          class="secondary"
           style="width: 200px"
           onclick="cdgToastService.toast('Secondary click')"
         >
@@ -156,14 +166,16 @@
           <cdg-icon name="arrowDown"></cdg-icon>
         </button>
         <button
-          class="cdg-button danger"
+          is="cdg-button"
+          class="danger"
           onclick="cdgToastService.toast('Danger click')"
         >
           Danger
           <cdg-icon name="callCenter"></cdg-icon>
         </button>
         <button
-          class="cdg-button ghost"
+          is="cdg-button"
+          class="ghost"
           onclick="cdgToastService.toast('Ghost click')"
         >
           Ghost
@@ -174,19 +186,19 @@
 
     <cdg-toolbar>
       <div class="cdg-left-group">
-        <button class="cdg-button" disabled>
+        <button is="cdg-button" disabled>
           Primary
           <cdg-icon name="callCenter"></cdg-icon>
         </button>
-        <button class="cdg-button secondary" disabled>
+        <button is="cdg-button" class="secondary" disabled>
           Secondary
           <cdg-icon name="callCenter"></cdg-icon>
         </button>
-        <button class="cdg-button danger" disabled>
+        <button is="cdg-button" class="danger" disabled>
           Danger
           <cdg-icon name="callCenter"></cdg-icon>
         </button>
-        <button class="cdg-button ghost" disabled>
+        <button is="cdg-button" class="ghost" disabled>
           Ghost
           <cdg-icon name="callCenter"></cdg-icon>
         </button>
@@ -196,7 +208,7 @@
     <cdg-toolbar>
       <div class="cdg-left-group">
         <button
-          class="cdg-button"
+          is="cdg-button"
           onclick="cdgToastService.toast('Primary click')"
         >
           <cdg-icon name="callCenter"></cdg-icon>
@@ -204,7 +216,8 @@
           <cdg-icon name="arrowDown"></cdg-icon>
         </button>
         <button
-          class="cdg-button secondary"
+          is="cdg-button"
+          class="secondary"
           style="width: 240px"
           onclick="cdgToastService.toast('Secondary click')"
         >
@@ -213,7 +226,8 @@
           <cdg-icon name="arrowDown"></cdg-icon>
         </button>
         <button
-          class="cdg-button danger"
+          is="cdg-button"
+          class="danger"
           onclick="cdgToastService.toast('Danger click')"
         >
           <cdg-icon name="callCenter"></cdg-icon>
@@ -221,7 +235,8 @@
           <cdg-icon name="arrowDown"></cdg-icon>
         </button>
         <button
-          class="cdg-button ghost"
+          is="cdg-button"
+          class="ghost"
           onclick="cdgToastService.toast('Ghost click')"
         >
           <cdg-icon name="callCenter"></cdg-icon>
@@ -233,22 +248,22 @@
 
     <cdg-toolbar>
       <div class="cdg-left-group">
-        <button class="cdg-button" disabled>
+        <button is="cdg-button" disabled>
           <cdg-icon name="callCenter"></cdg-icon>
           Primary
           <cdg-icon name="arrowDown"></cdg-icon>
         </button>
-        <button class="cdg-button secondary" disabled>
+        <button is="cdg-button" class="secondary" disabled>
           <cdg-icon name="callCenter"></cdg-icon>
           Secondary
           <cdg-icon name="arrowDown"></cdg-icon>
         </button>
-        <button class="cdg-button danger" disabled>
+        <button is="cdg-button" class="danger" disabled>
           <cdg-icon name="callCenter"></cdg-icon>
           Danger
           <cdg-icon name="arrowDown"></cdg-icon>
         </button>
-        <button class="cdg-button ghost" disabled>
+        <button is="cdg-button" class="ghost" disabled>
           <cdg-icon name="callCenter"></cdg-icon>
           Ghost
           <cdg-icon name="arrowDown"></cdg-icon>
@@ -259,31 +274,36 @@
     <cdg-toolbar>
       <div class="cdg-left-group">
         <button
-          class="cdg-button icon"
+          is="cdg-button"
+          class="icon"
           onclick="cdgToastService.toast('Primary click')"
         >
           <cdg-icon name="cloudUpload"></cdg-icon>
         </button>
         <button
-          class="cdg-button secondary icon"
+          is="cdg-button"
+          class="secondary icon"
           onclick="cdgToastService.toast('Secondary click')"
         >
           <cdg-icon name="cloudUpload"></cdg-icon>
         </button>
         <button
-          class="cdg-button danger icon"
+          is="cdg-button"
+          class="danger icon"
           onclick="cdgToastService.toast('Danger click')"
         >
           <cdg-icon name="cloudUpload"></cdg-icon>
         </button>
         <button
-          class="cdg-button ghost icon"
+          is="cdg-button"
+          class="ghost icon"
           onclick="cdgToastService.toast('Ghost click')"
         >
           <cdg-icon name="cloudUpload"></cdg-icon>
         </button>
         <button
-          class="cdg-button ghost icon"
+          is="cdg-button"
+          class="ghost icon"
           onclick="cdgToastService.toast('Ghost click')"
         >
           <cdg-inline-loading></cdg-inline-loading>
@@ -293,19 +313,19 @@
 
     <cdg-toolbar>
       <div class="cdg-left-group">
-        <button class="cdg-button icon" disabled>
+        <button is="cdg-button" class="icon" disabled>
           <cdg-icon name="cloudUpload"></cdg-icon>
         </button>
-        <button class="cdg-button secondary icon" disabled>
+        <button is="cdg-button" class="secondary icon" disabled>
           <cdg-icon name="cloudUpload"></cdg-icon>
         </button>
-        <button class="cdg-button danger icon" disabled>
+        <button is="cdg-button" class="danger icon" disabled>
           <cdg-icon name="cloudUpload"></cdg-icon>
         </button>
-        <button class="cdg-button ghost icon" disabled>
+        <button is="cdg-button" class="ghost icon" disabled>
           <cdg-icon name="cloudUpload"></cdg-icon>
         </button>
-        <button class="cdg-button ghost icon" disabled>
+        <button is="cdg-button" class="ghost icon" disabled>
           <cdg-inline-loading></cdg-inline-loading>
         </button>
       </div>
@@ -314,7 +334,7 @@
 
   <pre>
     <code class="language-html">&lt;button
-  class=&quot;cdg-button {'' | primary | danger | secondary | ghost}&quot;
+  is=&quot;cdg-button&quot; class=&quot;{'' | primary | danger | secondary | ghost}&quot;
   disabled
   onclick=&quot;alert(&apos;click&apos;)&quot;&gt;
   Button text

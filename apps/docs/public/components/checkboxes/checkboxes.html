@@ -16,156 +16,163 @@
 <cdg-sample-section name="Default">
   <div class="sample-section column">
     <div class="cdg-form-row">
-      <label class="cdg-checkbox">
-        <input type="checkbox" checked />
+      <label is="cdg-checkbox" checked>
+        <input type="checkbox" />
       </label>
-      <label class="cdg-checkbox rounded">
-        <input type="checkbox" checked />
+      <label class="rounded" is="cdg-checkbox" checked>
+        <input type="checkbox" />
       </label>
     </div>
 
     <div class="cdg-form-row">
-      <label class="cdg-checkbox">
+      <label is="cdg-checkbox">
         <input type="checkbox" />
         <span>Check me!</span>
       </label>
-      <label class="cdg-checkbox rounded">
+      <label class="rounded" is="cdg-checkbox">
         <input type="checkbox" />
         <span>Check me!</span>
       </label>
     </div>
 
     <div class="cdg-form-row">
-      <label class="cdg-checkbox">
+      <label is="cdg-checkbox">
         <input type="checkbox" />
         <span>Required<i class="required-mark">*</i></span>
       </label>
-      <label class="cdg-checkbox rounded">
+      <label class="rounded" is="cdg-checkbox">
         <input type="checkbox" />
         <span>Required<i class="required-mark">*</i></span>
       </label>
     </div>
 
     <div class="cdg-form-row">
-      <label class="cdg-checkbox">
-        <input type="checkbox" id="indeterminate" />
+      <label is="cdg-checkbox" indeterminate>
+        <input type="checkbox" />
         <span>Indeterminate</span>
       </label>
-      <label class="cdg-checkbox rounded">
-        <input type="checkbox" id="roundedIndeterminate" />
+      <label class="rounded" is="cdg-checkbox" indeterminate>
+        <input type="checkbox" />
         <span>Indeterminate</span>
       </label>
     </div>
   </div>
 
   <pre>
-    <code class="language-html">&lt;label class=&quot;cdg-checkbox&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; checked /&gt;
-&lt;/label&gt;
-&lt;label class=&quot;cdg-checkbox rounded&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; checked /&gt;
-&lt;/label&gt;
+    <code class="language-html">&lt;div class=&quot;cdg-form-row&quot;&gt;
+  &lt;label is=&quot;cdg-checkbox&quot; checked&gt;
+    &lt;input type=&quot;checkbox&quot; /&gt;
+  &lt;/label&gt;
+  &lt;label class=&quot;rounded&quot; is=&quot;cdg-checkbox&quot; checked&gt;
+    &lt;input type=&quot;checkbox&quot; /&gt;
+  &lt;/label&gt;
+&lt;/div&gt;
 
-&lt;label class=&quot;cdg-checkbox&quot;&gt;
+&lt;div class=&quot;cdg-form-row&quot;&gt;
+  &lt;label is=&quot;cdg-checkbox&quot;&gt;
     &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Check me!&lt;/span&gt;
-&lt;/label&gt;
-&lt;label class=&quot;cdg-checkbox rounded&quot;&gt;
+  &lt;/label&gt;
+  &lt;label class=&quot;rounded&quot; is=&quot;cdg-checkbox&quot;&gt;
     &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Check me!&lt;/span&gt;
-&lt;/label&gt;
+  &lt;/label&gt;
+&lt;/div&gt;
 
-&lt;label class=&quot;cdg-checkbox&quot;&gt;
+&lt;div class=&quot;cdg-form-row&quot;&gt;
+  &lt;label is=&quot;cdg-checkbox&quot;&gt;
     &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Required&lt;i class=&quot;required-mark&quot;&gt;*&lt;/i&gt;&lt;/span&gt;
-&lt;/label&gt;
-&lt;label class=&quot;cdg-checkbox rounded&quot;&gt;
+  &lt;/label&gt;
+  &lt;label class=&quot;rounded&quot; is=&quot;cdg-checkbox&quot;&gt;
     &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Required&lt;i class=&quot;required-mark&quot;&gt;*&lt;/i&gt;&lt;/span&gt;
-&lt;/label&gt;
+  &lt;/label&gt;
+&lt;/div&gt;
 
-&lt;label class=&quot;cdg-checkbox&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; id=&quot;indeterminate&quot; /&gt;
+&lt;div class=&quot;cdg-form-row&quot;&gt;
+  &lt;label is=&quot;cdg-checkbox&quot; indeterminate&gt;
+    &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Indeterminate&lt;/span&gt;
-&lt;/label&gt;
-&lt;label class=&quot;cdg-checkbox rounded&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; id=&quot;indeterminate&quot; /&gt;
+  &lt;/label&gt;
+  &lt;label class=&quot;rounded&quot; is=&quot;cdg-checkbox&quot; indeterminate&gt;
+    &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Indeterminate&lt;/span&gt;
-&lt;/label&gt;</code>
+  &lt;/label&gt;
+&lt;/div&gt;</code>
 </pre>
 </cdg-sample-section>
 
 <cdg-sample-section name="Disabled">
   <div class="sample-section column">
     <div class="cdg-form-row">
-      <label class="cdg-checkbox">
-        <input type="checkbox" disabled />
+      <label is="cdg-checkbox" disabled>
+        <input type="checkbox" />
         <span>Disabled</span>
       </label>
-      <label class="cdg-checkbox rounded">
-        <input type="checkbox" disabled />
+      <label class="rounded" is="cdg-checkbox" disabled>
+        <input type="checkbox" />
         <span>Disabled</span>
       </label>
     </div>
 
     <div class="cdg-form-row">
-      <label class="cdg-checkbox">
-        <input type="checkbox" checked disabled />
+      <label is="cdg-checkbox" checked disabled>
+        <input type="checkbox" />
         <span>Disabled checked</span>
       </label>
-      <label class="cdg-checkbox rounded">
-        <input type="checkbox" checked disabled />
+      <label class="rounded" is="cdg-checkbox" checked disabled>
+        <input type="checkbox" />
         <span>Disabled checked</span>
       </label>
     </div>
 
     <div class="cdg-form-row">
-      <label class="cdg-checkbox">
-        <input type="checkbox" id="disabledIndeterminate" disabled />
+      <label is="cdg-checkbox" indeterminate disabled>
+        <input type="checkbox" />
         <span>Disabled indeterminate</span>
       </label>
-      <label class="cdg-checkbox rounded">
-        <input type="checkbox" id="roundedDisabledIndeterminate" disabled />
+      <label class="rounded" is="cdg-checkbox" indeterminate disabled>
+        <input type="checkbox" />
         <span>Disabled indeterminate</span>
       </label>
     </div>
   </div>
 
   <pre>
-    <code class="language-html">&lt;label class=&quot;cdg-checkbox&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; disabled /&gt;
+    <code class="language-html">&lt;div class=&quot;cdg-form-row&quot;&gt;
+  &lt;label is=&quot;cdg-checkbox&quot; disabled&gt;
+    &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Disabled&lt;/span&gt;
-&lt;/label&gt;
-&lt;label class=&quot;cdg-checkbox rounded&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; disabled /&gt;
+  &lt;/label&gt;
+  &lt;label class=&quot;rounded&quot; is=&quot;cdg-checkbox&quot; disabled&gt;
+    &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Disabled&lt;/span&gt;
-&lt;/label&gt;
+  &lt;/label&gt;
+&lt;/div&gt;
 
-&lt;label class=&quot;cdg-checkbox&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; checked disabled /&gt;
+&lt;div class=&quot;cdg-form-row&quot;&gt;
+  &lt;label is=&quot;cdg-checkbox&quot; checked disabled&gt;
+    &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Disabled checked&lt;/span&gt;
-&lt;/label&gt;
-&lt;label class=&quot;cdg-checkbox rounded&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; checked disabled /&gt;
+  &lt;/label&gt;
+  &lt;label class=&quot;rounded&quot; is=&quot;cdg-checkbox&quot; checked disabled&gt;
+    &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Disabled checked&lt;/span&gt;
-&lt;/label&gt;
+  &lt;/label&gt;
+&lt;/div&gt;
 
-&lt;label class=&quot;cdg-checkbox&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; id=&quot;disabledIndeterminate&quot; disabled /&gt;
+&lt;div class=&quot;cdg-form-row&quot;&gt;
+  &lt;label is=&quot;cdg-checkbox&quot; indeterminate disabled&gt;
+    &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Disabled indeterminate&lt;/span&gt;
-&lt;/label&gt;
-&lt;label class=&quot;cdg-checkbox rounded&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; id=&quot;disabledIndeterminate&quot; disabled /&gt;
+  &lt;/label&gt;
+  &lt;label class=&quot;rounded&quot; is=&quot;cdg-checkbox&quot; indeterminate disabled&gt;
+    &lt;input type=&quot;checkbox&quot; /&gt;
     &lt;span&gt;Disabled indeterminate&lt;/span&gt;
-&lt;/label&gt;</code>
+  &lt;/label&gt;
+&lt;/div&gt;</code>
 </pre>
-
-  <script>
-    document.querySelector('#indeterminate').indeterminate = true
-    document.querySelector('#roundedIndeterminate').indeterminate = true
-    document.querySelector('#disabledIndeterminate').indeterminate = true
-    document.querySelector('#roundedDisabledIndeterminate').indeterminate = true
-  </script>
 </cdg-sample-section>
 
 <cdg-checkbox-styles-section></cdg-checkbox-styles-section>

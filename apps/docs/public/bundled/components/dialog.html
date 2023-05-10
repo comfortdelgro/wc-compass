@@ -5,8 +5,8 @@
 
 <cdg-sample-section name="Alert">
   <div class="sample-section">
-    <button class="cdg-button" onclick="showAlert()">Show Alert</button>
-    <button class="cdg-button" onclick="showAlertWithTitle()">
+    <button is="cdg-button" onclick="showAlert()">Show Alert</button>
+    <button is="cdg-button" onclick="showAlertWithTitle()">
       Show Alert With Title
     </button>
   </div>
@@ -40,13 +40,13 @@
     style="flex-direction: row; align-items: flex-start"
   >
     <button
-      class="cdg-button"
+      is="cdg-button"
       onclick="showStatusDialog('Successfully Completed', 'Lorem ipsum dolor sit amet, consectetur', 'success')"
     >
       Show Success
     </button>
     <button
-      class="cdg-button"
+      is="cdg-button"
       onclick="showStatusDialog('Sorry something went wrong', 'Lorem ipsum dolor sit amet, consectetur', 'error')"
     >
       Show Error
@@ -87,7 +87,7 @@
     class="sample-section"
     style="flex-direction: column; align-items: flex-start"
   >
-    <button class="cdg-button" onclick="showWarning()">Show Warning</button>
+    <button is="cdg-button" onclick="showWarning()">Show Warning</button>
   </div>
 
   <pre>
@@ -117,7 +117,7 @@
     class="sample-section"
     style="flex-direction: column; align-items: flex-start"
   >
-    <button class="cdg-button" onclick="showConfirm()">Show Confirm</button>
+    <button is="cdg-button" onclick="showConfirm()">Show Confirm</button>
   </div>
 
   <pre>
@@ -163,7 +163,7 @@
         </label>
       </div>
     </template>
-    <button class="cdg-button" onclick="showConfirmCustom()">
+    <button is="cdg-button" onclick="showConfirmCustom()">
       Show Confirm
     </button>
   </div>
@@ -219,7 +219,7 @@
       <div class="cdg-dialog-content">
         <div class="cdg-dialog-header">
           <h4 class="cdg-dialog-title">Help us to improve</h4>
-          <button class="cdg-button ghost icon" size="small">
+          <button is="cdg-button" class="ghost icon" size="small">
             <cdg-icon name="question" size="24"></cdg-icon>
           </button>
         </div>
@@ -233,7 +233,7 @@
         </div>
       </div>
     </template>
-    <button class="cdg-button" onclick="showRating()">Show Rating</button>
+    <button is="cdg-button" onclick="showRating()">Show Rating</button>
   </div>
 
   <pre>

@@ -18,12 +18,12 @@
     <div class="cdg-left-group">
       <a
         href="./components/website/contents/article.html"
-        class="cdg-button secondary"
+        is="cdg-button" class="secondary"
         target="_blank"
       >
         Open in new tab
       </a>
-      <div class="cdg-button" id="codeModal">&lt;/&gt;</div>
+      <div is="cdg-button" id="codeModal">&lt;/&gt;</div>
     </div>
   </cdg-toolbar>
   <template for="codeModal">
@@ -38,11 +38,11 @@
           </pre>
       </cdg-modal-body>
       <cdg-modal-actions class="multiple">
-        <a href="http://google.com" target="_blank" class="cdg-button link">
+        <a href="http://google.com" target="_blank" is="cdg-button" class="link">
           Details
         </a>
         <div class="cdg-separator"></div>
-        <button class="cdg-button" id="largeOkButton" autofocus>Done</button>
+        <button is="cdg-button" id="largeOkButton" autofocus>Done</button>
       </cdg-modal-actions>
     </cdg-modal>
   </template>
