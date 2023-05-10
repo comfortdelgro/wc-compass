@@ -18,8 +18,8 @@ export class CdgTableLayoutSection extends CdgBaseComponent {
   }
 
   onInit() {
-    this.tableElement = this.querySelector('cdg-table')
-    this.tableBody = this.tableElement.querySelector('cdg-table-body')
+    this.tableElement = this.querySelector('table[is="cdg-table"]')
+    this.tableBody = this.tableElement.querySelector('.cdg-table-body')
     this.paginationElement = this.querySelector('cdg-pagination')
     this.pageSizeDropdown = this.querySelector('#pageSizeDropdown')
     this.displayedRows = this.querySelector('#displayedRows')
@@ -52,12 +52,12 @@ export class CdgTableLayoutSection extends CdgBaseComponent {
   createRow(data) {
     const rowTemplate = document.createElement('template')
     rowTemplate.innerHTML = `
-            <cdg-table-row class="cdg-table-row" checkable>
-                <cdg-table-cell>${data.id}</cdg-table-cell>
-                <cdg-table-cell>${data.name}</cdg-table-cell>
-                <cdg-table-cell>${data.age}</cdg-table-cell>
-                <cdg-table-cell>${data.gender}</cdg-table-cell>
-            </cdg-table-row>
+            <tr is="cdg-table-row" checkable>
+                <td is="cdg-table-cell">${data.id}</td>
+                <td is="cdg-table-cell">${data.name}</td>
+                <td is="cdg-table-cell">${data.age}</td>
+                <td is="cdg-table-cell">${data.gender}</td>
+            </tr>
         `
     return rowTemplate
   }

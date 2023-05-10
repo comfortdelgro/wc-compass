@@ -5,7 +5,7 @@ export class CdgTableComponentSection extends CdgBaseComponent {
     super()
     this.htmlContent = `<section class="guideline-section" pageIndexItem="${title}">
     <h3 class="sample-section-title">${title}</h3>
-    <cdg-table id="dataTable"></cdg-table>
+    <table id="dataTable" is="cdg-table"></table>
   </section>
     `
   }

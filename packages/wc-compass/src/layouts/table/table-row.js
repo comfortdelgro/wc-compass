@@ -1,5 +1,13 @@
-export class CdgTableRow extends HTMLElement {
+const checkboxTemplate = document.createElement('template')
+checkboxTemplate.innerHTML = `
+<label is="cdg-checkbox">
+  <input type="checkbox" />
+</label>
+`
+
+export class CdgTableRow extends HTMLTableRowElement {
   checkboxElement
+  checkboxContainer
   index = -1
 
   constructor() {
@@ -25,29 +33,34 @@ export class CdgTableRow extends HTMLElement {
   }
 
   attachCheckbox() {
-    const checkboxCellElement = document.createElement('cdg-table-cell')
+    const checkboxCellElement = document.createElement('td', {
+      is: 'cdg-table-cell',
+    })
     checkboxCellElement.classList.add(
       'cdg-table-cell',
       'cdg-table-cell-checkbox',
     )
     const container = document.createElement('div')
     container.classList.add('cdg-table-checkbox-contaner')
-    const checkboxContainer = document.createElement('label')
-    checkboxContainer.classList.add('cdg-checkbox')
-    this.checkboxElement = document.createElement('input')
-    this.checkboxElement.setAttribute('type', 'checkbox')
-    this.checkboxElement.classList.add('cdg-cell-checkbox')
-    checkboxContainer.appendChild(this.checkboxElement)
+    container.appendChild(checkboxTemplate.content.cloneNode(true))
+    this.checkboxContainer = container.querySelector('label[is="cdg-checkbox"]')
+    this.checkboxElement = this.checkboxContainer.querySelector(
+      'input[type="checkbox"]',
+    )
     this.checkboxElement.addEventListener(
       'change',
       this.handleCheckboxChange.bind(this),
     )
-    container.appendChild(checkboxContainer)
     checkboxCellElement.appendChild(container)
     this.prepend(checkboxCellElement)
   }
 
   check(checked) {
+    if (checked) {
+      this.checkboxContainer.setAttribute('checked', '')
+    } else {
+      this.checkboxContainer.removeAttribute('checked')
+    }
     this.checkboxElement.checked = checked
   }
 
