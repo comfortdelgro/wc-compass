@@ -16,15 +16,15 @@
 <cdg-sample-section name="Default">
   <div class="sample-section">
     <div class="cdg-form-row row-wrap">
-      <label class="cdg-radio">
+      <label is="cdg-radio">
         <input type="radio" name="sample2" />
         <span>I'm the first one</span>
       </label>
-      <label class="cdg-radio">
-        <input type="radio" name="sample2" checked />
+      <label is="cdg-radio" checked>
+        <input type="radio" name="sample2" />
         <span>I'm second</span>
       </label>
-      <label class="cdg-radio">
+      <label is="cdg-radio">
         <input type="radio" name="sample2" />
         <span>I'm the last</span>
       </label>
@@ -32,60 +32,64 @@
   </div>
 
   <pre>
-    <code class="language-html">&lt;label class=&quot;cdg-radio&quot;&gt;
-  &lt;input type=&quot;radio&quot; name=&quot;sample2&quot; /&gt;
-  &lt;span&gt;I&apos;m the first one&lt;/span&gt;
-&lt;/label&gt;
-&lt;label class=&quot;cdg-radio&quot;&gt;
-  &lt;input type=&quot;radio&quot; name=&quot;sample2&quot; checked /&gt;
-  &lt;span&gt;I&apos;m second&lt;/span&gt;
-&lt;/label&gt;
-&lt;label class=&quot;cdg-radio&quot;&gt;
-  &lt;input type=&quot;radio&quot; name=&quot;sample2&quot; /&gt;
-  &lt;span&gt;I&apos;m the last&lt;/span&gt;
-&lt;/label&gt;</code>
+    <code class="language-html">&lt;div class=&quot;cdg-form-row row-wrap&quot;&gt;
+  &lt;label is=&quot;cdg-radio&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;sample2&quot; /&gt;
+    &lt;span&gt;I&apos;m the first one&lt;/span&gt;
+  &lt;/label&gt;
+  &lt;label is=&quot;cdg-radio&quot; checked&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;sample2&quot; /&gt;
+    &lt;span&gt;I&apos;m second&lt;/span&gt;
+  &lt;/label&gt;
+  &lt;label is=&quot;cdg-radio&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;sample2&quot; /&gt;
+    &lt;span&gt;I&apos;m the last&lt;/span&gt;
+  &lt;/label&gt;
+&lt;/div&gt;</code>
 </pre>
 </cdg-sample-section>
 
 <cdg-sample-section name="Disabled">
   <div class="sample-section">
     <div class="cdg-form-row row-wrap">
-      <label class="cdg-radio">
-        <input type="radio" name="sample3" checked disabled />
+      <label is="cdg-radio" checked disabled>
+        <input type="radio" name="sample3" />
         <span>I'm the first one</span>
       </label>
-      <label class="cdg-radio">
-        <input type="radio" name="sample3" disabled />
+      <label is="cdg-radio" disabled>
+        <input type="radio" name="sample3" />
         <span>I'm two</span>
       </label>
-      <label class="cdg-radio">
-        <input type="radio" name="sample3" disabled />
+      <label is="cdg-radio" disabled>
+        <input type="radio" name="sample3" />
         <span>I'm the last</span>
       </label>
     </div>
   </div>
 
   <pre>
-  <code class="language-html">&lt;label class=&quot;cdg-radio&quot;&gt;
-  &lt;input type=&quot;radio&quot; name=&quot;sample3&quot; checked disabled /&gt;
-  &lt;span&gt;I&apos;m the first one&lt;/span&gt;
-&lt;/label&gt;
-&lt;label class=&quot;cdg-radio&quot;&gt;
-  &lt;input type=&quot;radio&quot; name=&quot;sample3&quot; disabled /&gt;
-  &lt;span&gt;I&apos;m two&lt;/span&gt;
-&lt;/label&gt;
-&lt;label class=&quot;cdg-radio&quot;&gt;
-  &lt;input type=&quot;radio&quot; name=&quot;sample3&quot; disabled /&gt;
-  &lt;span&gt;I&apos;m the last&lt;/span&gt;
-&lt;/label&gt;</code>
+  <code class="language-html">&lt;div class=&quot;cdg-form-row row-wrap&quot;&gt;
+  &lt;label is=&quot;cdg-radio&quot; checked disabled&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;sample3&quot; /&gt;
+    &lt;span&gt;I&apos;m the first one&lt;/span&gt;
+  &lt;/label&gt;
+  &lt;label is=&quot;cdg-radio&quot; disabled&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;sample3&quot; /&gt;
+    &lt;span&gt;I&apos;m two&lt;/span&gt;
+  &lt;/label&gt;
+  &lt;label is=&quot;cdg-radio&quot; disabled&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;sample3&quot; /&gt;
+    &lt;span&gt;I&apos;m the last&lt;/span&gt;
+  &lt;/label&gt;
+&lt;/div&gt;</code>
 </pre>
 </cdg-sample-section>
 
 <cdg-sample-section name="Custom content">
   <div class="sample-section">
     <div class="cdg-form-row row-wrap">
-      <label class="cdg-radio custom-content">
-        <input type="radio" name="sample4" checked />
+      <label is="cdg-radio" class="custom-content" checked>
+        <input type="radio" name="sample4" />
         <div class="radio-content">
           <div class="radio-title">I'm the first one</div>
           <div class="radio-description">
@@ -93,7 +97,7 @@
           </div>
         </div>
       </label>
-      <label class="cdg-radio custom-content">
+      <label is="cdg-radio" class="custom-content">
         <input type="radio" name="sample4" />
         <div class="radio-content">
           <div class="radio-title">I'm the second</div>
@@ -103,7 +107,7 @@
           </div>
         </div>
       </label>
-      <label class="cdg-radio custom-content">
+      <label is="cdg-radio" class="custom-content">
         <input type="radio" name="sample4" />
         <div class="radio-content">
           <div class="radio-title">I'm the last one</div>
@@ -114,31 +118,33 @@
   </div>
 
   <pre>
-  <code class="language-html">&lt;label class=&quot;cdg-radio custom-content&quot;&gt;
-  &lt;input type=&quot;radio&quot; name=&quot;sample4&quot; checked /&gt;
-  &lt;div class=&quot;radio-content&quot;&gt;
-    &lt;div class=&quot;radio-title&quot;&gt;I&apos;m the first one&lt;/div&gt;
-    &lt;div class=&quot;radio-description&quot;&gt;
-      This is the description to give user more details about this option
+  <code class="language-html">&lt;div class=&quot;cdg-form-row row-wrap&quot;&gt;
+  &lt;label is=&quot;cdg-radio&quot; class=&quot;custom-content&quot; checked&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;sample4&quot; /&gt;
+    &lt;div class=&quot;radio-content&quot;&gt;
+      &lt;div class=&quot;radio-title&quot;&gt;I&apos;m the first one&lt;/div&gt;
+      &lt;div class=&quot;radio-description&quot;&gt;
+        This is the description to give user more details about this option
+      &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/label&gt;
-&lt;label class=&quot;cdg-radio custom-content&quot;&gt;
-  &lt;input type=&quot;radio&quot; name=&quot;sample4&quot; /&gt;
-  &lt;div class=&quot;radio-content&quot;&gt;
-    &lt;div class=&quot;radio-title&quot;&gt;I&apos;m the second&lt;/div&gt;
-    &lt;div class=&quot;radio-description&quot;&gt;
-      This is the description to give user more details about this option and
-      longer than the other radios of this demo
+  &lt;/label&gt;
+  &lt;label is=&quot;cdg-radio&quot; class=&quot;custom-content&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;sample4&quot; /&gt;
+    &lt;div class=&quot;radio-content&quot;&gt;
+      &lt;div class=&quot;radio-title&quot;&gt;I&apos;m the second&lt;/div&gt;
+      &lt;div class=&quot;radio-description&quot;&gt;
+        This is the description to give user more details about this option
+        and longer than the other radios of this demo
+      &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/label&gt;
-&lt;label class=&quot;cdg-radio custom-content&quot;&gt;
-  &lt;input type=&quot;radio&quot; name=&quot;sample4&quot; /&gt;
-  &lt;div class=&quot;radio-content&quot;&gt;
-    &lt;div class=&quot;radio-title&quot;&gt;I&apos;m the last one&lt;/div&gt;
-    &lt;div class=&quot;radio-description&quot;&gt;This is the description&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/label&gt;</code>
+  &lt;/label&gt;
+  &lt;label is=&quot;cdg-radio&quot; class=&quot;custom-content&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;sample4&quot; /&gt;
+    &lt;div class=&quot;radio-content&quot;&gt;
+      &lt;div class=&quot;radio-title&quot;&gt;I&apos;m the last one&lt;/div&gt;
+      &lt;div class=&quot;radio-description&quot;&gt;This is the description&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/label&gt;
+&lt;/div&gt;</code>
 </pre>
 </cdg-sample-section>
