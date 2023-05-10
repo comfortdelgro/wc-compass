@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.2.6
+
+### Patch Changes
+
+- 19b050d: Refactor button to support Firefox
+
 ## 0.2.5
 
 ### Patch Changes
