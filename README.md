@@ -30,13 +30,9 @@ pnpm install @comfortdelgro/wc-compass
 **Usage**
 
 ```js
-import {button} from '@comfortdelgro/wc-compass/shared/document-component'
-;<cdg-range-slider
-      id="sampleSlider"
-      min="0"
-      max="100"
-      value="50"
-    ></cdg-range-slider>
+
+Will be updated
+
 ```
 ## Development
 
@@ -93,11 +89,11 @@ If you have an idea, we would love to hear about it. The best way to suggest a f
 
 ## Supported Browsers
 
-- Microsoft Edge: last 2 versions
-- Mozilla Firefox: last 2 versions
-- Google Chrome: last 2 versions
-- Apple Safari: last 2 versions
-- Opera: last 2 versions
+- Microsoft Edge: last 3 versions
+- Mozilla Firefox: last 3 versions
+- Google Chrome: last 3 versions
+- Apple Safari: last 3 versions
+- Opera: last 3 versions
 
 ## Versioning
 

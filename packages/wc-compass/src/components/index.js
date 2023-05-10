@@ -7,6 +7,7 @@ import {CdgAlertContent} from './alert/alert-content'
 import {CdgAvatar} from './avatar/avatar'
 import {CdgCalendar} from './calendar/calendar'
 import {CdgChart} from './chart/chart'
+import {CdgCheckbox} from './checkbox/checkbox'
 import {CdgContextMenu} from './context-menu/context-menu'
 import {CdgDatePicker} from './datepicker/datepicker'
 import {CdgDropdown} from './dropdown/dropdown'
@@ -37,6 +38,7 @@ import {CdgRichTextEditor} from './rich-text-editor/rich-text-editor'
 import {CdgRichTextEditorToolbar} from './rich-text-editor/rte-toolbar'
 import {CdgSelectColor} from './select-color/select-color'
 import {CDGServiceCard} from './service-card/service-card'
+import {CdgSpeedDial} from './speed-dial/speed-dial'
 import {CdgStatus} from './status/status'
 import {CdgTab} from './tab/tab'
 import {CdgTabs} from './tab/tabs'
@@ -46,7 +48,6 @@ import {CdgTooltip} from './tooltip/tooltip'
 import {CdgVideoPlayer} from './video/video'
 import {CdgVideoControls} from './video/video-controls'
 import {CdgVolume} from './volume/volume'
-import {CdgSpeedDial} from './speed-dial/speed-dial'
 
 customElements.define('cdg-accordion', CdgAccordion)
 customElements.define('cdg-accordion-header', CdgAccordionHeader)
@@ -55,6 +56,7 @@ customElements.define('cdg-alert', CdgAlert)
 customElements.define('cdg-alert-badge', CdgAlertBadge)
 customElements.define('cdg-alert-content', CdgAlertContent)
 customElements.define('cdg-avatar', CdgAvatar)
+customElements.define('cdg-checkbox', CdgCheckbox, {extends: 'label'})
 customElements.define('cdg-icon', CdgIcon)
 customElements.define('cdg-inline-loading', CdgInlineLoading)
 customElements.define('cdg-file', CdgFile)
@@ -106,6 +108,7 @@ export const CONTROL_COMPONENTS = [
   CdgAlertContent,
   CdgAlertBadge,
   CdgAvatar,
+  CdgCheckbox,
   CdgIcon,
   CdgFile,
   CdgFileUpload,

@@ -278,6 +278,12 @@ pre code.hljs {
   margin: 0;
 }
 
+cdg-home-demo {
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
 @media screen and (max-width: 979px) {
   .table-of-content {
     display: none;
