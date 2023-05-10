@@ -34,6 +34,7 @@ pnpm install @comfortdelgro/wc-compass
 Will be updated
 
 ```
+
 ## Development
 
 To contribute to this library or modify it for your own purposes, you can clone this repository and install the required dependencies using NPM or Yarn:
@@ -43,12 +44,13 @@ git clone https://github.com/comfortdelgro/wc-compass.git
 cd wc-compass
 npm install
 ```
+
 or
 
 ```sh
 git clone https://github.com/comfortdelgro/wc-compass.git
 cd wc-compass
-pnpm install 
+pnpm install
 ```
 
 **Once you've installed the dependencies, you can start the development server and preview the components by running the following command:**
@@ -59,7 +61,7 @@ run with document phase
 git clone https://github.com/comfortdelgro/wc-compass.git
 cd wc-compass
 pnpm run build
-pnpm run dev 
+pnpm run dev
 ```
 
 with development phase
@@ -69,10 +71,12 @@ git clone https://github.com/comfortdelgro/wc-compass.git
 cd wc-compass
 cd packages
 cd wc-compass
-pnpm run build 
+pnpm run build
 pnpm run dev
 ```
+
 This will start a development server at http://localhost:8080/ and open a preview of the components in your browser. You can modify the components in the src directory and the preview will automatically update.
+
 ## Reporting a Bug
 
 If you spot a bug, inconsistency, or typo, please
@@ -80,6 +84,7 @@ If you spot a bug, inconsistency, or typo, please
 Better yet, submit a pull request to address it.
 
 ## Contributing
+
 If you'd like to contribute to this library, please submit a pull request with your changes. Please make sure to include tests and update the documentation as needed.
 
 ## Feature Requests
