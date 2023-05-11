@@ -1,6 +1,6 @@
 {
   "name": "@comfortdelgro/wc-compass",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "private": false,
   "license": "MIT",
   "main": "dist/main.min.js",

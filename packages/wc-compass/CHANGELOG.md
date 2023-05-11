@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.2.8
+
+### Patch Changes
+
+- 765a862: Fixing bugs and improve documentation
+
 ## 0.2.7
 
 ### Patch Changes
