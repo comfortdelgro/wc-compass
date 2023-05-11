@@ -36,11 +36,13 @@ export class CdgTableSimpleSectionNested extends CdgBaseComponent {
         first: 'Row 2',
         second: 'Second column',
         third: 'Third column data with longer text than the others - row 2',
+        fourth: ''
       },
       {
         first: 'Row 3',
         second: 'Second of row 3',
         third: 'Third column data with longer text than the others - row 3',
+        fourth: ''
       },
     ]
   }

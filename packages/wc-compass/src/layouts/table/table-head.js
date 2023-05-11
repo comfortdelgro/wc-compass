@@ -24,13 +24,30 @@ export class CdgTableHead extends HTMLTableSectionElement {
   attachColumns() {
     const row = document.createElement('tr', {is: 'cdg-table-row'})
     row.classList.add('cdg-table-head-row')
+    const subRow = document.createElement('tr', {is: 'cdg-table-row'})
+    subRow.classList.add('cdg-table-head-row')
     if (this.options && this.options.columns) {
-      this.options.columns.forEach((column) => {
-        const cell = this.createHeaderCell(column)
-        row.appendChild(cell)
-      })
+      this.renderHeadCell(this.options.columns, row, 0)
     }
-    this.appendChild(row)
+  }
+
+  renderHeadCell(columns, row, level) {
+    if (!this.contains(row)) {
+      this.appendChild(row)
+    }
+    columns.forEach((column) => {
+      const cell = this.createHeaderCell(column)
+      row.appendChild(cell)
+      if (column.children) {
+        const test = this.querySelectorAll('.cdg-table-head-row')
+        let newRow = test.item(level + 1)
+        if (!newRow) {
+          newRow = document.createElement('tr', {is: 'cdg-table-row'})
+          newRow.classList.add('cdg-table-head-row')
+        }
+        this.renderHeadCell(column.children, newRow, level + 1)
+      }
+    })
   }
 
   connectedCallback() {

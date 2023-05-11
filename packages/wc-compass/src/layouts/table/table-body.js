@@ -91,38 +91,7 @@ export class CdgTableBody extends HTMLTableSectionElement {
   createRow(rowData, rowIndex) {
     const row = document.createElement('tr', {is: 'cdg-table-row'})
     if (this.options && this.options.columns) {
-      const columns = this.options.columns
-      columns.forEach((column) => {
-        if (typeof rowData[column.fieldName] === 'object') {
-          const childTable = document.createElement('table', {is: 'cdg-table'})
-          childTable.data = rowData[column.fieldName]
-          row.appendChild(childTable)
-        } else {
-          const cell = this.createCell(rowData[column.fieldName])
-          if (column.align) {
-            cell.setAttribute('align', column.align)
-          }
-          if (column.editable) {
-            cell.setAttribute('data-field', column.fieldName)
-            if (column.colummTemplate) {
-              cell.classList.add('editable-template')
-
-              // cell.addEventListener(
-              //   'click',
-              //   this.appendTemplateToCell.bind(this, column.colummTemplate),
-              // )
-            } else {
-              cell.setAttribute('editable', '')
-              cell.classList.add('editable')
-              cell.addEventListener(
-                'click',
-                this.handleEditableCellClick.bind(this, rowData, rowIndex),
-              )
-            }
-          }
-          row.appendChild(cell)
-        }
-      })
+      this.renderColumns(rowData, this.options.columns, row, rowIndex)
     } else {
       const item = this.data[0]
       Object.keys(item).forEach((name) => {
@@ -133,9 +102,41 @@ export class CdgTableBody extends HTMLTableSectionElement {
     return row
   }
 
-  createCell(data) {
+  renderColumns(rowData, columns, row, rowIndex) {
+    columns.forEach((column) => {
+      if (column.children) {
+        this.renderColumns(rowData, column.children, row, rowIndex)
+      } else {
+        const cell = this.createCell(
+          rowData[column.fieldName],
+          rowData,
+          rowIndex,
+          column,
+        )
+        row.appendChild(cell)
+      }
+    })
+  }
+
+  createCell(data, rowData, rowIndex, column) {
     const cell = document.createElement('td', {is: 'cdg-table-cell'})
     cell.innerHTML = data
+    if (column.align) {
+      cell.setAttribute('align', column.align)
+    }
+    if (column.editable) {
+      cell.setAttribute('data-field', column.fieldName)
+      if (column.colummTemplate) {
+        cell.classList.add('editable-template')
+      } else {
+        cell.setAttribute('editable', '')
+        cell.classList.add('editable')
+        cell.addEventListener(
+          'click',
+          this.handleEditableCellClick.bind(this, rowData, rowIndex),
+        )
+      }
+    }
 
     return cell
   }
