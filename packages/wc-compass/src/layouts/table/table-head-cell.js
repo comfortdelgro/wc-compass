@@ -1,4 +1,4 @@
-export class CdgTableHeadCell extends HTMLElement {
+export class CdgTableHeadCell extends HTMLTableCellElement {
   get width() {
     return this.hasAttribute('width')
   }

@@ -52,11 +52,11 @@
       </div>
     </cdg-toolbar>
 
-    <cdg-table class="cdg-table" checkable>
-      <cdg-table-head class="cdg-table-head">
-        <cdg-table-row class="cdg-table-head-row">
-          <cdg-table-head-cell name="id" width="60px"> ID </cdg-table-head-cell>
-          <cdg-table-head-cell sortable name="name" width="150px">
+    <table is="cdg-table" checkable>
+      <thead is="cdg-table-head">
+        <tr is="cdg-table-row" class="cdg-table-head-row">
+          <th is="cdg-table-head-cell" name="id" width="60px">ID</th>
+          <th is="cdg-table-head-cell" sortable name="name" width="150px">
             <a href="#table" class="cdg-table-head-cell-content">
               <label class="cdg-table-head-cell-text has-sorting">Name</label>
               <div class="cdg-table-head-cell-sorting">
@@ -72,8 +72,8 @@
                 ></cdg-icon>
               </div>
             </a>
-          </cdg-table-head-cell>
-          <cdg-table-head-cell sortable name="age" width="100px">
+          </th>
+          <th is="cdg-table-head-cell" sortable name="age" width="100px">
             <a href="#table" class="cdg-table-head-cell-content">
               <label class="cdg-table-head-cell-text has-sorting">Age</label>
               <div class="cdg-table-head-cell-sorting">
@@ -89,14 +89,14 @@
                 ></cdg-icon>
               </div>
             </a>
-          </cdg-table-head-cell>
-          <cdg-table-head-cell name="gender" width="100px">
+          </th>
+          <th is="cdg-table-head-cell" name="gender" width="100px">
             <div class="cdg-table-head-cell-text">Gender</div>
-          </cdg-table-head-cell>
-        </cdg-table-row>
-      </cdg-table-head>
-      <cdg-table-body class="cdg-table-body"> </cdg-table-body>
-    </cdg-table>
+          </th>
+        </tr>
+      </thead>
+      <tbody is="cdg-table-body"></tbody>
+    </table>
 
     <div class="cdg-table-footer" cdg-table-footer>
       <div class="cdg-table-footer-left">

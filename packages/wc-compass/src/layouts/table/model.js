@@ -33,6 +33,7 @@ export class TableSortEvent {
 export class TableOptions {
   columns = []
   onRowClick
+  onRowChange
 }
 
 export class TableColumnOption {
@@ -42,4 +43,6 @@ export class TableColumnOption {
   fieldName = ''
   scrollable = false
   sortDirection = null
+  editable = false
+  colummTemplate = null
 }

@@ -1,6 +1,6 @@
 import {TableSelectionEvent} from './model'
 
-export class CdgTable extends HTMLElement {
+export class CdgTable extends HTMLTableElement {
   static get observedAttributes() {
     return ['checkable']
   }
@@ -101,7 +101,7 @@ export class CdgTable extends HTMLElement {
   }
 
   attachHeader() {
-    this.header = document.createElement('cdg-table-head')
+    this.header = document.createElement('thead', {is: 'cdg-table-head'})
 
     if (!this.options) {
       // Auto generate column title from object keys
@@ -130,7 +130,7 @@ export class CdgTable extends HTMLElement {
   }
 
   attachBody() {
-    this.body = document.createElement('cdg-table-body')
+    this.body = document.createElement('tbody', {is: 'cdg-table-body'})
     this.body.addEventListener('onRowCheck', this.handleRowCheck.bind(this))
     this.body.options = this.options
     this.body.data = this.data
