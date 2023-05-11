@@ -6,7 +6,7 @@ export class CdgModalHeaderPropertiesSection extends CdgBaseComponent {
     this.htmlContent = `<section class="guideline-section">
     <h3 class="sample-section-title">Props & Methods <code>cdg-modal-header</code></h3>
   
-    <cdg-table id="headerPropertiesTable"></cdg-table>
+    <table id="headerPropertiesTable" is="cdg-table"></table>
   </section>
     `
   }

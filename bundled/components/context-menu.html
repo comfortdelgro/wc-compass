@@ -143,45 +143,45 @@
 <cdg-sample-section name="Context menu for rows in table">
   <div class="sample-section">
     <cdg-context-menu name="table-menu">
-      <cdg-table class="cdg-table">
-        <cdg-table-head class="cdg-table-head">
-          <cdg-table-row class="cdg-table-head-row">
-            <cdg-table-head-cell name="id" width="100px">
+      <table is="cdg-table">
+        <thead is="cdg-table-head">
+          <tr is="cdg-table-row" class="cdg-table-head-row">
+            <th is="cdg-table-head-cell" name="id" width="100px">
               <div class="cdg-table-head-cell-text">ID</div>
-            </cdg-table-head-cell>
-            <cdg-table-head-cell name="name">
+            </th>
+            <th is="cdg-table-head-cell" name="name">
               <div class="cdg-table-head-cell-text text-center">Name</div>
-            </cdg-table-head-cell>
-            <cdg-table-head-cell name="age">
+            </th>
+            <th is="cdg-table-head-cell" name="age">
               <div class="cdg-table-head-cell-text text-right">Age</div>
-            </cdg-table-head-cell>
-            <cdg-table-head-cell name="gender">
+            </th>
+            <th is="cdg-table-head-cell" name="gender">
               <div class="cdg-table-head-cell-text">Gender</div>
-            </cdg-table-head-cell>
-          </cdg-table-row>
-        </cdg-table-head>
+            </th>
+          </tr>
+        </thead>
 
-        <cdg-table-body class="cdg-table-body">
-          <cdg-table-row class="cdg-table-row" contextMenuToggle>
-            <cdg-table-cell>1</cdg-table-cell>
-            <cdg-table-cell class="text-center">Name 1</cdg-table-cell>
-            <cdg-table-cell class="text-right">23</cdg-table-cell>
-            <cdg-table-cell>Male</cdg-table-cell>
-          </cdg-table-row>
-          <cdg-table-row class="cdg-table-row" contextMenuToggle>
-            <cdg-table-cell>11</cdg-table-cell>
-            <cdg-table-cell class="text-center">Name 11</cdg-table-cell>
-            <cdg-table-cell class="text-right">24</cdg-table-cell>
-            <cdg-table-cell>Male</cdg-table-cell>
-          </cdg-table-row>
-          <cdg-table-row class="cdg-table-row" contextMenuToggle>
-            <cdg-table-cell>12</cdg-table-cell>
-            <cdg-table-cell class="text-center">Name 12</cdg-table-cell>
-            <cdg-table-cell class="text-right">25</cdg-table-cell>
-            <cdg-table-cell>Female</cdg-table-cell>
-          </cdg-table-row>
-        </cdg-table-body>
-      </cdg-table>
+        <tbody is="cdg-table-body">
+          <tr is="cdg-table-row" contextMenuToggle>
+            <td is="cdg-table-cell">1</td>
+            <td is="cdg-table-cell" class="text-center">Name 1</td>
+            <td is="cdg-table-cell" class="text-right">23</td>
+            <td is="cdg-table-cell">Male</td>
+          </tr>
+          <tr is="cdg-table-row" contextMenuToggle>
+            <td is="cdg-table-cell">11</td>
+            <td is="cdg-table-cell" class="text-center">Name 11</td>
+            <td is="cdg-table-cell" class="text-right">24</td>
+            <td is="cdg-table-cell">Male</td>
+          </tr>
+          <tr is="cdg-table-row" contextMenuToggle>
+            <td is="cdg-table-cell">12</td>
+            <td is="cdg-table-cell" class="text-center">Name 12</td>
+            <td is="cdg-table-cell" class="text-right">25</td>
+            <td is="cdg-table-cell">Female</td>
+          </tr>
+        </tbody>
+      </table>
 
       <div contextMenuContent>
         <ul class="cdg-dropdown-menu" dropdownMenu>
