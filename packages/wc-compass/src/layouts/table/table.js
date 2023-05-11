@@ -10,7 +10,6 @@ export class CdgTable extends HTMLTableElement {
   }
 
   set data(data) {
-    console.log(data)
     this.source = data
     if (data) {
       this.displayData()
