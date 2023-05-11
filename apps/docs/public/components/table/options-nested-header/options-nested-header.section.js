@@ -127,17 +127,21 @@ export class CdgTableOptionsNestedHeaderSection extends CdgBaseComponent {
     this.table.data = [
       {
         id: 123,
-        name: 'Name',
+        name: {
+          firstName: {
+            firstName1: {
+              firstName11: 'First Name 11',
+              firstName12: 'First Name 12',
+            },
+            firstName2: 'First Name 2',
+          },
+          lastName: {
+            lastName1: 'Last name 1',
+            lastName2: 'Last name 2',
+          },
+        },
         age: 123,
         gender: 'Male',
-        firstName: 'First Name',
-        firstName1: 'First Name 1',
-        firstName11: 'First Name 11',
-        firstName12: 'First Name 12',
-        firstName2: 'First Name 2',
-        lastName: 'Last name',
-        lastName1: 'Last name 1',
-        lastName2: 'Last name 2',
       },
     ]
   }

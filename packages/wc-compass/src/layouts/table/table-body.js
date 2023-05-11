@@ -105,7 +105,7 @@ export class CdgTableBody extends HTMLTableSectionElement {
   renderColumns(rowData, columns, row, rowIndex) {
     columns.forEach((column) => {
       if (column.children) {
-        this.renderColumns(rowData, column.children, row, rowIndex)
+        this.renderColumns(rowData[column.fieldName], column.children, row, rowIndex)
       } else {
         const cell = this.createCell(
           rowData[column.fieldName],
