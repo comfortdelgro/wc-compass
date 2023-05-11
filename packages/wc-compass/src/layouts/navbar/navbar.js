@@ -1,17 +1,17 @@
 export class CdgNavbar extends HTMLElement {
-  container;
+  container
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-navbar');
-    this.container = document.createElement('div');
-    this.container.classList.add('cdg-navbar-inner');
-    this.container.innerHTML = this.innerHTML;
+    this.classList.add('cdg-navbar')
+    this.container = document.createElement('div')
+    this.container.classList.add('cdg-navbar-inner', 'cdg-container')
+    this.container.innerHTML = this.innerHTML
 
     // Clear all
-    this.textContent = '';
-    this.appendChild(this.container);
+    this.textContent = ''
+    this.appendChild(this.container)
   }
 }

@@ -29,5 +29,78 @@
 
 <h3 class="sample-section-title">Component</h3>
 <p>
-  You can import and extend our component to build a new customized component.
+  We don't expect you to customize our component. But in case you need to
+  quickly override our behaviors, you also can do that. And if your
+  customization will need to reuse every where don't hesitate to contact us to
+  make your customization as common behaviors or layouts <br />
+  To customize our components, you can import and extend our component to build
+  a new customized component.
 </p>
+
+<style>
+  .cdg-acordion.custom-accordion.open {
+    border-color: var(--accent);
+  }
+  .cdg-acordion.custom-accordion.open .cdg-acordion-header {
+    background-color: var(--accent);
+  }
+  .cdg-acordion.custom-accordion.open .cdg-acordion-header .header-text {
+    color: #fff;
+  }
+</style>
+
+<custom-accordion>
+  <cdg-accordion-header>Header</cdg-accordion-header>
+  <cdg-accordion-content>
+    <div class="sample-content">
+      This is the content of this accorition. <br />
+      This is the content of this accorition. <br />
+      This is the content of this accorition. <br />
+      This is the content of this accorition. <br />
+      This is the content of this accorition.
+    </div>
+  </cdg-accordion-content>
+</custom-accordion>
+
+<pre>
+  <code class="language-html">&lt;style&gt;
+  .cdg-acordion.custom-accordion.open {
+    border-color: var(--accent);
+  }
+  .cdg-acordion.custom-accordion.open .cdg-acordion-header {
+    background-color: var(--accent);
+  }
+  .cdg-acordion.custom-accordion.open .cdg-acordion-header .header-text {
+    color: #fff;
+  }
+&lt;/style&gt;
+
+&lt;custom-accordion&gt;
+  &lt;cdg-accordion-header&gt;Header&lt;/cdg-accordion-header&gt;
+  &lt;cdg-accordion-content&gt;
+    &lt;div class=&quot;sample-content&quot;&gt;
+      This is the content of this accorition. &lt;br /&gt;
+      This is the content of this accorition. &lt;br /&gt;
+      This is the content of this accorition. &lt;br /&gt;
+      This is the content of this accorition. &lt;br /&gt;
+      This is the content of this accorition.
+    &lt;/div&gt;
+  &lt;/cdg-accordion-content&gt;
+&lt;/custom-accordion&gt;
+&lt;script&gt;
+import {CdgAccordion} from &apos;@comfortdelgro/wc-compass/src/components/accordion/accordion&apos;
+
+class CustomAccordion extends CdgAccordion {
+  constructor() {
+    super()
+  }
+
+  connectedCallback() {
+    super.connectedCallback()
+    this.classList.add(&apos;custom-accordion&apos;)
+  }
+}
+
+customElements.define(&apos;custom-accordion&apos;, CustomAccordion)
+&lt;/script&gt;</code>
+</pre>

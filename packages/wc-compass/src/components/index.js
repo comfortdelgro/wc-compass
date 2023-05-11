@@ -1,6 +1,4 @@
-import {CdgAccordion} from './accordion/accordion'
-import {CdgAccordionContent} from './accordion/accordion-content'
-import {CdgAccordionHeader} from './accordion/accordion-header'
+export * from './accordion/index'
 import {CdgAlertBadge} from './alert-badge/alert-badge'
 import {CdgAlert} from './alert/alert'
 import {CdgAlertContent} from './alert/alert-content'
@@ -52,9 +50,6 @@ import {CdgVideoPlayer} from './video/video'
 import {CdgVideoControls} from './video/video-controls'
 import {CdgVolume} from './volume/volume'
 
-customElements.define('cdg-accordion', CdgAccordion)
-customElements.define('cdg-accordion-header', CdgAccordionHeader)
-customElements.define('cdg-accordion-content', CdgAccordionContent)
 customElements.define('cdg-alert', CdgAlert)
 customElements.define('cdg-alert-badge', CdgAlertBadge)
 customElements.define('cdg-alert-content', CdgAlertContent)
@@ -107,9 +102,6 @@ customElements.define('cdg-page-indexes', CdgPageIndexes)
 customElements.define('cdg-speed-dial', CdgSpeedDial)
 
 export const CONTROL_COMPONENTS = [
-  CdgAccordion,
-  CdgAccordionHeader,
-  CdgAccordionContent,
   CdgAlert,
   CdgAlertContent,
   CdgAlertBadge,

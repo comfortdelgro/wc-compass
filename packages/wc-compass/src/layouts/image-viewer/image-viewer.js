@@ -121,7 +121,6 @@ export class CdgImageViewer extends HTMLElement {
     if (!this.transformAnimationTimer) {
       this.removeClonedThumbnail()
     }
-    this.dispatchEvent(new CustomEvent('enlarged', {detail: true}))
   }
 
   handleThumbnailLoad() {
@@ -149,6 +148,8 @@ export class CdgImageViewer extends HTMLElement {
       if (!this.loading) {
         this.removeClonedThumbnail()
       }
+
+      this.dispatchEvent(new CustomEvent('enlarged', {detail: true}))
     }, ANIMATION_TIME)
   }
 
