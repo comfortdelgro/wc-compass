@@ -12,19 +12,30 @@
 
 <h3 class="sample-section-title">Layouts</h3>
 <p>
-  When we have all of the controls but where to put them on? How controls
+  When we have all of the controls but where to put them on? How our controls
   display on screen follow the UI design or how can we arrange them to complete
   the screen?<br />
   To define where to place the controls, we will need to have common layout
   components as well. However, most of client teams when they install and reuse
   our package, they will have to build their own new layouts system to follow
-  the design system. Which will makes inconsistency between our projects.
+  the design system. Which will makes inconsistency between our projects and
+  hard to maintain.
 </p>
 <p>
+  So that we need layouts components in our package. There are two different
+  types of layout. One is for portal page, the other one is for business page /
+  website. However, any layouts can contain any other layouts <br />
   Layouts are sidebar, header, section, container, group of controls like a
   input group.
 </p>
 
 <p style="display: flex; flex-direction: column; align-items: center">
   <img class="doc-sample-image" src="./assets/images/layouts.svg" />
+</p>
+
+<p>
+  Layouts need to be matched with our design system. Any controls inside them
+  will automatically follow the sizing, spacing between them. For example: When
+  we put image cover into card, it will automatically located on top with
+  rounded corners.
 </p>

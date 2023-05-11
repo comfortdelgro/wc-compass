@@ -1,9 +1,9 @@
 export class CdgAccordionContent extends HTMLElement {
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-acordion-content');
+    this.classList.add('cdg-acordion-content')
   }
 }
