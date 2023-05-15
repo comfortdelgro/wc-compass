@@ -12,7 +12,7 @@ cdg-navbar,
   }
 }
 
-.cdg-navbar-inner {
+.cdg-navbar .cdg-container {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -42,7 +42,7 @@ cdg-navbar,
 }
 
 @container TopNavBar (max-width: 428px) {
-  .cdg-navbar .cdg-navbar-inner {
+  .cdg-navbar .cdg-container.cdg-navbar-inner {
     padding: 16px;
   }
 
