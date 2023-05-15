@@ -168,6 +168,12 @@
     gap: 16px;
   }
 
+  .cdg-carousel {
+    &[cards] .cdg-carousel-scroller .cdg-has-float-content .cdg-card-header {
+      padding: 0 12px;
+    }
+  }
+
   .cdg-card {
     .cdg-card-body {
       font-size: var(--body3);
@@ -175,6 +181,9 @@
     }
 
     &.cdg-has-float-content {
+      .cdg-card-time {
+        padding: 0 12px;
+      }
       .cdg-card-header .cdg-card-title {
         font-size: var(--heading4);
         line-height: var(--line-height-heading4);
@@ -182,6 +191,14 @@
       .cdg-card-float-content {
         padding: 12px 0;
       }
+      .cdg-card-body {
+        height: 42px;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex: none;
+      }
+
       .cdg-card-actions,
       .cdg-card-body {
         padding: 0 12px;
