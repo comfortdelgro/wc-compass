@@ -127,7 +127,8 @@
     </div>
   </div>
   <pre>
-    <code class="language-html">&lt;cdg-toolbar&gt;
+    <code class="language-html">
+  &lt;cdg-toolbar class=&quot;cdg-sample-table-layout-toolbar&quot;&gt;
   &lt;div class=&quot;cdg-left-group&quot;&gt;
     &lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 160px&quot;&gt;
       &lt;cdg-dropdown placeholder=&quot;Sample select&quot;&gt;
@@ -150,23 +151,23 @@
     &lt;/label&gt;
   &lt;/div&gt;
   &lt;div class=&quot;cdg-right-group&quot;&gt;
-    &lt;button class=&quot;cdg-button&quot;&gt;
+    &lt;button is=&quot;cdg-button&quot;&gt;
       &lt;cdg-icon name=&quot;plus&quot;&gt;&lt;/cdg-icon&gt; Add employee
     &lt;/button&gt;
-    &lt;button class=&quot;cdg-button ghost&quot;&gt;
+    &lt;button is=&quot;cdg-button&quot; class=&quot;ghost&quot;&gt;
       &lt;cdg-icon name=&quot;outlineTrash&quot;&gt;&lt;/cdg-icon&gt;
     &lt;/button&gt;
-    &lt;button class=&quot;cdg-button ghost&quot;&gt;
+    &lt;button is=&quot;cdg-button&quot; class=&quot;ghost&quot;&gt;
       &lt;cdg-icon name=&quot;copy&quot;&gt;&lt;/cdg-icon&gt;
     &lt;/button&gt;
   &lt;/div&gt;
 &lt;/cdg-toolbar&gt;
 
-&lt;cdg-table class=&quot;cdg-table&quot; checkable&gt;
-  &lt;cdg-table-head class=&quot;cdg-table-head&quot;&gt;
-    &lt;cdg-table-row class=&quot;cdg-table-head-row&quot;&gt;
-      &lt;cdg-table-head-cell name=&quot;id&quot; width=&quot;60px&quot;&gt; ID &lt;/cdg-table-head-cell&gt;
-      &lt;cdg-table-head-cell sortable name=&quot;name&quot;&gt;
+&lt;table is=&quot;cdg-table&quot; checkable&gt;
+  &lt;thead is=&quot;cdg-table-head&quot;&gt;
+    &lt;tr is=&quot;cdg-table-row&quot; class=&quot;cdg-table-head-row&quot;&gt;
+      &lt;th is=&quot;cdg-table-head-cell&quot; name=&quot;id&quot; width=&quot;60px&quot;&gt;ID&lt;/th&gt;
+      &lt;th is=&quot;cdg-table-head-cell&quot; sortable name=&quot;name&quot; width=&quot;150px&quot;&gt;
         &lt;a href=&quot;#table&quot; class=&quot;cdg-table-head-cell-content&quot;&gt;
           &lt;label class=&quot;cdg-table-head-cell-text has-sorting&quot;&gt;Name&lt;/label&gt;
           &lt;div class=&quot;cdg-table-head-cell-sorting&quot;&gt;
@@ -182,8 +183,8 @@
             &gt;&lt;/cdg-icon&gt;
           &lt;/div&gt;
         &lt;/a&gt;
-      &lt;/cdg-table-head-cell&gt;
-      &lt;cdg-table-head-cell sortable name=&quot;age&quot; width=&quot;100px&quot;&gt;
+      &lt;/th&gt;
+      &lt;th is=&quot;cdg-table-head-cell&quot; sortable name=&quot;age&quot; width=&quot;100px&quot;&gt;
         &lt;a href=&quot;#table&quot; class=&quot;cdg-table-head-cell-content&quot;&gt;
           &lt;label class=&quot;cdg-table-head-cell-text has-sorting&quot;&gt;Age&lt;/label&gt;
           &lt;div class=&quot;cdg-table-head-cell-sorting&quot;&gt;
@@ -199,14 +200,14 @@
             &gt;&lt;/cdg-icon&gt;
           &lt;/div&gt;
         &lt;/a&gt;
-      &lt;/cdg-table-head-cell&gt;
-      &lt;cdg-table-head-cell name=&quot;gender&quot; width=&quot;100px&quot;&gt;
+      &lt;/th&gt;
+      &lt;th is=&quot;cdg-table-head-cell&quot; name=&quot;gender&quot; width=&quot;100px&quot;&gt;
         &lt;div class=&quot;cdg-table-head-cell-text&quot;&gt;Gender&lt;/div&gt;
-      &lt;/cdg-table-head-cell&gt;
-    &lt;/cdg-table-row&gt;
-  &lt;/cdg-table-head&gt;
-  &lt;cdg-table-body class=&quot;cdg-table-body&quot;&gt; &lt;/cdg-table-body&gt;
-&lt;/cdg-table&gt;
+      &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody is=&quot;cdg-table-body&quot;&gt;&lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;div class=&quot;cdg-table-footer&quot; cdg-table-footer&gt;
   &lt;div class=&quot;cdg-table-footer-left&quot;&gt;

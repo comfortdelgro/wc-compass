@@ -53,7 +53,6 @@ export class CdgTableEditableSection extends CdgBaseComponent {
       },
     ]
 
-    console.log(table)
   }
 
   handleRowChange(event, data) {

@@ -29,7 +29,7 @@ export class CdgTableOptionsNestedHeaderSection extends CdgBaseComponent {
   }
 
   fillInData() {
-    this.table = this.querySelector('#sampleTable')
+    this.table = this.querySelector('#sampleTableNestedHead')
     if (this.table) {
       this.table.options = {
         headClass: ['has-border'],
@@ -180,14 +180,12 @@ export class CdgTableOptionsNestedHeaderSection extends CdgBaseComponent {
         columns: [
           {
             name: 'Name',
-            width: '80px',
             fieldName: 'name',
             align: 'center',
             colspan: 3,
           },
           {
             name: 'Age',
-            width: '80px',
             fieldName: 'age',
             align: 'center'
           },
