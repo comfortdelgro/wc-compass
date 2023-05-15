@@ -1,3 +1,4 @@
+import {resolveObject} from '../../shared/utilities'
 import {TableSelectionEvent, TableSelectionRow} from './model'
 
 export class CdgTableBody extends HTMLTableSectionElement {
@@ -13,11 +14,14 @@ export class CdgTableBody extends HTMLTableSectionElement {
   }
 
   get options() {
-    return this.configurations
+    return this.configurations || {}
   }
 
   set options(options) {
     this.configurations = options
+    if (this.configurations.bodyClass) {
+      this.classList.add(...this.configurations.bodyClass)
+    }
   }
 
   configurations
@@ -57,13 +61,16 @@ export class CdgTableBody extends HTMLTableSectionElement {
 
   displayData() {
     this.data.forEach((row, index) => {
-      this.appendChild(this.createRow(row, index))
+      this.createRow(row, index)
     })
   }
 
   toggleAll(checked) {
     const selectedRows = []
     this.rows.forEach((row, index) => {
+      if (row.checkboxElement) {
+        row.checkboxElement.checked = checked
+      }
       if (checked) {
         selectedRows.push(
           new TableSelectionRow(
@@ -72,12 +79,17 @@ export class CdgTableBody extends HTMLTableSectionElement {
             (this.data && this.data[index]) || null,
           ),
         )
-      }
-      row.checkboxElement.checked = checked
-      if (checked) {
-        row.checkboxContainer.setAttribute('checked', '')
+        row.setAttribute('checked', '')
+        row.classList.add('cdg-table-row-checked')
+        if (row.checkboxContainer) {
+          row.checkboxContainer.setAttribute('checked', '')
+        }
       } else {
-        row.checkboxContainer.removeAttribute('checked')
+        row.removeAttribute('checked')
+        row.classList.remove('cdg-table-row-checked')
+        if (row.checkboxContainer) {
+          row.checkboxContainer.removeAttribute('checked')
+        }
       }
     })
 
@@ -90,8 +102,24 @@ export class CdgTableBody extends HTMLTableSectionElement {
 
   createRow(rowData, rowIndex) {
     const row = document.createElement('tr', {is: 'cdg-table-row'})
-    if (this.options && this.options.columns) {
-      this.renderColumns(rowData, this.options.columns, row, rowIndex)
+    if (this.options) {
+      // Have settings for table body
+      if (this.options.bodyColumns) {
+        const rowKey = `cdg-table-row-${rowData.key || rowData.id}`
+        row.classList.add(rowKey)
+        row.setAttribute('cdg-data-key', rowKey)
+        this.renderColumnsWithOptionsBody(
+          rowData,
+          this.options.bodyColumns,
+          row,
+          rowKey,
+          rowIndex,
+          0,
+        )
+        return
+      } else if (this.options.columns) {
+        this.renderColumns(rowData, this.options.columns, row, rowIndex)
+      }
     } else {
       const item = this.data[0]
       Object.keys(item).forEach((name) => {
@@ -99,16 +127,48 @@ export class CdgTableBody extends HTMLTableSectionElement {
         row.appendChild(cell)
       })
     }
-    return row
+    this.appendChild(row)
+  }
+
+  renderColumnsWithOptionsBody(rowData, columns, row, rowKey, rowIndex, level) {
+    if (!this.contains(row)) {
+      this.appendChild(row)
+    }
+    columns.forEach((column) => {
+      const cell = this.createCell(
+        resolveObject(rowData, column.fieldName),
+        rowData,
+        rowIndex,
+        column,
+        true,
+      )
+      row.appendChild(cell)
+      if (column.columns) {
+        const tableRow = this.querySelectorAll(rowKey)
+        let newRow = tableRow.item(level + 1)
+        if (!newRow) {
+          newRow = document.createElement('tr', {is: 'cdg-table-row'})
+          newRow.classList.add(rowKey)
+          newRow.setAttribute('cdg-data-key', rowKey)
+        }
+        this.renderColumnsWithOptionsBody(
+          rowData,
+          column.columns,
+          newRow,
+          rowIndex,
+          level + 1,
+        )
+      }
+    })
   }
 
   renderColumns(rowData, columns, row, rowIndex) {
     columns.forEach((column) => {
-      if (column.children) {
-        this.renderColumns(rowData[column.fieldName], column.children, row, rowIndex)
+      if (column.columns) {
+        this.renderColumns(rowData, column.columns, row, rowIndex)
       } else {
         const cell = this.createCell(
-          rowData[column.fieldName],
+          resolveObject(rowData, column.fieldName),
           rowData,
           rowIndex,
           column,
@@ -118,12 +178,26 @@ export class CdgTableBody extends HTMLTableSectionElement {
     })
   }
 
-  createCell(data, rowData, rowIndex, column) {
+  createCell(data, rowData, rowIndex, column, withColSetting = false) {
     const cell = document.createElement('td', {is: 'cdg-table-cell'})
     cell.innerHTML = data
+
     if (column.align) {
       cell.setAttribute('align', column.align)
     }
+
+    if (withColSetting) {
+      if (column.width) {
+        cell.setAttribute('width', column.width)
+      }
+      if (column.colspan) {
+        cell.setAttribute('colspan', column.colspan)
+      }
+      if (column.rowspan) {
+        cell.setAttribute('rowspan', column.rowspan)
+      }
+    }
+
     if (column.editable) {
       cell.setAttribute('data-field', column.fieldName)
       if (column.colummTemplate) {
@@ -147,8 +221,32 @@ export class CdgTableBody extends HTMLTableSectionElement {
     let isCheckAll = true
     let hasCheckedRow = false
 
-    let i = 0
+    const siblingRows = this.parentElement.querySelectorAll(
+      `.cdg-table-row[cdg-data-key="${event.target.getAttribute(
+        'cdg-data-key',
+      )}"]`,
+    )
+    siblingRows.forEach((row) => {
+      if (event.detail.checked) {
+        row.setAttribute('checked', '')
+        row.classList.add('cdg-table-row-checked')
+      } else {
+        row.removeAttribute('checked')
+        row.classList.remove('cdg-table-row-checked')
+      }
+    })
+    // Remove checked attribute for clicked row
+    if (event.detail.checked) {
+      event.target.classList.add('cdg-table-row-checked')
+      event.target.setAttribute('checked', '')
+    } else {
+      event.target.classList.remove('cdg-table-row-checked')
+      event.target.removeAttribute('checked')
+    }
     this.rows.forEach((row, index) => {
+      if (!row.checkboxElement) {
+        return
+      }
       if (row.checkboxElement.checked) {
         hasCheckedRow = true
         selectedRows.push(

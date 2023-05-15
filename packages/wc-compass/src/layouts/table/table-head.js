@@ -9,6 +9,9 @@ export class CdgTableHead extends HTMLTableSectionElement {
   set options(options) {
     this.configurations = options
     this.attachColumns()
+    if (this.configurations.headClass) {
+      this.classList.add(...this.configurations.headClass)
+    }
   }
 
   checkboxElement
@@ -38,21 +41,21 @@ export class CdgTableHead extends HTMLTableSectionElement {
     columns.forEach((column) => {
       const cell = this.createHeaderCell(column)
       row.appendChild(cell)
-      if (column.children) {
-        const test = this.querySelectorAll('.cdg-table-head-row')
-        let newRow = test.item(level + 1)
+      // Create new row for merge row
+      if (column.columns) {
+        const tableHeadRow = this.querySelectorAll('.cdg-table-head-row')
+        let newRow = tableHeadRow.item(level + 1)
         if (!newRow) {
           newRow = document.createElement('tr', {is: 'cdg-table-row'})
           newRow.classList.add('cdg-table-head-row')
         }
-        this.renderHeadCell(column.children, newRow, level + 1)
+        this.renderHeadCell(column.columns, newRow, level + 1)
       }
     })
   }
 
   connectedCallback() {
     this.classList.add('cdg-table-head')
-    this.setAttribute('role', 'thead')
     this.headerRow = this.querySelector('.cdg-table-head-row')
     this.headerRow.addEventListener(
       'toggleRow',

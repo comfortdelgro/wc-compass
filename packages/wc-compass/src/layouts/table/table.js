@@ -50,8 +50,12 @@ export class CdgTable extends HTMLTableElement {
     switch (attr) {
       case 'checkable':
         if (!this.checkable) {
-          this.body.toggleAll(false)
-          this.header.check(false)
+          if (this.body) {
+            this.body.toggleAll(false)
+          }
+          if (this.header) {
+            this.header.check(false)
+          }
           this.dispatchEvent(
             new CustomEvent('selectionChange', {
               detail: {

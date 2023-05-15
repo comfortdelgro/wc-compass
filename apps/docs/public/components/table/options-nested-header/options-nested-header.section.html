@@ -1,16 +1,250 @@
-<cdg-sample-section name="With logic">
+<cdg-sample-section name="Comflex options table head">
   <div class="sample-section column">
-    <table id="sampleTable" is="cdg-table"></table>
+    <table id="sampleTable" is="cdg-table" checkable></table>
   </div>
-
-  <style>
-    #selectButton {
-      width: 90px;
-    }
-  </style>
 
   <pre>
     <code class="language-html">
+&lt;table id=&quot;sampleTable&quot; is=&quot;cdg-table&quot; checkable&gt;&lt;/table&gt;
+&lt;script&gt;
+  this.table = this.querySelector(&apos;#sampleTable&apos;)
+  if (this.table) {
+    this.table.options = {
+      headClass: [&apos;has-border&apos;],
+      columns: [
+        {
+          name: &apos;ID&apos;,
+          width: &apos;80px&apos;,
+          fieldName: &apos;id&apos;,
+          align: &apos;center&apos;,
+          rowspan: 4,
+        },
+        {
+          name: &apos;Name&apos;,
+          width: &apos;auto&apos;,
+          colspan: 5,
+          align: &apos;center&apos;,
+          columns: [
+            {
+              name: &apos;First name&apos;,
+              align: &apos;center&apos;,
+              colspan: 3,
+              columns: [
+                {
+                  name: &apos;First name 1&apos;,
+                  align: &apos;center&apos;,
+                  colspan: 2,
+                  columns: [
+                    {
+                      name: &apos;First name 1-1&apos;,
+                      fieldName: &apos;name.firstName.firstName1.firstName11&apos;,
+                      align: &apos;center&apos;,
+                    },
+                    {
+                      name: &apos;First name 1-2&apos;,
+                      fieldName: &apos;name.firstName.firstName1.firstName12&apos;,
+                      align: &apos;center&apos;,
+                    },
+                  ],
+                },
+                {
+                  name: &apos;First name 2&apos;,
+                  fieldName: &apos;name.firstName.firstName2&apos;,
+                  align: &apos;center&apos;,
+                  rowspan: 2,
+                },
+              ],
+            },
+            {
+              name: &apos;Last name&apos;,
+              align: &apos;center&apos;,
+              colspan: 2,
+              columns: [
+                {
+                  name: &apos;Last name 1&apos;,
+                  fieldName: &apos;name.lastName.lastName1&apos;,
+                  align: &apos;center&apos;,
+                  rowspan: 2,
+                },
+                {
+                  name: &apos;Last name 2&apos;,
+                  fieldName: &apos;name.lastName.lastName2&apos;,
+                  align: &apos;center&apos;,
+                  rowspan: 2,
+                },
+              ],
+            },
+          ],
+        },
+        {
+          name: &apos;Age&apos;,
+          width: &apos;80px&apos;,
+          fieldName: &apos;age&apos;,
+          rowspan: 4,
+          align: &apos;right&apos;,
+        },
+        {
+          name: &apos;Sex&apos;,
+          width: &apos;140px&apos;,
+          fieldName: &apos;gender&apos;,
+          rowspan: 4,
+          align: &apos;center&apos;,
+        },
+      ],
+    }
+    this.table.data = [
+      {
+        id: 123,
+        name: {
+          firstName: {
+            firstName1: {
+              firstName11: &apos;First Name 11&apos;,
+              firstName12: &apos;First Name 12&apos;,
+            },
+            firstName2: &apos;First Name 2&apos;,
+          },
+          lastName: {
+            lastName1: &apos;Last name 1&apos;,
+            lastName2: &apos;Last name 2&apos;,
+          },
+        },
+        age: 123,
+        gender: &apos;Male&apos;,
+      },
+      {
+        id: 1234,
+        name: {
+          firstName: {
+            firstName1: {
+              firstName11: &apos;First Name 11&apos;,
+              firstName12: &apos;First Name 12&apos;,
+            },
+            firstName2: &apos;First Name 2&apos;,
+          },
+          lastName: {
+            lastName1: &apos;Last name 1&apos;,
+            lastName2: &apos;Last name 2&apos;,
+          },
+        },
+        age: 123,
+        gender: &apos;Male&apos;,
+      },
+      {
+        id: 1235,
+        name: {
+          firstName: {
+            firstName1: {
+              firstName11: &apos;First Name 11&apos;,
+              firstName12: &apos;First Name 12&apos;,
+            },
+            firstName2: &apos;First Name 2&apos;,
+          },
+          lastName: {
+            lastName1: &apos;Last name 1&apos;,
+            lastName2: &apos;Last name 2&apos;,
+          },
+        },
+        age: 123,
+        gender: &apos;Male&apos;,
+      },
+    ]
+  }
+&lt;/script&gt;
+    </code>
+</pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Table head & body options">
+  <div class="sample-section column">
+    <table id="sampleTableHeadBody" is="cdg-table" checkable></table>
+  </div>
+
+  <pre>
+    <code class="language-html">
+      &lt;table id=&quot;sampleTableHeadBody&quot; is=&quot;cdg-table&quot; checkable&gt;&lt;/table&gt;
+      &lt;script&gt;
+        this.tableHeadBody = this.querySelector(&apos;#sampleTableHeadBody&apos;)
+        if (this.tableHeadBody) {
+          this.tableHeadBody.options = {
+            headClass: [&apos;has-border&apos;],
+            bodyClass: [&apos;has-border&apos;],
+            columns: [
+              {
+                name: &apos;Name&apos;,
+                width: &apos;80px&apos;,
+                fieldName: &apos;name&apos;,
+                align: &apos;center&apos;,
+                colspan: 3,
+              },
+              {
+                name: &apos;Age&apos;,
+                width: &apos;80px&apos;,
+                fieldName: &apos;age&apos;,
+                align: &apos;center&apos;,
+              },
+            ],
+            bodyColumns: [
+              {
+                width: &apos;100px&apos;,
+                fieldName: &apos;name.firstName&apos;,
+                align: &apos;center&apos;,
+                colspan: 2,
+                columns: [
+                  {
+                    width: &apos;100px&apos;,
+                    fieldName: &apos;name.firstName1&apos;,
+                    align: &apos;center&apos;,
+                  },
+                  {
+                    width: &apos;100px&apos;,
+                    fieldName: &apos;name.firstName2&apos;,
+                    align: &apos;center&apos;,
+                  },
+                ],
+              },
+              {
+                width: &apos;100px&apos;,
+                fieldName: &apos;name.lastName&apos;,
+                align: &apos;center&apos;,
+                rowspan: 2,
+              },
+              {
+                name: &apos;Age&apos;,
+                width: &apos;80px&apos;,
+                fieldName: &apos;age&apos;,
+                rowspan: 2,
+                align: &apos;right&apos;,
+              },
+            ],
+          }
+          this.tableHeadBody.data = [
+            {
+              id: 123,
+              key: 1,
+              name: {
+                firstName: &apos;Name&apos;,
+                firstName1: &apos;David&apos;,
+                firstName2: &apos;Dale&apos;,
+                lastName: &apos;Castro&apos;,
+              },
+              age: 123,
+              gender: &apos;Male&apos;,
+            },
+            {
+              id: 124,
+              key: 2,
+              name: {
+                firstName: &apos;ABC&apos;,
+                firstName1: &apos;Tom&apos;,
+                firstName2: &apos;Tommy&apos;,
+                lastName: &apos;Trump&apos;,
+              },
+              age: 12,
+              gender: &apos;Female&apos;,
+            },
+          ]
+        }
+      &lt;/script&gt;
     </code>
 </pre>
 </cdg-sample-section>
