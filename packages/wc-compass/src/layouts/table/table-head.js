@@ -9,6 +9,9 @@ export class CdgTableHead extends HTMLTableSectionElement {
   set options(options) {
     this.configurations = options
     this.attachColumns()
+    if (this.configurations.headClass) {
+      this.classList.add(...this.configurations.headClass)
+    }
   }
 
   checkboxElement
@@ -24,18 +27,35 @@ export class CdgTableHead extends HTMLTableSectionElement {
   attachColumns() {
     const row = document.createElement('tr', {is: 'cdg-table-row'})
     row.classList.add('cdg-table-head-row')
+    const subRow = document.createElement('tr', {is: 'cdg-table-row'})
+    subRow.classList.add('cdg-table-head-row')
     if (this.options && this.options.columns) {
-      this.options.columns.forEach((column) => {
-        const cell = this.createHeaderCell(column)
-        row.appendChild(cell)
-      })
+      this.renderHeadCell(this.options.columns, row, 0)
     }
-    this.appendChild(row)
+  }
+
+  renderHeadCell(columns, row, level) {
+    if (!this.contains(row)) {
+      this.appendChild(row)
+    }
+    columns.forEach((column) => {
+      const cell = this.createHeaderCell(column)
+      row.appendChild(cell)
+      // Create new row for merge row
+      if (column.columns) {
+        const tableHeadRow = this.querySelectorAll('.cdg-table-head-row')
+        let newRow = tableHeadRow.item(level + 1)
+        if (!newRow) {
+          newRow = document.createElement('tr', {is: 'cdg-table-row'})
+          newRow.classList.add('cdg-table-head-row')
+        }
+        this.renderHeadCell(column.columns, newRow, level + 1)
+      }
+    })
   }
 
   connectedCallback() {
     this.classList.add('cdg-table-head')
-    this.setAttribute('role', 'thead')
     this.headerRow = this.querySelector('.cdg-table-head-row')
     this.headerRow.addEventListener(
       'toggleRow',

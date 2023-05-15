@@ -9,11 +9,59 @@ export class CdgTableSimpleSectionNested extends CdgBaseComponent {
 
   onInit() {
     const table = this.querySelector('#sampleSimpleTableNested')
+    table.options = {
+      headClass: ['has-border'],
+      columns: [
+        {
+          name: 'First',
+          fieldName: 'first',
+          align: 'center',
+          width: '100px',
+        },
+        {
+          name: 'Second',
+          fieldName: 'second',
+          align: 'center',
+          width: '100px',
+        },
+        {
+          name: 'Third',
+          fieldName: 'third',
+          align: 'center',
+          width: '100px',
+        },
+        {
+          name: 'Fourth',
+          fieldName: 'fourth',
+          align: 'center',
+          table: {
+            columns: [
+              {
+                name: 'Child 1',
+                fieldName: 'child1',
+                align: 'center',
+              },
+              {
+                name: 'Child 2',
+                fieldName: 'child2',
+                align: 'center',
+              },
+              {
+                name: 'Child 3',
+                fieldName: 'child3',
+                align: 'center',
+              },
+            ],
+          },
+        },
+      ],
+    }
+
     table.data = [
       {
-        first: 'Row 1',
-        second: 'Second column data',
-        third: 'Third column data with longer text than the others - row 1',
+        first: 'first 1',
+        second: 'second 1',
+        third: 'third 1',
         fourth: [
           {
             child1: 'Child Row 1',
@@ -33,14 +81,14 @@ export class CdgTableSimpleSectionNested extends CdgBaseComponent {
         ],
       },
       {
-        first: 'Row 2',
-        second: 'Second column',
-        third: 'Third column data with longer text than the others - row 2',
+        first: 'first 2',
+        second: 'second 2',
+        third: 'third 2',
       },
       {
-        first: 'Row 3',
-        second: 'Second of row 3',
-        third: 'Third column data with longer text than the others - row 3',
+        first: 'first 2',
+        second: 'second 2',
+        third: 'third 2',
       },
     ]
   }

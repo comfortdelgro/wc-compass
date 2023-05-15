@@ -45,4 +45,7 @@ export class TableColumnOption {
   sortDirection = null
   editable = false
   colummTemplate = null
+  rowspan = 1
+  colspan = 1
+  options = null // TableOptions
 }
