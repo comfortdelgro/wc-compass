@@ -60,3 +60,13 @@ export function getRealHeight(obj) {
   clone.remove()
   return height
 }
+
+export function resolveObject(obj, path) {
+  path = path.split('.')
+  let newValue = obj
+  while (path.length) {
+    if (typeof newValue !== 'object') return undefined
+    newValue = newValue[path.shift()]
+  }
+  return newValue
+}
