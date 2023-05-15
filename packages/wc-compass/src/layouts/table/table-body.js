@@ -167,15 +167,47 @@ export class CdgTableBody extends HTMLTableSectionElement {
       if (column.columns) {
         this.renderColumns(rowData, column.columns, row, rowIndex)
       } else {
-        const cell = this.createCell(
-          resolveObject(rowData, column.fieldName),
-          rowData,
-          rowIndex,
-          column,
-        )
+        let cell
+        if (column.table) {
+          cell = this.createTableInCell(
+            column.table,
+            resolveObject(rowData, column.fieldName),
+          )
+        } else {
+          cell = this.createCell(
+            resolveObject(rowData, column.fieldName),
+            rowData,
+            rowIndex,
+            column,
+          )
+        }
         row.appendChild(cell)
       }
     })
+  }
+
+  createTableInCell(tableSetting, tableData) {
+    const cell = document.createElement('td', {is: 'cdg-table-cell'})
+    const table = document.createElement('table', {is: 'cdg-table'})
+    if (tableSetting.checkable) {
+      table.setAttribute('checkable', '')
+    }
+    table.options = tableSetting
+    table.data = tableData
+
+    cell.appendChild(table)
+
+    if (tableSetting.width) {
+      cell.setAttribute('width', tableSetting.width)
+    }
+    if (tableSetting.colspan) {
+      cell.setAttribute('colspan', tableSetting.colspan)
+    }
+    if (tableSetting.rowspan) {
+      cell.setAttribute('rowspan', tableSetting.rowspan)
+    }
+
+    return cell
   }
 
   createCell(data, rowData, rowIndex, column, withColSetting = false) {
