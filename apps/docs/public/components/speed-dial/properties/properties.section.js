@@ -5,16 +5,16 @@ export class CdgSpeedDialPropertiesSection extends CdgTableComponentSection {
     super('Props & Methods')
     this.data = [
       {
-        name: '<code>position</code>',
+        name: '<code>direction</code>',
         type: '<code>string</code>',
-        default: 'up',
-        description: 'To define the position of list action',
+        default: 'This property is required',
+        description: 'To define the position of action list',
       },
       {
-        name: '<code>actions</code>',
-        type: '<code>string</code>',
-        default: '[]',
-        description: 'Pass a string array object',
+        name: '<code>open</code>',
+        type: '<code>property</code>',
+        default: '',
+        description: 'To show the action list',
       },
     ]
   }
