@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.2.9
+
+### Patch Changes
+
+- baa882b: Fixing bugs and improve layout
+
 ## 0.2.8
 
 ### Patch Changes
