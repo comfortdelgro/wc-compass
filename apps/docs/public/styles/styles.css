@@ -107,6 +107,7 @@ cdg-nav-rail .cdg-nav-rail-inner,
   display: flex;
   box-sizing: border-box;
   gap: 16px;
+  overflow: auto;
 }
 
 .sample-section.darker {
@@ -189,6 +190,7 @@ pre code.hljs {
   display: flex;
   flex-direction: column;
   margin-bottom: 32px;
+  overflow: auto;
 }
 
 .cdg-sample-section .sample-header {
