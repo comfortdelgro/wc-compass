@@ -180,6 +180,30 @@ export class CdgTableBody extends HTMLTableSectionElement {
             rowIndex,
             column,
           )
+          
+          if (column.colummTemplate) {
+            cell.style.position = 'relative'
+            cell.addEventListener('click', (e) => {
+              if (cell.querySelector('.cdg-table-editable-cell') !== null) {
+                return
+              } else {
+                column.colummTemplate.style.position = 'absolute'
+                column.colummTemplate.style.width = `${cell.clientWidth}px`
+                column.colummTemplate.style.top = 0
+                column.colummTemplate.style.left = 0
+                cell.appendChild(column.colummTemplate)
+                this.dispatchEvent(
+                  new CustomEvent('onEditCellStart', {
+                    detail: {
+                      index: rowIndex,
+                      value: rowData[column.fieldName],
+                      column: column.fieldName,
+                    },
+                  }),
+                )
+              }
+            })
+          }
         }
         row.appendChild(cell)
       }
@@ -303,50 +327,5 @@ export class CdgTableBody extends HTMLTableSectionElement {
         ),
       }),
     )
-  }
-
-  handleEditableCellClick(rowData, rowIndex, event) {
-    const cell = event.target.closest('.editable')
-    if (cell) {
-      if (cell.querySelector('input') !== null) {
-        return
-      } else {
-        const input = document.createElement('input')
-        input.classList.add('cdg-input')
-        input.value = cell.textContent
-        input.addEventListener('blur', (event) => {
-          const row = cell.parentNode
-          const cells = Array.from(row.querySelectorAll('.editable'))
-          const newData = {...rowData}
-          cells.forEach((cell) => {
-            const key = cell.getAttribute('data-field')
-            newData[key] = input.value
-          })
-          cell.textContent = input.value
-          if (this.options.onRowChange) {
-            this.options.onRowChange(event, {
-              oldValue: rowData,
-              newValue: newData,
-              rowIndex,
-            })
-          }
-        })
-        cell.textContent = ''
-        cell.appendChild(input)
-        input.focus()
-      }
-    }
-  }
-
-  appendTemplateToCell(template, event) {
-    const cell = event.target.closest('.editable-template')
-    if (cell) {
-      if (cell.querySelector('template') !== null) {
-        return
-      } else {
-        cell.textContent = ''
-        cell.appendChild(template.content.cloneNode(true))
-      }
-    }
   }
 }
