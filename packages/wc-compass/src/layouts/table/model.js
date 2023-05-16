@@ -31,7 +31,12 @@ export class TableSortEvent {
 }
 
 export class TableOptions {
+  // TableColumnOption[]
   columns = []
+  // string[]
+  headClass = []
+  // string[]
+  bodyClass = []
   onRowClick
   onRowChange
 }
@@ -47,5 +52,8 @@ export class TableColumnOption {
   colummTemplate = null
   rowspan = 1
   colspan = 1
-  options = null // TableOptions
+  // TableOptions
+  table = null
+  // TableColumnOption[]
+  columns = []
 }
