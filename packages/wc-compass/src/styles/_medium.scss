@@ -62,7 +62,8 @@
     flex-wrap: wrap;
     gap: 16px;
 
-    .cdg-right-group, .cdg-table-footer-right {
+    .cdg-right-group,
+    .cdg-table-footer-right {
       flex-wrap: wrap;
       justify-content: center;
     }
@@ -70,7 +71,6 @@
 }
 
 @media screen and (max-width: 960px) {
-  cdg-tabs,
   .cdg-tabs {
     overflow-x: auto;
     white-space: nowrap;
@@ -111,22 +111,18 @@
     line-height: var(--line-height-heading2);
   }
 
-  cdg-card.article-card .cdg-card-title,
   .cdg-card.article-card .cdg-card-title,
   .cdg-card-blog-title {
     font-size: 18px;
     line-height: 24px;
   }
 
-  cdg-card[horizontal],
   .cdg-card[horizontal] {
     flex-direction: column;
-    cdg-card-cover,
     .cdg-card-cover {
       width: 100%;
     }
 
-    cdg-card-body,
     .cdg-card-body {
       padding-left: 1rem;
     }
@@ -138,12 +134,11 @@
 
   .cdg-card-section {
     flex-direction: column;
-    cdg-card,
     .cdg-card {
       flex-direction: row;
       gap: 20px;
     }
-    cdg-card-cover,
+
     .cdg-card-cover {
       flex: 0.7;
       flex-shrink: 0;
@@ -171,9 +166,13 @@
     }
   }
 
-  cdg-page-header-row,
   .cdg-page-header-row {
     flex-wrap: wrap;
+  }
+
+  .cdg-carousel[cards] .cdg-slide {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 

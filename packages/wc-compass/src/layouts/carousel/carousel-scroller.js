@@ -68,8 +68,12 @@ export class CdgCarouselScroller extends HTMLElement {
     return (
       (this.parentElement.clientWidth -
         (this.singleCenter ? CARD_MODE_PADDING : 0)) *
-      (this.singleCenter ? 0.6 : 1)
+      (this.singleCenter ? this.singleSlidePercentage : 1)
     )
+  }
+
+  get singleSlidePercentage() {
+    return window.innerWidth < 768 ? 0.9 : 0.6
   }
 
   sizingTimer
@@ -172,6 +176,7 @@ export class CdgCarouselScroller extends HTMLElement {
     // Prevent animation while resizing
     // To update view immediately
     this.classList.add('resizing')
+    this.style.transition = 'none'
     if (this.sizingTimer) {
       clearTimeout(this.sizingTimer)
     }
@@ -179,6 +184,7 @@ export class CdgCarouselScroller extends HTMLElement {
     // Remove class name after 200ms that use haven't resized again
     this.sizingTimer = setTimeout(() => {
       this.classList.remove('resizing')
+      this.style.transition = `all ${TRANSITION_TIME}ms ease-in-out`
     }, 200)
 
     this.updateSize()

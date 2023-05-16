@@ -1,46 +1,95 @@
 <cdg-sample-section name="Simple table with nested data">
   <div class="sample-section column">
-    <cdg-table id="sampleSimpleTableNested"></cdg-table>
+    <table id="sampleSimpleTableNested" is="cdg-table"></table>
   </div>
 
   <pre>
-    <code class="language-html">&lt;cdg-table id=&quot;sampleSimpleTableNested&quot;&gt;&lt;/cdg-table&gt;
-  &lt;script&gt;
-      const table = this.querySelector(&amp;apos;#sampleSimpleTableNested&amp;apos;)
-      table.data = [
-        {
-          first: &amp;apos;Row 1&amp;apos;,
-          second: &amp;apos;Second column data&amp;apos;,
-          third: &amp;apos;Third column data with longer text than the others - row 1&amp;apos;,
-          fourth: [
+    <code class="language-html">
+      &lt;table id=&quot;sampleSimpleTableNested&quot; is=&quot;cdg-table&quot;&gt;&lt;/table&gt;
+      &lt;script&gt;
+        const table = this.querySelector(&apos;#sampleSimpleTableNested&apos;)
+        table.options = {
+          headClass: [&apos;has-border&apos;],
+          columns: [
             {
-              child1: &amp;apos;Child Row 1&amp;apos;,
-              child2: &amp;apos;Child sample data generate&amp;apos;,
-              child3: &amp;apos;Child sample data generate&amp;apos;,
+              name: &apos;First&apos;,
+              fieldName: &apos;first&apos;,
+              align: &apos;center&apos;,
+              width: &apos;100px&apos;,
             },
             {
-              child1: &amp;apos;Child Row 2&amp;apos;,
-              child2: &amp;apos;Child sample data generate&amp;apos;,
-              child3: &amp;apos;Child sample data generate&amp;apos;,
+              name: &apos;Second&apos;,
+              fieldName: &apos;second&apos;,
+              align: &apos;center&apos;,
+              width: &apos;100px&apos;,
             },
             {
-              child1: &amp;apos;Child Row 3&amp;apos;,
-              child2: &amp;apos;Child sample data generate&amp;apos;,
-              child3: &amp;apos;Child sample data generate&amp;apos;,
+              name: &apos;Third&apos;,
+              fieldName: &apos;third&apos;,
+              align: &apos;center&apos;,
+              width: &apos;100px&apos;,
+            },
+            {
+              name: &apos;Fourth&apos;,
+              fieldName: &apos;fourth&apos;,
+              table: {
+                columns: [
+                  {
+                    name: &apos;Child 1&apos;,
+                    fieldName: &apos;child1&apos;,
+                    align: &apos;center&apos;,
+                  },
+                  {
+                    name: &apos;Child 2&apos;,
+                    fieldName: &apos;child2&apos;,
+                    align: &apos;center&apos;,
+                  },
+                  {
+                    name: &apos;Child 3&apos;,
+                    fieldName: &apos;child3&apos;,
+                    align: &apos;center&apos;,
+                  },
+                ],
+              },
             },
           ],
-        },
-        {
-          first: &amp;apos;Row 2&amp;apos;,
-          second: &amp;apos;Second column&amp;apos;,
-          third: &amp;apos;Third column data with longer text than the others - row 2&amp;apos;,
-        },
-        {
-          first: &amp;apos;Row 3&amp;apos;,
-          second: &amp;apos;Second of row 3&amp;apos;,
-          third: &amp;apos;Third column data with longer text than the others - row 3&amp;apos;,
-        },
-      ]
-  &lt;/script&gt;</code>
+        }
+      
+        table.data = [
+          {
+            first: &apos;first 1&apos;,
+            second: &apos;second 1&apos;,
+            third: &apos;third 1&apos;,
+            fourth: [
+              {
+                child1: &apos;Child Row 1&apos;,
+                child2: &apos;Child sample data generate&apos;,
+                child3: &apos;Child sample data generate&apos;,
+              },
+              {
+                child1: &apos;Child Row 2&apos;,
+                child2: &apos;Child sample data generate&apos;,
+                child3: &apos;Child sample data generate&apos;,
+              },
+              {
+                child1: &apos;Child Row 3&apos;,
+                child2: &apos;Child sample data generate&apos;,
+                child3: &apos;Child sample data generate&apos;,
+              },
+            ],
+          },
+          {
+            first: &apos;first 2&apos;,
+            second: &apos;second 2&apos;,
+            third: &apos;third 2&apos;,
+          },
+          {
+            first: &apos;first 2&apos;,
+            second: &apos;second 2&apos;,
+            third: &apos;third 2&apos;,
+          },
+        ]
+      &lt;/script&gt;
+    </code>
   </pre>
 </cdg-sample-section>

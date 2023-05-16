@@ -1,4 +1,4 @@
-import { CdgBaseComponent } from '../../../shared/base-component'
+import {CdgBaseComponent} from '../../../shared/base-component'
 import template from './editable.section.html'
 
 export class CdgTableEditableSection extends CdgBaseComponent {
@@ -9,31 +9,31 @@ export class CdgTableEditableSection extends CdgBaseComponent {
 
   onInit() {
     const table = this.querySelector('#sampleEditableTable')
-      table.options = {
-        columns: [
-          {
-            name: 'First',
-            width: 'auto',
-            fieldName: 'first',
-            editable: true,
-            colummTemplate: this.querySelector('.first'),
-          },
-          {
-            name: 'Second',
-            width: 'auto',
-            fieldName: 'second',
-            editable: true,
-          },
-          {
-            name: 'Third',
-            width: 'auto',
-            fieldName: 'third',
-            editable: true,
-            colummTemplate: this.querySelector('.third'),
-          },
-        ],
-        onRowChange: this.handleRowChange.bind(this),
-      }
+    table.options = {
+      columns: [
+        {
+          name: 'First',
+          width: 'auto',
+          fieldName: 'first',
+          editable: true,
+          colummTemplate: this.querySelector('.first'),
+        },
+        {
+          name: 'Second',
+          width: 'auto',
+          fieldName: 'second',
+          editable: true,
+        },
+        {
+          name: 'Third',
+          width: 'auto',
+          fieldName: 'third',
+          editable: true,
+          colummTemplate: this.querySelector('.third'),
+        },
+      ],
+      onRowChange: this.handleRowChange.bind(this),
+    }
 
     table.data = [
       {
@@ -52,6 +52,7 @@ export class CdgTableEditableSection extends CdgBaseComponent {
         third: 'Third column data with longer text than the others - row 3',
       },
     ]
+
   }
 
   handleRowChange(event, data) {
