@@ -180,30 +180,6 @@ export class CdgTableBody extends HTMLTableSectionElement {
             rowIndex,
             column,
           )
-          
-          if (column.colummTemplate) {
-            cell.style.position = 'relative'
-            cell.addEventListener('click', (e) => {
-              if (cell.querySelector('.cdg-table-editable-cell') !== null) {
-                return
-              } else {
-                column.colummTemplate.style.position = 'absolute'
-                column.colummTemplate.style.width = `${cell.clientWidth}px`
-                column.colummTemplate.style.top = 0
-                column.colummTemplate.style.left = 0
-                cell.appendChild(column.colummTemplate)
-                this.dispatchEvent(
-                  new CustomEvent('onEditCellStart', {
-                    detail: {
-                      index: rowIndex,
-                      value: rowData[column.fieldName],
-                      column: column.fieldName,
-                    },
-                  }),
-                )
-              }
-            })
-          }
         }
         row.appendChild(cell)
       }
@@ -253,21 +229,29 @@ export class CdgTableBody extends HTMLTableSectionElement {
         cell.setAttribute('rowspan', column.rowspan)
       }
     }
-
-    if (column.editable) {
-      cell.setAttribute('data-field', column.fieldName)
-      if (column.colummTemplate) {
-        cell.classList.add('editable-template')
-      } else {
-        cell.setAttribute('editable', '')
-        cell.classList.add('editable')
-        cell.addEventListener(
-          'click',
-          this.handleEditableCellClick.bind(this, rowData, rowIndex),
-        )
-      }
+    if (column.colummTemplate) {
+      cell.style.position = 'relative'
+      cell.addEventListener('click', (e) => {
+        if (cell.querySelector('.cdg-table-editable-cell') !== null) {
+          return
+        } else {
+          column.colummTemplate.style.position = 'absolute'
+          column.colummTemplate.style.width = `${cell.clientWidth}px`
+          column.colummTemplate.style.top = 0
+          column.colummTemplate.style.left = 0
+          cell.appendChild(column.colummTemplate)
+          this.dispatchEvent(
+            new CustomEvent('onEditCellStart', {
+              detail: {
+                index: rowIndex,
+                value: rowData[column.fieldName],
+                column: column.fieldName,
+              },
+            }),
+          )
+        }
+      })
     }
-
     return cell
   }
 
