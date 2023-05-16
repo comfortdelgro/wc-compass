@@ -257,6 +257,7 @@ pre code.hljs {
 
 .guideline-section {
   margin-top: 32px;
+  overflow: auto;
 }
 
 .guideline-section .sample-section-title {

@@ -8,8 +8,10 @@ import {CdgTableOptionsSection} from './options/options.section'
 import {CdgTablePropertiesSection} from './properties/properties.section'
 import {CdgTableSimpleSection} from './simple/simple.section'
 import {CdgTableDemo} from './table'
+import { CdgTableOptionsNestedHeaderSection } from './options-nested-header/options-nested-header.section'
 
 customElements.define('cdg-table-options-section', CdgTableOptionsSection)
+customElements.define('cdg-table-options-nested-header', CdgTableOptionsNestedHeaderSection)
 customElements.define('cdg-table-simple-section', CdgTableSimpleSection)
 customElements.define(
   'cdg-table-simple-section-nested',
