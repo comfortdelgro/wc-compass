@@ -1,6 +1,23 @@
 <cdg-sample-section name="Editable table">
   <div class="sample-section column">
-    <table is="cdg-table" id="sampleEditableTable"></table>
+    <table id="sampleEditableTable" is="cdg-table"></table>
+      <cdg-dropdown class="cdg-table-editable-cell" placeholder="Gender" id="gender">
+        <cdg-dropdown-option value="Male"> Male </cdg-dropdown-option>
+        <cdg-dropdown-option value="Female"> Female </cdg-dropdown-option>
+        <cdg-dropdown-option value="Other"> Other </cdg-dropdown-option>
+      </cdg-dropdown>
+
+      <input 
+        id="description"
+        class="cdg-input cdg-table-editable-cell"
+        placeholder="Type something..."
+      />
+      <input
+        id="age"
+        class="cdg-input cdg-table-editable-cell"
+        type="number"
+        placeholder="Type something..."
+      />
   </div>
 
   <pre>
@@ -47,15 +64,3 @@
 &lt;/script&gt;</code>
 </pre>
 </cdg-sample-section>
-
-<template class="third">
-  <cdg-dropdown placeholder="Select an item" header-title="Filter title">
-    <cdg-dropdown-option value="1"> Dropdown 1 </cdg-dropdown-option>
-    <cdg-dropdown-option value="2"> Dropdown 2 </cdg-dropdown-option>
-    <cdg-dropdown-option value="3"> Dropdown 3 </cdg-dropdown-option>
-  </cdg-dropdown>
-</template>
-
-<template class="first">
-  <input type="checkbox" name="first" id="first-input" />
-</template>
