@@ -1,5 +1,6 @@
 import {CdgSpeedDialBottomSection} from './bottom/speed-dial-bottom.section'
 import {CdgSpeedDialEventsSection} from './events/events.section'
+import {CdgSpeedDialHoverSection} from './hover/speed-dial-hover.section'
 import {CdgSpeedDialLeftSection} from './left/speed-dial-left.section'
 import {CdgSpeedDialPropertiesSection} from './properties/properties.section'
 import {CdgSpeedDialRightSection} from './right/speed-dial-right.section'
@@ -22,6 +23,7 @@ customElements.define(
   CdgSpeedDialBottomSection,
 )
 customElements.define('cdg-speed-dial-up-section', CdgSpeedDialUpSection)
+customElements.define('cdg-speed-dial-hover-section', CdgSpeedDialHoverSection)
 
 export {
   CdgSpeedDialDemo,
@@ -31,4 +33,5 @@ export {
   CdgSpeedDialLeftSection,
   CdgSpeedDialBottomSection,
   CdgSpeedDialUpSection,
+  CdgSpeedDialHoverSection,
 }

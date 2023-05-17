@@ -1,6 +1,6 @@
-<cdg-sample-section name="Up">
+<cdg-sample-section name="On Hover">
   <div class="sample-section column" style="align-items: flex-end">
-    <cdg-speed-dial direction="up" id="speedial">
+    <cdg-speed-dial direction="up" trigger="hover">
       <div class="cdg-speed-dial-button-group">
         <button class="cdg-button floatting icon" id="editButton">
           <cdg-icon name="pencil"></cdg-icon>
@@ -9,10 +9,7 @@
           <cdg-icon name="outlineTrash"></cdg-icon>
         </button>
       </div>
-      <button
-        class="cdg-button floatting icon speed-dial-button"
-        id="speedDialButton"
-      >
+      <button class="cdg-button floatting icon speed-dial-button">
         <cdg-icon name="plus"></cdg-icon>
       </button>
     </cdg-speed-dial>
@@ -67,7 +64,7 @@ removeButton.addEventListener(&apos;click&apos;, () =&gt; {
 &lt;script&gt;</code>
   </pre>
   <p>
-    To make it floatting on screen, just add the position fixed and where to
-    place it.
+    Hover your mouse on button to show the actions, and leave your mouse to hide
+    actions.
   </p>
 </cdg-sample-section>

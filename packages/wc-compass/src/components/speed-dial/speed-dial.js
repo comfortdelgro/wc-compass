@@ -28,7 +28,7 @@ export class CdgSpeedDial extends CdgBaseComponent {
   attributeChangedCallback(attr) {
     switch (attr) {
       case 'open':
-        console.log(this.open)
+        // console.log(this.open)
         break
 
       default:
@@ -38,6 +38,10 @@ export class CdgSpeedDial extends CdgBaseComponent {
 
   toggle() {
     this.open = !this.open
+  }
+
+  show() {
+    this.open = true
   }
 
   close() {
