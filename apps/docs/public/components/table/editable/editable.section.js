@@ -6,56 +6,118 @@ export class CdgTableEditableSection extends CdgBaseComponent {
     super()
     this.template = template
   }
-
+  firstColumnTemplate
+  thirdColumnTemplate
+  editingColumn = {}
   onInit() {
+    this.firstColumnTemplate = document.getElementById('gender')
+    this.thirdColumnTemplate = document.getElementById('description')
+    this.secondColumnTemplate = document.getElementById('age')
+    this.firstColumnTemplate.style.display = 'none'
+    this.thirdColumnTemplate.style.display = 'none'
+    this.secondColumnTemplate.style.display = 'none'
     const table = this.querySelector('#sampleEditableTable')
     table.options = {
       columns: [
         {
-          name: 'First',
+          name: 'Gender',
           width: 'auto',
-          fieldName: 'first',
-          editable: true,
-          colummTemplate: this.querySelector('.first'),
+          fieldName: 'gender',
+          colummTemplate: this.firstColumnTemplate,
         },
         {
-          name: 'Second',
+          name: 'Age',
           width: 'auto',
-          fieldName: 'second',
-          editable: true,
+          fieldName: 'age',
+          colummTemplate: this.secondColumnTemplate,
         },
         {
-          name: 'Third',
+          name: 'Description',
           width: 'auto',
-          fieldName: 'third',
-          editable: true,
-          colummTemplate: this.querySelector('.third'),
+          fieldName: 'description',
+          colummTemplate: this.thirdColumnTemplate,
         },
       ],
-      onRowChange: this.handleRowChange.bind(this),
+      onEditCellStart: (e) => {
+        const {column, value, index} = e.detail
+        this.editingColumn = {
+          column,
+          index,
+        }
+        switch (column) {
+          case 'gender':
+            this.firstColumnTemplate.style.display = 'block'
+            this.firstColumnTemplate.focus()
+            // for (const item of this.firstColumnTemplate
+            //   .dropdownOptionElements) {
+            //   if (item.getAttribute('value') === value) {
+            //     console.log(item)
+            //     item.setAttribute('selected', true)
+            //   } else {
+            //     item.setAttribute('selected', false)
+            //   }
+            // }
+            break
+          case 'age':
+            this.secondColumnTemplate.style.display = 'block'
+            this.secondColumnTemplate.value = value
+            this.secondColumnTemplate.style.width = '100%'
+            this.secondColumnTemplate.focus()
+            break
+          case 'description':
+            this.thirdColumnTemplate.style.display = 'block'
+            this.thirdColumnTemplate.value = value
+            this.thirdColumnTemplate.style.width = '100%'
+            this.thirdColumnTemplate.focus()
+            break
+        }
+      },
     }
 
     table.data = [
       {
-        first: 'Row 1',
-        second: 'Second column data',
-        third: 'Third column data with longer text than the others - row 1',
+        gender: 'Male',
+        age: 20,
+        description:
+          'Third column data with longer text than the others - row 1',
       },
       {
-        first: 'Row 2',
-        second: 'Second column',
-        third: 'Third column data with longer text than the others - row 2',
+        gender: 'Female',
+        age: 20,
+        description:
+          'Third column data with longer text than the others - row 2',
       },
       {
-        first: 'Row 3',
-        second: 'Second of row 3',
-        third: 'Third column data with longer text than the others - row 3',
+        gender: 'Other',
+        age: 20,
+        description:
+          'Third column data with longer text than the others - row 3',
       },
     ]
 
-  }
-
-  handleRowChange(event, data) {
-    cdgToastService.toast('Row changed at index: ' + data.rowIndex)
+    this.querySelector('#gender').addEventListener('onchangevalue', (e) => {
+      const newTableData = table.finishEditing(
+        this.editingColumn.column,
+        this.editingColumn.index,
+        e.detail,
+      )
+      this.firstColumnTemplate.style.display = 'none'
+    })
+    this.querySelector('#description').addEventListener('blur', (e) => {
+      const newTableData = table.finishEditing(
+        this.editingColumn.column,
+        this.editingColumn.index,
+        e.target.value,
+      )
+      this.thirdColumnTemplate.style.display = 'none'
+    })
+    this.querySelector('#age').addEventListener('blur', (e) => {
+      const newTableData = table.finishEditing(
+        this.editingColumn.column,
+        this.editingColumn.index,
+        e.target.value,
+      )
+      this.secondColumnTemplate.style.display = 'none'
+    })
   }
 }

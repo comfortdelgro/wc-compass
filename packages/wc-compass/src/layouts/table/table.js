@@ -138,7 +138,10 @@ export class CdgTable extends HTMLTableElement {
     this.body.addEventListener('onRowCheck', this.handleRowCheck.bind(this))
     this.body.options = this.options
     this.body.data = this.data
-
+    this.body.addEventListener(
+      'onEditCellStart',
+      this.handleEditCellStart.bind(this),
+    )
     this.appendChild(this.body)
   }
 
@@ -155,5 +158,27 @@ export class CdgTable extends HTMLTableElement {
 
   handleColumnSort(event) {
     this.dispatchEvent(new CustomEvent('sort', {detail: event.detail}))
+  }
+
+  handleEditCellStart(event) {
+    if (this.options.onEditCellStart) {
+      this.options.onEditCellStart(event)
+    }
+  }
+
+  finishEditing(column, index, value) {
+    const newData = [...this.data]
+    if (
+      column !== undefined &&
+      column !== null &&
+      index !== undefined &&
+      index !== null &&
+      value !== undefined &&
+      value !== null
+    ) {
+      newData[index][column] = value
+      this.data = newData
+      return this.data
+    }
   }
 }
