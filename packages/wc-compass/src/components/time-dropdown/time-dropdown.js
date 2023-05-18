@@ -1,8 +1,9 @@
 import {CdgBaseComponent} from '../../shared/base-component'
-export const TIME_REGEX =
+export const HALF_TIME_REGEX =
   /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]\s(AM|aM|Am|am|PM|Pm|pM|pm)$/
-
-const timeDropdownControlPaddingTop = 4
+export const FULL_TIME_REGEX = /^([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/
+const TIME_DROPDOWN_PADDING_TOP = 4
+const FORMAT_HOURS = ['half', 'full']
 
 export class CdgTimeDropdown extends CdgBaseComponent {
   contentElement
@@ -10,27 +11,14 @@ export class CdgTimeDropdown extends CdgBaseComponent {
   minuteListElement
   timeListElement
   bottomElement
+  format = 'half'
 
   _value
   set value(newValue) {
     this._value = newValue
     if (this._value) {
       this.setAttribute('value', this._value)
-      if (TIME_REGEX.test(this._value)) {
-        // Spilt value "hh:mm AA" to string
-        const [hhmm, time] = this._value.split(' ')
-        const [hour, minute] = hhmm.split(':')
-
-        if (`${Number(hour)}` !== this.selectedHour) {
-          this.selectedHour = `${Number(hour)}`
-        }
-        if (`${Number(minute)}` !== this.selectedMinute) {
-          this.selectedMinute = `${Number(minute)}`
-        }
-        if (time !== this.selectedTime) {
-          this.selectedTime = time.toLocaleLowerCase()
-        }
-      }
+      this.setSelectedItemsWithFormat()
     } else {
       this.resetSelectedItems()
       this.removeAttribute('value', this._value)
@@ -86,7 +74,7 @@ export class CdgTimeDropdown extends CdgBaseComponent {
   }
 
   static get observedAttributes() {
-    return ['value', 'has-bottom', 'minute-step']
+    return ['value', 'has-bottom', 'minute-step', 'format']
   }
 
   constructor() {
@@ -107,6 +95,42 @@ export class CdgTimeDropdown extends CdgBaseComponent {
     this.classList.remove('cdg-time-dropdown-display')
     this.createTimeDropdownElement()
     this.hasBottom = this.hasAttribute('has-bottom')
+  }
+
+  setSelectedItemsWithFormat() {
+    const formatHour = this.getAttribute('format')
+    if (formatHour && formatHour === 'full') {
+      if (FULL_TIME_REGEX.test(this._value)) {
+        // Spilt value "HH:mm:ss" to string
+        const [hour, minute, second] = this._value.split(':')
+
+        if (`${Number(hour)}` !== this.selectedHour) {
+          this.selectedHour = `${Number(hour)}`
+        }
+        if (`${Number(minute)}` !== this.selectedMinute) {
+          this.selectedMinute = `${Number(minute)}`
+        }
+        if (`${Number(second)}` !== this.selectedTime) {
+          this.selectedTime = `${Number(second)}`
+        }
+      }
+    } else {
+      if (HALF_TIME_REGEX.test(this._value)) {
+        // Spilt value "hh:mm AA" to string
+        const [hhmm, time] = this._value.split(' ')
+        const [hour, minute] = hhmm.split(':')
+
+        if (`${Number(hour)}` !== this.selectedHour) {
+          this.selectedHour = `${Number(hour)}`
+        }
+        if (`${Number(minute)}` !== this.selectedMinute) {
+          this.selectedMinute = `${Number(minute)}`
+        }
+        if (time !== this.selectedTime) {
+          this.selectedTime = time.toLocaleLowerCase()
+        }
+      }
+    }
   }
 
   resetSelectedItems() {
@@ -154,7 +178,7 @@ export class CdgTimeDropdown extends CdgBaseComponent {
         selectedItem.classList.add('cdg-time-dropdown-item-active')
         listElement.scroll({
           behavior,
-          top: selectedItem.offsetTop - timeDropdownControlPaddingTop,
+          top: selectedItem.offsetTop - TIME_DROPDOWN_PADDING_TOP,
         })
       }
     }
@@ -181,22 +205,22 @@ export class CdgTimeDropdown extends CdgBaseComponent {
             this.selectedMinute = '0'
           }
           if (!this.selectedTime) {
-            this.selectedTime = 'am'
+            this.selectedTime = this.format === 'full' ? '0' : 'am'
           }
           break
         case 'minute':
           this.selectedMinute = value
           if (!this.selectedHour) {
-            this.selectedHour = '1'
+            this.selectedHour = this.format === 'full' ? '0' : '1'
           }
           if (!this.selectedTime) {
-            this.selectedTime = 'am'
+            this.selectedTime = this.format === 'full' ? '0' : 'am'
           }
           break
         case 'time':
           this.selectedTime = value
           if (!this.selectedHour) {
-            this.selectedHour = '1'
+            this.selectedHour = this.format === 'full' ? '0' : '1'
           }
           if (!this.selectedMinute) {
             this.selectedMinute = '0'
@@ -232,13 +256,25 @@ export class CdgTimeDropdown extends CdgBaseComponent {
   }
 
   getDisplayValue() {
-    return `${this.selectedHour.padStart(
-      2,
-      '0',
-    )}:${this.selectedMinute.padStart(
-      2,
-      '0',
-    )} ${this.selectedTime.toUpperCase()}`
+    let resultString = ''
+    if (this.format === 'full') {
+      resultString = `${this.selectedHour.padStart(
+        2,
+        '0',
+      )}:${this.selectedMinute.padStart(2, '0')}:${this.selectedTime.padStart(
+        2,
+        '0',
+      )}`
+    } else {
+      resultString = `${this.selectedHour.padStart(
+        2,
+        '0',
+      )}:${this.selectedMinute.padStart(
+        2,
+        '0',
+      )} ${this.selectedTime.toUpperCase()}`
+    }
+    return resultString
   }
 
   createTimeDropdownElement() {
@@ -287,7 +323,20 @@ export class CdgTimeDropdown extends CdgBaseComponent {
         'cdg-time-dropdown-control',
         'cdg-time-dropdown-hours',
       )
-      this.createDropdownList(1, 12, 1, this.hourListElement, 'hour')
+      let formatHourValue = 12
+      let minHourValue = 1
+      const formatHour = this.getAttribute('format')
+      if (formatHour && FORMAT_HOURS.includes(formatHour)) {
+        formatHourValue = formatHour === 'full' ? 23 : 12
+        minHourValue = formatHour === 'full' ? 0 : 1
+      }
+      this.createDropdownList(
+        minHourValue,
+        formatHourValue,
+        1,
+        this.hourListElement,
+        'hour',
+      )
       this.contentElement.appendChild(this.hourListElement)
     }
   }
@@ -318,11 +367,15 @@ export class CdgTimeDropdown extends CdgBaseComponent {
         'cdg-time-dropdown-control',
         'cdg-time-dropdown-times',
       )
-
-      const itemOptionAM = this.createDropdownItem('am', 'time', 'AM')
-      this.timeListElement.appendChild(itemOptionAM)
-      const itemOptionPM = this.createDropdownItem('pm', 'time', 'PM')
-      this.timeListElement.appendChild(itemOptionPM)
+      const formatHour = this.getAttribute('format')
+      if (formatHour && formatHour === 'full') {
+        this.createDropdownList(0, 59, 1, this.timeListElement, 'time')
+      } else {
+        const itemOptionAM = this.createDropdownItem('am', 'time', 'AM')
+        this.timeListElement.appendChild(itemOptionAM)
+        const itemOptionPM = this.createDropdownItem('pm', 'time', 'PM')
+        this.timeListElement.appendChild(itemOptionPM)
+      }
 
       this.contentElement.appendChild(this.timeListElement)
     }
