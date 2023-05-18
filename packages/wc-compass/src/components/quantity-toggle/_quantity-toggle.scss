@@ -62,7 +62,7 @@ cdg-quantity-toggle,
 
     &[disabled] {
       cursor: not-allowed;
-      background-color: var(--grey30);
+      background-color: var(--grey40);
     }
 
     &::-webkit-outer-spin-button,
@@ -95,6 +95,35 @@ cdg-quantity-toggle,
       border-bottom-left-radius: 0;
       border-right: none;
       border-left: 1px solid var(--border-color);
+    }
+    &[disabled] {
+      background-color: var(--grey40);
+    }
+  }
+
+  &[mode='simple'] {
+    min-width: 120px;
+    width: 120px;
+    border: none;
+    .cdg-button {
+      width: auto;
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      border-radius: 30px;
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+      border-right: none;
+      border-left: none;
+
+      &[disabled] {
+        background-color: var(--grey40);
+      }
+    }
+
+    input {
+      padding: 0;
     }
   }
 }
