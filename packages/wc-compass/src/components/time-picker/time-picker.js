@@ -42,7 +42,7 @@ export class CdgTimePicker extends CdgBaseComponent {
   }
 
   static get observedAttributes() {
-    return ['value', 'placeholder']
+    return ['value', 'placeholder', 'minute-step']
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
@@ -57,6 +57,12 @@ export class CdgTimePicker extends CdgBaseComponent {
 
     this.timeDropdownElement = document.createElement('cdg-time-dropdown')
     this.timeDropdownElement.setAttribute('has-bottom', '')
+    if (this.hasAttribute('minute-step')) {
+      this.timeDropdownElement.setAttribute(
+        'minute-step',
+        this.getAttribute('minute-step'),
+      )
+    }
     this.timeDropdownElement.addEventListener(
       'onTimeClick',
       this.handleDropdownTimeItemClick.bind(this),

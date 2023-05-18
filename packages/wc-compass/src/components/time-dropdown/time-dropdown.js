@@ -86,7 +86,7 @@ export class CdgTimeDropdown extends CdgBaseComponent {
   }
 
   static get observedAttributes() {
-    return ['value', 'has-bottom']
+    return ['value', 'has-bottom', 'minute-step']
   }
 
   constructor() {
@@ -97,6 +97,7 @@ export class CdgTimeDropdown extends CdgBaseComponent {
     if (oldValue === newValue) return
     if (attr === 'has-bottom') {
       this.hasBottom = this.hasAttribute('has-bottom')
+      return
     }
     this[attr] = newValue
   }
@@ -298,7 +299,14 @@ export class CdgTimeDropdown extends CdgBaseComponent {
         'cdg-time-dropdown-control',
         'cdg-time-dropdown-minutes',
       )
-      this.createDropdownList(0, 59, 1, this.minuteListElement, 'minute')
+      const minuteStep = this.getAttribute('minute-step') || '1'
+      this.createDropdownList(
+        0,
+        59,
+        Number(minuteStep),
+        this.minuteListElement,
+        'minute',
+      )
       this.contentElement.appendChild(this.minuteListElement)
     }
   }
