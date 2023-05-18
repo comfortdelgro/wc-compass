@@ -131,6 +131,10 @@ export const DOCUMENT_CONTENT = [
         slug: 'datepicker',
       },
       {
+        name: 'TimePicker',
+        slug: 'timePicker',
+      },
+      {
         name: 'Dropdown',
         slug: 'dropdown',
       },

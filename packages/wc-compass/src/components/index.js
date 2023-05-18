@@ -44,6 +44,8 @@ import {CdgTab} from './tab/tab'
 import {CdgTabs} from './tab/tabs'
 import {CdgTagBoxContainer} from './tag-box/tag-box'
 import {CdgTagBoxItem} from './tag-box/tag-box-item'
+import {CdgTimeDropdown} from './time-dropdown/time-dropdown'
+import {CdgTimePicker} from './time-picker/time-picker'
 import {CdgToggle} from './toggle/toggle'
 import {CdgTooltip} from './tooltip/tooltip'
 import {CdgVideoPlayer} from './video/video'
@@ -102,6 +104,8 @@ customElements.define('cdg-lazy-img', CdgLazyImage)
 customElements.define('cdg-page-indexes', CdgPageIndexes)
 customElements.define('cdg-speed-dial', CdgSpeedDial)
 customElements.define('cdg-for-loop', CdgForLoop)
+customElements.define('cdg-time-picker', CdgTimePicker)
+customElements.define('cdg-time-dropdown', CdgTimeDropdown)
 
 export const CONTROL_COMPONENTS = [
   CdgAlert,
@@ -146,5 +150,7 @@ export const CONTROL_COMPONENTS = [
   CdgLazyImage,
   CdgPageIndexes,
   CdgSpeedDial,
-  CdgForLoop
+  CdgForLoop,
+  CdgTimePicker,
+  CdgTimeDropdown,
 ]

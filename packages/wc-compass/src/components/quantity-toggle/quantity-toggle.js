@@ -8,7 +8,6 @@ export class CdgQuantityToggle extends HTMLElement {
   }
 
   set step(value) {
-    console.log(value);
     this.setAttribute('step', value)
   }
 
@@ -86,6 +85,7 @@ export class CdgQuantityToggle extends HTMLElement {
     })
 
     this.handleDisabled()
+    this.validateButtons()
   }
 
   attributeChangedCallback(attr) {
@@ -97,6 +97,7 @@ export class CdgQuantityToggle extends HTMLElement {
           this.handleMinError()
           this.handleMaxError()
           this.checkErrors()
+          this.validateButtons()
         }
         break
 
@@ -129,7 +130,18 @@ export class CdgQuantityToggle extends HTMLElement {
     }
   }
 
+  validateButtons() {
+    if (!this.increaseButton || !this.decreaseButton) {
+      return
+    }
+    this.decreaseButton.disabled = !!(this.value <= this.min || this.value <= 0)
+    this.increaseButton.disabled = !!(this.max && this.value >= this.max)
+  }
+
   handleDecrease() {
+    if (this.disabled || this.decreaseButton.disabled) {
+      return
+    }
     let value = (this.value || 0) - this.step
     value = value >= 0 ? value : 0
     if (this.value !== value) {
@@ -138,6 +150,9 @@ export class CdgQuantityToggle extends HTMLElement {
   }
 
   handleIncrease() {
+    if (this.disabled || this.increaseButton.disabled) {
+      return
+    }
     this.value = (this.value || 0) + this.step
   }
 

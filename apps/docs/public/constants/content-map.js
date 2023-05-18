@@ -79,4 +79,5 @@ export const CONTENT_MAP = {
   services: 'cdg-services-demo',
   speedDial: 'cdg-speed-dial-demo',
   forLoop: 'cdg-for-loop-demo',
+  timePicker: 'cdg-time-picker-demo',
 }
