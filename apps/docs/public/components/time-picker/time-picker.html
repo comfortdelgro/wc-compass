@@ -1,0 +1,38 @@
+<style>
+    .time-dropdown-demo {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+    }
+</style>
+
+<div class="time-dropdown-demo">
+    <cdg-time-dropdown has-bottom></cdg-time-dropdown>
+    <cdg-time-dropdown></cdg-time-dropdown>
+</div>
+
+<label
+  class="cdg-input-group"
+  style="width: 250px; max-width: 100%; margin-top: 24px; margin-bottom: 24px"
+>
+  <span class="cdg-input-label">TimePicker</span>
+  <cdg-time-picker></cdg-time-picker>
+</label>
+
+<label
+  class="cdg-input-group"
+  style="width: 250px; max-width: 100%; margin-top: 24px; margin-bottom: 24px"
+>
+  <span class="cdg-input-label">TimePicker with placeholder</span>
+  <cdg-time-picker placeholder="Input your Time"></cdg-time-picker>
+</label>
+
+<label
+  class="cdg-input-group"
+  style="width: 250px; max-width: 100%; margin-bottom: 50px"
+>
+  <span class="cdg-input-label">TimePicker with value</span>
+  <cdg-time-picker value="05:15 PM"></cdg-time-picker>
+</label>
+
+<div style="height: 1500px;"></div>
