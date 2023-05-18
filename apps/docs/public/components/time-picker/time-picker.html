@@ -4,6 +4,12 @@
     gap: 16px;
     align-items: flex-start;
   }
+  @media screen and (max-width: 767px) {
+    .time-dropdown-demo {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 </style>
 
 <p>
@@ -15,16 +21,19 @@
   <div class="sample-section">
     <div class="time-dropdown-demo">
       <cdg-time-dropdown has-bottom></cdg-time-dropdown>
-      <cdg-time-dropdown></cdg-time-dropdown>
       <cdg-time-dropdown value="02:05 PM"></cdg-time-dropdown>
       <cdg-time-dropdown minute-step="5"></cdg-time-dropdown>
+      <!-- <cdg-time-dropdown format="full" value="02:05:35"></cdg-time-dropdown> -->
+      <cdg-time-dropdown format="full"></cdg-time-dropdown>
     </div>
   </div>
 
   <pre>
   <code class="language-html">
     &lt;cdg-time-dropdown has-bottom&gt;&lt;/cdg-time-dropdown&gt;
-    &lt;cdg-time-dropdown&gt;&lt;/cdg-time-dropdown&gt;
+    &lt;cdg-time-dropdown value=&quot;02:05 PM&quot;&gt;&lt;/cdg-time-dropdown&gt;
+    &lt;cdg-time-dropdown minute-step=&quot;5&quot;&gt;&lt;/cdg-time-dropdown&gt;
+    &lt;cdg-time-dropdown format=&quot;full&quot; value=&quot;02:05:35&quot;&gt;&lt;/cdg-time-dropdown&gt;
   </code>
 </pre>
 </cdg-sample-section>
@@ -121,6 +130,25 @@ style=&quot;
     &lt;cdg-time-picker value=&quot;05:15 PM&quot;&gt;&lt;/cdg-time-picker&gt;
 &lt;/label&gt;
     </code>
+    </pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="TimePicker with 24-hours format">
+  <div class="sample-section">
+    <label
+      class="cdg-input-group"
+      style="width: 250px; max-width: 100%; margin-bottom: 50px"
+    >
+      <span class="cdg-input-label">TimePicker with 24-hours format</span>
+      <cdg-time-picker
+        value="05:15:13"
+        placeholder="HH:mm:ss"
+        format="full"
+      ></cdg-time-picker>
+    </label>
+  </div>
+  <pre>
+    <code class="language-html"></code>
     </pre>
 </cdg-sample-section>
 

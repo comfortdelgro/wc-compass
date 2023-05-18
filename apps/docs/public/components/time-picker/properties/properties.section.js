@@ -26,10 +26,32 @@ export class CdgTimePickerPropertiesSection extends CdgTableComponentSection {
           'Minute column spacing setting.',
       },
       {
+        name: '<code>format</code>',
+        type: '<code>half</code>|<code>full</code>',
+        default: '<code>half</code>',
+        description:
+          `Set hour format for TimePicker.
+          <br/>
+          <b>half:</b> 12-hours format(hh:mm AA)
+          <br/>
+          <b>full:</b> 24-hours format(HH:mm:ss)
+          `,
+      },
+      {
         name: '<code>onTimeClick</code>',
         type: '<code>function</code>',
         default: '',
         description: `Event emitted when the click an item by the user.
+          <br>
+          <b>Signature:</b>
+          <br>
+          <code>function(event: { detail: {hour: string, minute: string, time: string, displayValue: string} }) => void</code>`,
+      },
+      {
+        name: '<code>onTimeChange</code>',
+        type: '<code>function</code>',
+        default: '',
+        description: `Event emitted when the click OK button at the bottom or input valid value by the user.
           <br>
           <b>Signature:</b>
           <br>

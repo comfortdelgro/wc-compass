@@ -1,6 +1,6 @@
 import {CdgBaseComponent} from '../../shared/base-component'
 import {createFloating} from '../floating-content/floating-content'
-import {TIME_REGEX} from '../time-dropdown/time-dropdown'
+import {FULL_TIME_REGEX, HALF_TIME_REGEX} from '../time-dropdown/time-dropdown'
 
 const inputTemplate = document.createElement('template')
 inputTemplate.innerHTML = `
@@ -18,9 +18,11 @@ export class CdgTimePicker extends CdgBaseComponent {
   floatingElement
   anchorElement
   rootValue = ''
+  format = 'half'
+  regex = HALF_TIME_REGEX
 
   set value(newValue) {
-    if (newValue && TIME_REGEX.test(newValue)) {
+    if (newValue && this.regex.test(newValue)) {
       if (this.timeDropdownElement) {
         this.timeDropdownElement.setAttribute('value', newValue)
       }
@@ -42,7 +44,7 @@ export class CdgTimePicker extends CdgBaseComponent {
   }
 
   static get observedAttributes() {
-    return ['value', 'placeholder', 'minute-step']
+    return ['value', 'placeholder', 'minute-step', 'format']
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
@@ -62,6 +64,17 @@ export class CdgTimePicker extends CdgBaseComponent {
         'minute-step',
         this.getAttribute('minute-step'),
       )
+    }
+    if (this.hasAttribute('format')) {
+      this.timeDropdownElement.setAttribute(
+        'format',
+        this.getAttribute('format'),
+      )
+    }
+    this.regex =
+      this.getAttribute('format') === 'full' ? FULL_TIME_REGEX : HALF_TIME_REGEX
+    if (this.hasAttribute('value')) {
+      this.timeDropdownElement.setAttribute('value', this.getAttribute('value'))
     }
     this.timeDropdownElement.addEventListener(
       'onTimeClick',
@@ -131,7 +144,7 @@ export class CdgTimePicker extends CdgBaseComponent {
   }
 
   handleInputTimeKeyUp() {
-    const isValidTime = TIME_REGEX.test(this.anchorElement.value)
+    const isValidTime = this.regex.test(this.anchorElement.value)
     if (isValidTime && this.timeDropdownElement) {
       this.rootValue = this.anchorElement.value.toUpperCase()
       this.timeDropdownElement.setAttribute(
@@ -169,7 +182,7 @@ export class CdgTimePicker extends CdgBaseComponent {
 
   handleInputTimeBlur() {
     if (this.anchorElement.value) {
-      const isValidTime = TIME_REGEX.test(this.anchorElement.value)
+      const isValidTime = this.regex.test(this.anchorElement.value)
       if (!isValidTime || this.rootValue !== this.anchorElement.value) {
         this.anchorElement.value = this.rootValue || ''
       } else {
