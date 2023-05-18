@@ -78,4 +78,5 @@ export const CONTENT_MAP = {
   newsAndBlogs: 'cdg-news-and-blogs-demo',
   services: 'cdg-services-demo',
   speedDial: 'cdg-speed-dial-demo',
+  timePicker: 'cdg-time-picker-demo',
 }

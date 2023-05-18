@@ -1,0 +1,109 @@
+.cdg-time-dropdown {
+  background-color: var(--background);
+  border: 1px solid var(--border-color-dropdown);
+  border-radius: 4px;
+  display: block;
+  width: fit-content;
+  opacity: 0;
+  visibility: hidden;
+  animation: showTimeDropdown 0.3s;
+
+  &.cdg-time-dropdown-display {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &.cdg-time-dropdown-top {
+    // transform: translateY(-100%);
+    animation: showTopDownTimeDropdown 0.3s;
+  }
+}
+.cdg-time-dropdown-content {
+  display: flex;
+  height: 320px;
+  width: 100%;
+  overflow-y: hidden;
+  margin-top: 4px;
+}
+.cdg-time-dropdown-control {
+  padding: 4px;
+  overflow-y: auto;
+  height: 100%;
+  position: relative;
+  box-sizing: border-box;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge add Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.cdg-time-dropdown-hours {
+  border-right: 1px solid var(--border-color-dropdown);
+}
+.cdg-time-dropdown-minutes {
+  border-right: 1px solid var(--border-color-dropdown);
+}
+.cdg-time-dropdown-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  border-radius: 4px;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: var(--body3);
+  line-height: var(--line-height-body3);
+  box-sizing: border-box;
+
+  &.cdg-time-dropdown-item-active {
+    background-color: var(--accent) !important;
+    color: var(--background);
+  }
+
+  &:hover {
+    background-color: var(--primary-background);
+  }
+}
+.cdg-time-dropdown-bottom {
+  padding: 8px;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid var(--border-color-dropdown);
+  button {
+    font-weight: 500;
+    font-size: var(--body3);
+    line-height: var(--line-height-body3);
+  }
+}
+
+@keyframes showTopDownTimeDropdown {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes showTimeDropdown {
+  from {
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes hideTimeDropdown {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
