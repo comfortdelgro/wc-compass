@@ -1,0 +1,89 @@
+<style>
+  .custom-for-loop {
+    display: flex;
+    flex-direction: column;
+  }
+</style>
+
+<cdg-sample-section name="Custom Item">
+  <div class="sample-section column">
+    <cdg-listview class="custom-for-loop">
+      <template>
+        <loop-item></loop-item>
+      </template>
+    </cdg-listview>
+  </div>
+
+  <pre>
+    <code class="language-javascript">// Let's define a custom loop-item component 
+import {CdgBaseComponent} from &apos;@comfortdelgro/wc-compass/src/shared/base-component&apos;
+  
+export class LoopItem extends CdgBaseComponent {
+  constructor() {
+    super()
+    this.template = `
+    &lt;cdg-list-item&gt;
+      &lt;div class=&quot;cdg-list-item-icon&quot;&gt;
+        &lt;cdg-avatar name=&quot;{{item.user.name}}&quot; size=&quot;40&quot;&gt;&lt;/cdg-avatar&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;cdg-list-item-info&quot;&gt;
+        &lt;div class=&quot;cdg-list-item-title&quot;&gt;{{item.user.name}}&lt;/div&gt;
+        &lt;div class=&quot;cdg-list-item-description&quot;&gt;{{item.user.job.title}}&lt;/div&gt;
+        &lt;div class=&quot;cdg-list-item-description&quot;&gt;{{item.user.job.location}}&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;cdg-list-item-right-col&quot;&gt;
+        &lt;div class=&quot;cdg-list-item-button&quot;&gt;
+          Details&lt;cdg-icon name=&quot;arrow-right&quot; size=&quot;18&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/cdg-list-item&gt;`
+  }
+
+  connectedCallback() {
+    this.addEventListener(&apos;click&apos;, () =&gt; {
+      cdgToastService.toast(&apos;Clicked&apos;)
+    })
+  }
+}</code>  
+      <code class="language-html">&lt;cdg-listview class=&quot;custom-for-loop&quot;&gt;
+  &lt;template&gt;
+    &lt;loop-item&gt;&lt;/loop-item&gt;
+  &lt;/template&gt;
+&lt;/cdg-listview&gt;
+
+&lt;script&gt;
+import {CdgLoop} from &apos;@comfortdelgro/wc-compass/src/shared/for-loop&apos;
+import {CdgDocumentComponent} from &apos;../../../shared/document-component&apos;
+import template from &apos;./custom-item.section.html&apos;
+import {LoopItem} from &apos;./loop-item&apos;
+customElements.define(&apos;loop-item&apos;, LoopItem)
+
+export class CdgCustomItemSection extends CdgDocumentComponent {
+  constructor() {
+    super()
+    this.template = template
+  }
+
+  onInit() {
+    const container = this.querySelector(&apos;.custom-for-loop&apos;)
+    const data = [
+      {
+        id: 1,
+        user: {
+          name: &apos;Michael&apos;,
+          job: {
+            title: &apos;Software Developer&apos;,
+            location: &apos;FPT&apos;,
+          },
+        },
+      },
+      // ...
+    ]
+
+    if (container) {
+      const loop = new CdgLoop(container)
+      loop.loop(data)
+    }
+&lt;/script&gt;</code>
+  </pre>
+</cdg-sample-section>

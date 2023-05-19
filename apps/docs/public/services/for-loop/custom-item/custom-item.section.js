@@ -1,22 +1,24 @@
 import {CdgLoop} from '@comfortdelgro/wc-compass/src/shared/for-loop'
 import {CdgDocumentComponent} from '../../../shared/document-component'
-import template from './advanced-for-loop.section.html'
+import template from './custom-item.section.html'
+import {LoopItem} from './loop-item'
+customElements.define('loop-item', LoopItem)
 
-export class CdgAdvancedForLoopDemo extends CdgDocumentComponent {
+export class CdgCustomItemSection extends CdgDocumentComponent {
   constructor() {
     super()
     this.template = template
   }
 
   onInit() {
-    const container = this.querySelector('.cdg-advanced-for-loop')
+    const container = this.querySelector('.custom-for-loop')
     const data = [
       {
         id: 1,
         user: {
           name: 'Michael',
           job: {
-            title: 'developer',
+            title: 'Software Developer',
             location: 'FPT',
           },
         },
@@ -26,8 +28,8 @@ export class CdgAdvancedForLoopDemo extends CdgDocumentComponent {
         user: {
           name: 'Jordan',
           job: {
-            title: 'tester',
-            location: 'nba',
+            title: 'Software Tester',
+            location: 'Nba',
           },
         },
       },
@@ -36,7 +38,7 @@ export class CdgAdvancedForLoopDemo extends CdgDocumentComponent {
         user: {
           name: 'Kurma',
           job: {
-            title: 'BA',
+            title: 'Business Analyst',
             location: 'India',
           },
         },
@@ -46,8 +48,8 @@ export class CdgAdvancedForLoopDemo extends CdgDocumentComponent {
         user: {
           name: 'Denis',
           job: {
-            title: 'SA',
-            location: 'SG',
+            title: 'Solution Architect',
+            location: 'Singapore',
           },
         },
       },
@@ -56,7 +58,7 @@ export class CdgAdvancedForLoopDemo extends CdgDocumentComponent {
         user: {
           name: 'Wade',
           job: {
-            title: 'PO',
+            title: 'Product Owner',
             location: 'US',
           },
         },

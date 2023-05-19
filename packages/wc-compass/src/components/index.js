@@ -51,7 +51,6 @@ import {CdgTooltip} from './tooltip/tooltip'
 import {CdgVideoPlayer} from './video/video'
 import {CdgVideoControls} from './video/video-controls'
 import {CdgVolume} from './volume/volume'
-import {CdgForLoop} from './for-loop/for-loop'
 
 customElements.define('cdg-alert', CdgAlert)
 customElements.define('cdg-alert-badge', CdgAlertBadge)
@@ -103,7 +102,6 @@ customElements.define('cdg-select-color', CdgSelectColor)
 customElements.define('cdg-lazy-img', CdgLazyImage)
 customElements.define('cdg-page-indexes', CdgPageIndexes)
 customElements.define('cdg-speed-dial', CdgSpeedDial)
-customElements.define('cdg-for-loop', CdgForLoop)
 customElements.define('cdg-time-picker', CdgTimePicker)
 customElements.define('cdg-time-dropdown', CdgTimeDropdown)
 
@@ -150,7 +148,6 @@ export const CONTROL_COMPONENTS = [
   CdgLazyImage,
   CdgPageIndexes,
   CdgSpeedDial,
-  CdgForLoop,
   CdgTimePicker,
   CdgTimeDropdown,
 ]
