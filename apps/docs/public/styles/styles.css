@@ -279,6 +279,11 @@ pre code.hljs {
   margin: 0;
 }
 
+.right-column-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
 cdg-home-demo {
   padding-top: 24px;
   display: flex;

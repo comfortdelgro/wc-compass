@@ -18,18 +18,6 @@ imageTemplate.innerHTML = `
       object-fit: cover;
     }
 
-    img:before {
-      content: ' ';
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background-color: rgb(230, 230, 230);
-      border-radius: 5px;
-    }
-
     img.in-grid {
       width: 100%;
       height: 100%;
@@ -37,7 +25,7 @@ imageTemplate.innerHTML = `
       grid-area: 1 / 1 / 2 / 2;
     }
   </style>
-  <img src=""/>
+  <img src="${placeholderSrc}"/>
 `
 
 export class CdgLazyImage extends HTMLElement {
