@@ -312,6 +312,10 @@ export const DOCUMENT_CONTENT = [
         name: 'Loading',
         slug: 'loadingService',
       },
+      {
+        name: 'For loop',
+        slug: 'forLoop',
+      },
     ],
   },
   {
