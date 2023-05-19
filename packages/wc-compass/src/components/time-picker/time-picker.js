@@ -174,7 +174,9 @@ export class CdgTimePicker extends CdgBaseComponent {
       this.anchorElement.getBoundingClientRect().bottom + TIME_DROPDOWN_HEIGHT
     ) {
       this.timeDropdownElement.classList.add('cdg-time-dropdown-top')
-      this.timeDropdownElement.style.transform = `translateY(calc(-100% - ${this.anchorElement.clientHeight}px))`
+      this.timeDropdownElement.style.transform = `translateY(calc(-100% - ${
+        this.anchorElement.clientHeight + 4
+      }px))`
     }
     this.floatingElement.setAttribute('opening', 'true')
     this.rootValue = this.anchorElement.value
