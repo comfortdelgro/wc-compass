@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.2.10
+
+### Patch Changes
+
+- ec4bbca: Add for loop feature
+
 ## 0.2.9
 
 ### Patch Changes
