@@ -10,10 +10,8 @@ export class CdgTableEditableSection extends CdgBaseComponent {
   thirdColumnTemplate
   editingColumn = {}
   onInit() {
-    this.firstColumnTemplate = document.getElementById('gender')
     this.thirdColumnTemplate = document.getElementById('description')
     this.secondColumnTemplate = document.getElementById('age')
-    this.firstColumnTemplate.style.display = 'none'
     this.thirdColumnTemplate.style.display = 'none'
     this.secondColumnTemplate.style.display = 'none'
     const table = this.querySelector('#sampleEditableTable')
@@ -23,7 +21,6 @@ export class CdgTableEditableSection extends CdgBaseComponent {
           name: 'Gender',
           width: 'auto',
           fieldName: 'gender',
-          colummTemplate: this.firstColumnTemplate,
         },
         {
           name: 'Age',
@@ -45,19 +42,6 @@ export class CdgTableEditableSection extends CdgBaseComponent {
           index,
         }
         switch (column) {
-          case 'gender':
-            this.firstColumnTemplate.style.display = 'block'
-            this.firstColumnTemplate.focus()
-            // for (const item of this.firstColumnTemplate
-            //   .dropdownOptionElements) {
-            //   if (item.getAttribute('value') === value) {
-            //     console.log(item)
-            //     item.setAttribute('selected', true)
-            //   } else {
-            //     item.setAttribute('selected', false)
-            //   }
-            // }
-            break
           case 'age':
             this.secondColumnTemplate.style.display = 'block'
             this.secondColumnTemplate.value = value
@@ -95,14 +79,6 @@ export class CdgTableEditableSection extends CdgBaseComponent {
       },
     ]
 
-    this.querySelector('#gender').addEventListener('onchangevalue', (e) => {
-      const newTableData = table.finishEditing(
-        this.editingColumn.column,
-        this.editingColumn.index,
-        e.detail,
-      )
-      this.firstColumnTemplate.style.display = 'none'
-    })
     this.querySelector('#description').addEventListener('blur', (e) => {
       const newTableData = table.finishEditing(
         this.editingColumn.column,

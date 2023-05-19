@@ -1,66 +1,117 @@
 <cdg-sample-section name="Editable table">
   <div class="sample-section column">
     <table id="sampleEditableTable" is="cdg-table"></table>
-      <cdg-dropdown class="cdg-table-editable-cell" placeholder="Gender" id="gender">
-        <cdg-dropdown-option value="Male"> Male </cdg-dropdown-option>
-        <cdg-dropdown-option value="Female"> Female </cdg-dropdown-option>
-        <cdg-dropdown-option value="Other"> Other </cdg-dropdown-option>
-      </cdg-dropdown>
-
-      <input 
-        id="description"
-        class="cdg-input cdg-table-editable-cell"
-        placeholder="Type something..."
-      />
-      <input
-        id="age"
-        class="cdg-input cdg-table-editable-cell"
-        type="number"
-        placeholder="Type something..."
-      />
+    <input
+      id="description"
+      class="cdg-input cdg-table-editable-cell"
+      placeholder="Type something..."
+    />
+    <input
+      id="age"
+      class="cdg-input cdg-table-editable-cell"
+      type="number"
+      placeholder="Type something..."
+    />
   </div>
 
   <pre>
   <code class="language-html">&lt;table id=&quot;sampleEditableTable&quot; is=&quot;cdg-table&quot;&gt;&lt;/table&gt;
+      &lt;input 
+        id=&quot;description&quot;
+        class=&quot;cdg-input cdg-table-editable-cell&quot;
+        placeholder=&quot;Type something...&quot;
+      /&gt;
+      &lt;input
+        id=&quot;age&quot;
+        class=&quot;cdg-input cdg-table-editable-cell&quot;
+        type=&quot;number&quot;
+        placeholder=&quot;Type something...&quot;
+      /&gt;
 &lt;script&gt;
-    const table = this.querySelector(&apos;#sampleEditableTable&apos;)
-    table.data = [
-      {
-        first: &apos;Row 1&apos;,
-        second: &apos;Second column data&apos;,
-        third: &apos;Third column data with longer text than the others - row 1&apos;,
-      },
-      {
-        first: &apos;Row 2&apos;,
-        second: &apos;Second column&apos;,
-        third: &apos;Third column data with longer text than the others - row 2&apos;,
-      },
-      {
-        first: &apos;Row 3&apos;,
-        second: &apos;Second of row 3&apos;,
-        third: &apos;Third column data with longer text than the others - row 3&apos;,
-      },
-    ]
+    this.thirdColumnTemplate = document.getElementById('description')
+    this.secondColumnTemplate = document.getElementById('age')
+    this.thirdColumnTemplate.style.display = 'none'
+    this.secondColumnTemplate.style.display = 'none'
+    const table = this.querySelector('#sampleEditableTable')
     table.options = {
       columns: [
         {
-          name: &apos;First&apos;,
-          width: &apos;200px&apos;,
-          fieldName: &apos;first&apos;,
+          name: 'Gender',
+          width: 'auto',
+          fieldName: 'gender',
         },
         {
-          name: &apos;Second&apos;,
-          width: &apos;200px&apos;,
-          fieldName: &apos;second&apos;,
-          editable: true,
+          name: 'Age',
+          width: 'auto',
+          fieldName: 'age',
+          colummTemplate: this.secondColumnTemplate,
         },
         {
-          name: &apos;Third&apos;,
-          width: &apos;200px&apos;,
-          fieldName: &apos;third&apos;,
+          name: 'Description',
+          width: 'auto',
+          fieldName: 'description',
+          colummTemplate: this.thirdColumnTemplate,
         },
       ],
+      onEditCellStart: (e) =&gt; {
+        const {column, value, index} = e.detail
+        this.editingColumn = {
+          column,
+          index,
+        }
+        switch (column) {
+          case 'age':
+            this.secondColumnTemplate.style.display = 'block'
+            this.secondColumnTemplate.value = value
+            this.secondColumnTemplate.style.width = '100%'
+            this.secondColumnTemplate.focus()
+            break
+          case 'description':
+            this.thirdColumnTemplate.style.display = 'block'
+            this.thirdColumnTemplate.value = value
+            this.thirdColumnTemplate.style.width = '100%'
+            this.thirdColumnTemplate.focus()
+            break
+        }
+      },
     }
+
+    table.data = [
+      {
+        gender: 'Male',
+        age: 20,
+        description:
+          'Third column data with longer text than the others - row 1',
+      },
+      {
+        gender: 'Female',
+        age: 20,
+        description:
+          'Third column data with longer text than the others - row 2',
+      },
+      {
+        gender: 'Other',
+        age: 20,
+        description:
+          'Third column data with longer text than the others - row 3',
+      },
+    ]
+    this.querySelector('#description').addEventListener('blur', (e) =&gt; {
+      const newTableData = table.finishEditing(
+        this.editingColumn.column,
+        this.editingColumn.index,
+        e.target.value,
+      )
+      this.thirdColumnTemplate.style.display = 'none'
+    })
+    this.querySelector('#age').addEventListener('blur', (e) =&gt; {
+      const newTableData = table.finishEditing(
+        this.editingColumn.column,
+        this.editingColumn.index,
+        e.target.value,
+      )
+      this.secondColumnTemplate.style.display = 'none'
+    })
 &lt;/script&gt;</code>
 </pre>
 </cdg-sample-section>
