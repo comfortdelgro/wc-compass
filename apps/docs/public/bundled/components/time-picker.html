@@ -1,0 +1,155 @@
+<style>
+  .time-dropdown-demo {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  @media screen and (max-width: 767px) {
+    .time-dropdown-demo {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
+<p>
+  TimePicker is used to let user select a time or input time with format(hh:mm
+  PM/AM).
+</p>
+
+<cdg-sample-section name="Time dropdown">
+  <div class="sample-section">
+    <div class="time-dropdown-demo">
+      <cdg-time-dropdown has-bottom></cdg-time-dropdown>
+      <cdg-time-dropdown value="02:05 PM"></cdg-time-dropdown>
+      <cdg-time-dropdown minute-step="5"></cdg-time-dropdown>
+      <!-- <cdg-time-dropdown format="full" value="02:05:35"></cdg-time-dropdown> -->
+      <cdg-time-dropdown format="full"></cdg-time-dropdown>
+    </div>
+  </div>
+
+  <pre>
+  <code class="language-html">
+    &lt;cdg-time-dropdown has-bottom&gt;&lt;/cdg-time-dropdown&gt;
+    &lt;cdg-time-dropdown value=&quot;02:05 PM&quot;&gt;&lt;/cdg-time-dropdown&gt;
+    &lt;cdg-time-dropdown minute-step=&quot;5&quot;&gt;&lt;/cdg-time-dropdown&gt;
+    &lt;cdg-time-dropdown format=&quot;full&quot; value=&quot;02:05:35&quot;&gt;&lt;/cdg-time-dropdown&gt;
+  </code>
+</pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="TimePicker">
+  <div class="sample-section">
+    <label
+      class="cdg-input-group"
+      style="
+        width: 250px;
+        max-width: 100%;
+        margin-top: 24px;
+        margin-bottom: 24px;
+      "
+    >
+      <span class="cdg-input-label">TimePicker</span>
+      <cdg-time-picker></cdg-time-picker>
+    </label>
+  </div>
+
+  <pre>
+    <code class="language-html">
+&lt;label
+class=&quot;cdg-input-group&quot;
+style=&quot;
+    width: 250px;
+    max-width: 100%;
+    margin-top: 24px;
+    margin-bottom: 24px;
+&quot;
+&gt;
+    &lt;span class=&quot;cdg-input-label&quot;&gt;TimePicker&lt;/span&gt;
+    &lt;cdg-time-picker&gt;&lt;/cdg-time-picker&gt;
+&lt;/label&gt;
+    </code>
+  </pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="TimePicker with placeholder">
+  <div class="sample-section">
+    <label
+      class="cdg-input-group"
+      style="
+        width: 250px;
+        max-width: 100%;
+        margin-top: 24px;
+        margin-bottom: 24px;
+      "
+    >
+      <span class="cdg-input-label">TimePicker with placeholder</span>
+      <cdg-time-picker placeholder="Input your Time"></cdg-time-picker>
+    </label>
+  </div>
+  <pre>
+  <code class="language-html">
+&lt;label
+class=&quot;cdg-input-group&quot;
+style=&quot;
+    width: 250px;
+    max-width: 100%;
+    margin-top: 24px;
+    margin-bottom: 24px;
+&quot;
+&gt;
+    &lt;span class=&quot;cdg-input-label&quot;&gt;TimePicker&lt;/span&gt;
+    &lt;cdg-time-picker placeholder=&quot;Input your Time&quot;&gt;&lt;/cdg-time-picker&gt;
+&lt;/label&gt;
+    </code>
+    </pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="TimePicker with value and step">
+  <div class="sample-section">
+    <label
+      class="cdg-input-group"
+      style="width: 250px; max-width: 100%; margin-bottom: 50px"
+    >
+      <span class="cdg-input-label">TimePicker with value and step</span>
+      <cdg-time-picker value="05:15 PM" minute-step="5"></cdg-time-picker>
+    </label>
+  </div>
+  <pre>
+    <code class="language-html">
+&lt;label
+class=&quot;cdg-input-group&quot;
+style=&quot;
+    width: 250px;
+    max-width: 100%;
+    margin-top: 24px;
+    margin-bottom: 24px;
+&quot;
+&gt;
+    &lt;span class=&quot;cdg-input-label&quot;&gt;TimePicker&lt;/span&gt;
+    &lt;cdg-time-picker value=&quot;05:15 PM&quot;&gt;&lt;/cdg-time-picker&gt;
+&lt;/label&gt;
+    </code>
+    </pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="TimePicker with 24-hours format">
+  <div class="sample-section">
+    <label
+      class="cdg-input-group"
+      style="width: 250px; max-width: 100%; margin-bottom: 50px"
+    >
+      <span class="cdg-input-label">TimePicker with 24-hours format</span>
+      <cdg-time-picker
+        value="05:15:13"
+        placeholder="HH:mm:ss"
+        format="full"
+      ></cdg-time-picker>
+    </label>
+  </div>
+  <pre>
+    <code class="language-html"></code>
+    </pre>
+</cdg-sample-section>
+
+<cdg-timepicker-properties-section></cdg-timepicker-properties-section>

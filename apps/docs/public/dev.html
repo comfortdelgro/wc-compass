@@ -35,7 +35,12 @@
         <div class="portal-title">Compass Design</div>
         <div class="cdg-separator"></div>
         <div class="cdg-portal-nav-actions">
-          <button is="cdg-button" class="ghost" size="small" onclick="toggleDark()">
+          <button
+            is="cdg-button"
+            class="ghost"
+            size="small"
+            onclick="toggleDark()"
+          >
             Toggle Dark
           </button>
         </div>
@@ -43,11 +48,13 @@
       <div class="page-body">
         <cdg-demo-container></cdg-demo-container>
         <div class="table-of-content">
-          <h4 class="">In this page</h4>
-          <cdg-page-indexes
-            scroll-content=".page-container"
-            offset="60"
-          ></cdg-page-indexes>
+          <div class="right-column-wrapper">
+            <h4 class="">In this page</h4>
+            <cdg-page-indexes
+              scroll-content=".page-container"
+              offset="60"
+            ></cdg-page-indexes>
+          </div>
           <cdg-gutter use-collapse place="left"></cdg-gutter>
         </div>
       </div>

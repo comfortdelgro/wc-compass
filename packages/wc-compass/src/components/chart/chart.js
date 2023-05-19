@@ -1,4 +1,4 @@
-import {Chart} from 'chart.js'
+// import {Chart} from 'chart.js'
 
 export class CdgChart extends HTMLElement {
   constructor() {
@@ -32,12 +32,15 @@ export class CdgChart extends HTMLElement {
     const options = this.getAttribute('options')
     const type = this.getAttribute('type')
 
-    // create new instance ò the Chart with those above attributes
-    this.chart = new Chart(canvas, {
-      type,
-      data: JSON.parse(data),
-      options: JSON.parse(options),
-    })
+    // create new instance of the Chart with those above attributes
+    import('chart.js') // .js can be skipped
+      .then((module) => {
+        this.chart = new module.default.Chart(canvas, {
+          type,
+          data: JSON.parse(data),
+          options: JSON.parse(options),
+        })
+      })
 
     // this resize event listener is added to the window object to handle window resizes, and it resizes the chart if it exists
     window.addEventListener('resize', () => {

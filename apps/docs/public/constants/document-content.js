@@ -131,6 +131,10 @@ export const DOCUMENT_CONTENT = [
         slug: 'datepicker',
       },
       {
+        name: 'TimePicker',
+        slug: 'timePicker',
+      },
+      {
         name: 'Dropdown',
         slug: 'dropdown',
       },
@@ -307,6 +311,10 @@ export const DOCUMENT_CONTENT = [
       {
         name: 'Loading',
         slug: 'loadingService',
+      },
+      {
+        name: 'For loop',
+        slug: 'forLoop',
       },
     ],
   },

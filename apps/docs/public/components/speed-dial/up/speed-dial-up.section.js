@@ -8,10 +8,11 @@ export class CdgSpeedDialUpSection extends CdgBaseComponent {
   }
 
   onInit() {
-    const speedDial = this.querySelector('cdg-speed-dial')
+    const speedDial = this.querySelector('#speedial')
     const speedDialButton = this.querySelector('#speedDialButton')
     const editButton = this.querySelector('#editButton')
     const removeButton = this.querySelector('#removeButton')
+
     speedDialButton.addEventListener('click', () => {
       speedDial.toggle()
     })

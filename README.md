@@ -2,7 +2,8 @@
 
 This project provides a set of components for the Web Component Compass Design System that can be used to
 implement user experiences consistent with
-[ComfortDelGro's design principles](https://comfortdelgro.github.io/compass-design).
+[ComfortDelGro's design principles](https://comfortdelgro.github.io/compass-design). Documentation and demo page:
+[GitHub Page](https://comfortdelgro.github.io/wc-compass/main.html#home).
 
 ## Getting started
 

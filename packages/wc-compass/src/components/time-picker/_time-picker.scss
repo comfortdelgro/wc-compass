@@ -1,0 +1,9 @@
+.cdg-time-dropdown-floating-container {
+  .cdg-floating-content {
+    background-color: transparent;
+    box-shadow: unset;
+    .cdg-time-dropdown {
+      transform: translateY(4px);
+    }
+  }
+}

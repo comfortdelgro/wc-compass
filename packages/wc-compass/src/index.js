@@ -7,6 +7,8 @@ import {DialogService} from './shared/dialog'
 import {CdgImageViewerService} from './shared/image-viewer-service'
 import {CdgLoadingService} from './shared/loading-service'
 import {ToastService} from './shared/toast-service'
+import {CdgLoop} from './shared/for-loop'
+
 import './styles/index.scss'
 
 import {ListViewService} from './shared/list-view.service'
@@ -32,6 +34,7 @@ export {
   DialogService,
   ToastService,
   CdgLoadingService,
+  CdgLoop,
   downloadSVGContent,
   toLowerCaseAndDash,
   isElement,
