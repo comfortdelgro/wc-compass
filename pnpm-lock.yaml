@@ -101,7 +101,6 @@ importers:
       eslint: ^7.32.0
       file-loader: ^6.2.0
       gh-pages: ^5.0.0
-      lodash.get: ^4.4.2
       mini-css-extract-plugin: ^2.7.3
       postcss-loader: ^7.0.2
       react: ^18.2.0
@@ -128,7 +127,6 @@ importers:
       '@ungap/custom-elements': 1.2.0
       chart.js: 2.9.4
       dayjs: 1.11.7
-      lodash.get: 4.4.2
     devDependencies:
       '@babel/core': 7.21.3
       '@types/react': 17.0.53
@@ -3639,10 +3637,6 @@ packages:
     dependencies:
       p-locate: 5.0.0
     dev: true
-
-  /lodash.get/4.4.2:
-    resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
-    dev: false
 
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
