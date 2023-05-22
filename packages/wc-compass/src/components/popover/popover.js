@@ -5,7 +5,18 @@ export class CdgPopover extends HTMLElement {
   anchorElement
   cdgPopoverContentElement
   _direction = 'bottom'
-  _open = false
+
+  blurListener
+  clickListener
+  keyboardEvent
+
+  get trigger() {
+    return this.getAttribute('trigger')
+  }
+
+  set trigger(trigger) {
+    this.setAttribute('trigger', trigger)
+  }
 
   get direction() {
     return this.getAttribute('direction')
@@ -22,19 +33,18 @@ export class CdgPopover extends HTMLElement {
   }
 
   get open() {
-    return this._open
+    return this.hasAttribute('open')
   }
 
   set open(value) {
-    if (this.floatingElement) {
-      if (value) {
-        this.floatingElement.setAttribute('opening', 'true')
-      } else {
-        this.removeAttribute('open')
-        this.floatingElement.removeAttribute('opening')
-      }
+    if (!this.floatingElement) {
+      return
     }
-    this._open = value
+    if (value) {
+      this.setAttribute('open', '')
+    } else {
+      this.removeAttribute('open')
+    }
   }
 
   static get observedAttributes() {
@@ -51,14 +61,18 @@ export class CdgPopover extends HTMLElement {
     if (!this.floatingElement) {
       if (!this.anchorElement) {
         this.anchorElement = this.querySelector('[cdg-popover-header]')
-        this.anchorElement.addEventListener(
-          'blur',
-          this.handleAnchorBlur.bind(this),
-        )
-        this.anchorElement.addEventListener(
-          'click',
-          this.handleAnchorClick.bind(this),
-        )
+        this.anchorElement.setAttribute('tabindex', 0)
+
+        this.keyboardEvent = this.handleKeyboard.bind(this)
+        window.addEventListener('keydown', this.keyboardEvent)
+
+        if (this.trigger !== self) {
+          this.blurListener = this.handleAnchorBlur.bind(this)
+          this.anchorElement.addEventListener('blur', this.blurListener)
+
+          this.clickListener = this.handleAnchorClick.bind(this)
+          this.anchorElement.addEventListener('click', this.clickListener)
+        }
       }
       this.floatingElement = createFloating.bind(this)(
         this.anchorElement,
@@ -73,9 +87,20 @@ export class CdgPopover extends HTMLElement {
     }
   }
 
-  attributeChangedCallback(attr, oldValue, newValue) {
-    if (oldValue === newValue) return
-    this[attr] = newValue
+  attributeChangedCallback(attr) {
+    switch (attr) {
+      case 'open':
+        if (this.open) {
+          this.floatingElement.setAttribute('open', '')
+        } else {
+          this.floatingElement.removeAttribute('open')
+          window.removeEventListener('keydown', this.keyboardEvent)
+        }
+        break
+
+      default:
+        break
+    }
   }
 
   handleAnchorClick() {
@@ -84,5 +109,11 @@ export class CdgPopover extends HTMLElement {
 
   handleAnchorBlur() {
     this.open = false
+  }
+
+  handleKeyboard(event) {
+    if (event.key === 'Escape') {
+      document.activeElement.blur()
+    }
   }
 }

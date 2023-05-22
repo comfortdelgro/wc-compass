@@ -17,6 +17,7 @@ export function replacePlaceholders(str, obj) {
     if (!getKeysFromString) {
       return obj || ''
     }
-    return resolveObject(obj, getKeysFromString) || ''
+    const result = resolveObject(obj, getKeysFromString)
+    return result || (result === 0 ? 0 : '')
   })
 }

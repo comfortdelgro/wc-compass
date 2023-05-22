@@ -30,6 +30,16 @@ export class CdgDemoSidebar extends CdgBaseComponent {
     })
 
     this.activeMenu()
+
+    window.addEventListener('keydown', (event) => {
+      if (
+        (event.ctrlKey && event.key === 'f') ||
+        (event.metaKey && event.key === 'f')
+      ) {
+        event.preventDefault()
+        document.querySelector('#top-search-popover input').focus()
+      }
+    })
   }
 
   createSubMenu(item) {
@@ -45,8 +55,8 @@ export class CdgDemoSidebar extends CdgBaseComponent {
     const menuGroup = document.createElement('div')
     menuGroup.classList.add('cdg-sub-nav-group-content')
 
-    if (data.children.length) {
-      data.children.forEach((item) => {
+    if (data.childList.length) {
+      data.childList.forEach((item) => {
         menuGroup.appendChild(this.createSubMenu(item))
       })
     }
@@ -74,7 +84,7 @@ export class CdgDemoSidebar extends CdgBaseComponent {
     menuInner.appendChild(menuIcon)
     menuInner.appendChild(menuText)
 
-    if (item.children && item.children.length) {
+    if (item.childList && item.childList.length) {
       const arrowIcon = document.createElement('cdg-icon')
       arrowIcon.classList.add('item-arrow')
       arrowIcon.setAttribute('name', 'arrowRight')
@@ -84,7 +94,7 @@ export class CdgDemoSidebar extends CdgBaseComponent {
 
     menu.appendChild(menuInner)
 
-    if (item.children && item.children.length) {
+    if (item.childList && item.childList.length) {
       menuInner.addEventListener('click', () => {
         menu.classList.toggle('expanded')
       })

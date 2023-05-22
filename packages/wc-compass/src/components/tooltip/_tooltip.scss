@@ -1,6 +1,9 @@
 .cdg-tooltip-floating-container {
   .cdg-floating-content {
     width: 372px;
+    border-radius: 4px;
+    background: var(--background);
+    box-shadow: var(--shadow-03);
 
     &.primary {
       background-color: var(--accent);

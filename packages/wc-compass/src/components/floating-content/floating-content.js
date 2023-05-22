@@ -39,7 +39,19 @@ export class CdgFloatingContent extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['opening', 'placement', 'has-outline']
+    return ['open', 'placement', 'has-outline']
+  }
+
+  get open() {
+    return this.hasAttribute('open')
+  }
+
+  set open(open) {
+    if (open) {
+      this.setAttribute('open', '')
+    } else {
+      this.removeAttribute('open')
+    }
   }
 
   constructor() {
@@ -59,11 +71,13 @@ export class CdgFloatingContent extends HTMLElement {
       case 'placement':
         this.position = newValue
         break
+
       case 'has-outline':
         this.hasOutline = newValue
         break
-      case 'opening':
-        if (newValue) {
+
+      case 'open':
+        if (this.open) {
           this.style.height = 'auto'
           this.eventScroll = this.handleWindowScroll.bind(this)
           window.addEventListener('scroll', this.eventScroll, true)
@@ -108,8 +122,8 @@ export class CdgFloatingContent extends HTMLElement {
   handleWindowScroll() {
     if (
       this.parentElement &&
-      this.hasAttribute('opening') &&
-      this.getAttribute('opening')
+      this.hasAttribute('open') &&
+      this.getAttribute('open')
     ) {
       const newPosition = getNewPosition(
         this.parentElement.anchorElement,
@@ -158,7 +172,7 @@ export function createFloating(
     backdropElement = document.createElement('div')
     backdropElement.setAttribute('class', 'cdg-floating-content-backdrop')
     backdropElement.addEventListener('click', () => {
-      this.removeAttribute('opening')
+      this.removeAttribute('open')
       this.dispatchEvent(new CustomEvent('onDropdownSelectClose'))
     })
   }

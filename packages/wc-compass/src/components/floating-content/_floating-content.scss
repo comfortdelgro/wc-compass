@@ -12,9 +12,6 @@
 .cdg-floating-content {
   display: block;
   visibility: hidden;
-  background: var(--background);
-  box-shadow: var(--shadow-03);
-  border-radius: 4px;
   transition: visibility 0s, opacity 0.1s linear;
   position: absolute;
   height: 0;

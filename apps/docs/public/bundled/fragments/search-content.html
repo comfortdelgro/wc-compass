@@ -1,0 +1,38 @@
+<style>
+  .cdg-list-item-name {
+    font-weight: 600;
+  }
+
+  .menu-list-popover {
+    display: block;
+    border-radius: 4px;
+    overflow: auto;
+    max-height: 420px;
+    margin-top: 4px;
+    background: var(--background);
+    box-shadow: var(--shadow-03);
+    width: 320px;
+    position: relative;
+  }
+
+  .component-list-title {
+    margin: 16px;
+  }
+
+  .menu-list-popover .cdg-list-item:not(.parent-item) {
+    padding: 8px 16px;
+  }
+</style>
+
+<cdg-popover direction="bottomLeft" trigger="self" id="top-search-popover">
+  <label class="cdg-input-group" tabindex="0" cdg-popover-header>
+    <div class="cdg-input-with-icon right">
+      <input class="cdg-input" placeholder="Component name..." />
+      <cdg-icon name="search" size="16"></cdg-icon>
+    </div>
+  </label>
+  <cdg-popover-content class="menu-list-popover">
+    <h4 class="component-list-title">Components</h4>
+    <cdg-component-list-demo></cdg-component-list-demo>
+  </cdg-popover-content>
+</cdg-popover>

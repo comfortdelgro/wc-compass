@@ -28,11 +28,14 @@ export class CdgLoop {
   }
 
   loop(data) {
+    this.container.textContent = ''
     this.items = data
+    const focusItem = document.activeElement
     // if has [items], loop with the object pass into it
     this.items.forEach((item) => {
       this.appendChildToThis(item)
     })
+    focusItem.focus()
   }
 
   appendChildToThis(item) {

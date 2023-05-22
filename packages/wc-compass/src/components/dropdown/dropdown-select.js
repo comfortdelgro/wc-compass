@@ -19,7 +19,7 @@ export class CdgDropdownSelect extends HTMLElement {
   floatingElement
 
   static get observedAttributes() {
-    return ['opening', 'header-title']
+    return ['open', 'header-title']
   }
 
   constructor() {
@@ -72,15 +72,15 @@ export class CdgDropdownSelect extends HTMLElement {
   attributeChangedCallback(attr, oldValue, newValue) {
     if (oldValue === newValue) return
     switch (attr) {
-      case 'opening':
+      case 'open':
         if (newValue) {
           if (this.floatingElement) {
-            this.floatingElement.setAttribute('opening', 'true')
+            this.floatingElement.setAttribute('open', 'true')
             this.handleWindowResizeFn()
           }
         } else {
           if (this.floatingElement) {
-            this.floatingElement.removeAttribute('opening')
+            this.floatingElement.removeAttribute('open')
           }
         }
         break
