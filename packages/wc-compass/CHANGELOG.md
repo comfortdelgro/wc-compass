@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.2.11
+
+### Patch Changes
+
+- ddd94fb: Enhancement document project
+
 ## 0.2.10
 
 ### Patch Changes
