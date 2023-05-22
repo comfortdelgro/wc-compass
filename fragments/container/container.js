@@ -89,8 +89,8 @@ export class CdgDemoContainer extends CdgBaseComponent {
   }
 
   findChildren(menu, child) {
-    if (menu.children.length) {
-      return menu.children.find((item) => item.slug === child)
+    if (menu.childList.length) {
+      return menu.childList.find((item) => item.slug === child)
     }
     return null
   }

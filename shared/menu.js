@@ -5,8 +5,8 @@ export function findParentMenu(hash) {
 }
 
 export function isParentContains(menu, child) {
-  if (menu.children.length) {
-    return menu.children.some((item) => item.slug === child)
+  if (menu.childList.length) {
+    return menu.childList.some((item) => item.slug === child)
   }
   return false
 }

@@ -19,6 +19,33 @@ body .cdg-nav-rail .workbench-title {
   line-height: var(--line-height-heading4);
 }
 
+body.theme-dark .cdg-portal-navbar .cdg-button.ghost.switch-theme-button {
+  background-color: #fff;
+  color: var(--accent);
+}
+
+.parent-item.cdg-list-item {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.parent-item.cdg-list-item:hover,
+.parent-item.cdg-list-item:active,
+.parent-item.cdg-list-item {
+  font-weight: 600;
+  padding: 4px 16px;
+  color: var(--grey80);
+  background: var(--grey20);
+}
+
+.parent-item.cdg-list-item:hover .cdg-list-item-description,
+.parent-item.cdg-list-item:active .cdg-list-item-description,
+.parent-item.cdg-list-item .cdg-list-item-description {
+  color: var(--grey80);
+}
+
 .sidebar a {
   text-decoration: none;
   color: var(--primary-color);
