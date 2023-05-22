@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.2.12
+
+### Patch Changes
+
+- 6e05671: Add search field to document
+
 ## 0.2.11
 
 ### Patch Changes
