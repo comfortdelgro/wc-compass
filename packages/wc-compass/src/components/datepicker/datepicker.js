@@ -116,7 +116,7 @@ export class CdgDatePicker extends HTMLElement {
       if (!this.isDouble) return
       if (
         this.floatingElement &&
-        this.floatingElement.hasAttribute('opening')
+        this.floatingElement.hasAttribute('open')
       ) {
         this.inputContentElements.item(1).querySelector('input').focus()
       }
@@ -127,7 +127,7 @@ export class CdgDatePicker extends HTMLElement {
       this.inputContentElements.item(1).querySelector('input').value = ''
       if (
         this.floatingElement &&
-        this.floatingElement.hasAttribute('opening')
+        this.floatingElement.hasAttribute('open')
       ) {
         this.inputContentElements.item(0).querySelector('input').focus()
       }
@@ -244,7 +244,7 @@ export class CdgDatePicker extends HTMLElement {
         inputElement.setAttribute('placeholder', this.format)
 
         inputElement.addEventListener('focus', function () {
-          currentComponent.floatingElement.setAttribute('opening', 'true')
+          currentComponent.floatingElement.setAttribute('open', 'true')
           currentComponent.calendarElement.setAttribute('open', 'true')
           setTimeout(() => {
             currentComponent.floatingElement.style.opacity = 1
@@ -322,7 +322,7 @@ export class CdgDatePicker extends HTMLElement {
     if (!this.anchorElement.contains(event.relatedTarget)) {
       this.floatingElement.style.opacity = 0
       setTimeout(() => {
-        this.floatingElement.removeAttribute('opening')
+        this.floatingElement.removeAttribute('open')
         this.calendarElement.removeAttribute('open')
       }, 300)
     }
@@ -366,7 +366,7 @@ export class CdgDatePicker extends HTMLElement {
     const selectedDate = new Date(dayjs(event.detail).format('YYYY-MM-DD'))
     if (!this.isDouble) {
       this.selectedStartDate = selectedDate
-      this.floatingElement.removeAttribute('opening')
+      this.floatingElement.removeAttribute('open')
       this.calendarElement.removeAttribute('open')
 
       this.emitDateChange({
@@ -384,7 +384,7 @@ export class CdgDatePicker extends HTMLElement {
       this.selectedStartDate = selectedDate
     } else {
       this.selectedEndDate = selectedDate
-      this.floatingElement.removeAttribute('opening')
+      this.floatingElement.removeAttribute('open')
       this.calendarElement.removeAttribute('open')
 
       this.emitDateChange({
