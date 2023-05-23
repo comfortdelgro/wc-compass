@@ -17,6 +17,9 @@ export class CdgCarousel extends HTMLElement {
 
   set current(current) {
     this.setAttribute('current', current)
+    if (this.indicator) {
+      this.indicator.setAttribute('current', current)
+    }
   }
 
   get useArrow() {
@@ -82,6 +85,7 @@ export class CdgCarousel extends HTMLElement {
 
   pointer = new Pointer()
   scrollerPosition = 0
+  moveDistance = 0
 
   constructor() {
     super()
@@ -311,24 +315,27 @@ export class CdgCarousel extends HTMLElement {
     this.pointer.update({x: event.pageX, y: event.pageY})
     this.scroller.setAttribute(
       'position',
-      this.scrollerPosition - this.pointer.distance.x,
+      this.scrollerPosition + this.pointer.distance.x,
     )
+    this.moveDistance = this.pointer.distance.x
+    this.scroller.isDragging = true
+  }
+
+  setNewCurrentValue(newCurrentValue) {
+    this.current = newCurrentValue
   }
 
   handlePointerUp() {
     this.removeEventListener('pointermove', this.handlePointerMove)
 
+    this.scroller.handleEndDrag(
+      this.moveDistance,
+      this.setNewCurrentValue.bind(this),
+    )
+
     // Make it transition smoother again
     this.scroller.style.transition = 'all 0.3s ease-in-out'
 
-    if (Math.abs(this.pointer.distance.x) / this.clientWidth > 0.2) {
-      if (this.pointer.distance.x < 0) {
-        this.next()
-      } else {
-        this.prev()
-      }
-    } else {
-      this.scroller.setAttribute('position', this.scrollerPosition)
-    }
+    this.moveDistance = 0
   }
 }

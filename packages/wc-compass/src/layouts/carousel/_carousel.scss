@@ -118,6 +118,7 @@
 
 .cdg-carousel-scroller {
   display: flex;
+  transition: all 0.3s ease-in-out;
   &:not(.resizing) {
     @extend %smoothTransition;
   }
