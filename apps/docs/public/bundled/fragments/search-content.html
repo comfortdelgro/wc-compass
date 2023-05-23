@@ -22,10 +22,16 @@
   .menu-list-popover .cdg-list-item:not(.parent-item) {
     padding: 8px 16px;
   }
+
+  @media screen and (max-width: 767px) {
+    .menu-list-popover {
+      width: auto;
+    }
+  }
 </style>
 
 <cdg-popover direction="bottomLeft" trigger="self" id="top-search-popover">
-  <label class="cdg-input-group" tabindex="0" cdg-popover-header>
+  <label class="cdg-input-group" cdg-popover-header>
     <div class="cdg-input-with-icon right">
       <input class="cdg-input" placeholder="Component name..." />
       <cdg-icon name="search" size="16"></cdg-icon>

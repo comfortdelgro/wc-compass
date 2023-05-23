@@ -56,8 +56,10 @@ export class CdgComponentListDemo extends CdgDocumentComponent {
           return child
         }
       })
-      cloneItem.childList = filtered
-      list.push(cloneItem)
+      if (filtered && filtered.length) {
+        cloneItem.childList = filtered
+        list.push(cloneItem)
+      }
     })
 
     return list

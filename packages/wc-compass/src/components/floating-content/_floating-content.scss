@@ -16,7 +16,7 @@
   position: absolute;
   height: 0;
   pointer-events: auto;
-  z-index: 1000;
+  z-index: 60;
 
   &.hasArrow {
     &::after {
@@ -167,7 +167,7 @@
 
 .cdg-floating-content-overlay {
   position: fixed;
-  z-index: 1000;
+  z-index: 60;
   pointer-events: none;
   top: 0;
   left: 0;
@@ -181,7 +181,7 @@
   transition: visibility 0.1ms linear, opacity 0.1ms linear;
   position: absolute;
   inset: 0;
-  z-index: 1000;
+  z-index: 60;
   pointer-events: auto;
   -webkit-tap-highlight-color: transparent;
 }

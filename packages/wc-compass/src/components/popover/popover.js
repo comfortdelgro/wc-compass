@@ -63,9 +63,6 @@ export class CdgPopover extends HTMLElement {
         this.anchorElement = this.querySelector('[cdg-popover-header]')
         this.anchorElement.setAttribute('tabindex', 0)
 
-        this.keyboardEvent = this.handleKeyboard.bind(this)
-        window.addEventListener('keydown', this.keyboardEvent)
-
         if (this.trigger !== self) {
           this.blurListener = this.handleAnchorBlur.bind(this)
           this.anchorElement.addEventListener('blur', this.blurListener)
@@ -92,6 +89,8 @@ export class CdgPopover extends HTMLElement {
       case 'open':
         if (this.open) {
           this.floatingElement.setAttribute('open', '')
+          this.keyboardEvent = this.handleKeyboard.bind(this)
+          window.addEventListener('keydown', this.keyboardEvent)
         } else {
           this.floatingElement.removeAttribute('open')
           window.removeEventListener('keydown', this.keyboardEvent)

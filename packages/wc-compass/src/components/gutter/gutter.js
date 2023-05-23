@@ -66,9 +66,10 @@ export class CdgGutter extends HTMLElement {
     if (this.collapseButton) {
       return
     }
-    this.collapseButton = document.createElement('button')
+    this.collapseButton = document.createElement('button', {is: 'cdg-button'})
     this.collapseButton.setAttribute('class', 'cdg-button ghost icon rounded')
     this.collapseButton.setAttribute('size', 'small')
+    this.collapseButton.setAttribute('title', 'Collapse view button')
 
     const icon = document.createElement('cdg-icon')
     icon.setAttribute('name', 'arrowLeft')

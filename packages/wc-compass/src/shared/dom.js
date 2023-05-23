@@ -21,3 +21,13 @@ export function replacePlaceholders(str, obj) {
     return result || (result === 0 ? 0 : '')
   })
 }
+
+export function swapChild(element, targetElement) {
+  if (!element.children) {
+    return
+  }
+  targetElement.textContent = ''
+  Array.from(element.children).forEach((element) => {
+    targetElement.appendChild(element)
+  })
+}
