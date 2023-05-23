@@ -1,0 +1,38 @@
+<style>
+  .my-custom-loop-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+</style>
+
+<cdg-sample-section name="Default">
+  <div class="sample-section">
+    <div class="my-custom-loop-container">
+      <template>
+        <button is="cdg-button" onclick="cdgToastService.toast('Clicked')">
+          Button
+        </button>
+      </template>
+    </div>
+  </div>
+
+  <pre>
+      <code class="language-html">&lt;div class=&quot;my-custom-loop-container&quot;&gt;
+  &lt;template&gt;
+    &lt;button is=&quot;cdg-button&quot; onclick=&quot;cdgToastService.toast(&apos;Clicked&apos;)&quot;&gt;
+      Button
+    &lt;/button&gt;
+  &lt;/template&gt;
+&lt;/div&gt;
+    
+&lt;script&gt;
+import {CdgLoop} from &apos;@comfortdelgro/wc-compass/src/shared/for-loop&apos;
+const loopContainer = document.querySelector(&apos;.my-custom-loop-container&apos;)
+if (loopContainer) {
+  const loop = new CdgLoop(loopContainer)
+  loop.for(5)
+}
+&lt;/script&gt;</code>
+  </pre>
+</cdg-sample-section>

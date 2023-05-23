@@ -48,10 +48,10 @@ export class CdgTooltip extends HTMLElement {
   set open(value) {
     if (this.floatingElement) {
       if (value) {
-        this.floatingElement.setAttribute('opening', 'true');
+        this.floatingElement.setAttribute('open', 'true');
       } else {
         this.removeAttribute('open');
-        this.floatingElement.removeAttribute('opening');
+        this.floatingElement.removeAttribute('open');
       }
     }
     this._open = value;

@@ -1,0 +1,86 @@
+<style>
+  .cdg-advanced-for-loop {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .cdg-card {
+    display: flex;
+    width: calc(50% - 6px);
+  }
+</style>
+
+<cdg-sample-section name="Advanced">
+  <div class="sample-section">
+    <div class="cdg-advanced-for-loop">
+      <template>
+        <cdg-card class="raised">
+          <cdg-card-header title="{{item.user.name}}">
+            <button class="cdg-button ghost icon" size="small">
+              <cdg-icon name="dots"></cdg-icon>
+            </button>
+          </cdg-card-header>
+          <cdg-card-body>
+            <p><b>Title:</b> {{item.user.job.title}}</p>
+            <p><b>Working location:</b> {{item.user.job.location}}</p>
+          </cdg-card-body>
+        </cdg-card>
+      </template>
+    </div>
+  </div>
+
+  <pre>
+      <code class="language-html">&lt;style&gt;
+  .cdg-advanced-for-loop {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .cdg-card {
+    display: flex;
+    width: calc(50% - 6px);
+  }
+&lt;/style&gt;
+
+&lt;div class=&quot;cdg-advanced-for-loop&quot;&gt;
+  &lt;template&gt;
+    &lt;cdg-card class=&quot;raised&quot;&gt;
+      &lt;cdg-card-header title=&quot;{{item.user.name}}&quot;&gt;
+        &lt;button class=&quot;cdg-button ghost icon&quot; size=&quot;small&quot;&gt;
+          &lt;cdg-icon name=&quot;dots&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+      &lt;/cdg-card-header&gt;
+      &lt;cdg-card-body&gt;
+        &lt;p&gt;&lt;b&gt;Title:&lt;/b&gt; {{item.user.job.title}}&lt;/p&gt;
+        &lt;p&gt;&lt;b&gt;Working location:&lt;/b&gt; {{item.user.job.location}}&lt;/p&gt;
+      &lt;/cdg-card-body&gt;
+    &lt;/cdg-card&gt;
+  &lt;/template&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+import {CdgLoop} from &apos;@comfortdelgro/wc-compass/src/shared/for-loop&apos;
+const container = this.querySelector(&apos;.cdg-advanced-for-loop&apos;)
+const data = [
+  {
+    id: 1,
+    user: {
+      name: &apos;Michael&apos;,
+      job: {
+        title: &apos;developer&apos;,
+        location: &apos;FPT&apos;,
+      },
+    },
+  },
+  // ...
+]
+
+if (container) {
+  const loop = new CdgLoop(container)
+  loop.loop(data)
+}
+&lt;/script&gt;</code>
+  </pre>
+</cdg-sample-section>

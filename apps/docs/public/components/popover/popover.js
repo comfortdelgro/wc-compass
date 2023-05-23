@@ -7,10 +7,8 @@ export class CdgPopoverDemo extends CdgDocumentComponent {
     this.template = template
 
     setTimeout(() => {
-      const directions = document.querySelector(
-        'cdg-dropdown[name="directions"]',
-      )
-      const cdgPopover = document.querySelector('cdg-popover')
+      const directions = this.querySelector('cdg-dropdown[name="directions"]')
+      const cdgPopover = this.querySelector('cdg-popover')
       if (cdgPopover) {
         directions.addEventListener('onchangevalue', function (event) {
           cdgPopover.setAttribute('direction', event.detail)

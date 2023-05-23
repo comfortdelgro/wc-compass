@@ -3,7 +3,7 @@ export const DOCUMENT_CONTENT = [
     name: 'Getting started',
     id: 'getingStarted',
     icon: 'signature',
-    children: [
+    childList: [
       {
         name: 'Theming',
         slug: 'theming',
@@ -34,7 +34,7 @@ export const DOCUMENT_CONTENT = [
     name: 'Layouts',
     id: 'layouts',
     icon: 'grid',
-    children: [
+    childList: [
       {
         name: 'Accordion',
         slug: 'accordion',
@@ -117,7 +117,7 @@ export const DOCUMENT_CONTENT = [
     name: 'Form Controls',
     id: 'formControls',
     icon: 'clipBoard',
-    children: [
+    childList: [
       {
         name: 'Calendar',
         slug: 'calendar',
@@ -180,7 +180,7 @@ export const DOCUMENT_CONTENT = [
     name: 'UI Controls',
     id: 'ui-controls',
     icon: 'shapes',
-    children: [
+    childList: [
       {
         name: 'Avatar',
         slug: 'avatar',
@@ -283,7 +283,7 @@ export const DOCUMENT_CONTENT = [
     name: 'Services',
     id: 'services',
     icon: 'job',
-    children: [
+    childList: [
       {
         name: 'Dialog',
         slug: 'dialog',
@@ -312,13 +312,17 @@ export const DOCUMENT_CONTENT = [
         name: 'Loading',
         slug: 'loadingService',
       },
+      {
+        name: 'For loop',
+        slug: 'forLoop',
+      },
     ],
   },
   {
     name: 'Templates',
     id: 'templates',
     icon: 'grids',
-    children: [
+    childList: [
       {
         name: 'About',
         slug: 'about',

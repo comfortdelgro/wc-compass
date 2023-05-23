@@ -125,6 +125,10 @@ cdg-toast-actions,
       border-color: var(--grey10);
     }
   }
+
+  .cdg-button {
+    min-width: 100px;
+  }
 }
 
 @keyframes fadeInLeft {

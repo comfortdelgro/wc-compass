@@ -31,7 +31,14 @@ cdg-portal-navbar,
     .cdg-input-with-icon {
       color: #201f1e;
       input.cdg-input {
-        background-color: #ffffff;
+        background-color: #e6ecf7;
+        border-color: #e6ecf7;
+        color: #323130;
+        outline-offset: 0;
+        outline-width: 1px;
+        &::placeholder {
+          color: #605e5c;
+        }
       }
     }
   }

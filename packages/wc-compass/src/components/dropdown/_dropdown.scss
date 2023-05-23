@@ -85,6 +85,9 @@
   position: relative;
   flex-direction: column;
   padding: 8px 0;
+  border-radius: 4px;
+  background: var(--background);
+  box-shadow: var(--shadow-03);
   &.isLoading {
     padding: 24px 0;
     display: flex;

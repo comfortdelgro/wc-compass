@@ -134,7 +134,7 @@ export class CdgTimePicker extends CdgBaseComponent {
     const {hour, minute, time, displayValue} = event.detail
     this.anchorElement.value = displayValue
     this.rootValue = this.anchorElement.value
-    this.floatingElement.removeAttribute('opening')
+    this.floatingElement.removeAttribute('open')
     this.anchorElement.blur()
     this.dispatchEvent(
       new CustomEvent('onTimeChange', {
@@ -178,7 +178,7 @@ export class CdgTimePicker extends CdgBaseComponent {
         this.anchorElement.clientHeight + 4
       }px))`
     }
-    this.floatingElement.setAttribute('opening', 'true')
+    this.floatingElement.setAttribute('open', 'true')
     this.rootValue = this.anchorElement.value
   }
 
@@ -196,6 +196,6 @@ export class CdgTimePicker extends CdgBaseComponent {
     this.timeDropdownElement.setAttribute('value', this.rootValue)
     this.timeDropdownElement.classList.remove('cdg-time-dropdown-top')
     this.timeDropdownElement.style.transform = ''
-    this.floatingElement.removeAttribute('opening')
+    this.floatingElement.removeAttribute('open')
   }
 }
