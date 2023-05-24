@@ -7,10 +7,10 @@ cdg-breadcrumbs,
   gap: 16px;
   padding: 12px 0;
 
-  cdg-icon,
   .cdg-icon {
     width: 14px;
     height: 14px;
+    font-size: 14px;
   }
 
   a:not([href]) {
