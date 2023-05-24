@@ -236,7 +236,6 @@ export class CdgTableBody extends HTMLTableSectionElement {
           return
         } else {
           column.colummTemplate.style.position = 'absolute'
-          column.colummTemplate.style.width = `${cell.clientWidth}px`
           column.colummTemplate.style.top = 0
           column.colummTemplate.style.left = 0
           cell.appendChild(column.colummTemplate)

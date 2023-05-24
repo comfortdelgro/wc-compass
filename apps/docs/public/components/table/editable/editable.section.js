@@ -45,13 +45,15 @@ export class CdgTableEditableSection extends CdgBaseComponent {
           case 'age':
             this.secondColumnTemplate.style.display = 'block'
             this.secondColumnTemplate.value = value
-            this.secondColumnTemplate.style.width = '100%'
+            this.secondColumnTemplate.style.width = `${this.secondColumnTemplate.parentElement.clientWidth}px`
+            this.secondColumnTemplate.style.height = `${this.secondColumnTemplate.parentElement.clientHeight}px`
             this.secondColumnTemplate.focus()
             break
           case 'description':
             this.thirdColumnTemplate.style.display = 'block'
             this.thirdColumnTemplate.value = value
-            this.thirdColumnTemplate.style.width = '100%'
+            this.thirdColumnTemplate.style.width = `${this.thirdColumnTemplate.parentElement.clientWidth}px`
+            this.thirdColumnTemplate.style.height = `${this.thirdColumnTemplate.parentElement.clientHeight}px`
             this.thirdColumnTemplate.focus()
             break
         }
@@ -80,19 +82,17 @@ export class CdgTableEditableSection extends CdgBaseComponent {
     ]
 
     this.querySelector('#description').addEventListener('blur', (e) => {
-      const newTableData = table.finishEditing(
-        this.editingColumn.column,
-        this.editingColumn.index,
-        e.target.value,
-      )
+      const table = this.querySelector('#sampleEditableTable')
+      const data = [...table.data]
+      data[this.editingColumn.index][this.editingColumn.column] = e.target.value
+      table.data = data
       this.thirdColumnTemplate.style.display = 'none'
     })
     this.querySelector('#age').addEventListener('blur', (e) => {
-      const newTableData = table.finishEditing(
-        this.editingColumn.column,
-        this.editingColumn.index,
-        e.target.value,
-      )
+      const table = this.querySelector('#sampleEditableTable')
+      const data = [...table.data]
+      data[this.editingColumn.index][this.editingColumn.column] = e.target.value
+      table.data = data
       this.secondColumnTemplate.style.display = 'none'
     })
   }
