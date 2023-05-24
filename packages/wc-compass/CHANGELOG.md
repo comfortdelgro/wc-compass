@@ -1,5 +1,12 @@
 # @comfortdelgro/wc-compass
 
+## 0.2.13
+
+### Patch Changes
+
+- 439b51d: Convert icon to font, add table editor layout
+- 56f59c5: Add search field to document
+
 ## 0.2.12
 
 ### Patch Changes
