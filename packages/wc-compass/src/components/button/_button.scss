@@ -41,12 +41,14 @@
     .cdg-icon {
       width: 24px;
       height: 24px;
+      font-size: 24px;
     }
   }
 
   .cdg-icon {
     width: 16px;
     height: 16px;
+    font-size: 16px;
   }
 
   .cdg-inline-loading {
@@ -104,16 +106,17 @@
 
     &.icon {
       padding: 12px;
-      cdg-icon,
       .cdg-icon {
         width: 32px;
         height: 32px;
+        font-size: 32px;
       }
     }
 
     .cdg-icon {
       width: 24px;
       height: 24px;
+      font-size: 24px;
     }
 
     .cdg-inline-loading {
@@ -130,12 +133,14 @@
       .cdg-icon {
         width: 16px;
         height: 16px;
+        font-size: 16px;
       }
     }
 
     .cdg-icon {
       width: 14px;
       height: 14px;
+      font-size: 14px;
     }
 
     .cdg-inline-loading {

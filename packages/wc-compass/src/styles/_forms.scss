@@ -119,7 +119,6 @@
       }
 
       &:has(.cdg-input:focus) {
-        cdg-icon,
         .cdg-icon {
           color: var(--danger);
         }
@@ -130,7 +129,6 @@
   &:has(input:disabled) {
     cursor: not-allowed;
     .cdg-input,
-    cdg-icon,
     .cdg-icon {
       color: var(--disabled-color);
     }
@@ -162,7 +160,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  cdg-icon,
   .cdg-icon {
     position: absolute;
     &:first-child {

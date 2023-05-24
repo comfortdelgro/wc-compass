@@ -27,7 +27,11 @@ export class CdgIconSize extends HTMLElement {
       const size = this.getAttribute('size')
       this.style.width = size + 'px'
       this.style.height = size + 'px'
-      this.style.fontSize = size + 'px'
+      if (this.tagName.toLowerCase() !== 'cdg-avatar') {
+        this.style.fontSize = size + 'px'
+      } else {
+        this.style.fontSize = size * 0.4 + 'px'
+      }
     }
   }
 }
