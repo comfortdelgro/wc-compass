@@ -13,6 +13,7 @@ export class MenuChildItemDemo extends CdgBaseComponent {
   }
 
   connectedCallback() {
+    this.tabIndex = 0
     this.addEventListener('click', () => {
       const popover = document.querySelector('#top-search-popover')
       if (popover) {
