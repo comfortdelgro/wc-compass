@@ -51,8 +51,10 @@ cdg-rich-text-editor,
         cursor: pointer;
       }
 
-      cdg-icon {
+      .cdg-icon {
         width: 16px;
+        height: 16px;
+        font-size: 16px;
       }
     }
 
