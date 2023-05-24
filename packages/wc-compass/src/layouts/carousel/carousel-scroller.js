@@ -1,9 +1,15 @@
+import {isNullOrUndefinded} from '../../shared/utilities'
+
 const CARD_MODE_PADDING = 60
+const CARD_MODE_SMALL_PADDING = 76
 const CARD_GAP = 24
 const TRANSITION_TIME = 300
-const SCALED_ITEM = 0.9
+const TRANSITION = `all ${TRANSITION_TIME}ms ease-in-out`
 
 export class CdgCarouselScroller extends HTMLElement {
+  isDragging = false
+  isSmallDevice = false
+
   static get observedAttributes() {
     return ['current', 'position', 'single-center', 'scaled']
   }
@@ -14,18 +20,6 @@ export class CdgCarouselScroller extends HTMLElement {
 
   set current(current) {
     this.setAttribute('current', current)
-  }
-
-  get scaled() {
-    return this.hasAttribute('scaled')
-  }
-
-  set scaled(scaled) {
-    if (scaled) {
-      this.setAttribute('scaled', '')
-    } else {
-      this.removeAttribute('scaled')
-    }
   }
 
   get position() {
@@ -48,26 +42,26 @@ export class CdgCarouselScroller extends HTMLElement {
     }
   }
 
-  get slideWidth() {
-    return this.children[0].clientWidth
+  get cardPadding() {
+    return this.isSmallDevice ? CARD_MODE_SMALL_PADDING : CARD_MODE_PADDING
   }
 
   get currentPosition() {
     const halfDistance =
-      (this.parentElement.clientWidth - CARD_MODE_PADDING - this.slideWidth) /
+      (this.parentElement.clientWidth - this.cardPadding - this.slideWidth) /
         2 -
       CARD_GAP
     const width =
       this.slideWidth +
       (this.singleCenter ? CARD_GAP : 0) / this.children.length
-    const currentPosition = this.current * width
+    const currentPosition = -(this.current * width)
     return currentPosition - (this.singleCenter ? halfDistance : 0)
   }
 
   get slideWidth() {
     return (
       (this.parentElement.clientWidth -
-        (this.singleCenter ? CARD_MODE_PADDING : 0)) *
+        (this.singleCenter ? this.cardPadding : 0)) *
       (this.singleCenter ? this.singleSlidePercentage : 1)
     )
   }
@@ -76,7 +70,17 @@ export class CdgCarouselScroller extends HTMLElement {
     return window.innerWidth < 768 ? 0.9 : 0.6
   }
 
-  sizingTimer
+  get firstItem() {
+    return this.children[0]
+  }
+
+  get lastItem() {
+    return this.children[this.children.length - 1]
+  }
+
+  get firstItemWidth() {
+    return this.firstItem ? this.firstItem.clientWidth : 0
+  }
 
   constructor() {
     super()
@@ -90,6 +94,12 @@ export class CdgCarouselScroller extends HTMLElement {
       this.removeChild(clonedActions)
     }
 
+    // Set "slide-index" for "cdg-slide"
+    for (let index = 0; index < this.children.length; index++) {
+      const element = this.children[index]
+      element.setAttribute('slide-index', index)
+    }
+
     this.listenEvents()
     this.updateViewResize()
   }
@@ -101,16 +111,44 @@ export class CdgCarouselScroller extends HTMLElement {
   attributeChangedCallback(attr, oldVal, newVal) {
     switch (attr) {
       case 'current':
-        if (this.children[oldVal]) {
-          this.children[oldVal].removeAttribute('active')
+        this.renewActiveItem(oldVal, newVal)
+        // Prevent handle change position when user is dragging
+        if (this.isDragging) {
+          return
         }
-        if (this.children[newVal]) {
-          this.children[newVal].setAttribute('active', '')
+        if (oldVal || newVal) {
+          this.handleCurrentChange(
+            Number(oldVal),
+            Number(newVal),
+            isNullOrUndefinded(oldVal) && newVal,
+          )
         }
-        this.handleCurrentChange(Number(oldVal), Number(newVal))
         break
 
       case 'position':
+        const activeItem = this.querySelector(
+          `cdg-slide[slide-index="${this.current}"]`,
+        )
+        const isMoveFoward = newVal - oldVal > 0
+        // Handle move first/last element to last/first position of "carousel-scroller"
+        if (
+          this.isDragging &&
+          activeItem &&
+          ((isMoveFoward && activeItem === this.firstItem) ||
+            (!isMoveFoward && activeItem === this.lastItem))
+        ) {
+          this.forwardItem(isMoveFoward)
+          return
+        }
+        // if (
+        //   this.isDragging &&
+        //   activeItem &&
+        //   !isMoveFoward &&
+        //   activeItem === this.lastItem
+        // ) {
+        //   this.forwardItem(isMoveFoward)
+        //   return
+        // }
         this.updatePosition()
         break
 
@@ -123,45 +161,122 @@ export class CdgCarouselScroller extends HTMLElement {
     }
   }
 
-  handleCurrentChange(prevValue, currentValue) {
-    let loop = false
-    let position = this.position
-
-    // In loop case
-    if (prevValue === 0 && currentValue === this.children.length - 1) {
-      loop = true
-      position = this.slideWidth * (prevValue - 1) + CARD_MODE_PADDING * 0.5
-    } else if (prevValue === this.children.length - 1 && currentValue === 0) {
-      loop = true
-      position = this.slideWidth * (prevValue + 1) + CARD_MODE_PADDING
-    }
-
-    if (loop && this.children.length > 1) {
-      if (this.singleCenter) {
-        position = -(position - this.parentElement.clientWidth * 0.2)
-      } else {
-        position = -position
-      }
-      this.style.transform = `translate3d(${position}px, 0, 0)`
-      // To keep the animation smooth
-      // Still transition to the positioned item
-      setTimeout(() => {
-        this.style.transition = 'none'
-        this.recalculatePosition()
-        this.updatePosition(loop)
-
-        setTimeout(() => {
-          this.style.transition = `all ${TRANSITION_TIME}ms ease-in-out`
-        })
-      }, TRANSITION_TIME)
+  forwardItem(isMoveFoward) {
+    if (isMoveFoward) {
+      this.position = this.position - this.firstItemWidth
+      this.prepend(this.lastItem)
     } else {
-      this.recalculatePosition()
+      this.position = this.position + this.firstItemWidth
+      this.append(this.firstItem)
+    }
+    this.updatePosition()
+    this.dispatchEvent(
+      new CustomEvent('updatePosition', {detail: this.position}),
+    )
+  }
+
+  renewActiveItem(oldVal, newVal) {
+    // Remove active attr of old actived item
+    const oldActiveItem = this.querySelector(
+      `cdg-slide[slide-index="${oldVal}"]`,
+    )
+    if (oldActiveItem) {
+      oldActiveItem.removeAttribute('active')
+    }
+    // Add active attr of old actived item
+    const newActiveItem = this.querySelector(
+      `cdg-slide[slide-index="${newVal}"]`,
+    )
+    if (newActiveItem) {
+      newActiveItem.setAttribute('active', '')
     }
   }
 
-  recalculatePosition() {
-    this.position = this.currentPosition
-    this.updatePosition(true)
+  isRevertSwipe(prevValue, currentValue, gapSpace) {
+    const oldActiveItem = this.querySelector(
+      `cdg-slide[slide-index="${prevValue}"]`,
+    )
+
+    let revert = {next: false, prev: false}
+    // In loop case
+    if (
+      prevValue === 0 &&
+      currentValue === this.children.length - 1 &&
+      oldActiveItem === this.firstItem
+    ) {
+      return {...revert, prev: true}
+    } else if (
+      prevValue === this.children.length - 1 &&
+      currentValue === 0 &&
+      oldActiveItem === this.lastItem
+    ) {
+      return {...revert, next: true}
+    } else if (
+      currentValue < prevValue &&
+      oldActiveItem === this.firstItem &&
+      gapSpace === 1
+    ) {
+      return {...revert, prev: true}
+    } else if (
+      currentValue > prevValue &&
+      oldActiveItem === this.lastItem &&
+      gapSpace === 1
+    ) {
+      return {...revert, next: true}
+    }
+
+    return revert
+  }
+
+  handleCurrentChange(prevValue, currentValue, initWithCurrent) {
+    const isNext = currentValue > prevValue
+    const gapSpace = Math.abs(currentValue - prevValue)
+
+    let revert = this.isRevertSwipe(prevValue, currentValue, gapSpace)
+
+    if (revert.next || revert.prev) {
+      this.style.transition = 'none'
+      let newPosition = this.firstItemWidth
+      if (revert.prev) {
+        newPosition = -this.firstItemWidth
+        this.prepend(this.lastItem)
+      } else if (revert.next) {
+        this.append(this.firstItem)
+      }
+      this.updatePosition(this.position + newPosition)
+      setTimeout(() => {
+        this.style.transition = TRANSITION
+        this.updatePosition()
+      }, 0)
+    } else {
+      // Prevent animation for initial case
+      if (initWithCurrent) {
+        this.style.transition = 'none'
+      }
+      if (gapSpace === 1) {
+        this.position =
+          this.position + (isNext ? -this.firstItemWidth : this.firstItemWidth)
+        this.updatePosition()
+      }
+      // For case click indicator buttons
+      else {
+        // Move item to first with gap spaces (for initial case)
+        for (let index = 0; index < this.children.length; index++) {
+          const element = this.children[index]
+          if (element.getAttribute('slide-index') === `${currentValue}`) {
+            this.position = -(element.clientWidth * index)
+            this.updatePosition()
+            break
+          }
+        }
+      }
+      // Set animation after rendered for initial case
+      if (initWithCurrent) {
+        setTimeout(() => {
+          this.style.transition = TRANSITION
+        }, 1)
+      }
+    }
     this.dispatchEvent(
       new CustomEvent('updatePosition', {detail: this.position}),
     )
@@ -173,72 +288,80 @@ export class CdgCarouselScroller extends HTMLElement {
 
   updateViewResize() {
     // To add resizing class name
-    // Prevent animation while resizing
-    // To update view immediately
     this.classList.add('resizing')
-    this.style.transition = 'none'
-    if (this.sizingTimer) {
-      clearTimeout(this.sizingTimer)
-    }
-
-    // Remove class name after 200ms that use haven't resized again
-    this.sizingTimer = setTimeout(() => {
-      this.classList.remove('resizing')
-      this.style.transition = `all ${TRANSITION_TIME}ms ease-in-out`
-    }, 200)
+    this.isSmallDevice = window.innerWidth < 479
 
     this.updateSize()
 
-    this.position = this.currentPosition
+    if (this.singleCenter) {
+      const activeItem = this.querySelector(
+        `cdg-slide[slide-index="${this.current}"]`,
+      )
+      if (this.children.length > 2 && activeItem === this.firstItem) {
+        this.prepend(this.lastItem)
+      }
+      this.position = -(this.slideWidth / 2 + CARD_GAP / 2 + this.cardPadding)
+    } else {
+      this.position = this.currentPosition
+    }
     this.dispatchEvent(
       new CustomEvent('updatePosition', {detail: this.position}),
     )
-    this.updatePosition(true)
+    this.updatePosition()
   }
 
   updateSize() {
     this.style.width = Math.floor(this.slideWidth * this.children.length) + 'px'
   }
 
-  /**
-   * Only update last and first element when the current slide is switched
-   * @param {boolean} updateLastFirst
-   */
-  updatePosition(updateLastFirst) {
-    // To not let slide moves on start and end
-    const position =
-      this.position < 0 ? Math.abs(this.position) : -this.position
-    this.style.transform = `translate3d(${position}px, 0, 0)`
-
-    if (updateLastFirst && this.children.length > 1) {
-      const firstSlide = this.children[0]
-      const lastSlide = this.children[this.children.length - 1]
-      const spacing = this.singleCenter ? 24 : 0
-      if (this.current === 0) {
-        lastSlide.classList.add('last')
-        // Move last slide to first place
-        lastSlide.style.transform = `translate3d(-${
-          (lastSlide.clientWidth + spacing) * this.children.length
-        }px, 0 ,0)${this.scaled ? ' scale(' + SCALED_ITEM + ')' : ''}`
+  handleEndDrag(distanceX, callback) {
+    const halfDistance = Math.abs(this.firstItemWidth / 2) - CARD_GAP
+    const isNext = distanceX < 0
+    const isOverHalf = Math.abs(distanceX) > halfDistance
+    if (isOverHalf) {
+      const remainWidth = this.firstItemWidth - Math.abs(distanceX)
+      if (isNext) {
+        this.position -= remainWidth
       } else {
-        // Move back to last
-        lastSlide.style.transform = `translate3d(0, 0 ,0)${
-          this.scaled ? ' scale(' + SCALED_ITEM + ')' : ''
-        }`
+        this.position += remainWidth
       }
-
-      if (this.current === this.children.length - 1) {
-        firstSlide.classList.add('first')
-        // Move last slide to first place
-        firstSlide.style.transform = `translate3d(${
-          (firstSlide.clientWidth + spacing) * this.children.length
-        }px, 0 ,0)${this.scaled ? ' scale(' + SCALED_ITEM + ')' : ''}`
+      const newCurrentValue = this.getNewCurrentValue(isNext)
+      this.setAttribute('current', newCurrentValue)
+      this.updatePosition()
+      callback(newCurrentValue)
+    } else {
+      if (isNext) {
+        this.position += Math.abs(distanceX)
       } else {
-        // Move back to last
-        firstSlide.style.transform = `translate3d(0, 0 ,0)${
-          this.scaled ? ' scale(' + SCALED_ITEM + ')' : ''
-        }`
+        this.position -= Math.abs(distanceX)
+      }
+      this.updatePosition()
+    }
+    this.dispatchEvent(
+      new CustomEvent('updatePosition', {detail: this.position}),
+    )
+    this.isDragging = false
+  }
+
+  getNewCurrentValue(isNext) {
+    let newCurrentValue = this.current + 1
+    const lastItemIndex = this.children.length - 1
+    if (isNext) {
+      // Revert from last item
+      if (this.current + 1 > lastItemIndex) {
+        return 0
+      }
+    } else {
+      newCurrentValue = this.current - 1
+      // Revert from first item
+      if (this.current - 1 < 0) {
+        return lastItemIndex
       }
     }
+    return newCurrentValue
+  }
+
+  updatePosition(position = null) {
+    this.style.transform = `translate3d(${position || this.position}px, 0, 0)`
   }
 }

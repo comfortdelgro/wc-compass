@@ -14,10 +14,12 @@ export class CdgCardCover extends HTMLElement {
 
   connectedCallback() {
     this.classList.add('cdg-card-cover')
-    this.coverImage = document.createElement('cdg-lazy-img')
-    this.coverImage.classList.add('cdg-card-cover-image')
-    this.coverImage.setAttribute('src', this.src)
+    if (!this.coverImage) {
+      this.coverImage = document.createElement('cdg-lazy-img')
+      this.coverImage.classList.add('cdg-card-cover-image')
+      this.coverImage.setAttribute('src', this.src)
 
-    this.prepend(this.coverImage)
+      this.prepend(this.coverImage)
+    }
   }
 }
