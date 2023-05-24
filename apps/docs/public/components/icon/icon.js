@@ -17,11 +17,11 @@ export class CdgIconDemo extends CdgDocumentComponent {
 
   createIcon(name) {
     const iconTemplate = `<cdg-icon name="{{name}}"></cdg-icon>
-    <span class="icon-name">{{name}}</span>`
+    <span class="item-name">{{name}}</span>`
 
     const icon = iconTemplate.replace(/{{name}}/g, name)
     const template = document.createElement('div')
-    template.classList.add('icon-sample')
+    template.classList.add('item-sample')
     template.innerHTML = icon
 
     return template

@@ -1,0 +1,53 @@
+<cdg-sample-section name="Expanded option">
+  <div class="sample-section">
+    <button is="cdg-button" id="showToastButton">Toast</button>
+  </div>
+
+  <pre>
+      <code class="language-html">&lt;cdg-accordion opened&gt;
+      &lt;cdg-accordion-header&gt;Header&lt;/cdg-accordion-header&gt;
+      &lt;cdg-accordion-content&gt;
+          Put your content here
+      &lt;/cdg-accordion-content&gt;
+  &lt;/cdg-accordion&gt;</code>
+  </pre>
+</cdg-sample-section>
+
+<template id="myToast">
+  <cdg-toast>
+    <cdg-toast-header>
+      <cdg-loading></cdg-loading>
+      <cdg-toast-message>Uploading file</cdg-toast-message>
+    </cdg-toast-header>
+    <cdg-toast-actions>
+      <button
+        is="cdg-button"
+        class="danger"
+        size="small"
+        id="toast-stop-button"
+      >
+        Stop
+      </button>
+      <button
+        is="cdg-button"
+        class="secondary"
+        size="small"
+        id="toast-stop-button"
+      >
+        Details
+      </button>
+    </cdg-toast-actions>
+  </cdg-toast>
+</template>
+
+<template id="myCompleteToast">
+  <cdg-toast>
+    <cdg-toast-header>
+      <cdg-icon name="ticks" style="color: var(--success)"></cdg-icon>
+      <cdg-toast-message>The file has uploaded successfully</cdg-toast-message>
+    </cdg-toast-header>
+    <cdg-toast-actions>
+      <button is="cdg-button" size="small" id="toast-ok-button">OK</button>
+    </cdg-toast-actions>
+  </cdg-toast>
+</template>

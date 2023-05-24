@@ -1,3 +1,5 @@
+import {swapChild} from './dom'
+
 const ANIMATION_TIME = 300
 
 export class ToastIcon {
@@ -47,6 +49,7 @@ export class ToastService {
     this.toasts[id] = new Toast(id, toast, config)
     this.toasts[id].hideAfter(this.hide.bind(this))
     this.container.prepend(toast)
+    return toast
   }
 
   toast(message, icon = new ToastIcon(), config) {
@@ -63,6 +66,15 @@ export class ToastService {
 
     this.show('toast' + new Date().getTime(), toast, config)
     return toast
+  }
+
+  update(id, toast) {
+    if (!this.toasts[id]) {
+      return
+    }
+
+    const toastElement = this.toasts[id].toast
+    swapChild(toast, toastElement)
   }
 
   close(id) {

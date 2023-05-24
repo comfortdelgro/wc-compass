@@ -11,7 +11,7 @@ export class MenuListItemDemo extends CdgBaseComponent {
     <div class="cdg-list-item-info">
       <div class="cdg-list-item-description">
         {{item.name}}
-        <small>({{item.childList.length}} results)</small>
+        <small>({{item.childList.length}})</small>
       </div>
     </div>
   </cdg-list-item>

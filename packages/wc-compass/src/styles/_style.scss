@@ -177,6 +177,18 @@
   --line-height-label3: 15px;
 }
 
+@font-face {
+  font-family: 'ComfortDelGroIcon';
+  src: url('../fonts/icomoon.eot');
+  src: url('../fonts/icomoon.eot') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf') format('truetype'),
+    url('../fonts/icomoon.woff') format('woff'),
+    url('../fonts/icomoon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
 @media (prefers-color-scheme: dark) {
   body.theme-os {
     @include darkColors;

@@ -9,5 +9,13 @@ export class CdgButton extends HTMLButtonElement {
     if (icon) {
       this.classList.add('has-icon')
     }
+
+    const buttonText =
+      this.innerText ||
+      this.getAttribute('alt') ||
+      this.getAttribute('title') ||
+      'Button'
+
+    this.setAttribute('aria-label', buttonText)
   }
 }

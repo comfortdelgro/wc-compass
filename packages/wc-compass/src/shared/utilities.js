@@ -70,3 +70,7 @@ export function resolveObject(obj, path) {
   }
   return newValue
 }
+
+export function isNullOrUndefinded(param) {
+  return param === null || param === undefined
+}
