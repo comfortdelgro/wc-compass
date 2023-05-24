@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.2.14
+
+### Patch Changes
+
+- c25a7f8: Fix for icon size through out the project
+
 ## 0.2.13
 
 ### Patch Changes
