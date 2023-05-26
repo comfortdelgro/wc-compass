@@ -323,6 +323,9 @@ export class CdgCarousel extends HTMLElement {
 
   setNewCurrentValue(newCurrentValue) {
     this.current = newCurrentValue
+
+    // Make it transition smoother again
+    this.scroller.style.transition = 'all 0.3s ease-in-out'
   }
 
   handlePointerUp() {
@@ -332,9 +335,6 @@ export class CdgCarousel extends HTMLElement {
       this.moveDistance,
       this.setNewCurrentValue.bind(this),
     )
-
-    // Make it transition smoother again
-    this.scroller.style.transition = 'all 0.3s ease-in-out'
 
     this.moveDistance = 0
   }
