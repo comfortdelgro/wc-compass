@@ -1,4 +1,5 @@
-import {TableSelectionEvent} from './model'
+import { TableSelectionEvent } from './model'
+
 
 export class CdgTable extends HTMLTableElement {
   static get observedAttributes() {
@@ -165,20 +166,5 @@ export class CdgTable extends HTMLTableElement {
       this.options.onEditCellStart(event)
     }
   }
-
-  finishEditing(column, index, value) {
-    const newData = [...this.data]
-    if (
-      column !== undefined &&
-      column !== null &&
-      index !== undefined &&
-      index !== null &&
-      value !== undefined &&
-      value !== null
-    ) {
-      newData[index][column] = value
-      this.data = newData
-      return this.data
-    }
-  }
+ 
 }

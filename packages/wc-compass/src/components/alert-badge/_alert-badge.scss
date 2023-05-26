@@ -10,18 +10,18 @@ cdg-alert-badge,
   padding: 0 8px;
   @extend %label2;
 
-  cdg-icon,
   .cdg-icon {
     width: 14px;
     height: 14px;
+    font-size: 14px;
   }
 
   &[size='large'] {
     @extend %body2;
-    cdg-icon,
     .cdg-icon {
       width: 18px;
       height: 18px;
+      font-size: 18px;
     }
   }
 

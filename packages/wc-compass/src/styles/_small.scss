@@ -37,17 +37,17 @@
 
       &.icon {
         padding: 6px 7px;
-        cdg-icon,
         .cdg-icon {
           width: 16px;
           height: 16px;
+          font-size: 16px;
         }
       }
 
-      cdg-icon,
       .cdg-icon {
         width: 14px;
         height: 14px;
+        font-size: 14px;
       }
 
       .cdg-inline-loading {
