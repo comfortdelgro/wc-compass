@@ -177,4 +177,8 @@ export class CdgCtxMenu extends CdgBaseComponent {
     event.preventDefault()
     event.stopPropagation()
   }
+
+  disconnectedCallback() {
+    window.removeEventListener('keydown', this.keyboardListener)
+  }
 }
