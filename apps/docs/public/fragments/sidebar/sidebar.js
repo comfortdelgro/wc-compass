@@ -33,8 +33,8 @@ export class CdgDemoSidebar extends CdgBaseComponent {
 
     window.addEventListener('keydown', (event) => {
       if (
-        (event.ctrlKey && event.key === 'f') ||
-        (event.metaKey && event.key === 'f')
+        (event.ctrlKey && event.key === 'k') ||
+        (event.metaKey && event.key === 'k')
       ) {
         event.preventDefault()
         document.querySelector('#top-search-popover input').focus()

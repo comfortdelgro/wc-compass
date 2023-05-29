@@ -1,5 +1,16 @@
 import {resolveObject} from './utilities'
 
+export function getClosestParentElement(current, tagName) {
+  if (current && current.parentElement) {
+    if (current.parentElement.tagName.toLowerCase() === tagName) {
+      return current.parentElement
+    } else {
+      return getClosestParentElement(current.parentElement, tagName)
+    }
+  }
+  return current
+}
+
 export function getClosestElement(current, selector) {
   if (current.parentElement) {
     if (current.parentElement.querySelector(selector)) {
