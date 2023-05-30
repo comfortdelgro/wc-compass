@@ -2,7 +2,7 @@ import {isElement} from '../../shared/utilities'
 
 const template = document.createElement('template')
 template.innerHTML = `
-    <button class="cdg-dropdown-button">
+    <button class="cdg-dropdown-button" aria-label="Dropdown button">
         <div class="cdg-dropdown-button-text"></div>
         <cdg-icon name="arrow-down" class="cdg-dropdown-button-icon" size="16"></cdg-icon>
     </button>
@@ -11,7 +11,9 @@ template.innerHTML = `
 function createSelectedItem(value, text, displayEl) {
   const templateSelectedItem = document.createElement('template')
   templateSelectedItem.innerHTML = `
-      <button class="cdg-dropdown-button-selected-item" tabindex="-1">
+      <button class="cdg-dropdown-button-selected-item"
+              tabindex="-1"
+              aria-label="Dropdown button">
           <span class="cdg-dropdown-button-selected-item-text">${
             displayEl ? displayEl.outerHTML : text
           }</span>

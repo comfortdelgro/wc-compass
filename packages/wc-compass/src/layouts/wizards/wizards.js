@@ -1,67 +1,67 @@
 export class CdgWizards extends HTMLElement {
-  stepElements = [];
+  stepElements = []
 
   static get observedAttributes() {
-    return ['steps', 'current'];
+    return ['steps', 'current']
   }
 
   get steps() {
-    return this.getAttribute('steps').split(',');
+    return this.getAttribute('steps').split(',')
   }
 
   set steps(steps) {
-    this.setAttribute('steps', steps);
+    this.setAttribute('steps', steps)
   }
 
   get current() {
-    return Number(this.getAttribute('current'));
+    return Number(this.getAttribute('current'))
   }
 
   set current(current) {
-    this.setAttribute('current', current);
+    this.setAttribute('current', current)
   }
 
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-wizards');
+    this.classList.add('cdg-wizards')
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
     if (attr === 'steps') {
-      this.initSteps(newValue.split(','));
+      this.initSteps(newValue.split(','))
     } else if (attr === 'current') {
-      this.updateSteps();
+      this.updateSteps()
     }
   }
 
   initSteps(steps) {
     steps.forEach((text, index) => {
-      const step = this.createStep(index + 1, text);
-      this.stepElements.push(step);
-      this.appendChild(step);
-    });
+      const step = this.createStep(index + 1, text)
+      this.stepElements.push(step)
+      this.appendChild(step)
+    })
   }
 
   updateSteps() {
     this.stepElements.forEach((element, index) => {
       if (index < this.current - 1) {
-        element.status = 'completed';
+        element.status = 'completed'
       } else if (index === this.current - 1) {
-        element.status = 'current';
+        element.status = 'current'
       } else {
-        element.status = 'remaining';
+        element.status = 'remaining'
       }
-    });
+    })
   }
 
   createStep(index, name) {
-    const step = document.createElement('cdg-wizard-step');
-    step.setAttribute('index', index);
-    step.setAttribute('name', name);
-    step.setAttribute('status', 'remaining');
+    const step = document.createElement('cdg-wizard-step')
+    step.setAttribute('index', index)
+    step.setAttribute('name', name)
+    step.setAttribute('status', 'remaining')
     step.addEventListener('click', () => {
       this.dispatchEvent(
         new CustomEvent('switchStep', {
@@ -69,9 +69,9 @@ export class CdgWizards extends HTMLElement {
             index,
             name,
           },
-        })
-      );
-    });
-    return step;
+        }),
+      )
+    })
+    return step
   }
 }

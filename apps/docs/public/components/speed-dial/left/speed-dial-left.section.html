@@ -2,10 +2,15 @@
   <div class="sample-section column" style="align-items: flex-end">
     <cdg-speed-dial direction="left">
       <div class="cdg-speed-dial-button-group">
-        <button class="cdg-button floatting icon" id="editButton">
+        <button
+          is="cdg-button"
+          class="cdg-button floatting icon"
+          id="editButton"
+        >
           <cdg-icon name="pencil"></cdg-icon>
         </button>
         <button
+          is="cdg-button"
           class="cdg-button floatting icon"
           id="removeButton"
           style="
@@ -18,6 +23,7 @@
         </button>
       </div>
       <button
+        is="cdg-button"
         class="cdg-button floatting icon speed-dial-button"
         style="background-color: var(--warning); border-color: var(--warning)"
         id="speedDialButton"
@@ -42,18 +48,33 @@
 
 &lt;cdg-speed-dial direction=&quot;left&quot;&gt;
   &lt;div class=&quot;cdg-speed-dial-button-group&quot;&gt;
-      &lt;button class=&quot;cdg-button floatting icon&quot; id=&quot;editButton&quot;&gt;
-          &lt;cdg-icon name=&quot;pencil&quot;&gt;&lt;/cdg-icon&gt;
-      &lt;/button&gt;
-      &lt;button class=&quot;cdg-button floatting icon&quot; id=&quot;removeButton&quot;&gt;
-          &lt;cdg-icon name=&quot;outlineTrash&quot;&gt;&lt;/cdg-icon&gt;
-      &lt;/button&gt;
+    &lt;button
+      is=&quot;cdg-button&quot;
+      class=&quot;cdg-button floatting icon&quot;
+      id=&quot;editButton&quot;
+    &gt;
+      &lt;cdg-icon name=&quot;pencil&quot;&gt;&lt;/cdg-icon&gt;
+    &lt;/button&gt;
+    &lt;button
+      is=&quot;cdg-button&quot;
+      class=&quot;cdg-button floatting icon&quot;
+      id=&quot;removeButton&quot;
+      style=&quot;
+        background-color: var(--danger);
+        border-color: var(--danger);
+        color: #ffffff;
+      &quot;
+    &gt;
+      &lt;cdg-icon name=&quot;outlineTrash&quot;&gt;&lt;/cdg-icon&gt;
+    &lt;/button&gt;
   &lt;/div&gt;
   &lt;button
-      class=&quot;cdg-button floatting icon speed-dial-button&quot;
-      id=&quot;speedDialButton&quot;
+    is=&quot;cdg-button&quot;
+    class=&quot;cdg-button floatting icon speed-dial-button&quot;
+    style=&quot;background-color: var(--warning); border-color: var(--warning)&quot;
+    id=&quot;speedDialButton&quot;
   &gt;
-      &lt;cdg-icon name=&quot;plus&quot;&gt;&lt;/cdg-icon&gt;
+    &lt;cdg-icon name=&quot;plus&quot;&gt;&lt;/cdg-icon&gt;
   &lt;/button&gt;
 &lt;/cdg-speed-dial&gt;
 

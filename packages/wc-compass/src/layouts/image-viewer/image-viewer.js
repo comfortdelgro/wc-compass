@@ -71,6 +71,7 @@ export class CdgImageViewer extends HTMLElement {
       this.img = document.createElement('img')
       this.img.addEventListener('load', this.handleImageLoad.bind(this))
       this.img.addEventListener('error', this.handleImageError.bind(this))
+      this.img.setAttribute('aria-label', 'Image inside viewer')
       this.appendChild(this.img)
     }
     this.img.setAttribute('src', this.src)

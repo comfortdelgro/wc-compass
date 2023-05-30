@@ -8,6 +8,7 @@
             name="undo"
             operation="undo"
             title="Undo"
+            aria-label="Undo button"
           >
             <cdg-icon name="undo"></cdg-icon>
           </button>
@@ -16,6 +17,7 @@
             name="redo"
             operation="redo"
             title="Redo"
+            aria-label="Redo button"
           >
             <cdg-icon name="redo"></cdg-icon>
           </button>
@@ -26,6 +28,7 @@
             name="bold"
             operation="toggleBold"
             title="Bold"
+            aria-label="Bold button"
           >
             <cdg-icon name="bold"></cdg-icon>
           </button>
@@ -34,6 +37,7 @@
             name="italic"
             operation="toggleItalic"
             title="Italic"
+            aria-label="Italic button"
           >
             <cdg-icon name="italic"></cdg-icon>
           </button>
@@ -50,32 +54,37 @@
             name="underline"
             operation="toggleUnderline"
             title="Underline"
+            aria-label="Underline button"
           >
             <cdg-icon name="underline"></cdg-icon>
           </button>
         </div>
 
         <div class="cdg-rte-buttons-group">
-          <cdg-dropdown id="heading-selector" class="toolbar-selector">
+          <cdg-dropdown
+            id="heading-selector"
+            class="toolbar-selector"
+            arial-label="Heading level select dropdown"
+          >
             <cdg-dropdown-option value="0" selected="true" title="Text size">
               Normal Text
             </cdg-dropdown-option>
-            <cdg-dropdown-option value="1">
+            <cdg-dropdown-option value="1" aria-label="Heading level 1 option">
               <h1 style="margin: 0">Heading 1</h1>
             </cdg-dropdown-option>
-            <cdg-dropdown-option value="2">
+            <cdg-dropdown-option value="2" aria-label="Heading level 2 option">
               <h2 style="margin: 0">Heading 2</h2>
             </cdg-dropdown-option>
-            <cdg-dropdown-option value="3">
+            <cdg-dropdown-option value="3" aria-label="Heading level 3 option">
               <h3 style="margin: 0">Heading 3</h3>
             </cdg-dropdown-option>
-            <cdg-dropdown-option value="4">
+            <cdg-dropdown-option value="4" aria-label="Heading level 4 option">
               <h4 style="margin: 0">Heading 4</h4>
             </cdg-dropdown-option>
-            <cdg-dropdown-option value="5">
+            <cdg-dropdown-option value="5" aria-label="Heading level 5 option">
               <h5 style="margin: 0">Heading 5</h5>
             </cdg-dropdown-option>
-            <cdg-dropdown-option value="6">
+            <cdg-dropdown-option value="6" aria-label="Heading level 6 option">
               <h6 style="margin: 0">Heading 6</h6>
             </cdg-dropdown-option>
           </cdg-dropdown>
@@ -85,12 +94,21 @@
           <cdg-select-color
             id="color-selector"
             colors="#212529,#845EF7,#339AF0,#22B8CF,#51CF66,#FCC419,#FF6B6B,#F06595,#CED4DA,#5F3DC4,#1864AB,#0B7285,#2B8A3E,#E67700,#C92A2A,#C2255C"
+            aria-label="Color select dropdown"
           ></cdg-select-color>
         </div>
 
         <div class="cdg-rte-buttons-group">
-          <cdg-dropdown id="text-alignment-selector" class="toolbar-selector">
-            <cdg-dropdown-option value="left" selected="true">
+          <cdg-dropdown
+            id="text-alignment-selector"
+            class="toolbar-selector"
+            aria-label="Alignment select dropdown"
+          >
+            <cdg-dropdown-option
+              value="left"
+              selected="true"
+              aria-label="Align left option"
+            >
               <div class="cdg-dropdown-option-content">
                 <cdg-icon
                   name="textAlignLeft"
@@ -100,7 +118,7 @@
                 <span>left</span>
               </div>
             </cdg-dropdown-option>
-            <cdg-dropdown-option value="right">
+            <cdg-dropdown-option value="right" aria-label="Align right option">
               <div class="cdg-dropdown-option-content">
                 <cdg-icon
                   name="textAlignRight"
@@ -110,7 +128,10 @@
                 <span>right</span>
               </div>
             </cdg-dropdown-option>
-            <cdg-dropdown-option value="center">
+            <cdg-dropdown-option
+              value="center"
+              aria-label="Align center option"
+            >
               <div class="cdg-dropdown-option-content">
                 <cdg-icon
                   name="textAlignCenter"
@@ -120,7 +141,10 @@
                 <span>center</span>
               </div>
             </cdg-dropdown-option>
-            <cdg-dropdown-option value="justify">
+            <cdg-dropdown-option
+              value="justify"
+              aria-label="Align justify option"
+            >
               <div class="cdg-dropdown-option-content">
                 <cdg-icon
                   name="textAlignJustify"
@@ -138,6 +162,7 @@
             class="cdg-rte-buttons"
             name="bulletList"
             operation="toggleBulletList"
+            aria-label="Bullet list button"
           >
             <cdg-icon name="listUlRound"></cdg-icon>
           </button>
@@ -145,12 +170,18 @@
             class="cdg-rte-buttons"
             name="orderedList"
             operation="toggleOrderedList"
+            aria-label="Ordered list button"
           >
             <cdg-icon name="listOl"></cdg-icon>
           </button>
         </div>
         <div class="cdg-rte-buttons-group">
-          <button class="cdg-rte-buttons" name="link" operation="setLink">
+          <button
+            class="cdg-rte-buttons"
+            name="link"
+            operation="setLink"
+            aria-label="Add link button"
+          >
             <cdg-icon name="link"></cdg-icon>
           </button>
           <button class="cdg-rte-buttons" name="image" operation="setImage">
@@ -160,6 +191,7 @@
             class="cdg-rte-buttons"
             name="blockquote"
             operation="toggleBlockquote"
+            aria-label="Add blockquote button"
           >
             <cdg-icon name="quoteLeft"></cdg-icon>
           </button>

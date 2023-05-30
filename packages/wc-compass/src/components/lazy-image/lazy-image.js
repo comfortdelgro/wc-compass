@@ -25,7 +25,7 @@ imageTemplate.innerHTML = `
       grid-area: 1 / 1 / 2 / 2;
     }
   </style>
-  <img src="${placeholderSrc}"/>
+  <img src="${placeholderSrc}" aria-label="Image"/>
 `
 
 export class CdgLazyImage extends HTMLElement {

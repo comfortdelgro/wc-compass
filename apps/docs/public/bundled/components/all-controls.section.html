@@ -2,24 +2,50 @@
   <div class="sample-section column">
     <cdg-rich-text-editor resizable id="rte-example-3">
       <cdg-rte-toolbar>
-        <button class="cdg-rte-buttons" name="undo" operation="undo">
+        <button
+          class="cdg-rte-buttons"
+          name="undo"
+          operation="undo"
+          aria-label="Undo button"
+        >
           <cdg-icon name="undo"></cdg-icon>
         </button>
-        <button class="cdg-rte-buttons" name="redo" operation="redo">
+        <button
+          class="cdg-rte-buttons"
+          name="redo"
+          operation="redo"
+          aria-label="Redo button"
+        >
           <cdg-icon name="redo"></cdg-icon>
         </button>
-        <button class="cdg-rte-buttons" name="bold" operation="toggleBold">
+        <button
+          class="cdg-rte-buttons"
+          name="bold"
+          aria-label="Bold button"
+          operation="toggleBold"
+        >
           <cdg-icon name="bold"></cdg-icon>
         </button>
-        <button class="cdg-rte-buttons" name="italic" operation="toggleItalic">
+        <button
+          class="cdg-rte-buttons"
+          name="italic"
+          aria-label="Italic button"
+          operation="toggleItalic"
+        >
           <cdg-icon name="italic"></cdg-icon>
         </button>
-        <button class="cdg-rte-buttons" name="strike" operation="toggleStrike">
+        <button
+          class="cdg-rte-buttons"
+          name="strike"
+          aria-label="Strike through button"
+          operation="toggleStrike"
+        >
           <cdg-icon name="strikeThrough"></cdg-icon>
         </button>
         <button
           class="cdg-rte-buttons"
           name="underline"
+          aria-label="Underline button"
           operation="toggleUnderline"
         >
           <cdg-icon name="underline"></cdg-icon>
@@ -29,6 +55,7 @@
           name="heading"
           operation="toggleHeading"
           level="1"
+          aria-label="Heading level 1 button"
         >
           <cdg-icon name="h1"></cdg-icon>
         </button>
@@ -37,6 +64,7 @@
           name="heading"
           operation="toggleHeading"
           level="2"
+          aria-label="Heading level 2 button"
         >
           <cdg-icon name="h2"></cdg-icon>
         </button>
@@ -45,6 +73,7 @@
           name="heading"
           operation="toggleHeading"
           level="3"
+          aria-label="Heading level 3 button"
         >
           <cdg-icon name="h3"></cdg-icon>
         </button>
@@ -53,6 +82,7 @@
           name="heading"
           operation="toggleHeading"
           level="4"
+          aria-label="Heading level 4 button"
         >
           <cdg-icon name="h4"></cdg-icon>
         </button>
@@ -61,6 +91,7 @@
           name="heading"
           operation="toggleHeading"
           level="5"
+          aria-label="Heading level 5 button"
         >
           <cdg-icon name="h5"></cdg-icon>
         </button>
@@ -69,6 +100,7 @@
           name="heading"
           operation="toggleHeading"
           level="6"
+          aria-label="Heading level 6 button"
         >
           <cdg-icon name="h6"></cdg-icon>
         </button>
@@ -76,71 +108,88 @@
           select-class="color-selector"
           id="color-selector"
           class="toolbar-selector"
+          aria-label="Color select dropdown"
         >
           <cdg-dropdown-option
             value="#212529"
             current-color="#212529"
             selected="true"
+            aria-label="Color option"
           ></cdg-dropdown-option>
           <cdg-dropdown-option
             value="#845EF7"
             current-color="#845EF7"
+            aria-label="Color option"
           ></cdg-dropdown-option>
           <cdg-dropdown-option
             value="#339AF0"
             current-color="#339AF0"
+            aria-label="Color option"
           ></cdg-dropdown-option>
           <cdg-dropdown-option
             value="#22B8CF"
             current-color="#22B8CF"
+            aria-label="Color option"
           ></cdg-dropdown-option>
           <cdg-dropdown-option
             value="#51CF66"
             current-color="#51CF66"
+            aria-label="Color option"
           ></cdg-dropdown-option>
           <cdg-dropdown-option
             value="#FCC419"
             current-color="#FCC419"
+            aria-label="Color option"
           ></cdg-dropdown-option>
           <cdg-dropdown-option
             value="#FF6B6B"
             current-color="#FF6B6B"
+            aria-label="Color option"
           ></cdg-dropdown-option>
           <cdg-dropdown-option
             value="#F06595"
             current-color="#F06595"
+            aria-label="Color option"
           ></cdg-dropdown-option>
           <cdg-dropdown-option
             value="#CED4DA"
             current-color="#CED4DA"
+            aria-label="Color option"
           ></cdg-dropdown-option>
           <cdg-dropdown-option
             value="#5F3DC4"
             current-color="#5F3DC4"
+            aria-label="Color option"
           ></cdg-dropdown-option>
           <cdg-dropdown-option
             value="#1864AB"
             current-color="#1864AB"
+            aria-label="Color option"
           ></cdg-dropdown-option>
           <cdg-dropdown-option
             value="#0B7285"
             current-color="#0B7285"
+            aria-label="Color option"
           ></cdg-dropdown-option>
           <cdg-dropdown-option
             value="#2B8A3E"
             current-color="#2B8A3E"
+            aria-label="Color option"
           ></cdg-dropdown-option>
           <cdg-dropdown-option
             value="#E67700"
             current-color="#E67700"
+            aria-label="Color option"
           ></cdg-dropdown-option>
           <cdg-dropdown-option
             value="#C92A2A"
             current-color="#C92A2A"
+            aria-label="Color option"
           ></cdg-dropdown-option>
           <cdg-dropdown-option
             value="#C2255C"
             current-color="#C2255C"
+            aria-label="Color option"
           ></cdg-dropdown-option>
         </cdg-dropdown>
 
@@ -149,6 +198,7 @@
           name="heading"
           operation="setTextAlign"
           alignment="left"
+          aria-label="Align left button"
         >
           <cdg-icon name="textAlignLeft"></cdg-icon>
         </button>
@@ -157,6 +207,7 @@
           name="heading"
           operation="setTextAlign"
           alignment="center"
+          aria-label="Align center button"
         >
           <cdg-icon name="textAlignCenter"></cdg-icon>
         </button>
@@ -165,6 +216,7 @@
           name="heading"
           operation="setTextAlign"
           alignment="right"
+          aria-label="Align right button"
         >
           <cdg-icon name="textAlignRight"></cdg-icon>
         </button>
@@ -173,6 +225,7 @@
           name="heading"
           operation="setTextAlign"
           alignment="justify"
+          aria-label="Align justify button"
         >
           <cdg-icon name="textAlignJustify"></cdg-icon>
         </button>
@@ -181,6 +234,7 @@
           class="cdg-rte-buttons"
           name="bulletList"
           operation="toggleBulletList"
+          aria-label="Bullet list button"
         >
           <cdg-icon name="listUlRound"></cdg-icon>
         </button>
@@ -188,19 +242,31 @@
           class="cdg-rte-buttons"
           name="orderedList"
           operation="toggleOrderedList"
+          aria-label="Ordered list button"
         >
           <cdg-icon name="listOl"></cdg-icon>
         </button>
-        <button class="cdg-rte-buttons" name="link" operation="setLink">
+        <button
+          class="cdg-rte-buttons"
+          name="link"
+          aria-label="Attach link button"
+          operation="setLink"
+        >
           <cdg-icon name="link"></cdg-icon>
         </button>
-        <button class="cdg-rte-buttons" name="image" operation="setImage">
+        <button
+          class="cdg-rte-buttons"
+          name="image"
+          aria-label="Attach image button"
+          operation="setImage"
+        >
           <cdg-icon name="imageOutline"></cdg-icon>
         </button>
         <button
           class="cdg-rte-buttons"
           name="blockquote"
           operation="toggleBlockquote"
+          aria-label="Add blockquote button"
         >
           <cdg-icon name="quoteLeft"></cdg-icon>
         </button>
