@@ -73,6 +73,28 @@ export class CdgCtxMenu extends CdgBaseComponent {
     }
     this.selecting = element
     this.selecting.classList.add('selecting', 'open')
+    const child = this.selecting.querySelector('cdg-ctx-menu')
+    if (child) {
+      child.checkIsInsideScreen()
+    }
+  }
+
+  checkIsInsideScreen() {
+    this.style.top = '0'
+    this.style.bottom = 'auto'
+    this.style.left = '100%'
+    this.style.right = 'auto'
+
+    const bound = this.getBoundingClientRect()
+    if (bound.left + bound.width > window.innerWidth) {
+      this.style.left = 'auto'
+      this.style.right = '100%'
+    }
+
+    if (bound.top + bound.height > window.innerWidth) {
+      this.style.top = 'auto'
+      this.style.bottom = '0'
+    }
   }
 
   updateAnchorPoint() {
