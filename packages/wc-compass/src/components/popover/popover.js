@@ -84,7 +84,7 @@ export class CdgPopover extends HTMLElement {
     }
   }
 
-  attributeChangedCallback(attr) {
+  attributeChangedCallback(attr, oldValue, newValue) {
     switch (attr) {
       case 'open':
         if (this.open) {
@@ -94,6 +94,11 @@ export class CdgPopover extends HTMLElement {
         } else {
           this.floatingElement.removeAttribute('open')
           window.removeEventListener('keydown', this.keyboardEvent)
+        }
+        break
+      case 'direction':
+        if (oldValue !== newValue) {
+          this.direction = newValue
         }
         break
 

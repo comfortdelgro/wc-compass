@@ -40,6 +40,7 @@ export class CdgComponentListDemo extends CdgDocumentComponent {
       case 'filter':
         this.displayData = this.filterList()
         this.loop.loop(this.displayData)
+        this.dispatchEvent(new CustomEvent('onFiltered'))
         break
 
       default:

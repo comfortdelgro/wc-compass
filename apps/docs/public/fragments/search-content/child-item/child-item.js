@@ -3,7 +3,7 @@ import {CdgBaseComponent} from '@comfortdelgro/wc-compass/src/shared/base-compon
 export class MenuChildItemDemo extends CdgBaseComponent {
   constructor() {
     super()
-    this.template = `<cdg-list-item>
+    this.template = `<cdg-list-item selectable-item>
     <div class="cdg-list-item-info">
       <div class="cdg-list-item-name">{{item.name}}</div>
       <div class="cdg-list-item-description">{{item.slug}}</div>
