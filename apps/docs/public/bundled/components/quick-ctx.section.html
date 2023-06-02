@@ -1,0 +1,77 @@
+<cdg-sample-section name="Version 2">
+  <div class="sample-section column">
+    <div
+      class="mycontext"
+      style="
+        width: 100%;
+        height: 200px;
+        border: 1px solid var(--border-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      Right click here
+    </div>
+  </div>
+  <pre>
+      <code class="language-html">&lt;div class=&quot;mycontext&quot;&gt;Right click here&lt;/div&gt;
+&lt;script&gt;
+import {CdgContextMenuService} from &apos;@comfortdelgro/wc-compass/src/shared/context-menu-service&apos;
+import {CdgBaseComponent} from &apos;../../../shared/base-component&apos;
+import template from &apos;./quick-ctx.section.html&apos;
+
+export class CdgQuickCtxSection extends CdgBaseComponent {
+  constructor() {
+    super()
+    this.template = template
+  }
+
+  onInit() {
+    const area = this.querySelector(&apos;.mycontext&apos;)
+    const contextMenu = new CdgContextMenuService(area, [
+      {label: &apos;Item 1&apos;},
+      {
+        label: &apos;Item 2&apos;,
+        children: [
+          {
+            label: &apos;Child 1&apos;,
+          },
+          {
+            label: &apos;Child 2&apos;,
+            children: [
+              {label: &apos;Grand Child 1&apos;},
+              {label: &apos;Grand child 2&apos;},
+              {label: &apos;Grand child 3&apos;},
+            ],
+          },
+          {label: &apos;Child 3&apos;},
+        ],
+      },
+      {
+        label: &apos;Item 3&apos;,
+        children: [
+          {
+            label: &apos;Child 1&apos;,
+            children: [
+              {label: &apos;Grand Child 1&apos;},
+              {label: &apos;Grand child 2&apos;},
+              {label: &apos;Grand child 3&apos;},
+              {label: &apos;Grand child 4&apos;},
+              {label: &apos;Grand child 5&apos;},
+            ],
+          },
+          {label: &apos;Child 2&apos;},
+          {label: &apos;Child 3&apos;},
+        ],
+      },
+      {label: &apos;Item 4&apos;},
+    ])
+    contextMenu.onSelect = (menu) =&gt; {
+      cdgToastService.toast(&apos;User has selected: &apos; + menu.label)
+    }
+  }
+}
+&lt;/script&gt;</code>
+    </pre>
+</cdg-sample-section>

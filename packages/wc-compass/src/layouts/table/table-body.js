@@ -34,7 +34,7 @@ export class CdgTableBody extends HTMLTableSectionElement {
 
   connectedCallback() {
     this.classList.add('cdg-table-body')
-    this.setAttribute('role', 'tbody')
+    this.setAttribute('role', 'rowgroup')
     if (this.parentElement.classList.contains('cdg-table')) {
       this.parentElement.registerBody(this)
     }

@@ -1,4 +1,4 @@
-import { toDisplayTime } from './video.util';
+import {toDisplayTime} from './video.util'
 
 const CONTROLS_TEMPLATE = `
 <cdg-volume></cdg-volume>
@@ -10,193 +10,199 @@ const CONTROLS_TEMPLATE = `
     <span class="total-time">00:00</span>
 </div>
 <div class="video-navigation">
-    <button is="cdg-button" class="video-button icon backward" size="small">
+    <button is="cdg-button"
+            class="video-button icon backward"
+            size="small"
+            aria-label="Backward button">
         <cdg-icon name="backward"></cdg-icon>
     </button>
-    <button is="cdg-button" class="video-button icon play-pause">
+    <button is="cdg-button"
+            class="video-button icon play-pause"
+            aria-label="Play / Pause button">
         <cdg-icon name="caretRight"></cdg-icon>
     </button>
-    <button is="cdg-button" class="video-button icon forward" size="small">
+    <button is="cdg-button"
+            class="video-button icon forward"
+            size="small"
+            aria-label="Forward button">
         <cdg-icon name="forward"></cdg-icon>
     </button>
-    <button is="cdg-button" class="video-button icon setting" size="small">
+    <button is="cdg-button"
+            class="video-button icon setting"
+            size="small"
+            aria-label="Video setting button">
         <cdg-icon name="setting"></cdg-icon>
     </button>
 </div>
-`;
+`
 
 export class CdgVideoControls extends HTMLElement {
   static get observedAttributes() {
-    return ['current-time', 'duration', 'playing', 'buffering', 'volume'];
+    return ['current-time', 'duration', 'playing', 'buffering', 'volume']
   }
 
   get playing() {
-    return this.hasAttribute('playing');
+    return this.hasAttribute('playing')
   }
 
   set playing(playing) {
     if (playing) {
-      this.setAttribute('playing', playing);
+      this.setAttribute('playing', playing)
     } else {
-      this.removeAttribute('playing');
+      this.removeAttribute('playing')
     }
   }
 
   get volume() {
-    return Number(this.getAttribute('volume')) || 0;
+    return Number(this.getAttribute('volume')) || 0
   }
 
   set volume(volume) {
-    this.setAttribute('volume', volume);
+    this.setAttribute('volume', volume)
   }
 
   get currentTime() {
-    return Number(this.getAttribute('current-time')) || 0;
+    return Number(this.getAttribute('current-time')) || 0
   }
 
   set currentTime(currentTime) {
-    this.setAttribute('current-time', currentTime);
+    this.setAttribute('current-time', currentTime)
   }
 
   get duration() {
-    return Number(this.getAttribute('duration')) || 0;
+    return Number(this.getAttribute('duration')) || 0
   }
 
   set duration(duration) {
-    this.setAttribute('duration', duration);
+    this.setAttribute('duration', duration)
   }
 
   get buffering() {
-    return Number(this.getAttribute('buffering'));
+    return Number(this.getAttribute('buffering'))
   }
 
   set buffering(buffering) {
-    this.setAttribute('buffering', buffering);
+    this.setAttribute('buffering', buffering)
   }
 
-  currentTimeElement;
-  durationElement;
-  seekBar;
-  btnPlayPause;
-  btnBackward;
-  btnForward;
-  btnSetting;
-  volumeBar;
+  currentTimeElement
+  durationElement
+  seekBar
+  btnPlayPause
+  btnBackward
+  btnForward
+  btnSetting
+  volumeBar
 
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-video-controls');
-    this.innerHTML = CONTROLS_TEMPLATE;
+    this.classList.add('cdg-video-controls')
+    this.innerHTML = CONTROLS_TEMPLATE
 
-    this.currentTimeElement = this.querySelector('.current-time');
-    this.durationElement = this.querySelector('.total-time');
-    this.seekBar = this.querySelector('cdg-range-slider');
-    this.volumeBar = this.querySelector('cdg-volume');
-    this.volumeBar.volume = this.volume;
+    this.currentTimeElement = this.querySelector('.current-time')
+    this.durationElement = this.querySelector('.total-time')
+    this.seekBar = this.querySelector('cdg-range-slider')
+    this.volumeBar = this.querySelector('cdg-volume')
+    this.volumeBar.volume = this.volume
     this.volumeBar.addEventListener(
       'volumechange',
-      this.handleVolume.bind(this)
-    );
-    this.volumeBar.addEventListener('mute', this.handleMute.bind(this));
+      this.handleVolume.bind(this),
+    )
+    this.volumeBar.addEventListener('mute', this.handleMute.bind(this))
 
-    this.seekBar.addEventListener('change', this.handleSeekbar.bind(this));
+    this.seekBar.addEventListener('change', this.handleSeekbar.bind(this))
 
-    this.btnPlayPause = this.querySelector('.play-pause');
-    this.btnPlayPause.addEventListener(
-      'click',
-      this.handlePlayPause.bind(this)
-    );
+    this.btnPlayPause = this.querySelector('.play-pause')
+    this.btnPlayPause.addEventListener('click', this.handlePlayPause.bind(this))
 
-    this.updatePlayIcon();
+    this.updatePlayIcon()
 
-    this.btnBackward = this.querySelector('.backward');
-    this.btnBackward.addEventListener('click', this.handleBackward.bind(this));
+    this.btnBackward = this.querySelector('.backward')
+    this.btnBackward.addEventListener('click', this.handleBackward.bind(this))
 
-    this.btnForward = this.querySelector('.forward');
-    this.btnForward.addEventListener('click', this.handleForward.bind(this));
+    this.btnForward = this.querySelector('.forward')
+    this.btnForward.addEventListener('click', this.handleForward.bind(this))
 
-    this.btnSetting = this.querySelector('.setting');
-    this.btnSetting.addEventListener('click', this.handleSetting.bind(this));
+    this.btnSetting = this.querySelector('.setting')
+    this.btnSetting.addEventListener('click', this.handleSetting.bind(this))
   }
 
   attributeChangedCallback(attr) {
     switch (attr) {
       case 'current-time':
         if (this.currentTimeElement) {
-          this.currentTimeElement.textContent = toDisplayTime(this.currentTime);
+          this.currentTimeElement.textContent = toDisplayTime(this.currentTime)
         }
         if (this.seekBar && this.duration) {
           this.seekBar.setAttribute(
             'value',
-            (this.currentTime / this.duration) * 100
-          );
+            (this.currentTime / this.duration) * 100,
+          )
         }
-        break;
+        break
 
       case 'duration':
         if (this.durationElement) {
-          this.durationElement.textContent = toDisplayTime(this.duration);
+          this.durationElement.textContent = toDisplayTime(this.duration)
         }
-        break;
+        break
 
       case 'playing':
         if (this.btnPlayPause) {
-          this.updatePlayIcon();
+          this.updatePlayIcon()
         }
-        break;
+        break
 
       case 'buffering':
-        this.seekBar.buffering = this.buffering;
-        break;
+        this.seekBar.buffering = this.buffering
+        break
 
       case 'volume':
-        this.volumeBar.volume = this.volume;
-        break;
+        this.volumeBar.volume = this.volume
+        break
 
       default:
-        break;
+        break
     }
   }
 
   handleSeekbar(event) {
-    const percent = event.detail.value;
-    const target = (this.duration / 100) * percent;
-    this.dispatchEvent(new CustomEvent('seek', { detail: target }));
+    const percent = event.detail.value
+    const target = (this.duration / 100) * percent
+    this.dispatchEvent(new CustomEvent('seek', {detail: target}))
   }
 
   handlePlayPause() {
-    this.dispatchEvent(new CustomEvent('toggle'));
+    this.dispatchEvent(new CustomEvent('toggle'))
   }
 
   handleBackward() {
-    this.dispatchEvent(new CustomEvent('navigate', { detail: 'previous' }));
+    this.dispatchEvent(new CustomEvent('navigate', {detail: 'previous'}))
   }
 
   handleForward() {
-    this.dispatchEvent(new CustomEvent('navigate', { detail: 'next' }));
+    this.dispatchEvent(new CustomEvent('navigate', {detail: 'next'}))
   }
 
   handleSetting() {
-    this.dispatchEvent(new CustomEvent('setting'));
+    this.dispatchEvent(new CustomEvent('setting'))
   }
 
   updatePlayIcon() {
-    const iconElement = this.btnPlayPause.querySelector('cdg-icon');
-    const iconName = this.playing ? 'pause' : 'caretRight';
+    const iconElement = this.btnPlayPause.querySelector('cdg-icon')
+    const iconName = this.playing ? 'pause' : 'caretRight'
 
-    iconElement.name = iconName;
+    iconElement.name = iconName
   }
 
   handleVolume(event) {
-    this.dispatchEvent(
-      new CustomEvent('adjustvolume', { detail: event.detail })
-    );
+    this.dispatchEvent(new CustomEvent('adjustvolume', {detail: event.detail}))
   }
 
   handleMute(event) {
-    this.dispatchEvent(new CustomEvent('mute', { detail: event.detail }));
+    this.dispatchEvent(new CustomEvent('mute', {detail: event.detail}))
   }
 }

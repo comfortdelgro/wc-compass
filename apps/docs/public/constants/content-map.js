@@ -65,6 +65,7 @@ export const CONTENT_MAP = {
   timeline: 'cdg-timeline-demo',
   table: 'cdg-table-demo',
   popover: 'cdg-popover-demo',
+  portal: 'cdg-portal-demo',
   progress: 'cdg-progress-demo',
   toast: 'cdg-toast-demo',
   toggle: 'cdg-toggle-demo',

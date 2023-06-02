@@ -2,12 +2,13 @@ import '@ungap/custom-elements'
 import {CONTROL_COMPONENTS} from './components'
 import {ICONS_IMAGES} from './components/icon/icon-resource'
 import {LAYOUT_COMPONENTS} from './layouts'
+import {CdgContextMenuService} from './shared/context-menu-service'
 import {CdgIconSize} from './shared/core'
 import {DialogService} from './shared/dialog'
+import {CdgLoop} from './shared/for-loop'
 import {CdgImageViewerService} from './shared/image-viewer-service'
 import {CdgLoadingService} from './shared/loading-service'
 import {ToastService} from './shared/toast-service'
-import {CdgLoop} from './shared/for-loop'
 
 import './styles/index.scss'
 
@@ -34,6 +35,7 @@ export {
   DialogService,
   ToastService,
   CdgLoadingService,
+  CdgContextMenuService,
   CdgLoop,
   downloadSVGContent,
   toLowerCaseAndDash,

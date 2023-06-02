@@ -30,11 +30,15 @@ const templateHeader = document.createElement('template')
 templateHeader.innerHTML = `
   <section class="calendar-month-header">
     <section class="calendar-month-header-selectors">
-      <button id="previous-month-selector" class="previous-month-selector">
+      <button id="previous-month-selector"
+              class="previous-month-selector"
+              aria-label="Previous Month Button">
         <cdg-icon name="arrowLeft" size="16"></cdg-icon>
       </button>
       <!-- <span id="present-month-selector">Today</span> -->
-      <button id="next-month-selector" class="next-month-selector">
+      <button id="next-month-selector"
+              class="next-month-selector"
+              aria-label="Next Month Button">
         <cdg-icon name="arrowRight" size="16"></cdg-icon>
       </button>
     </section>
@@ -45,13 +49,17 @@ const templateBottom = document.createElement('template')
 templateBottom.innerHTML = `
   <section class="calendar-month-bottom">
     <section class="calendar-month-bottom-selectors">
-      <button id="month-selector-clear" class="month-selector-clear">
+      <button id="month-selector-clear"
+              class="month-selector-clear"
+              aria-label="Clear Button">
         Clear
       </button>
       <div class="month-selector-right">
         <div id="month-selector-detail" class="month-selector-detail">
         </div>
-        <button id="month-selector-today" class="month-selector-today cdg-button">
+        <button id="month-selector-today"
+                class="month-selector-today cdg-button"
+                aria-label="Today Button">
           Today
         </button>
       </div>

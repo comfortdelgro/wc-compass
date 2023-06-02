@@ -8,6 +8,8 @@ import {CdgCalendar} from './calendar/calendar'
 import {CdgChart} from './chart/chart'
 import {CdgCheckbox} from './checkbox/checkbox'
 import {CdgContextMenu} from './context-menu/context-menu'
+import {CdgCtxMenu} from './ctx-menu/ctx-menu'
+import {CdgCtxMenuItem} from './ctx-menu/ctx-menu-item'
 import {CdgDatePicker} from './datepicker/datepicker'
 import {CdgDropdown} from './dropdown/dropdown'
 import {CdgDropdownOption} from './dropdown/dropdown-option'
@@ -58,6 +60,8 @@ customElements.define('cdg-alert-content', CdgAlertContent)
 customElements.define('cdg-avatar', CdgAvatar)
 customElements.define('cdg-button', CdgButton, {extends: 'button'})
 customElements.define('cdg-checkbox', CdgCheckbox, {extends: 'label'})
+customElements.define('cdg-ctx-menu', CdgCtxMenu)
+customElements.define('cdg-ctx-menu-item', CdgCtxMenuItem)
 customElements.define('cdg-icon', CdgIcon)
 customElements.define('cdg-inline-loading', CdgInlineLoading)
 customElements.define('cdg-file', CdgFile)
@@ -150,4 +154,6 @@ export const CONTROL_COMPONENTS = [
   CdgSpeedDial,
   CdgTimePicker,
   CdgTimeDropdown,
+  CdgCtxMenu,
+  CdgCtxMenuItem,
 ]
