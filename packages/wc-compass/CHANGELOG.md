@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.2.15
+
+### Patch Changes
+
+- 867c6b1: Improve seo and add portal template
+
 ## 0.2.14
 
 ### Patch Changes
