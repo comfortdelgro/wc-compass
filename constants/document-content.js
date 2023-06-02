@@ -340,6 +340,10 @@ export const DOCUMENT_CONTENT = [
         slug: 'newsAndBlogs',
       },
       {
+        name: 'Portal',
+        slug: 'portal',
+      },
+      {
         name: 'Selecting Theme Modal',
         slug: 'selectingThemeModal',
       },

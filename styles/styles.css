@@ -61,6 +61,11 @@ body.theme-dark .cdg-portal-navbar .cdg-button.ghost.switch-theme-button {
   gap: 16px;
 }
 
+.sub-page-breadcrumb {
+  color: var(--info);
+  cursor: pointer;
+}
+
 .doc-header h1 {
   font-size: 24px;
   margin: 0;

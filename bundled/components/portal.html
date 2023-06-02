@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Web Component Compass Design</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+    />
+    <link rel="stylesheet" href="../../../bundled/compassDesign.min.css" />
+  </head>
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+    }
+
+    .cdg-nav-rail {
+      height: 100%;
+    }
+
+    .cdg-page-header {
+      padding: 16px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .dashboard-container {
+      background: var(--primary-background);
+      padding-bottom: 1rem;
+      overflow: auto;
+    }
+
+    .launch-pad-container {
+      min-height: 186px;
+      background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0) 0%,
+          #f5f5f6 100%
+        ),
+        url('../../../assets/images/portal-page-bg.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .launch-pad-title-container {
+      height: 65px;
+      background: rgba(222, 246, 255, 0.2);
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+    }
+
+    .launch-pad-title {
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: var(--heading4);
+      line-height: var(--line-height-heading4);
+      color: #000000;
+    }
+
+    .launch-pad-services-container {
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .flex-row {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .services-card {
+      gap: 8px;
+      padding: 16px 8px;
+      align-items: center;
+    }
+
+    .launch-pad-services-name {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 21px;
+      /* identical to box height */
+
+      display: flex;
+      align-items: center;
+      color: #323130;
+    }
+
+    .launch-pad-services-description {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      /* Text Colors/Secondary Text */
+
+      color: #605e5c;
+    }
+
+    .dashboard-title {
+      margin: 1rem 0 0 1rem;
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: var(--heading4);
+      line-height: var(--line-height-heading4);
+      /* identical to box height */
+      color: #000000;
+    }
+
+    .content-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 20px 1rem 1rem 1rem;
+    }
+
+    .content-first-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .content-second-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .content-first-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .content-second-row {
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      .launch-pad-services-container {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    .content-card-header {
+      padding: 1rem;
+    }
+
+    .content-value {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: var(--heading2);
+      line-height: var(--line-height-heading2);
+      /* identical to box height */
+      /* Primary Colors/Type Heading */
+      color: #323130;
+    }
+
+    .content-description {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 18px;
+      /* identical to box height, or 150% */
+      /* Grey Shades/60 */
+      color: #757575;
+    }
+  </style>
+  <body class="cdg-layout">
+    <cdg-nav-rail id="sample-collapse-menu" class="auto-collapse" use-overlay>
+      <div class="cdg-nav-rail-header">
+        <div class="cdg-nav-row">
+          <cdg-icon class="workbench-logo" name="wLogo" size="50"></cdg-icon>
+          <span class="workbench-title">Workbench</span>
+        </div>
+        <div class="cdg-nav-row">
+          <button is="cdg-button" class="icon module-selection">
+            ZB
+            <cdg-divider class="vertical"></cdg-divider>
+            <cdg-icon name="arrow-down" size="12"></cdg-icon>
+          </button>
+          <div class="module-info">
+            <span class="module-name">Zig Biz</span>
+            <span class="sever-time">Fri 18 Nov 2:25 PM</span>
+          </div>
+        </div>
+        <cdg-divider></cdg-divider>
+      </div>
+      <div class="cdg-nav-rail-body">
+        <a href="#navRail" class="cdg-nav-item active">
+          <cdg-icon name="dashboard"></cdg-icon>
+          <span>Dashboard</span>
+        </a>
+        <a href="#navRail" class="cdg-nav-item">
+          <cdg-icon name="job"></cdg-icon>
+          <span>Job</span>
+        </a>
+        <a href="#navRail" class="cdg-nav-item">
+          <cdg-icon name="taxi"></cdg-icon>
+          <span>Taxi</span>
+        </a>
+        <a href="#navRail" class="cdg-nav-item">
+          <cdg-icon name="grid"></cdg-icon>
+          <span>Grid</span>
+        </a>
+        <cdg-divider></cdg-divider>
+        <a href="#navRail" class="cdg-nav-item">
+          <cdg-icon name="job"></cdg-icon>
+          <span>Job</span>
+        </a>
+        <a href="#navRail" class="cdg-nav-item">
+          <cdg-icon name="grid"></cdg-icon>
+          <span>Grid</span>
+        </a>
+      </div>
+      <div class="cdg-nav-rail-foot">
+        <a href="#navRail" class="cdg-nav-item">
+          <cdg-icon name="grid"></cdg-icon>
+          <span>All Services</span>
+          <cdg-icon class="item-arrow" name="arrowRight" size="16"></cdg-icon>
+        </a>
+      </div>
+    </cdg-nav-rail>
+    <div class="cdg-layout as-column page-right-content">
+      <cdg-portal-navbar class="primary">
+        <a class="portal-title" href="#navbar">Workbench Title</a>
+        <label class="cdg-input-group">
+          <div class="cdg-input-with-icon right">
+            <input class="cdg-input" placeholder="Type something..." />
+            <cdg-icon name="search" size="16"></cdg-icon>
+          </div>
+        </label>
+        <div class="cdg-portal-nav-links">
+          <a href="#navbar" class="cdg-button active" size="small">Home</a>
+          <a href="#navbar" class="cdg-button ghost" size="small">Services</a>
+          <a href="#navbar" class="cdg-button ghost" size="small"
+            >Products
+            <cdg-icon name="filledArrowDown" size="12"></cdg-icon>
+          </a>
+        </div>
+        <div class="cdg-separator"></div>
+        <div class="cdg-portal-nav-actions">
+          <button is="cdg-button" class="icon ghost" size="small">
+            <cdg-icon name="question"></cdg-icon>
+          </button>
+          <button is="cdg-button" class="icon ghost" size="small">
+            <cdg-icon name="notification"></cdg-icon>
+          </button>
+          <button is="cdg-button" class="icon ghost" size="small">
+            <cdg-icon name="organization"></cdg-icon>
+          </button>
+          <button is="cdg-button" class="icon ghost" size="small">
+            <cdg-avatar
+              size="24"
+              imageSrc="https://i.pravatar.cc/24"
+              alt="Tran Xuan Duong avatar"
+            ></cdg-avatar>
+            <cdg-icon name="arrowDown" size="12"></cdg-icon>
+          </button>
+        </div>
+      </cdg-portal-navbar>
+      <div class="dashboard-container">
+        <cdg-page-header>
+          <cdg-page-header-row>
+            <cdg-page-title>
+              Title Here<small>This is a longer subtitle</small></cdg-page-title
+            >
+          </cdg-page-header-row>
+          <cdg-page-header-row>
+            <cdg-breadcrumbs>
+              <a href="#">Home</a>
+              <cdg-icon name="arrowRight"></cdg-icon>
+              <a href="#" disabled>Disabled</a>
+              <cdg-icon name="arrowRight"></cdg-icon>
+              <a href="#">Sub</a>
+              <cdg-icon name="arrowRight"></cdg-icon>
+              <a>Detail</a>
+            </cdg-breadcrumbs>
+          </cdg-page-header-row>
+        </cdg-page-header>
+        <cdg-toolbar raised>
+          <div class="cdg-left-group">
+            <button is="cdg-button" class="ghost">
+              <cdg-icon name="eyeSolid"></cdg-icon>
+              Launch Pad
+            </button>
+
+            <button is="cdg-button" class="ghost">
+              <cdg-icon name="refresh"></cdg-icon>
+              Refresh
+            </button>
+            <button is="cdg-button" class="ghost">
+              <cdg-icon name="pencil"></cdg-icon>
+              Edit
+            </button>
+          </div>
+          <div class="cdg-right-group">
+            <button is="cdg-button" class="ghost">
+              <cdg-icon name="filter"></cdg-icon>
+              Filter
+            </button>
+            <button is="cdg-button" class="ghost">
+              <cdg-icon name="sort"></cdg-icon>
+              Sort
+            </button>
+            <label class="cdg-input-group">
+              <div class="cdg-input-with-icon right">
+                <input
+                  class="cdg-input"
+                  type="text"
+                  placeholder="Search..."
+                  oninput="console.log(this.value)"
+                />
+                <cdg-icon name="search" size="16"></cdg-icon>
+              </div>
+            </label>
+          </div>
+        </cdg-toolbar>
+        <div class="launch-pad-container">
+          <div class="launch-pad-title-container">
+            <h4 class="launch-pad-title">Launch pad</h4>
+          </div>
+          <div class="launch-pad-services-container">
+            <!-- service card -->
+            <a href="#dashboardTemplate">
+              <cdg-card class="cdg-flex raised flex-row services-card">
+                <cdg-icon
+                  name="zig-biz"
+                  size="32"
+                  style="margin-right: 8px"
+                ></cdg-icon>
+                <div>
+                  <h4 class="launch-pad-services-name">Zig Biz</h4>
+                  <span class="launch-pad-services-description"
+                    >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Veniam neque voluptas reprehenderit, nobis deleniti, eius
+                    minima incidunt omnis debitis voluptatem nisi tempora, saepe
+                    sint a amet distinctio iusto commodi delectus.</span
+                  >
+                </div>
+                <cdg-icon
+                  name="export"
+                  size="16"
+                  style="margin-right: 8px"
+                ></cdg-icon>
+              </cdg-card>
+            </a>
+            <!-- service card -->
+            <a href="#dashboardTemplate">
+              <cdg-card class="cdg-flex raised flex-row services-card">
+                <cdg-icon
+                  name="b2b-rental"
+                  size="32"
+                  style="margin-right: 8px"
+                ></cdg-icon>
+                <div>
+                  <h4 class="launch-pad-services-name">Zig Biz</h4>
+                  <span class="launch-pad-services-description"
+                    >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Veniam neque voluptas reprehenderit, nobis deleniti, eius
+                    minima incidunt omnis debitis voluptatem nisi tempora, saepe
+                    sint a amet distinctio iusto commodi delectus.</span
+                  >
+                </div>
+                <cdg-icon
+                  name="export"
+                  size="16"
+                  style="margin-right: 8px"
+                ></cdg-icon>
+              </cdg-card>
+            </a>
+            <!-- service card -->
+            <a href="#dashboardTemplate">
+              <cdg-card class="cdg-flex raised flex-row services-card">
+                <cdg-icon
+                  name="private-bus"
+                  size="32"
+                  style="margin-right: 8px"
+                ></cdg-icon>
+                <div>
+                  <h4 class="launch-pad-services-name">Zig Biz</h4>
+                  <span class="launch-pad-services-description"
+                    >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Veniam neque voluptas reprehenderit, nobis deleniti, eius
+                    minima incidunt omnis debitis voluptatem nisi tempora, saepe
+                    sint a amet distinctio iusto commodi delectus.</span
+                  >
+                </div>
+                <cdg-icon
+                  name="export"
+                  size="16"
+                  style="margin-right: 8px"
+                ></cdg-icon>
+              </cdg-card>
+            </a>
+          </div>
+        </div>
+        <!--  -->
+        <h4 class="dashboard-title">Dashboard Title</h4>
+        <!--  -->
+        <div class="content-container">
+          <div class="content-first-row">
+            <!-- content card -->
+            <cdg-card class="raised content-card">
+              <div class="cdg-layout content-card-header">
+                <cdg-icon
+                  name="money-bill-wave"
+                  style="margin-right: auto"
+                ></cdg-icon>
+                <button class="cdg-button ghost icon" size="small">
+                  <cdg-icon name="activity"></cdg-icon>
+                </button>
+              </div>
+              <cdg-card-body>
+                <h2 class="content-value">23</h2>
+                <p class="content-description">Lorem Ipsum dola sign</p>
+              </cdg-card-body>
+            </cdg-card>
+            <!-- content card -->
+            <cdg-card class="raised content-card">
+              <div class="cdg-layout content-card-header">
+                <cdg-icon
+                  name="notification-blue"
+                  style="margin-right: auto"
+                ></cdg-icon>
+                <button class="cdg-button ghost icon" size="small">
+                  <cdg-icon name="activity"></cdg-icon>
+                </button>
+              </div>
+              <cdg-card-body>
+                <h2 class="content-value">23</h2>
+                <p class="content-description">Lorem Ipsum dola sign</p>
+              </cdg-card-body>
+            </cdg-card>
+            <!-- content card -->
+            <cdg-card class="raised content-card">
+              <div class="cdg-layout content-card-header">
+                <cdg-icon
+                  name="chart-line-up-duotone"
+                  style="margin-right: auto"
+                ></cdg-icon>
+                <button class="cdg-button ghost icon" size="small">
+                  <cdg-icon name="activity"></cdg-icon>
+                </button>
+              </div>
+              <cdg-card-body>
+                <h2 class="content-value">23</h2>
+                <p class="content-description">Lorem Ipsum dola sign</p>
+              </cdg-card-body>
+            </cdg-card>
+            <!-- content card -->
+            <cdg-card class="raised content-card">
+              <div class="cdg-layout content-card-header">
+                <cdg-icon
+                  name="user-brown"
+                  style="margin-right: auto"
+                ></cdg-icon>
+                <button class="cdg-button ghost icon" size="small">
+                  <cdg-icon name="activity"></cdg-icon>
+                </button>
+              </div>
+              <cdg-card-body>
+                <h2 class="content-value">23</h2>
+                <p class="content-description">Lorem Ipsum dola sign</p>
+              </cdg-card-body>
+            </cdg-card>
+          </div>
+          <!--  -->
+          <div class="content-second-row">
+            <!-- chart card (TODO: remove fixed height when insert chart to card body) -->
+            <cdg-card class="raised" style="height: 400px">
+              <cdg-card-header title="SectionTitle">
+                <button class="cdg-button ghost icon" size="small">
+                  <cdg-icon name="activity"></cdg-icon>
+                </button>
+              </cdg-card-header>
+              <cdg-card-body></cdg-card-body>
+            </cdg-card>
+            <!-- chart card (TODO: remove fixed height when insert chart to card body)-->
+            <cdg-card class="raised" style="height: 400px">
+              <cdg-card-header title="SectionTitle">
+                <button class="cdg-button ghost icon" size="small">
+                  <cdg-icon name="activity"></cdg-icon>
+                </button>
+              </cdg-card-header>
+            </cdg-card>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../../bundled/compassDesign.min.js"></script>
+  </body>
+</html>

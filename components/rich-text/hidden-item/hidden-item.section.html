@@ -2,24 +2,50 @@
   <div class="sample-section column">
     <cdg-rich-text-editor resizable id="rte-example-2">
       <cdg-rte-toolbar hiddenItems>
-        <button class="cdg-rte-buttons" name="undo" operation="undo">
+        <button
+          class="cdg-rte-buttons"
+          name="undo"
+          aria-label="Undo button"
+          operation="undo"
+        >
           <cdg-icon name="undo"></cdg-icon>
         </button>
-        <button class="cdg-rte-buttons" name="redo" operation="redo">
+        <button
+          class="cdg-rte-buttons"
+          name="redo"
+          aria-label="Redo button"
+          operation="redo"
+        >
           <cdg-icon name="redo"></cdg-icon>
         </button>
-        <button class="cdg-rte-buttons" name="bold" operation="toggleBold">
+        <button
+          class="cdg-rte-buttons"
+          name="bold"
+          aria-label="Bold button"
+          operation="toggleBold"
+        >
           <cdg-icon name="bold"></cdg-icon>
         </button>
-        <button class="cdg-rte-buttons" name="italic" operation="toggleItalic">
+        <button
+          class="cdg-rte-buttons"
+          name="italic"
+          aria-label="Italic button"
+          operation="toggleItalic"
+        >
           <cdg-icon name="italic"></cdg-icon>
         </button>
-        <button class="cdg-rte-buttons" name="strike" operation="toggleStrike">
+        <button
+          class="cdg-rte-buttons"
+          name="strike"
+          aria-label="Strike through button"
+          operation="toggleStrike"
+        >
           <cdg-icon name="strikeThrough"></cdg-icon>
         </button>
         <button
           class="cdg-rte-buttons"
           name="underline"
+          aria-label="Underline button"
           operation="toggleUnderline"
         >
           <cdg-icon name="underline"></cdg-icon>
@@ -27,6 +53,7 @@
         <button
           class="cdg-rte-buttons"
           name="heading"
+          aria-label="Heading level 1 button"
           operation="toggleHeading"
           level="1"
         >
@@ -35,6 +62,7 @@
         <button
           class="cdg-rte-buttons"
           name="heading"
+          aria-label="Heading level 2 button"
           operation="toggleHeading"
           level="2"
         >
@@ -43,6 +71,7 @@
         <button
           class="cdg-rte-buttons"
           name="heading"
+          aria-label="Heading level 3 button"
           operation="toggleHeading"
           level="3"
         >
@@ -51,6 +80,7 @@
         <button
           class="cdg-rte-buttons"
           name="heading"
+          aria-label="Heading level 4 button"
           operation="toggleHeading"
           level="4"
         >
@@ -59,6 +89,7 @@
         <button
           class="cdg-rte-buttons"
           name="heading"
+          aria-label="Heading level 5 button"
           operation="toggleHeading"
           level="5"
         >
@@ -67,6 +98,7 @@
         <button
           class="cdg-rte-buttons"
           name="heading"
+          aria-label="Heading level 6 button"
           operation="toggleHeading"
           level="6"
         >
@@ -76,6 +108,7 @@
           select-class="color-selector"
           id="color-selector"
           class="toolbar-selector"
+          arial-label="Select color dropdown"
         >
           <cdg-dropdown-option
             value="#212529"
@@ -149,6 +182,7 @@
           name="heading"
           operation="setTextAlign"
           alignment="left"
+          aria-label="Align left button"
         >
           <cdg-icon name="textAlignLeft"></cdg-icon>
         </button>
@@ -157,6 +191,7 @@
           name="heading"
           operation="setTextAlign"
           alignment="center"
+          aria-label="Align center button"
         >
           <cdg-icon name="textAlignCenter"></cdg-icon>
         </button>
@@ -165,6 +200,7 @@
           name="heading"
           operation="setTextAlign"
           alignment="right"
+          aria-label="Align right button"
         >
           <cdg-icon name="textAlignRight"></cdg-icon>
         </button>
@@ -173,6 +209,7 @@
           name="heading"
           operation="setTextAlign"
           alignment="justify"
+          aria-label="Align justify button"
         >
           <cdg-icon name="textAlignJustify"></cdg-icon>
         </button>
@@ -181,6 +218,7 @@
           class="cdg-rte-buttons"
           name="bulletList"
           operation="toggleBulletList"
+          aria-label="Bullet list button"
         >
           <cdg-icon name="listUlRound"></cdg-icon>
         </button>
@@ -188,18 +226,30 @@
           class="cdg-rte-buttons"
           name="orderedList"
           operation="toggleOrderedList"
+          aria-label="Ordered list button"
         >
           <cdg-icon name="listOl"></cdg-icon>
         </button>
-        <button class="cdg-rte-buttons" name="link" operation="setLink">
+        <button
+          class="cdg-rte-buttons"
+          name="link"
+          aria-label="Link button"
+          operation="setLink"
+        >
           <cdg-icon name="link"></cdg-icon>
         </button>
-        <button class="cdg-rte-buttons" name="image" operation="setImage">
+        <button
+          class="cdg-rte-buttons"
+          name="image"
+          aria-label="Attach image button"
+          operation="setImage"
+        >
           <cdg-icon name="imageOutline"></cdg-icon>
         </button>
         <button
           class="cdg-rte-buttons"
           name="blockquote"
+          aria-label="Blockquote button"
           operation="toggleBlockquote"
         >
           <cdg-icon name="quoteLeft"></cdg-icon>
