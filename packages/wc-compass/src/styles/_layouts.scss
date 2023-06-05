@@ -570,3 +570,12 @@ cdg-carousel,
     pointer-events: none;
   }
 }
+
+.cdg-table-editable-cell {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  box-sizing: border-box
+}

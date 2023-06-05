@@ -231,13 +231,11 @@ export class CdgTableBody extends HTMLTableSectionElement {
     }
     if (column.colummTemplate) {
       cell.style.position = 'relative'
+      cell.classList.add('editable-cell')
       cell.addEventListener('click', (e) => {
         if (cell.querySelector('.cdg-table-editable-cell') !== null) {
           return
         } else {
-          column.colummTemplate.style.position = 'absolute'
-          column.colummTemplate.style.top = 0
-          column.colummTemplate.style.left = 0
           cell.appendChild(column.colummTemplate)
           this.dispatchEvent(
             new CustomEvent('onEditCellStart', {
