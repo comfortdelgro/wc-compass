@@ -316,6 +316,10 @@ export const DOCUMENT_CONTENT = [
         name: 'For loop',
         slug: 'forLoop',
       },
+      {
+        name: 'Utilities',
+        slug: 'utilities',
+      },
     ],
   },
   {

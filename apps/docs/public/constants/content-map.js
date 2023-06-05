@@ -69,6 +69,7 @@ export const CONTENT_MAP = {
   progress: 'cdg-progress-demo',
   toast: 'cdg-toast-demo',
   toggle: 'cdg-toggle-demo',
+  utilities: 'cdg-utilities-demo',
   wizards: 'cdg-wizards-demo',
   video: 'cdg-video-demo',
   volume: 'cdg-volume-demo',
