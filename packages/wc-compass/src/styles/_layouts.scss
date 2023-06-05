@@ -25,6 +25,7 @@
   &[raised] {
     box-shadow: var(--shadow-depth-04);
     padding: 12px 16px;
+    box-sizing: border-box;
   }
 
   .cdg-show-on-selected {
