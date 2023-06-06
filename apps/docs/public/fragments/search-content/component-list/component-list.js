@@ -3,8 +3,10 @@ import {DOCUMENT_CONTENT} from '../../../constants/document-content'
 import {CdgDocumentComponent} from '../../../shared/document-component'
 
 export class CdgComponentListDemo extends CdgDocumentComponent {
+  menuListItemDemoEl
+
   static get observedAttributes() {
-    return ['filter']
+    return ['filter', 'focusing']
   }
 
   get filter() {
@@ -31,6 +33,12 @@ export class CdgComponentListDemo extends CdgDocumentComponent {
     const listView = this.querySelector('cdg-list-view')
     this.loop = new CdgLoop(listView)
     this.loop.loop(this.displayData)
+    setTimeout(() => {
+      this.menuListItemDemoEl = this.querySelector('cdg-menu-list-item-demo')
+      if (this.menuListItemDemoEl) {
+        this.menuListItemDemoEl.displayData = this.displayData
+      }
+    })
 
     this.dispatchEvent(new CustomEvent('showPopover'))
   }
@@ -39,8 +47,26 @@ export class CdgComponentListDemo extends CdgDocumentComponent {
     switch (attr) {
       case 'filter':
         this.displayData = this.filterList()
+        if (this.menuListItemDemoEl) {
+          this.menuListItemDemoEl.displayData = this.displayData
+        }
         this.loop.loop(this.displayData)
         this.dispatchEvent(new CustomEvent('onFiltered'))
+        break
+      case 'focusing':
+        setTimeout(() => {
+          if (!this.menuListItemDemoEl) {
+            this.menuListItemDemoEl = this.querySelector(
+              'cdg-menu-list-item-demo',
+            )
+          }
+          const isFocusing = this.hasAttribute('focusing')
+          if (isFocusing) {
+            this.menuListItemDemoEl.setAttribute('focusing', '')
+          } else {
+            this.menuListItemDemoEl.removeAttribute('focusing', '')
+          }
+        })
         break
 
       default:
