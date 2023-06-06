@@ -65,12 +65,15 @@ export class CdgDemoSidebar extends CdgBaseComponent {
   }
 
   createNavMenu(item) {
-    const menu = document.createElement('a')
+    const hasChildren = item.childList && item.childList.length
+    const navType = hasChildren ? 'div' : 'a'
+    const menu = document.createElement(navType)
     const menuInner = document.createElement('div')
     menuInner.classList.add('menu-inner')
 
     if (item.slug) {
       menu.setAttribute('href', '#' + item.slug)
+      menu.setAttribute('aria-label', item.name)
     }
 
     menu.classList.add('cdg-nav-item')
@@ -84,7 +87,7 @@ export class CdgDemoSidebar extends CdgBaseComponent {
     menuInner.appendChild(menuIcon)
     menuInner.appendChild(menuText)
 
-    if (item.childList && item.childList.length) {
+    if (hasChildren) {
       const arrowIcon = document.createElement('cdg-icon')
       arrowIcon.classList.add('item-arrow')
       arrowIcon.setAttribute('name', 'arrowRight')
@@ -94,7 +97,7 @@ export class CdgDemoSidebar extends CdgBaseComponent {
 
     menu.appendChild(menuInner)
 
-    if (item.childList && item.childList.length) {
+    if (hasChildren) {
       menuInner.addEventListener('click', () => {
         menu.classList.toggle('expanded')
       })

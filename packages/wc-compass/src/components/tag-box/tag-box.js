@@ -246,6 +246,7 @@ export class CdgTagBoxContainer extends HTMLElement {
       const toggleIcon = document.createElement('cdg-icon')
       this.toggleIconELement = document.createElement('button')
       this.toggleIconELement.classList.add('cdg-tag-box-toggle-icon')
+      this.toggleIconELement.setAttribute('aria-label', 'Expand tag box button')
       toggleIcon.setAttribute('name', 'arrowDown')
       toggleIcon.setAttribute('size', '16')
       this.toggleIconELement.appendChild(toggleIcon)

@@ -54,7 +54,12 @@
   <div class="sample-section" style="flex-direction: column">
     <cdg-file allow-drop vertical style="width: 100%" id="fileUpload">
       <div class="cdg-button" class="upload-button">Browse files</div>
-      <input type="file" class="cdg-file-input" multiple />
+      <input
+        type="file"
+        class="cdg-file-input"
+        multiple
+        aria-label="Sample input file"
+      />
     </cdg-file>
     <div class="cdg-file-list" id="fileList"></div>
   </div>

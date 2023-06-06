@@ -2,66 +2,67 @@
   <div class="sample-section column" style="align-items: flex-end">
     <cdg-speed-dial direction="up" trigger="hover">
       <div class="cdg-speed-dial-button-group">
-        <button class="cdg-button floatting icon" id="editButton">
+        <button
+          is="cdg-button"
+          class="cdg-button floatting icon"
+          id="editButton"
+        >
           <cdg-icon name="pencil"></cdg-icon>
         </button>
-        <button class="cdg-button floatting icon" id="removeButton">
+        <button
+          is="cdg-button"
+          class="cdg-button floatting icon"
+          id="removeButton"
+        >
           <cdg-icon name="outlineTrash"></cdg-icon>
         </button>
       </div>
-      <button class="cdg-button floatting icon speed-dial-button">
+      <button
+        is="cdg-button"
+        class="cdg-button floatting icon speed-dial-button"
+      >
         <cdg-icon name="plus"></cdg-icon>
       </button>
     </cdg-speed-dial>
   </div>
 
   <pre>
-    <code class="language-html">&lt;style&gt;
-// To make plus button rotate to close button
-.cdg-speed-dial .speed-dial-button .cdg-icon {
-  transition: all 0.2s ease-in-out;
-}
-
-.cdg-speed-dial[open] .speed-dial-button .cdg-icon {
-  transform: rotate(135deg);
-  transition: all 0.2s ease-in-out;
-}
-&lt;/style&gt;
-
-&lt;cdg-speed-dial direction=&quot;up&quot;&gt;
+    <code class="language-html">&lt;cdg-speed-dial direction=&quot;up&quot; trigger=&quot;hover&quot;&gt;
   &lt;div class=&quot;cdg-speed-dial-button-group&quot;&gt;
-      &lt;button class=&quot;cdg-button floatting icon&quot; id=&quot;editButton&quot;&gt;
-          &lt;cdg-icon name=&quot;pencil&quot;&gt;&lt;/cdg-icon&gt;
-      &lt;/button&gt;
-      &lt;button class=&quot;cdg-button floatting icon&quot; id=&quot;removeButton&quot;&gt;
-          &lt;cdg-icon name=&quot;outlineTrash&quot;&gt;&lt;/cdg-icon&gt;
-      &lt;/button&gt;
+    &lt;button
+      is=&quot;cdg-button&quot;
+      class=&quot;cdg-button floatting icon&quot;
+      id=&quot;editButton&quot;
+    &gt;
+      &lt;cdg-icon name=&quot;pencil&quot;&gt;&lt;/cdg-icon&gt;
+    &lt;/button&gt;
+    &lt;button
+      is=&quot;cdg-button&quot;
+      class=&quot;cdg-button floatting icon&quot;
+      id=&quot;removeButton&quot;
+    &gt;
+      &lt;cdg-icon name=&quot;outlineTrash&quot;&gt;&lt;/cdg-icon&gt;
+    &lt;/button&gt;
   &lt;/div&gt;
   &lt;button
-      class=&quot;cdg-button floatting icon speed-dial-button&quot;
-      id=&quot;speedDialButton&quot;
+    is=&quot;cdg-button&quot;
+    class=&quot;cdg-button floatting icon speed-dial-button&quot;
   &gt;
-      &lt;cdg-icon name=&quot;plus&quot;&gt;&lt;/cdg-icon&gt;
+    &lt;cdg-icon name=&quot;plus&quot;&gt;&lt;/cdg-icon&gt;
   &lt;/button&gt;
 &lt;/cdg-speed-dial&gt;
 
 &lt;script&gt;
-const speedDial = this.querySelector(&apos;cdg-speed-dial&apos;)
-const speedDialButton = this.querySelector(&apos;#speedDialButton&apos;)
 const editButton = this.querySelector(&apos;#editButton&apos;)
 const removeButton = this.querySelector(&apos;#removeButton&apos;)
-speedDialButton.addEventListener(&apos;click&apos;, () =&gt; {
-  speedDial.toggle()
-})
+
 editButton.addEventListener(&apos;click&apos;, () =&gt; {
   cdgToastService.toast(&apos;Clicked on edit button&apos;)
-  speedDial.close()
 })
 removeButton.addEventListener(&apos;click&apos;, () =&gt; {
   cdgToastService.toast(&apos;Clicked on remove button&apos;)
-  speedDial.close()
 })
-&lt;script&gt;</code>
+&lt;/script&gt;</code>
   </pre>
   <p>
     Hover your mouse on button to show the actions, and leave your mouse to hide

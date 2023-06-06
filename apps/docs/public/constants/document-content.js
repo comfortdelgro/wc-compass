@@ -316,6 +316,10 @@ export const DOCUMENT_CONTENT = [
         name: 'For loop',
         slug: 'forLoop',
       },
+      {
+        name: 'Utilities',
+        slug: 'utilities',
+      },
     ],
   },
   {
@@ -338,6 +342,10 @@ export const DOCUMENT_CONTENT = [
       {
         name: 'News And Blogs',
         slug: 'newsAndBlogs',
+      },
+      {
+        name: 'Portal',
+        slug: 'portal',
       },
       {
         name: 'Selecting Theme Modal',

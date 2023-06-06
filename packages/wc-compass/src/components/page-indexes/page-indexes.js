@@ -52,7 +52,7 @@ export class CdgPageIndexes extends HTMLElement {
 
   createListViewItem(item) {
     const itemWrapper = document.createElement('li')
-    const itemLink = document.createElement('a')
+    const itemLink = document.createElement('div')
     itemLink.classList.add('cdg-page-index-item')
     itemLink.addEventListener('click', this.handleItemClick.bind(this, item))
     itemLink.textContent = item.getAttribute('pageIndexItem')

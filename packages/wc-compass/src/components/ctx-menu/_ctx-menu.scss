@@ -33,6 +33,7 @@
       & > .cdg-ctx-menu {
         display: flex;
         flex-direction: column;
+        z-index: 1;
       }
     }
 

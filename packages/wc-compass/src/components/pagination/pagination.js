@@ -122,6 +122,7 @@ export class CdgPagination extends HTMLElement {
 
   createPageIndex(page) {
     const button = document.createElement('button')
+    button.setAttribute('aria-label', 'Page number ' + page)
     button.classList.add('cdg-button')
     button.textContent = page
 
@@ -133,6 +134,7 @@ export class CdgPagination extends HTMLElement {
 
   createDotButton() {
     const button = document.createElement('button')
+    button.setAttribute('aria-label', 'More button')
     button.classList.add('cdg-button')
     button.textContent = '...'
     return button
@@ -144,6 +146,10 @@ export class CdgPagination extends HTMLElement {
     icon.setAttribute('size', '16')
 
     const button = document.createElement('button')
+    button.setAttribute(
+      'aria-label',
+      name === 'arrowLeft' ? 'Previous page button' : 'Next page button',
+    )
     button.classList.add('cdg-button')
     button.classList.add('arrow-icon')
     button.appendChild(icon)

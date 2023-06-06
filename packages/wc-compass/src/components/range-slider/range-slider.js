@@ -58,6 +58,9 @@ export class CdgRangeSlider extends HTMLElement {
 
     // Create range slider elements
     this.classList.add('cdg-range-slider')
+    if (!this.hasAttribute('aria-label')) {
+      this.setAttribute('aria-label', 'Input range slider')
+    }
     this.tabIndex = 0
 
     this.slider = document.createElement('div')

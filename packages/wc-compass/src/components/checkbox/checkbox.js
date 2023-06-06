@@ -43,6 +43,9 @@ export class CdgCheckbox extends HTMLLabelElement {
   constructor() {
     super()
     this.checkbox = this.querySelector('input[type="checkbox"]')
+    if (this.checkbox && !this.checkbox.hasAttribute('aria-label')) {
+      this.checkbox.setAttribute('aria-label', 'Checkbox')
+    }
   }
 
   connectedCallback() {

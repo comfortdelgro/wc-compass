@@ -12,7 +12,7 @@
   font-weight: 600;
   cursor: pointer;
   appearance: none;
-  @extend %smoothTransition;
+  transition: background-color 0.3s ease-in-out;
   @extend %body3;
 
   &.has-icon {
@@ -24,7 +24,7 @@
   }
 
   &:focus {
-    @extend %smoothTransition;
+    transition: background-color 0.3s ease-in-out;
   }
 
   &:focus-visible {
@@ -32,7 +32,7 @@
   }
 
   &:hover {
-    @extend %smoothTransition;
+    transition: background-color 0.3s ease-in-out;
     background-color: var(--accent-darker);
   }
 
