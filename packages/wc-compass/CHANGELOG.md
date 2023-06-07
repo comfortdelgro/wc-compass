@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.2.17
+
+### Patch Changes
+
+- 1cc11af: Update documentation and checklist
+
 ## 0.2.16
 
 ### Patch Changes
