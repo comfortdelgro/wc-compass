@@ -6,7 +6,6 @@
 
 <!-- Link to JIRA -->
 
-
 **2) Impact**
 
 <!-- Impact to function, screen or module -->

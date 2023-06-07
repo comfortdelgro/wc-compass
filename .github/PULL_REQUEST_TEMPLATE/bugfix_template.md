@@ -12,7 +12,6 @@
 
 <!-- Link to JIRA -->
 
-
 **3) Impact**
 
 <!-- Impact to function, screen or module -->

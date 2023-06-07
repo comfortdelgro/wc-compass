@@ -1,5 +1,93 @@
 # @comfortdelgro/wc-compass
 
+## 0.2.16
+
+### Patch Changes
+
+- 0088b5f: Update documentation and checklist
+
+## 0.2.15
+
+### Patch Changes
+
+- 867c6b1: Improve seo and add portal template
+
+## 0.2.14
+
+### Patch Changes
+
+- c25a7f8: Fix for icon size through out the project
+
+## 0.2.13
+
+### Patch Changes
+
+- 439b51d: Convert icon to font, add table editor layout
+- 56f59c5: Add search field to document
+
+## 0.2.12
+
+### Patch Changes
+
+- 6e05671: Add search field to document
+
+## 0.2.11
+
+### Patch Changes
+
+- ddd94fb: Enhancement document project
+
+## 0.2.10
+
+### Patch Changes
+
+- ec4bbca: Add for loop feature
+
+## 0.2.9
+
+### Patch Changes
+
+- baa882b: Fixing bugs and improve layout
+
+## 0.2.8
+
+### Patch Changes
+
+- 765a862: Fixing bugs and improve documentation
+
+## 0.2.7
+
+### Patch Changes
+
+- ebe72de: Fix impact of refactoring button
+
+## 0.2.6
+
+### Patch Changes
+
+- 19b050d: Refactor button to support Firefox
+
+## 0.2.5
+
+### Patch Changes
+
+- 3cda99c: Support Firefox
+
+## 0.2.4
+
+### Patch Changes
+
+- 4857ed4: Fix for document page menu issue
+
+## 0.2.3
+
+### Patch Changes
+
+- 56e57d5: Update documentation project
+- eb98f8f: Add drag & drop list + improve ImageViewer
+- ea1bdf8: Change structure docs folder and fix bug position of dropdown
+- 71b9e8b: Restructure documentation project
+
 ## 0.2.2
 
 ### Patch Changes
