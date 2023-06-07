@@ -14,6 +14,7 @@ import './styles/index.scss'
 
 import {ListViewService} from './shared/list-view.service'
 import {
+  downloadHTMLContent,
   downloadSVGContent,
   isElement,
   toLowerCaseAndDash,
@@ -38,6 +39,7 @@ export {
   CdgContextMenuService,
   CdgLoop,
   downloadSVGContent,
+  downloadHTMLContent,
   toLowerCaseAndDash,
   isElement,
   ICONS_IMAGES,

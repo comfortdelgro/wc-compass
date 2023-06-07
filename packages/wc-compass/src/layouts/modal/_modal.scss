@@ -13,9 +13,6 @@
     justify-content: flex-end;
     align-items: stretch;
   }
-  &:has(.cdg-zoom-image-view-modal) {
-    background-color: rgba(0, 0, 0, 0.94);
-  }
 }
 
 cdg-modal,
