@@ -1,5 +1,12 @@
 # @comfortdelgro/wc-compass
 
+## 0.2.17
+
+### Patch Changes
+
+- 1cc11af: Update documentation and checklist
+- 86a8c44: Fix for common layout bugs
+
 ## 0.2.16
 
 ### Patch Changes
