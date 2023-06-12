@@ -1,0 +1,79 @@
+<p>Textarea is used for inputting multiple lines of text.</p>
+
+<cdg-sample-section name="Default">
+  <div class="sample-section">
+    <div class="cdg-form-row">
+      <label class="cdg-input-group">
+        <textarea
+          class="cdg-textarea"
+          placeholder="Type something..."
+        ></textarea>
+      </label>
+    </div>
+  </div>
+
+  <pre>
+  <code class="language-html">&lt;label class=&quot;cdg-input-group&quot;&gt;
+  &lt;textarea
+    class=&quot;cdg-textarea&quot;
+    placeholder=&quot;Type something...&quot;
+  &gt;&lt;/textarea&gt;
+&lt;/label&gt;</code>
+</pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="With label">
+  <div class="sample-section">
+    <div class="cdg-form-row">
+      <label class="cdg-input-group">
+        <span class="cdg-input-label">Description</span>
+        <textarea
+          class="cdg-textarea"
+          placeholder="Type something..."
+        ></textarea>
+      </label>
+    </div>
+  </div>
+
+  <pre>
+  <code class="language-html">&lt;label class=&quot;cdg-input-group&quot;&gt;
+  &lt;span class=&quot;cdg-input-label&quot;&gt;Description&lt;/span&gt;
+  &lt;textarea
+    class=&quot;cdg-textarea&quot;
+    placeholder=&quot;Type something...&quot;
+  &gt;&lt;/textarea&gt;
+&lt;/label&gt;</code>
+</pre>
+</cdg-sample-section>
+
+<cdg-count-textarea-section></cdg-count-textarea-section>
+
+<cdg-sample-section name="Error">
+  <div class="sample-section column">
+    <div class="cdg-form-row">
+      <label class="cdg-input-group error" style="flex: 1">
+        <span class="cdg-input-label">Description</span>
+        <textarea
+          class="cdg-textarea"
+          placeholder="Type something..."
+          style="resize: vertical"
+        ></textarea>
+        <span class="cdg-input-char-count">0/20</span>
+      </label>
+    </div>
+  </div>
+
+  <pre>
+  <code class="language-html">&lt;label class=&quot;cdg-input-group error&quot; style=&quot;flex: 1&quot;&gt;
+  &lt;span class=&quot;cdg-input-label&quot;&gt;Description&lt;/span&gt;
+  &lt;textarea
+    class=&quot;cdg-textarea&quot;
+    placeholder=&quot;Type something...&quot;
+    style=&quot;resize: vertical&quot;
+  &gt;&lt;/textarea&gt;
+  &lt;span class=&quot;cdg-input-char-count&quot;&gt;0/20&lt;/span&gt;
+&lt;/label&gt;</code>
+</pre>
+</cdg-sample-section>
+
+<cdg-disabled-textarea-section></cdg-disabled-textarea-section>
