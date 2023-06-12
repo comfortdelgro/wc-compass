@@ -139,6 +139,13 @@
   }
 }
 
+.cdg-input-char-count {
+  color: var(--grey70);
+  font-size: var(--label2);
+  line-height: var(--line-height-label2);
+  text-align: right;
+}
+
 .cdg-textarea {
   border: 1px solid var(--border-color);
   border-radius: 4px;
@@ -148,6 +155,15 @@
   appearance: none;
   font-family: var(--font-family);
   color: var(--primary-color);
+  &:disabled {
+    background-color: var(--grey20);
+    cursor: not-allowed;
+  }
+}
+
+.cdg-input-group.error .cdg-textarea {
+  border-color: var(--error);
+  outline-color: var(--error);
 }
 
 .cdg-datepicker,
@@ -190,4 +206,7 @@
       padding-right: 48px;
     }
   }
+}
+
+.cdg-textarea {
 }

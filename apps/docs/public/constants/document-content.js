@@ -151,6 +151,10 @@ export const DOCUMENT_CONTENT = [
         slug: 'textField',
       },
       {
+        name: 'Textarea',
+        slug: 'textarea',
+      },
+      {
         name: 'Quantity Toggle',
         slug: 'quantityToggle',
       },
