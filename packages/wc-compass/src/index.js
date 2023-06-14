@@ -1,6 +1,7 @@
 import '@ungap/custom-elements'
 import {CONTROL_COMPONENTS} from './components'
 import {ICONS_IMAGES} from './components/icon/icon-resource'
+import {CDG_FORM_CONROLS} from './form-controls'
 import {LAYOUT_COMPONENTS} from './layouts'
 import {CdgContextMenuService} from './shared/context-menu-service'
 import {CdgIconSize} from './shared/core'
@@ -45,4 +46,5 @@ export {
   ICONS_IMAGES,
   CONTROL_COMPONENTS,
   LAYOUT_COMPONENTS,
+  CDG_FORM_CONROLS,
 }
