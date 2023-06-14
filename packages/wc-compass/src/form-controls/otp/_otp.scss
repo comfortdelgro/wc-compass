@@ -1,3 +1,28 @@
 .cdg-otp {
   display: inline-flex;
+  gap: 32px;
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+
+  input[type='number'] {
+    -moz-appearance: textfield; /* Firefox */
+  }
+
+  .cdg-otp {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    font-size: 32px;
+    text-align: center;
+    background-color: var(--background);
+    box-sizing: border-box;
+    border: 1px solid var(--border-color);
+    outline-color: rgba(0, 156, 218, 0.6);
+    outline-offset: 2px;
+  }
 }
