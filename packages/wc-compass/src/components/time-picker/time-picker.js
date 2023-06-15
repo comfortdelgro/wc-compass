@@ -110,7 +110,7 @@ export class CdgTimePicker extends CdgBaseComponent {
         this.anchorElement,
         this.timeDropdownElement,
         'bottomLeft',
-        'cdg-time-dropdown-floating-container',
+        ['cdg-time-dropdown-floating-container'],
         false,
         false,
         true,

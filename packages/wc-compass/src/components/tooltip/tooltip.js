@@ -1,12 +1,9 @@
-import {
-  createFloating,
-  DIRECTIONS,
-} from '../floating-content/floating-content';
+import {createFloating, DIRECTIONS} from '../floating-content/floating-content'
 
-const HEIGHT_ARROW = 12;
+const HEIGHT_ARROW = 12
 
 const createTemplateHeader = function (type) {
-  const templateHeader = document.createElement('template');
+  const templateHeader = document.createElement('template')
   templateHeader.innerHTML = `
   <div class="cdg-tooltip-header">
       <span class="header-title"></span>
@@ -14,216 +11,275 @@ const createTemplateHeader = function (type) {
           <cdg-icon name="close" size="16" />
       </button>
   </div>
-  `;
+  `
 
-  return templateHeader;
-};
+  return templateHeader
+}
 
 export class CdgTooltip extends HTMLElement {
-  floatingElement;
-  anchorElement;
-  cdgTooltipContentElement;
-  _direction = 'top';
-  _type = 'primary';
-  event = 'hover';
-  headerElement;
-  bottomElement;
-  title = '';
+  floatingElement
+  anchorElement
+  cdgTooltipContentElement
+  _placement = 'top'
+  _type = 'primary'
+  trigger = 'hover'
+  headerElement
+  bottomElement
+  title = ''
+  hasArrow = true
+  openDelay = 0
+  closeDelay = 0
+  disableInteractive = false
+  deplayTimeout
 
-  get direction() {
-    return this._direction ? 'top' : this._direction;
+  get placement() {
+    return this._placement ? 'top' : this._placement
   }
 
-  set direction(value) {
-    this._direction = !DIRECTIONS.includes(value) ? 'top' : value;
+  set placement(value) {
+    this._placement = !DIRECTIONS.includes(value) ? 'top' : value
     if (this.floatingElement) {
-      this.floatingElement.setAttribute('placement', this._direction);
+      this.floatingElement.setAttribute('placement', this._placement)
     }
   }
 
   get open() {
-    return this._open;
+    return this._open
   }
 
   set open(value) {
     if (this.floatingElement) {
+      if (this.deplayTimeout) {
+        clearTimeout(this.deplayTimeout)
+      }
       if (value) {
-        this.floatingElement.setAttribute('open', 'true');
+        this.deplayTimeout = setTimeout(() => {
+          this.floatingElement.setAttribute('open', 'true')
+          clearTimeout(this.deplayTimeout)
+        }, this.openDelay)
       } else {
-        this.removeAttribute('open');
-        this.floatingElement.removeAttribute('open');
+        this.removeAttribute('open')
+        this.deplayTimeout = setTimeout(() => {
+          this.floatingElement.removeAttribute('open')
+          clearTimeout(this.deplayTimeout)
+        }, this.closeDelay)
       }
     }
-    this._open = value;
+    this._open = value
   }
 
   get type() {
-    return this._type;
+    return this._type
   }
 
   set type(value) {
-    this._type = value;
+    if (value && this.floatingElement) {
+      this.floatingElement.classList.remove(this._type)
+      this.floatingElement.classList.add(value)
+    }
+    this._type = value
   }
 
   static get observedAttributes() {
-    return ['direction', 'title', 'event', 'type', 'open'];
+    return [
+      'placement',
+      'title',
+      'trigger',
+      'type',
+      'open',
+      'hide-arrow',
+      'hide-close-button',
+      'content-wrapper-class',
+      'open-delay',
+      'close-delay',
+      'disable-interactive',
+    ]
   }
 
   constructor() {
-    super();
-    this.title = this.getAttribute('title') || '';
+    super()
+    this.title = this.getAttribute('title') || ''
+    this.hasArrow = !this.hasAttribute('hide-arrow')
+    this.disableInteractive = this.hasAttribute('disable-interactive')
+    if (this.hasAttribute('open-delay')) {
+      this.openDelay = Number(this.getAttribute('open-delay'))
+    }
+    if (this.hasAttribute('close-delay')) {
+      this.closeDelay = Number(this.getAttribute('close-delay'))
+    }
     if (!this.anchorElement) {
-      this.anchorElement = this.querySelector('[cdg-tooltip-header]');
+      this.anchorElement = this.querySelector('[cdg-tooltip-header]')
     }
     if (!this.cdgTooltipContentElement) {
       this.cdgTooltipContentElement = this.querySelector(
-        '[cdg-tooltip-content]'
-      );
+        '[cdg-tooltip-content]',
+      )
       if (!this.cdgTooltipContentElement) {
-        this.cdgTooltipContentElement = document.createElement('div');
+        this.cdgTooltipContentElement = document.createElement('div')
       }
-      this.cdgTooltipContentElement.classList.add('cdg-tooltip-main-content');
-      this.createHeaderAndBottomTooltip();
+      this.cdgTooltipContentElement.classList.add('cdg-tooltip-main-content')
+      this.createHeaderAndBottomTooltip()
     }
   }
 
   connectedCallback() {
-    this.classList.add('cdg-tooltip');
+    this.classList.add('cdg-tooltip')
     if (!this.floatingElement) {
+      const floatingClass = this.hasAttribute('content-wrapper-class')
+        ? this.getAttribute('content-wrapper-class').split(',')
+        : []
+      floatingClass.push('cdg-tooltip-floating-container')
+      if (!this.hasArrow) {
+        floatingClass.push('cdg-tooltip-floating-container-hide-arrow')
+      }
       this.floatingElement = createFloating.bind(this)(
         this.anchorElement,
         this.cdgTooltipContentElement,
-        this.direction,
-        'cdg-tooltip-floating-container',
+        this.placement,
+        floatingClass,
         false,
         true,
         true,
-        false
-      );
-      this.open = this.getAttribute('open');
+        false,
+      )
+      this.open = this.getAttribute('open')
       if (
-        this.hasAttribute('direction') &&
-        DIRECTIONS.includes(this.getAttribute('direction'))
+        this.hasAttribute('placement') &&
+        DIRECTIONS.includes(this.getAttribute('placement'))
       ) {
-        this.direction = this.getAttribute('direction');
+        this.placement = this.getAttribute('placement')
       } else {
-        this.direction = 'top';
+        this.placement = 'top'
       }
 
       if (this.hasAttribute('type')) {
-        this.type = this.getAttribute('type');
-        this.floatingElement.classList.add(this.type);
+        this.type = this.getAttribute('type')
+        this.floatingElement.classList.add(this.type)
       }
 
-      this.bindEvents();
+      this.bindEvents()
     }
   }
 
   createHeaderAndBottomTooltip() {
-    // Create header of tooltip
-    this.cdgTooltipContentElement.prepend(
-      createTemplateHeader(this.type).content.cloneNode(true)
-    );
-    this.headerElement = this.cdgTooltipContentElement.querySelector(
-      'div.cdg-tooltip-header'
-    );
-    const headerTitleElement =
-      this.headerElement.querySelector('.header-title');
-    headerTitleElement.textContent = this.title;
-    this.headerElement
-      .querySelector('.header-close-button')
-      .addEventListener('click', () => {
-        this.changeOpen(false);
-      });
+    if (!this.hasAttribute('hide-close-button')) {
+      // Create header of tooltip
+      this.cdgTooltipContentElement.prepend(
+        createTemplateHeader(this.type).content.cloneNode(true),
+      )
+      this.headerElement = this.cdgTooltipContentElement.querySelector(
+        'div.cdg-tooltip-header',
+      )
+      const headerTitleElement =
+        this.headerElement.querySelector('.header-title')
+      headerTitleElement.textContent = this.title
+      this.headerElement
+        .querySelector('.header-close-button')
+        .addEventListener('click', () => {
+          this.changeOpen(false)
+        })
+    }
     // Create bottom of tooltip
-    this.bottomElement = this.querySelector('[cdg-tooltip-bottom]');
+    this.bottomElement = this.querySelector('[cdg-tooltip-bottom]')
     if (this.bottomElement) {
-      this.cdgTooltipContentElement.append(this.bottomElement);
+      this.cdgTooltipContentElement.append(this.bottomElement)
       const closeButtons =
-        this.bottomElement.querySelectorAll('[click-to-close]');
+        this.bottomElement.querySelectorAll('[click-to-close]')
       if (closeButtons) {
-        const currentComponent = this;
+        const currentComponent = this
         closeButtons.forEach((closeButton) => {
           closeButton.addEventListener('click', () => {
-            currentComponent.changeOpen(false);
-          });
-        });
+            currentComponent.changeOpen(false)
+          })
+        })
       }
     }
   }
 
   bindEvents() {
-    if (
-      this.hasAttribute('event') &&
-      ['click', 'hover'].includes(this.getAttribute('event'))
-    ) {
-      this.event = this.getAttribute('event');
-    }
-
-    if (this.event === 'click') {
-      this.anchorElement.addEventListener('click', () => {
-        this.changeOpen(true);
-      });
-      this.anchorElement.addEventListener('blur', () => {
-        this.changeOpen(false);
-      });
-    } else if (this.event === 'hover') {
-      this.anchorElement.addEventListener('mouseenter', () => {
-        this.changeOpen(true);
-      });
-      this.anchorElement.addEventListener(
-        'mouseleave',
-        this.handleAnchorMouseLeave.bind(this)
-      );
-      this.floatingElement.addEventListener(
-        'mouseleave',
-        this.handleFloatingMouseLeave.bind(this)
-      );
+    if (this.anchorElement) {
+      if (
+        this.hasAttribute('trigger') &&
+        ['click', 'focus', 'hover'].includes(this.getAttribute('trigger'))
+      ) {
+        this.trigger = this.getAttribute('trigger')
+      }
+      if (this.trigger === 'click') {
+        this.anchorElement.addEventListener('click', () => {
+          this.changeOpen(true)
+        })
+        this.anchorElement.addEventListener('blur', () => {
+          this.changeOpen(false)
+        })
+      } else if (this.trigger === 'hover') {
+        this.anchorElement.addEventListener('mouseenter', () => {
+          this.changeOpen(true)
+        })
+        this.anchorElement.addEventListener(
+          'mouseleave',
+          this.handleAnchorMouseLeave.bind(this),
+        )
+        this.floatingElement.addEventListener(
+          'mouseleave',
+          this.handleFloatingMouseLeave.bind(this),
+        )
+      } else if (this.trigger === 'focus') {
+        this.anchorElement.addEventListener('focusin', () => {
+          this.changeOpen(true)
+        })
+        this.anchorElement.addEventListener('focusout', () => {
+          this.changeOpen(false)
+        })
+      }
     }
   }
 
   handleAnchorMouseLeave(event) {
-    const floatingBound = this.floatingElement.getBoundingClientRect();
-    const direction = this.getAttribute('direction') || 'top';
-    let left = 0;
-    let right = 0;
-    let top = 0;
-    let bottom = 0;
-    switch (direction) {
+    if (this.disableInteractive) {
+      this.changeOpen(false)
+      return
+    }
+    const floatingBound = this.floatingElement.getBoundingClientRect()
+    const placement = this.getAttribute('placement') || 'top'
+    let left = 0
+    let right = 0
+    let top = 0
+    let bottom = 0
+    switch (placement) {
       case 'topLeft':
       case 'top':
       case 'topRight':
-        left = floatingBound.left;
-        right = floatingBound.right;
-        top = floatingBound.top + HEIGHT_ARROW;
-        bottom = floatingBound.bottom + HEIGHT_ARROW;
-        break;
+        left = floatingBound.left
+        right = floatingBound.right
+        top = floatingBound.top + HEIGHT_ARROW
+        bottom = floatingBound.bottom + HEIGHT_ARROW
+        break
       case 'bottomLeft':
       case 'bottom':
       case 'bottomRight':
-        left = floatingBound.left;
-        right = floatingBound.right;
-        top = floatingBound.top - HEIGHT_ARROW;
-        bottom = floatingBound.bottom - HEIGHT_ARROW;
-        break;
+        left = floatingBound.left
+        right = floatingBound.right
+        top = floatingBound.top - HEIGHT_ARROW
+        bottom = floatingBound.bottom - HEIGHT_ARROW
+        break
       case 'leftTop':
       case 'left':
       case 'leftBottom':
-        left = floatingBound.left + HEIGHT_ARROW;
-        right = floatingBound.right + HEIGHT_ARROW;
-        top = floatingBound.top;
-        bottom = floatingBound.bottom;
-        break;
+        left = floatingBound.left + HEIGHT_ARROW
+        right = floatingBound.right + HEIGHT_ARROW
+        top = floatingBound.top
+        bottom = floatingBound.bottom
+        break
       case 'rightTop':
       case 'right':
       case 'rightBottom':
-        left = floatingBound.left - HEIGHT_ARROW;
-        right = floatingBound.right - HEIGHT_ARROW;
-        top = floatingBound.top;
-        bottom = floatingBound.bottom;
-        break;
+        left = floatingBound.left - HEIGHT_ARROW
+        right = floatingBound.right - HEIGHT_ARROW
+        top = floatingBound.top
+        bottom = floatingBound.bottom
+        break
       default:
-        break;
+        break
     }
     // related target is floating content
     const isContains =
@@ -231,55 +287,55 @@ export class CdgTooltip extends HTMLElement {
         event.clientX <= right &&
         top <= event.clientY &&
         event.clientY <= bottom) ||
-      this.anchorElement.contains(event.relatedTarget);
+      this.anchorElement.contains(event.relatedTarget)
     if (!isContains) {
-      this.open = false;
+      this.changeOpen(false)
     }
   }
 
   handleFloatingMouseLeave(event) {
-    const direction = this.getAttribute('direction') || 'bottom';
-    const anchorBound = this.anchorElement.getBoundingClientRect();
-    let left = 0;
-    let right = 0;
-    let top = 0;
-    let bottom = 0;
-    switch (direction) {
+    const placement = this.getAttribute('placement') || 'bottom'
+    const anchorBound = this.anchorElement.getBoundingClientRect()
+    let left = 0
+    let right = 0
+    let top = 0
+    let bottom = 0
+    switch (placement) {
       case 'topLeft':
       case 'top':
       case 'topRight':
-        left = anchorBound.left;
-        right = anchorBound.right;
-        top = anchorBound.top - HEIGHT_ARROW;
-        bottom = anchorBound.bottom - HEIGHT_ARROW;
-        break;
+        left = anchorBound.left
+        right = anchorBound.right
+        top = anchorBound.top - HEIGHT_ARROW
+        bottom = anchorBound.bottom - HEIGHT_ARROW
+        break
       case 'bottomLeft':
       case 'bottom':
       case 'bottomRight':
-        left = anchorBound.left;
-        right = anchorBound.right;
-        top = anchorBound.top + HEIGHT_ARROW;
-        bottom = anchorBound.bottom + HEIGHT_ARROW;
-        break;
+        left = anchorBound.left
+        right = anchorBound.right
+        top = anchorBound.top + HEIGHT_ARROW
+        bottom = anchorBound.bottom + HEIGHT_ARROW
+        break
       case 'leftTop':
       case 'left':
       case 'leftBottom':
-        left = anchorBound.left - HEIGHT_ARROW;
-        right = anchorBound.right - HEIGHT_ARROW;
-        top = anchorBound.top;
-        bottom = anchorBound.bottom;
-        break;
+        left = anchorBound.left - HEIGHT_ARROW
+        right = anchorBound.right - HEIGHT_ARROW
+        top = anchorBound.top
+        bottom = anchorBound.bottom
+        break
       case 'rightTop':
       case 'right':
       case 'rightBottom':
-        left = anchorBound.left + HEIGHT_ARROW;
-        right = anchorBound.right + HEIGHT_ARROW;
-        top = anchorBound.top;
-        bottom = anchorBound.bottom;
-        break;
+        left = anchorBound.left + HEIGHT_ARROW
+        right = anchorBound.right + HEIGHT_ARROW
+        top = anchorBound.top
+        bottom = anchorBound.bottom
+        break
 
       default:
-        break;
+        break
     }
     // related target is anchor element
     const isContains =
@@ -287,30 +343,45 @@ export class CdgTooltip extends HTMLElement {
         event.clientX <= right &&
         top <= event.clientY &&
         event.clientY <= bottom) ||
-      this.anchorElement.contains(event.relatedTarget);
+      this.anchorElement.contains(event.relatedTarget)
     if (!isContains) {
-      this.open = false;
+      this.changeOpen(false)
     }
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
-    if (oldValue === newValue) return;
-    this[attr] = newValue;
+    if (oldValue === newValue) return
 
-    if (attr === 'title') {
-      if (this.headerElement) {
-        this.headerElement.querySelector('.header-title').textContent =
-          newValue;
-      }
+    switch (attr) {
+      case 'open-delay':
+        this.openDelay = Number(newValue)
+        break
+      case 'close-delay':
+        this.closeDelay = Number(newValue)
+        break
+      case 'disable-interactive':
+        this.disableInteractive = this.hasAttribute('disable-interactive')
+        break
+
+      default:
+        this[attr] = newValue
+        if (attr === 'title') {
+          if (this.headerElement) {
+            this.headerElement.querySelector('.header-title').textContent =
+              newValue
+          }
+        }
+        break
     }
   }
 
   changeOpen(status) {
     if (status) {
-      this.setAttribute('open', 'true');
+      this.setAttribute('open', 'true')
     } else {
-      this.removeAttribute('open');
+      this.removeAttribute('open')
     }
-    this.open = status;
+    this.dispatchEvent(new CustomEvent('onOpenChange', {detail: status}))
+    this.open = status
   }
 }

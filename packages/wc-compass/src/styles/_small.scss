@@ -368,6 +368,13 @@
       }
     }
   }
+
+  .cdg-tooltip-main-content {
+    max-width: 90vw;
+    .cdg-tooltip-header {
+      min-width: 70vw;
+    }
+  }
 }
 
 @container CardGrid (max-width: 768px) {

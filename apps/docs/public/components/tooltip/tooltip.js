@@ -7,15 +7,31 @@ export class CdgTooltipDemo extends CdgDocumentComponent {
     this.template = template
 
     setTimeout(() => {
-      const directions = document.querySelector(
-        'cdg-dropdown[name="directions"]',
+      const placements = document.querySelector(
+        'cdg-dropdown[name="placements"]',
       )
       const cdgPopovers = document.querySelectorAll('cdg-tooltip')
-      directions.addEventListener('onchangevalue', function (event) {
+
+      cdgPopovers.forEach((cdgPopover) => {
+        if (cdgPopover) {
+          cdgPopover.addEventListener('onOpenChange', function(event) {
+              console.log('onOpenChange: ', event.detail);
+          })
+        }
+      })
+
+      placements.addEventListener('onchangevalue', function (event) {
         cdgPopovers.forEach((cdgPopover) => {
           if (cdgPopover) {
-            const closeButton = document.querySelector('bottom-close-button')
-            cdgPopover.setAttribute('direction', event.detail)
+            cdgPopover.setAttribute('placement', event.detail)
+          }
+        })
+      })
+      const types = document.querySelector('cdg-dropdown[name="type-tooltip"]')
+      types.addEventListener('onchangevalue', function (event) {
+        cdgPopovers.forEach((cdgPopover) => {
+          if (cdgPopover) {
+            cdgPopover.setAttribute('type', event.detail)
           }
         })
       })

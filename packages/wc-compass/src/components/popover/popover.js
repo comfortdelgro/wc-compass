@@ -75,7 +75,7 @@ export class CdgPopover extends HTMLElement {
         this.anchorElement,
         this.cdgPopoverContentElement,
         this.direction,
-        'cdg-popover-floating-container',
+        ['cdg-popover-floating-container'],
         false,
         false,
         true,
