@@ -40,7 +40,21 @@
             <cdg-icon name="menu" size="16"></cdg-icon>
           </button>
           <div class="portal-title">Compass Design</div>
-          <cdg-demo-search-content></cdg-demo-search-content>
+          <cdg-tooltip
+            placement="bottom"
+            type="secondary"
+            hide-arrow
+            hide-close-button
+          >
+            <div cdg-tooltip-header>
+              <cdg-demo-search-content
+                cdg-tooltip-header
+              ></cdg-demo-search-content>
+            </div>
+            <div cdg-tooltip-content class="cdg-tooltip-small-text">
+              Search for the name of the component document
+            </div>
+          </cdg-tooltip>
           <div class="cdg-separator"></div>
           <div class="cdg-portal-nav-actions">
             <cdg-tooltip

@@ -197,38 +197,40 @@ export class CdgTooltip extends HTMLElement {
   }
 
   bindEvents() {
-    if (
-      this.hasAttribute('trigger') &&
-      ['click', 'focus', 'hover'].includes(this.getAttribute('trigger'))
-    ) {
-      this.trigger = this.getAttribute('trigger')
-    }
-    if (this.trigger === 'click') {
-      this.anchorElement.addEventListener('click', () => {
-        this.changeOpen(true)
-      })
-      this.anchorElement.addEventListener('blur', () => {
-        this.changeOpen(false)
-      })
-    } else if (this.trigger === 'hover') {
-      this.anchorElement.addEventListener('mouseenter', () => {
-        this.changeOpen(true)
-      })
-      this.anchorElement.addEventListener(
-        'mouseleave',
-        this.handleAnchorMouseLeave.bind(this),
-      )
-      this.floatingElement.addEventListener(
-        'mouseleave',
-        this.handleFloatingMouseLeave.bind(this),
-      )
-    } else if (this.trigger === 'focus') {
-      this.anchorElement.addEventListener('focusin', () => {
-        this.changeOpen(true)
-      })
-      this.anchorElement.addEventListener('focusout', () => {
-        this.changeOpen(false)
-      })
+    if (this.anchorElement) {
+      if (
+        this.hasAttribute('trigger') &&
+        ['click', 'focus', 'hover'].includes(this.getAttribute('trigger'))
+      ) {
+        this.trigger = this.getAttribute('trigger')
+      }
+      if (this.trigger === 'click') {
+        this.anchorElement.addEventListener('click', () => {
+          this.changeOpen(true)
+        })
+        this.anchorElement.addEventListener('blur', () => {
+          this.changeOpen(false)
+        })
+      } else if (this.trigger === 'hover') {
+        this.anchorElement.addEventListener('mouseenter', () => {
+          this.changeOpen(true)
+        })
+        this.anchorElement.addEventListener(
+          'mouseleave',
+          this.handleAnchorMouseLeave.bind(this),
+        )
+        this.floatingElement.addEventListener(
+          'mouseleave',
+          this.handleFloatingMouseLeave.bind(this),
+        )
+      } else if (this.trigger === 'focus') {
+        this.anchorElement.addEventListener('focusin', () => {
+          this.changeOpen(true)
+        })
+        this.anchorElement.addEventListener('focusout', () => {
+          this.changeOpen(false)
+        })
+      }
     }
   }
 

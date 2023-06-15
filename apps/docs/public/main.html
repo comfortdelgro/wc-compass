@@ -11,7 +11,16 @@
     These components can work without any other library like jQuery, Angular,
     VueJS, React and can run on most of modern browsers."
     />
-    <meta name="keywords" content=”ComfortDelGro compass design,wc-compass,Compass Design,web component compass design”>
+    <meta
+      name="keywords"
+      content="”ComfortDelGro"
+      compass
+      design,wc-compass,Compass
+      Design,web
+      component
+      compass
+      design”
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/agate.min.css"
@@ -47,18 +56,42 @@
           <cdg-icon name="menu" size="16"></cdg-icon>
         </button>
         <div class="portal-title">Compass Design</div>
-        <cdg-demo-search-content></cdg-demo-search-content>
+        <cdg-tooltip
+          placement="bottom"
+          type="secondary"
+          hide-arrow
+          hide-close-button
+        >
+          <div cdg-tooltip-header>
+            <cdg-demo-search-content
+              cdg-tooltip-header
+            ></cdg-demo-search-content>
+          </div>
+          <div cdg-tooltip-content class="cdg-tooltip-small-text">
+            Search for the name of the component document
+          </div>
+        </cdg-tooltip>
         <div class="cdg-separator"></div>
         <div class="cdg-portal-nav-actions">
-          <button
-            is="cdg-button"
-            class="switch-theme-button ghost icon"
-            size="small"
-            title="Toggle dark theme button"
-            onclick="toggleDark()"
+          <cdg-tooltip
+            placement="bottomRight"
+            type="secondary"
+            hide-arrow
+            hide-close-button
           >
-            <cdg-icon name="lightbulb"></cdg-icon>
-          </button>
+            <button
+              is="cdg-button"
+              class="switch-theme-button ghost icon"
+              size="small"
+              onclick="toggleDark()"
+              cdg-tooltip-header
+            >
+              <cdg-icon name="lightbulb"></cdg-icon>
+            </button>
+            <div cdg-tooltip-content class="cdg-tooltip-small-text">
+              Toggle dark theme button
+            </div>
+          </cdg-tooltip>
         </div>
       </cdg-portal-navbar>
       <div class="page-body">
