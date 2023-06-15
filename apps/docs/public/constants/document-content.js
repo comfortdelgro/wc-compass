@@ -139,6 +139,10 @@ export const DOCUMENT_CONTENT = [
         slug: 'dropdown',
       },
       {
+        name: 'Otp',
+        slug: 'otp',
+      },
+      {
         name: 'File',
         slug: 'file',
       },
