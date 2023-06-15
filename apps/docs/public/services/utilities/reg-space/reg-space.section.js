@@ -2,9 +2,9 @@ import {CdgBaseComponent} from '../../../shared/base-component'
 
 import {REGEX_SPACE} from '@comfortdelgro/wc-compass/src/shared/regex'
 
-import template from './utility.section.html'
+import template from './reg-space.section.html'
 
-export class CdgUtilitySection extends CdgBaseComponent {
+export class CdgRegSpaceSection extends CdgBaseComponent {
   content
   constructor() {
     super()
