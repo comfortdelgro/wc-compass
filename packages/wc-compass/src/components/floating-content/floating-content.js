@@ -145,7 +145,7 @@ export class CdgFloatingContent extends HTMLElement {
  * @param {HTMLElement} anchorElement Origin element
  * @param {HTMLElement} contentElement Content popup
  * @param {string} position Floating position relative to the origin
- * @param {string} rootClass Add class to overlay
+ * @param {string | string[]} rootClass Add class to overlay
  * @param {boolean} isFullWidth Is full-width with origin
  * @param {boolean} hasArrow has arrow on floating
  * @returns {CdgFloatingContent} Floating element
@@ -164,7 +164,7 @@ export function createFloating(
   const containerElement = document.createElement('div')
   containerElement.setAttribute('class', 'cdg-floating-content-overlay')
   containerElement.anchorElement = anchorElement
-  rootClass && containerElement.classList.add(rootClass)
+  rootClass && containerElement.classList.add(...rootClass)
 
   let backdropElement
   if (hasbackdrop) {
@@ -278,8 +278,8 @@ function getNewPosition(
         outlineHeight
       break
     case 'bottomLeft':
-      topPosition = boundTop + anchorElement.clientHeight
-      arrowHeight + outlineHeight
+      topPosition =
+        boundTop + anchorElement.clientHeight + arrowHeight + outlineHeight
       leftPosition = boundLeft - scrollLeft
       break
     case 'bottom':

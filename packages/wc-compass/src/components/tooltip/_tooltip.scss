@@ -1,6 +1,6 @@
 .cdg-tooltip-floating-container {
   .cdg-floating-content {
-    width: 372px;
+    width: max-content;
     border-radius: 4px;
     background: var(--background);
     box-shadow: var(--shadow-03);
@@ -36,15 +36,35 @@
     }
   }
 }
+.cdg-tooltip-floating-container-hide-arrow {
+  .cdg-floating-content {
+    &::after {
+      display: none;
+    }
+  }
+}
 .cdg-tooltip-main-content {
+  max-width: 372px;
   display: flex;
   flex-direction: column;
   gap: 16px;
   padding: 16px;
+  box-sizing: border-box;
+  &.cdg-tooltip-small-text {
+    font-size: 12px;
+    min-width: 70px;
+    max-width: 372px;
+    min-height: 24px;
+    max-height: 40vh;
+    padding: 8px 16px;
+    box-sizing: border-box;
+  }
 }
 .cdg-tooltip-header {
   display: flex;
   justify-content: space-between;
+  min-width: 330px;
+  max-width: 100%;
   .header-title {
     @extend %heading4;
   }
