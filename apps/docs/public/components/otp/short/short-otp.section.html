@@ -3,6 +3,16 @@
     <cdg-otp length="4"></cdg-otp>
   </div>
   <pre>
-      <code class="language-html"></code>
+      <code class="language-html">&lt;cdg-otp length=&quot;4&quot;&gt;&lt;/cdg-otp&gt;
+
+&lt;script&gt;
+const otpInput = this.querySelector(&apos;cdg-otp&apos;)
+otpInput.addEventListener(&apos;fieldinput&apos;, (event) =&gt; {
+  console.log(event.detail)
+  cdgToastService.toast(
+    (event.detail.valid ? &apos;Valid: &apos; : &apos;Invalid: &apos;) + event.detail.value,
+  )
+})
+&lt;/script&gt;</code>
     </pre>
 </cdg-sample-section>

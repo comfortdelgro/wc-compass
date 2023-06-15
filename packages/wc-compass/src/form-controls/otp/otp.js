@@ -23,6 +23,9 @@ export class CdgOtp extends CdgBaseComponent {
 
   inputs = []
 
+  valid = false
+  value = ''
+
   constructor() {
     super()
   }
@@ -102,7 +105,7 @@ export class CdgOtp extends CdgBaseComponent {
     }
   }
 
-  handleInputChange(index) {
+  handleInputChange(index, event) {
     let value = (this.inputs[index].value + '').replace(/\s/g, '').trim()
     if (this.type === 'number') {
       value = value.replace(/\D+/g, '')
@@ -110,6 +113,7 @@ export class CdgOtp extends CdgBaseComponent {
 
     if (!value || !value.length) {
       this.inputs[index].value = ''
+      this.validate(index, event)
       return
     }
 
@@ -127,8 +131,35 @@ export class CdgOtp extends CdgBaseComponent {
       }
     }
 
-    if (index === this.length - 1) {
-      console.log('going to validate it')
+    this.validate(index, event)
+  }
+
+  validate(index, event) {
+    if (!this.inputs.length) {
+      return
     }
+    let valid = true
+    let value = ''
+    this.inputs.forEach((input) => {
+      if (!input.value) {
+        valid = false
+      }
+      value += input.value ? input.value : '_'
+    })
+
+    this.valid = valid
+    this.value = value
+
+    this.dispatchEvent(
+      new CustomEvent('fieldinput', {
+        detail: {
+          inputs: this.inputs,
+          valid: this.valid,
+          originalEvent: event,
+          target: this.inputs[index],
+          value: this.value,
+        },
+      }),
+    )
   }
 }

@@ -7,5 +7,13 @@ export class CdgLongOtpSection extends CdgBaseComponent {
     this.template = template
   }
 
-  onInit() {}
+  onInit() {
+    const otpInput = this.querySelector('cdg-otp')
+    otpInput.addEventListener('fieldinput', (event) => {
+      console.log(event.detail)
+      cdgToastService.toast(
+        (event.detail.valid ? 'Valid: ' : 'Invalid: ') + event.detail.value,
+      )
+    })
+  }
 }

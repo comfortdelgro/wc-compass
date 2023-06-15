@@ -5,32 +5,29 @@ export class CdgOtpPropertiesSection extends CdgTableComponentSection {
     super('Props & Methods')
     this.data = [
       {
-        name: 'name',
-        type: '<code>string</code>',
+        name: '<code>length</code>',
+        type: '<code>number</code>',
         default: '',
-        description: `The name of the context-menu.
-        <br>
-        <strong>Note</strong>: The names of the context-menu must be different`,
+        description: `Number of characters length / input fields`,
       },
       {
-        name: '<code>[contextMenuToggle]</code>',
-        type: '<code>boolean</code>',
-        default: '',
-        description: 'Add to item when right-clicking will toggle Content',
+        name: '<code>type</code>',
+        type: '<code>"" | text | number</code>',
+        default: 'number',
+        description: `use text to allow user to input string characters, or default will only accept number`,
       },
       {
-        name: '<code>[contextMenuContent]</code>',
-        type: '<code>boolean</code>',
+        name: '<code>fieldinput</code>',
+        type: '<code>CustomEvent</code>',
         default: '',
-        description: 'Define item as content.',
-      },
-      {
-        name: 'onContextMenuOpen',
-        type: '<code>function</code>',
-        default: '',
-        description: 'Define item as content.',
+        description: `event.detail: {
+          inputs: input fields,
+          valid: boolean,
+          originalEvent: event,
+          target: specific changing field,
+          value: current inputed value,
+        },`,
       },
     ]
   }
-
 }
