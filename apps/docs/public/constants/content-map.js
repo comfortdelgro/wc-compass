@@ -54,6 +54,7 @@ export const CONTENT_MAP = {
   rating: 'cdg-rating-demo',
   sidebar: 'cdg-sidebar-demo',
   status: 'cdg-status-demo',
+  textarea: 'cdg-textarea-demo',
   toolbar: 'cdg-toolbar-demo',
   tooltip: 'cdg-tooltip-demo',
   subHeader: 'cdg-sub-header-demo',
