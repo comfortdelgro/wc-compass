@@ -45,6 +45,7 @@ export const CONTENT_MAP = {
   multiLevelDropdown: 'cdg-multi-level-dropdown-demo',
   navRail: 'cdg-nav-rail-demo',
   navbar: 'cdg-navbar-demo',
+  otp: 'cdg-otp-demo',
   pageHeader: 'cdg-page-header-demo',
   pagination: 'cdg-pagination-demo',
   pillBadges: 'cdg-pill-badges-demo',
