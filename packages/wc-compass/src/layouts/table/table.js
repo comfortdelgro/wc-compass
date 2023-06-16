@@ -1,6 +1,14 @@
 import { TableSelectionEvent } from './model'
 
 
+
+
+
+
+
+
+
+
 export class CdgTable extends HTMLTableElement {
   static get observedAttributes() {
     return ['checkable']
@@ -166,5 +174,9 @@ export class CdgTable extends HTMLTableElement {
       this.options.onEditCellStart(event)
     }
   }
- 
+  finishEditing(template) {
+    if (template && template.parentElement) {
+      template.parentElement.removeChild(template)
+    }
+  }
 }

@@ -139,6 +139,10 @@ export const DOCUMENT_CONTENT = [
         slug: 'dropdown',
       },
       {
+        name: 'Otp',
+        slug: 'otp',
+      },
+      {
         name: 'File',
         slug: 'file',
       },
@@ -149,6 +153,10 @@ export const DOCUMENT_CONTENT = [
       {
         name: 'Text Field',
         slug: 'textField',
+      },
+      {
+        name: 'Textarea',
+        slug: 'textarea',
       },
       {
         name: 'Quantity Toggle',

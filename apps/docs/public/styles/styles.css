@@ -125,6 +125,17 @@ cdg-nav-rail .cdg-nav-rail-inner,
   color: var(--grey80);
 }
 
+.cdg-sample-section pre {
+  position: relative;
+}
+
+.doc-container .sample-section-copy {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  display: flex;
+}
+
 .component-item {
   display: block;
   padding: 10px 20px;

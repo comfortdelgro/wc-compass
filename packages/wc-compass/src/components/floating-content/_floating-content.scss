@@ -33,15 +33,15 @@
 
     &.topLeft {
       &::after {
-        bottom: 0;
-        left: 48px;
+        bottom: 1px;
+        left: 12px;
         transform: translateY(8px);
       }
     }
 
     &.top {
       &::after {
-        bottom: 0;
+        bottom: 1px;
         left: 50%;
         transform: translate(-8px, 8px);
       }
@@ -49,15 +49,15 @@
 
     &.topRight {
       &::after {
-        bottom: 0;
-        right: 48px;
+        bottom: 1px;
+        right: 12px;
         transform: translateY(8px);
       }
     }
 
     &.leftTop {
       &::after {
-        top: 48px;
+        top: 12px;
         right: -8px;
         border-right: unset;
         @include arrowLeft;
@@ -76,7 +76,7 @@
 
     &.leftBottom {
       &::after {
-        bottom: 48px;
+        bottom: 12px;
         right: -8px;
         border-right: unset;
         @include arrowLeft;
@@ -85,8 +85,8 @@
 
     &.rightTop {
       &::after {
-        top: 48px;
-        left: -8px;
+        top: 12px;
+        left: -7px;
         border-left: unset;
         @include arrowRight;
       }
@@ -95,7 +95,7 @@
     &.right {
       &::after {
         top: 50%;
-        left: -8px;
+        left: -7px;
         transform: translateY(-8px);
         border-left: unset;
         @include arrowRight;
@@ -104,8 +104,8 @@
 
     &.rightBottom {
       &::after {
-        bottom: 48px;
-        left: -8px;
+        bottom: 12px;
+        left: -7px;
         border-left: unset;
         @include arrowRight;
       }
@@ -114,14 +114,14 @@
     &.bottomLeft {
       &::after {
         top: 0;
-        left: 48px;
+        left: 12px;
         transform: translateY(-8px) rotate(180deg);
       }
     }
 
     &.bottom {
       &::after {
-        top: 0;
+        top: 1px;
         left: 50%;
         transform: translate(-8px, -8px) rotate(180deg);
       }
@@ -129,8 +129,8 @@
 
     &.bottomRight {
       &::after {
-        top: 0;
-        right: 48px;
+        top: 1px;
+        right: 12px;
         transform: translateY(-8px) rotate(180deg);
       }
     }

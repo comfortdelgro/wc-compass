@@ -63,7 +63,6 @@ import {CdgToastTitle} from './toast/toast-title'
 import {CdgToastTopActions} from './toast/toast-top-actions'
 import {CdgWizardStep} from './wizards/wizard-step'
 import {CdgWizards} from './wizards/wizards'
-import {CdgZoomImageView} from './zoom-image-view/zoom-image-view'
 
 // Layouts
 customElements.define('cdg-toolbar', CdgActionBar)
@@ -130,7 +129,6 @@ customElements.define('cdg-sidebar-body', CdgSidebarBody)
 customElements.define('cdg-sidebar-actions', CdgSidebarActions)
 customElements.define('cdg-testimonial', CdgTestimonial)
 customElements.define('cdg-testimonial-box', CdgTestimonialItem)
-customElements.define('cdg-zoom-image-view', CdgZoomImageView)
 customElements.define('cdg-image-viewer', CdgImageViewer)
 customElements.define('cdg-group-image-viewer', CdgGroupImageViewer)
 customElements.define('cdg-thumbnail-bar', CdgThumbnailBar)
@@ -197,7 +195,6 @@ export const LAYOUT_COMPONENTS = [
   CdgSidebarActions,
   CdgTestimonial,
   CdgTestimonialItem,
-  CdgZoomImageView,
   CdgImageViewer,
   CdgGroupImageViewer,
   CdgThumbnailBar,

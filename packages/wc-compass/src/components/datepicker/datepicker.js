@@ -206,7 +206,7 @@ export class CdgDatePicker extends HTMLElement {
         this.anchorElement,
         this.calendarContainerElement,
         'bottomLeft',
-        'cdg-datepicker-floating-container',
+        ['cdg-datepicker-floating-container'],
         false,
         false,
         true,

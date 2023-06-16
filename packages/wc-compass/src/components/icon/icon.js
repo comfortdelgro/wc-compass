@@ -28,6 +28,7 @@ const MULTIPLE_COLORS_ICON = [
   'tableColumn',
   'wLogo',
   'zigLogo',
+  'github',
 ]
 
 export class CdgIcon extends CdgIconSize {

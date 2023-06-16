@@ -1,15 +1,15 @@
 <cdg-sample-section name="Fetch Html / Svg file">
   <div class="sample-section">
     <div class="cdg-layout as-column">
-      <p><code>downloadSVGContent: Promise</code></p>
-      <p><code>downloadHTMLContent: Promise</code></p>
+      <code>downloadSVGContent: Promise</code>
+      <code>downloadHTMLContent: Promise</code>
       <p>Common functions that helps you to fetch HTML or SVG content.</p>
     </div>
   </div>
 
   <pre>
     <code class="language-javascript">
-import {downloadSVGContent, downloadHTMLContent} from '@comfortdelgro/wc-compass/src/shared/utilities/'
+import {downloadSVGContent, downloadHTMLContent} from '@comfortdelgro/wc-compass/src/shared/utilities'
     </code>
 </pre>
 </cdg-sample-section>
@@ -17,14 +17,59 @@ import {downloadSVGContent, downloadHTMLContent} from '@comfortdelgro/wc-compass
 <cdg-sample-section name="Pointer">
   <div class="sample-section">
     <div class="cdg-layout as-column">
-      <p><code>{Pointer, Position}</code></p>
+      <code>{Pointer, Position}</code>
       <p>Common classes to help you to handle pointer position, distance.</p>
     </div>
   </div>
 
   <pre>
     <code class="language-javascript">
-import {Position, Pointer} from '@comfortdelgro/wc-compass/src/shared/pointer/'
+import {Position, Pointer} from '@comfortdelgro/wc-compass/src/shared/pointer'
+    </code>
+</pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="DOM">
+  <div class="sample-section column">
+    <div class="cdg-layout as-column">
+      <code>getClosestParentElement</code>
+      <p>To get the closest parent element from curent by tag name.</p>
+    </div>
+    <div class="cdg-layout as-column">
+      <code>getClosestElement</code>
+      <p>To get the closest parent element that contains the selector.</p>
+    </div>
+    <div class="cdg-layout as-column">
+      <code>replacePlaceholders</code>
+      <p>To replace <code>{{data}}</code> with real data.</p>
+    </div>
+  </div>
+
+  <pre>
+    <code class="language-javascript">
+import {
+  getClosestParentElement,
+  getClosestElement,
+  replacePlaceholders,
+  swapChild
+} from '@comfortdelgro/wc-compass/src/shared/dom'
+    </code>
+</pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Browser">
+  <div class="sample-section column">
+    <div class="cdg-layout as-column">
+      <code>isIphone</code>
+      <p>To check whether user's using iOS or not.</p>
+    </div>
+  </div>
+
+  <pre>
+    <code class="language-javascript">
+import {
+  isIphone
+} from '@comfortdelgro/wc-compass/src/shared/browser'
     </code>
 </pre>
 </cdg-sample-section>

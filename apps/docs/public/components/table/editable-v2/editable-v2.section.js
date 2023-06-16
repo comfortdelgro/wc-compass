@@ -1,4 +1,4 @@
-import { CdgBaseComponent } from '../../../shared/base-component'
+import {CdgBaseComponent} from '../../../shared/base-component'
 import template from './editable-v2.section.html'
 
 export class CdgTableEditableSection2 extends CdgBaseComponent {
@@ -51,22 +51,25 @@ export class CdgTableEditableSection2 extends CdgBaseComponent {
         this.taskName = this.rowTemplate.querySelector('#taskName')
         this.duration = this.rowTemplate.querySelector('#duration')
         this.approved = this.rowTemplate.querySelector('#approved')
-        this.rowTemplate.style.display = 'flex'
+        this.rowTemplate.style.display = 'block'
         this.rowTemplate.style.height = `${
           this.querySelector('tr').clientHeight
         }px`
-        this.querySelector('.actions').style.display = 'flex'
+        this.rowTemplate.style.width = `${
+          this.querySelector('tr').clientWidth
+        }px`
         switch (column) {
           case 'id':
-            id.style.width = `${tableHeaders[0].clientWidth}px`
-            id.value = rowData.id
-            taskName.style.width = `${tableHeaders[1].clientWidth}px`
-            taskName.value = rowData.taskName
-            duration.style.width = `${tableHeaders[2].clientWidth}px`
-            duration.value = rowData.duration
-            approved.style.width = `${tableHeaders[3].clientWidth}px`
-            approved.checked = rowData.approved
-
+            this.id.style.width = `${tableHeaders[0].clientWidth - 10}px`
+            this.id.value = rowData.id
+            this.taskName.style.width = `${tableHeaders[1].clientWidth - 10}px`
+            this.taskName.value = rowData.taskName
+            this.duration.style.width = `${tableHeaders[2].clientWidth - 10}px`
+            this.duration.value = rowData.duration
+            this.approved.parentElement.style.width = `${
+              tableHeaders[3].clientWidth - 10
+            }px`
+            this.approved.checked = rowData.approved
             break
         }
       },
@@ -75,54 +78,79 @@ export class CdgTableEditableSection2 extends CdgBaseComponent {
     table.data = [
       {
         id: 1,
-        taskName: 'foo',
+        taskName: 'Pretty long text.',
         duration: 5,
         approved: false,
       },
       {
         id: 2,
-        taskName: 'foo',
+        taskName: 'Pretty long text.',
         duration: 4,
         approved: true,
       },
       {
         id: 3,
-        taskName: 'foo',
+        taskName: 'Pretty long text.',
         duration: 6,
         approved: true,
       },
     ]
   }
 
+  validateFields() {
+    const taskNameValue = this.taskName.value.trim()
+    const durationValue = this.duration.value
+    const toast = document.createElement('cdg-toast')
+    toast.setAttribute('color', 'red')
+
+    if (taskNameValue.length <= 10) {
+      const id = 'default' + new Date().getTime()
+      toast.textContent = 'Task name must have length > 10.'
+      cdgToastService.show(id, toast)
+      return false
+    }
+    if (durationValue <= 0) {
+      const id = 'default' + new Date().getTime()
+      toast.textContent = 'Invalid duration.'
+      cdgToastService.show(id, toast)
+      return false
+    }
+    return true
+  }
   bindEventsToButton() {
     const saveButton = this.querySelector('#save')
     const cancelButton = this.querySelector('#cancel')
 
     saveButton.addEventListener('click', () => {
-      const table = this.querySelector('#sampleEditableTable2')
-      const data = [...table.data]
-      data[this.edittingRow] = {
-        id: this.id.value,
-        taskName: this.taskName.value,
-        duration: this.duration.value,
-        approved: this.approved.checked,
+      if (this.validateFields()) {
+        const table = this.querySelector('#sampleEditableTable2')
+        const data = [...table.data]
+        data[this.edittingRow] = {
+          id: this.id.value,
+          taskName: this.taskName.value,
+          duration: this.duration.value,
+          approved: this.approved.checked,
+        }
+        const loadingId = cdgLoadingService.show('global')
+        setTimeout(() => {
+          cdgLoadingService.hide(loadingId)
+          table.data = data
+          cdgToastService.toast('Data is successfully saved!')
+        }, 1000)
       }
-      const loadingId = cdgLoadingService.show('global')
-      setTimeout(() => {
-        cdgLoadingService.hide(loadingId)
-        table.data = data
-        cdgToastService.toast('Data is successfully saved!')
-
-      }, 1000)
     })
 
     cancelButton.addEventListener('click', () => {
-      const confirmCancel = confirm('Are you sure want to cancel editing?')
-      if (confirmCancel) {
-        this.querySelector('.actions').style.display = 'none'
-
-        this.rowTemplate.style.display = 'none'
-      }
+      const dialog = cdgDialogService.confirm({
+        dialogTitle: 'Cancel Editing',
+        message: 'Are you sure want to cancel editing?',
+        executeLabel: 'Yes',
+      })
+      dialog.addEventListener('close', (event) => {
+        const table = this.querySelector('#sampleEditableTable2')
+        table.finishEditing(this.rowTemplate)
+        cdgToastService.toast('Row editing canceled.')
+      })
     })
   }
 }
