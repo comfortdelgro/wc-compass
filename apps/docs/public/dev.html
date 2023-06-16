@@ -30,31 +30,27 @@
     <div class="page-content cdg-layout as-column cdg-flex">
       <div class="cdg-portal-navbar primary">
         <div class="cdg-portal-navbar-inner">
-          <button
-            is="cdg-button"
-            class="icon"
-            size="small"
-            title="Menu button"
-            onclick="showMenu()"
-          >
-            <cdg-icon name="menu" size="16"></cdg-icon>
-          </button>
-          <div class="portal-title">Compass Design</div>
           <cdg-tooltip
-            placement="bottom"
+            placement="bottomLeft"
             type="secondary"
             hide-arrow
             hide-close-button
           >
-            <div cdg-tooltip-header>
-              <cdg-demo-search-content
-                cdg-tooltip-header
-              ></cdg-demo-search-content>
-            </div>
+            <button
+              is="cdg-button"
+              class="icon"
+              size="small"
+              onclick="showMenu()"
+              cdg-tooltip-header
+            >
+              <cdg-icon name="menu" size="16"></cdg-icon>
+            </button>
             <div cdg-tooltip-content class="cdg-tooltip-small-text">
-              Search for the name of the component document
+              Toggle menu
             </div>
           </cdg-tooltip>
+          <div class="portal-title">Compass Design</div>
+          <cdg-demo-search-content cdg-tooltip-header></cdg-demo-search-content>
           <div class="cdg-separator"></div>
           <div class="cdg-portal-nav-actions">
             <cdg-tooltip
@@ -69,6 +65,7 @@
                 size="small"
                 onclick="toggleDark()"
                 cdg-tooltip-header
+                disable-interactive
               >
                 <cdg-icon name="lightbulb"></cdg-icon>
               </button>
@@ -89,6 +86,7 @@
                 class="switch-theme-button ghost icon cdg-button has-icon"
                 size="small"
                 cdg-tooltip-header
+                disable-interactiveF
               >
                 <cdg-icon name="github" source="host"></cdg-icon>
               </a>
