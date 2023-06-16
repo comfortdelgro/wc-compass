@@ -1,0 +1,18 @@
+<cdg-sample-section name="Long">
+  <div class="sample-section column" style="align-items: center">
+    <cdg-otp length="6" type="text"></cdg-otp>
+  </div>
+  <pre>
+    <code class="language-html">&lt;cdg-otp length=&quot;6&quot;&gt;&lt;/cdg-otp&gt;
+
+&lt;script&gt;
+const otpInput = this.querySelector(&apos;cdg-otp&apos;)
+otpInput.addEventListener(&apos;fieldinput&apos;, (event) =&gt; {
+  console.log(event.detail)
+  cdgToastService.toast(
+    (event.detail.valid ? &apos;Valid: &apos; : &apos;Invalid: &apos;) + event.detail.value,
+  )
+})
+&lt;/script&gt;</code>
+  </pre>
+</cdg-sample-section>

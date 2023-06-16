@@ -1,10 +1,10 @@
 import {CdgBaseComponent} from '../../../shared/base-component'
 
-import {REGEX_SPACE} from '@comfortdelgro/wc-compass/src/shared/regex'
+import {REGEX_NUMBER} from '@comfortdelgro/wc-compass/src/shared/regex'
 
-import template from './utility.section.html'
+import template from './reg-number.section.html'
 
-export class CdgUtilitySection extends CdgBaseComponent {
+export class CdgRegNumberSection extends CdgBaseComponent {
   content
   constructor() {
     super()
@@ -14,6 +14,6 @@ export class CdgUtilitySection extends CdgBaseComponent {
   onInit() {
     const test = this.querySelector('#test')
     const result = this.querySelector('#result')
-    result.textContent = test.textContent.replace(REGEX_SPACE, '')
+    result.textContent = test.textContent.replace(REGEX_NUMBER, '')
   }
 }
