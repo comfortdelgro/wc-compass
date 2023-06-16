@@ -68,6 +68,7 @@ import exportSvg from '../../images/export.svg'
 import filledArrowDown from '../../images/filled-arrow-down.svg'
 import filledArrowUp from '../../images/filled-arrow-up.svg'
 import forward from '../../images/forward.svg'
+import github from '../../images/github.svg'
 import globe from '../../images/globe.svg'
 import grid from '../../images/grid.svg'
 import gripDots from '../../images/grip-dots.svg'
@@ -374,4 +375,5 @@ export const ICONS_IMAGES = [
   trash,
   verified,
   star,
+  github,
 ]

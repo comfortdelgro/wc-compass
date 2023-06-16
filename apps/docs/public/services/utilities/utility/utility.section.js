@@ -1,4 +1,7 @@
 import {CdgBaseComponent} from '../../../shared/base-component'
+
+import {REGEX_SPACE} from '@comfortdelgro/wc-compass/src/shared/regex'
+
 import template from './utility.section.html'
 
 export class CdgUtilitySection extends CdgBaseComponent {
@@ -8,5 +11,9 @@ export class CdgUtilitySection extends CdgBaseComponent {
     this.template = template
   }
 
-  onInit() {}
+  onInit() {
+    const test = this.querySelector('#test')
+    const result = this.querySelector('#result')
+    result.textContent = test.textContent.replace(REGEX_SPACE, '')
+  }
 }

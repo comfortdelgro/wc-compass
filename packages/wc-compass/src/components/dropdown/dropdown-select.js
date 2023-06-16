@@ -33,7 +33,7 @@ export class CdgDropdownSelect extends HTMLElement {
         this.parentNode,
         null,
         'bottomLeft',
-        'cdg-dropdown-select-floating-container',
+        ['cdg-dropdown-select-floating-container'],
         true,
         false,
         true,

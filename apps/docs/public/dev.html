@@ -28,31 +28,77 @@
   <body class="cdg-layout">
     <cdg-demo-sidebar></cdg-demo-sidebar>
     <div class="page-content cdg-layout as-column cdg-flex">
-      <cdg-portal-navbar class="primary">
-        <button
-          is="cdg-button"
-          class="icon"
-          size="small"
-          title="Menu button"
-          onclick="showMenu()"
-        >
-          <cdg-icon name="menu" size="16"></cdg-icon>
-        </button>
-        <div class="portal-title">Compass Design</div>
-        <cdg-demo-search-content></cdg-demo-search-content>
-        <div class="cdg-separator"></div>
-        <div class="cdg-portal-nav-actions">
+      <div class="cdg-portal-navbar primary">
+        <div class="cdg-portal-navbar-inner">
           <button
             is="cdg-button"
-            class="switch-theme-button ghost icon"
+            class="icon"
             size="small"
-            title="Toggle dark theme button"
-            onclick="toggleDark()"
+            title="Menu button"
+            onclick="showMenu()"
           >
-            <cdg-icon name="lightbulb"></cdg-icon>
+            <cdg-icon name="menu" size="16"></cdg-icon>
           </button>
+          <div class="portal-title">Compass Design</div>
+          <cdg-tooltip
+            placement="bottom"
+            type="secondary"
+            hide-arrow
+            hide-close-button
+          >
+            <div cdg-tooltip-header>
+              <cdg-demo-search-content
+                cdg-tooltip-header
+              ></cdg-demo-search-content>
+            </div>
+            <div cdg-tooltip-content class="cdg-tooltip-small-text">
+              Search for the name of the component document
+            </div>
+          </cdg-tooltip>
+          <div class="cdg-separator"></div>
+          <div class="cdg-portal-nav-actions">
+            <cdg-tooltip
+              placement="bottomRight"
+              type="secondary"
+              hide-arrow
+              hide-close-button
+            >
+              <button
+                is="cdg-button"
+                class="switch-theme-button ghost icon"
+                size="small"
+                onclick="toggleDark()"
+                cdg-tooltip-header
+              >
+                <cdg-icon name="lightbulb"></cdg-icon>
+              </button>
+              <div cdg-tooltip-content class="cdg-tooltip-small-text">
+                Toggle dark theme button
+              </div>
+            </cdg-tooltip>
+            <cdg-tooltip
+              placement="bottomRight"
+              type="secondary"
+              hide-arrow
+              hide-close-button
+            >
+              <a
+                href="https://github.com/comfortdelgro/wc-compass"
+                target="_blank"
+                is="cdg-button"
+                class="switch-theme-button ghost icon cdg-button has-icon"
+                size="small"
+                cdg-tooltip-header
+              >
+                <cdg-icon name="github" source="host"></cdg-icon>
+              </a>
+              <div cdg-tooltip-content class="cdg-tooltip-small-text">
+                GitHub repository
+              </div>
+            </cdg-tooltip>
+          </div>
         </div>
-      </cdg-portal-navbar>
+      </div>
       <div class="page-body">
         <cdg-demo-container></cdg-demo-container>
         <div class="table-of-content">
