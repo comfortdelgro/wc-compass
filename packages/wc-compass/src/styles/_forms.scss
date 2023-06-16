@@ -59,6 +59,17 @@
   border-radius: 4px;
   background-color: var(--background);
 
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+
+  &[type='number'] {
+    -moz-appearance: textfield; /* Firefox */
+  }
+
   &:focus {
     outline: 2px solid var(--accent);
     outline-offset: -2px;
