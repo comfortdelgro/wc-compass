@@ -9,7 +9,7 @@ footer.cdg-footer-section {
   container-name: CdgFooter;
   container-type: inline-size;
   .zig-logo {
-    color: var(--accent);
+    color: var(--blue100);
   }
 
   // This mode will not changes color when switch to dark or light theme
@@ -31,7 +31,7 @@ footer.cdg-footer-section {
   }
 
   &.primary {
-    background-color: var(--accent);
+    background-color: var(--blue100);
   }
 
   .mobile-language {

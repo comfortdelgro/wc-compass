@@ -110,6 +110,8 @@
   }
 
   &.raised {
+    background-color: var(--darker-background);
+    border-color: var(--darker-background);
     box-shadow: var(--shadow-01), var(--shadow-02);
   }
 
@@ -294,7 +296,7 @@
   --disabled-color: #777777;
   --grey110: #cccccc;
   &.cdg-page-header {
-    background: var(--accent);
+    background: var(--blue100);
   }
 
   .cdg-icon,
@@ -578,5 +580,5 @@ cdg-carousel,
   top: 0;
   left: 0;
   z-index: 1;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
