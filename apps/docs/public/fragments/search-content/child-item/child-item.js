@@ -1,6 +1,10 @@
 import {CdgBaseComponent} from '@comfortdelgro/wc-compass/src/shared/base-component'
 
 export class MenuChildItemDemo extends CdgBaseComponent {
+  static get observedAttributes() {
+    return ['selected-slug']
+  }
+
   constructor() {
     super()
     this.template = `<cdg-list-item selectable-item>
@@ -21,6 +25,23 @@ export class MenuChildItemDemo extends CdgBaseComponent {
       }
       window.location.hash = '#' + this.slug
     })
+  }
+
+  attributeChangedCallback(attr, oldValue, newValue) {
+    if (oldValue === newValue) return
+    switch (attr) {
+      case 'selected-slug':
+        if (newValue === this.slug) {
+          this.classList.add('selecting')
+          this.scrollIntoView({behavior: 'smooth', block: 'center'})
+        } else {
+          this.classList.remove('selecting')
+        }
+        break
+
+      default:
+        break
+    }
   }
 
   afterViewInit() {}

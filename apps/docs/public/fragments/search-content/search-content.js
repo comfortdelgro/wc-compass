@@ -7,12 +7,12 @@ customElements.define('cdg-menu-list-item-demo', MenuListItemDemo)
 import {CdgComponentListDemo} from './component-list/component-list'
 customElements.define('cdg-component-list-demo', CdgComponentListDemo)
 
-const PREVENT_CODE_KEY = ['ArrowUp', 'ArrowDown', 'Enter']
+export const PREVENT_CODE_KEY = ['ArrowUp', 'ArrowDown', 'Enter']
 
 export class CdgSearchContentDemo extends CdgDocumentComponent {
   popoverContentEl
   selectedItemEl
-  handleKeyUpFn
+  handleKeyDownFn
   inputEl
   componentListDemoEl
 
@@ -30,24 +30,32 @@ export class CdgSearchContentDemo extends CdgDocumentComponent {
       'cdg-component-list-demo',
     )
 
-    if (!this.handleKeyUpFn) {
-      this.handleKeyUpFn = this.handleKeyUp.bind(this)
+    if (this.componentListDemoEl) {
+      this.componentListDemoEl.addEventListener('onSelectItem', () => {
+        if (this.inputEl) {
+          this.inputEl.blur()
+        }
+      })
+    }
+
+    if (!this.handleKeyDownFn) {
+      this.handleKeyDownFn = this.handleKeyUp.bind(this)
     }
 
     this.inputEl.addEventListener('focus', () => {
       if (this.componentListDemoEl) {
-        this.componentListDemoEl.setAttribute('focusing', '')
+        this.componentListDemoEl.setAttribute('focusing', 'true')
       }
       popover.setAttribute('open', 'true')
-      this.inputEl.addEventListener('keyup', this.handleKeyUpFn)
+      this.inputEl.addEventListener('keydown', this.handleKeyDownFn)
     })
 
     this.inputEl.addEventListener('blur', () => {
       if (this.componentListDemoEl) {
         this.componentListDemoEl.removeAttribute('focusing')
       }
-      // popover.removeAttribute('open')
-      this.inputEl.removeEventListener('keypress', this.handleKeyUpFn)
+      popover.removeAttribute('open')
+      this.inputEl.removeEventListener('keydown', this.handleKeyDownFn)
     })
 
     this.inputEl.addEventListener('input', (event) => {
@@ -62,7 +70,7 @@ export class CdgSearchContentDemo extends CdgDocumentComponent {
   handleKeyUp(event) {
     if (PREVENT_CODE_KEY.includes(event.code)) {
       event.preventDefault()
-      // event.stopPropagation()
+      return false
     }
   }
 
