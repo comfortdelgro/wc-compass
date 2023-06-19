@@ -11,6 +11,7 @@ body {
   display: flex;
   flex-direction: row;
   overflow: auto;
+  color: var(--primary-color);
 }
 
 body cdg-nav-rail .workbench-title,
@@ -21,7 +22,7 @@ body .cdg-nav-rail .workbench-title {
 
 body.theme-dark .cdg-portal-navbar .cdg-button.ghost.switch-theme-button {
   background-color: #fff;
-  color: var(--accent);
+  color: var(--blue100);
 }
 
 .parent-item.cdg-list-item {

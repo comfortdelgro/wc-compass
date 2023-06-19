@@ -55,7 +55,7 @@ cdg-wizard-step,
     transform: translate3d(0, -50%, 0);
     top: 10px;
     height: 2px;
-    background-color: var(--blue10);
+    background-color: var(--blue20);
   }
 
   &::before {
@@ -71,7 +71,7 @@ cdg-wizard-step,
   width: 20px;
   height: 20px;
   color: var(--accent);
-  background-color: var(--blue10);
+  background-color: var(--blue20);
   display: flex;
   align-items: center;
   justify-content: center;
