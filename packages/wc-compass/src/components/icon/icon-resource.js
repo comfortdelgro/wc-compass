@@ -85,6 +85,7 @@ import mobMaintenance from '../../images/mobility/mob-maintenance.svg'
 import mobRoadTax from '../../images/mobility/mob-road-tax.svg'
 import mobShield from '../../images/mobility/mob-shield.svg'
 import mobTaxi from '../../images/mobility/mob-taxi.svg'
+import noData from '../../images/no-data.svg'
 import addressBook from '../../images/objects/address-book.svg'
 import bug from '../../images/objects/bug.svg'
 import building from '../../images/objects/building.svg'
@@ -267,6 +268,7 @@ export const ICONS_IMAGES = [
   mobTaxi,
   money,
   mute,
+  noData,
   openExternal,
   organization,
   outlineAddGroup,

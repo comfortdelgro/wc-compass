@@ -17,6 +17,7 @@ const MULTIPLE_COLORS_ICON = [
   'mobBuscar',
   'mobRoadTax',
   'notification',
+  'noData',
   'openExternal',
   'orgChart',
   'organization',

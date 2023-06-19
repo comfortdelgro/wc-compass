@@ -92,6 +92,10 @@ export const DOCUMENT_CONTENT = [
         slug: 'navbar',
       },
       {
+        name: 'No Data',
+        slug: 'noData',
+      },
+      {
         name: 'Sub Nav',
         slug: 'subNav',
       },

@@ -28,6 +28,7 @@ import {CdgModalBody} from './modal/modal-body'
 import {CdgModalHeader} from './modal/modal-header'
 import {CdgNavRail} from './nav-rail/nav-rail'
 import {CdgNavbar} from './navbar/navbar'
+import {CdgNoData} from './no-data/no-data'
 import {CdgPageActions} from './page-header/page-actions'
 import {CdgPageHeader} from './page-header/page-header'
 import {CdgPageHeaderRow} from './page-header/page-header-row'
@@ -87,6 +88,7 @@ customElements.define('cdg-sub-header', CdgSubHeader)
 customElements.define('cdg-navbar', CdgNavbar)
 customElements.define('cdg-portal-navbar', CdgPortalNavbar)
 customElements.define('cdg-nav-rail', CdgNavRail)
+customElements.define('cdg-no-data', CdgNoData)
 customElements.define('cdg-wizards', CdgWizards)
 customElements.define('cdg-wizard-step', CdgWizardStep)
 customElements.define('cdg-dashboard-side-card', CdgDashboardSideCard)
@@ -199,4 +201,5 @@ export const LAYOUT_COMPONENTS = [
   CdgGroupImageViewer,
   CdgThumbnailBar,
   CdgGallery,
+  CdgNoData,
 ]

@@ -9,6 +9,7 @@ import { CdgTableOptionsNestedHeaderSection } from './options-nested-header/opti
 import { CdgTableOptionsSection } from './options/options.section'
 import { CdgTablePropertiesSection } from './properties/properties.section'
 import { CdgTableSimpleSection } from './simple/simple.section'
+import { CdgNoDataTableLayoutSection } from './no-data/no-data-layout.section'
 import { CdgTableDemo } from './table'
 
 customElements.define('cdg-table-options-section', CdgTableOptionsSection)
@@ -23,6 +24,7 @@ customElements.define('cdg-table-editable-section', CdgTableEditableSection)
 customElements.define('cdg-table-editable-section2', CdgTableEditableSection2)
 customElements.define('cdg-table-properties-section', CdgTablePropertiesSection)
 customElements.define('cdg-table-events-section', CdgTableEventsSection)
+customElements.define('cdg-no-data-table-layout-section', CdgNoDataTableLayoutSection)
 customElements.define('cdg-table-demo', CdgTableDemo)
 
 export {
@@ -35,6 +37,7 @@ export {
   CdgTableDemo,
   CdgTableEditableSection2,
   CdgTableEditableSection,
+  CdgNoDataTableLayoutSection
 }
 
 
