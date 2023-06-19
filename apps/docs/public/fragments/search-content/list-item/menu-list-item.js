@@ -5,6 +5,14 @@ import {MenuChildItemDemo} from '../child-item/child-item'
 customElements.define('cdg-menu-child-item', MenuChildItemDemo)
 
 export class MenuListItemDemo extends CdgBaseComponent {
+  displayData = []
+  selectedSlug = ''
+  focusing = false
+
+  static get observedAttributes() {
+    return ['focusing', 'selected-slug']
+  }
+
   constructor() {
     super()
     this.template = `<cdg-list-item class="parent-item">
@@ -20,6 +28,24 @@ export class MenuListItemDemo extends CdgBaseComponent {
       <cdg-menu-child-item></cdg-menu-child-item>
     </template>
   </cdg-list-view>`
+  }
+
+  attributeChangedCallback(attr, oldValue, newValue) {
+    if (oldValue === newValue) return
+    switch (attr) {
+      case 'focusing':
+        this.focusing = newValue === 'true'
+        break
+      case 'selected-slug':
+        const menuChildTtem = this.querySelectorAll('cdg-menu-child-item')
+        menuChildTtem.forEach((el) => {
+          el.setAttribute('selected-slug', newValue)
+        })
+        break
+
+      default:
+        break
+    }
   }
 
   afterViewInit() {
