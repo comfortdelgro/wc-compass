@@ -1,0 +1,17 @@
+.cdg-no-data {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-direction: column;
+
+  .cdg-no-data-icon {
+    width: 165px;
+    height: 69px;
+  }
+
+  .cdg-no-data-description {
+    color: var(--grey80);
+  }
+}
