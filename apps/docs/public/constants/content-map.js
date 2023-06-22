@@ -80,6 +80,7 @@ export const CONTENT_MAP = {
   dashboardTemplate: 'cdg-dashboard-demo',
   selectingThemeModal: 'cdg-select-theme-demo',
   servicesMenu: 'cdg-services-menu-demo',
+  skeletonLoading: 'cdg-skeleton-loading-demo',
   newsAndBlogs: 'cdg-news-and-blogs-demo',
   services: 'cdg-services-demo',
   speedDial: 'cdg-speed-dial-demo',
