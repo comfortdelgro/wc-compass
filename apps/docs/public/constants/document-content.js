@@ -100,6 +100,10 @@ export const DOCUMENT_CONTENT = [
         slug: 'subNav',
       },
       {
+        name: 'Skeleton Loading',
+        slug: 'skeletonLoading',
+      },
+      {
         name: 'Table',
         slug: 'table',
       },

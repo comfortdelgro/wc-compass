@@ -110,7 +110,7 @@
   }
 
   &.raised {
-    background-color: var(--darker-background);
+    background-color: var(--raised-card-background);
     border-color: var(--darker-background);
     box-shadow: var(--shadow-01), var(--shadow-02);
   }
