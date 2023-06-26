@@ -16,6 +16,13 @@
   a,
   p,
   span,
+  .cdg-wizard-step-text,
+  .cdg-pill-badge,
+  .cdg-alert-badge,
+  .cdg-list-item-button,
+  .cdg-list-item-description,
+  .cdg-list-item-title,
+  .cdg-timeline-card-body,
   .cdg-card-cover,
   .cdg-gallery-image-wrapper,
   .cdg-file-upload-name,
@@ -75,6 +82,22 @@
   .activity-category {
     &::before {
       border-radius: 3px;
+    }
+  }
+
+  .cdg-alert-badge,
+  .cdg-pill-badge {
+    &::before {
+      background-color: var(--hover-background);
+    }
+    &[type='danger']::before {
+      background-color: var(--status-error-background);
+    }
+    &[type='warning']::before {
+      background-color: var(--status-warning-background);
+    }
+    &[type='success']::before {
+      background-color: var(--status-success-background);
     }
   }
 
