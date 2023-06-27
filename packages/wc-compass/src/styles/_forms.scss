@@ -20,6 +20,11 @@
   }
 }
 
+.cdg-required-mark {
+  font-style: normal;
+  color: var(--error);
+}
+
 .required-mark {
   color: var(--secondary-red);
   margin-left: 4px;

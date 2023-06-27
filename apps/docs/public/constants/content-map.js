@@ -83,6 +83,7 @@ export const CONTENT_MAP = {
   skeletonLoading: 'cdg-skeleton-loading-demo',
   newsAndBlogs: 'cdg-news-and-blogs-demo',
   services: 'cdg-services-demo',
+  validation: 'cdg-validation-demo',
   speedDial: 'cdg-speed-dial-demo',
   forLoop: 'cdg-for-loop-demo',
   timePicker: 'cdg-time-picker-demo',
