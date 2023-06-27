@@ -8,13 +8,50 @@ export class FieldValidateProps {
 export class TextFieldValidate extends FieldValidateProps {
   value = ''
   required = false
+  pattern = ''
+  maxLength = 0
+  minLength = 0
 
-  constructor(value, options) {
+  reason = ''
+
+  constructor(value) {
+    super()
     this.value = value
     this.validate()
   }
 
-  validate() {}
+  update(value) {
+    this.value = value
+    this.validate()
+  }
+
+  validate() {
+    console.log('validate', this.value)
+    if (this.required && !this.value) {
+      this.valid = false
+      this.invalid = true
+      this.reason = 'required'
+      return
+    }
+
+    if (this.maxLength && this.value.length > this.maxLength) {
+      this.valid = false
+      this.invalid = true
+      this.reason = 'maxLength'
+      return
+    }
+
+    if (this.minLength && this.value.length < this.minLength) {
+      this.valid = false
+      this.invalid = true
+      this.reason = 'minLength'
+      return
+    }
+
+    this.valid = true
+    this.invalid = false
+    this.reason = ''
+  }
 }
 
 export class CdgFormGroup {}
