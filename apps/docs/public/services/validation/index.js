@@ -1,6 +1,7 @@
 import {CdgDatepickerValidationSection} from './datepicker/datepicker-validation.section'
 import {CdgDropdownValidationSection} from './dropdown/dropdown-validation.section'
 import {CdgFieldValidationSection} from './field-validation/field-validation.section'
+import {CdgFormValidationSection} from './form/form.section'
 import {CdgTouchedSection} from './touched/touched.section'
 import {CdgValidationDemo} from './validation'
 
@@ -15,6 +16,7 @@ customElements.define(
   'cdg-dropdown-validation-section',
   CdgDropdownValidationSection,
 )
+customElements.define('cdg-form-validation-section', CdgFormValidationSection)
 
 export {
   CdgValidationDemo,
@@ -22,4 +24,5 @@ export {
   CdgTouchedSection,
   CdgDatepickerValidationSection,
   CdgDropdownValidationSection,
+  CdgFormValidationSection,
 }
