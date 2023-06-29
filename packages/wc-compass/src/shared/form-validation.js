@@ -26,7 +26,7 @@ export class TextFieldValidate extends FieldValidateProps {
   }
 
   validate() {
-    if (this.required && !this.value) {
+    if (this.required && (!this.value || !this.value.trim())) {
       this.valid = false
       this.invalid = true
       this.reason = 'required'
@@ -54,7 +54,6 @@ export class TextFieldValidate extends FieldValidateProps {
       return
     }
 
-    console.log('end')
     this.valid = true
     this.invalid = false
     this.reason = ''
@@ -123,4 +122,22 @@ export class DropdownValidate extends FieldValidateProps {
   }
 }
 
-export class CdgFormGroup {}
+export class CdgFormGroup {
+  fields = []
+
+  get valid() {
+    let formValid = true
+    if (this.fields.length) {
+      for (let i = 0; i < this.fields.length; i++) {
+        if (this.fields[i].invalid) {
+          formValid = false
+        }
+      }
+    }
+    return formValid
+  }
+
+  register(field) {
+    this.fields.push(field)
+  }
+}
