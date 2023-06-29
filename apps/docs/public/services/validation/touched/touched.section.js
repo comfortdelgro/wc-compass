@@ -1,9 +1,10 @@
+import {REGEX_EMAIL} from '@comfortdelgro/wc-compass/src/shared/regex'
 import {CdgBaseComponent} from '../../../shared/base-component'
-import template from './field-validation.section.html'
+import template from './touched.section.html'
 
 import {TextFieldValidate} from '@comfortdelgro/wc-compass/src/shared/form-validation'
 
-export class CdgFieldValidationSection extends CdgBaseComponent {
+export class CdgTouchedSection extends CdgBaseComponent {
   content
   constructor() {
     super()
@@ -21,8 +22,9 @@ export class CdgFieldValidationSection extends CdgBaseComponent {
     fieldValidation.required = true
     fieldValidation.minLength = 5
     fieldValidation.maxLength = 20
+    fieldValidation.pattern = REGEX_EMAIL
 
-    field.addEventListener('input', () => {
+    const validateField = () => {
       let message = defaultText
       fieldValidation.update(field.value)
       if (fieldValidation.invalid) {
@@ -46,6 +48,10 @@ export class CdgFieldValidationSection extends CdgBaseComponent {
               ' chars'
             break
 
+          case 'pattern':
+            message = 'Should follow pattern email'
+            break
+
           default:
             break
         }
@@ -53,6 +59,15 @@ export class CdgFieldValidationSection extends CdgBaseComponent {
         group.classList.remove('error')
       }
       messageElement.textContent = message
+    }
+
+    field.addEventListener('blur', () => {
+      fieldValidation.validate()
+      validateField()
+    })
+
+    field.addEventListener('input', () => {
+      validateField()
     })
   }
 }

@@ -1,9 +1,9 @@
 import {CdgBaseComponent} from '../../../shared/base-component'
-import template from './field-validation.section.html'
+import template from './datepicker-validation.section.html'
 
 import {TextFieldValidate} from '@comfortdelgro/wc-compass/src/shared/form-validation'
 
-export class CdgFieldValidationSection extends CdgBaseComponent {
+export class CdgDatepickerValidationSection extends CdgBaseComponent {
   content
   constructor() {
     super()
@@ -11,7 +11,7 @@ export class CdgFieldValidationSection extends CdgBaseComponent {
   }
 
   onInit() {
-    const field = this.querySelector('#sample-validation')
+    const field = this.querySelector('cdg-datepicker')
     const group = this.querySelector('.cdg-input-group')
     const messageElement = this.querySelector('.cdg-helper-message')
 
@@ -19,12 +19,10 @@ export class CdgFieldValidationSection extends CdgBaseComponent {
 
     const fieldValidation = new TextFieldValidate(field.value)
     fieldValidation.required = true
-    fieldValidation.minLength = 5
-    fieldValidation.maxLength = 20
 
-    field.addEventListener('input', () => {
+    field.addEventListener('onDateChange', (event) => {
       let message = defaultText
-      fieldValidation.update(field.value)
+      fieldValidation.update(event.detail)
       if (fieldValidation.invalid) {
         group.classList.add('error')
         switch (fieldValidation.reason) {

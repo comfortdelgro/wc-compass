@@ -1,9 +1,9 @@
 import {CdgBaseComponent} from '../../../shared/base-component'
-import template from './field-validation.section.html'
+import template from './dropdown-validation.section.html'
 
-import {TextFieldValidate} from '@comfortdelgro/wc-compass/src/shared/form-validation'
+import {DropdownValidate} from '@comfortdelgro/wc-compass/src/shared/form-validation'
 
-export class CdgFieldValidationSection extends CdgBaseComponent {
+export class CdgDropdownValidationSection extends CdgBaseComponent {
   content
   constructor() {
     super()
@@ -11,20 +11,18 @@ export class CdgFieldValidationSection extends CdgBaseComponent {
   }
 
   onInit() {
-    const field = this.querySelector('#sample-validation')
+    const field = this.querySelector('cdg-dropdown')
     const group = this.querySelector('.cdg-input-group')
     const messageElement = this.querySelector('.cdg-helper-message')
 
     const defaultText = messageElement.textContent
 
-    const fieldValidation = new TextFieldValidate(field.value)
+    const fieldValidation = new DropdownValidate(field.value)
     fieldValidation.required = true
-    fieldValidation.minLength = 5
-    fieldValidation.maxLength = 20
 
-    field.addEventListener('input', () => {
+    field.addEventListener('onchangevalue', (event) => {
       let message = defaultText
-      fieldValidation.update(field.value)
+      fieldValidation.update(event.detail)
       if (fieldValidation.invalid) {
         group.classList.add('error')
         switch (fieldValidation.reason) {

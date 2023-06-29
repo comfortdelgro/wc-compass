@@ -121,7 +121,6 @@
   &.error {
     .cdg-input {
       border-color: var(--danger);
-      border-width: 2px;
     }
 
     .cdg-helper-message {
@@ -139,6 +138,10 @@
           color: var(--danger);
         }
       }
+    }
+
+    .cdg-dropdown .cdg-dropdown-button {
+      border-color: var(--danger);
     }
   }
 

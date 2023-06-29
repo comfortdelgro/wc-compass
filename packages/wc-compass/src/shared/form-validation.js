@@ -26,7 +26,6 @@ export class TextFieldValidate extends FieldValidateProps {
   }
 
   validate() {
-    console.log('validate', this.value)
     if (this.required && !this.value) {
       this.valid = false
       this.invalid = true
@@ -45,6 +44,76 @@ export class TextFieldValidate extends FieldValidateProps {
       this.valid = false
       this.invalid = true
       this.reason = 'minLength'
+      return
+    }
+
+    if (this.pattern && !this.pattern.test(this.value)) {
+      this.valid = false
+      this.invalid = true
+      this.reason = 'pattern'
+      return
+    }
+
+    console.log('end')
+    this.valid = true
+    this.invalid = false
+    this.reason = ''
+  }
+}
+
+export class DatepickerValidate extends FieldValidateProps {
+  value = ''
+  required = false
+
+  reason = ''
+
+  constructor(value) {
+    super()
+    this.value = value
+    this.validate()
+  }
+
+  update(value) {
+    this.value = value
+    this.validate()
+  }
+
+  validate() {
+    if (this.required && !this.value) {
+      this.valid = false
+      this.invalid = true
+      this.reason = 'required'
+      return
+    }
+
+    this.valid = true
+    this.invalid = false
+    this.reason = ''
+  }
+}
+
+export class DropdownValidate extends FieldValidateProps {
+  value = ''
+  required = false
+
+  reason = ''
+
+  constructor(value) {
+    super()
+    this.value = value
+    this.validate()
+  }
+
+  update(value) {
+    this.value = value
+    this.validate()
+  }
+
+  validate() {
+    if (this.required && !this.value) {
+      this.valid = false
+      this.invalid = true
+      this.reason = 'required'
       return
     }
 
