@@ -1,0 +1,89 @@
+<cdg-sample-section name="Dropdown">
+  <div class="sample-section column">
+    <div class="cdg-form-row">
+      <label class="cdg-input-group">
+        <span class="cdg-input-label">Single dropdown</span>
+        <cdg-dropdown placeholder="Select an item" header-title="Filter title">
+          <cdg-dropdown-option value="1"> Dropdown 1 </cdg-dropdown-option>
+          <cdg-dropdown-option value="2" current-color="black">
+            Dropdown 2
+          </cdg-dropdown-option>
+          <cdg-dropdown-option value="3"> Dropdown 3 </cdg-dropdown-option>
+        </cdg-dropdown>
+        <span class="cdg-helper-message">Ex: It's awesome</span>
+      </label>
+    </div>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;label class=&quot;cdg-input-group&quot;&gt;
+      &lt;span class=&quot;cdg-input-label&quot;&gt;Single dropdown&lt;/span&gt;
+      &lt;cdg-dropdown placeholder=&quot;Select an item&quot; header-title=&quot;Filter title&quot;&gt;
+        &lt;cdg-dropdown-option value=&quot;1&quot;&gt; Dropdown 1 &lt;/cdg-dropdown-option&gt;
+        &lt;cdg-dropdown-option value=&quot;2&quot; current-color=&quot;black&quot;&gt;
+          Dropdown 2
+        &lt;/cdg-dropdown-option&gt;
+        &lt;cdg-dropdown-option value=&quot;3&quot;&gt; Dropdown 3 &lt;/cdg-dropdown-option&gt;
+      &lt;/cdg-dropdown&gt;
+      &lt;span class=&quot;cdg-helper-message&quot;&gt;Ex: It&apos;s awesome&lt;/span&gt;
+    &lt;/label&gt;
+&lt;script&gt;
+import {CdgBaseComponent} from &apos;../../../shared/base-component&apos;
+import template from &apos;./dropdown-validation.section.html&apos;
+
+import {DropdownValidator} from &apos;@comfortdelgro/wc-compass/src/shared/form-validation&apos;
+
+export class CdgDropdownValidationSection extends CdgBaseComponent {
+  content
+  constructor() {
+    super()
+    this.template = template
+  }
+
+  onInit() {
+    const field = this.querySelector(&apos;cdg-dropdown&apos;)
+    const group = this.querySelector(&apos;.cdg-input-group&apos;)
+    const messageElement = this.querySelector(&apos;.cdg-helper-message&apos;)
+
+    const defaultText = messageElement.textContent
+
+    const fieldValidation = new DropdownValidator(field.value)
+    fieldValidation.required = true
+
+    field.addEventListener(&apos;onchangevalue&apos;, (event) =&gt; {
+      let message = defaultText
+      fieldValidation.update(event.detail)
+      if (fieldValidation.invalid) {
+        group.classList.add(&apos;error&apos;)
+        switch (fieldValidation.reason) {
+          case &apos;required&apos;:
+            message = &apos;This field is required&apos;
+            break
+
+          case &apos;minLength&apos;:
+            message =
+              &apos;The inputed value should be longer than minimum &apos; +
+              fieldValidation.minLength +
+              &apos; chars&apos;
+            break
+
+          case &apos;maxLength&apos;:
+            message =
+              &apos;This field allows you to input &apos; +
+              fieldValidation.maxLength +
+              &apos; chars&apos;
+            break
+
+          default:
+            break
+        }
+      } else {
+        group.classList.remove(&apos;error&apos;)
+      }
+      messageElement.textContent = message
+    })
+  }
+}
+&lt;/script&gt;</code>
+</pre>
+</cdg-sample-section>

@@ -46,31 +46,27 @@
     <cdg-demo-sidebar></cdg-demo-sidebar>
     <div class="page-content cdg-layout as-column cdg-flex">
       <cdg-portal-navbar class="primary">
-        <button
-          is="cdg-button"
-          class="icon"
-          size="small"
-          title="Menu button"
-          onclick="showMenu()"
-        >
-          <cdg-icon name="menu" size="16"></cdg-icon>
-        </button>
-        <div class="portal-title">Compass Design</div>
         <cdg-tooltip
-          placement="bottom"
+          placement="bottomLeft"
           type="secondary"
           hide-arrow
           hide-close-button
         >
-          <div cdg-tooltip-header>
-            <cdg-demo-search-content
-              cdg-tooltip-header
-            ></cdg-demo-search-content>
-          </div>
+          <button
+            is="cdg-button"
+            class="icon"
+            size="small"
+            onclick="showMenu()"
+            cdg-tooltip-header
+          >
+            <cdg-icon name="menu" size="16"></cdg-icon>
+          </button>
           <div cdg-tooltip-content class="cdg-tooltip-small-text">
-            Search for the name of the component document
+            Toggle menu
           </div>
         </cdg-tooltip>
+        <div class="portal-title">Compass Design</div>
+        <cdg-demo-search-content cdg-tooltip-header></cdg-demo-search-content>
         <div class="cdg-separator"></div>
         <div class="cdg-portal-nav-actions">
           <cdg-tooltip
@@ -78,6 +74,7 @@
             type="secondary"
             hide-arrow
             hide-close-button
+            disable-interactive
           >
             <button
               is="cdg-button"
@@ -97,6 +94,7 @@
             type="secondary"
             hide-arrow
             hide-close-button
+            disable-interactive
           >
             <a
               href="https://github.com/comfortdelgro/wc-compass"

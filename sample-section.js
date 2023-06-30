@@ -1,32 +1,10 @@
 const SAMPLE_TABS = `
 <cdg-tabs classic>
   <cdg-tab activated>
-    <cdg-tooltip
-      placement="topRight"
-      type="secondary"
-      hide-close-button
-    >
-      <div cdg-tooltip-header>
-        Sample
-      </div>
-      <div cdg-tooltip-content class="cdg-tooltip-small-text">
-        Show demo
-      </div>
-    </cdg-tooltip>
+    Sample
   </cdg-tab>
   <cdg-tab>
-    <cdg-tooltip
-      placement="topRight"
-      type="secondary"
-      hide-close-button
-    >
-      <div cdg-tooltip-header>
-        Code
-      </div>
-      <div cdg-tooltip-content class="cdg-tooltip-small-text">
-        Show code
-      </div>
-    </cdg-tooltip>
+    Show code
   </cdg-tab>
 </cdg-tabs>`
 
