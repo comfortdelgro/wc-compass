@@ -1,0 +1,92 @@
+<cdg-sample-section name="Text field">
+  <div class="sample-section">
+    <div class="cdg-form-row">
+      <label class="cdg-input-group" style="width: 320px">
+        <span class="cdg-input-label">
+          Input me <i class="cdg-required-mark">*</i>
+        </span>
+        <input
+          id="sample-validation"
+          class="cdg-input"
+          placeholder="Type something..."
+        />
+        <span class="cdg-helper-message">Ex: It's awesome</span>
+      </label>
+    </div>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 320px&quot;&gt;
+      &lt;span class=&quot;cdg-input-label&quot;&gt;
+        Input me &lt;i class=&quot;cdg-required-mark&quot;&gt;*&lt;/i&gt;
+      &lt;/span&gt;
+      &lt;input
+        id=&quot;sample-validation&quot;
+        class=&quot;cdg-input&quot;
+        placeholder=&quot;Type something...&quot;
+      /&gt;
+      &lt;span class=&quot;cdg-helper-message&quot;&gt;Ex: It&apos;s awesome&lt;/span&gt;
+    &lt;/label&gt;
+&lt;script&gt;
+import {CdgBaseComponent} from &apos;../../../shared/base-component&apos;
+import template from &apos;./field-validation.section.html&apos;
+
+import {TextFieldValidator} from &apos;@comfortdelgro/wc-compass/src/shared/form-validation&apos;
+
+export class CdgFieldValidationSection extends CdgBaseComponent {
+  content
+  constructor() {
+    super()
+    this.template = template
+  }
+
+  onInit() {
+    const field = this.querySelector(&apos;#sample-validation&apos;)
+    const group = this.querySelector(&apos;.cdg-input-group&apos;)
+    const messageElement = this.querySelector(&apos;.cdg-helper-message&apos;)
+
+    const defaultText = messageElement.textContent
+
+    const fieldValidation = new TextFieldValidator(field.value)
+    fieldValidation.required = true
+    fieldValidation.minLength = 5
+    fieldValidation.maxLength = 20
+
+    field.addEventListener(&apos;input&apos;, () =&gt; {
+      let message = defaultText
+      fieldValidation.update(field.value)
+      if (fieldValidation.invalid) {
+        group.classList.add(&apos;error&apos;)
+        switch (fieldValidation.reason) {
+          case &apos;required&apos;:
+            message = &apos;This field is required&apos;
+            break
+
+          case &apos;minLength&apos;:
+            message =
+              &apos;The inputed value should be longer than minimum &apos; +
+              fieldValidation.minLength +
+              &apos; chars&apos;
+            break
+
+          case &apos;maxLength&apos;:
+            message =
+              &apos;This field allows you to input &apos; +
+              fieldValidation.maxLength +
+              &apos; chars&apos;
+            break
+
+          default:
+            break
+        }
+      } else {
+        group.classList.remove(&apos;error&apos;)
+      }
+      messageElement.textContent = message
+    })
+  }
+}
+
+&lt;/script&gt;</code>
+</pre>
+</cdg-sample-section>
