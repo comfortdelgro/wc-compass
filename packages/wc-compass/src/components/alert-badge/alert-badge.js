@@ -1,9 +1,9 @@
 export class CdgAlertBadge extends HTMLElement {
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('dg-alert-badge');
+    this.classList.add('cdg-alert-badge')
   }
 }

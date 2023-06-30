@@ -1,6 +1,6 @@
 .cdg-time-dropdown {
   background-color: var(--background);
-  border: 1px solid var(--border-color-dropdown);
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   display: block;
   width: fit-content;
@@ -40,10 +40,10 @@
   scrollbar-width: none;
 }
 .cdg-time-dropdown-hours {
-  border-right: 1px solid var(--border-color-dropdown);
+  border-right: 1px solid var(--border-color);
 }
 .cdg-time-dropdown-minutes {
-  border-right: 1px solid var(--border-color-dropdown);
+  border-right: 1px solid var(--border-color);
 }
 .cdg-time-dropdown-item {
   display: flex;
@@ -72,7 +72,7 @@
   padding: 8px;
   display: flex;
   justify-content: flex-end;
-  border-top: 1px solid var(--border-color-dropdown);
+  border-top: 1px solid var(--border-color);
   button {
     font-weight: 500;
     font-size: var(--body3);

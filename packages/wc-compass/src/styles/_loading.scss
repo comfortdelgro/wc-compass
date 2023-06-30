@@ -1,0 +1,225 @@
+.cdg-skeleton-loading {
+  a,
+  span {
+    display: inline-flex;
+  }
+
+  .cdg-carousel-navigation .cdg-button {
+    position: absolute;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  a,
+  p,
+  span,
+  .cdg-wizard-step-text,
+  .cdg-pill-badge,
+  .cdg-alert-badge,
+  .cdg-list-item-button,
+  .cdg-list-item-description,
+  .cdg-list-item-title,
+  .cdg-timeline-card-body,
+  .cdg-card-cover,
+  .cdg-gallery-image-wrapper,
+  .cdg-file-upload-name,
+  .cdg-form-section-description,
+  .cdg-form-section-title,
+  .cdg-slide,
+  .pagingation-label,
+  .cdg-dropdown-button-text,
+  .day-of-week li,
+  .content-month-title,
+  .cdg-sub-nav-group-name,
+  .calendar-day button,
+  .cdg-drop-label,
+  .month-selector-clear,
+  .cdg-avatar,
+  .side-card-header,
+  .cdg-page-index-item,
+  .cdg-tab,
+  .portal-title,
+  .sub-page-breadcrumb,
+  .cdg-drop-sub-label,
+  .radio-description,
+  .radio-title,
+  .cdg-icon,
+  .activity-category,
+  .cdg-page-title {
+    position: relative;
+    overflow: hidden;
+    &::before,
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    &::before {
+      content: '';
+      background-color: var(--grey20);
+    }
+    &::after {
+      content: '';
+      transform: translateX(-100%);
+      background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.2) 20%,
+        rgba(255, 255, 255, 0.5) 60%,
+        rgba(255, 255, 255, 0)
+      );
+      animation: shimmer 2s infinite;
+    }
+  }
+
+  .activity-category {
+    &::before {
+      border-radius: 3px;
+    }
+  }
+
+  .cdg-alert-badge,
+  .cdg-pill-badge {
+    &::before {
+      background-color: var(--hover-background);
+    }
+    &[type='danger']::before {
+      background-color: var(--status-error-background);
+    }
+    &[type='warning']::before {
+      background-color: var(--status-warning-background);
+    }
+    &[type='success']::before {
+      background-color: var(--status-success-background);
+    }
+  }
+
+  .activity-category {
+    &::before {
+      background-color: var(--status-info-background);
+    }
+  }
+
+  .content-month-title {
+    border-color: var(--accent);
+    &::before {
+      background-color: var(--blue60);
+    }
+    &.secondary {
+      border-color: var(--accent);
+      &::before {
+        background-color: var(--hover-background);
+      }
+    }
+  }
+
+  .activity-category {
+    &::before {
+      background-color: var(--status-info-background);
+    }
+  }
+
+  .cdg-avatar {
+    &::before {
+      border-radius: 20px;
+    }
+  }
+
+  h3.sample-section-title,
+  .radio-description,
+  .radio-title {
+    &:before {
+      top: 2px;
+      bottom: 2px;
+    }
+  }
+
+  .cdg-dropdown-button-text {
+    &:before {
+      right: 4px;
+    }
+  }
+
+  .day-of-week li,
+  .calendar-day button {
+    &:before {
+      top: 2px;
+      bottom: 2px;
+      left: 2px;
+      right: 2px;
+    }
+  }
+
+  .side-card-header,
+  .table-of-content h4,
+  .cdg-page-index-item {
+    &:before {
+      top: 8px;
+      bottom: 8px;
+      left: 16px;
+      right: 16px;
+    }
+  }
+
+  .cdg-tabs[classic] .cdg-tab {
+    &:before {
+      top: 8px;
+      bottom: 8px;
+    }
+  }
+
+  .cdg-button {
+    position: relative;
+    overflow: hidden;
+    &::before,
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    &::after {
+      content: '';
+      transform: translateX(-100%);
+      background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.2) 20%,
+        rgba(255, 255, 255, 0.5) 60%,
+        rgba(255, 255, 255, 0)
+      );
+      animation: shimmer 2s infinite;
+    }
+
+    &::before {
+      content: '';
+      background-color: var(--blue40);
+    }
+
+    &.secondary::before {
+      content: '';
+      background-color: var(--blue10);
+    }
+
+    &.danger::before {
+      content: '';
+      background-color: var(--status-error-background);
+    }
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

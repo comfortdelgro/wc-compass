@@ -92,8 +92,16 @@ export const DOCUMENT_CONTENT = [
         slug: 'navbar',
       },
       {
+        name: 'No Data',
+        slug: 'noData',
+      },
+      {
         name: 'Sub Nav',
         slug: 'subNav',
+      },
+      {
+        name: 'Skeleton Loading',
+        slug: 'skeletonLoading',
       },
       {
         name: 'Table',
@@ -323,6 +331,10 @@ export const DOCUMENT_CONTENT = [
       {
         name: 'For loop',
         slug: 'forLoop',
+      },
+      {
+        name: 'Validation',
+        slug: 'validation',
       },
       {
         name: 'Utilities',
