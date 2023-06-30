@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.2.18
+
+### Patch Changes
+
+- 00ec9f6: Release new version
+
 ## 0.2.17
 
 ### Patch Changes
