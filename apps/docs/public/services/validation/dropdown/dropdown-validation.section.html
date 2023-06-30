@@ -16,6 +16,74 @@
   </div>
 
   <pre>
-    <code class="language-html"></code>
+    <code class="language-html">&lt;label class=&quot;cdg-input-group&quot;&gt;
+      &lt;span class=&quot;cdg-input-label&quot;&gt;Single dropdown&lt;/span&gt;
+      &lt;cdg-dropdown placeholder=&quot;Select an item&quot; header-title=&quot;Filter title&quot;&gt;
+        &lt;cdg-dropdown-option value=&quot;1&quot;&gt; Dropdown 1 &lt;/cdg-dropdown-option&gt;
+        &lt;cdg-dropdown-option value=&quot;2&quot; current-color=&quot;black&quot;&gt;
+          Dropdown 2
+        &lt;/cdg-dropdown-option&gt;
+        &lt;cdg-dropdown-option value=&quot;3&quot;&gt; Dropdown 3 &lt;/cdg-dropdown-option&gt;
+      &lt;/cdg-dropdown&gt;
+      &lt;span class=&quot;cdg-helper-message&quot;&gt;Ex: It&apos;s awesome&lt;/span&gt;
+    &lt;/label&gt;
+&lt;script&gt;
+import {CdgBaseComponent} from &apos;../../../shared/base-component&apos;
+import template from &apos;./dropdown-validation.section.html&apos;
+
+import {DropdownValidate} from &apos;@comfortdelgro/wc-compass/src/shared/form-validation&apos;
+
+export class CdgDropdownValidationSection extends CdgBaseComponent {
+  content
+  constructor() {
+    super()
+    this.template = template
+  }
+
+  onInit() {
+    const field = this.querySelector(&apos;cdg-dropdown&apos;)
+    const group = this.querySelector(&apos;.cdg-input-group&apos;)
+    const messageElement = this.querySelector(&apos;.cdg-helper-message&apos;)
+
+    const defaultText = messageElement.textContent
+
+    const fieldValidation = new DropdownValidate(field.value)
+    fieldValidation.required = true
+
+    field.addEventListener(&apos;onchangevalue&apos;, (event) =&gt; {
+      let message = defaultText
+      fieldValidation.update(event.detail)
+      if (fieldValidation.invalid) {
+        group.classList.add(&apos;error&apos;)
+        switch (fieldValidation.reason) {
+          case &apos;required&apos;:
+            message = &apos;This field is required&apos;
+            break
+
+          case &apos;minLength&apos;:
+            message =
+              &apos;The inputed value should be longer than minimum &apos; +
+              fieldValidation.minLength +
+              &apos; chars&apos;
+            break
+
+          case &apos;maxLength&apos;:
+            message =
+              &apos;This field allows you to input &apos; +
+              fieldValidation.maxLength +
+              &apos; chars&apos;
+            break
+
+          default:
+            break
+        }
+      } else {
+        group.classList.remove(&apos;error&apos;)
+      }
+      messageElement.textContent = message
+    })
+  }
+}
+&lt;/script&gt;</code>
 </pre>
 </cdg-sample-section>

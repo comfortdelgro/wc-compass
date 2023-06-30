@@ -17,6 +17,92 @@
   </div>
 
   <pre>
-    <code class="language-html"></code>
+    <code class="language-html">&lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 320px&quot;&gt;
+      &lt;span class=&quot;cdg-input-label&quot;&gt;
+        Input me &lt;i class=&quot;cdg-required-mark&quot;&gt;*&lt;/i&gt;
+      &lt;/span&gt;
+      &lt;input
+        id=&quot;sample-validation&quot;
+        class=&quot;cdg-input&quot;
+        placeholder=&quot;Type something...&quot;
+      /&gt;
+      &lt;span class=&quot;cdg-helper-message&quot;&gt;Ex: It&apos;s awesome&lt;/span&gt;
+    &lt;/label&gt;
+&lt;script&gt;
+import {REGEX_EMAIL} from &apos;@comfortdelgro/wc-compass/src/shared/regex&apos;
+import {CdgBaseComponent} from &apos;../../../shared/base-component&apos;
+import template from &apos;./touched.section.html&apos;
+
+import {TextFieldValidate} from &apos;@comfortdelgro/wc-compass/src/shared/form-validation&apos;
+
+export class CdgTouchedSection extends CdgBaseComponent {
+  content
+  constructor() {
+    super()
+    this.template = template
+  }
+
+  onInit() {
+    const field = this.querySelector(&apos;#sample-validation&apos;)
+    const group = this.querySelector(&apos;.cdg-input-group&apos;)
+    const messageElement = this.querySelector(&apos;.cdg-helper-message&apos;)
+
+    const defaultText = messageElement.textContent
+
+    const fieldValidation = new TextFieldValidate(field.value)
+    fieldValidation.required = true
+    fieldValidation.minLength = 5
+    fieldValidation.maxLength = 20
+    fieldValidation.pattern = REGEX_EMAIL
+
+    const validateField = () =&gt; {
+      let message = defaultText
+      fieldValidation.update(field.value)
+      if (fieldValidation.invalid) {
+        group.classList.add(&apos;error&apos;)
+        switch (fieldValidation.reason) {
+          case &apos;required&apos;:
+            message = &apos;This field is required&apos;
+            break
+
+          case &apos;minLength&apos;:
+            message =
+              &apos;The inputed value should be longer than minimum &apos; +
+              fieldValidation.minLength +
+              &apos; chars&apos;
+            break
+
+          case &apos;maxLength&apos;:
+            message =
+              &apos;This field allows you to input &apos; +
+              fieldValidation.maxLength +
+              &apos; chars&apos;
+            break
+
+          case &apos;pattern&apos;:
+            message = &apos;Should follow pattern email&apos;
+            break
+
+          default:
+            break
+        }
+      } else {
+        group.classList.remove(&apos;error&apos;)
+      }
+      messageElement.textContent = message
+    }
+
+    field.addEventListener(&apos;blur&apos;, () =&gt; {
+      fieldValidation.validate()
+      validateField()
+    })
+
+    field.addEventListener(&apos;input&apos;, () =&gt; {
+      validateField()
+    })
+  }
+}
+
+&lt;/script&gt;</code>
 </pre>
 </cdg-sample-section>
