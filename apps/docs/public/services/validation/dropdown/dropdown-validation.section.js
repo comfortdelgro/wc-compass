@@ -1,7 +1,7 @@
 import {CdgBaseComponent} from '../../../shared/base-component'
 import template from './dropdown-validation.section.html'
 
-import {DropdownValidate} from '@comfortdelgro/wc-compass/src/shared/form-validation'
+import {DropdownValidator} from '@comfortdelgro/wc-compass/src/shared/form-validation'
 
 export class CdgDropdownValidationSection extends CdgBaseComponent {
   content
@@ -17,7 +17,7 @@ export class CdgDropdownValidationSection extends CdgBaseComponent {
 
     const defaultText = messageElement.textContent
 
-    const fieldValidation = new DropdownValidate(field.value)
+    const fieldValidation = new DropdownValidator(field.value)
     fieldValidation.required = true
 
     field.addEventListener('onchangevalue', (event) => {

@@ -1,7 +1,7 @@
 import {CdgBaseComponent} from '../../../shared/base-component'
 import template from './datepicker-validation.section.html'
 
-import {TextFieldValidate} from '@comfortdelgro/wc-compass/src/shared/form-validation'
+import {TextFieldValidator} from '@comfortdelgro/wc-compass/src/shared/form-validation'
 
 export class CdgDatepickerValidationSection extends CdgBaseComponent {
   content
@@ -17,7 +17,7 @@ export class CdgDatepickerValidationSection extends CdgBaseComponent {
 
     const defaultText = messageElement.textContent
 
-    const fieldValidation = new TextFieldValidate(field.value)
+    const fieldValidation = new TextFieldValidator(field.value)
     fieldValidation.required = true
 
     field.addEventListener('onDateChange', (event) => {

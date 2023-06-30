@@ -7,7 +7,7 @@ import template from './form.section.html'
 
 import {
   CdgFormGroup,
-  TextFieldValidate,
+  TextFieldValidator,
 } from '@comfortdelgro/wc-compass/src/shared/form-validation'
 
 export class CdgFormValidationSection extends CdgBaseComponent {
@@ -43,7 +43,7 @@ export class CdgFormValidationSection extends CdgBaseComponent {
 
     const defaultText = messageElement.textContent
 
-    const fieldValidation = new TextFieldValidate(field.value)
+    const fieldValidation = new TextFieldValidator(field.value)
     fieldValidation.required = true
     fieldValidation.update(input.value)
     this.form.register(fieldValidation)
@@ -85,7 +85,7 @@ export class CdgFormValidationSection extends CdgBaseComponent {
 
     const defaultText = messageElement.textContent
 
-    const fieldValidation = new TextFieldValidate(field.value)
+    const fieldValidation = new TextFieldValidator(field.value)
     fieldValidation.required = true
     fieldValidation.update(input.value)
     this.form.register(fieldValidation)
@@ -127,7 +127,7 @@ export class CdgFormValidationSection extends CdgBaseComponent {
 
     const defaultText = messageElement.textContent
 
-    const fieldValidation = new TextFieldValidate(field.value)
+    const fieldValidation = new TextFieldValidator(field.value)
     fieldValidation.required = true
     fieldValidation.pattern = REGEX_PHONE_NUMBER
     fieldValidation.update(input.value)
@@ -174,7 +174,7 @@ export class CdgFormValidationSection extends CdgBaseComponent {
 
     const defaultText = messageElement.textContent
 
-    const fieldValidation = new TextFieldValidate(field.value)
+    const fieldValidation = new TextFieldValidator(field.value)
     fieldValidation.required = true
     fieldValidation.pattern = REGEX_EMAIL
     fieldValidation.update(input.value)

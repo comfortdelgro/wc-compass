@@ -31,7 +31,7 @@
 import {CdgBaseComponent} from &apos;../../../shared/base-component&apos;
 import template from &apos;./field-validation.section.html&apos;
 
-import {TextFieldValidate} from &apos;@comfortdelgro/wc-compass/src/shared/form-validation&apos;
+import {TextFieldValidator} from &apos;@comfortdelgro/wc-compass/src/shared/form-validation&apos;
 
 export class CdgFieldValidationSection extends CdgBaseComponent {
   content
@@ -47,7 +47,7 @@ export class CdgFieldValidationSection extends CdgBaseComponent {
 
     const defaultText = messageElement.textContent
 
-    const fieldValidation = new TextFieldValidate(field.value)
+    const fieldValidation = new TextFieldValidator(field.value)
     fieldValidation.required = true
     fieldValidation.minLength = 5
     fieldValidation.maxLength = 20

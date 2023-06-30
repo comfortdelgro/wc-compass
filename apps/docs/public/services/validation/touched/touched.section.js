@@ -2,7 +2,7 @@ import {REGEX_EMAIL} from '@comfortdelgro/wc-compass/src/shared/regex'
 import {CdgBaseComponent} from '../../../shared/base-component'
 import template from './touched.section.html'
 
-import {TextFieldValidate} from '@comfortdelgro/wc-compass/src/shared/form-validation'
+import {TextFieldValidator} from '@comfortdelgro/wc-compass/src/shared/form-validation'
 
 export class CdgTouchedSection extends CdgBaseComponent {
   content
@@ -18,7 +18,7 @@ export class CdgTouchedSection extends CdgBaseComponent {
 
     const defaultText = messageElement.textContent
 
-    const fieldValidation = new TextFieldValidate(field.value)
+    const fieldValidation = new TextFieldValidator(field.value)
     fieldValidation.required = true
     fieldValidation.minLength = 5
     fieldValidation.maxLength = 20

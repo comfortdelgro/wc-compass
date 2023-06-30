@@ -5,7 +5,7 @@ export class FieldValidateProps {
   touched = false
 }
 
-export class TextFieldValidate extends FieldValidateProps {
+export class TextFieldValidator extends FieldValidateProps {
   value = ''
   required = false
   pattern = ''
@@ -60,7 +60,7 @@ export class TextFieldValidate extends FieldValidateProps {
   }
 }
 
-export class DatepickerValidate extends FieldValidateProps {
+export class DatepickerValidator extends FieldValidateProps {
   value = ''
   required = false
 
@@ -91,7 +91,7 @@ export class DatepickerValidate extends FieldValidateProps {
   }
 }
 
-export class DropdownValidate extends FieldValidateProps {
+export class DropdownValidator extends FieldValidateProps {
   value = ''
   required = false
 

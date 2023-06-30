@@ -7,6 +7,15 @@ import {CdgContextMenuService} from './shared/context-menu-service'
 import {CdgIconSize} from './shared/core'
 import {DialogService} from './shared/dialog'
 import {CdgLoop} from './shared/for-loop'
+
+import {
+  CdgFormGroup,
+  DatepickerValidator,
+  DropdownValidator,
+  FieldValidateProps,
+  TextFieldValidator,
+} from './shared/form-validation'
+
 import {CdgImageViewerService} from './shared/image-viewer-service'
 import {CdgLoadingService} from './shared/loading-service'
 import {ToastService} from './shared/toast-service'
@@ -39,6 +48,11 @@ export {
   CdgLoadingService,
   CdgContextMenuService,
   CdgLoop,
+  FieldValidateProps,
+  TextFieldValidator,
+  DatepickerValidator,
+  DropdownValidator,
+  CdgFormGroup,
   downloadSVGContent,
   downloadHTMLContent,
   toLowerCaseAndDash,
