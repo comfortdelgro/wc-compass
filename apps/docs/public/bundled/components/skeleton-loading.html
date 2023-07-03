@@ -1,0 +1,126 @@
+<p></p>
+
+<cdg-sample-section name="Default">
+  <div class="sample-section cdg-skeleton-loading" style="gap: 16px">
+    <cdg-card class="cdg-card raised" style="width: 320px">
+      <cdg-card-cover
+        src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp"
+        style="height: 200px"
+      ></cdg-card-cover>
+      <cdg-card-header title="Card title">
+        <button is="cdg-button" class="ghost icon" size="small">
+          <cdg-icon name="activity"></cdg-icon>
+        </button>
+      </cdg-card-header>
+      <cdg-card-body>
+        <span>Lorem ipsum dolor sit amet, consectetur adipiscingr</span>
+      </cdg-card-body>
+      <cdg-card-actions>
+        <button is="cdg-button">OK</button>
+        <button is="cdg-button" type="secondary">Cancel</button>
+      </cdg-card-actions>
+    </cdg-card>
+  </div>
+
+  <pre>
+    <code class="language-html">Just simply add cdg-skeleton-loading class name into any wrapper elements 
+    </code>
+</pre>
+</cdg-sample-section>
+
+<style>
+  .cdg-skeleton-loading .my-skeleton {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cdg-skeleton-loading .my-skeleton::after,
+  .cdg-skeleton-loading .my-skeleton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .cdg-skeleton-loading .my-skeleton::after {
+    background-color: var(--grey20);
+  }
+
+  .cdg-skeleton-loading .my-skeleton::before {
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0.2) 20%,
+      rgba(255, 255, 255, 0.5) 60%,
+      rgba(255, 255, 255, 0)
+    );
+    animation: shimmer 2s infinite;
+    z-index: 1;
+  }
+
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+</style>
+
+<cdg-sample-section name="Custom">
+  <div class="sample-section cdg-skeleton-loading" style="gap: 16px">
+    <div class="my-skeleton">
+      Something behind, the more longer text, the more longer skeleton
+    </div>
+  </div>
+
+  <pre>
+    <code class="language-html">
+      &lt;style&gt;
+        .cdg-skeleton-loading .my-skeleton {
+          position: relative;
+          overflow: hidden;
+        }
+      
+        .cdg-skeleton-loading .my-skeleton::after,
+        .cdg-skeleton-loading .my-skeleton::before {
+          content: &apos;&apos;;
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        }
+      
+        .cdg-skeleton-loading .my-skeleton::after {
+          background-color: var(--grey20);
+        }
+      
+        .cdg-skeleton-loading .my-skeleton::before {
+          transform: translateX(-100%);
+          background-image: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0) 0,
+            rgba(255, 255, 255, 0.2) 20%,
+            rgba(255, 255, 255, 0.5) 60%,
+            rgba(255, 255, 255, 0)
+          );
+          animation: shimmer 2s infinite;
+          z-index: 1;
+        }
+      
+        @keyframes shimmer {
+          100% {
+            transform: translateX(100%);
+          }
+        }
+      &lt;/style&gt;
+       &lt;div class=&quot;sample-section cdg-skeleton-loading&quot; style=&quot;gap: 16px&quot;&gt;
+          &lt;div class=&quot;my-skeleton&quot;&gt;
+            Something behind, the more longer text, the more longer skeleton
+          &lt;/div&gt;
+        &lt;/div&gt;
+      </code>
+</pre>
+</cdg-sample-section>

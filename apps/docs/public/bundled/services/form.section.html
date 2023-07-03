@@ -1,0 +1,325 @@
+<cdg-sample-section name="Form">
+  <p>Focus in and focus out of the field to show the error message</p>
+  <div class="sample-section">
+    <form class="cdg-form">
+      <div class="cdg-form-row">
+        <label id="firstName" class="cdg-input-group" style="width: 320px">
+          <span class="cdg-input-label">
+            First name <i class="cdg-required-mark">*</i>
+          </span>
+          <input class="cdg-input" placeholder="Enter first name..." />
+          <span class="cdg-helper-message"></span>
+        </label>
+        <label id="lastName" class="cdg-input-group" style="width: 320px">
+          <span class="cdg-input-label">
+            Last name <i class="cdg-required-mark">*</i>
+          </span>
+          <input class="cdg-input" placeholder="Enter last name..." />
+          <span class="cdg-helper-message"></span>
+        </label>
+      </div>
+      <div class="cdg-form-row">
+        <label id="phoneNumber" class="cdg-input-group" style="width: 320px">
+          <span class="cdg-input-label">
+            Phone number <i class="cdg-required-mark">*</i>
+          </span>
+          <input class="cdg-input" placeholder="Enter phone number..." />
+          <span class="cdg-helper-message"></span>
+        </label>
+        <label id="email" class="cdg-input-group" style="width: 320px">
+          <span class="cdg-input-label">
+            Email <i class="cdg-required-mark">*</i>
+          </span>
+          <input class="cdg-input" placeholder="Enter email..." />
+          <span class="cdg-helper-message"></span>
+        </label>
+      </div>
+      <div class="cdg-form-row">
+        <label class="cdg-input-group" style="width: 320px">
+          <span class="cdg-input-label"> Street </span>
+          <input class="cdg-input" placeholder="Enter street..." />
+          <span class="cdg-helper-message"></span>
+        </label>
+        <label id="email" class="cdg-input-group" style="width: 320px">
+          <span class="cdg-input-label"> City </span>
+          <input class="cdg-input" placeholder="Enter city..." />
+          <span class="cdg-helper-message"></span>
+        </label>
+      </div>
+      <div class="cdg-form-row">
+        <button id="submitButton" is="cdg-button" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;form class=&quot;cdg-form&quot;&gt;
+      &lt;div class=&quot;cdg-form-row&quot;&gt;
+        &lt;label id=&quot;firstName&quot; class=&quot;cdg-input-group&quot; style=&quot;width: 320px&quot;&gt;
+          &lt;span class=&quot;cdg-input-label&quot;&gt;
+            First name &lt;i class=&quot;cdg-required-mark&quot;&gt;*&lt;/i&gt;
+          &lt;/span&gt;
+          &lt;input class=&quot;cdg-input&quot; placeholder=&quot;Enter first name...&quot; /&gt;
+          &lt;span class=&quot;cdg-helper-message&quot;&gt;&lt;/span&gt;
+        &lt;/label&gt;
+        &lt;label id=&quot;lastName&quot; class=&quot;cdg-input-group&quot; style=&quot;width: 320px&quot;&gt;
+          &lt;span class=&quot;cdg-input-label&quot;&gt;
+            Last name &lt;i class=&quot;cdg-required-mark&quot;&gt;*&lt;/i&gt;
+          &lt;/span&gt;
+          &lt;input class=&quot;cdg-input&quot; placeholder=&quot;Enter last name...&quot; /&gt;
+          &lt;span class=&quot;cdg-helper-message&quot;&gt;&lt;/span&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;cdg-form-row&quot;&gt;
+        &lt;label id=&quot;phoneNumber&quot; class=&quot;cdg-input-group&quot; style=&quot;width: 320px&quot;&gt;
+          &lt;span class=&quot;cdg-input-label&quot;&gt;
+            Phone number &lt;i class=&quot;cdg-required-mark&quot;&gt;*&lt;/i&gt;
+          &lt;/span&gt;
+          &lt;input class=&quot;cdg-input&quot; placeholder=&quot;Enter phone number...&quot; /&gt;
+          &lt;span class=&quot;cdg-helper-message&quot;&gt;&lt;/span&gt;
+        &lt;/label&gt;
+        &lt;label id=&quot;email&quot; class=&quot;cdg-input-group&quot; style=&quot;width: 320px&quot;&gt;
+          &lt;span class=&quot;cdg-input-label&quot;&gt;
+            Email &lt;i class=&quot;cdg-required-mark&quot;&gt;*&lt;/i&gt;
+          &lt;/span&gt;
+          &lt;input class=&quot;cdg-input&quot; placeholder=&quot;Enter email...&quot; /&gt;
+          &lt;span class=&quot;cdg-helper-message&quot;&gt;&lt;/span&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;cdg-form-row&quot;&gt;
+        &lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 320px&quot;&gt;
+          &lt;span class=&quot;cdg-input-label&quot;&gt; Street &lt;/span&gt;
+          &lt;input class=&quot;cdg-input&quot; placeholder=&quot;Enter street...&quot; /&gt;
+          &lt;span class=&quot;cdg-helper-message&quot;&gt;&lt;/span&gt;
+        &lt;/label&gt;
+        &lt;label id=&quot;email&quot; class=&quot;cdg-input-group&quot; style=&quot;width: 320px&quot;&gt;
+          &lt;span class=&quot;cdg-input-label&quot;&gt; City &lt;/span&gt;
+          &lt;input class=&quot;cdg-input&quot; placeholder=&quot;Enter city...&quot; /&gt;
+          &lt;span class=&quot;cdg-helper-message&quot;&gt;&lt;/span&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;cdg-form-row&quot;&gt;
+        &lt;button id=&quot;submitButton&quot; is=&quot;cdg-button&quot; type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+&lt;script&gt;
+import {
+  REGEX_EMAIL,
+  REGEX_PHONE_NUMBER,
+} from &apos;@comfortdelgro/wc-compass/src/shared/regex&apos;
+import {CdgBaseComponent} from &apos;../../../shared/base-component&apos;
+import template from &apos;./form.section.html&apos;
+
+import {
+  CdgFormGroup,
+  TextFieldValidator,
+} from &apos;@comfortdelgro/wc-compass/src/shared/form-validation&apos;
+
+export class CdgFormValidationSection extends CdgBaseComponent {
+  content
+  form = new CdgFormGroup()
+  submitButton
+  constructor() {
+    super()
+    this.template = template
+  }
+
+  onInit() {
+    this.validateFirstName()
+    this.validateLastName()
+    this.validatePhoneNumber()
+    this.validateEmail()
+    this.submitButton = this.querySelector(&apos;#submitButton&apos;)
+    this.validateForm()
+  }
+
+  validateForm() {
+    if (!this.form.valid) {
+      this.submitButton.setAttribute(&apos;disabled&apos;, &apos;&apos;)
+    } else {
+      this.submitButton.removeAttribute(&apos;disabled&apos;)
+    }
+  }
+
+  validateFirstName() {
+    const field = this.querySelector(&apos;#firstName&apos;)
+    const input = field.querySelector(&apos;input&apos;)
+    const messageElement = field.querySelector(&apos;.cdg-helper-message&apos;)
+
+    const defaultText = messageElement.textContent
+
+    const fieldValidation = new TextFieldValidator(field.value)
+    fieldValidation.required = true
+    fieldValidation.update(input.value)
+    this.form.register(fieldValidation)
+
+    const validateField = () =&gt; {
+      let message = defaultText
+      fieldValidation.update(input.value)
+      if (fieldValidation.invalid) {
+        field.classList.add(&apos;error&apos;)
+        switch (fieldValidation.reason) {
+          case &apos;required&apos;:
+            message = &apos;This field is required&apos;
+
+            break
+          default:
+            break
+        }
+      } else {
+        field.classList.remove(&apos;error&apos;)
+      }
+      messageElement.textContent = message
+      this.validateForm()
+    }
+
+    input.addEventListener(&apos;blur&apos;, () =&gt; {
+      fieldValidation.validate()
+      validateField()
+    })
+
+    input.addEventListener(&apos;input&apos;, () =&gt; {
+      validateField()
+    })
+  }
+
+  validateLastName() {
+    const field = this.querySelector(&apos;#lastName&apos;)
+    const input = field.querySelector(&apos;input&apos;)
+    const messageElement = field.querySelector(&apos;.cdg-helper-message&apos;)
+
+    const defaultText = messageElement.textContent
+
+    const fieldValidation = new TextFieldValidator(field.value)
+    fieldValidation.required = true
+    fieldValidation.update(input.value)
+    this.form.register(fieldValidation)
+
+    const validateField = () =&gt; {
+      let message = defaultText
+      fieldValidation.update(input.value)
+      if (fieldValidation.invalid) {
+        field.classList.add(&apos;error&apos;)
+        switch (fieldValidation.reason) {
+          case &apos;required&apos;:
+            message = &apos;This field is required&apos;
+            break
+
+          default:
+            break
+        }
+      } else {
+        field.classList.remove(&apos;error&apos;)
+      }
+      messageElement.textContent = message
+      this.validateForm()
+    }
+
+    input.addEventListener(&apos;blur&apos;, () =&gt; {
+      fieldValidation.validate()
+      validateField()
+    })
+
+    input.addEventListener(&apos;input&apos;, () =&gt; {
+      validateField()
+    })
+  }
+
+  validatePhoneNumber() {
+    const field = this.querySelector(&apos;#phoneNumber&apos;)
+    const input = field.querySelector(&apos;input&apos;)
+    const messageElement = field.querySelector(&apos;.cdg-helper-message&apos;)
+
+    const defaultText = messageElement.textContent
+
+    const fieldValidation = new TextFieldValidator(field.value)
+    fieldValidation.required = true
+    fieldValidation.pattern = REGEX_PHONE_NUMBER
+    fieldValidation.update(input.value)
+    this.form.register(fieldValidation)
+
+    const validateField = () =&gt; {
+      let message = defaultText
+      fieldValidation.update(input.value)
+      if (fieldValidation.invalid) {
+        field.classList.add(&apos;error&apos;)
+        switch (fieldValidation.reason) {
+          case &apos;required&apos;:
+            message = &apos;This field is required&apos;
+            break
+
+          case &apos;pattern&apos;:
+            message = &apos;Wrong phone number format&apos;
+            break
+
+          default:
+            break
+        }
+      } else {
+        field.classList.remove(&apos;error&apos;)
+      }
+      messageElement.textContent = message
+      this.validateForm()
+    }
+
+    input.addEventListener(&apos;blur&apos;, () =&gt; {
+      fieldValidation.validate()
+      validateField()
+    })
+
+    input.addEventListener(&apos;input&apos;, () =&gt; {
+      validateField()
+    })
+  }
+
+  validateEmail() {
+    const field = this.querySelector(&apos;#email&apos;)
+    const input = field.querySelector(&apos;input&apos;)
+    const messageElement = field.querySelector(&apos;.cdg-helper-message&apos;)
+
+    const defaultText = messageElement.textContent
+
+    const fieldValidation = new TextFieldValidator(field.value)
+    fieldValidation.required = true
+    fieldValidation.pattern = REGEX_EMAIL
+    fieldValidation.update(input.value)
+    this.form.register(fieldValidation)
+
+    const validateField = () =&gt; {
+      let message = defaultText
+      fieldValidation.update(input.value)
+      if (fieldValidation.invalid) {
+        field.classList.add(&apos;error&apos;)
+        switch (fieldValidation.reason) {
+          case &apos;required&apos;:
+            message = &apos;This field is required&apos;
+            break
+
+          case &apos;pattern&apos;:
+            message = &apos;Wrong phone email format&apos;
+            break
+
+          default:
+            break
+        }
+      } else {
+        field.classList.remove(&apos;error&apos;)
+      }
+      messageElement.textContent = message
+      this.validateForm()
+    }
+
+    input.addEventListener(&apos;blur&apos;, () =&gt; {
+      fieldValidation.validate()
+      validateField()
+    })
+
+    input.addEventListener(&apos;input&apos;, () =&gt; {
+      validateField()
+    })
+  }
+}
+
+&lt;/script&gt;</code>
+</pre>
+</cdg-sample-section>
