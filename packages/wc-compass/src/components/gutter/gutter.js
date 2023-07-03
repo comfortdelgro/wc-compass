@@ -30,6 +30,7 @@ export class CdgGutter extends HTMLElement {
   collapseButton
 
   collapsed = false
+  grandparentElement
 
   constructor() {
     super()
@@ -38,7 +39,8 @@ export class CdgGutter extends HTMLElement {
   connectedCallback() {
     this.classList.add('cdg-gutter')
     this.parentElement.classList.add('cdg-contains-gutter')
-
+    this.grandparentElement = this.parentElement.parentElement
+    this.grandparentElement.style.width = '100%'
     if (this.useCollapse) {
       this.attachArrow()
     }
@@ -119,7 +121,11 @@ export class CdgGutter extends HTMLElement {
       (this.place === 'left'
         ? -this.pointer.distance.x
         : this.pointer.distance.x)
-    width = width < 0 ? 0 : width
+    if (width < 0) {
+      width = 0
+    } else if (width >= this.grandparentElement.offsetWidth) {
+      width = this.grandparentElement.offsetWidth
+    }
     this.parentElement.style.width = width + 'px'
     window.dispatchEvent(new Event('resize'))
   }
