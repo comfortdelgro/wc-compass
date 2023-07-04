@@ -20,7 +20,7 @@ export class CdgRadarChartSection extends CdgBaseComponent {
       ],
       datasets: [
         {
-          data: [20, 40, 60, 70, 10, 54, 3],
+          data: [25, 40, 63, 70, 30, 54, 80]
         },
       ],
     }

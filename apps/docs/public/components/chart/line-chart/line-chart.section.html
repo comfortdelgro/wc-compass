@@ -4,10 +4,43 @@
   </div>
 
   <pre>
-    <code class="language-html">&lt;cdg-chart
-  data=&apos;{&quot;labels&quot;:[&quot;January&quot;,&quot;February&quot;,&quot;March&quot;,&quot;April&quot;,&quot;May&quot;,&quot;June&quot;,&quot;July&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;My First Dataset&quot;,&quot;data&quot;:[65,59,80,81,56,55,40],&quot;fill&quot;:false,&quot;borderColor&quot;:&quot;rgb(75, 192, 192)&quot;,&quot;lineTension&quot;:0.1}]}&apos;
-  options=&apos;{&quot;scales&quot;:{&quot;yAxes&quot;:[{&quot;ticks&quot;:{&quot;beginAtZero&quot;:true}}]}}&apos;
-  type=&quot;line&quot;
-&gt;&lt;/cdg-chart&gt;</code>
+    <code class="language-html">&lt;cdg-chart&gt;&lt;/cdg-chart&gt;
+&lt;script&gt;
+import {CdgBaseComponent} from &apos;../../../shared/base-component&apos;
+import template from &apos;./line-chart.section.html&apos;
+
+export class CdgLineChartSection extends CdgBaseComponent {
+  constructor() {
+    super()
+    this.template = template
+  }
+
+  onInit() {
+    const chart = this.querySelector(&apos;cdg-chart&apos;)
+    const data = [
+      {year: 2010, count: 10},
+      {year: 2011, count: 20},
+      {year: 2012, count: 15},
+      {year: 2013, count: 25},
+      {year: 2014, count: 22},
+      {year: 2015, count: 30},
+      {year: 2016, count: 28},
+    ]
+
+    chart.options = {
+      type: &apos;line&apos;,
+      data: {
+        labels: data.map((row) =&gt; row.year),
+        datasets: [
+          {
+            label: &apos;Acquisitions by year&apos;,
+            data: data.map((row) =&gt; row.count),
+          },
+        ],
+      },
+    }
+  }
+}
+&lt;/script&gt;</code>
 </pre>
 </cdg-sample-section>
