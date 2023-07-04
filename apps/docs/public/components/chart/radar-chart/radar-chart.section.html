@@ -1,0 +1,66 @@
+<cdg-sample-section name="Example chart">
+  <div class="sample-section custom-slide column">
+    <cdg-chart></cdg-chart>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;cdg-chart&gt;&lt;/cdg-chart&gt;
+&lt;script&gt;
+import {CdgBaseComponent} from &apos;../../../shared/base-component&apos;
+import template from &apos;./radar-chart.section.html&apos;
+
+export class CdgRadarChartSection extends CdgBaseComponent {
+  constructor() {
+    super()
+    this.template = template
+  }
+
+  onInit() {
+    const data = {
+      labels: [
+        [&apos;Eating&apos;, &apos;Dinner&apos;],
+        [&apos;Drinking&apos;, &apos;Water&apos;],
+        &apos;Sleeping&apos;,
+        [&apos;Designing&apos;, &apos;Graphics&apos;],
+        &apos;Coding&apos;,
+        &apos;Cycling&apos;,
+        &apos;Running&apos;,
+      ],
+      datasets: [
+        {
+          data: [25, 40, 63, 70, 30, 54, 80],
+        },
+      ],
+    }
+
+    const config = {
+      type: &apos;radar&apos;,
+      data: data,
+      options: {
+        plugins: {
+          legend: false,
+          tooltip: false,
+        },
+        elements: {
+          line: {
+            backgroundColor: &apos;rgba(1, 66, 175,0.2)&apos;,
+            borderColor: &apos;rgba(1, 66, 175,0.6)&apos;,
+          },
+          point: {
+            backgroundColor: &apos;rgba(1, 66, 175,0.4)&apos;,
+            hoverBackgroundColor: &apos;rgba(1, 66, 175,0.2)&apos;,
+            radius: &apos;5&apos;,
+            pointStyle: &apos;circle&apos;,
+            hoverRadius: 1,
+          },
+        },
+      },
+    }
+
+    const chart = this.querySelector(&apos;cdg-chart&apos;)
+    chart.options = config
+  }
+}
+&lt;/script&gt;</code>
+</pre>
+</cdg-sample-section>

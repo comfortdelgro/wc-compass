@@ -1,0 +1,46 @@
+<cdg-sample-section name="Example chart">
+  <div class="sample-section custom-slide column">
+    <cdg-chart></cdg-chart>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;cdg-chart&gt;&lt;/cdg-chart&gt;
+&lt;script&gt;
+import {CdgBaseComponent} from &apos;../../../shared/base-component&apos;
+import template from &apos;./bar-chart.section.html&apos;
+
+export class CdgBarChartSection extends CdgBaseComponent {
+  constructor() {
+    super()
+    this.template = template
+  }
+
+  onInit() {
+    const chart = this.querySelector(&apos;cdg-chart&apos;)
+    const data = [
+      {year: 2010, count: 10},
+      {year: 2011, count: 20},
+      {year: 2012, count: 15},
+      {year: 2013, count: 25},
+      {year: 2014, count: 22},
+      {year: 2015, count: 30},
+      {year: 2016, count: 28},
+    ]
+
+    chart.options = {
+      type: &apos;bar&apos;,
+      data: {
+        labels: data.map((row) =&gt; row.year),
+        datasets: [
+          {
+            label: &apos;Acquisitions by year&apos;,
+            data: data.map((row) =&gt; row.count),
+          },
+        ],
+      },
+    }
+  }
+}
+&lt;/script&gt;</code>
+</pre>
+</cdg-sample-section>
