@@ -1,6 +1,6 @@
 {
   "name": "@comfortdelgro/wc-compass",
-  "version": "0.2.17",
+  "version": "0.2.18",
   "private": false,
   "license": "MIT",
   "main": "dist/main.min.js",
@@ -26,7 +26,7 @@
     "@tiptap/pm": "2.0.0-beta.220",
     "@tiptap/starter-kit": "2.0.0-beta.220",
     "@ungap/custom-elements": "^1.2.0",
-    "chart.js": "2.9.4",
+    "chart.js": "4.3.0",
     "dayjs": "^1.11.7"
   },
   "devDependencies": {
