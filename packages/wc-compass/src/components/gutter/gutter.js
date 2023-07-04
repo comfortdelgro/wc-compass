@@ -25,12 +25,15 @@ export class CdgGutter extends HTMLElement {
     }
   }
 
+  get viewPortWidth() {
+    return this.parentElement.parentElement.offsetWidth || 0
+  }
+
   pointer
   capturedSize
   collapseButton
 
   collapsed = false
-  grandparentElement
 
   constructor() {
     super()
@@ -39,8 +42,6 @@ export class CdgGutter extends HTMLElement {
   connectedCallback() {
     this.classList.add('cdg-gutter')
     this.parentElement.classList.add('cdg-contains-gutter')
-    this.grandparentElement = this.parentElement.parentElement
-    this.grandparentElement.style.width = '100%'
     if (this.useCollapse) {
       this.attachArrow()
     }
@@ -123,8 +124,8 @@ export class CdgGutter extends HTMLElement {
         : this.pointer.distance.x)
     if (width < 0) {
       width = 0
-    } else if (width >= this.grandparentElement.offsetWidth) {
-      width = this.grandparentElement.offsetWidth
+    } else if (width >= this.viewPortWidth) {
+      width = this.viewPortWidth
     }
     this.parentElement.style.width = width + 'px'
     window.dispatchEvent(new Event('resize'))
