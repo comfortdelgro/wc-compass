@@ -43,7 +43,7 @@ export function swapChild(element, targetElement) {
   })
 }
 
-export function bottomReached(element) {
+export function listenOnBottom(element) {
   element.addEventListener('scroll', () => {
     if (element.scrollTop >= element.scrollHeight - element.clientHeight) {
       element.dispatchEvent(new CustomEvent('bottom'))

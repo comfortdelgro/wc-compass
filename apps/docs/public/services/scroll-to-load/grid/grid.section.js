@@ -1,7 +1,7 @@
 import {CdgBaseComponent} from '../../../shared/base-component'
 import template from './grid.section.html'
 
-import {bottomReached} from '@comfortdelgro/wc-compass/src/shared/dom'
+import {listenOnBottom} from '@comfortdelgro/wc-compass/src/shared/dom'
 
 export class CdgGridSection extends CdgBaseComponent {
   data = []
@@ -66,7 +66,7 @@ export class CdgGridSection extends CdgBaseComponent {
 
     const wrapper = document.querySelector('.page-container')
     if (wrapper) {
-      bottomReached(wrapper)
+      listenOnBottom(wrapper)
 
       wrapper.addEventListener('bottom', () => {
         if (!this.fetching) {

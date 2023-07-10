@@ -1,7 +1,7 @@
 import {CdgBaseComponent} from '../../../shared/base-component'
 import template from './listview.section.html'
 
-import {bottomReached} from '@comfortdelgro/wc-compass/src/shared/dom'
+import {listenOnBottom} from '@comfortdelgro/wc-compass/src/shared/dom'
 import {CdgLoop} from '@comfortdelgro/wc-compass/src/shared/for-loop'
 
 export class CdgListviewSection extends CdgBaseComponent {
@@ -18,7 +18,7 @@ export class CdgListviewSection extends CdgBaseComponent {
 
     const wrapper = this.querySelector('cdg-list-view')
     if (wrapper) {
-      bottomReached(wrapper)
+      listenOnBottom(wrapper)
 
       wrapper.addEventListener('bottom', () => {
         if (!this.fetching) {
