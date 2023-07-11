@@ -1,0 +1,32 @@
+<cdg-sample-section name="Any element">
+  <div class="sample-section column">
+    <div
+      class="my-wrapper"
+      style="
+        height: 300px;
+        overflow: auto;
+        border: 1px solid var(--border-color);
+      "
+    >
+      <span>Scroll me</span>
+      <div
+        class="scroll-content"
+        style="height: 600px; display: flex; align-items: flex-end"
+      >
+        <span>Bottom</span>
+      </div>
+    </div>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;button class=&quot;cdg-button&quot; onclick=&quot;showToast()&quot;&gt;Submit&lt;/button&gt;
+&lt;script&gt;
+    function showToast() {
+        const toast = document.createElement(&apos;cdg-toast&apos;);
+        const id = &apos;default&apos; + new Date().getTime();
+        toast.textContent = &apos;Sample &apos; + id;
+        cdgToastService.show(id, toast);
+    };
+&lt;/script&gt;</code>
+</pre>
+</cdg-sample-section>
