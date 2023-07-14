@@ -1,6 +1,4 @@
-import {CdgButtonBaseComponent} from '../../shared/base-component'
-
-export class CdgButton extends CdgButtonBaseComponent {
+export class CdgButton extends HTMLButtonElement {
   constructor() {
     super()
   }

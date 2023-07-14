@@ -1,4 +1,6 @@
-export class CdgLoading extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgLoading extends CdgBaseComponent {
   get text() {
     return this.getAttribute('text')
   }

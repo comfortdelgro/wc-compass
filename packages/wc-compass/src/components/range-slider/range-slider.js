@@ -1,4 +1,6 @@
-export class CdgRangeSlider extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgRangeSlider extends CdgBaseComponent {
   static get observedAttributes() {
     return ['value', 'buffering', 'step']
   }

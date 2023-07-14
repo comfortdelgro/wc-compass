@@ -1,9 +1,11 @@
-export class CdgPillBadge extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgPillBadge extends CdgBaseComponent {
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-pill-badge');
+    this.classList.add('cdg-pill-badge')
   }
 }

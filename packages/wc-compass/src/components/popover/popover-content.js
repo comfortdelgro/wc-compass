@@ -1,16 +1,18 @@
-export class CdgPopoverContent extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgPopoverContent extends CdgBaseComponent {
   static get observedAttributes() {
-    return [];
+    return []
   }
 
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {}
 
   attributeChangedCallback(attr, oldValue, newValue) {
-    if (oldValue === newValue) return;
-    this[attr] = newValue;
+    if (oldValue === newValue) return
+    this[attr] = newValue
   }
 }

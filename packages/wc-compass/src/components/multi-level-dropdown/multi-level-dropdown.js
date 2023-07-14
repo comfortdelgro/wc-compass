@@ -1,6 +1,7 @@
+import {CdgBaseComponent} from '../../shared/base-component'
 import {getRealHeight, isElement} from '../../shared/utilities'
 
-export class CdgMultiLevelDropdown extends HTMLElement {
+export class CdgMultiLevelDropdown extends CdgBaseComponent {
   dropdownMenuToggleElement
   dropdownMenuElement
   floatingElement
@@ -148,7 +149,10 @@ export class CdgMultiLevelDropdown extends HTMLElement {
 
       this.dropdownMenuElement.classList.toggle('show')
 
-      if (this.dropdownMenuElement.classList.contains('show') && this.isMobile) {
+      if (
+        this.dropdownMenuElement.classList.contains('show') &&
+        this.isMobile
+      ) {
         setTimeout(() => {
           const dropdownMenuBound =
             this.dropdownMenuElement.getBoundingClientRect()
