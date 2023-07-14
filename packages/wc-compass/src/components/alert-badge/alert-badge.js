@@ -1,4 +1,6 @@
-export class CdgAlertBadge extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgAlertBadge extends CdgBaseComponent {
   constructor() {
     super()
   }

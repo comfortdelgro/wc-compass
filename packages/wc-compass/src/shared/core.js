@@ -1,4 +1,6 @@
-export class CdgIconSize extends HTMLElement {
+import {CdgBaseComponent} from './base-component'
+
+export class CdgIconSize extends CdgBaseComponent {
   get size() {
     return Number(this.getAttribute('size')) || 24
   }

@@ -1,4 +1,6 @@
-export class CdgAccordion extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgAccordion extends CdgBaseComponent {
   isOpen = false
   header
   content
