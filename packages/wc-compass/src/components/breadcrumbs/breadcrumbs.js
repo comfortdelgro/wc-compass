@@ -1,9 +1,11 @@
-export class CdgBreadCrumbs extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgBreadCrumbs extends CdgBaseComponent {
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-breadcrumbs');
+    this.classList.add('cdg-breadcrumbs')
   }
 }

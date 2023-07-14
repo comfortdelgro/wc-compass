@@ -1,4 +1,6 @@
-export class CdgCheckbox extends HTMLLabelElement {
+import {CdgLabelBaseComponent} from '../../shared/base-component'
+
+export class CdgCheckbox extends CdgLabelBaseComponent {
   static get observedAttributes() {
     return ['disabled', 'indeterminate', 'checked']
   }
