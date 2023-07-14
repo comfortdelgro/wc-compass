@@ -1,6 +1,7 @@
+import {CdgBaseComponent} from '../../shared/base-component'
 import {Pointer} from '../../shared/pointer'
 
-export class CdgGutter extends HTMLElement {
+export class CdgGutter extends CdgBaseComponent {
   static get observedAttributes() {
     return ['place', 'use-collapse']
   }

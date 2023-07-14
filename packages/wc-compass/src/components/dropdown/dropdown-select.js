@@ -1,3 +1,4 @@
+import {CdgBaseComponent} from '../../shared/base-component'
 import {createFloating} from '../floating-content/floating-content'
 
 const templateClearOption = document.createElement('template')
@@ -15,7 +16,7 @@ templateClearOption.innerHTML = `
   </div>
 `
 
-export class CdgDropdownSelect extends HTMLElement {
+export class CdgDropdownSelect extends CdgBaseComponent {
   floatingElement
 
   static get observedAttributes() {

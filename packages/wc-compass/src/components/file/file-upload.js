@@ -1,4 +1,6 @@
-export class CdgFileUpload extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgFileUpload extends CdgBaseComponent {
   static get observedAttributes() {
     return ['fileName', 'state']
   }
