@@ -1,4 +1,6 @@
-export class CDGServiceCard extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CDGServiceCard extends CdgBaseComponent {
   static get observedAttributes() {
     return ['imageLink', 'serviceName', 'description', 'serviceLink']
   }

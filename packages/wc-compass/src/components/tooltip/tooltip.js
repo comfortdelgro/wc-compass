@@ -1,3 +1,4 @@
+import {CdgBaseComponent} from '../../shared/base-component'
 import {createFloating, DIRECTIONS} from '../floating-content/floating-content'
 
 const HEIGHT_ARROW = 12
@@ -16,7 +17,7 @@ const createTemplateHeader = function (type) {
   return templateHeader
 }
 
-export class CdgTooltip extends HTMLElement {
+export class CdgTooltip extends CdgBaseComponent {
   floatingElement
   anchorElement
   cdgTooltipContentElement
