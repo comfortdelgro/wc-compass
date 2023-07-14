@@ -1,9 +1,11 @@
-export class CdgPageActions extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgPageActions extends CdgBaseComponent {
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-page-actions');
+    this.classList.add('cdg-page-actions')
   }
 }

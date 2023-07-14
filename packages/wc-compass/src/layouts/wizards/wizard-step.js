@@ -1,4 +1,6 @@
-export class CdgWizardStep extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgWizardStep extends CdgBaseComponent {
   static get observedAttributes() {
     return ['status', 'index', 'name']
   }

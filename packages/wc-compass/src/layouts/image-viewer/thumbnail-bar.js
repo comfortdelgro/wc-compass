@@ -1,4 +1,6 @@
-export class CdgThumbnailBar extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgThumbnailBar extends CdgBaseComponent {
   get currentIndex() {
     return this.activeIndex
   }

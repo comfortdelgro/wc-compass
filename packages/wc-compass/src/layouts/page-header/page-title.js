@@ -1,9 +1,11 @@
-export class CdgPageTitle extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgPageTitle extends CdgBaseComponent {
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-page-title');
+    this.classList.add('cdg-page-title')
   }
 }

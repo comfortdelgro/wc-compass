@@ -1,9 +1,11 @@
-export class CdgCardActions extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgCardActions extends CdgBaseComponent {
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-card-actions');
+    this.classList.add('cdg-card-actions')
   }
 }

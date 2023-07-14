@@ -1,9 +1,11 @@
-export class CdgDialogActions extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgDialogActions extends CdgBaseComponent {
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-dialog-actions');
+    this.classList.add('cdg-dialog-actions')
   }
 }

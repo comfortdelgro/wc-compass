@@ -1,4 +1,6 @@
-export class CdgNavRail extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgNavRail extends CdgBaseComponent {
   container
 
   static get observedAttributes() {

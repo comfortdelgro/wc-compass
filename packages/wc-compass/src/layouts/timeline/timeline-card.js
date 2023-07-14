@@ -1,9 +1,11 @@
-export class CdgTimelineCard extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgTimelineCard extends CdgBaseComponent {
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-timeline-card');
+    this.classList.add('cdg-timeline-card')
   }
 }
