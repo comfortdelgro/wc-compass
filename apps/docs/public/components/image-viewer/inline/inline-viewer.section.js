@@ -1,7 +1,7 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 import template from './inline-viewer.section.html'
 
-export class CdgInlineViewerSection extends CdgBaseComponent {
+export class CdgInlineViewerSection extends CdgBaseDocsComponent {
   constructor() {
     super()
     this.template = template

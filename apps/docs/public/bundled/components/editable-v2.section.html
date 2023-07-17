@@ -1,39 +1,72 @@
-<cdg-sample-section name="Editable table V2">
+<cdg-sample-section name="Row editable table">
   <div class="sample-section column">
     <p>Please click on the Id cell to start editing.</p>
-    <div class="actions">
-      <button is="cdg-button" id="save">Save</button>
-      <button is="cdg-button" class="danger" id="cancel">Cancel</button>
-    </div>
+
     <table id="sampleEditableTable2" is="cdg-table"></table>
     <div class="cdg-table-editable-cell" id="editableRow">
-      <input class="cdg-input" type="text" name="id" id="id" disabled />
-      <input class="cdg-input" type="text" name="taskName" id="taskName" />
-      <input class="cdg-input" type="number" name="duration" id="duration" />
-      <label is="cdg-checkbox">
-        <input type="checkbox" name="approved" id="approved" />
-      </label>
+      <div id="row">
+        <input class="cdg-input" type="text" name="id" id="id" disabled />
+        <input class="cdg-input" type="text" name="taskName" id="taskName" />
+        <input class="cdg-input" type="number" name="duration" id="duration" />
+        <label is="cdg-checkbox" id="approvedLabel">
+          <input type="checkbox" name="approved" id="approved" />
+        </label>
+      </div>
+      <div class="actions">
+        <button is="cdg-button" size="small" id="save" class="secondary">
+          <cdg-icon
+            name="outlineTick"
+            size="16"
+            style="color: var(--success)"
+          ></cdg-icon>
+        </button>
+        <button
+          is="cdg-button"
+          size="small"
+          id="cancel"
+          class="secondary danger"
+          style="color: var(--danger)"
+        >
+          <cdg-icon name="cross" size="16"></cdg-icon>
+        </button>
+      </div>
     </div>
   </div>
 
   <pre>
     <code class="language-html">
-&lt;div class=&quot;actions&quot;&gt;
-  &lt;button is=&quot;cdg-button&quot; id=&quot;save&quot;&gt;Save&lt;/button&gt;
-  &lt;button is=&quot;cdg-button&quot; class=&quot;danger&quot; id=&quot;cancel&quot;&gt;Cancel&lt;/button&gt;
-&lt;/div&gt;
-  &lt;table id=&quot;sampleEditableTable2&quot; is=&quot;cdg-table&quot;&gt;&lt;/table&gt;
-&lt;div class=&quot;cdg-table-editable-cell&quot; id=&quot;editableRow&quot;&gt;
-  &lt;input class=&quot;cdg-input&quot; type=&quot;text&quot; name=&quot;id&quot; id=&quot;id&quot; disabled /&gt;
-  &lt;input class=&quot;cdg-input&quot; type=&quot;text&quot; name=&quot;taskName&quot; id=&quot;taskName&quot; /&gt;
-  &lt;input class=&quot;cdg-input&quot; type=&quot;number&quot; name=&quot;duration&quot; id=&quot;duration&quot; /&gt;
-  &lt;label is=&quot;cdg-checkbox&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; name=&quot;approved&quot; id=&quot;approved&quot; /&gt;
-  &lt;/label&gt;
-&lt;/div&gt;
-
+&lt;table id=&quot;sampleEditableTable2&quot; is=&quot;cdg-table&quot;&gt;&lt;/table&gt;
+    &lt;div class=&quot;cdg-table-editable-cell&quot; id=&quot;editableRow&quot;&gt;
+      &lt;div id=&quot;row&quot;&gt;
+        &lt;input class=&quot;cdg-input&quot; type=&quot;text&quot; name=&quot;id&quot; id=&quot;id&quot; disabled /&gt;
+        &lt;input class=&quot;cdg-input&quot; type=&quot;text&quot; name=&quot;taskName&quot; id=&quot;taskName&quot; /&gt;
+        &lt;input class=&quot;cdg-input&quot; type=&quot;number&quot; name=&quot;duration&quot; id=&quot;duration&quot; /&gt;
+        &lt;label is=&quot;cdg-checkbox&quot; id=&quot;approvedLabel&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;approved&quot; id=&quot;approved&quot; /&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;actions&quot;&gt;
+        &lt;button is=&quot;cdg-button&quot; size=&quot;small&quot; id=&quot;save&quot; class=&quot;secondary &quot;&gt;
+          &lt;cdg-icon
+            name=&quot;outlineTick&quot;
+            size=&quot;16&quot;
+            style=&quot;color: var(--success)&quot;
+          &gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+        &lt;button
+          is=&quot;cdg-button&quot;
+          size=&quot;small&quot;
+          id=&quot;cancel&quot;
+          class=&quot;secondary danger&quot;
+          style=&quot;color: var(--danger)&quot;
+        &gt;
+          &lt;cdg-icon name=&quot;cross&quot; size=&quot;16&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 &lt;script&gt;
-export class CdgTableEditableSection2 extends CdgBaseComponent {
+
+export class CdgTableEditableSection2 extends CdgBaseDocsComponent {
   constructor() {
     super()
     this.template = template
@@ -47,58 +80,61 @@ export class CdgTableEditableSection2 extends CdgBaseComponent {
   approved
   edittingRow
   onInit() {
-    const table = this.querySelector(&#39;#sampleEditableTable2&#39;)
-    this.rowTemplate = this.querySelector(&#39;#editableRow&#39;)
+    const table = this.querySelector('#sampleEditableTable2')
+    this.rowTemplate = this.querySelector('#editableRow')
     this.bindEventsToButton()
     table.options = {
       columns: [
         {
-          name: &#39;ID&#39;,
-          width: &#39;24px&#39;,
-          fieldName: &#39;id&#39;,
+          name: 'ID',
+          width: '24px',
+          fieldName: 'id',
           colummTemplate: this.rowTemplate,
         },
         {
-          name: &#39;Task Name&#39;,
-          width: &#39;240px&#39;,
-          fieldName: &#39;taskName&#39;,
+          name: 'Task Name',
+          width: '240px',
+          fieldName: 'taskName',
         },
         {
-          name: &#39;Duration&#39;,
-          width: &#39;100px&#39;,
-          fieldName: &#39;duration&#39;,
+          name: 'Duration',
+          width: '100px',
+          fieldName: 'duration',
         },
         {
-          name: &#39;Approved&#39;,
-          width: &#39;40px&#39;,
-          fieldName: &#39;approved&#39;,
+          name: 'Approved',
+          width: '40px',
+          fieldName: 'approved',
         },
       ],
       onEditCellStart: (e) =&gt; {
         const {column, value, index} = e.detail
         this.edittingRow = index
-        const tableHeaders = this.querySelectorAll(&#39;th&#39;)
+        const tableHeaders = this.querySelectorAll('th')
         const rowData = table.data[index]
-        this.id = this.rowTemplate.querySelector(&#39;#id&#39;)
-        this.taskName = this.rowTemplate.querySelector(&#39;#taskName&#39;)
-        this.duration = this.rowTemplate.querySelector(&#39;#duration&#39;)
-        this.approved = this.rowTemplate.querySelector(&#39;#approved&#39;)
-        this.rowTemplate.style.display = &#39;flex&#39;
+        this.id = this.rowTemplate.querySelector('#id')
+        this.taskName = this.rowTemplate.querySelector('#taskName')
+        this.duration = this.rowTemplate.querySelector('#duration')
+        this.approved = this.rowTemplate.querySelector('#approved')
+        this.rowTemplate.style.display = 'block'
         this.rowTemplate.style.height = `${
-          this.querySelector(&#39;tr&#39;).clientHeight
+          this.querySelector('tr').clientHeight
         }px`
-        this.querySelector(&#39;.actions&#39;).style.display = &#39;flex&#39;
+        this.rowTemplate.style.width = `${
+          this.querySelector('tr').clientWidth
+        }px`
         switch (column) {
-          case &#39;id&#39;:
-            id.style.width = `${tableHeaders[0].clientWidth}px`
-            id.value = rowData.id
-            taskName.style.width = `${tableHeaders[1].clientWidth}px`
-            taskName.value = rowData.taskName
-            duration.style.width = `${tableHeaders[2].clientWidth}px`
-            duration.value = rowData.duration
-            approved.style.width = `${tableHeaders[3].clientWidth}px`
-            approved.checked = rowData.approved
-
+          case 'id':
+            this.id.style.width = `${tableHeaders[0].clientWidth - 10}px`
+            this.id.value = rowData.id
+            this.taskName.style.width = `${tableHeaders[1].clientWidth - 10}px`
+            this.taskName.value = rowData.taskName
+            this.duration.style.width = `${tableHeaders[2].clientWidth - 10}px`
+            this.duration.value = rowData.duration
+            this.approved.parentElement.style.width = `${
+              tableHeaders[3].clientWidth - 10
+            }px`
+            this.approved.checked = rowData.approved
             break
         }
       },
@@ -107,54 +143,79 @@ export class CdgTableEditableSection2 extends CdgBaseComponent {
     table.data = [
       {
         id: 1,
-        taskName: &#39;foo&#39;,
+        taskName: 'Pretty long text.',
         duration: 5,
         approved: false,
       },
       {
         id: 2,
-        taskName: &#39;foo&#39;,
+        taskName: 'Pretty long text.',
         duration: 4,
         approved: true,
       },
       {
         id: 3,
-        taskName: &#39;foo&#39;,
+        taskName: 'Pretty long text.',
         duration: 6,
         approved: true,
       },
     ]
   }
 
+  validateFields() {
+    const taskNameValue = this.taskName.value.trim()
+    const durationValue = this.duration.value
+    const toast = document.createElement('cdg-toast')
+    toast.setAttribute('color', 'red')
+
+    if (taskNameValue.length &lt;= 10) {
+      const id = 'default' + new Date().getTime()
+      toast.textContent = 'Task name must have length &gt; 10.'
+      cdgToastService.show(id, toast)
+      return false
+    }
+    if (durationValue &lt;= 0) {
+      const id = 'default' + new Date().getTime()
+      toast.textContent = 'Invalid duration.'
+      cdgToastService.show(id, toast)
+      return false
+    }
+    return true
+  }
   bindEventsToButton() {
-    const saveButton = this.querySelector(&#39;#save&#39;)
-    const cancelButton = this.querySelector(&#39;#cancel&#39;)
+    const saveButton = this.querySelector('#save')
+    const cancelButton = this.querySelector('#cancel')
 
-    saveButton.addEventListener(&#39;click&#39;, () =&gt; {
-      const table = this.querySelector(&#39;#sampleEditableTable2&#39;)
-      const data = [...table.data]
-      data[this.edittingRow] = {
-        id: this.id.value,
-        taskName: this.taskName.value,
-        duration: this.duration.value,
-        approved: this.approved.checked,
+    saveButton.addEventListener('click', () =&gt; {
+      if (this.validateFields()) {
+        const table = this.querySelector('#sampleEditableTable2')
+        const data = [...table.data]
+        data[this.edittingRow] = {
+          id: this.id.value,
+          taskName: this.taskName.value,
+          duration: this.duration.value,
+          approved: this.approved.checked,
+        }
+        const loadingId = cdgLoadingService.show('global')
+        setTimeout(() =&gt; {
+          cdgLoadingService.hide(loadingId)
+          table.data = data
+          cdgToastService.toast('Data is successfully saved!')
+        }, 1000)
       }
-      const loadingId = cdgLoadingService.show(&#39;global&#39;)
-      setTimeout(() =&gt; {
-        cdgLoadingService.hide(loadingId)
-        table.data = data
-        cdgToastService.toast(&#39;Data is successfully saved!&#39;)
-
-      }, 1000)
     })
 
-    cancelButton.addEventListener(&#39;click&#39;, () =&gt; {
-      const confirmCancel = confirm(&#39;Are you sure want to cancel editing?&#39;)
-      if (confirmCancel) {
-        this.querySelector(&#39;.actions&#39;).style.display = &#39;none&#39;
-
-        this.rowTemplate.style.display = &#39;none&#39;
-      }
+    cancelButton.addEventListener('click', () =&gt; {
+      const dialog = cdgDialogService.confirm({
+        dialogTitle: 'Cancel Editing',
+        message: 'Are you sure want to cancel editing?',
+        executeLabel: 'Yes',
+      })
+      dialog.addEventListener('close', (event) =&gt; {
+        const table = this.querySelector('#sampleEditableTable2')
+        table.finishEditing(this.rowTemplate)
+        cdgToastService.toast('Row editing canceled.')
+      })
     })
   }
 }
@@ -163,14 +224,19 @@ export class CdgTableEditableSection2 extends CdgBaseComponent {
   </pre>
 </cdg-sample-section>
 <style>
-  #editableRow {
+  #row {
+    display: flex;
     align-items: center;
     background-color: #ffffff;
-    display: none;
+    border: 1px solid #d7d7d7;
+    border-radius: 5px;
+    gap: 10px;
+    height: 100%;
   }
 
   .actions {
-    gap: 10px;
-    display: none;
+    display: flex;
+    margin-top: 5px;
+    gap: 4px;
   }
 </style>

@@ -1,6 +1,6 @@
-import {CdgBaseComponent} from './base-component'
+import {CdgBaseDocsComponent} from './base-component'
 
-export class CdgDocumentComponent extends CdgBaseComponent {
+export class CdgDocumentComponent extends CdgBaseDocsComponent {
   useTableOfContent = true
 
   constructor() {

@@ -1,6 +1,6 @@
-import {CdgBaseComponent} from './base-component'
+import {CdgBaseDocsComponent} from './base-component'
 
-export class CdgDocsBaseComponent extends CdgBaseComponent {
+export class CdgDocsBaseComponent extends CdgBaseDocsComponent {
   constructor() {
     super()
   }

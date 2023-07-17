@@ -1,6 +1,6 @@
-import {CdgBaseComponent} from './base-component'
+import {CdgBaseDocsComponent} from './base-component'
 
-export class CdgTableComponentSection extends CdgBaseComponent {
+export class CdgTableComponentSection extends CdgBaseDocsComponent {
   constructor(title) {
     super()
     this.htmlContent = `<section class="guideline-section" pageIndexItem="${title}">

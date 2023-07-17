@@ -1,7 +1,7 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 import template from './accordion-default.section.html'
 
-export class CdgAccordionDefaultSection extends CdgBaseComponent {
+export class CdgAccordionDefaultSection extends CdgBaseDocsComponent {
   constructor() {
     super()
     this.template = template

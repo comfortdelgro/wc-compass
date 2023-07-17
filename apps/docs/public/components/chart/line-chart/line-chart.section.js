@@ -1,7 +1,7 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 import template from './line-chart.section.html'
 
-export class CdgLineChartSection extends CdgBaseComponent {
+export class CdgLineChartSection extends CdgBaseDocsComponent {
   constructor() {
     super()
     this.template = template

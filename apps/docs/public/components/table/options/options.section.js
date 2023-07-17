@@ -1,8 +1,8 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 import {dummyData} from '../table-data'
 import template from './options.section.html'
 
-export class CdgTableOptionsSection extends CdgBaseComponent {
+export class CdgTableOptionsSection extends CdgBaseDocsComponent {
   checkable = false
 
   table

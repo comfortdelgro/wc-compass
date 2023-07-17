@@ -1,9 +1,9 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 import template from './grid.section.html'
 
 import {listenOnBottom} from '@comfortdelgro/wc-compass/src/shared/dom'
 
-export class CdgGridSection extends CdgBaseComponent {
+export class CdgGridSection extends CdgBaseDocsComponent {
   data = []
   last = 0
   fetching = false

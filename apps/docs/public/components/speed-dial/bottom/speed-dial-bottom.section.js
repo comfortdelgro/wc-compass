@@ -1,7 +1,7 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 import template from './speed-dial-bottom.section.html'
 
-export class CdgSpeedDialBottomSection extends CdgBaseComponent {
+export class CdgSpeedDialBottomSection extends CdgBaseDocsComponent {
   constructor() {
     super()
     this.template = template

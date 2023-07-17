@@ -1,6 +1,6 @@
 import {downloadHTMLContent} from './utils'
 
-export class CdgBaseComponent extends HTMLElement {
+export class CdgBaseDocsComponent extends HTMLElement {
   constructor() {
     super()
   }

@@ -1,0 +1,17 @@
+<cdg-sample-section name="Any element">
+  <div class="sample-section column">
+    <table id="sampleSimpleTable" is="cdg-table"></table>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;button class=&quot;cdg-button&quot; onclick=&quot;showToast()&quot;&gt;Submit&lt;/button&gt;
+&lt;script&gt;
+    function showToast() {
+        const toast = document.createElement(&apos;cdg-toast&apos;);
+        const id = &apos;default&apos; + new Date().getTime();
+        toast.textContent = &apos;Sample &apos; + id;
+        cdgToastService.show(id, toast);
+    };
+&lt;/script&gt;</code>
+</pre>
+</cdg-sample-section>

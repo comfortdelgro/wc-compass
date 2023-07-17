@@ -1,4 +1,6 @@
-export class CdgSidebarBody extends HTMLElemenCdgBaseComponentt {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgSidebarBody extends CdgBaseComponent {
   constructor() {
     super()
   }

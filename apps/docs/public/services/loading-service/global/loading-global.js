@@ -1,7 +1,7 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 import template from './loading-global.html'
 
-export class CdgLoadingGlobal extends CdgBaseComponent {
+export class CdgLoadingGlobal extends CdgBaseDocsComponent {
   constructor() {
     super()
     this.template = template
