@@ -1,9 +1,11 @@
-export class CdgSlide extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgSlide extends CdgBaseComponent {
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-slide');
+    this.classList.add('cdg-slide')
   }
 }

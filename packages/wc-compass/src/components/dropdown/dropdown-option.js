@@ -1,4 +1,6 @@
-export class CdgDropdownOption extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgDropdownOption extends CdgBaseComponent {
   colorElement
   tickElement
   multiple = false

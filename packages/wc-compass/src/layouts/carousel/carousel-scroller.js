@@ -1,3 +1,4 @@
+import {CdgBaseComponent} from '../../shared/base-component'
 import {isNullOrUndefinded} from '../../shared/utilities'
 
 const CARD_MODE_PADDING = 60
@@ -7,7 +8,7 @@ const TRANSITION_TIME = 300
 const TRANSITION = `all ${TRANSITION_TIME}ms ease-in-out`
 const SMALL_DEVICE = 479
 
-export class CdgCarouselScroller extends HTMLElement {
+export class CdgCarouselScroller extends CdgBaseComponent {
   isDragging = false
   isSmallDevice = false
   resizingTimeout

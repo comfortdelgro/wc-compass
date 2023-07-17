@@ -2,7 +2,7 @@ import {
   REGEX_EMAIL,
   REGEX_PHONE_NUMBER,
 } from '@comfortdelgro/wc-compass/src/shared/regex'
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 import template from './form.section.html'
 
 import {
@@ -10,7 +10,7 @@ import {
   TextFieldValidator,
 } from '@comfortdelgro/wc-compass/src/shared/form-validation'
 
-export class CdgFormValidationSection extends CdgBaseComponent {
+export class CdgFormValidationSection extends CdgBaseDocsComponent {
   content
   form = new CdgFormGroup()
   submitButton

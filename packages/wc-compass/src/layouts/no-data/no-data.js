@@ -1,4 +1,6 @@
-export class CdgNoData extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgNoData extends CdgBaseComponent {
   icon
   description
   constructor() {

@@ -1,7 +1,7 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 import template from './updating-status.section.html'
 
-export class CdgUpdatingStatusSection extends CdgBaseComponent {
+export class CdgUpdatingStatusSection extends CdgBaseDocsComponent {
   constructor() {
     super()
     this.template = template

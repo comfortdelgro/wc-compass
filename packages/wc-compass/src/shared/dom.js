@@ -42,3 +42,11 @@ export function swapChild(element, targetElement) {
     targetElement.appendChild(element)
   })
 }
+
+export function listenOnBottom(element) {
+  element.addEventListener('scroll', () => {
+    if (element.scrollTop >= element.scrollHeight - element.clientHeight) {
+      element.dispatchEvent(new CustomEvent('bottom'))
+    }
+  })
+}

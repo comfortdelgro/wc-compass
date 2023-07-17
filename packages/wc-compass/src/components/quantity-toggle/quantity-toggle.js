@@ -1,4 +1,6 @@
-export class CdgQuantityToggle extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgQuantityToggle extends CdgBaseComponent {
   static get observedAttributes() {
     return ['value', 'max', 'min', 'disabled', 'step']
   }

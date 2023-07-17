@@ -1,7 +1,7 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 import template from './draggable.section.html'
 
-export class CdgListviewDraggableSection extends CdgBaseComponent {
+export class CdgListviewDraggableSection extends CdgBaseDocsComponent {
   constructor() {
     super()
     this.template = template

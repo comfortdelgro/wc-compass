@@ -54,6 +54,7 @@ export const CONTENT_MAP = {
   radios: 'cdg-radios-demo',
   rangeSlider: 'cdg-range-slider-demo',
   rating: 'cdg-rating-demo',
+  scrollToLoad: 'cdg-scroll-to-load-demo',
   sidebar: 'cdg-sidebar-demo',
   status: 'cdg-status-demo',
   textarea: 'cdg-textarea-demo',

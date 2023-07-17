@@ -1,65 +1,67 @@
-export class CdgProgress extends HTMLElement {
-  percentBar;
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgProgress extends CdgBaseComponent {
+  percentBar
 
   static get observedAttributes() {
-    return ['percentage'];
+    return ['percentage']
   }
 
   get percentage() {
-    return Number(this.getAttribute('percentage'));
+    return Number(this.getAttribute('percentage'))
   }
 
   set percentage(percentage) {
     if (this.percentBar) {
-      this.percentBar.style.width = percentage + '%';
+      this.percentBar.style.width = percentage + '%'
     }
-    return this.setAttribute('percentage', percentage);
+    return this.setAttribute('percentage', percentage)
   }
 
   get color() {
-    return this.getAttribute('color');
+    return this.getAttribute('color')
   }
 
   set color(color) {
     if (this.percentBar) {
-      this.percentBar.style.backgroundColor = color;
+      this.percentBar.style.backgroundColor = color
     }
-    return this.setAttribute('color', color);
+    return this.setAttribute('color', color)
   }
 
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-progress');
-    this.percentBar = document.createElement('div');
-    this.percentBar.classList.add('cdg-progress-percent');
-    this.appendChild(this.percentBar);
+    this.classList.add('cdg-progress')
+    this.percentBar = document.createElement('div')
+    this.percentBar.classList.add('cdg-progress-percent')
+    this.appendChild(this.percentBar)
 
     // Initial states on view
-    this.percentage = this.getAttribute('percentage');
+    this.percentage = this.getAttribute('percentage')
 
     if (this.getAttribute('color')) {
-      this.color = this.getAttribute('color');
+      this.color = this.getAttribute('color')
     }
 
     if (isNaN(this.percentage)) {
-      this.showAsIndetermindate();
+      this.showAsIndetermindate()
     }
   }
 
   showAsIndetermindate() {
-    this.percentBar.classList.add('indeterminate');
-    this.percentBar.style.width = '100%';
+    this.percentBar.classList.add('indeterminate')
+    this.percentBar.style.width = '100%'
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
     if (attr === 'percentage') {
       if (!isNaN(newValue)) {
         if (this.percentBar) {
-          this.percentBar.classList.remove('indeterminate');
-          this.percentBar.style.width = newValue + '%';
+          this.percentBar.classList.remove('indeterminate')
+          this.percentBar.style.width = newValue + '%'
         }
       }
     }

@@ -1,13 +1,4 @@
-import { TableSelectionEvent } from './model'
-
-
-
-
-
-
-
-
-
+import {TableSelectionEvent} from './model'
 
 export class CdgTable extends HTMLTableElement {
   static get observedAttributes() {

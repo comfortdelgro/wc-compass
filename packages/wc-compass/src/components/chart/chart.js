@@ -1,6 +1,6 @@
-// import {Chart} from 'chart.js'
+import {CdgBaseComponent} from '../../shared/base-component'
 
-export class CdgChart extends HTMLElement {
+export class CdgChart extends CdgBaseComponent {
   set options(options) {
     this.configOptions = options
   }

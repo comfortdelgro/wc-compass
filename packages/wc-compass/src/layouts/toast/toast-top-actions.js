@@ -1,9 +1,11 @@
-export class CdgToastTopActions extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgToastTopActions extends CdgBaseComponent {
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-toast-top-actions');
+    this.classList.add('cdg-toast-top-actions')
   }
 }

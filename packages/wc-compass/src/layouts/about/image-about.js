@@ -1,4 +1,6 @@
-export class CdgImageAbout extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgImageAbout extends CdgBaseComponent {
   static get observedAttributes() {
     return ['src']
   }

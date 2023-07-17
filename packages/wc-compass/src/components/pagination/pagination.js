@@ -1,6 +1,8 @@
+import {CdgBaseComponent} from '../../shared/base-component'
+
 const DISPLAY_PAGES = 3
 
-export class CdgPagination extends HTMLElement {
+export class CdgPagination extends CdgBaseComponent {
   static get observedAttributes() {
     return ['total', 'current-page', 'page-size', 'display-button-count']
   }

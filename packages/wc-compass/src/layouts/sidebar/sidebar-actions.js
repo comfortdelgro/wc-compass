@@ -1,9 +1,11 @@
-export class CdgSidebarActions extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgSidebarActions extends CdgBaseComponent {
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-sidebar-actions');
+    this.classList.add('cdg-sidebar-actions')
   }
 }

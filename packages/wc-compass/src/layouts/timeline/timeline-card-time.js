@@ -1,4 +1,6 @@
-export class CdgTimelineCardTime extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgTimelineCardTime extends CdgBaseComponent {
   textElement
 
   constructor() {

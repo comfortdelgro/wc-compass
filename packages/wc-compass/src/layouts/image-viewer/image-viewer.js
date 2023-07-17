@@ -1,3 +1,4 @@
+import {CdgBaseComponent} from '../../shared/base-component'
 import {Pointer, Position} from '../../shared/pointer'
 
 const ANIMATION_TIME = 200
@@ -5,7 +6,7 @@ const ZOOM_STEP = 0.5
 const FORCE_CLOSE_DISTANCE = 100
 const TRANSPARENT_DISTANCE = 400
 
-export class CdgImageViewer extends HTMLElement {
+export class CdgImageViewer extends CdgBaseComponent {
   static get observedAttributes() {
     return ['src', 'zoom']
   }

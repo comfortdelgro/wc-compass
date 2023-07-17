@@ -333,6 +333,10 @@ export const DOCUMENT_CONTENT = [
         slug: 'forLoop',
       },
       {
+        name: 'Scroll To Load',
+        slug: 'scrollToLoad',
+      },
+      {
         name: 'Validation',
         slug: 'validation',
       },

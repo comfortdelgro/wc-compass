@@ -1,4 +1,6 @@
-export class CdgRichTextEditorToolbar extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgRichTextEditorToolbar extends CdgBaseComponent {
   static get observedAttributes() {
     return ['hiddenItems']
   }

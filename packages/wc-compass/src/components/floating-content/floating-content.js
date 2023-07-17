@@ -1,3 +1,4 @@
+import {CdgBaseComponent} from '../../shared/base-component'
 import {getScrollParent} from '../../shared/utilities'
 
 const template = document.createElement('template')
@@ -21,7 +22,7 @@ export const DIRECTIONS = [
   'bottomRight',
 ]
 
-export class CdgFloatingContent extends HTMLElement {
+export class CdgFloatingContent extends CdgBaseComponent {
   _position = 'bottom'
   containerElement
   childrenNode

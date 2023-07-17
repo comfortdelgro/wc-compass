@@ -1,3 +1,5 @@
+import {CdgBaseComponent} from '../../shared/base-component'
+
 import {Editor} from '@tiptap/core'
 import Color from '@tiptap/extension-color'
 import TextStyle from '@tiptap/extension-text-style'
@@ -11,7 +13,7 @@ import TextAlign from '@tiptap/extension-text-align'
 import Underline from '@tiptap/extension-underline'
 import StarterKit from '@tiptap/starter-kit'
 
-export class CdgRichTextEditor extends HTMLElement {
+export class CdgRichTextEditor extends CdgBaseComponent {
   editor
 
   constructor() {

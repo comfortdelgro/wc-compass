@@ -1,8 +1,10 @@
+import {CdgBaseComponent} from '../../shared/base-component'
+
 const CLOSE_ICON = `<button is="cdg-button" class="icon ghost close-button">
   <cdg-icon name="close" size="16"></cdg-icon>
 </button>`
 
-export class CdgModalHeader extends HTMLElement {
+export class CdgModalHeader extends CdgBaseComponent {
   static get observedAttributes() {
     return ['title', 'use-close-cutton']
   }

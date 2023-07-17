@@ -1,3 +1,5 @@
+import {CdgBaseComponent} from '../../shared/base-component'
+
 const DROPDOWN_OPEN = `<cdg-dropdown
 select-class="color-selector"
 id="color-selector"
@@ -12,7 +14,7 @@ const DROPDOWN_OPTION = `
   selected="true"
 ></cdg-dropdown-option>`
 
-export class CdgSelectColor extends HTMLElement {
+export class CdgSelectColor extends CdgBaseComponent {
   static get observedAttributes() {
     return ['colors', 'selected']
   }

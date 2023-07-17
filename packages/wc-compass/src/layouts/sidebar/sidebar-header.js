@@ -1,89 +1,91 @@
+import {CdgBaseComponent} from '../../shared/base-component'
+
 const CLOSE_ICON = `<button is="cdg-button" class="icon ghost close-button">
   <cdg-icon name="close" size="16"></cdg-icon>
-</button>`;
+</button>`
 
-export class CdgSidebarHeader extends HTMLElement {
+export class CdgSidebarHeader extends CdgBaseComponent {
   static get observedAttributes() {
-    return ['title', 'useCloseButton'];
+    return ['title', 'useCloseButton']
   }
 
   get title() {
-    return this.getAttribute('title') || '';
+    return this.getAttribute('title') || ''
   }
 
   set title(title) {
-    this.setAttribute('title', title);
+    this.setAttribute('title', title)
   }
 
   get useCloseButton() {
-    return this.getAttribute('useCloseButton') === 'true';
+    return this.getAttribute('useCloseButton') === 'true'
   }
 
   set useCloseButton(useCloseButton) {
-    this.setAttribute('useCloseButton', useCloseButton);
+    this.setAttribute('useCloseButton', useCloseButton)
   }
 
-  titleElement;
-  closeIcon;
+  titleElement
+  closeIcon
 
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-sidebar-header');
-    this.attachCloseIcon();
+    this.classList.add('cdg-sidebar-header')
+    this.attachCloseIcon()
   }
 
   disconnectedCallback() {
     this.closeIcon.removeEventListener(
       'click',
-      this.handleCloseClick.bind(this)
-    );
+      this.handleCloseClick.bind(this),
+    )
   }
 
   attributeChangedCallback(attr) {
     switch (attr) {
       case 'title':
-        this.attachTitle();
-        break;
+        this.attachTitle()
+        break
 
       case 'useCloseButton':
-        console.log('useCloseButton');
+        console.log('useCloseButton')
         if (this.useCloseButton) {
-          this.attachCloseIcon();
+          this.attachCloseIcon()
         }
-        break;
+        break
 
       default:
-        break;
+        break
     }
   }
 
   attachTitle() {
     if (!this.titleElement) {
-      this.titleElement = document.createElement('h4');
-      this.titleElement.classList.add('cdg-sidebar-title');
-      this.prepend(this.titleElement);
+      this.titleElement = document.createElement('h4')
+      this.titleElement.classList.add('cdg-sidebar-title')
+      this.prepend(this.titleElement)
     }
-    this.titleElement.textContent = this.title;
+    this.titleElement.textContent = this.title
   }
 
   attachCloseIcon() {
     if (this.closeIcon) {
-      return;
+      return
     }
 
-    const modalHeaderActions = document.createElement('div');
-    modalHeaderActions.classList.add('cdg-sidebar-header-actions');
-    modalHeaderActions.innerHTML = CLOSE_ICON;
-    this.append(modalHeaderActions);
+    const modalHeaderActions = document.createElement('div')
+    modalHeaderActions.classList.add('cdg-sidebar-header-actions')
+    modalHeaderActions.innerHTML = CLOSE_ICON
+    this.append(modalHeaderActions)
 
-    this.closeIcon = modalHeaderActions.querySelector('.close-button');
-    this.closeIcon.addEventListener('click', this.handleCloseClick.bind(this));
+    this.closeIcon = modalHeaderActions.querySelector('.close-button')
+    this.closeIcon.addEventListener('click', this.handleCloseClick.bind(this))
   }
 
   handleCloseClick() {
-    this.dispatchEvent(new CustomEvent('close'));
+    this.dispatchEvent(new CustomEvent('close'))
   }
 }

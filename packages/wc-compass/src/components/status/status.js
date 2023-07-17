@@ -1,9 +1,11 @@
-export class CdgStatus extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgStatus extends CdgBaseComponent {
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-status');
+    this.classList.add('cdg-status')
   }
 }

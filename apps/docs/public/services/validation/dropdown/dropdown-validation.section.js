@@ -1,9 +1,9 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 import template from './dropdown-validation.section.html'
 
 import {DropdownValidator} from '@comfortdelgro/wc-compass/src/shared/form-validation'
 
-export class CdgDropdownValidationSection extends CdgBaseComponent {
+export class CdgDropdownValidationSection extends CdgBaseDocsComponent {
   content
   constructor() {
     super()

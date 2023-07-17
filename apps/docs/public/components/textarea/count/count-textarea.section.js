@@ -1,7 +1,7 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 import template from './count-textarea.section.html'
 
-export class CdgCountTextareaSection extends CdgBaseComponent {
+export class CdgCountTextareaSection extends CdgBaseDocsComponent {
   constructor() {
     super()
     this.template = template

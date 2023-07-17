@@ -1,6 +1,7 @@
+import {CdgBaseComponent} from '../../shared/base-component'
 import {Pointer} from '../../shared/pointer'
 
-export class CdgListItem extends HTMLElement {
+export class CdgListItem extends CdgBaseComponent {
   static get observedAttributes() {
     return ['disabled', 'allow-drag']
   }

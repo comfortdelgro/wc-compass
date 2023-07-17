@@ -1,6 +1,7 @@
+import {CdgBaseComponent} from '../../shared/base-component'
 import {createFloating, DIRECTIONS} from '../floating-content/floating-content'
 
-export class CdgPopover extends HTMLElement {
+export class CdgPopover extends CdgBaseComponent {
   floatingElement
   anchorElement
   cdgPopoverContentElement

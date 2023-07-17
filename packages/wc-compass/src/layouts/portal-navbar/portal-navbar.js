@@ -1,17 +1,19 @@
-export class CdgPortalNavbar extends HTMLElement {
-  container;
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgPortalNavbar extends CdgBaseComponent {
+  container
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-portal-navbar');
-    this.container = document.createElement('div');
-    this.container.classList.add('cdg-portal-navbar-inner');
-    this.container.innerHTML = this.innerHTML;
+    this.classList.add('cdg-portal-navbar')
+    this.container = document.createElement('div')
+    this.container.classList.add('cdg-portal-navbar-inner')
+    this.container.innerHTML = this.innerHTML
 
     // Clear all
-    this.textContent = '';
-    this.appendChild(this.container);
+    this.textContent = ''
+    this.appendChild(this.container)
   }
 }
