@@ -1,44 +1,159 @@
-<cdg-sample-section name="Editable table">
+<cdg-sample-section name="Editable table cells">
   <div class="sample-section column">
     <table id="sampleEditableTable" is="cdg-table"></table>
-    <input
-      id="description"
-      class="cdg-input cdg-table-editable-cell"
-      placeholder="Type something..."
-    />
-    <input
-      id="age"
-      class="cdg-input cdg-table-editable-cell"
-      type="number"
-      placeholder="Type something..."
-    />
+    <div class="cdg-table-editable-cell" id="email">
+      <input class="cdg-input" type="email" placeholder="Type something..." />
+      <div class="actions">
+        <button is="cdg-button" size="small" class="save secondary" id="emailSaveBtn">
+          <cdg-icon
+            name="outlineTick"
+            size="16"
+            style="color: var(--success)"
+          ></cdg-icon>
+        </button>
+        <button
+          is="cdg-button"
+          size="small"
+          class="cancel secondary danger"
+          style="color: var(--danger)"
+          id="emailCancelBtn"
+        >
+          <cdg-icon name="cross" size="16"></cdg-icon>
+        </button>
+      </div>
+    </div>
+    <div class="cdg-table-editable-cell" id="age">
+      <input class="cdg-input" type="number" placeholder="Type something..." />
+      <div class="actions">
+        <button is="cdg-button" size="small" class="save secondary" id="ageSaveBtn">
+          <cdg-icon
+            name="outlineTick"
+            size="16"
+            style="color: var(--success)"
+          ></cdg-icon>
+        </button>
+        <button
+          is="cdg-button"
+          size="small"
+          class="cancel secondary danger"
+          style="color: var(--danger)"
+          id="ageCancelBtn"
+        >
+          <cdg-icon name="cross" size="16"></cdg-icon>
+        </button>
+      </div>
+    </div>
+    <div class="cdg-table-editable-cell" id="description">
+      <input class="cdg-input" placeholder="Type something..." />
+      <div class="actions">
+        <button is="cdg-button" size="small" class="save secondary" id="descriptionSaveBtn">
+          <cdg-icon
+            name="outlineTick"
+            size="16"
+            style="color: var(--success)"
+          ></cdg-icon>
+        </button>
+        <button
+          is="cdg-button"
+          size="small"
+          class="cancel secondary danger"
+          style="color: var(--danger)"
+          id="descriptionCancelBtn"
+        >
+          <cdg-icon name="cross" size="16"></cdg-icon>
+        </button>
+      </div>
+    </div>
   </div>
-
   <pre>
-  <code class="language-html">&lt;table id=&quot;sampleEditableTable&quot; is=&quot;cdg-table&quot;&gt;&lt;/table&gt;
-      &lt;input 
-        id=&quot;description&quot;
-        class=&quot;cdg-input cdg-table-editable-cell&quot;
-        placeholder=&quot;Type something...&quot;
-      /&gt;
-      &lt;input
-        id=&quot;age&quot;
-        class=&quot;cdg-input cdg-table-editable-cell&quot;
-        type=&quot;number&quot;
-        placeholder=&quot;Type something...&quot;
-      /&gt;
+  <code class="language-html">
+&lt;div class=&quot;sample-section column&quot;&gt;
+    &lt;table id=&quot;sampleEditableTable&quot; is=&quot;cdg-table&quot;&gt;&lt;/table&gt;
+    &lt;div class=&quot;cdg-table-editable-cell&quot; id=&quot;email&quot;&gt;
+      &lt;input class=&quot;cdg-input&quot; type=&quot;email&quot; placeholder=&quot;Type something...&quot; /&gt;
+      &lt;div class=&quot;actions&quot;&gt;
+        &lt;button is=&quot;cdg-button&quot; size=&quot;small&quot; class=&quot;save secondary&quot; id=&quot;emailSaveBtn&quot;&gt;
+          &lt;cdg-icon
+            name=&quot;outlineTick&quot;
+            size=&quot;16&quot;
+            style=&quot;color: var(--success)&quot;
+          &gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+        &lt;button
+          is=&quot;cdg-button&quot;
+          size=&quot;small&quot;
+          class=&quot;cancel secondary danger&quot;
+          style=&quot;color: var(--danger)&quot;
+          id=&quot;emailCancelBtn&quot;
+        &gt;
+          &lt;cdg-icon name=&quot;cross&quot; size=&quot;16&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cdg-table-editable-cell&quot; id=&quot;age&quot;&gt;
+      &lt;input class=&quot;cdg-input&quot; type=&quot;number&quot; placeholder=&quot;Type something...&quot; /&gt;
+      &lt;div class=&quot;actions&quot;&gt;
+        &lt;button is=&quot;cdg-button&quot; size=&quot;small&quot; class=&quot;save secondary&quot; id=&quot;ageSaveBtn&quot;&gt;
+          &lt;cdg-icon
+            name=&quot;outlineTick&quot;
+            size=&quot;16&quot;
+            style=&quot;color: var(--success)&quot;
+          &gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+        &lt;button
+          is=&quot;cdg-button&quot;
+          size=&quot;small&quot;
+          class=&quot;cancel secondary danger&quot;
+          style=&quot;color: var(--danger)&quot;
+          id=&quot;ageCancelBtn&quot;
+        &gt;
+          &lt;cdg-icon name=&quot;cross&quot; size=&quot;16&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cdg-table-editable-cell&quot; id=&quot;description&quot;&gt;
+      &lt;input class=&quot;cdg-input&quot; placeholder=&quot;Type something...&quot; /&gt;
+      &lt;div class=&quot;actions&quot;&gt;
+        &lt;button is=&quot;cdg-button&quot; size=&quot;small&quot; class=&quot;save secondary&quot; id=&quot;descriptionSaveBtn&quot;&gt;
+          &lt;cdg-icon
+            name=&quot;outlineTick&quot;
+            size=&quot;16&quot;
+            style=&quot;color: var(--success)&quot;
+          &gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+        &lt;button
+          is=&quot;cdg-button&quot;
+          size=&quot;small&quot;
+          class=&quot;cancel secondary danger&quot;
+          style=&quot;color: var(--danger)&quot;
+          id=&quot;descriptionCancelBtn&quot;
+        &gt;
+          &lt;cdg-icon name=&quot;cross&quot; size=&quot;16&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
 &lt;script&gt;
-    this.thirdColumnTemplate = document.getElementById('description')
+export class CdgTableEditableSection extends CdgBaseDocsComponent {
+  constructor() {
+    super()
+    this.template = template
+  }
+  firstColumnTemplate
+  thirdColumnTemplate
+  editingColumn = {}
+  onInit() {
+    this.firstColumnTemplate = document.getElementById('email')
     this.secondColumnTemplate = document.getElementById('age')
-    this.thirdColumnTemplate.style.display = 'none'
-    this.secondColumnTemplate.style.display = 'none'
+    this.thirdColumnTemplate = document.getElementById('description')
     const table = this.querySelector('#sampleEditableTable')
     table.options = {
       columns: [
         {
-          name: 'Gender',
+          name: 'Email',
           width: 'auto',
-          fieldName: 'gender',
+          fieldName: 'email',
+          colummTemplate: this.firstColumnTemplate,
         },
         {
           name: 'Age',
@@ -60,16 +175,28 @@
           index,
         }
         switch (column) {
+          case 'email':
+            this.firstColumnTemplate.style.display = 'block'
+            const email = this.firstColumnTemplate.querySelector('input')
+            email.value = value
+            email.style.width = `${this.firstColumnTemplate.parentElement.clientWidth}px`
+            email.style.height = `${this.firstColumnTemplate.parentElement.clientHeight}px`
+            this.firstColumnTemplate.focus()
+            break
           case 'age':
             this.secondColumnTemplate.style.display = 'block'
-            this.secondColumnTemplate.value = value
-            this.secondColumnTemplate.style.width = '100%'
+            const numberInput = this.secondColumnTemplate.querySelector('input')
+            numberInput.value = value
+            numberInput.style.width = `${this.secondColumnTemplate.parentElement.clientWidth}px`
+            numberInput.style.height = `${this.secondColumnTemplate.parentElement.clientHeight}px`
             this.secondColumnTemplate.focus()
             break
           case 'description':
             this.thirdColumnTemplate.style.display = 'block'
-            this.thirdColumnTemplate.value = value
-            this.thirdColumnTemplate.style.width = '100%'
+            const input = this.thirdColumnTemplate.querySelector('input')
+            input.value = value
+            input.style.width = `${this.thirdColumnTemplate.parentElement.clientWidth}px`
+            input.style.height = `${this.thirdColumnTemplate.parentElement.clientHeight}px`
             this.thirdColumnTemplate.focus()
             break
         }
@@ -78,40 +205,137 @@
 
     table.data = [
       {
-        gender: 'Male',
+        email: 'email1@gmail.com',
         age: 20,
         description:
           'Third column data with longer text than the others - row 1',
       },
       {
-        gender: 'Female',
+        email: 'email2@gmail.com',
         age: 20,
         description:
           'Third column data with longer text than the others - row 2',
       },
       {
-        gender: 'Other',
+        email: 'email3@gmail.com',
         age: 20,
         description:
           'Third column data with longer text than the others - row 3',
       },
     ]
-    this.querySelector('#description').addEventListener('blur', (e) =&gt; {
-      const newTableData = table.finishEditing(
-        this.editingColumn.column,
-        this.editingColumn.index,
-        e.target.value,
-      )
-      this.thirdColumnTemplate.style.display = 'none'
+    this.bindEventsToButton()
+  }
+
+  validateEmail(value) {
+    const emailPattern = /^[^s@]+@[^s@]+.[^s@]+$/
+    return emailPattern.test(value)
+  }
+
+  validateAge(value) {
+    return value &gt; 0
+  }
+  bindEventsToButton() {
+    const saveButtons = this.querySelectorAll('.save')
+    const cancelButtons = this.querySelectorAll('.cancel')
+    const self = this
+    saveButtons.forEach((saveButton) =&gt; {
+      saveButton.addEventListener('click', () =&gt; {
+        const table = this.querySelector('#sampleEditableTable')
+        const data = [...table.data]
+
+        const saveButtonId = saveButton.getAttribute('id')
+        const toast = document.createElement('cdg-toast')
+        toast.setAttribute('color', 'red')
+        switch (saveButtonId) {
+          case 'ageSaveBtn':
+            const ageValue =
+              self.secondColumnTemplate.querySelector('input').value
+            if (this.validateAge(ageValue)) {
+              data[this.editingColumn.index][this.editingColumn.column] =
+                ageValue
+              table.finishEditing(self.secondColumnTemplate)
+            } else {
+              const id = new Date().getTime()
+              toast.textContent = 'Invalid age.'
+              cdgToastService.show(id, toast)
+              return
+            }
+            break
+          case 'descriptionSaveBtn':
+            data[this.editingColumn.index][this.editingColumn.column] =
+              self.thirdColumnTemplate.querySelector('input').value
+            table.finishEditing(self.thirdColumnTemplate)
+            break
+          case 'emailSaveBtn':
+            const emailValue =
+              self.firstColumnTemplate.querySelector('input').value
+            if (this.validateEmail(emailValue)) {
+              data[this.editingColumn.index][this.editingColumn.column] =
+                emailValue
+              table.finishEditing(self.firstColumnTemplate)
+            } else {
+              const id = new Date().getTime()
+              toast.textContent = 'Invalid email.'
+              cdgToastService.show(id, toast)
+              return
+            }
+        }
+
+        const loadingId = cdgLoadingService.show('global')
+        setTimeout(() =&gt; {
+          cdgLoadingService.hide(loadingId)
+          table.data = data
+          cdgToastService.toast('Data is successfully saved!')
+        }, 1000)
+      })
     })
-    this.querySelector('#age').addEventListener('blur', (e) =&gt; {
-      const newTableData = table.finishEditing(
-        this.editingColumn.column,
-        this.editingColumn.index,
-        e.target.value,
-      )
-      this.secondColumnTemplate.style.display = 'none'
+
+    cancelButtons.forEach((cancelButton) =&gt; {
+      cancelButton.addEventListener('click', () =&gt; {
+        const dialog = cdgDialogService.confirm({
+          dialogTitle: 'Cancel Editing',
+          message: 'Are you sure want to cancel editing?',
+          executeLabel: 'Yes',
+        })
+        dialog.addEventListener('close', () =&gt; {
+          const table = self.querySelector('#sampleEditableTable')
+          const cancelButtonId = cancelButton.getAttribute('id')
+          switch (cancelButtonId) {
+            case 'emailCancelBtn':
+              table.finishEditing(self.firstColumnTemplate)
+              cdgToastService.toast('Email editing canceled.')
+              break
+            case 'ageCancelBtn':
+              table.finishEditing(self.secondColumnTemplate)
+              cdgToastService.toast('Age editing canceled.')
+              break
+            case 'descriptionCancelBtn':
+              table.finishEditing(self.thirdColumnTemplate)
+              cdgToastService.toast('Description editing canceled.')
+              break
+          }
+        })
+      })
     })
+  }
+}
+
 &lt;/script&gt;</code>
 </pre>
 </cdg-sample-section>
+
+<style>
+  .cdg-table-editable-cell {
+    /* display: none; */
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; */
+    /* box-sizing: border-box; */
+  }
+  .actions {
+    display: flex;
+    margin-top: 5px;
+    gap: 4px;
+  }
+</style>

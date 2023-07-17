@@ -1,4 +1,6 @@
-export class CdgListview extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgListview extends CdgBaseComponent {
   static get observedAttributes() {
     return ['allow-drag']
   }

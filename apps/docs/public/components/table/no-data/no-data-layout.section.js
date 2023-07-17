@@ -1,8 +1,8 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 import {dummyData} from '../table-data'
 import template from './no-data-layout.section.html'
 
-export class CdgNoDataTableLayoutSection extends CdgBaseComponent {
+export class CdgNoDataTableLayoutSection extends CdgBaseDocsComponent {
   tableElement
   tableBody
   paginationElement

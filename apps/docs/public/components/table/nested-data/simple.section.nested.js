@@ -1,7 +1,7 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 import template from './simple.section.nested.html'
 
-export class CdgTableSimpleSectionNested extends CdgBaseComponent {
+export class CdgTableSimpleSectionNested extends CdgBaseDocsComponent {
   constructor() {
     super()
     this.template = template

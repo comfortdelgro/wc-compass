@@ -1,3 +1,4 @@
+import {CdgBaseComponent} from '../../shared/base-component'
 import {toDisplayTime} from './video.util'
 
 const CONTROLS_TEMPLATE = `
@@ -36,7 +37,7 @@ const CONTROLS_TEMPLATE = `
 </div>
 `
 
-export class CdgVideoControls extends HTMLElement {
+export class CdgVideoControls extends CdgBaseComponent {
   static get observedAttributes() {
     return ['current-time', 'duration', 'playing', 'buffering', 'volume']
   }

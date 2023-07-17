@@ -1,7 +1,7 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 import template from './long-otp.section.html'
 
-export class CdgLongOtpSection extends CdgBaseComponent {
+export class CdgLongOtpSection extends CdgBaseDocsComponent {
   constructor() {
     super()
     this.template = template

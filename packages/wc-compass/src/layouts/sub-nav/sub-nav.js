@@ -1,9 +1,11 @@
-export class CdgSubNav extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgSubNav extends CdgBaseComponent {
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-sub-nav');
+    this.classList.add('cdg-sub-nav')
   }
 }

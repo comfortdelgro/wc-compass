@@ -1,4 +1,6 @@
-export class CdgCardHeader extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgCardHeader extends CdgBaseComponent {
   get title() {
     return this.getAttribute('title')
   }

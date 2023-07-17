@@ -1,9 +1,11 @@
-export class CdgToastMessage extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgToastMessage extends CdgBaseComponent {
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-toast-message');
+    this.classList.add('cdg-toast-message')
   }
 }

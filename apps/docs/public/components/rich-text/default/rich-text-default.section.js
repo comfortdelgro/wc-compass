@@ -1,7 +1,7 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 import template from './rich-text-default.section.html'
 
-export class CdgRichTextDefaultSection extends CdgBaseComponent {
+export class CdgRichTextDefaultSection extends CdgBaseDocsComponent {
   constructor() {
     super()
     this.template = template

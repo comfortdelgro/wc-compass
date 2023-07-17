@@ -1,3 +1,4 @@
+import {CdgBaseComponent} from '../../shared/base-component'
 import {Pointer} from '../../shared/pointer'
 
 const TEMPLATE = `
@@ -9,7 +10,7 @@ const TEMPLATE = `
 </button>
 `
 
-export class CdgVolume extends HTMLElement {
+export class CdgVolume extends CdgBaseComponent {
   static get observedAttributes() {
     return ['volume', 'mute']
   }

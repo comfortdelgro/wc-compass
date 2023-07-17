@@ -1,4 +1,6 @@
-export class CdgTagBoxItem extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgTagBoxItem extends CdgBaseComponent {
   closeElement
   iconContainer
 

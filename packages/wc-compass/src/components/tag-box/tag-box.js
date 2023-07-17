@@ -1,3 +1,4 @@
+import {CdgBaseComponent} from '../../shared/base-component'
 import {isElement} from '../../shared/utilities'
 
 const hiddenNumberWidth = 32
@@ -13,7 +14,7 @@ function createTagBoxItem(content) {
   return template
 }
 
-export class CdgTagBoxContainer extends HTMLElement {
+export class CdgTagBoxContainer extends CdgBaseComponent {
   labelElement
   containerElement
   mainElement

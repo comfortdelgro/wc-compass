@@ -1,3 +1,5 @@
+import {CdgBaseComponent} from '../../shared/base-component'
+
 const imageTemplate = document.createElement('template')
 
 //TODO: remove this outside source url later, use wc-compass image placeholder instead
@@ -28,7 +30,7 @@ imageTemplate.innerHTML = `
   <img src="${placeholderSrc}" aria-label="Image"/>
 `
 
-export class CdgLazyImage extends HTMLElement {
+export class CdgLazyImage extends CdgBaseComponent {
   constructor() {
     super()
     const shadowRoot = this.attachShadow({mode: 'open'})

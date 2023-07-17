@@ -1,4 +1,6 @@
-export class CdgDotsIndicator extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgDotsIndicator extends CdgBaseComponent {
   static get observedAttributes() {
     return ['current', 'length']
   }

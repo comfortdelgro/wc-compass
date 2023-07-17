@@ -1,45 +1,47 @@
-export class CdgGroupAvatar extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgGroupAvatar extends CdgBaseComponent {
   static get observedAttributes() {
-    return ['more'];
+    return ['more']
   }
 
   get more() {
-    return Number(this.getAttribute('more'));
+    return Number(this.getAttribute('more'))
   }
 
   set more(more) {
-    this.setAttribute('more', more);
+    this.setAttribute('more', more)
   }
 
-  moreAvatar;
+  moreAvatar
 
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-group-avatar');
+    this.classList.add('cdg-group-avatar')
 
     if (this.more) {
-      this.addMoreAvatar();
+      this.addMoreAvatar()
     }
   }
 
   attributeChangedCallback(attr) {
     if (attr === 'more' && this.more) {
-      this.addMoreAvatar();
+      this.addMoreAvatar()
     }
   }
 
   addMoreAvatar() {
     if (this.moreAvatar) {
-      this.moreAvatar.setAttribute('name', '+' + this.more);
+      this.moreAvatar.setAttribute('name', '+' + this.more)
     } else {
-      this.moreAvatar = document.createElement('cdg-avatar');
-      this.moreAvatar.setAttribute('size', 32);
-      this.moreAvatar.setAttribute('useFullName', true);
-      this.moreAvatar.setAttribute('name', '+' + this.more);
-      this.appendChild(this.moreAvatar);
+      this.moreAvatar = document.createElement('cdg-avatar')
+      this.moreAvatar.setAttribute('size', 32)
+      this.moreAvatar.setAttribute('useFullName', true)
+      this.moreAvatar.setAttribute('name', '+' + this.more)
+      this.appendChild(this.moreAvatar)
     }
   }
 }

@@ -1,4 +1,6 @@
-export class CdgTestimonialItem extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgTestimonialItem extends CdgBaseComponent {
   testimonialContentRatingEl
 
   static get observedAttributes() {

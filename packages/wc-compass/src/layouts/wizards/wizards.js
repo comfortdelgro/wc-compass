@@ -1,4 +1,6 @@
-export class CdgWizards extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgWizards extends CdgBaseComponent {
   stepElements = []
 
   static get observedAttributes() {

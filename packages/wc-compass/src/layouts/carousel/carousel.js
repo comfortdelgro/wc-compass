@@ -1,3 +1,4 @@
+import {CdgBaseComponent} from '../../shared/base-component'
 import {Pointer} from '../../shared/pointer'
 
 const ARROW_RIGHT = `<cdg-icon name="arrowRight" size="24"></cdg-icon>`
@@ -6,7 +7,7 @@ const ARROW_RIGHT_TEXT = `Next`
 const ARROW_LEFT_TEXT = `Prev`
 const CLICKABLE_ELEMENTS = ['BUTTON', 'A']
 
-export class CdgCarousel extends HTMLElement {
+export class CdgCarousel extends CdgBaseComponent {
   static get observedAttributes() {
     return ['current', 'use-arrow', 'auto-switch', 'single-center', 'scaled']
   }

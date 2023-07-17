@@ -1,6 +1,6 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 
-export class CdgModalHeaderPropertiesSection extends CdgBaseComponent {
+export class CdgModalHeaderPropertiesSection extends CdgBaseDocsComponent {
   constructor() {
     super()
     this.htmlContent = `<section class="guideline-section">

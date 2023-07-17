@@ -1,9 +1,9 @@
 import {DOCUMENT_CONTENT} from '../../constants/document-content'
-import {CdgBaseComponent} from '../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../shared/base-component'
 import {findParentMenu} from '../../shared/menu'
 import template from './sidebar.html'
 
-export class CdgDemoSidebar extends CdgBaseComponent {
+export class CdgDemoSidebar extends CdgBaseDocsComponent {
   activeParent
   activatedMenu
 

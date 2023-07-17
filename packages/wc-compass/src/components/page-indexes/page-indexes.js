@@ -1,4 +1,6 @@
-export class CdgPageIndexes extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgPageIndexes extends CdgBaseComponent {
   get scrollContent() {
     return this.getAttribute('scroll-content')
   }

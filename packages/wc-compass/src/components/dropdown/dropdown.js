@@ -1,3 +1,4 @@
+import {CdgBaseComponent} from '../../shared/base-component'
 import {isElement} from '../../shared/utilities'
 
 const template = document.createElement('template')
@@ -23,7 +24,7 @@ function createSelectedItem(value, text, displayEl) {
   return templateSelectedItem
 }
 
-export class CdgDropdown extends HTMLElement {
+export class CdgDropdown extends CdgBaseComponent {
   isOpen = false
   _placeholder = ''
   _width = '100%'

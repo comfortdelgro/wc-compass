@@ -1,3 +1,5 @@
+import {CdgBaseComponent} from '../../shared/base-component'
+
 import dayjs from 'dayjs'
 import weekdayPlugin from 'dayjs/plugin/weekday'
 import weekOfYear from 'dayjs/plugin/weekOfYear'
@@ -162,7 +164,7 @@ function createMonthLayout() {
   return monthDiv
 }
 
-export class CdgCalendar extends HTMLElement {
+export class CdgCalendar extends CdgBaseComponent {
   selectedMonth = dayjs(new Date(INITIAL_YEAR, INITIAL_MONTH - 1, 1))
   mode = 'day'
   containerElement

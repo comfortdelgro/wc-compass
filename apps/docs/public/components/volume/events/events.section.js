@@ -1,6 +1,6 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 
-export class CdgVolumeEventsSection extends CdgBaseComponent {
+export class CdgVolumeEventsSection extends CdgBaseDocsComponent {
   constructor() {
     super()
     this.htmlContent = `<section class="guideline-section">

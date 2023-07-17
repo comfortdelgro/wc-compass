@@ -1,10 +1,10 @@
 import {REGEX_EMAIL} from '@comfortdelgro/wc-compass/src/shared/regex'
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 import template from './touched.section.html'
 
 import {TextFieldValidator} from '@comfortdelgro/wc-compass/src/shared/form-validation'
 
-export class CdgTouchedSection extends CdgBaseComponent {
+export class CdgTouchedSection extends CdgBaseDocsComponent {
   content
   constructor() {
     super()

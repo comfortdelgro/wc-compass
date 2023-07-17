@@ -1,9 +1,11 @@
-export class CdgModalActions extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgModalActions extends CdgBaseComponent {
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-modal-actions');
+    this.classList.add('cdg-modal-actions')
   }
 }

@@ -1,9 +1,11 @@
-export class CdgPageHeaderRow extends HTMLElement {
+import {CdgBaseComponent} from '../../shared/base-component'
+
+export class CdgPageHeaderRow extends CdgBaseComponent {
   constructor() {
-    super();
+    super()
   }
 
   connectedCallback() {
-    this.classList.add('cdg-page-header-row');
+    this.classList.add('cdg-page-header-row')
   }
 }

@@ -1,6 +1,6 @@
 import {CONTENT_MAP} from '../../constants/content-map'
 import {DOCUMENT_CONTENT} from '../../constants/document-content'
-import {CdgBaseComponent} from '../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../shared/base-component'
 import {findParentMenu} from '../../shared/menu'
 import template from './container.html'
 
@@ -16,7 +16,7 @@ const NO_TABLE_OF_CONTENT = [
   'dashboardTemplate',
 ]
 
-export class CdgDemoContainer extends CdgBaseComponent {
+export class CdgDemoContainer extends CdgBaseDocsComponent {
   pageHeader
   currentPage
   subTitle
