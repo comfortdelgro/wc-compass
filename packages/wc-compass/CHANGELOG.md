@@ -1,5 +1,12 @@
 # @comfortdelgro/wc-compass
 
+## 0.2.19
+
+### Patch Changes
+
+- 6f63d66: Add more features and fixing bugs
+- 6f63d66: Update scroll to bottom docs
+
 ## 0.2.18
 
 ### Patch Changes
