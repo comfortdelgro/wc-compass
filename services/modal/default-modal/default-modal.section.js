@@ -1,7 +1,7 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 import template from './default-modal.section.html'
 
-export class CdgModalDefaultSection extends CdgBaseComponent {
+export class CdgModalDefaultSection extends CdgBaseDocsComponent {
   modal
 
   constructor() {

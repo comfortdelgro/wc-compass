@@ -1,10 +1,10 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 
 import {REGEX_PHONE_NUMBER} from '@comfortdelgro/wc-compass/src/shared/regex'
 
 import template from './reg-phone.section.html'
 
-export class CdgRegPhoneSection extends CdgBaseComponent {
+export class CdgRegPhoneSection extends CdgBaseDocsComponent {
   content
   constructor() {
     super()

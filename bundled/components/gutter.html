@@ -13,6 +13,7 @@
   }
 
   .sample-gutter-content {
+    width: 100%;
     height: 200px;
     border: 1px solid var(--border-color);
   }
@@ -39,6 +40,8 @@
   .cdg-group-center {
     padding: 10px;
     box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
   }
 
   .right-col-content,
@@ -49,7 +52,7 @@
 </style>
 
 <cdg-sample-section name="Default">
-  <div class="sample-section">
+  <div class="sample-section column">
     <div class="cdg-layout sample-gutter-content">
       <div class="cdg-group-left">
         <div class="left-col-content">Some content belong to left column</div>

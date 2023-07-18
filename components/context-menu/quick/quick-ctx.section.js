@@ -1,8 +1,8 @@
 import {CdgContextMenuService} from '@comfortdelgro/wc-compass/src/shared/context-menu-service'
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 import template from './quick-ctx.section.html'
 
-export class CdgQuickCtxSection extends CdgBaseComponent {
+export class CdgQuickCtxSection extends CdgBaseDocsComponent {
   constructor() {
     super()
     this.template = template

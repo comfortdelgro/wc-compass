@@ -1,7 +1,7 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 import template from './confirm.section.html'
 
-export class CdgDialogConfirmSection extends CdgBaseComponent {
+export class CdgDialogConfirmSection extends CdgBaseDocsComponent {
   constructor() {
     super()
     this.template = template

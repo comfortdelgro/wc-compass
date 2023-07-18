@@ -1,7 +1,7 @@
-import {CdgBaseComponent} from '../../../shared/base-component'
+import {CdgBaseDocsComponent} from '../../../shared/base-component'
 import template from './default-sidebar.section.html'
 
-export class CdgDefaultSidebarSection extends CdgBaseComponent {
+export class CdgDefaultSidebarSection extends CdgBaseDocsComponent {
   content
   constructor() {
     super()
