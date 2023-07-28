@@ -11,6 +11,12 @@
       }
     }
   }
+  .cdg-datepicker-input-content {
+    width: 100%;
+    .cdg-input {
+      min-width: 100%;
+    }
+  }
 }
 .cdg-datepicker-floating-container {
   overflow-x: auto;

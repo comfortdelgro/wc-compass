@@ -185,7 +185,6 @@
   outline-color: var(--error);
 }
 
-.cdg-datepicker,
 .cdg-dropdown,
 .cdg-input {
   @extend %formField;
@@ -225,7 +224,4 @@
       padding-right: 48px;
     }
   }
-}
-
-.cdg-textarea {
 }
