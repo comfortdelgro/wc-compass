@@ -2,37 +2,30 @@ import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 import {createFloating} from '../floating-content/floating-content'
 
-// const customParseFormat = window.dayjs_plugin_customParseFormat;
 dayjs.extend(customParseFormat)
 
-function createInputs(isDouble, disabled, startTitle = '', endTitle = '') {
+function createInputs(isDouble, disabled) {
   const template = document.createElement('template')
   template.innerHTML = `
 <div class="cdg-datepicker-input-container">
     <div class="cdg-datepicker-input-content">
-        <label class="cdg-input-group">
-            <span class="cdg-input-label">${startTitle}</span>
-            <div class="cdg-input-with-icon right">
-                <input class="cdg-input" data-type="start-date" ${
-                  disabled ? 'disabled' : ''
-                } />
-                <cdg-icon name="filledArrowDown" size="16"></cdg-icon>
-            </div>
-        </label>
+      <div class="cdg-input-with-icon right">
+          <input class="cdg-input" data-type="start-date" ${
+            disabled ? 'disabled' : ''
+          } />
+          <cdg-icon name="arrowDown" size="16"></cdg-icon>
+      </div>
     </div>
     ${
       isDouble
         ? `
         <div class="cdg-datepicker-input-content">
-            <label class="cdg-input-group">
-                <span class="cdg-input-label">${endTitle}</span>
-                <div class="cdg-input-with-icon right">
-                    <input class="cdg-input" data-type="end-date" ${
-                      disabled ? 'disabled' : ''
-                    } />
-                    <cdg-icon name="filledArrowDown" size="16"></cdg-icon>
-                </div>
-            </label>
+          <div class="cdg-input-with-icon right">
+              <input class="cdg-input" data-type="end-date" ${
+                disabled ? 'disabled' : ''
+              } />
+              <cdg-icon name="arrowDown" size="16"></cdg-icon>
+          </div>
         </div>`
         : ''
     }
@@ -114,10 +107,7 @@ export class CdgDatePicker extends HTMLElement {
         dayjs(value).format('YYYY-MM-DD'),
       )
       if (!this.isDouble) return
-      if (
-        this.floatingElement &&
-        this.floatingElement.hasAttribute('open')
-      ) {
+      if (this.floatingElement && this.floatingElement.hasAttribute('open')) {
         this.inputContentElements.item(1).querySelector('input').focus()
       }
     } else {
@@ -125,10 +115,7 @@ export class CdgDatePicker extends HTMLElement {
       this.calendarElement.setAttribute('start-date', '')
       if (!this.isDouble) return
       this.inputContentElements.item(1).querySelector('input').value = ''
-      if (
-        this.floatingElement &&
-        this.floatingElement.hasAttribute('open')
-      ) {
+      if (this.floatingElement && this.floatingElement.hasAttribute('open')) {
         this.inputContentElements.item(0).querySelector('input').focus()
       }
     }
@@ -173,12 +160,7 @@ export class CdgDatePicker extends HTMLElement {
     this.disabled = this.getAttribute('disabled') === 'true'
     // Create inputs
     this.append(
-      createInputs(
-        this.isDouble,
-        this.disabled,
-        this.getAttribute('start-title') || '',
-        this.getAttribute('end-title') || '',
-      ).content.cloneNode(true),
+      createInputs(this.isDouble, this.disabled).content.cloneNode(true),
     )
 
     if (this.hasAttribute('format')) {
