@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.3.0
+
+### Minor Changes
+
+- 87a5f27: Add content-wrapper-class attribute for Popover
+
 ## 0.2.19
 
 ### Patch Changes
