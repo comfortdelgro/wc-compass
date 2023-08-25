@@ -72,11 +72,15 @@ export class CdgPopover extends CdgBaseComponent {
           this.anchorElement.addEventListener('click', this.clickListener)
         }
       }
+      const floatingClass = this.hasAttribute('content-wrapper-class')
+        ? this.getAttribute('content-wrapper-class').split(',')
+        : []
+      floatingClass.push('cdg-popover-floating-container')
       this.floatingElement = createFloating.bind(this)(
         this.anchorElement,
         this.cdgPopoverContentElement,
         this.direction,
-        ['cdg-popover-floating-container'],
+        floatingClass,
         false,
         false,
         true,
