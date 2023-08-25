@@ -117,7 +117,7 @@ export class CdgPopover extends CdgBaseComponent {
   }
 
   handleAnchorBlur() {
-    // this.open = false
+    this.open = false
   }
 
   handleKeyboard(event) {
