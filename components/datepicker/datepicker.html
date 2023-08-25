@@ -5,28 +5,46 @@
 
 <cdg-sample-section name="Default">
   <div class="sample-section">
-    <cdg-datepicker start-title="Single Datepicker" />
+    <div class="cdg-form-row">
+      <label class="cdg-input-group" style="width: 214px">
+        <span class="cdg-input-label">Single Datepicker</span>
+        <cdg-datepicker start-title="Single Datepicker" />
+      </label>
+    </div>
   </div>
 
   <pre>
     <code class="language-html">
-  &lt;div&gt;
-    &lt;cdg-datepicker start-title=&quot;Single Datepicker&quot; /&gt;
-  &lt;/div&gt;
+    &lt;div class=&quot;cdg-form-row&quot;&gt;
+      &lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 214px&quot;&gt;
+        &lt;span class=&quot;cdg-input-label&quot;&gt;Single Datepicker&lt;/span&gt;
+        &lt;cdg-datepicker start-title=&quot;Single Datepicker&quot; /&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
     </code>
   </pre>
 </cdg-sample-section>
 
 <cdg-sample-section name="Set default date">
   <div class="sample-section">
-    <cdg-datepicker start-title="Single Datepicker" date="2023-03-08" />
+    <div class="cdg-form-row">
+      <label class="cdg-input-group" style="width: 214px">
+        <span class="cdg-input-label">Single Datepicker</span>
+        <cdg-datepicker date="2023-03-08" />
+      </label>
+    </div>
   </div>
 
   <pre>
     <code class="language-html">
-  &lt;div&gt;
-    &lt;cdg-datepicker start-title=&quot;Single Datepicker&quot; date=&quot;2023-03-08&quot; /&gt;
-  &lt;/div&gt;
+    &lt;div class=&quot;sample-section&quot;&gt;
+      &lt;div class=&quot;cdg-form-row&quot;&gt;
+        &lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 214px&quot;&gt;
+          &lt;span class=&quot;cdg-input-label&quot;&gt;Single Datepicker&lt;/span&gt;
+          &lt;cdg-datepicker date=&quot;2023-03-08&quot; /&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
     </code>
   </pre>
 </cdg-sample-section>
@@ -45,128 +63,152 @@
         </label>
       </div>
       <div style="display: flex; flex-direction: column; gap: 20px">
-        <div>
+        <label class="cdg-input-group" style="width: 214px">
+          <span class="cdg-input-label">Disabled</span>
           <cdg-datepicker
             class="diabled-datepicker"
             start-title="Disabled"
             disabled="true"
           />
-        </div>
-        <div>
-          <cdg-datepicker
-            class="diabled-datepicker"
-            start-title="Start"
-            end-title="End"
-            disabled="true"
-            double
-          />
-        </div>
+        </label>
+        <label class="cdg-input-group" style="width: 452px">
+          <span class="cdg-input-label">Start-End disabled Datepicker</span>
+          <cdg-datepicker class="diabled-datepicker" disabled="true" double />
+        </label>
       </div>
     </div>
   </div>
 
   <pre>
     <code class="language-html">
-  &lt;div style=&quot;display: flex; flex-direction: column; gap: 20px&quot;&gt;
-    &lt;div&gt;
-      &lt;cdg-datepicker
-        class=&quot;diabled-datepicker&quot;
-        start-title=&quot;Disabled&quot;
-        disabled=&quot;true&quot;
-      /&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;cdg-datepicker
-        class=&quot;diabled-datepicker&quot;
-        start-title=&quot;Start&quot;
-        end-title=&quot;End&quot;
-        disabled=&quot;true&quot;
-        double
-      /&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
+      &lt;div style=&quot;display: flex; flex-direction: column; gap: 20px&quot;&gt;
+        &lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 214px&quot;&gt;
+          &lt;span class=&quot;cdg-input-label&quot;&gt;Disabled&lt;/span&gt;
+          &lt;cdg-datepicker
+            class=&quot;diabled-datepicker&quot;
+            start-title=&quot;Disabled&quot;
+            disabled=&quot;true&quot;
+          /&gt;
+        &lt;/label&gt;
+        &lt;label class=&quot;cdg-input-group&quot;&gt;
+          &lt;span class=&quot;cdg-input-label&quot;&gt;Start-End disabled Datepicker&lt;/span&gt;
+          &lt;cdg-datepicker class=&quot;diabled-datepicker&quot; disabled=&quot;true&quot; double /&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
     </code>
   </pre>
 </cdg-sample-section>
 
 <cdg-sample-section name="Datepicker with min&max">
   <div class="sample-section">
-    <cdg-datepicker start-title="min&max" min="2023-03-08" max="2023-03-15" />
+    <div class="cdg-form-row">
+      <label class="cdg-input-group" style="width: 214px">
+        <span class="cdg-input-label">min&max</span>
+        <cdg-datepicker min="2023-03-08" max="2023-03-15" />
+      </label>
+    </div>
   </div>
 
   <pre>
     <code class="language-html">
-  &lt;div&gt;
-    &lt;cdg-datepicker
-      start-title=&quot;min&max&quot;
-      min=&quot;2023-03-08&quot;
-      max=&quot;2023-03-15&quot;
-    /&gt;
-  &lt;/div&gt;
+    &lt;div class=&quot;cdg-form-row&quot;&gt;
+      &lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 214px&quot;&gt;
+        &lt;span class=&quot;cdg-input-label&quot;&gt;min&amp;max&lt;/span&gt;
+        &lt;cdg-datepicker min=&quot;2023-03-08&quot; max=&quot;2023-03-15&quot; /&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
     </code>
   </pre>
 </cdg-sample-section>
 
 <cdg-sample-section name="Start & end inputs">
   <div class="sample-section">
-    <cdg-datepicker
-      double
-      start-title="Start"
-      end-title="End"
-      format="DD-MM-YYYY"
-    />
+    <div class="cdg-form-row">
+      <label class="cdg-input-group" style="width: 452px">
+        <span class="cdg-input-label">Start & End</span>
+        <cdg-datepicker double format="DD-MM-YYYY" />
+      </label>
+    </div>
   </div>
 
   <pre>
     <code class="language-html">
-  &lt;div&gt;
-    &lt;cdg-datepicker
-      double
-      start-title=&quot;Start&quot;
-      end-title=&quot;End&quot;
-      format=&quot;DD-MM-YYYY&quot;
-    /&gt;
-  &lt;/div&gt;
+    &lt;div class=&quot;cdg-form-row&quot;&gt;
+      &lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 452px&quot;&gt;
+        &lt;span class=&quot;cdg-input-label&quot;&gt;Start &amp; End&lt;/span&gt;
+        &lt;cdg-datepicker double format=&quot;DD-MM-YYYY&quot; /&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
     </code>
   </pre>
 </cdg-sample-section>
 
 <cdg-sample-section name="Start & end with default values">
   <div class="sample-section">
-    <cdg-datepicker
-      double
-      start-title="Start"
-      end-title="End"
-      start-date="2023-03-08"
-      end-date="2023-03-15"
-    />
+    <div class="cdg-form-row">
+      <label class="cdg-input-group" style="width: 452px">
+        <span class="cdg-input-label">Start & End</span>
+        <cdg-datepicker double start-date="2023-03-08" end-date="2023-03-15" />
+      </label>
+    </div>
   </div>
 
   <pre>
     <code class="language-html">
-  &lt;div&gt;
-    &lt;cdg-datepicker
-      double
-      start-title=&quot;Start&quot;
-      end-title=&quot;End&quot;
-      start-date=&quot;2023-03-08&quot;
-      end-date=&quot;2023-03-15&quot;
-    /&gt;
-  &lt;/div&gt;
+    &lt;div class=&quot;cdg-form-row&quot;&gt;
+      &lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 452px&quot;&gt;
+        &lt;span class=&quot;cdg-input-label&quot;&gt;Start &amp; End&lt;/span&gt;
+        &lt;cdg-datepicker double start-date=&quot;2023-03-08&quot; end-date=&quot;2023-03-15&quot; /&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
     </code>
   </pre>
 </cdg-sample-section>
 
 <cdg-sample-section name="Format date with DD-MM-YYYY">
   <div class="sample-section">
-    <cdg-datepicker start-title="Single Datepicker" format="DD-MM-YYYY" />
+    <div class="cdg-form-row">
+      <label class="cdg-input-group" style="width: 214px">
+        <span class="cdg-input-label">Single Datepicker</span>
+        <cdg-datepicker format="DD-MM-YYYY" />
+      </label>
+    </div>
   </div>
 
   <pre>
     <code class="language-html">
-  &lt;div&gt;
-    &lt;cdg-datepicker start-title=&quot;Single Datepicker&quot; format=&quot;DD-MM-YYYY&quot; /&gt;
-  &lt;/div&gt;
+    &lt;div class=&quot;cdg-form-row&quot;&gt;
+      &lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 214px&quot;&gt;
+        &lt;span class=&quot;cdg-input-label&quot;&gt;Single Datepicker&lt;/span&gt;
+        &lt;cdg-datepicker format=&quot;DD-MM-YYYY&quot; /&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+    </code>
+  </pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Error field with helper message">
+  <div class="sample-section">
+    <label class="cdg-input-group error" style="width: 214px">
+      <span class="cdg-input-label"
+        >I'm an required field<i class="cdg-required-mark">*</i></span
+      >
+      <cdg-datepicker></cdg-datepicker>
+      <span class="cdg-helper-message">This field is required!</span>
+    </label>
+  </div>
+
+  <pre>
+    <code class="language-html">
+    &lt;div class=&quot;sample-section&quot;&gt;
+      &lt;label class=&quot;cdg-input-group error&quot; style=&quot;width: 214px&quot;&gt;
+        &lt;span class=&quot;cdg-input-label&quot;
+          &gt;I&apos;m an required field&lt;i class=&quot;cdg-required-mark&quot;&gt;*&lt;/i&gt;&lt;/span
+        &gt;
+        &lt;cdg-datepicker&gt;&lt;/cdg-datepicker&gt;
+        &lt;span class=&quot;cdg-helper-message&quot;&gt;This field is required!&lt;/span&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
     </code>
   </pre>
 </cdg-sample-section>

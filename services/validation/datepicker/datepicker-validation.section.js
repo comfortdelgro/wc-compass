@@ -22,7 +22,7 @@ export class CdgDatepickerValidationSection extends CdgBaseDocsComponent {
 
     field.addEventListener('onDateChange', (event) => {
       let message = defaultText
-      fieldValidation.update(event.detail)
+      fieldValidation.update(event.detail.date?.toISOString() ?? '')
       if (fieldValidation.invalid) {
         group.classList.add('error')
         switch (fieldValidation.reason) {
