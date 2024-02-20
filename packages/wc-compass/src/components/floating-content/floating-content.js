@@ -49,7 +49,7 @@ export class CdgFloatingContent extends CdgBaseComponent {
 
   set open(open) {
     if (open) {
-      this.setAttribute('open', 'true')
+      this.setAttribute('open', '')
     } else {
       this.removeAttribute('open')
     }
@@ -121,8 +121,7 @@ export class CdgFloatingContent extends CdgBaseComponent {
   }
 
   handleWindowScroll() {
-    const open = this.getAttribute('open')
-    if (this.parentElement && open && open !== 'false') {
+    if (this.parentElement && this.open) {
       const newPosition = getNewPosition(
         this.parentElement.anchorElement,
         this.position,
