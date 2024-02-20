@@ -1,5 +1,17 @@
 # @comfortdelgro/wc-compass
 
+## 0.3.0
+
+### Minor Changes
+
+- 87a5f27: Add content-wrapper-class attribute for Popover
+- 5da1505: floating-content: Fixed content with its anchor
+
+### Patch Changes
+
+- 6f63d66: Add more features and fixing bugs
+- 6f63d66: Update scroll to bottom docs
+
 ## 0.2.18
 
 ### Patch Changes
