@@ -42,7 +42,7 @@ export class CdgPopover extends CdgBaseComponent {
       return
     }
     if (value) {
-      this.setAttribute('open', '')
+      this.setAttribute('open', 'true')
     } else {
       this.removeAttribute('open')
     }
@@ -93,7 +93,7 @@ export class CdgPopover extends CdgBaseComponent {
     switch (attr) {
       case 'open':
         if (this.open) {
-          this.floatingElement.setAttribute('open', '')
+          this.floatingElement.setAttribute('open', 'true')
           this.keyboardEvent = this.handleKeyboard.bind(this)
           window.addEventListener('keydown', this.keyboardEvent)
         } else {
