@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.4.0
+
+### Minor Changes
+
+- 90543d5: floating-content: Fixed content with its anchor
+
 ## 0.3.0
 
 ### Minor Changes
