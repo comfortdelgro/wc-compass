@@ -121,11 +121,7 @@ export class CdgFloatingContent extends CdgBaseComponent {
   }
 
   handleWindowScroll() {
-    if (
-      this.parentElement &&
-      this.hasAttribute('open') &&
-      this.getAttribute('open')
-    ) {
+    if (this.parentElement && this.open) {
       const newPosition = getNewPosition(
         this.parentElement.anchorElement,
         this.position,
