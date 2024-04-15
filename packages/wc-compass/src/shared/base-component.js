@@ -2,9 +2,13 @@ import {replacePlaceholders} from './dom'
 
 export class CdgBaseComponent extends HTMLElement {
   set instance(instance) {
-    Object.keys(instance).forEach((key) => {
-      this[key] = instance[key]
-    })
+    if (typeof instance === 'string') {
+      this.item = instance
+    } else {
+      Object.keys(instance).forEach((key) => {
+        this[key] = instance[key]
+      })
+    }
     this.render()
   }
 

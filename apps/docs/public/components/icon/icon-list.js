@@ -150,4 +150,5 @@ wLogo,
 warning,
 zigLogo,
 zoomMinus,
-zoomPlus`.split(',')
+zoomPlus`.split(`,
+`)
