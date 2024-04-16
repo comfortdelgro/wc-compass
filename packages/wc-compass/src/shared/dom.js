@@ -23,8 +23,10 @@ export function getClosestElement(current, selector) {
 }
 
 export function replacePlaceholders(str, obj) {
-  return str.replace(/{{([^{}]*)}}/g, (match, key) => {
-    const getKeysFromString = key.split('.').slice(1).join('.')
+  return str.replace(/{{([^{}]*)}}/g, (_match, key) => {
+    const getKeysFromString = obj.item
+      ? 'item'
+      : key.split('.').slice(1).join('.')
     if (!getKeysFromString) {
       return obj || ''
     }

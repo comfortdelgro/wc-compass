@@ -243,12 +243,31 @@ pre code.hljs {
   justify-content: center;
   align-items: center;
   font-size: 12px;
+  padding: 16px 4px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: copy;
+}
+
+.item-sample:hover {
+  border-color: var(--blue60);
+  background-color: var(--blue10);
+}
+
+.search-icon-bar .cdg-icon.icon-cross-circle {
+  color: var(--grey70);
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.search-icon-bar .cdg-icon.icon-cross-circle:hover {
+  color: var(--grey80);
 }
 
 .grid-sample-section {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  row-gap: 20px;
+  row-gap: 10px;
 }
 
 .menu-section {

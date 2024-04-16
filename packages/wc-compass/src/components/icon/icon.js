@@ -66,10 +66,14 @@ export class CdgIcon extends CdgIconSize {
   }
 
   download(url) {
-    downloadSVGContent(url).then((data) => {
-      this.textContent = ''
-      this.appendChild(data)
-    })
+    downloadSVGContent(url)
+      .then((data) => {
+        this.textContent = ''
+        this.appendChild(data)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
