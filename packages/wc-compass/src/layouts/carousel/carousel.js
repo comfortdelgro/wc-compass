@@ -21,6 +21,9 @@ export class CdgCarousel extends CdgBaseComponent {
     if (this.indicator) {
       this.indicator.setAttribute('current', current)
     }
+
+    this.btnPrev.disabled = current === 0
+    this.btnNext.disabled = current === this.length - 1
   }
 
   get useArrow() {
@@ -96,6 +99,7 @@ export class CdgCarousel extends CdgBaseComponent {
     this.classList.add('cdg-carousel')
     this.wrapContent()
     if (!this.hasAttribute('current')) {
+      this.current = 0
       this.switchSlide()
     }
   }
@@ -235,7 +239,7 @@ export class CdgCarousel extends CdgBaseComponent {
     if (this.autoSwitch) {
       this.timer = setTimeout(() => {
         this.current = (this.current + 1) % this.length
-        this.switchSlide()
+        this.emitChangeCurrent()
       }, 3000)
     }
   }
@@ -247,14 +251,21 @@ export class CdgCarousel extends CdgBaseComponent {
   }
 
   next() {
+    if (this.current + 1 >= this.length) {
+      return
+    }
+
     this.stop()
-    this.current = (this.current + 1) % this.length
+    this.current += 1
     this.emitChangeCurrent()
   }
 
   prev() {
+    if (this.current - 1 < 0) {
+      return
+    }
     this.stop()
-    this.current = (this.length + (this.current - 1)) % this.length
+    this.current -= 1
     this.emitChangeCurrent()
   }
 

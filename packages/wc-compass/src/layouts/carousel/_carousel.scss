@@ -251,5 +251,12 @@
     &.next {
       right: 24px;
     }
+
+    &[disabled]:hover,
+    &[disabled] {
+      background-color: transparent;
+      border-color: transparent;
+      opacity: 0.2;
+    }
   }
 }
