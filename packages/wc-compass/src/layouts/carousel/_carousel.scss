@@ -1,7 +1,15 @@
+%no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
 .cdg-carousel {
   display: flex;
   flex-direction: column;
   width: 100%;
+  position: relative;
   // touch-action: pan-y;
   // To let both of drag event and pointer event work
   touch-action: manipulation;
@@ -31,9 +39,12 @@
     }
 
     .cdg-carousel-controllers {
-      bottom: 16px;
-      left: 12px;
-      right: 12px;
+      bottom: 24px;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      position: relative;
+      height: 0;
     }
 
     .cdg-mobile-actions {
@@ -49,9 +60,11 @@
   }
 
   &[cards] {
-    .cdg-carousel-container {
-      padding-bottom: 40px;
+    .cdg-carousel-scroller {
+      padding-top: 8px;
+      padding-bottom: 32px;
     }
+
     .cdg-carousel-controllers {
       bottom: 10px;
     }
@@ -79,24 +92,24 @@
       display: flex;
       padding: 0 60px;
       gap: 18px;
+      box-sizing: border-box;
       .cdg-card {
         flex: 1;
       }
     }
 
     &[single-center] {
-      .cdg-carousel-container {
-        padding-left: 60px;
-        padding-right: 60px;
-      }
       .cdg-carousel-scroller {
         gap: 24px;
       }
 
       .cdg-slide {
         display: flex;
-        padding: 0;
+        padding: 0 4px;
+        width: 70%;
+        scroll-snap-align: center;
       }
+
       &[scaled] {
         .cdg-slide {
           transform: scale(0.9);
@@ -106,26 +119,31 @@
         }
       }
     }
-  }
-}
 
-.cdg-carousel-container {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  box-sizing: border-box;
+    &[single] .cdg-slide {
+      scroll-snap-align: start;
+    }
+  }
 }
 
 .cdg-carousel-scroller {
   display: flex;
   transition: all 0.3s ease-in-out;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  @extend %no-scrollbar;
+
   &:not(.resizing) {
     @extend %smoothTransition;
   }
 }
 
 .cdg-slide {
-  flex: 1;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  flex-shrink: 0;
+  width: 100%;
   &[type='promotion'] {
     position: relative;
   }

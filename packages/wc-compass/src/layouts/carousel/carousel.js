@@ -78,7 +78,6 @@ export class CdgCarousel extends CdgBaseComponent {
     return this.scroller.children.length || 0
   }
 
-  container
   scroller
   controller
   indicator
@@ -88,7 +87,6 @@ export class CdgCarousel extends CdgBaseComponent {
   btnPrev
 
   pointer = new Pointer()
-  scrollerPosition = 0
   moveDistance = 0
 
   constructor() {
@@ -105,13 +103,10 @@ export class CdgCarousel extends CdgBaseComponent {
   }
 
   wrapContent() {
-    this.container = document.createElement('div')
-    this.container.classList.add('cdg-carousel-container')
-
     this.scroller = document.createElement('cdg-carousel-scroller')
     this.scroller.addEventListener(
-      'updatePosition',
-      this.handleUpdatePositon.bind(this),
+      'currentChange',
+      this.handleCurrentChange.bind(this),
     )
 
     this.indicator = document.createElement('cdg-dots-indicator')
@@ -128,12 +123,10 @@ export class CdgCarousel extends CdgBaseComponent {
     }
 
     this.controller.appendChild(this.indicator)
-    this.container.appendChild(this.scroller)
-    this.container.appendChild(this.controller)
 
     this.textContent = ''
-
-    this.appendChild(this.container)
+    this.appendChild(this.scroller)
+    this.appendChild(this.controller)
     if (actions) {
       this.appendChild(actions)
     }
@@ -151,14 +144,6 @@ export class CdgCarousel extends CdgBaseComponent {
     }
 
     this.attachNavigation()
-    this.listenEvents()
-  }
-
-  listenEvents() {
-    this.scroller.addEventListener(
-      'pointerdown',
-      this.handlePointerDown.bind(this),
-    )
   }
 
   createButton() {
@@ -187,7 +172,7 @@ export class CdgCarousel extends CdgBaseComponent {
 
     this.navigationBar.appendChild(this.btnPrev)
     this.navigationBar.appendChild(this.btnNext)
-    this.container.appendChild(this.navigationBar)
+    this.appendChild(this.navigationBar)
   }
 
   attributeChangedCallback(attr) {
@@ -269,8 +254,8 @@ export class CdgCarousel extends CdgBaseComponent {
     this.emitChangeCurrent()
   }
 
-  handleUpdatePositon(event) {
-    this.scrollerPosition = event.detail
+  handleCurrentChange(event) {
+    this.current = event.detail
   }
 
   handleDotClick(event) {
@@ -284,70 +269,5 @@ export class CdgCarousel extends CdgBaseComponent {
     this.dispatchEvent(
       new CustomEvent('onCurrentChange', {detail: this.current}),
     )
-  }
-
-  handlePointerDown(event) {
-    // Stop the auto play
-    this.stop()
-
-    // Stop transition timer
-    this.scroller.style.transition = 'none'
-
-    // Buttons will not trigger click event if we set pointer capture
-    // This is to ignore buttons
-    if (!CLICKABLE_ELEMENTS.includes(event.target.tagName)) {
-      this.setPointerCapture(event.pointerId)
-    }
-
-    this.pointer = new Pointer()
-    this.pointer.start({x: event.pageX, y: event.pageY})
-
-    this.addEventListener('pointermove', this.handlePointerMove)
-    this.addEventListener('touchmove', this.handleTouchMove)
-    this.addEventListener('pointerup', this.handlePointerUp, {
-      once: true,
-    })
-    this.addEventListener('pointercancel', this.handlePointerUp, {
-      once: true,
-    })
-  }
-
-  /**
-   * To prevent page scroll on mobile when user is dragging
-   * @param {TouchEvent} event
-   */
-  handleTouchMove(event) {
-    if (Math.abs(this.pointer.distance.x) > 10) {
-      event.preventDefault()
-    }
-  }
-
-  handlePointerMove(event) {
-    event.preventDefault()
-    this.pointer.update({x: event.pageX, y: event.pageY})
-    this.scroller.setAttribute(
-      'position',
-      this.scrollerPosition + this.pointer.distance.x,
-    )
-    this.moveDistance = this.pointer.distance.x
-    this.scroller.isDragging = true
-  }
-
-  setNewCurrentValue(newCurrentValue) {
-    this.current = newCurrentValue
-
-    // Make it transition smoother again
-    this.scroller.style.transition = 'all 0.3s ease-in-out'
-  }
-
-  handlePointerUp() {
-    this.removeEventListener('pointermove', this.handlePointerMove)
-
-    this.scroller.handleEndDrag(
-      this.moveDistance,
-      this.setNewCurrentValue.bind(this),
-    )
-
-    this.moveDistance = 0
   }
 }
