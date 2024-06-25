@@ -58,7 +58,7 @@ export class CdgWizardStep extends CdgBaseComponent {
       case 'name':
         this.nameElement = document.createElement('span')
         this.nameElement.classList.add('cdg-wizard-step-name')
-        this.nameElement.textContent = this.name
+        this.nameElement.textContent = this.name.trim()
         this.appendChild(this.nameElement)
         break
 
