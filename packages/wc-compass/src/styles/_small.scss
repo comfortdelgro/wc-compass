@@ -349,6 +349,10 @@
     padding: 0;
   }
 
+  .cdg-carousel[cards][single] .cdg-slide {
+    scroll-snap-align: start;
+  }
+
   .cdg-carousel {
     &[mobilemode] .cdg-carousel-container {
       padding-bottom: 0;
@@ -360,7 +364,7 @@
       }
 
       .cdg-carousel-controllers {
-        bottom: 0;
+        bottom: -16px;
       }
 
       .cdg-dot {
