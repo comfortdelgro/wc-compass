@@ -3,8 +3,12 @@ import {Pointer, Position} from '../../shared/pointer'
 
 const ANIMATION_TIME = 200
 const ZOOM_STEP = 0.5
+const DEFAULT_ZOOM = 1
+const DOUBLE_CLICK_ZOOM = 2
+const MAX_ZOOM = 3
 const FORCE_CLOSE_DISTANCE = 100
 const TRANSPARENT_DISTANCE = 400
+const FAKE_IMAGE_ZINDEX = 50
 
 export class CdgImageViewer extends CdgBaseComponent {
   static get observedAttributes() {
@@ -20,7 +24,7 @@ export class CdgImageViewer extends CdgBaseComponent {
   }
 
   get zoom() {
-    return Number(this.getAttribute('zoom')) || 1
+    return Number(this.getAttribute('zoom')) || DEFAULT_ZOOM
   }
 
   set zoom(zoom) {
@@ -53,6 +57,7 @@ export class CdgImageViewer extends CdgBaseComponent {
     switch (attr) {
       case 'src':
         this.attachImage()
+        this.zoom = DEFAULT_ZOOM
         break
 
       case 'zoom':
@@ -131,7 +136,7 @@ export class CdgImageViewer extends CdgBaseComponent {
     this.clonedThumbnail.style.height = imgBound.height + 'px'
     this.clonedThumbnail.style.top = imgBound.top + 'px'
     this.clonedThumbnail.style.left = imgBound.left + 'px'
-    this.clonedThumbnail.style.zIndex = 50
+    this.clonedThumbnail.style.zIndex = FAKE_IMAGE_ZINDEX
     this.loading = true
     this.dispatchEvent(new CustomEvent('enlarged', {detail: false}))
     const src = this.thumbnail.getAttribute('largeSrc')
@@ -147,9 +152,8 @@ export class CdgImageViewer extends CdgBaseComponent {
       if (!src) {
         this.handleEnlargeImageLoad()
       }
-      if (!this.loading) {
-        this.removeClonedThumbnail()
-      }
+
+      this.removeClonedThumbnail()
 
       this.dispatchEvent(new CustomEvent('enlarged', {detail: true}))
     }, ANIMATION_TIME)
@@ -209,17 +213,17 @@ export class CdgImageViewer extends CdgBaseComponent {
    * And zoom out to normal when user double click on it again
    */
   handleDoubleClick() {
-    this.zoom = this.zoom < 2 ? 2 : 1
+    this.zoom = this.zoom < DOUBLE_CLICK_ZOOM ? DOUBLE_CLICK_ZOOM : DEFAULT_ZOOM
   }
 
   zoomIn() {
-    if (this.zoom < 3) {
+    if (this.zoom < MAX_ZOOM) {
       this.zoom = this.zoom + ZOOM_STEP
     }
   }
 
   zoomOut() {
-    if (this.zoom > 1) {
+    if (this.zoom > DEFAULT_ZOOM) {
       this.zoom = this.zoom - ZOOM_STEP
     }
   }
@@ -254,10 +258,14 @@ export class CdgImageViewer extends CdgBaseComponent {
     this.updateView()
     const viewerBounding = this.getBoundingClientRect()
     const imageBounding = this.img.getBoundingClientRect()
-    if (this.isClosableMode() && imageBounding.top > viewerBounding.top) {
+    if (
+      this.zoom === DEFAULT_ZOOM &&
+      this.isClosableMode() &&
+      imageBounding.top > viewerBounding.top
+    ) {
       let opacity = 1 - this.pointer.distance.y / TRANSPARENT_DISTANCE
       opacity = opacity < 0 ? 0 : opacity
-      opacity = opacity > 1 ? 1 : opacity
+      opacity = opacity > DEFAULT_ZOOM ? DEFAULT_ZOOM : opacity
       this.style.backgroundColor = `rgba(0,0,0,${opacity})`
     }
   }
@@ -359,7 +367,11 @@ export class CdgImageViewer extends CdgBaseComponent {
 
   checkForForceClose() {
     // For swiping down to close
-    if (this.pointer.down && this.pointer.distance.y > FORCE_CLOSE_DISTANCE) {
+    if (
+      this.zoom === DEFAULT_ZOOM &&
+      this.pointer.down &&
+      this.pointer.distance.y > FORCE_CLOSE_DISTANCE
+    ) {
       this.close()
     }
   }
