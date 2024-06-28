@@ -70,36 +70,40 @@ export class CdgGroupImageViewer extends HTMLElement {
   }
 
   attachCloseButton() {
-    this.closeButton = document.createElement('button')
-    this.closeButton.classList.add('cdg-button', 'icon', 'ghost')
-    const closeIcon = document.createElement('cdg-icon')
-    closeIcon.setAttribute('name', 'close')
-    this.closeButton.appendChild(closeIcon)
+    this.closeButton = this.createButton('close')
     this.closeButton.addEventListener('click', this.handleClose.bind(this))
 
     this.controls.appendChild(this.closeButton)
   }
 
   attachZoomInButton() {
-    this.zoomInButton = document.createElement('button')
-    this.zoomInButton.classList.add('cdg-button', 'icon', 'ghost')
-    const zoomIn = document.createElement('cdg-icon')
-    zoomIn.setAttribute('name', 'zoomPlus')
-    this.zoomInButton.appendChild(zoomIn)
+    this.zoomInButton = this.createButton('zoomPlus')
     this.zoomInButton.addEventListener('click', this.handleZoomIn.bind(this))
 
     this.controls.appendChild(this.zoomInButton)
   }
 
   attachZoomOutButton() {
-    this.zoomInButton = document.createElement('button')
-    this.zoomInButton.classList.add('cdg-button', 'icon', 'ghost')
-    const zoomMinus = document.createElement('cdg-icon')
-    zoomMinus.setAttribute('name', 'zoomMinus')
-    this.zoomInButton.appendChild(zoomMinus)
+    this.zoomInButton = this.createButton('zoomMinus')
     this.zoomInButton.addEventListener('click', this.handleZoomOut.bind(this))
 
     this.controls.appendChild(this.zoomInButton)
+  }
+
+  createButton(name) {
+    const button = document.createElement('button')
+    button.classList.add('cdg-button', 'icon', 'ghost')
+    button.appendChild(this.createIcon(name))
+
+    return button
+  }
+
+  createIcon(name) {
+    const icon = document.createElement('cdg-icon')
+    icon.setAttribute('name', name)
+    icon.setAttribute('size', '16')
+
+    return icon
   }
 
   handleZoomIn() {
