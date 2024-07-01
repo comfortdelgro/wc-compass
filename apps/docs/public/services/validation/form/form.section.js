@@ -191,7 +191,7 @@ export class CdgFormValidationSection extends CdgBaseDocsComponent {
             break
 
           case 'pattern':
-            message = 'Wrong phone email format'
+            message = 'Wrong email format'
             break
 
           default:
