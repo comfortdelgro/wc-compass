@@ -19,14 +19,43 @@
   </div>
 
   <pre>
-    <code class="language-html">&lt;button class=&quot;cdg-button&quot; onclick=&quot;showToast()&quot;&gt;Submit&lt;/button&gt;
+    <code class="language-html">&lt;div
+      class=&quot;my-wrapper&quot;
+      style=&quot;
+        height: 300px;
+        overflow: auto;
+        border: 1px solid var(--border-color);
+      &quot;
+    &gt;
+      &lt;span&gt;Scroll me&lt;/span&gt;
+      &lt;div
+        class=&quot;scroll-content&quot;
+        style=&quot;height: 600px; display: flex; align-items: flex-end&quot;
+      &gt;
+        &lt;span&gt;Bottom&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 &lt;script&gt;
-    function showToast() {
-        const toast = document.createElement(&apos;cdg-toast&apos;);
-        const id = &apos;default&apos; + new Date().getTime();
-        toast.textContent = &apos;Sample &apos; + id;
-        cdgToastService.show(id, toast);
-    };
+import {CdgBaseDocsComponent} from &apos;../../../shared/base-component&apos;
+import template from &apos;./any-element.section.html&apos;
+
+import {listenOnBottom} from &apos;@comfortdelgro/wc-compass/src/shared/dom&apos;
+
+export class CdgAnyElementSection extends CdgBaseDocsComponent {
+  constructor() {
+    super()
+    this.template = template
+  }
+
+  onInit() {
+    const wrapper = this.querySelector(&apos;.my-wrapper&apos;)
+    listenOnBottom(wrapper)
+
+    wrapper.addEventListener(&apos;bottom&apos;, () =&gt; {
+      cdgToastService.toast(&apos;Bottom reached&apos;)
+    })
+  }
+}
 &lt;/script&gt;</code>
 </pre>
 </cdg-sample-section>

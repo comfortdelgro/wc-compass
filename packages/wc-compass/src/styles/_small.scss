@@ -382,6 +382,10 @@
 }
 
 @container CardGrid (max-width: 768px) {
+  :host {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .cdg-card-blog-title {
     font-size: var(--heading5);
     line-height: var(--line-height-heading5);
