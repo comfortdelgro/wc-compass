@@ -45,6 +45,7 @@
   &:not(.dragging):active {
     background-color: var(--accent);
     color: #ffffff;
+
     .cdg-list-item-description {
       color: #ffffff;
     }
@@ -62,10 +63,12 @@
     opacity: 0.6;
     background-color: var(--disabled-background);
     cursor: not-allowed;
+
     &:active,
     &:hover {
       background-color: var(--disabled-background);
       color: var(--grey90);
+
       .cdg-list-item-description {
         color: var(--grey80);
       }
@@ -119,10 +122,14 @@
 }
 
 .cdg-list-view {
+  touch-action: manipulation;
+
   .cdg-list-placeholder-item {
     background: transparent;
   }
+
   .cdg-list-item {
+    touch-action: manipulation;
     border-radius: 0;
   }
 
@@ -137,6 +144,7 @@
   &[allow-drag] {
     .cdg-list-item {
       cursor: pointer;
+
       &:active {
         cursor: grabbing;
       }
