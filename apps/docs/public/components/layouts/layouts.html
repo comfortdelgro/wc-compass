@@ -3,7 +3,7 @@
 <style>
   .sample-parent > .cdg-layout {
     width: 100%;
-    height: 240px;
+    height: 300px;
     gap: 10px;
     padding: 5px;
     border: 1px solid var(--border-color);
@@ -27,74 +27,87 @@
     gap: 4px;
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1199px) {
     .cdg-toolbar {
       flex-direction: column;
       align-items: flex-start;
-    }
-    .cdg-toolbar .cdg-input-group.row {
-      flex-direction: column;
     }
   }
 </style>
 
 <h3>Alignment</h3>
-<cdg-toolbar>
-  <label class="cdg-input-group" style="width: 300px">
-    <cdg-dropdown placeholder="Select an item" id="alignmentDropdown">
-      <cdg-dropdown-option value="" selected="true">
-        Unselected
-      </cdg-dropdown-option>
-      <cdg-dropdown-option value="align-start-start">
-        align-start-start
-      </cdg-dropdown-option>
-      <cdg-dropdown-option value="align-center-start">
-        align-center-start
-      </cdg-dropdown-option>
-      <cdg-dropdown-option value="align-end-start">
-        align-end-start
-      </cdg-dropdown-option>
-      <cdg-dropdown-option value="align-start-center">
-        align-start-center
-      </cdg-dropdown-option>
-      <cdg-dropdown-option value="align-center-center">
-        align-center-center
-      </cdg-dropdown-option>
-      <cdg-dropdown-option value="align-end-center">
-        align-end-center
-      </cdg-dropdown-option>
-      <cdg-dropdown-option value="align-start-end">
-        align-start-end
-      </cdg-dropdown-option>
-      <cdg-dropdown-option value="align-center-end">
-        align-center-end
-      </cdg-dropdown-option>
-      <cdg-dropdown-option value="align-end-end">
-        align-end-end
-      </cdg-dropdown-option>
-    </cdg-dropdown>
-  </label>
-  <div class="cdg-input-group">
-    <label is="cdg-checkbox">
-      <input type="checkbox" id="stretchCheckbox" />
-      <span>Stretch</span>
+<cdg-toolbar
+  ><div class="cdg-left-group">
+    <label class="cdg-input-group" style="width: 220px">
+      <cdg-dropdown placeholder="Select an item" id="alignmentDropdown">
+        <cdg-dropdown-option value="" selected="true">
+          Unselected
+        </cdg-dropdown-option>
+        <cdg-dropdown-option value="align-start-start">
+          align-start-start
+        </cdg-dropdown-option>
+        <cdg-dropdown-option value="align-center-start">
+          align-center-start
+        </cdg-dropdown-option>
+        <cdg-dropdown-option value="align-end-start">
+          align-end-start
+        </cdg-dropdown-option>
+        <cdg-dropdown-option value="align-start-center">
+          align-start-center
+        </cdg-dropdown-option>
+        <cdg-dropdown-option value="align-center-center">
+          align-center-center
+        </cdg-dropdown-option>
+        <cdg-dropdown-option value="align-end-center">
+          align-end-center
+        </cdg-dropdown-option>
+        <cdg-dropdown-option value="align-start-end">
+          align-start-end
+        </cdg-dropdown-option>
+        <cdg-dropdown-option value="align-center-end">
+          align-center-end
+        </cdg-dropdown-option>
+        <cdg-dropdown-option value="align-end-end">
+          align-end-end
+        </cdg-dropdown-option>
+      </cdg-dropdown>
     </label>
   </div>
-  <div class="cdg-input-group row">
-    <span>Fill parent:</span>
-    <div class="cdg-checkboxes">
-      <label is="cdg-checkbox">
-        <input type="checkbox" id="fillParentCheckbox0" />
-        <span>Child 1</span>
+  <div class="cdg-center-group">
+    <div class="cdg-input-group row">
+      <label is="cdg-radio">
+        <input type="radio" name="direction" value="row" />
+        <span>row</span>
       </label>
-      <label is="cdg-checkbox">
-        <input type="checkbox" id="fillParentCheckbox1" />
-        <span>Child 2</span>
+      <label is="cdg-radio">
+        <input type="radio" name="direction" value="column" />
+        <span>column</span>
       </label>
+    </div>
+    <div class="cdg-input-group">
       <label is="cdg-checkbox">
-        <input type="checkbox" id="fillParentCheckbox2" />
-        <span>Child 3</span>
+        <input type="checkbox" id="stretchCheckbox" />
+        <span>Stretch</span>
       </label>
+    </div>
+  </div>
+  <div class="cdg-right-group">
+    <div class="cdg-input-group row">
+      <span>Grow:</span>
+      <div class="cdg-checkboxes">
+        <label is="cdg-checkbox">
+          <input type="checkbox" id="fillParentCheckbox0" />
+          <span>Child 1</span>
+        </label>
+        <label is="cdg-checkbox">
+          <input type="checkbox" id="fillParentCheckbox1" />
+          <span>Child 2</span>
+        </label>
+        <label is="cdg-checkbox">
+          <input type="checkbox" id="fillParentCheckbox2" />
+          <span>Child 3</span>
+        </label>
+      </div>
     </div>
   </div>
 </cdg-toolbar>

@@ -164,12 +164,14 @@
   }
 }
 
+.grow,
 .cdg-flex {
   flex: 1;
 }
 
 .cdg-layout {
   display: flex;
+  &.column,
   &.as-column {
     flex-direction: column;
   }
