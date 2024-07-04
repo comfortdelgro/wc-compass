@@ -55,15 +55,73 @@
   display: flex;
 }
 
+.cdg-card-grid-container {
+  container-name: CardGrid;
+  container-type: inline-size;
+}
+
 .cdg-card-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
-  container-name: CardGrid;
-  container-type: normal;
 
   &.columns-4 {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@container CardGrid (max-width: 1199px) {
+  .cdg-card-blog-title {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .cdg-card-grid {
+    gap: 24px;
+  }
+}
+
+@container CardGrid (max-width: 960px) {
+  .cdg-card-blog-title {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .cdg-card-grid {
+    gap: 16px;
+    &.columns-4 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@container CardGrid (max-width: 768px) {
+  .cdg-card-blog-title {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .cdg-card-grid {
+    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    &.columns-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@container CardGrid (max-width: 390px) {
+  .cdg-card-blog-title {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .cdg-card-grid {
+    gap: 16px;
+    grid-template-columns: repeat(1, 1fr);
+    &.columns-4 {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 }
 
