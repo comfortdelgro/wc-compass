@@ -28,4 +28,31 @@
 </pre>
 </cdg-sample-section>
 
+<cdg-sample-section name="Readonly">
+  <div class="sample-section" style="display: block">
+    <cdg-wizards
+      steps="General,Additional,Education,Personal,Review"
+      current="3"
+      readonly
+    ></cdg-wizards>
+  </div>
+
+  <pre>
+    <code class="language-html">&lt;cdg-wizards
+    steps=&quot;General,Additional,Education,Personal,Review&quot;
+    current=&quot;3&quot;
+    readonly
+&gt;&lt;/cdg-wizards&gt;
+
+&lt;script&gt;
+    // Add these if you want to active the step that user click on
+    const wizards = document.querySelector(&apos;cdg-wizards&apos;);
+    wizards.addEventListener(&apos;switchStep&apos;, (event) =&gt; {
+    console.log(event.detail);
+    wizards.current = event.detail.index;
+    });
+&lt;/script&gt;</code>
+</pre>
+</cdg-sample-section>
+
 <cdg-wizards-properties-section></cdg-wizards-properties-section>

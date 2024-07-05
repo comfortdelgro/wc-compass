@@ -1,9 +1,23 @@
-cdg-wizards,
 .cdg-wizards {
   display: flex;
+  &[readonly],
+  &[disabled] {
+    .cdg-wizard-step {
+      &[status='completed']:hover,
+      &:hover {
+        .cdg-wizard-step-text {
+          box-shadow: none;
+        }
+      }
+      &[status='current']:hover {
+        .cdg-wizard-step-text {
+          box-shadow: 0 0 0 3px #0142af33;
+        }
+      }
+    }
+  }
 }
 
-cdg-wizard-step,
 .cdg-wizard-step {
   position: relative;
   flex: 1;
@@ -22,19 +36,6 @@ cdg-wizard-step,
     }
   }
 
-  &[status='completed'] {
-    &::after,
-    &::before {
-      background-color: var(--accent);
-    }
-  }
-
-  &[status='current'] {
-    &::before {
-      background-color: var(--accent);
-    }
-  }
-
   &[status='completed'],
   &[status='current'] {
     .cdg-wizard-step-text {
@@ -44,6 +45,22 @@ cdg-wizard-step,
     }
     .cdg-wizard-step-name {
       color: var(--grey100);
+    }
+  }
+
+  &[status='completed'] {
+    &::after,
+    &::before {
+      background-color: var(--accent);
+    }
+    .cdg-wizard-step-text {
+      box-shadow: none;
+    }
+  }
+
+  &[status='current'] {
+    &::before {
+      background-color: var(--accent);
     }
   }
 
