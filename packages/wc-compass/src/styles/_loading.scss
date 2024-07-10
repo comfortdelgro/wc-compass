@@ -16,6 +16,9 @@
   a,
   p,
   span,
+  code,
+  li,
+  .cdg-lazy-img,
   .cdg-wizard-step-text,
   .cdg-pill-badge,
   .cdg-alert-badge,
@@ -48,7 +51,11 @@
   .radio-title,
   .cdg-icon,
   .activity-category,
-  .cdg-page-title {
+  .cdg-page-title,
+  .cdg-image-viewer,
+  .cdg-card-blog-title,
+  .cdg-card-blog-category,
+  .cdg-card-blog-date {
     position: relative;
     overflow: hidden;
     &::before,
@@ -77,6 +84,14 @@
       );
       animation: shimmer 2s infinite;
     }
+  }
+
+  span.cdg-wizard-step-name {
+    position: absolute;
+  }
+
+  .cdg-pill-badge .cdg-icon::before {
+    border-radius: 50%;
   }
 
   .activity-category {
@@ -126,6 +141,14 @@
     }
   }
 
+  .speed-dial-button,
+  .cdg-status {
+    opacity: 0.5;
+    .cdg-icon {
+      border-radius: 40px;
+    }
+  }
+
   .cdg-avatar {
     &::before {
       border-radius: 20px;
@@ -139,6 +162,10 @@
       top: 2px;
       bottom: 2px;
     }
+  }
+
+  .cdg-rating .cdg-button.rating::before {
+    background-color: var(--background);
   }
 
   .cdg-dropdown-button-text {
@@ -175,9 +202,27 @@
     }
   }
 
+  .cdg-card-blog-category {
+    &:before {
+      background-color: var(--blue20);
+    }
+  }
+
+  .cdg-tab[activated] {
+    &:before {
+      background-color: var(--blue40);
+    }
+    &[disabled] {
+      &:before {
+        background-color: var(--grey30);
+      }
+    }
+  }
+
   .cdg-button {
     position: relative;
     overflow: hidden;
+    border-color: var(--blue40);
     &::before,
     &::after {
       position: absolute;
@@ -206,14 +251,20 @@
       background-color: var(--blue40);
     }
 
-    &.secondary::before {
-      content: '';
-      background-color: var(--blue10);
+    &.secondary {
+      border-color: var(--blue10);
+      &::before {
+        content: '';
+        background-color: var(--blue10);
+      }
     }
 
-    &.danger::before {
-      content: '';
-      background-color: var(--status-error-background);
+    &.danger {
+      border-color: var(--status-error-background);
+      &::before {
+        content: '';
+        background-color: var(--status-error-background);
+      }
     }
   }
 }
