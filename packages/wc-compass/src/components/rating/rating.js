@@ -38,7 +38,9 @@ export class CdgRating extends CdgBaseComponent {
       icon.setAttribute('name', RATING_ICONS[number - 1])
       button.appendChild(icon)
     } else {
-      button.textContent = number
+      const text = document.createElement('span')
+      text.textContent = number
+      button.appendChild(text)
     }
 
     button.addEventListener('click', this.handleSelect.bind(this, number))
