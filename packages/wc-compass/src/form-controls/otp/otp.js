@@ -53,6 +53,10 @@ export class CdgOtp extends CdgBaseComponent {
         const input = document.createElement('input')
         input.classList.add('cdg-otp')
         input.setAttribute('type', 'text')
+        input.setAttribute(
+          'inputmode',
+          this.type === 'number' ? 'numeric' : 'text',
+        )
         input.addEventListener('input', this.handleInputChange.bind(this, i))
         input.addEventListener('focus', () => {
           input.select()
