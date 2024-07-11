@@ -21,7 +21,11 @@
 .cdg-datepicker-floating-container {
   overflow-x: auto;
   .cdg-floating-content {
+    transform-origin: top left;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    animation: dropdownIn 0.2s ease-out;
+    &.removing {
+      animation: dropdownOut 0.2s ease-out;
+    }
   }
 }

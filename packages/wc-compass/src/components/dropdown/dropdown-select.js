@@ -75,13 +75,20 @@ export class CdgDropdownSelect extends CdgBaseComponent {
     switch (attr) {
       case 'open':
         if (newValue) {
-          if (this.floatingElement) {
+          if (
+            this.floatingElement &&
+            !this.floatingElement.classList.contains('removing')
+          ) {
             this.floatingElement.setAttribute('open', 'true')
             this.handleWindowResizeFn()
           }
         } else {
           if (this.floatingElement) {
-            this.floatingElement.removeAttribute('open')
+            this.floatingElement.classList.add('removing')
+            setTimeout(() => {
+              this.floatingElement.removeAttribute('open')
+              this.floatingElement.classList.remove('removing')
+            }, 200)
           }
         }
         break
