@@ -27,7 +27,7 @@ export class CdgRating extends CdgBaseComponent {
     this.tabIndex = 0
     this.attachButton()
   }
-
+ 
   createRatingButton(number) {
     const button = document.createElement('button')
     button.classList.add('cdg-button')

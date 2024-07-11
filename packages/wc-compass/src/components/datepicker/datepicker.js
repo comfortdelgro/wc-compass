@@ -303,10 +303,12 @@ export class CdgDatePicker extends HTMLElement {
     }
     if (!this.anchorElement.contains(event.relatedTarget)) {
       this.floatingElement.style.opacity = 0
+      this.floatingElement.classList.add('removing')
       setTimeout(() => {
         this.floatingElement.removeAttribute('open')
+        this.floatingElement.classList.remove('removing')
         this.calendarElement.removeAttribute('open')
-      }, 300)
+      }, 200)
     }
   }
 
