@@ -7,7 +7,6 @@
   Once you've declare an icon with a name, icon component will call the api to
   fetch the svg file and attach them into the DOM.
 </p>
-
 <cdg-sample-section name="Sizing">
   <div class="sample-section sample-avatar-section">
     <cdg-icon name="user" size="48"></cdg-icon>
@@ -79,15 +78,50 @@
   <code class="language-html">&lt;cdg-icon name=&quot;zigLogo&quot; size=&quot;24&quot;&gt;&lt;/cdg-icon&gt;</code>
 </pre>
 </cdg-sample-section>
-
-<cdg-sample-section name="Icon Name" id="iconNames">
+<cdg-sample-section name="All icons" id="iconNames">
   <div class="sample-section column">
-    <div class="grid-sample-section" id="icon-grid">
-      <div class="item-sample">
-        <cdg-icon name="addUser"></cdg-icon>
-        <span class="item-name">addUser</span>
+    <cdg-toolbar
+      raised
+      class="cdg-sample-table-layout-toolbar search-icon-bar"
+      style="margin-bottom: 24px"
+    >
+      <div class="cdg-left-group">
+        <label class="cdg-input-group" style="width: 320px">
+          <div class="cdg-input-with-icon right">
+            <input
+              id="search-icon"
+              class="cdg-input"
+              placeholder="Icon name..."
+            />
+            <cdg-icon name="search" size="16"></cdg-icon>
+          </div>
+        </label>
       </div>
+    </cdg-toolbar>
+
+    <div class="grid-sample-section" id="icon-grid">
+      <template>
+        <icon-sample></icon-sample>
+      </template>
     </div>
+
+    <cdg-toolbar
+      class="cdg-sample-table-layout-toolbar"
+      style="margin-top: 24px"
+    >
+      <div class="cdg-left-group">
+        <span id="displayedRows">Showing 1 - 10 out of 1000</span>
+      </div>
+      <div class="cdg-right-group">
+        <cdg-pagination
+          id="pagination"
+          current-page="1"
+          total="1000"
+          page-size="10"
+          display-button-count="3"
+        ></cdg-pagination>
+      </div>
+    </cdg-toolbar>
   </div>
 
   <pre>
