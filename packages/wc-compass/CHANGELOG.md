@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.4.1
+
+### Patch Changes
+
+- 080cb65: Bug fixing
+
 ## 0.4.0
 
 ### Minor Changes
