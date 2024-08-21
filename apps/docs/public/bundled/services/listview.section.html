@@ -1,4 +1,4 @@
-<cdg-sample-section name="Any element">
+<cdg-sample-section name="List view">
   <div class="sample-section column">
     <cdg-list-view
       style="
@@ -27,14 +27,96 @@
   </div>
 
   <pre>
-    <code class="language-html">&lt;button class=&quot;cdg-button&quot; onclick=&quot;showToast()&quot;&gt;Submit&lt;/button&gt;
+    <code class="language-html">&lt;cdg-list-view
+      style=&quot;
+        height: 300px;
+        overflow: auto;
+        border: 1px solid var(--border-color);
+      &quot;
+    &gt;
+      &lt;template&gt;
+        &lt;cdg-list-item&gt;
+          &lt;div class=&quot;cdg-list-item-icon&quot;&gt;
+            &lt;cdg-avatar name=&quot;{{item.user.name}}&quot; size=&quot;40&quot;&gt;&lt;/cdg-avatar&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;cdg-list-item-info&quot;&gt;
+            &lt;div class=&quot;cdg-list-item-title&quot;&gt;{{item.user.name}}&lt;/div&gt;
+            &lt;div class=&quot;cdg-list-item-description&quot;&gt;{{item.user.job.title}}&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;cdg-list-item-right-col&quot;&gt;
+            &lt;div class=&quot;cdg-list-item-button&quot;&gt;
+              Details&lt;cdg-icon name=&quot;arrow-right&quot; size=&quot;18&quot;&gt;&lt;/cdg-icon&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/cdg-list-item&gt;
+      &lt;/template&gt;
+    &lt;/cdg-list-view&gt;
 &lt;script&gt;
-    function showToast() {
-        const toast = document.createElement(&apos;cdg-toast&apos;);
-        const id = &apos;default&apos; + new Date().getTime();
-        toast.textContent = &apos;Sample &apos; + id;
-        cdgToastService.show(id, toast);
-    };
+import {CdgBaseDocsComponent} from &apos;../../../shared/base-component&apos;
+import template from &apos;./listview.section.html&apos;
+
+import {listenOnBottom} from &apos;@comfortdelgro/wc-compass/src/shared/dom&apos;
+import {CdgLoop} from &apos;@comfortdelgro/wc-compass/src/shared/for-loop&apos;
+
+export class CdgListviewSection extends CdgBaseDocsComponent {
+  data = []
+  last = 0
+  fetching = false
+  constructor() {
+    super()
+    this.template = template
+  }
+
+  onInit() {
+    this.appendData()
+
+    const wrapper = this.querySelector(&apos;cdg-list-view&apos;)
+    if (wrapper) {
+      listenOnBottom(wrapper)
+
+      wrapper.addEventListener(&apos;bottom&apos;, () =&gt; {
+        if (!this.fetching) {
+          this.fetching = true
+
+          const loadingId = cdgLoadingService.show(
+            &apos;local&apos;,
+            wrapper.parentElement,
+          )
+
+          setTimeout(() =&gt; {
+            this.appendData()
+            loop.loop(this.data)
+            this.fetching = false
+            cdgLoadingService.hide(loadingId)
+          }, 1000)
+        }
+      })
+
+      const loop = new CdgLoop(wrapper)
+      loop.loop(this.data)
+    }
+  }
+
+  createListItem(index) {
+    return {
+      id: index,
+      user: {
+        name: &apos;Michael &apos; + index,
+        job: {
+          title: &apos;developer&apos;,
+          location: &apos;FPT&apos;,
+        },
+      },
+    }
+  }
+
+  appendData() {
+    for (let i = this.last; i &lt; this.last + 10; i++) {
+      this.data.push(this.createListItem(i + 1))
+    }
+    this.last = this.last + 10
+  }
+}
 &lt;/script&gt;</code>
 </pre>
 </cdg-sample-section>

@@ -32,14 +32,26 @@ export class CdgWizards extends CdgBaseComponent {
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
-    if (attr === 'steps') {
-      this.initSteps(newValue.split(','))
-    } else if (attr === 'current') {
-      this.updateSteps()
+    switch (attr) {
+      case 'steps': {
+        this.initSteps(newValue.split(','))
+        this.updateSteps()
+        break
+      }
+
+      case 'current': {
+        this.updateSteps()
+        break
+      }
+
+      default:
+        break
     }
   }
 
   initSteps(steps) {
+    this.stepElements = []
+    this.textContent = ''
     steps.forEach((text, index) => {
       const step = this.createStep(index + 1, text)
       this.stepElements.push(step)

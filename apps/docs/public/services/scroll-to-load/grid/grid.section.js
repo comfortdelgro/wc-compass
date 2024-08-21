@@ -7,6 +7,8 @@ export class CdgGridSection extends CdgBaseDocsComponent {
   data = []
   last = 0
   fetching = false
+  wrapper
+  bottomReachCallback
   constructor() {
     super()
     this.template = template
@@ -64,25 +66,31 @@ export class CdgGridSection extends CdgBaseDocsComponent {
       },
     ]
 
-    const wrapper = document.querySelector('.page-container')
-    if (wrapper) {
-      listenOnBottom(wrapper)
+    this.wrapper = document.querySelector('.page-container')
+    if (this.wrapper) {
+      listenOnBottom(this.wrapper)
+      this.bottomReachCallback = this.onBottomReach.bind(this)
+      this.wrapper.addEventListener('bottom', this.bottomReachCallback)
+    }
+  }
 
-      wrapper.addEventListener('bottom', () => {
-        if (!this.fetching) {
-          this.fetching = true
+  disconnectedCallback() {
+    this.wrapper.removeEventListener('bottom', this.bottomReachCallback)
+  }
 
-          const loadingId = cdgLoadingService.show(
-            'local',
-            wrapper.parentElement,
-          )
+  onBottomReach() {
+    if (!this.fetching) {
+      this.fetching = true
 
-          setTimeout(() => {
-            this.fetching = false
-            cdgLoadingService.hide(loadingId)
-          }, 1000)
-        }
-      })
+      const loadingId = cdgLoadingService.show(
+        'local',
+        this.wrapper.parentElement,
+      )
+
+      setTimeout(() => {
+        this.fetching = false
+        cdgLoadingService.hide(loadingId)
+      }, 1000)
     }
   }
 

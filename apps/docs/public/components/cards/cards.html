@@ -128,7 +128,7 @@
       </cdg-card-body>
       <cdg-card-actions>
         <button is="cdg-button">OK</button>
-        <button is="cdg-button" type="secondary">Cancel</button>
+        <button is="cdg-button" class="secondary">Cancel</button>
       </cdg-card-actions>
     </cdg-card>
     <cdg-card class="raised" style="flex: 1">
@@ -146,12 +146,73 @@
       </cdg-card-body>
       <cdg-card-actions>
         <button is="cdg-button">OK</button>
-        <button is="cdg-button" type="secondary">Cancel</button>
+        <button is="cdg-button" class="secondary">Cancel</button>
       </cdg-card-actions>
     </cdg-card>
   </div>
   <pre>
     <code class="language-html">&lt;cdg-card class=&quot;raised&quot;&gt;
+    &lt;cdg-card-cover
+        src=&quot;https://picsum.photos/600/400&quot;
+        style=&quot;height: 200px&quot;
+    &gt;&lt;/cdg-card-cover&gt;
+    &lt;cdg-card-header title=&quot;Card title&quot;&gt;
+        &lt;button class=&quot;cdg-button ghost icon&quot; size=&quot;small&quot;&gt;
+            &lt;cdg-icon name=&quot;activity&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+    &lt;/cdg-card-header&gt;
+    &lt;cdg-card-body&gt;
+        Lorem ipsum dolor sit amet, consectetur adipiscingr
+    &lt;/cdg-card-body&gt;
+    &lt;cdg-card-actions&gt;
+        &lt;button class=&quot;cdg-button&quot;&gt;OK&lt;/button&gt;
+        &lt;button class=&quot;cdg-button&quot; type=&quot;secondary&quot;&gt;Cancel&lt;/button&gt;
+    &lt;/cdg-card-actions&gt;
+&lt;/cdg-card&gt;</code>
+</pre>
+</cdg-sample-section>
+
+<cdg-sample-section name="Adaptive layout">
+  <div class="sample-section" style="gap: 16px">
+    <cdg-card class="raised cdg-flex" adaptive>
+      <cdg-card-cover
+        src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp"
+        style="height: 200px"
+      ></cdg-card-cover>
+      <cdg-card-header title="Card title">
+        <button is="cdg-button" class="ghost icon" size="small">
+          <cdg-icon name="activity"></cdg-icon>
+        </button>
+      </cdg-card-header>
+      <cdg-card-body>
+        <span>Lorem ipsum dolor sit amet, consectetur adipiscingr</span>
+      </cdg-card-body>
+      <cdg-card-actions>
+        <button is="cdg-button">OK</button>
+        <button is="cdg-button" class="secondary">Cancel</button>
+      </cdg-card-actions>
+    </cdg-card>
+    <cdg-card class="raised cdg-flex" adaptive>
+      <cdg-card-cover
+        src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp"
+        style="height: 200px"
+      ></cdg-card-cover>
+      <cdg-card-header title="Card title">
+        <button is="cdg-button" class="ghost icon" size="small">
+          <cdg-icon name="activity"></cdg-icon>
+        </button>
+      </cdg-card-header>
+      <cdg-card-body>
+        <span>Lorem ipsum dolor sit amet, consectetur adipiscingr</span>
+      </cdg-card-body>
+      <cdg-card-actions>
+        <button is="cdg-button">OK</button>
+        <button is="cdg-button" class="secondary">Cancel</button>
+      </cdg-card-actions>
+    </cdg-card>
+  </div>
+  <pre>
+    <code class="language-html">&lt;cdg-card class=&quot;raised cdg-flex&quot;&gt; adaptive
     &lt;cdg-card-cover
         src=&quot;https://picsum.photos/600/400&quot;
         style=&quot;height: 200px&quot;
@@ -308,7 +369,7 @@
         </cdg-card-body>
         <cdg-card-actions>
           <button is="cdg-button">OK</button>
-          <button is="cdg-button" type="secondary">Cancel</button>
+          <button is="cdg-button" class="secondary">Cancel</button>
         </cdg-card-actions>
       </cdg-card>
       <cdg-card style="flex: 1">
@@ -322,7 +383,7 @@
         </cdg-card-body>
         <cdg-card-actions>
           <button is="cdg-button">OK</button>
-          <button is="cdg-button" type="secondary">Cancel</button>
+          <button is="cdg-button" class="secondary">Cancel</button>
         </cdg-card-actions>
       </cdg-card>
     </div>
@@ -381,7 +442,7 @@
       </cdg-card-body>
       <cdg-card-actions>
         <button is="cdg-button" disabled>OK</button>
-        <button is="cdg-button" type="secondary" disabled>Cancel</button>
+        <button is="cdg-button" class="secondary" disabled>Cancel</button>
       </cdg-card-actions>
     </cdg-card>
   </div>
@@ -421,7 +482,7 @@
       </cdg-card-body>
       <cdg-card-actions>
         <button is="cdg-button" disabled>OK</button>
-        <button is="cdg-button" type="secondary" disabled>Cancel</button>
+        <button is="cdg-button" class="secondary" disabled>Cancel</button>
       </cdg-card-actions>
     </cdg-card>
     <cdg-card class="raised" style="flex: 1" disabled>
@@ -439,7 +500,7 @@
       </cdg-card-body>
       <cdg-card-actions>
         <button is="cdg-button" disabled>OK</button>
-        <button is="cdg-button" type="secondary" disabled>Cancel</button>
+        <button is="cdg-button" class="secondary" disabled>Cancel</button>
       </cdg-card-actions>
     </cdg-card>
   </div>
@@ -550,7 +611,7 @@
       </cdg-card-body>
       <cdg-card-actions>
         <button is="cdg-button">OK</button>
-        <button is="cdg-button" type="secondary">Cancel</button>
+        <button is="cdg-button" class="secondary">Cancel</button>
       </cdg-card-actions>
     </a>
     <a href="#cards" class="cdg-card raised" style="flex: 1">
@@ -568,7 +629,7 @@
       </cdg-card-body>
       <cdg-card-actions>
         <button is="cdg-button">OK</button>
-        <button is="cdg-button" type="secondary">Cancel</button>
+        <button is="cdg-button" class="secondary">Cancel</button>
       </cdg-card-actions>
     </a>
   </div>

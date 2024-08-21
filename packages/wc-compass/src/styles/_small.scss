@@ -349,6 +349,10 @@
     padding: 0;
   }
 
+  .cdg-carousel[cards][single] .cdg-slide {
+    scroll-snap-align: start;
+  }
+
   .cdg-carousel {
     &[mobilemode] .cdg-carousel-container {
       padding-bottom: 0;
@@ -360,7 +364,7 @@
       }
 
       .cdg-carousel-controllers {
-        bottom: 0;
+        bottom: -16px;
       }
 
       .cdg-dot {
@@ -378,6 +382,10 @@
 }
 
 @container CardGrid (max-width: 768px) {
+  :host {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .cdg-card-blog-title {
     font-size: var(--heading5);
     line-height: var(--line-height-heading5);

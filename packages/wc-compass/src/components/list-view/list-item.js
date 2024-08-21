@@ -94,25 +94,41 @@ export class CdgListItem extends CdgBaseComponent {
   listenEvents() {
     this.dragListener = this.handleStartDrag.bind(this)
     this.addEventListener('pointerdown', this.dragListener)
+    this.addEventListener('touchstart', this.dragListener)
+  }
+
+  getPointerPosition(event) {
+    if (event.type.includes('touch')) {
+      return {
+        x: event.touches[0].pageX,
+        y: event.touches[0].pageY,
+      }
+    }
+
+    return {
+      x: event.pageX,
+      y: event.pageY,
+    }
   }
 
   handleStartDrag(event) {
+    event.preventDefault()
+
     this.clearTimer()
 
     // To allow user to drag this item after holding it for 300ms
     // This is to not block user to swipe screen to scroll
     this.timer = setTimeout(() => {
       this.dragging = true
-    }, 100)
+    }, 50)
 
     this.pointer = new Pointer()
-    // this.setPointerCapture(event.pointerId)
-    this.pointer.start({x: event.pageX, y: event.pageY})
+    const pointerPosition = this.getPointerPosition(event)
+    this.pointer.start(pointerPosition)
     this.startBound = this.getBoundingClientRect()
 
     this.moveListener = this.handlePointerMove.bind(this)
     document.addEventListener('pointermove', this.moveListener)
-    document.addEventListener('touchmove', this.handleTouchMove)
     document.addEventListener('pointerup', this.handlePointerUp.bind(this), {
       once: true,
     })
@@ -138,14 +154,9 @@ export class CdgListItem extends CdgBaseComponent {
     }
   }
 
-  handleTouchMove(event) {
-    if (this.dragging) {
-      event.preventDefault()
-    }
-  }
-
   handlePointerMove(event) {
-    this.pointer.update({x: event.pageX, y: event.pageY})
+    const pointerPosition = this.getPointerPosition(event)
+    this.pointer.update(pointerPosition)
 
     if (!this.dragging) {
       this.clearTimer()
@@ -212,7 +223,6 @@ export class CdgListItem extends CdgBaseComponent {
   handlePointerUp() {
     this.clearTimer()
     this.classList.remove('dragging')
-    document.removeEventListener('touchmove', this.handleTouchMove)
     document.removeEventListener('pointermove', this.moveListener)
     // Only raise event when user has moved
     if (this.dragging) {
