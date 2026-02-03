@@ -1,5 +1,11 @@
 # @comfortdelgro/wc-compass
 
+## 0.4.2
+
+### Patch Changes
+
+- Update primary color from #0142AF to #115ef6 for improved accessibility and brand alignment
+
 ## 0.4.1
 
 ### Patch Changes

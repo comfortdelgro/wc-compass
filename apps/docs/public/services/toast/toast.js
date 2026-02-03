@@ -147,7 +147,7 @@ export class CdgToastDemo extends CdgDocumentComponent {
   quickToastIcon() {
     cdgToastService.toast('This is a quick toast with custom icon', {
       name: 'shapes',
-      color: '#0142af',
+      color: '#115ef6',
     })
   }
 }
