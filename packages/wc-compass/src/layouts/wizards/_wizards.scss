@@ -11,7 +11,7 @@
       }
       &[status='current']:hover {
         .cdg-wizard-step-text {
-          box-shadow: 0 0 0 3px #0142af33;
+          box-shadow: 0 0 0 3px #115ef633;
         }
       }
     }
@@ -31,7 +31,7 @@
   &[status='current']:hover,
   &:hover {
     .cdg-wizard-step-text {
-      box-shadow: 0 0 0 5px #0142af33;
+      box-shadow: 0 0 0 5px #115ef633;
       @extend %quickSmoothTransition;
     }
   }
@@ -41,7 +41,7 @@
     .cdg-wizard-step-text {
       background-color: var(--accent);
       color: #ffffff;
-      box-shadow: 0 0 0 3px #0142af33;
+      box-shadow: 0 0 0 3px #115ef633;
     }
     .cdg-wizard-step-name {
       color: var(--grey100);
