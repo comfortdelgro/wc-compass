@@ -1,0 +1,60 @@
+name: Test Release
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - test-release
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  test-release:
+    name: Test Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      
+      - name: Setup Bot
+        run: |
+          git config --global user.email "services.shared@zig.live"
+          git config --global user.name "CDG Zig Bot"
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+
+      - name: Setup NodeJS 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
+
+      - name: Build
+        run: |
+          pnpm run --filter=@comfortdelgro/wc-compass build
+
+      - name: Test NPM Authentication
+        run: |
+          echo "Testing npm authentication..."
+          npm whoami
+          echo "//registry.npmjs.org/:_authToken=\${NODE_AUTH_TOKEN}" > ~/.npmrc
+          npm whoami
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.CDG_PUBLISHER_NPM_TOKEN }}
+
+      - name: Test Publish (Dry Run)
+        run: |
+          cd packages/wc-compass
+          npm publish --dry-run --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.CDG_PUBLISHER_NPM_TOKEN }}
+
+      - name: Show Package Info
+        run: |
+          cd packages/wc-compass
+          npm pack --dry-run
